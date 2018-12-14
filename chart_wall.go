@@ -1,0 +1,175 @@
+/*
+ * --------------------------------------------------------------------------------------------------------------------
+ * <copyright company="Aspose">
+ *   Copyright (c) 2018 Aspose.Slides for Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------------------------------------------
+ */
+
+package asposeslidescloud
+
+import (
+	"encoding/json"
+)
+
+// Represents a chart wall
+type IChartWall interface {
+
+	// Get or sets the fill format.
+	getFillFormat() IFillFormat
+	setFillFormat(newValue IFillFormat)
+
+	// Get or sets the effect format.
+	getEffectFormat() IEffectFormat
+	setEffectFormat(newValue IEffectFormat)
+
+	// Get or sets the line format.
+	getLineFormat() ILineFormat
+	setLineFormat(newValue ILineFormat)
+
+	// Get or sets wall thickness as a percentage of the largest dimension of the plot volume.
+	getThickness() int32
+	setThickness(newValue int32)
+
+	// Get or sets mode of bar picture filling.
+	getPictureType() PictureType
+	setPictureType(newValue PictureType)
+}
+
+type ChartWall struct {
+
+	// Get or sets the fill format.
+	FillFormat IFillFormat `json:"FillFormat,omitempty"`
+
+	// Get or sets the effect format.
+	EffectFormat IEffectFormat `json:"EffectFormat,omitempty"`
+
+	// Get or sets the line format.
+	LineFormat ILineFormat `json:"LineFormat,omitempty"`
+
+	// Get or sets wall thickness as a percentage of the largest dimension of the plot volume.
+	Thickness int32 `json:"Thickness"`
+
+	// Get or sets mode of bar picture filling.
+	PictureType PictureType `json:"PictureType"`
+}
+
+func (this ChartWall) getFillFormat() IFillFormat {
+	return this.FillFormat
+}
+
+func (this ChartWall) setFillFormat(newValue IFillFormat) {
+	this.FillFormat = newValue
+}
+func (this ChartWall) getEffectFormat() IEffectFormat {
+	return this.EffectFormat
+}
+
+func (this ChartWall) setEffectFormat(newValue IEffectFormat) {
+	this.EffectFormat = newValue
+}
+func (this ChartWall) getLineFormat() ILineFormat {
+	return this.LineFormat
+}
+
+func (this ChartWall) setLineFormat(newValue ILineFormat) {
+	this.LineFormat = newValue
+}
+func (this ChartWall) getThickness() int32 {
+	return this.Thickness
+}
+
+func (this ChartWall) setThickness(newValue int32) {
+	this.Thickness = newValue
+}
+func (this ChartWall) getPictureType() PictureType {
+	return this.PictureType
+}
+
+func (this ChartWall) setPictureType(newValue PictureType) {
+	this.PictureType = newValue
+}
+
+func (this *ChartWall) UnmarshalJSON(b []byte) error {
+	var objMap map[string]*json.RawMessage
+	err := json.Unmarshal(b, &objMap)
+	if err != nil {
+		return err
+	}
+
+	if valFillFormat, ok := objMap["FillFormat"]; ok {
+		if valFillFormat != nil {
+			var valueForFillFormat FillFormat
+			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
+			if err != nil {
+				return err
+			}
+			this.FillFormat = valueForFillFormat
+		}
+	}
+
+	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
+		if valEffectFormat != nil {
+			var valueForEffectFormat EffectFormat
+			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
+			if err != nil {
+				return err
+			}
+			this.EffectFormat = valueForEffectFormat
+		}
+	}
+
+	if valLineFormat, ok := objMap["LineFormat"]; ok {
+		if valLineFormat != nil {
+			var valueForLineFormat LineFormat
+			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
+			if err != nil {
+				return err
+			}
+			this.LineFormat = valueForLineFormat
+		}
+	}
+
+	if valThickness, ok := objMap["Thickness"]; ok {
+		if valThickness != nil {
+			var valueForThickness int32
+			err = json.Unmarshal(*valThickness, &valueForThickness)
+			if err != nil {
+				return err
+			}
+			this.Thickness = valueForThickness
+		}
+	}
+
+	if valPictureType, ok := objMap["PictureType"]; ok {
+		if valPictureType != nil {
+			var valueForPictureType PictureType
+			err = json.Unmarshal(*valPictureType, &valueForPictureType)
+			if err != nil {
+				return err
+			}
+			this.PictureType = valueForPictureType
+		}
+	}
+
+    return nil
+}

@@ -1,0 +1,667 @@
+/*
+ * --------------------------------------------------------------------------------------------------------------------
+ * <copyright company="Aspose">
+ *   Copyright (c) 2018 Aspose.Slides for Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------------------------------------------
+ */
+
+package asposeslidescloud
+
+import (
+	"encoding/json"
+)
+
+// Represents VideoFrame resource.
+type IVideoFrame interface {
+
+	// Gets or sets the link to this resource.
+	getSelfUri() IResourceUri
+	setSelfUri(newValue IResourceUri)
+
+	getAlternateLinks() []ResourceUri
+	setAlternateLinks(newValue []ResourceUri)
+
+	// A list of links that originate from this document.
+	getLinks() []ResourceUri
+	setLinks(newValue []ResourceUri)
+
+	getType() ShapeType
+	setType(newValue ShapeType)
+
+	getShapeType() CombinedShapeType
+	setShapeType(newValue CombinedShapeType)
+
+	// Gets or sets the name.
+	getName() string
+	setName(newValue string)
+
+	// Gets or sets the width.
+	getWidth() float64
+	setWidth(newValue float64)
+
+	// Gets or sets the height.
+	getHeight() float64
+	setHeight(newValue float64)
+
+	// Gets or sets the alternative text.
+	getAlternativeText() string
+	setAlternativeText(newValue string)
+
+	// Gets or sets a value indicating whether this  is hidden.
+	getHidden() bool
+	setHidden(newValue bool)
+
+	// Gets or sets the X
+	getX() float64
+	setX(newValue float64)
+
+	// Gets or sets the Y.
+	getY() float64
+	setY(newValue float64)
+
+	// Gets z-order position of shape
+	getZOrderPosition() int32
+	setZOrderPosition(newValue int32)
+
+	// Gets or sets the link to shapes.
+	getShapes() IResourceUriElement
+	setShapes(newValue IResourceUriElement)
+
+	// Gets or sets the fill format.
+	getFillFormat() IFillFormat
+	setFillFormat(newValue IFillFormat)
+
+	// Gets or sets the effect format.
+	getEffectFormat() IEffectFormat
+	setEffectFormat(newValue IEffectFormat)
+
+	// Gets or sets the line format.
+	getLineFormat() ILineFormat
+	setLineFormat(newValue ILineFormat)
+
+	getGeometryShapeType() GeometryShapeType
+	setGeometryShapeType(newValue GeometryShapeType)
+
+	// Determines whether a video is shown in full screen mode.
+	getFullScreenMode() bool
+	setFullScreenMode(newValue bool)
+
+	// Determines whether a VideoFrame is hidden. 
+	getHideAtShowing() bool
+	setHideAtShowing(newValue bool)
+
+	// Determines whether a video is looped.
+	getPlayLoopMode() bool
+	setPlayLoopMode(newValue bool)
+
+	// Returns or sets the video play mode.  
+	getPlayMode() VideoPlayModePreset
+	setPlayMode(newValue VideoPlayModePreset)
+
+	// Determines whether a video is automatically rewinded to start as soon as the movie has finished playing
+	getRewindVideo() bool
+	setRewindVideo(newValue bool)
+
+	// Returns or sets the audio volume.
+	getVolume() AudioVolumeMode
+	setVolume(newValue AudioVolumeMode)
+
+	// Video data encoded in base64.
+	getBase64Data() string
+	setBase64Data(newValue string)
+}
+
+type VideoFrame struct {
+
+	// Gets or sets the link to this resource.
+	SelfUri IResourceUri `json:"SelfUri,omitempty"`
+
+	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+
+	// A list of links that originate from this document.
+	Links []ResourceUri `json:"Links,omitempty"`
+
+	Type_ ShapeType `json:"Type,omitempty"`
+
+	ShapeType CombinedShapeType `json:"ShapeType,omitempty"`
+
+	// Gets or sets the name.
+	Name string `json:"Name,omitempty"`
+
+	// Gets or sets the width.
+	Width float64 `json:"Width,omitempty"`
+
+	// Gets or sets the height.
+	Height float64 `json:"Height,omitempty"`
+
+	// Gets or sets the alternative text.
+	AlternativeText string `json:"AlternativeText,omitempty"`
+
+	// Gets or sets a value indicating whether this  is hidden.
+	Hidden bool `json:"Hidden,omitempty"`
+
+	// Gets or sets the X
+	X float64 `json:"X,omitempty"`
+
+	// Gets or sets the Y.
+	Y float64 `json:"Y,omitempty"`
+
+	// Gets z-order position of shape
+	ZOrderPosition int32 `json:"ZOrderPosition,omitempty"`
+
+	// Gets or sets the link to shapes.
+	Shapes IResourceUriElement `json:"Shapes,omitempty"`
+
+	// Gets or sets the fill format.
+	FillFormat IFillFormat `json:"FillFormat,omitempty"`
+
+	// Gets or sets the effect format.
+	EffectFormat IEffectFormat `json:"EffectFormat,omitempty"`
+
+	// Gets or sets the line format.
+	LineFormat ILineFormat `json:"LineFormat,omitempty"`
+
+	GeometryShapeType GeometryShapeType `json:"GeometryShapeType,omitempty"`
+
+	// Determines whether a video is shown in full screen mode.
+	FullScreenMode bool `json:"FullScreenMode,omitempty"`
+
+	// Determines whether a VideoFrame is hidden. 
+	HideAtShowing bool `json:"HideAtShowing,omitempty"`
+
+	// Determines whether a video is looped.
+	PlayLoopMode bool `json:"PlayLoopMode,omitempty"`
+
+	// Returns or sets the video play mode.  
+	PlayMode VideoPlayModePreset `json:"PlayMode,omitempty"`
+
+	// Determines whether a video is automatically rewinded to start as soon as the movie has finished playing
+	RewindVideo bool `json:"RewindVideo,omitempty"`
+
+	// Returns or sets the audio volume.
+	Volume AudioVolumeMode `json:"Volume,omitempty"`
+
+	// Video data encoded in base64.
+	Base64Data string `json:"Base64Data,omitempty"`
+}
+
+func (this VideoFrame) getSelfUri() IResourceUri {
+	return this.SelfUri
+}
+
+func (this VideoFrame) setSelfUri(newValue IResourceUri) {
+	this.SelfUri = newValue
+}
+func (this VideoFrame) getAlternateLinks() []ResourceUri {
+	return this.AlternateLinks
+}
+
+func (this VideoFrame) setAlternateLinks(newValue []ResourceUri) {
+	this.AlternateLinks = newValue
+}
+func (this VideoFrame) getLinks() []ResourceUri {
+	return this.Links
+}
+
+func (this VideoFrame) setLinks(newValue []ResourceUri) {
+	this.Links = newValue
+}
+func (this VideoFrame) getType() ShapeType {
+	return this.Type_
+}
+
+func (this VideoFrame) setType(newValue ShapeType) {
+	this.Type_ = newValue
+}
+func (this VideoFrame) getShapeType() CombinedShapeType {
+	return this.ShapeType
+}
+
+func (this VideoFrame) setShapeType(newValue CombinedShapeType) {
+	this.ShapeType = newValue
+}
+func (this VideoFrame) getName() string {
+	return this.Name
+}
+
+func (this VideoFrame) setName(newValue string) {
+	this.Name = newValue
+}
+func (this VideoFrame) getWidth() float64 {
+	return this.Width
+}
+
+func (this VideoFrame) setWidth(newValue float64) {
+	this.Width = newValue
+}
+func (this VideoFrame) getHeight() float64 {
+	return this.Height
+}
+
+func (this VideoFrame) setHeight(newValue float64) {
+	this.Height = newValue
+}
+func (this VideoFrame) getAlternativeText() string {
+	return this.AlternativeText
+}
+
+func (this VideoFrame) setAlternativeText(newValue string) {
+	this.AlternativeText = newValue
+}
+func (this VideoFrame) getHidden() bool {
+	return this.Hidden
+}
+
+func (this VideoFrame) setHidden(newValue bool) {
+	this.Hidden = newValue
+}
+func (this VideoFrame) getX() float64 {
+	return this.X
+}
+
+func (this VideoFrame) setX(newValue float64) {
+	this.X = newValue
+}
+func (this VideoFrame) getY() float64 {
+	return this.Y
+}
+
+func (this VideoFrame) setY(newValue float64) {
+	this.Y = newValue
+}
+func (this VideoFrame) getZOrderPosition() int32 {
+	return this.ZOrderPosition
+}
+
+func (this VideoFrame) setZOrderPosition(newValue int32) {
+	this.ZOrderPosition = newValue
+}
+func (this VideoFrame) getShapes() IResourceUriElement {
+	return this.Shapes
+}
+
+func (this VideoFrame) setShapes(newValue IResourceUriElement) {
+	this.Shapes = newValue
+}
+func (this VideoFrame) getFillFormat() IFillFormat {
+	return this.FillFormat
+}
+
+func (this VideoFrame) setFillFormat(newValue IFillFormat) {
+	this.FillFormat = newValue
+}
+func (this VideoFrame) getEffectFormat() IEffectFormat {
+	return this.EffectFormat
+}
+
+func (this VideoFrame) setEffectFormat(newValue IEffectFormat) {
+	this.EffectFormat = newValue
+}
+func (this VideoFrame) getLineFormat() ILineFormat {
+	return this.LineFormat
+}
+
+func (this VideoFrame) setLineFormat(newValue ILineFormat) {
+	this.LineFormat = newValue
+}
+func (this VideoFrame) getGeometryShapeType() GeometryShapeType {
+	return this.GeometryShapeType
+}
+
+func (this VideoFrame) setGeometryShapeType(newValue GeometryShapeType) {
+	this.GeometryShapeType = newValue
+}
+func (this VideoFrame) getFullScreenMode() bool {
+	return this.FullScreenMode
+}
+
+func (this VideoFrame) setFullScreenMode(newValue bool) {
+	this.FullScreenMode = newValue
+}
+func (this VideoFrame) getHideAtShowing() bool {
+	return this.HideAtShowing
+}
+
+func (this VideoFrame) setHideAtShowing(newValue bool) {
+	this.HideAtShowing = newValue
+}
+func (this VideoFrame) getPlayLoopMode() bool {
+	return this.PlayLoopMode
+}
+
+func (this VideoFrame) setPlayLoopMode(newValue bool) {
+	this.PlayLoopMode = newValue
+}
+func (this VideoFrame) getPlayMode() VideoPlayModePreset {
+	return this.PlayMode
+}
+
+func (this VideoFrame) setPlayMode(newValue VideoPlayModePreset) {
+	this.PlayMode = newValue
+}
+func (this VideoFrame) getRewindVideo() bool {
+	return this.RewindVideo
+}
+
+func (this VideoFrame) setRewindVideo(newValue bool) {
+	this.RewindVideo = newValue
+}
+func (this VideoFrame) getVolume() AudioVolumeMode {
+	return this.Volume
+}
+
+func (this VideoFrame) setVolume(newValue AudioVolumeMode) {
+	this.Volume = newValue
+}
+func (this VideoFrame) getBase64Data() string {
+	return this.Base64Data
+}
+
+func (this VideoFrame) setBase64Data(newValue string) {
+	this.Base64Data = newValue
+}
+
+func (this *VideoFrame) UnmarshalJSON(b []byte) error {
+	var objMap map[string]*json.RawMessage
+	err := json.Unmarshal(b, &objMap)
+	if err != nil {
+		return err
+	}
+
+	if valSelfUri, ok := objMap["SelfUri"]; ok {
+		if valSelfUri != nil {
+			var valueForSelfUri ResourceUri
+			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
+			if err != nil {
+				return err
+			}
+			this.SelfUri = valueForSelfUri
+		}
+	}
+
+	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
+		if valAlternateLinks != nil {
+			var valueForAlternateLinks []ResourceUri
+			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
+			if err != nil {
+				return err
+			}
+			this.AlternateLinks = valueForAlternateLinks
+		}
+	}
+
+	if valLinks, ok := objMap["Links"]; ok {
+		if valLinks != nil {
+			var valueForLinks []ResourceUri
+			err = json.Unmarshal(*valLinks, &valueForLinks)
+			if err != nil {
+				return err
+			}
+			this.Links = valueForLinks
+		}
+	}
+
+	if valType, ok := objMap["Type"]; ok {
+		if valType != nil {
+			var valueForType ShapeType
+			err = json.Unmarshal(*valType, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
+
+	if valShapeType, ok := objMap["ShapeType"]; ok {
+		if valShapeType != nil {
+			var valueForShapeType CombinedShapeType
+			err = json.Unmarshal(*valShapeType, &valueForShapeType)
+			if err != nil {
+				return err
+			}
+			this.ShapeType = valueForShapeType
+		}
+	}
+
+	if valName, ok := objMap["Name"]; ok {
+		if valName != nil {
+			var valueForName string
+			err = json.Unmarshal(*valName, &valueForName)
+			if err != nil {
+				return err
+			}
+			this.Name = valueForName
+		}
+	}
+
+	if valWidth, ok := objMap["Width"]; ok {
+		if valWidth != nil {
+			var valueForWidth float64
+			err = json.Unmarshal(*valWidth, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+
+	if valHeight, ok := objMap["Height"]; ok {
+		if valHeight != nil {
+			var valueForHeight float64
+			err = json.Unmarshal(*valHeight, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+
+	if valAlternativeText, ok := objMap["AlternativeText"]; ok {
+		if valAlternativeText != nil {
+			var valueForAlternativeText string
+			err = json.Unmarshal(*valAlternativeText, &valueForAlternativeText)
+			if err != nil {
+				return err
+			}
+			this.AlternativeText = valueForAlternativeText
+		}
+	}
+
+	if valHidden, ok := objMap["Hidden"]; ok {
+		if valHidden != nil {
+			var valueForHidden bool
+			err = json.Unmarshal(*valHidden, &valueForHidden)
+			if err != nil {
+				return err
+			}
+			this.Hidden = valueForHidden
+		}
+	}
+
+	if valX, ok := objMap["X"]; ok {
+		if valX != nil {
+			var valueForX float64
+			err = json.Unmarshal(*valX, &valueForX)
+			if err != nil {
+				return err
+			}
+			this.X = valueForX
+		}
+	}
+
+	if valY, ok := objMap["Y"]; ok {
+		if valY != nil {
+			var valueForY float64
+			err = json.Unmarshal(*valY, &valueForY)
+			if err != nil {
+				return err
+			}
+			this.Y = valueForY
+		}
+	}
+
+	if valZOrderPosition, ok := objMap["ZOrderPosition"]; ok {
+		if valZOrderPosition != nil {
+			var valueForZOrderPosition int32
+			err = json.Unmarshal(*valZOrderPosition, &valueForZOrderPosition)
+			if err != nil {
+				return err
+			}
+			this.ZOrderPosition = valueForZOrderPosition
+		}
+	}
+
+	if valShapes, ok := objMap["Shapes"]; ok {
+		if valShapes != nil {
+			var valueForShapes ResourceUriElement
+			err = json.Unmarshal(*valShapes, &valueForShapes)
+			if err != nil {
+				return err
+			}
+			this.Shapes = valueForShapes
+		}
+	}
+
+	if valFillFormat, ok := objMap["FillFormat"]; ok {
+		if valFillFormat != nil {
+			var valueForFillFormat FillFormat
+			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
+			if err != nil {
+				return err
+			}
+			this.FillFormat = valueForFillFormat
+		}
+	}
+
+	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
+		if valEffectFormat != nil {
+			var valueForEffectFormat EffectFormat
+			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
+			if err != nil {
+				return err
+			}
+			this.EffectFormat = valueForEffectFormat
+		}
+	}
+
+	if valLineFormat, ok := objMap["LineFormat"]; ok {
+		if valLineFormat != nil {
+			var valueForLineFormat LineFormat
+			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
+			if err != nil {
+				return err
+			}
+			this.LineFormat = valueForLineFormat
+		}
+	}
+
+	if valGeometryShapeType, ok := objMap["GeometryShapeType"]; ok {
+		if valGeometryShapeType != nil {
+			var valueForGeometryShapeType GeometryShapeType
+			err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeType)
+			if err != nil {
+				return err
+			}
+			this.GeometryShapeType = valueForGeometryShapeType
+		}
+	}
+
+	if valFullScreenMode, ok := objMap["FullScreenMode"]; ok {
+		if valFullScreenMode != nil {
+			var valueForFullScreenMode bool
+			err = json.Unmarshal(*valFullScreenMode, &valueForFullScreenMode)
+			if err != nil {
+				return err
+			}
+			this.FullScreenMode = valueForFullScreenMode
+		}
+	}
+
+	if valHideAtShowing, ok := objMap["HideAtShowing"]; ok {
+		if valHideAtShowing != nil {
+			var valueForHideAtShowing bool
+			err = json.Unmarshal(*valHideAtShowing, &valueForHideAtShowing)
+			if err != nil {
+				return err
+			}
+			this.HideAtShowing = valueForHideAtShowing
+		}
+	}
+
+	if valPlayLoopMode, ok := objMap["PlayLoopMode"]; ok {
+		if valPlayLoopMode != nil {
+			var valueForPlayLoopMode bool
+			err = json.Unmarshal(*valPlayLoopMode, &valueForPlayLoopMode)
+			if err != nil {
+				return err
+			}
+			this.PlayLoopMode = valueForPlayLoopMode
+		}
+	}
+
+	if valPlayMode, ok := objMap["PlayMode"]; ok {
+		if valPlayMode != nil {
+			var valueForPlayMode VideoPlayModePreset
+			err = json.Unmarshal(*valPlayMode, &valueForPlayMode)
+			if err != nil {
+				return err
+			}
+			this.PlayMode = valueForPlayMode
+		}
+	}
+
+	if valRewindVideo, ok := objMap["RewindVideo"]; ok {
+		if valRewindVideo != nil {
+			var valueForRewindVideo bool
+			err = json.Unmarshal(*valRewindVideo, &valueForRewindVideo)
+			if err != nil {
+				return err
+			}
+			this.RewindVideo = valueForRewindVideo
+		}
+	}
+
+	if valVolume, ok := objMap["Volume"]; ok {
+		if valVolume != nil {
+			var valueForVolume AudioVolumeMode
+			err = json.Unmarshal(*valVolume, &valueForVolume)
+			if err != nil {
+				return err
+			}
+			this.Volume = valueForVolume
+		}
+	}
+
+	if valBase64Data, ok := objMap["Base64Data"]; ok {
+		if valBase64Data != nil {
+			var valueForBase64Data string
+			err = json.Unmarshal(*valBase64Data, &valueForBase64Data)
+			if err != nil {
+				return err
+			}
+			this.Base64Data = valueForBase64Data
+		}
+	}
+
+    return nil
+}
