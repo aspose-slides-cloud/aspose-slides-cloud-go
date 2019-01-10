@@ -56,7 +56,12 @@ func TestGetSlidesPresentationTextItems(t *testing.T) {
 func createGetSlidesPresentationTextItemsRequest() GetSlidesPresentationTextItemsRequest {
     var request GetSlidesPresentationTextItemsRequest
     request.name = createTestParamValue("GetSlidesPresentationTextItems", "name", "string").(string)
-    request.withEmpty = createTestParamValue("GetSlidesPresentationTextItems", "withEmpty", "bool").(bool)
+    testwithEmpty := createTestParamValue("GetSlidesPresentationTextItems", "withEmpty", "bool")
+    switch v := testwithEmpty.(type) { 
+    case bool:
+        request.withEmpty = new(bool)
+        *request.withEmpty = v
+    }
     request.password = createTestParamValue("GetSlidesPresentationTextItems", "password", "string").(string)
     request.folder = createTestParamValue("GetSlidesPresentationTextItems", "folder", "string").(string)
     request.storage = createTestParamValue("GetSlidesPresentationTextItems", "storage", "string").(string)
@@ -69,6 +74,7 @@ func createGetSlidesPresentationTextItemsRequest() GetSlidesPresentationTextItem
 func TestGetSlidesPresentationTextItemsInvalidname(t *testing.T) {
     request := createGetSlidesPresentationTextItemsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesPresentationTextItems", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -83,7 +89,9 @@ func TestGetSlidesPresentationTextItemsInvalidname(t *testing.T) {
 */
 func TestGetSlidesPresentationTextItemsInvalidwithEmpty(t *testing.T) {
     request := createGetSlidesPresentationTextItemsRequest()
-    request.withEmpty = invalidizeTestParamValue(request.withEmpty, "withEmpty", "bool").(bool)
+    request.withEmpty = new(bool)
+    *request.withEmpty = invalidizeTestParamValue(request.withEmpty, "withEmpty", "bool").(bool)
+
     e := initializeTest("GetSlidesPresentationTextItems", "withEmpty", request.withEmpty)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -99,6 +107,7 @@ func TestGetSlidesPresentationTextItemsInvalidwithEmpty(t *testing.T) {
 func TestGetSlidesPresentationTextItemsInvalidpassword(t *testing.T) {
     request := createGetSlidesPresentationTextItemsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesPresentationTextItems", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -114,6 +123,7 @@ func TestGetSlidesPresentationTextItemsInvalidpassword(t *testing.T) {
 func TestGetSlidesPresentationTextItemsInvalidfolder(t *testing.T) {
     request := createGetSlidesPresentationTextItemsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesPresentationTextItems", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -129,6 +139,7 @@ func TestGetSlidesPresentationTextItemsInvalidfolder(t *testing.T) {
 func TestGetSlidesPresentationTextItemsInvalidstorage(t *testing.T) {
     request := createGetSlidesPresentationTextItemsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesPresentationTextItems", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -164,7 +175,12 @@ func createGetSlidesSlideTextItemsRequest() GetSlidesSlideTextItemsRequest {
     var request GetSlidesSlideTextItemsRequest
     request.name = createTestParamValue("GetSlidesSlideTextItems", "name", "string").(string)
     request.slideIndex = createTestParamValue("GetSlidesSlideTextItems", "slideIndex", "int32").(int32)
-    request.withEmpty = createTestParamValue("GetSlidesSlideTextItems", "withEmpty", "bool").(bool)
+    testwithEmpty := createTestParamValue("GetSlidesSlideTextItems", "withEmpty", "bool")
+    switch v := testwithEmpty.(type) { 
+    case bool:
+        request.withEmpty = new(bool)
+        *request.withEmpty = v
+    }
     request.password = createTestParamValue("GetSlidesSlideTextItems", "password", "string").(string)
     request.folder = createTestParamValue("GetSlidesSlideTextItems", "folder", "string").(string)
     request.storage = createTestParamValue("GetSlidesSlideTextItems", "storage", "string").(string)
@@ -177,6 +193,7 @@ func createGetSlidesSlideTextItemsRequest() GetSlidesSlideTextItemsRequest {
 func TestGetSlidesSlideTextItemsInvalidname(t *testing.T) {
     request := createGetSlidesSlideTextItemsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesSlideTextItems", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -192,6 +209,7 @@ func TestGetSlidesSlideTextItemsInvalidname(t *testing.T) {
 func TestGetSlidesSlideTextItemsInvalidslideIndex(t *testing.T) {
     request := createGetSlidesSlideTextItemsRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetSlidesSlideTextItems", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -206,7 +224,9 @@ func TestGetSlidesSlideTextItemsInvalidslideIndex(t *testing.T) {
 */
 func TestGetSlidesSlideTextItemsInvalidwithEmpty(t *testing.T) {
     request := createGetSlidesSlideTextItemsRequest()
-    request.withEmpty = invalidizeTestParamValue(request.withEmpty, "withEmpty", "bool").(bool)
+    request.withEmpty = new(bool)
+    *request.withEmpty = invalidizeTestParamValue(request.withEmpty, "withEmpty", "bool").(bool)
+
     e := initializeTest("GetSlidesSlideTextItems", "withEmpty", request.withEmpty)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -222,6 +242,7 @@ func TestGetSlidesSlideTextItemsInvalidwithEmpty(t *testing.T) {
 func TestGetSlidesSlideTextItemsInvalidpassword(t *testing.T) {
     request := createGetSlidesSlideTextItemsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesSlideTextItems", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -237,6 +258,7 @@ func TestGetSlidesSlideTextItemsInvalidpassword(t *testing.T) {
 func TestGetSlidesSlideTextItemsInvalidfolder(t *testing.T) {
     request := createGetSlidesSlideTextItemsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesSlideTextItems", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -252,6 +274,7 @@ func TestGetSlidesSlideTextItemsInvalidfolder(t *testing.T) {
 func TestGetSlidesSlideTextItemsInvalidstorage(t *testing.T) {
     request := createGetSlidesSlideTextItemsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesSlideTextItems", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -288,7 +311,12 @@ func createPostSlidesPresentationReplaceTextRequest() PostSlidesPresentationRepl
     request.name = createTestParamValue("PostSlidesPresentationReplaceText", "name", "string").(string)
     request.oldValue = createTestParamValue("PostSlidesPresentationReplaceText", "oldValue", "string").(string)
     request.newValue = createTestParamValue("PostSlidesPresentationReplaceText", "newValue", "string").(string)
-    request.ignoreCase = createTestParamValue("PostSlidesPresentationReplaceText", "ignoreCase", "bool").(bool)
+    testignoreCase := createTestParamValue("PostSlidesPresentationReplaceText", "ignoreCase", "bool")
+    switch v := testignoreCase.(type) { 
+    case bool:
+        request.ignoreCase = new(bool)
+        *request.ignoreCase = v
+    }
     request.password = createTestParamValue("PostSlidesPresentationReplaceText", "password", "string").(string)
     request.folder = createTestParamValue("PostSlidesPresentationReplaceText", "folder", "string").(string)
     request.storage = createTestParamValue("PostSlidesPresentationReplaceText", "storage", "string").(string)
@@ -301,6 +329,7 @@ func createPostSlidesPresentationReplaceTextRequest() PostSlidesPresentationRepl
 func TestPostSlidesPresentationReplaceTextInvalidname(t *testing.T) {
     request := createPostSlidesPresentationReplaceTextRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostSlidesPresentationReplaceText", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -316,6 +345,7 @@ func TestPostSlidesPresentationReplaceTextInvalidname(t *testing.T) {
 func TestPostSlidesPresentationReplaceTextInvalidoldValue(t *testing.T) {
     request := createPostSlidesPresentationReplaceTextRequest()
     request.oldValue = invalidizeTestParamValue(request.oldValue, "oldValue", "string").(string)
+
     e := initializeTest("PostSlidesPresentationReplaceText", "oldValue", request.oldValue)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -331,6 +361,7 @@ func TestPostSlidesPresentationReplaceTextInvalidoldValue(t *testing.T) {
 func TestPostSlidesPresentationReplaceTextInvalidnewValue(t *testing.T) {
     request := createPostSlidesPresentationReplaceTextRequest()
     request.newValue = invalidizeTestParamValue(request.newValue, "newValue", "string").(string)
+
     e := initializeTest("PostSlidesPresentationReplaceText", "newValue", request.newValue)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -345,7 +376,9 @@ func TestPostSlidesPresentationReplaceTextInvalidnewValue(t *testing.T) {
 */
 func TestPostSlidesPresentationReplaceTextInvalidignoreCase(t *testing.T) {
     request := createPostSlidesPresentationReplaceTextRequest()
-    request.ignoreCase = invalidizeTestParamValue(request.ignoreCase, "ignoreCase", "bool").(bool)
+    request.ignoreCase = new(bool)
+    *request.ignoreCase = invalidizeTestParamValue(request.ignoreCase, "ignoreCase", "bool").(bool)
+
     e := initializeTest("PostSlidesPresentationReplaceText", "ignoreCase", request.ignoreCase)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -361,6 +394,7 @@ func TestPostSlidesPresentationReplaceTextInvalidignoreCase(t *testing.T) {
 func TestPostSlidesPresentationReplaceTextInvalidpassword(t *testing.T) {
     request := createPostSlidesPresentationReplaceTextRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostSlidesPresentationReplaceText", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -376,6 +410,7 @@ func TestPostSlidesPresentationReplaceTextInvalidpassword(t *testing.T) {
 func TestPostSlidesPresentationReplaceTextInvalidfolder(t *testing.T) {
     request := createPostSlidesPresentationReplaceTextRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostSlidesPresentationReplaceText", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -391,6 +426,7 @@ func TestPostSlidesPresentationReplaceTextInvalidfolder(t *testing.T) {
 func TestPostSlidesPresentationReplaceTextInvalidstorage(t *testing.T) {
     request := createPostSlidesPresentationReplaceTextRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostSlidesPresentationReplaceText", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -428,7 +464,12 @@ func createPostSlidesSlideReplaceTextRequest() PostSlidesSlideReplaceTextRequest
     request.slideIndex = createTestParamValue("PostSlidesSlideReplaceText", "slideIndex", "int32").(int32)
     request.oldValue = createTestParamValue("PostSlidesSlideReplaceText", "oldValue", "string").(string)
     request.newValue = createTestParamValue("PostSlidesSlideReplaceText", "newValue", "string").(string)
-    request.ignoreCase = createTestParamValue("PostSlidesSlideReplaceText", "ignoreCase", "bool").(bool)
+    testignoreCase := createTestParamValue("PostSlidesSlideReplaceText", "ignoreCase", "bool")
+    switch v := testignoreCase.(type) { 
+    case bool:
+        request.ignoreCase = new(bool)
+        *request.ignoreCase = v
+    }
     request.password = createTestParamValue("PostSlidesSlideReplaceText", "password", "string").(string)
     request.folder = createTestParamValue("PostSlidesSlideReplaceText", "folder", "string").(string)
     request.storage = createTestParamValue("PostSlidesSlideReplaceText", "storage", "string").(string)
@@ -441,6 +482,7 @@ func createPostSlidesSlideReplaceTextRequest() PostSlidesSlideReplaceTextRequest
 func TestPostSlidesSlideReplaceTextInvalidname(t *testing.T) {
     request := createPostSlidesSlideReplaceTextRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostSlidesSlideReplaceText", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -456,6 +498,7 @@ func TestPostSlidesSlideReplaceTextInvalidname(t *testing.T) {
 func TestPostSlidesSlideReplaceTextInvalidslideIndex(t *testing.T) {
     request := createPostSlidesSlideReplaceTextRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PostSlidesSlideReplaceText", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -471,6 +514,7 @@ func TestPostSlidesSlideReplaceTextInvalidslideIndex(t *testing.T) {
 func TestPostSlidesSlideReplaceTextInvalidoldValue(t *testing.T) {
     request := createPostSlidesSlideReplaceTextRequest()
     request.oldValue = invalidizeTestParamValue(request.oldValue, "oldValue", "string").(string)
+
     e := initializeTest("PostSlidesSlideReplaceText", "oldValue", request.oldValue)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -486,6 +530,7 @@ func TestPostSlidesSlideReplaceTextInvalidoldValue(t *testing.T) {
 func TestPostSlidesSlideReplaceTextInvalidnewValue(t *testing.T) {
     request := createPostSlidesSlideReplaceTextRequest()
     request.newValue = invalidizeTestParamValue(request.newValue, "newValue", "string").(string)
+
     e := initializeTest("PostSlidesSlideReplaceText", "newValue", request.newValue)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -500,7 +545,9 @@ func TestPostSlidesSlideReplaceTextInvalidnewValue(t *testing.T) {
 */
 func TestPostSlidesSlideReplaceTextInvalidignoreCase(t *testing.T) {
     request := createPostSlidesSlideReplaceTextRequest()
-    request.ignoreCase = invalidizeTestParamValue(request.ignoreCase, "ignoreCase", "bool").(bool)
+    request.ignoreCase = new(bool)
+    *request.ignoreCase = invalidizeTestParamValue(request.ignoreCase, "ignoreCase", "bool").(bool)
+
     e := initializeTest("PostSlidesSlideReplaceText", "ignoreCase", request.ignoreCase)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -516,6 +563,7 @@ func TestPostSlidesSlideReplaceTextInvalidignoreCase(t *testing.T) {
 func TestPostSlidesSlideReplaceTextInvalidpassword(t *testing.T) {
     request := createPostSlidesSlideReplaceTextRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostSlidesSlideReplaceText", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -531,6 +579,7 @@ func TestPostSlidesSlideReplaceTextInvalidpassword(t *testing.T) {
 func TestPostSlidesSlideReplaceTextInvalidfolder(t *testing.T) {
     request := createPostSlidesSlideReplaceTextRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostSlidesSlideReplaceText", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -546,6 +595,7 @@ func TestPostSlidesSlideReplaceTextInvalidfolder(t *testing.T) {
 func TestPostSlidesSlideReplaceTextInvalidstorage(t *testing.T) {
     request := createPostSlidesSlideReplaceTextRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostSlidesSlideReplaceText", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)

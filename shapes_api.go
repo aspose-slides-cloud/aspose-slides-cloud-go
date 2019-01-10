@@ -261,6 +261,9 @@ func (a *ShapesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (Pa
 		return successPayload, nil, err
 	}
 
+	if localVarTempParam := request.paragraphs; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("paragraphs", parameterToString(localVarTempParam, ""))
+	}
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
@@ -270,7 +273,6 @@ func (a *ShapesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (Pa
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	localVarQueryParams.Add("paragraphs", parameterToString(request.paragraphs, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
@@ -572,6 +574,9 @@ func (a *ShapesApiService) DeletePortions(request DeletePortionsRequest) (Portio
 		return successPayload, nil, err
 	}
 
+	if localVarTempParam := request.portions; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("portions", parameterToString(localVarTempParam, ""))
+	}
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
@@ -581,7 +586,6 @@ func (a *ShapesApiService) DeletePortions(request DeletePortionsRequest) (Portio
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	localVarQueryParams.Add("portions", parameterToString(request.portions, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
@@ -854,6 +858,9 @@ func (a *ShapesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (
 		return successPayload, nil, err
 	}
 
+	if localVarTempParam := request.shapes; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("shapes", parameterToString(localVarTempParam, ""))
+	}
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
@@ -863,7 +870,6 @@ func (a *ShapesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	localVarQueryParams.Add("shapes", parameterToString(request.shapes, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
@@ -1455,11 +1461,15 @@ func (a *ShapesApiService) GetShapeWithFormat(request GetShapeWithFormatRequest)
 	if err := typeCheckParameter(request.storage, "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.scaleX, "float64", "scaleX"); err != nil {
-		return successPayload, nil, err
+	if request.scaleX != nil {
+		if err := typeCheckParameter(*request.scaleX, "float64", "scaleX"); err != nil {
+			return successPayload, nil, err
+		}
 	}
-	if err := typeCheckParameter(request.scaleY, "float64", "scaleY"); err != nil {
-		return successPayload, nil, err
+	if request.scaleY != nil {
+		if err := typeCheckParameter(*request.scaleY, "float64", "scaleY"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.bounds, "string", "bounds"); err != nil {
 		return successPayload, nil, err
@@ -1561,8 +1571,8 @@ type GetShapeWithFormatRequest struct {
     password string
     folder string
     storage string
-    scaleX float64
-    scaleY float64
+    scaleX *float64
+    scaleY *float64
     bounds string
     outPath string
     fontsFolder string
@@ -2045,8 +2055,10 @@ func (a *ShapesApiService) PostAddNewParagraph(request PostAddNewParagraphReques
 	if err := typeCheckParameter(request.storage, "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.position, "int32", "position"); err != nil {
-		return successPayload, nil, err
+	if request.position != nil {
+		if err := typeCheckParameter(*request.position, "int32", "position"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
@@ -2058,8 +2070,8 @@ func (a *ShapesApiService) PostAddNewParagraph(request PostAddNewParagraphReques
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	if request.position != 0 {
-		localVarQueryParams.Add("position", parameterToString(request.position, ""))
+	if request.position != nil {
+		localVarQueryParams.Add("position", parameterToString(*request.position, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -2133,7 +2145,7 @@ type PostAddNewParagraphRequest struct {
     password string
     folder string
     storage string
-    position int32
+    position *int32
 }
 
 /* ShapesApiService Creates new shape.
@@ -2205,8 +2217,10 @@ func (a *ShapesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (
 	if err := typeCheckParameter(request.storage, "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.position, "int32", "position"); err != nil {
-		return successPayload, nil, err
+	if request.position != nil {
+		if err := typeCheckParameter(*request.position, "int32", "position"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
@@ -2218,8 +2232,8 @@ func (a *ShapesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	if request.position != 0 {
-		localVarQueryParams.Add("position", parameterToString(request.position, ""))
+	if request.position != nil {
+		localVarQueryParams.Add("position", parameterToString(*request.position, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -2294,7 +2308,7 @@ type PostAddNewPortionRequest struct {
     password string
     folder string
     storage string
-    position int32
+    position *int32
 }
 
 /* ShapesApiService Creates new shape.
@@ -2353,11 +2367,15 @@ func (a *ShapesApiService) PostAddNewShape(request PostAddNewShapeRequest) (Shap
 	if err := typeCheckParameter(request.storage, "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.shapeToClone, "int32", "shapeToClone"); err != nil {
-		return successPayload, nil, err
+	if request.shapeToClone != nil {
+		if err := typeCheckParameter(*request.shapeToClone, "int32", "shapeToClone"); err != nil {
+			return successPayload, nil, err
+		}
 	}
-	if err := typeCheckParameter(request.position, "int32", "position"); err != nil {
-		return successPayload, nil, err
+	if request.position != nil {
+		if err := typeCheckParameter(*request.position, "int32", "position"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
@@ -2369,11 +2387,11 @@ func (a *ShapesApiService) PostAddNewShape(request PostAddNewShapeRequest) (Shap
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	if request.shapeToClone != 0 {
-		localVarQueryParams.Add("shapeToClone", parameterToString(request.shapeToClone, ""))
+	if request.shapeToClone != nil {
+		localVarQueryParams.Add("shapeToClone", parameterToString(*request.shapeToClone, ""))
 	}
-	if request.position != 0 {
-		localVarQueryParams.Add("position", parameterToString(request.position, ""))
+	if request.position != nil {
+		localVarQueryParams.Add("position", parameterToString(*request.position, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -2446,8 +2464,8 @@ type PostAddNewShapeRequest struct {
     password string
     folder string
     storage string
-    shapeToClone int32
-    position int32
+    shapeToClone *int32
+    position *int32
 }
 
 /* ShapesApiService Render shape to specified picture format.
@@ -2516,11 +2534,15 @@ func (a *ShapesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 	if err := typeCheckParameter(request.storage, "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.scaleX, "float64", "scaleX"); err != nil {
-		return successPayload, nil, err
+	if request.scaleX != nil {
+		if err := typeCheckParameter(*request.scaleX, "float64", "scaleX"); err != nil {
+			return successPayload, nil, err
+		}
 	}
-	if err := typeCheckParameter(request.scaleY, "float64", "scaleY"); err != nil {
-		return successPayload, nil, err
+	if request.scaleY != nil {
+		if err := typeCheckParameter(*request.scaleY, "float64", "scaleY"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.bounds, "string", "bounds"); err != nil {
 		return successPayload, nil, err
@@ -2625,8 +2647,8 @@ type PostShapeSaveAsRequest struct {
     password string
     folder string
     storage string
-    scaleX float64
-    scaleY float64
+    scaleX *float64
+    scaleY *float64
     bounds string
     outPath string
     fontsFolder string

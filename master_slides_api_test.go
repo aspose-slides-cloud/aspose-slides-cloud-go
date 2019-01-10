@@ -69,6 +69,7 @@ func createGetMasterSlideRequest() GetMasterSlideRequest {
 func TestGetMasterSlideInvalidname(t *testing.T) {
     request := createGetMasterSlideRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetMasterSlide", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -84,6 +85,7 @@ func TestGetMasterSlideInvalidname(t *testing.T) {
 func TestGetMasterSlideInvalidslideIndex(t *testing.T) {
     request := createGetMasterSlideRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetMasterSlide", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -99,6 +101,7 @@ func TestGetMasterSlideInvalidslideIndex(t *testing.T) {
 func TestGetMasterSlideInvalidpassword(t *testing.T) {
     request := createGetMasterSlideRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetMasterSlide", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -114,6 +117,7 @@ func TestGetMasterSlideInvalidpassword(t *testing.T) {
 func TestGetMasterSlideInvalidfolder(t *testing.T) {
     request := createGetMasterSlideRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetMasterSlide", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -129,6 +133,7 @@ func TestGetMasterSlideInvalidfolder(t *testing.T) {
 func TestGetMasterSlideInvalidstorage(t *testing.T) {
     request := createGetMasterSlideRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetMasterSlide", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -175,6 +180,7 @@ func createGetMasterSlidesListRequest() GetMasterSlidesListRequest {
 func TestGetMasterSlidesListInvalidname(t *testing.T) {
     request := createGetMasterSlidesListRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetMasterSlidesList", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -190,6 +196,7 @@ func TestGetMasterSlidesListInvalidname(t *testing.T) {
 func TestGetMasterSlidesListInvalidpassword(t *testing.T) {
     request := createGetMasterSlidesListRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetMasterSlidesList", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -205,6 +212,7 @@ func TestGetMasterSlidesListInvalidpassword(t *testing.T) {
 func TestGetMasterSlidesListInvalidfolder(t *testing.T) {
     request := createGetMasterSlidesListRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetMasterSlidesList", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -220,6 +228,7 @@ func TestGetMasterSlidesListInvalidfolder(t *testing.T) {
 func TestGetMasterSlidesListInvalidstorage(t *testing.T) {
     request := createGetMasterSlidesListRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetMasterSlidesList", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -258,7 +267,12 @@ func createPostCopyMasterSlideFromSourcePresentationRequest() PostCopyMasterSlid
     request.cloneFromPosition = createTestParamValue("PostCopyMasterSlideFromSourcePresentation", "cloneFromPosition", "int32").(int32)
     request.cloneFromPassword = createTestParamValue("PostCopyMasterSlideFromSourcePresentation", "cloneFromPassword", "string").(string)
     request.cloneFromStorage = createTestParamValue("PostCopyMasterSlideFromSourcePresentation", "cloneFromStorage", "string").(string)
-    request.applyToAll = createTestParamValue("PostCopyMasterSlideFromSourcePresentation", "applyToAll", "bool").(bool)
+    testapplyToAll := createTestParamValue("PostCopyMasterSlideFromSourcePresentation", "applyToAll", "bool")
+    switch v := testapplyToAll.(type) { 
+    case bool:
+        request.applyToAll = new(bool)
+        *request.applyToAll = v
+    }
     request.password = createTestParamValue("PostCopyMasterSlideFromSourcePresentation", "password", "string").(string)
     request.folder = createTestParamValue("PostCopyMasterSlideFromSourcePresentation", "folder", "string").(string)
     request.storage = createTestParamValue("PostCopyMasterSlideFromSourcePresentation", "storage", "string").(string)
@@ -271,6 +285,7 @@ func createPostCopyMasterSlideFromSourcePresentationRequest() PostCopyMasterSlid
 func TestPostCopyMasterSlideFromSourcePresentationInvalidname(t *testing.T) {
     request := createPostCopyMasterSlideFromSourcePresentationRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostCopyMasterSlideFromSourcePresentation", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -286,6 +301,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidname(t *testing.T) {
 func TestPostCopyMasterSlideFromSourcePresentationInvalidcloneFrom(t *testing.T) {
     request := createPostCopyMasterSlideFromSourcePresentationRequest()
     request.cloneFrom = invalidizeTestParamValue(request.cloneFrom, "cloneFrom", "string").(string)
+
     e := initializeTest("PostCopyMasterSlideFromSourcePresentation", "cloneFrom", request.cloneFrom)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -301,6 +317,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidcloneFrom(t *testing.T)
 func TestPostCopyMasterSlideFromSourcePresentationInvalidcloneFromPosition(t *testing.T) {
     request := createPostCopyMasterSlideFromSourcePresentationRequest()
     request.cloneFromPosition = invalidizeTestParamValue(request.cloneFromPosition, "cloneFromPosition", "int32").(int32)
+
     e := initializeTest("PostCopyMasterSlideFromSourcePresentation", "cloneFromPosition", request.cloneFromPosition)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -316,6 +333,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidcloneFromPosition(t *te
 func TestPostCopyMasterSlideFromSourcePresentationInvalidcloneFromPassword(t *testing.T) {
     request := createPostCopyMasterSlideFromSourcePresentationRequest()
     request.cloneFromPassword = invalidizeTestParamValue(request.cloneFromPassword, "cloneFromPassword", "string").(string)
+
     e := initializeTest("PostCopyMasterSlideFromSourcePresentation", "cloneFromPassword", request.cloneFromPassword)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -331,6 +349,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidcloneFromPassword(t *te
 func TestPostCopyMasterSlideFromSourcePresentationInvalidcloneFromStorage(t *testing.T) {
     request := createPostCopyMasterSlideFromSourcePresentationRequest()
     request.cloneFromStorage = invalidizeTestParamValue(request.cloneFromStorage, "cloneFromStorage", "string").(string)
+
     e := initializeTest("PostCopyMasterSlideFromSourcePresentation", "cloneFromStorage", request.cloneFromStorage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -345,7 +364,9 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidcloneFromStorage(t *tes
 */
 func TestPostCopyMasterSlideFromSourcePresentationInvalidapplyToAll(t *testing.T) {
     request := createPostCopyMasterSlideFromSourcePresentationRequest()
-    request.applyToAll = invalidizeTestParamValue(request.applyToAll, "applyToAll", "bool").(bool)
+    request.applyToAll = new(bool)
+    *request.applyToAll = invalidizeTestParamValue(request.applyToAll, "applyToAll", "bool").(bool)
+
     e := initializeTest("PostCopyMasterSlideFromSourcePresentation", "applyToAll", request.applyToAll)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -361,6 +382,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidapplyToAll(t *testing.T
 func TestPostCopyMasterSlideFromSourcePresentationInvalidpassword(t *testing.T) {
     request := createPostCopyMasterSlideFromSourcePresentationRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostCopyMasterSlideFromSourcePresentation", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -376,6 +398,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidpassword(t *testing.T) 
 func TestPostCopyMasterSlideFromSourcePresentationInvalidfolder(t *testing.T) {
     request := createPostCopyMasterSlideFromSourcePresentationRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostCopyMasterSlideFromSourcePresentation", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -391,6 +414,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidfolder(t *testing.T) {
 func TestPostCopyMasterSlideFromSourcePresentationInvalidstorage(t *testing.T) {
     request := createPostCopyMasterSlideFromSourcePresentationRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostCopyMasterSlideFromSourcePresentation", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)

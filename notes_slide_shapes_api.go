@@ -261,6 +261,9 @@ func (a *NotesSlideShapesApiService) DeleteNotesSlideParagraphs(request DeleteNo
 		return successPayload, nil, err
 	}
 
+	if localVarTempParam := request.paragraphs; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("paragraphs", parameterToString(localVarTempParam, ""))
+	}
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
@@ -270,7 +273,6 @@ func (a *NotesSlideShapesApiService) DeleteNotesSlideParagraphs(request DeleteNo
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	localVarQueryParams.Add("paragraphs", parameterToString(request.paragraphs, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
@@ -572,6 +574,9 @@ func (a *NotesSlideShapesApiService) DeleteNotesSlidePortions(request DeleteNote
 		return successPayload, nil, err
 	}
 
+	if localVarTempParam := request.portions; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("portions", parameterToString(localVarTempParam, ""))
+	}
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
@@ -581,7 +586,6 @@ func (a *NotesSlideShapesApiService) DeleteNotesSlidePortions(request DeleteNote
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	localVarQueryParams.Add("portions", parameterToString(request.portions, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
@@ -854,6 +858,9 @@ func (a *NotesSlideShapesApiService) DeleteNotesSlideShapes(request DeleteNotesS
 		return successPayload, nil, err
 	}
 
+	if localVarTempParam := request.shapes; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("shapes", parameterToString(localVarTempParam, ""))
+	}
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
 	}
@@ -863,7 +870,6 @@ func (a *NotesSlideShapesApiService) DeleteNotesSlideShapes(request DeleteNotesS
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	localVarQueryParams.Add("shapes", parameterToString(request.shapes, ""))
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
 
@@ -1737,11 +1743,15 @@ func (a *NotesSlideShapesApiService) GetNotesSlideShapeWithFormat(request GetNot
 	if err := typeCheckParameter(request.storage, "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.scaleX, "float64", "scaleX"); err != nil {
-		return successPayload, nil, err
+	if request.scaleX != nil {
+		if err := typeCheckParameter(*request.scaleX, "float64", "scaleX"); err != nil {
+			return successPayload, nil, err
+		}
 	}
-	if err := typeCheckParameter(request.scaleY, "float64", "scaleY"); err != nil {
-		return successPayload, nil, err
+	if request.scaleY != nil {
+		if err := typeCheckParameter(*request.scaleY, "float64", "scaleY"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.bounds, "string", "bounds"); err != nil {
 		return successPayload, nil, err
@@ -1843,8 +1853,8 @@ type GetNotesSlideShapeWithFormatRequest struct {
     password string
     folder string
     storage string
-    scaleX float64
-    scaleY float64
+    scaleX *float64
+    scaleY *float64
     bounds string
     outPath string
     fontsFolder string
@@ -2045,8 +2055,10 @@ func (a *NotesSlideShapesApiService) PostNotesSlideAddNewParagraph(request PostN
 	if err := typeCheckParameter(request.storage, "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.position, "int32", "position"); err != nil {
-		return successPayload, nil, err
+	if request.position != nil {
+		if err := typeCheckParameter(*request.position, "int32", "position"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
@@ -2058,8 +2070,8 @@ func (a *NotesSlideShapesApiService) PostNotesSlideAddNewParagraph(request PostN
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	if request.position != 0 {
-		localVarQueryParams.Add("position", parameterToString(request.position, ""))
+	if request.position != nil {
+		localVarQueryParams.Add("position", parameterToString(*request.position, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -2133,7 +2145,7 @@ type PostNotesSlideAddNewParagraphRequest struct {
     password string
     folder string
     storage string
-    position int32
+    position *int32
 }
 
 /* NotesSlideShapesApiService Creates new portion.
@@ -2205,8 +2217,10 @@ func (a *NotesSlideShapesApiService) PostNotesSlideAddNewPortion(request PostNot
 	if err := typeCheckParameter(request.storage, "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.position, "int32", "position"); err != nil {
-		return successPayload, nil, err
+	if request.position != nil {
+		if err := typeCheckParameter(*request.position, "int32", "position"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
@@ -2218,8 +2232,8 @@ func (a *NotesSlideShapesApiService) PostNotesSlideAddNewPortion(request PostNot
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	if request.position != 0 {
-		localVarQueryParams.Add("position", parameterToString(request.position, ""))
+	if request.position != nil {
+		localVarQueryParams.Add("position", parameterToString(*request.position, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -2294,7 +2308,7 @@ type PostNotesSlideAddNewPortionRequest struct {
     password string
     folder string
     storage string
-    position int32
+    position *int32
 }
 
 /* NotesSlideShapesApiService Creates new shape.
@@ -2353,11 +2367,15 @@ func (a *NotesSlideShapesApiService) PostNotesSlideAddNewShape(request PostNotes
 	if err := typeCheckParameter(request.storage, "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.shapeToClone, "int32", "shapeToClone"); err != nil {
-		return successPayload, nil, err
+	if request.shapeToClone != nil {
+		if err := typeCheckParameter(*request.shapeToClone, "int32", "shapeToClone"); err != nil {
+			return successPayload, nil, err
+		}
 	}
-	if err := typeCheckParameter(request.position, "int32", "position"); err != nil {
-		return successPayload, nil, err
+	if request.position != nil {
+		if err := typeCheckParameter(*request.position, "int32", "position"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
@@ -2369,11 +2387,11 @@ func (a *NotesSlideShapesApiService) PostNotesSlideAddNewShape(request PostNotes
 	if localVarTempParam := request.storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("storage", parameterToString(localVarTempParam, ""))
 	}
-	if request.shapeToClone != 0 {
-		localVarQueryParams.Add("shapeToClone", parameterToString(request.shapeToClone, ""))
+	if request.shapeToClone != nil {
+		localVarQueryParams.Add("shapeToClone", parameterToString(*request.shapeToClone, ""))
 	}
-	if request.position != 0 {
-		localVarQueryParams.Add("position", parameterToString(request.position, ""))
+	if request.position != nil {
+		localVarQueryParams.Add("position", parameterToString(*request.position, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -2446,8 +2464,8 @@ type PostNotesSlideAddNewShapeRequest struct {
     password string
     folder string
     storage string
-    shapeToClone int32
-    position int32
+    shapeToClone *int32
+    position *int32
 }
 
 /* NotesSlideShapesApiService Render shape to specified picture format.
@@ -2516,11 +2534,15 @@ func (a *NotesSlideShapesApiService) PostNotesSlideShapeSaveAs(request PostNotes
 	if err := typeCheckParameter(request.storage, "string", "storage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.scaleX, "float64", "scaleX"); err != nil {
-		return successPayload, nil, err
+	if request.scaleX != nil {
+		if err := typeCheckParameter(*request.scaleX, "float64", "scaleX"); err != nil {
+			return successPayload, nil, err
+		}
 	}
-	if err := typeCheckParameter(request.scaleY, "float64", "scaleY"); err != nil {
-		return successPayload, nil, err
+	if request.scaleY != nil {
+		if err := typeCheckParameter(*request.scaleY, "float64", "scaleY"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.bounds, "string", "bounds"); err != nil {
 		return successPayload, nil, err
@@ -2625,8 +2647,8 @@ type PostNotesSlideShapeSaveAsRequest struct {
     password string
     folder string
     storage string
-    scaleX float64
-    scaleY float64
+    scaleX *float64
+    scaleY *float64
     bounds string
     outPath string
     fontsFolder string

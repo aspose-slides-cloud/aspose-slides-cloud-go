@@ -89,6 +89,7 @@ func createGetSlidesDocumentRequest() GetSlidesDocumentRequest {
 func TestGetSlidesDocumentInvalidname(t *testing.T) {
     request := createGetSlidesDocumentRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesDocument", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -104,6 +105,7 @@ func TestGetSlidesDocumentInvalidname(t *testing.T) {
 func TestGetSlidesDocumentInvalidpassword(t *testing.T) {
     request := createGetSlidesDocumentRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesDocument", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -119,6 +121,7 @@ func TestGetSlidesDocumentInvalidpassword(t *testing.T) {
 func TestGetSlidesDocumentInvalidstorage(t *testing.T) {
     request := createGetSlidesDocumentRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesDocument", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -134,6 +137,7 @@ func TestGetSlidesDocumentInvalidstorage(t *testing.T) {
 func TestGetSlidesDocumentInvalidfolder(t *testing.T) {
     request := createGetSlidesDocumentRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesDocument", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -166,7 +170,12 @@ func createGetSlidesDocumentWithFormatRequest() GetSlidesDocumentWithFormatReque
     var request GetSlidesDocumentWithFormatRequest
     request.name = createTestParamValue("GetSlidesDocumentWithFormat", "name", "string").(string)
     request.format = createTestParamValue("GetSlidesDocumentWithFormat", "format", "string").(string)
-    request.jpegQuality = createTestParamValue("GetSlidesDocumentWithFormat", "jpegQuality", "int32").(int32)
+    testjpegQuality := createTestParamValue("GetSlidesDocumentWithFormat", "jpegQuality", "int32")
+    switch v := testjpegQuality.(type) { 
+    case int32:
+        request.jpegQuality = new(int32)
+        *request.jpegQuality = v
+    }
     request.password = createTestParamValue("GetSlidesDocumentWithFormat", "password", "string").(string)
     request.storage = createTestParamValue("GetSlidesDocumentWithFormat", "storage", "string").(string)
     request.folder = createTestParamValue("GetSlidesDocumentWithFormat", "folder", "string").(string)
@@ -181,6 +190,7 @@ func createGetSlidesDocumentWithFormatRequest() GetSlidesDocumentWithFormatReque
 func TestGetSlidesDocumentWithFormatInvalidname(t *testing.T) {
     request := createGetSlidesDocumentWithFormatRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesDocumentWithFormat", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -196,6 +206,7 @@ func TestGetSlidesDocumentWithFormatInvalidname(t *testing.T) {
 func TestGetSlidesDocumentWithFormatInvalidformat(t *testing.T) {
     request := createGetSlidesDocumentWithFormatRequest()
     request.format = invalidizeTestParamValue(request.format, "format", "string").(string)
+
     e := initializeTest("GetSlidesDocumentWithFormat", "format", request.format)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -210,7 +221,9 @@ func TestGetSlidesDocumentWithFormatInvalidformat(t *testing.T) {
 */
 func TestGetSlidesDocumentWithFormatInvalidjpegQuality(t *testing.T) {
     request := createGetSlidesDocumentWithFormatRequest()
-    request.jpegQuality = invalidizeTestParamValue(request.jpegQuality, "jpegQuality", "int32").(int32)
+    request.jpegQuality = new(int32)
+    *request.jpegQuality = invalidizeTestParamValue(request.jpegQuality, "jpegQuality", "int32").(int32)
+
     e := initializeTest("GetSlidesDocumentWithFormat", "jpegQuality", request.jpegQuality)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -226,6 +239,7 @@ func TestGetSlidesDocumentWithFormatInvalidjpegQuality(t *testing.T) {
 func TestGetSlidesDocumentWithFormatInvalidpassword(t *testing.T) {
     request := createGetSlidesDocumentWithFormatRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesDocumentWithFormat", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -241,6 +255,7 @@ func TestGetSlidesDocumentWithFormatInvalidpassword(t *testing.T) {
 func TestGetSlidesDocumentWithFormatInvalidstorage(t *testing.T) {
     request := createGetSlidesDocumentWithFormatRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesDocumentWithFormat", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -256,6 +271,7 @@ func TestGetSlidesDocumentWithFormatInvalidstorage(t *testing.T) {
 func TestGetSlidesDocumentWithFormatInvalidfolder(t *testing.T) {
     request := createGetSlidesDocumentWithFormatRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesDocumentWithFormat", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -271,6 +287,7 @@ func TestGetSlidesDocumentWithFormatInvalidfolder(t *testing.T) {
 func TestGetSlidesDocumentWithFormatInvalidoutPath(t *testing.T) {
     request := createGetSlidesDocumentWithFormatRequest()
     request.outPath = invalidizeTestParamValue(request.outPath, "outPath", "string").(string)
+
     e := initializeTest("GetSlidesDocumentWithFormat", "outPath", request.outPath)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -286,6 +303,7 @@ func TestGetSlidesDocumentWithFormatInvalidoutPath(t *testing.T) {
 func TestGetSlidesDocumentWithFormatInvalidfontsFolder(t *testing.T) {
     request := createGetSlidesDocumentWithFormatRequest()
     request.fontsFolder = invalidizeTestParamValue(request.fontsFolder, "fontsFolder", "string").(string)
+
     e := initializeTest("GetSlidesDocumentWithFormat", "fontsFolder", request.fontsFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -323,7 +341,12 @@ func createPostSlidesDocumentRequest() PostSlidesDocumentRequest {
     request.data = createTestParamValue("PostSlidesDocument", "data", "string").(string)
     request.templatePath = createTestParamValue("PostSlidesDocument", "templatePath", "string").(string)
     request.templateStorage = createTestParamValue("PostSlidesDocument", "templateStorage", "string").(string)
-    request.isImageDataEmbedded = createTestParamValue("PostSlidesDocument", "isImageDataEmbedded", "bool").(bool)
+    testisImageDataEmbedded := createTestParamValue("PostSlidesDocument", "isImageDataEmbedded", "bool")
+    switch v := testisImageDataEmbedded.(type) { 
+    case bool:
+        request.isImageDataEmbedded = new(bool)
+        *request.isImageDataEmbedded = v
+    }
     request.password = createTestParamValue("PostSlidesDocument", "password", "string").(string)
     request.storage = createTestParamValue("PostSlidesDocument", "storage", "string").(string)
     request.folder = createTestParamValue("PostSlidesDocument", "folder", "string").(string)
@@ -336,6 +359,7 @@ func createPostSlidesDocumentRequest() PostSlidesDocumentRequest {
 func TestPostSlidesDocumentInvalidname(t *testing.T) {
     request := createPostSlidesDocumentRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostSlidesDocument", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -351,6 +375,7 @@ func TestPostSlidesDocumentInvalidname(t *testing.T) {
 func TestPostSlidesDocumentInvaliddata(t *testing.T) {
     request := createPostSlidesDocumentRequest()
     request.data = invalidizeTestParamValue(request.data, "data", "string").(string)
+
     e := initializeTest("PostSlidesDocument", "data", request.data)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -366,6 +391,7 @@ func TestPostSlidesDocumentInvaliddata(t *testing.T) {
 func TestPostSlidesDocumentInvalidtemplatePath(t *testing.T) {
     request := createPostSlidesDocumentRequest()
     request.templatePath = invalidizeTestParamValue(request.templatePath, "templatePath", "string").(string)
+
     e := initializeTest("PostSlidesDocument", "templatePath", request.templatePath)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -381,6 +407,7 @@ func TestPostSlidesDocumentInvalidtemplatePath(t *testing.T) {
 func TestPostSlidesDocumentInvalidtemplateStorage(t *testing.T) {
     request := createPostSlidesDocumentRequest()
     request.templateStorage = invalidizeTestParamValue(request.templateStorage, "templateStorage", "string").(string)
+
     e := initializeTest("PostSlidesDocument", "templateStorage", request.templateStorage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -395,7 +422,9 @@ func TestPostSlidesDocumentInvalidtemplateStorage(t *testing.T) {
 */
 func TestPostSlidesDocumentInvalidisImageDataEmbedded(t *testing.T) {
     request := createPostSlidesDocumentRequest()
-    request.isImageDataEmbedded = invalidizeTestParamValue(request.isImageDataEmbedded, "isImageDataEmbedded", "bool").(bool)
+    request.isImageDataEmbedded = new(bool)
+    *request.isImageDataEmbedded = invalidizeTestParamValue(request.isImageDataEmbedded, "isImageDataEmbedded", "bool").(bool)
+
     e := initializeTest("PostSlidesDocument", "isImageDataEmbedded", request.isImageDataEmbedded)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -411,6 +440,7 @@ func TestPostSlidesDocumentInvalidisImageDataEmbedded(t *testing.T) {
 func TestPostSlidesDocumentInvalidpassword(t *testing.T) {
     request := createPostSlidesDocumentRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostSlidesDocument", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -426,6 +456,7 @@ func TestPostSlidesDocumentInvalidpassword(t *testing.T) {
 func TestPostSlidesDocumentInvalidstorage(t *testing.T) {
     request := createPostSlidesDocumentRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostSlidesDocument", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -441,6 +472,7 @@ func TestPostSlidesDocumentInvalidstorage(t *testing.T) {
 func TestPostSlidesDocumentInvalidfolder(t *testing.T) {
     request := createPostSlidesDocumentRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostSlidesDocument", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -481,6 +513,7 @@ func createPostSlidesPipelineRequest() PostSlidesPipelineRequest {
 func TestPostSlidesPipelineInvalidpipeline(t *testing.T) {
     request := createPostSlidesPipelineRequest()
     request.pipeline = invalidizeTestParamValue(request.pipeline, "pipeline", "Pipeline").(IPipeline)
+
     e := initializeTest("PostSlidesPipeline", "pipeline", request.pipeline)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -528,6 +561,7 @@ func createPostSlidesSaveAsRequest() PostSlidesSaveAsRequest {
 func TestPostSlidesSaveAsInvalidname(t *testing.T) {
     request := createPostSlidesSaveAsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostSlidesSaveAs", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -543,6 +577,7 @@ func TestPostSlidesSaveAsInvalidname(t *testing.T) {
 func TestPostSlidesSaveAsInvalidformat(t *testing.T) {
     request := createPostSlidesSaveAsRequest()
     request.format = invalidizeTestParamValue(request.format, "format", "string").(string)
+
     e := initializeTest("PostSlidesSaveAs", "format", request.format)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -558,6 +593,7 @@ func TestPostSlidesSaveAsInvalidformat(t *testing.T) {
 func TestPostSlidesSaveAsInvalidoptions(t *testing.T) {
     request := createPostSlidesSaveAsRequest()
     request.options = invalidizeTestParamValue(request.options, "options", "ExportOptions").(IExportOptions)
+
     e := initializeTest("PostSlidesSaveAs", "options", request.options)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -573,6 +609,7 @@ func TestPostSlidesSaveAsInvalidoptions(t *testing.T) {
 func TestPostSlidesSaveAsInvalidpassword(t *testing.T) {
     request := createPostSlidesSaveAsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostSlidesSaveAs", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -588,6 +625,7 @@ func TestPostSlidesSaveAsInvalidpassword(t *testing.T) {
 func TestPostSlidesSaveAsInvalidstorage(t *testing.T) {
     request := createPostSlidesSaveAsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostSlidesSaveAs", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -603,6 +641,7 @@ func TestPostSlidesSaveAsInvalidstorage(t *testing.T) {
 func TestPostSlidesSaveAsInvalidfolder(t *testing.T) {
     request := createPostSlidesSaveAsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostSlidesSaveAs", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -618,6 +657,7 @@ func TestPostSlidesSaveAsInvalidfolder(t *testing.T) {
 func TestPostSlidesSaveAsInvalidoutPath(t *testing.T) {
     request := createPostSlidesSaveAsRequest()
     request.outPath = invalidizeTestParamValue(request.outPath, "outPath", "string").(string)
+
     e := initializeTest("PostSlidesSaveAs", "outPath", request.outPath)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -633,6 +673,7 @@ func TestPostSlidesSaveAsInvalidoutPath(t *testing.T) {
 func TestPostSlidesSaveAsInvalidfontsFolder(t *testing.T) {
     request := createPostSlidesSaveAsRequest()
     request.fontsFolder = invalidizeTestParamValue(request.fontsFolder, "fontsFolder", "string").(string)
+
     e := initializeTest("PostSlidesSaveAs", "fontsFolder", request.fontsFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -669,10 +710,30 @@ func createPostSlidesSplitRequest() PostSlidesSplitRequest {
     request.name = createTestParamValue("PostSlidesSplit", "name", "string").(string)
     request.options = createTestParamValue("PostSlidesSplit", "options", "ExportOptions").(IExportOptions)
     request.format = createTestParamValue("PostSlidesSplit", "format", "string").(string)
-    request.width = createTestParamValue("PostSlidesSplit", "width", "int32").(int32)
-    request.height = createTestParamValue("PostSlidesSplit", "height", "int32").(int32)
-    request.to = createTestParamValue("PostSlidesSplit", "to", "int32").(int32)
-    request.from = createTestParamValue("PostSlidesSplit", "from", "int32").(int32)
+    testwidth := createTestParamValue("PostSlidesSplit", "width", "int32")
+    switch v := testwidth.(type) { 
+    case int32:
+        request.width = new(int32)
+        *request.width = v
+    }
+    testheight := createTestParamValue("PostSlidesSplit", "height", "int32")
+    switch v := testheight.(type) { 
+    case int32:
+        request.height = new(int32)
+        *request.height = v
+    }
+    testto := createTestParamValue("PostSlidesSplit", "to", "int32")
+    switch v := testto.(type) { 
+    case int32:
+        request.to = new(int32)
+        *request.to = v
+    }
+    testfrom := createTestParamValue("PostSlidesSplit", "from", "int32")
+    switch v := testfrom.(type) { 
+    case int32:
+        request.from = new(int32)
+        *request.from = v
+    }
     request.destFolder = createTestParamValue("PostSlidesSplit", "destFolder", "string").(string)
     request.password = createTestParamValue("PostSlidesSplit", "password", "string").(string)
     request.storage = createTestParamValue("PostSlidesSplit", "storage", "string").(string)
@@ -686,6 +747,7 @@ func createPostSlidesSplitRequest() PostSlidesSplitRequest {
 func TestPostSlidesSplitInvalidname(t *testing.T) {
     request := createPostSlidesSplitRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostSlidesSplit", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -701,6 +763,7 @@ func TestPostSlidesSplitInvalidname(t *testing.T) {
 func TestPostSlidesSplitInvalidoptions(t *testing.T) {
     request := createPostSlidesSplitRequest()
     request.options = invalidizeTestParamValue(request.options, "options", "ExportOptions").(IExportOptions)
+
     e := initializeTest("PostSlidesSplit", "options", request.options)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -716,6 +779,7 @@ func TestPostSlidesSplitInvalidoptions(t *testing.T) {
 func TestPostSlidesSplitInvalidformat(t *testing.T) {
     request := createPostSlidesSplitRequest()
     request.format = invalidizeTestParamValue(request.format, "format", "string").(string)
+
     e := initializeTest("PostSlidesSplit", "format", request.format)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -730,7 +794,9 @@ func TestPostSlidesSplitInvalidformat(t *testing.T) {
 */
 func TestPostSlidesSplitInvalidwidth(t *testing.T) {
     request := createPostSlidesSplitRequest()
-    request.width = invalidizeTestParamValue(request.width, "width", "int32").(int32)
+    request.width = new(int32)
+    *request.width = invalidizeTestParamValue(request.width, "width", "int32").(int32)
+
     e := initializeTest("PostSlidesSplit", "width", request.width)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -745,7 +811,9 @@ func TestPostSlidesSplitInvalidwidth(t *testing.T) {
 */
 func TestPostSlidesSplitInvalidheight(t *testing.T) {
     request := createPostSlidesSplitRequest()
-    request.height = invalidizeTestParamValue(request.height, "height", "int32").(int32)
+    request.height = new(int32)
+    *request.height = invalidizeTestParamValue(request.height, "height", "int32").(int32)
+
     e := initializeTest("PostSlidesSplit", "height", request.height)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -760,7 +828,9 @@ func TestPostSlidesSplitInvalidheight(t *testing.T) {
 */
 func TestPostSlidesSplitInvalidto(t *testing.T) {
     request := createPostSlidesSplitRequest()
-    request.to = invalidizeTestParamValue(request.to, "to", "int32").(int32)
+    request.to = new(int32)
+    *request.to = invalidizeTestParamValue(request.to, "to", "int32").(int32)
+
     e := initializeTest("PostSlidesSplit", "to", request.to)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -775,7 +845,9 @@ func TestPostSlidesSplitInvalidto(t *testing.T) {
 */
 func TestPostSlidesSplitInvalidfrom(t *testing.T) {
     request := createPostSlidesSplitRequest()
-    request.from = invalidizeTestParamValue(request.from, "from", "int32").(int32)
+    request.from = new(int32)
+    *request.from = invalidizeTestParamValue(request.from, "from", "int32").(int32)
+
     e := initializeTest("PostSlidesSplit", "from", request.from)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -791,6 +863,7 @@ func TestPostSlidesSplitInvalidfrom(t *testing.T) {
 func TestPostSlidesSplitInvaliddestFolder(t *testing.T) {
     request := createPostSlidesSplitRequest()
     request.destFolder = invalidizeTestParamValue(request.destFolder, "destFolder", "string").(string)
+
     e := initializeTest("PostSlidesSplit", "destFolder", request.destFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -806,6 +879,7 @@ func TestPostSlidesSplitInvaliddestFolder(t *testing.T) {
 func TestPostSlidesSplitInvalidpassword(t *testing.T) {
     request := createPostSlidesSplitRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostSlidesSplit", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -821,6 +895,7 @@ func TestPostSlidesSplitInvalidpassword(t *testing.T) {
 func TestPostSlidesSplitInvalidstorage(t *testing.T) {
     request := createPostSlidesSplitRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostSlidesSplit", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -836,6 +911,7 @@ func TestPostSlidesSplitInvalidstorage(t *testing.T) {
 func TestPostSlidesSplitInvalidfolder(t *testing.T) {
     request := createPostSlidesSplitRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostSlidesSplit", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -886,6 +962,7 @@ func createPutNewPresentationRequest() PutNewPresentationRequest {
 func TestPutNewPresentationInvalidname(t *testing.T) {
     request := createPutNewPresentationRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutNewPresentation", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -901,6 +978,7 @@ func TestPutNewPresentationInvalidname(t *testing.T) {
 func TestPutNewPresentationInvalidstream(t *testing.T) {
     request := createPutNewPresentationRequest()
     request.stream = invalidizeTestParamValue(request.stream, "stream", "[]byte").([]byte)
+
     e := initializeTest("PutNewPresentation", "stream", request.stream)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -916,6 +994,7 @@ func TestPutNewPresentationInvalidstream(t *testing.T) {
 func TestPutNewPresentationInvalidtemplatePath(t *testing.T) {
     request := createPutNewPresentationRequest()
     request.templatePath = invalidizeTestParamValue(request.templatePath, "templatePath", "string").(string)
+
     e := initializeTest("PutNewPresentation", "templatePath", request.templatePath)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -931,6 +1010,7 @@ func TestPutNewPresentationInvalidtemplatePath(t *testing.T) {
 func TestPutNewPresentationInvalidtemplatePassword(t *testing.T) {
     request := createPutNewPresentationRequest()
     request.templatePassword = invalidizeTestParamValue(request.templatePassword, "templatePassword", "string").(string)
+
     e := initializeTest("PutNewPresentation", "templatePassword", request.templatePassword)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -946,6 +1026,7 @@ func TestPutNewPresentationInvalidtemplatePassword(t *testing.T) {
 func TestPutNewPresentationInvalidtemplateStorage(t *testing.T) {
     request := createPutNewPresentationRequest()
     request.templateStorage = invalidizeTestParamValue(request.templateStorage, "templateStorage", "string").(string)
+
     e := initializeTest("PutNewPresentation", "templateStorage", request.templateStorage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -961,6 +1042,7 @@ func TestPutNewPresentationInvalidtemplateStorage(t *testing.T) {
 func TestPutNewPresentationInvalidpassword(t *testing.T) {
     request := createPutNewPresentationRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutNewPresentation", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -976,6 +1058,7 @@ func TestPutNewPresentationInvalidpassword(t *testing.T) {
 func TestPutNewPresentationInvalidstorage(t *testing.T) {
     request := createPutNewPresentationRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutNewPresentation", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -991,6 +1074,7 @@ func TestPutNewPresentationInvalidstorage(t *testing.T) {
 func TestPutNewPresentationInvalidfolder(t *testing.T) {
     request := createPutNewPresentationRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutNewPresentation", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1035,6 +1119,7 @@ func createPutSlidesConvertRequest() PutSlidesConvertRequest {
 func TestPutSlidesConvertInvalidformat(t *testing.T) {
     request := createPutSlidesConvertRequest()
     request.format = invalidizeTestParamValue(request.format, "format", "string").(string)
+
     e := initializeTest("PutSlidesConvert", "format", request.format)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1050,6 +1135,7 @@ func TestPutSlidesConvertInvalidformat(t *testing.T) {
 func TestPutSlidesConvertInvaliddocument(t *testing.T) {
     request := createPutSlidesConvertRequest()
     request.document = invalidizeTestParamValue(request.document, "document", "[]byte").([]byte)
+
     e := initializeTest("PutSlidesConvert", "document", request.document)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1065,6 +1151,7 @@ func TestPutSlidesConvertInvaliddocument(t *testing.T) {
 func TestPutSlidesConvertInvalidpassword(t *testing.T) {
     request := createPutSlidesConvertRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutSlidesConvert", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1080,6 +1167,7 @@ func TestPutSlidesConvertInvalidpassword(t *testing.T) {
 func TestPutSlidesConvertInvalidoutPath(t *testing.T) {
     request := createPutSlidesConvertRequest()
     request.outPath = invalidizeTestParamValue(request.outPath, "outPath", "string").(string)
+
     e := initializeTest("PutSlidesConvert", "outPath", request.outPath)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1095,6 +1183,7 @@ func TestPutSlidesConvertInvalidoutPath(t *testing.T) {
 func TestPutSlidesConvertInvalidfontsFolder(t *testing.T) {
     request := createPutSlidesConvertRequest()
     request.fontsFolder = invalidizeTestParamValue(request.fontsFolder, "fontsFolder", "string").(string)
+
     e := initializeTest("PutSlidesConvert", "fontsFolder", request.fontsFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1142,6 +1231,7 @@ func createPutSlidesDocumentFromHtmlRequest() PutSlidesDocumentFromHtmlRequest {
 func TestPutSlidesDocumentFromHtmlInvalidname(t *testing.T) {
     request := createPutSlidesDocumentFromHtmlRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutSlidesDocumentFromHtml", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1157,6 +1247,7 @@ func TestPutSlidesDocumentFromHtmlInvalidname(t *testing.T) {
 func TestPutSlidesDocumentFromHtmlInvalidhtml(t *testing.T) {
     request := createPutSlidesDocumentFromHtmlRequest()
     request.html = invalidizeTestParamValue(request.html, "html", "string").(string)
+
     e := initializeTest("PutSlidesDocumentFromHtml", "html", request.html)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1172,6 +1263,7 @@ func TestPutSlidesDocumentFromHtmlInvalidhtml(t *testing.T) {
 func TestPutSlidesDocumentFromHtmlInvalidpassword(t *testing.T) {
     request := createPutSlidesDocumentFromHtmlRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutSlidesDocumentFromHtml", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1187,6 +1279,7 @@ func TestPutSlidesDocumentFromHtmlInvalidpassword(t *testing.T) {
 func TestPutSlidesDocumentFromHtmlInvalidstorage(t *testing.T) {
     request := createPutSlidesDocumentFromHtmlRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutSlidesDocumentFromHtml", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1202,6 +1295,7 @@ func TestPutSlidesDocumentFromHtmlInvalidstorage(t *testing.T) {
 func TestPutSlidesDocumentFromHtmlInvalidfolder(t *testing.T) {
     request := createPutSlidesDocumentFromHtmlRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutSlidesDocumentFromHtml", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1239,8 +1333,18 @@ func createPutSlidesSlideSizeRequest() PutSlidesSlideSizeRequest {
     request.password = createTestParamValue("PutSlidesSlideSize", "password", "string").(string)
     request.storage = createTestParamValue("PutSlidesSlideSize", "storage", "string").(string)
     request.folder = createTestParamValue("PutSlidesSlideSize", "folder", "string").(string)
-    request.width = createTestParamValue("PutSlidesSlideSize", "width", "int32").(int32)
-    request.height = createTestParamValue("PutSlidesSlideSize", "height", "int32").(int32)
+    testwidth := createTestParamValue("PutSlidesSlideSize", "width", "int32")
+    switch v := testwidth.(type) { 
+    case int32:
+        request.width = new(int32)
+        *request.width = v
+    }
+    testheight := createTestParamValue("PutSlidesSlideSize", "height", "int32")
+    switch v := testheight.(type) { 
+    case int32:
+        request.height = new(int32)
+        *request.height = v
+    }
     request.sizeType = createTestParamValue("PutSlidesSlideSize", "sizeType", "string").(string)
     request.scaleType = createTestParamValue("PutSlidesSlideSize", "scaleType", "string").(string)
     return request
@@ -1252,6 +1356,7 @@ func createPutSlidesSlideSizeRequest() PutSlidesSlideSizeRequest {
 func TestPutSlidesSlideSizeInvalidname(t *testing.T) {
     request := createPutSlidesSlideSizeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutSlidesSlideSize", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1267,6 +1372,7 @@ func TestPutSlidesSlideSizeInvalidname(t *testing.T) {
 func TestPutSlidesSlideSizeInvalidpassword(t *testing.T) {
     request := createPutSlidesSlideSizeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutSlidesSlideSize", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1282,6 +1388,7 @@ func TestPutSlidesSlideSizeInvalidpassword(t *testing.T) {
 func TestPutSlidesSlideSizeInvalidstorage(t *testing.T) {
     request := createPutSlidesSlideSizeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutSlidesSlideSize", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1297,6 +1404,7 @@ func TestPutSlidesSlideSizeInvalidstorage(t *testing.T) {
 func TestPutSlidesSlideSizeInvalidfolder(t *testing.T) {
     request := createPutSlidesSlideSizeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutSlidesSlideSize", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1311,7 +1419,9 @@ func TestPutSlidesSlideSizeInvalidfolder(t *testing.T) {
 */
 func TestPutSlidesSlideSizeInvalidwidth(t *testing.T) {
     request := createPutSlidesSlideSizeRequest()
-    request.width = invalidizeTestParamValue(request.width, "width", "int32").(int32)
+    request.width = new(int32)
+    *request.width = invalidizeTestParamValue(request.width, "width", "int32").(int32)
+
     e := initializeTest("PutSlidesSlideSize", "width", request.width)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1326,7 +1436,9 @@ func TestPutSlidesSlideSizeInvalidwidth(t *testing.T) {
 */
 func TestPutSlidesSlideSizeInvalidheight(t *testing.T) {
     request := createPutSlidesSlideSizeRequest()
-    request.height = invalidizeTestParamValue(request.height, "height", "int32").(int32)
+    request.height = new(int32)
+    *request.height = invalidizeTestParamValue(request.height, "height", "int32").(int32)
+
     e := initializeTest("PutSlidesSlideSize", "height", request.height)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1342,6 +1454,7 @@ func TestPutSlidesSlideSizeInvalidheight(t *testing.T) {
 func TestPutSlidesSlideSizeInvalidsizeType(t *testing.T) {
     request := createPutSlidesSlideSizeRequest()
     request.sizeType = invalidizeTestParamValue(request.sizeType, "sizeType", "string").(string)
+
     e := initializeTest("PutSlidesSlideSize", "sizeType", request.sizeType)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1357,6 +1470,7 @@ func TestPutSlidesSlideSizeInvalidsizeType(t *testing.T) {
 func TestPutSlidesSlideSizeInvalidscaleType(t *testing.T) {
     request := createPutSlidesSlideSizeRequest()
     request.scaleType = invalidizeTestParamValue(request.scaleType, "scaleType", "string").(string)
+
     e := initializeTest("PutSlidesSlideSize", "scaleType", request.scaleType)
     if e != nil {
        t.Errorf("Error: %v.", e)

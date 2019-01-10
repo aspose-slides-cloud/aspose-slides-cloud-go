@@ -284,8 +284,10 @@ func (a *DocumentApiService) GetSlidesDocumentWithFormat(request GetSlidesDocume
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(request.jpegQuality, "int32", "jpegQuality"); err != nil {
-		return successPayload, nil, err
+	if request.jpegQuality != nil {
+		if err := typeCheckParameter(*request.jpegQuality, "int32", "jpegQuality"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -303,8 +305,8 @@ func (a *DocumentApiService) GetSlidesDocumentWithFormat(request GetSlidesDocume
 		return successPayload, nil, err
 	}
 
-	if request.jpegQuality != 0 {
-		localVarQueryParams.Add("jpegQuality", parameterToString(request.jpegQuality, ""))
+	if request.jpegQuality != nil {
+		localVarQueryParams.Add("jpegQuality", parameterToString(*request.jpegQuality, ""))
 	}
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
@@ -386,7 +388,7 @@ func (a *DocumentApiService) GetSlidesDocumentWithFormat(request GetSlidesDocume
 type GetSlidesDocumentWithFormatRequest struct {
     name string
     format string
-    jpegQuality int32
+    jpegQuality *int32
     password string
     storage string
     folder string
@@ -431,8 +433,10 @@ func (a *DocumentApiService) PostSlidesDocument(request PostSlidesDocumentReques
 	if err := typeCheckParameter(request.templateStorage, "string", "templateStorage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.isImageDataEmbedded, "bool", "isImageDataEmbedded"); err != nil {
-		return successPayload, nil, err
+	if request.isImageDataEmbedded != nil {
+		if err := typeCheckParameter(*request.isImageDataEmbedded, "bool", "isImageDataEmbedded"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -526,7 +530,7 @@ type PostSlidesDocumentRequest struct {
     data string
     templatePath string
     templateStorage string
-    isImageDataEmbedded bool
+    isImageDataEmbedded *bool
     password string
     storage string
     folder string
@@ -808,17 +812,25 @@ func (a *DocumentApiService) PostSlidesSplit(request PostSlidesSplitRequest) (Sp
 	if err := typeCheckParameter(request.format, "string", "format"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.width, "int32", "width"); err != nil {
-		return successPayload, nil, err
+	if request.width != nil {
+		if err := typeCheckParameter(*request.width, "int32", "width"); err != nil {
+			return successPayload, nil, err
+		}
 	}
-	if err := typeCheckParameter(request.height, "int32", "height"); err != nil {
-		return successPayload, nil, err
+	if request.height != nil {
+		if err := typeCheckParameter(*request.height, "int32", "height"); err != nil {
+			return successPayload, nil, err
+		}
 	}
-	if err := typeCheckParameter(request.to, "int32", "to"); err != nil {
-		return successPayload, nil, err
+	if request.to != nil {
+		if err := typeCheckParameter(*request.to, "int32", "to"); err != nil {
+			return successPayload, nil, err
+		}
 	}
-	if err := typeCheckParameter(request.from, "int32", "from"); err != nil {
-		return successPayload, nil, err
+	if request.from != nil {
+		if err := typeCheckParameter(*request.from, "int32", "from"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.destFolder, "string", "destFolder"); err != nil {
 		return successPayload, nil, err
@@ -836,17 +848,17 @@ func (a *DocumentApiService) PostSlidesSplit(request PostSlidesSplitRequest) (Sp
 	if localVarTempParam := request.format; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("format", parameterToString(localVarTempParam, ""))
 	}
-	if request.width != 0 {
-		localVarQueryParams.Add("width", parameterToString(request.width, ""))
+	if request.width != nil {
+		localVarQueryParams.Add("width", parameterToString(*request.width, ""))
 	}
-	if request.height != 0 {
-		localVarQueryParams.Add("height", parameterToString(request.height, ""))
+	if request.height != nil {
+		localVarQueryParams.Add("height", parameterToString(*request.height, ""))
 	}
-	if request.to != 0 {
-		localVarQueryParams.Add("to", parameterToString(request.to, ""))
+	if request.to != nil {
+		localVarQueryParams.Add("to", parameterToString(*request.to, ""))
 	}
-	if request.from != 0 {
-		localVarQueryParams.Add("from", parameterToString(request.from, ""))
+	if request.from != nil {
+		localVarQueryParams.Add("from", parameterToString(*request.from, ""))
 	}
 	if localVarTempParam := request.destFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("destFolder", parameterToString(localVarTempParam, ""))
@@ -927,10 +939,10 @@ type PostSlidesSplitRequest struct {
     name string
     options IExportOptions
     format string
-    width int32
-    height int32
-    to int32
-    from int32
+    width *int32
+    height *int32
+    to *int32
+    from *int32
     destFolder string
     password string
     storage string
@@ -1363,11 +1375,15 @@ func (a *DocumentApiService) PutSlidesSlideSize(request PutSlidesSlideSizeReques
 	if err := typeCheckParameter(request.folder, "string", "folder"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.width, "int32", "width"); err != nil {
-		return successPayload, nil, err
+	if request.width != nil {
+		if err := typeCheckParameter(*request.width, "int32", "width"); err != nil {
+			return successPayload, nil, err
+		}
 	}
-	if err := typeCheckParameter(request.height, "int32", "height"); err != nil {
-		return successPayload, nil, err
+	if request.height != nil {
+		if err := typeCheckParameter(*request.height, "int32", "height"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.sizeType, "string", "sizeType"); err != nil {
 		return successPayload, nil, err
@@ -1385,11 +1401,11 @@ func (a *DocumentApiService) PutSlidesSlideSize(request PutSlidesSlideSizeReques
 	if localVarTempParam := request.folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("folder", parameterToString(localVarTempParam, ""))
 	}
-	if request.width != 0 {
-		localVarQueryParams.Add("width", parameterToString(request.width, ""))
+	if request.width != nil {
+		localVarQueryParams.Add("width", parameterToString(*request.width, ""))
 	}
-	if request.height != 0 {
-		localVarQueryParams.Add("height", parameterToString(request.height, ""))
+	if request.height != nil {
+		localVarQueryParams.Add("height", parameterToString(*request.height, ""))
 	}
 	if localVarTempParam := request.sizeType; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("sizeType", parameterToString(localVarTempParam, ""))
@@ -1463,8 +1479,8 @@ type PutSlidesSlideSizeRequest struct {
     password string
     storage string
     folder string
-    width int32
-    height int32
+    width *int32
+    height *int32
     sizeType string
     scaleType string
 }

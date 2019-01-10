@@ -343,11 +343,15 @@ func (a *NotesSlideApiService) GetNotesSlideWithFormat(request GetNotesSlideWith
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(request.width, "int32", "width"); err != nil {
-		return successPayload, nil, err
+	if request.width != nil {
+		if err := typeCheckParameter(*request.width, "int32", "width"); err != nil {
+			return successPayload, nil, err
+		}
 	}
-	if err := typeCheckParameter(request.height, "int32", "height"); err != nil {
-		return successPayload, nil, err
+	if request.height != nil {
+		if err := typeCheckParameter(*request.height, "int32", "height"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -359,11 +363,11 @@ func (a *NotesSlideApiService) GetNotesSlideWithFormat(request GetNotesSlideWith
 		return successPayload, nil, err
 	}
 
-	if request.width != 0 {
-		localVarQueryParams.Add("width", parameterToString(request.width, ""))
+	if request.width != nil {
+		localVarQueryParams.Add("width", parameterToString(*request.width, ""))
 	}
-	if request.height != 0 {
-		localVarQueryParams.Add("height", parameterToString(request.height, ""))
+	if request.height != nil {
+		localVarQueryParams.Add("height", parameterToString(*request.height, ""))
 	}
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("password", parameterToString(localVarTempParam, ""))
@@ -440,8 +444,8 @@ type GetNotesSlideWithFormatRequest struct {
     name string
     slideIndex int32
     format string
-    width int32
-    height int32
+    width *int32
+    height *int32
     password string
     folder string
     storage string

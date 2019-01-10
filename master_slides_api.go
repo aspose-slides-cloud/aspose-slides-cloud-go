@@ -329,8 +329,10 @@ func (a *MasterSlidesApiService) PostCopyMasterSlideFromSourcePresentation(reque
 	if err := typeCheckParameter(request.cloneFromStorage, "string", "cloneFromStorage"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(request.applyToAll, "bool", "applyToAll"); err != nil {
-		return successPayload, nil, err
+	if request.applyToAll != nil {
+		if err := typeCheckParameter(*request.applyToAll, "bool", "applyToAll"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -427,7 +429,7 @@ type PostCopyMasterSlideFromSourcePresentationRequest struct {
     cloneFromPosition int32
     cloneFromPassword string
     cloneFromStorage string
-    applyToAll bool
+    applyToAll *bool
     password string
     folder string
     storage string

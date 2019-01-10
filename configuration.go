@@ -65,7 +65,7 @@ func NewConfiguration() *Configuration {
 		AppSid:        "https",
 		AppKey:        "https",
 		Version:       "v1.1",
-		ApiVersion:    "18.11.0",
+		ApiVersion:    "18.12.0",
 	}
 	return cfg
 }

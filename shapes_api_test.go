@@ -72,6 +72,7 @@ func createDeleteParagraphRequest() DeleteParagraphRequest {
 func TestDeleteParagraphInvalidname(t *testing.T) {
     request := createDeleteParagraphRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteParagraph", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -87,6 +88,7 @@ func TestDeleteParagraphInvalidname(t *testing.T) {
 func TestDeleteParagraphInvalidslideIndex(t *testing.T) {
     request := createDeleteParagraphRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeleteParagraph", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -102,6 +104,7 @@ func TestDeleteParagraphInvalidslideIndex(t *testing.T) {
 func TestDeleteParagraphInvalidpath(t *testing.T) {
     request := createDeleteParagraphRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeleteParagraph", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -117,6 +120,7 @@ func TestDeleteParagraphInvalidpath(t *testing.T) {
 func TestDeleteParagraphInvalidshapeIndex(t *testing.T) {
     request := createDeleteParagraphRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("DeleteParagraph", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -132,6 +136,7 @@ func TestDeleteParagraphInvalidshapeIndex(t *testing.T) {
 func TestDeleteParagraphInvalidparagraphIndex(t *testing.T) {
     request := createDeleteParagraphRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("DeleteParagraph", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -147,6 +152,7 @@ func TestDeleteParagraphInvalidparagraphIndex(t *testing.T) {
 func TestDeleteParagraphInvalidpassword(t *testing.T) {
     request := createDeleteParagraphRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteParagraph", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -162,6 +168,7 @@ func TestDeleteParagraphInvalidpassword(t *testing.T) {
 func TestDeleteParagraphInvalidfolder(t *testing.T) {
     request := createDeleteParagraphRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteParagraph", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -177,6 +184,7 @@ func TestDeleteParagraphInvalidfolder(t *testing.T) {
 func TestDeleteParagraphInvalidstorage(t *testing.T) {
     request := createDeleteParagraphRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteParagraph", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -227,6 +235,7 @@ func createDeleteParagraphsRequest() DeleteParagraphsRequest {
 func TestDeleteParagraphsInvalidname(t *testing.T) {
     request := createDeleteParagraphsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteParagraphs", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -242,6 +251,7 @@ func TestDeleteParagraphsInvalidname(t *testing.T) {
 func TestDeleteParagraphsInvalidslideIndex(t *testing.T) {
     request := createDeleteParagraphsRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeleteParagraphs", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -257,6 +267,7 @@ func TestDeleteParagraphsInvalidslideIndex(t *testing.T) {
 func TestDeleteParagraphsInvalidpath(t *testing.T) {
     request := createDeleteParagraphsRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeleteParagraphs", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -272,6 +283,7 @@ func TestDeleteParagraphsInvalidpath(t *testing.T) {
 func TestDeleteParagraphsInvalidshapeIndex(t *testing.T) {
     request := createDeleteParagraphsRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("DeleteParagraphs", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -287,6 +299,7 @@ func TestDeleteParagraphsInvalidshapeIndex(t *testing.T) {
 func TestDeleteParagraphsInvalidparagraphs(t *testing.T) {
     request := createDeleteParagraphsRequest()
     request.paragraphs = invalidizeTestParamValue(request.paragraphs, "paragraphs", "[]int32").([]int32)
+
     e := initializeTest("DeleteParagraphs", "paragraphs", request.paragraphs)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -302,6 +315,7 @@ func TestDeleteParagraphsInvalidparagraphs(t *testing.T) {
 func TestDeleteParagraphsInvalidpassword(t *testing.T) {
     request := createDeleteParagraphsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteParagraphs", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -317,6 +331,7 @@ func TestDeleteParagraphsInvalidpassword(t *testing.T) {
 func TestDeleteParagraphsInvalidfolder(t *testing.T) {
     request := createDeleteParagraphsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteParagraphs", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -332,6 +347,7 @@ func TestDeleteParagraphsInvalidfolder(t *testing.T) {
 func TestDeleteParagraphsInvalidstorage(t *testing.T) {
     request := createDeleteParagraphsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteParagraphs", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -383,6 +399,7 @@ func createDeletePortionRequest() DeletePortionRequest {
 func TestDeletePortionInvalidname(t *testing.T) {
     request := createDeletePortionRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeletePortion", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -398,6 +415,7 @@ func TestDeletePortionInvalidname(t *testing.T) {
 func TestDeletePortionInvalidslideIndex(t *testing.T) {
     request := createDeletePortionRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeletePortion", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -413,6 +431,7 @@ func TestDeletePortionInvalidslideIndex(t *testing.T) {
 func TestDeletePortionInvalidpath(t *testing.T) {
     request := createDeletePortionRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeletePortion", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -428,6 +447,7 @@ func TestDeletePortionInvalidpath(t *testing.T) {
 func TestDeletePortionInvalidshapeIndex(t *testing.T) {
     request := createDeletePortionRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("DeletePortion", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -443,6 +463,7 @@ func TestDeletePortionInvalidshapeIndex(t *testing.T) {
 func TestDeletePortionInvalidparagraphIndex(t *testing.T) {
     request := createDeletePortionRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("DeletePortion", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -458,6 +479,7 @@ func TestDeletePortionInvalidparagraphIndex(t *testing.T) {
 func TestDeletePortionInvalidportionIndex(t *testing.T) {
     request := createDeletePortionRequest()
     request.portionIndex = invalidizeTestParamValue(request.portionIndex, "portionIndex", "int32").(int32)
+
     e := initializeTest("DeletePortion", "portionIndex", request.portionIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -473,6 +495,7 @@ func TestDeletePortionInvalidportionIndex(t *testing.T) {
 func TestDeletePortionInvalidpassword(t *testing.T) {
     request := createDeletePortionRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeletePortion", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -488,6 +511,7 @@ func TestDeletePortionInvalidpassword(t *testing.T) {
 func TestDeletePortionInvalidfolder(t *testing.T) {
     request := createDeletePortionRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeletePortion", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -503,6 +527,7 @@ func TestDeletePortionInvalidfolder(t *testing.T) {
 func TestDeletePortionInvalidstorage(t *testing.T) {
     request := createDeletePortionRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeletePortion", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -554,6 +579,7 @@ func createDeletePortionsRequest() DeletePortionsRequest {
 func TestDeletePortionsInvalidname(t *testing.T) {
     request := createDeletePortionsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeletePortions", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -569,6 +595,7 @@ func TestDeletePortionsInvalidname(t *testing.T) {
 func TestDeletePortionsInvalidslideIndex(t *testing.T) {
     request := createDeletePortionsRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeletePortions", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -584,6 +611,7 @@ func TestDeletePortionsInvalidslideIndex(t *testing.T) {
 func TestDeletePortionsInvalidpath(t *testing.T) {
     request := createDeletePortionsRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeletePortions", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -599,6 +627,7 @@ func TestDeletePortionsInvalidpath(t *testing.T) {
 func TestDeletePortionsInvalidshapeIndex(t *testing.T) {
     request := createDeletePortionsRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("DeletePortions", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -614,6 +643,7 @@ func TestDeletePortionsInvalidshapeIndex(t *testing.T) {
 func TestDeletePortionsInvalidparagraphIndex(t *testing.T) {
     request := createDeletePortionsRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("DeletePortions", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -629,6 +659,7 @@ func TestDeletePortionsInvalidparagraphIndex(t *testing.T) {
 func TestDeletePortionsInvalidportions(t *testing.T) {
     request := createDeletePortionsRequest()
     request.portions = invalidizeTestParamValue(request.portions, "portions", "[]int32").([]int32)
+
     e := initializeTest("DeletePortions", "portions", request.portions)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -644,6 +675,7 @@ func TestDeletePortionsInvalidportions(t *testing.T) {
 func TestDeletePortionsInvalidpassword(t *testing.T) {
     request := createDeletePortionsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeletePortions", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -659,6 +691,7 @@ func TestDeletePortionsInvalidpassword(t *testing.T) {
 func TestDeletePortionsInvalidfolder(t *testing.T) {
     request := createDeletePortionsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeletePortions", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -674,6 +707,7 @@ func TestDeletePortionsInvalidfolder(t *testing.T) {
 func TestDeletePortionsInvalidstorage(t *testing.T) {
     request := createDeletePortionsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeletePortions", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -723,6 +757,7 @@ func createDeleteSlideShapeRequest() DeleteSlideShapeRequest {
 func TestDeleteSlideShapeInvalidname(t *testing.T) {
     request := createDeleteSlideShapeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteSlideShape", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -738,6 +773,7 @@ func TestDeleteSlideShapeInvalidname(t *testing.T) {
 func TestDeleteSlideShapeInvalidslideIndex(t *testing.T) {
     request := createDeleteSlideShapeRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeleteSlideShape", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -753,6 +789,7 @@ func TestDeleteSlideShapeInvalidslideIndex(t *testing.T) {
 func TestDeleteSlideShapeInvalidpath(t *testing.T) {
     request := createDeleteSlideShapeRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeleteSlideShape", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -768,6 +805,7 @@ func TestDeleteSlideShapeInvalidpath(t *testing.T) {
 func TestDeleteSlideShapeInvalidshapeIndex(t *testing.T) {
     request := createDeleteSlideShapeRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("DeleteSlideShape", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -783,6 +821,7 @@ func TestDeleteSlideShapeInvalidshapeIndex(t *testing.T) {
 func TestDeleteSlideShapeInvalidpassword(t *testing.T) {
     request := createDeleteSlideShapeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteSlideShape", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -798,6 +837,7 @@ func TestDeleteSlideShapeInvalidpassword(t *testing.T) {
 func TestDeleteSlideShapeInvalidfolder(t *testing.T) {
     request := createDeleteSlideShapeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteSlideShape", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -813,6 +853,7 @@ func TestDeleteSlideShapeInvalidfolder(t *testing.T) {
 func TestDeleteSlideShapeInvalidstorage(t *testing.T) {
     request := createDeleteSlideShapeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteSlideShape", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -862,6 +903,7 @@ func createDeleteSlideShapesRequest() DeleteSlideShapesRequest {
 func TestDeleteSlideShapesInvalidname(t *testing.T) {
     request := createDeleteSlideShapesRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteSlideShapes", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -877,6 +919,7 @@ func TestDeleteSlideShapesInvalidname(t *testing.T) {
 func TestDeleteSlideShapesInvalidslideIndex(t *testing.T) {
     request := createDeleteSlideShapesRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeleteSlideShapes", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -892,6 +935,7 @@ func TestDeleteSlideShapesInvalidslideIndex(t *testing.T) {
 func TestDeleteSlideShapesInvalidpath(t *testing.T) {
     request := createDeleteSlideShapesRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeleteSlideShapes", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -907,6 +951,7 @@ func TestDeleteSlideShapesInvalidpath(t *testing.T) {
 func TestDeleteSlideShapesInvalidshapes(t *testing.T) {
     request := createDeleteSlideShapesRequest()
     request.shapes = invalidizeTestParamValue(request.shapes, "shapes", "[]int32").([]int32)
+
     e := initializeTest("DeleteSlideShapes", "shapes", request.shapes)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -922,6 +967,7 @@ func TestDeleteSlideShapesInvalidshapes(t *testing.T) {
 func TestDeleteSlideShapesInvalidpassword(t *testing.T) {
     request := createDeleteSlideShapesRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteSlideShapes", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -937,6 +983,7 @@ func TestDeleteSlideShapesInvalidpassword(t *testing.T) {
 func TestDeleteSlideShapesInvalidfolder(t *testing.T) {
     request := createDeleteSlideShapesRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteSlideShapes", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -952,6 +999,7 @@ func TestDeleteSlideShapesInvalidfolder(t *testing.T) {
 func TestDeleteSlideShapesInvalidstorage(t *testing.T) {
     request := createDeleteSlideShapesRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteSlideShapes", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1003,6 +1051,7 @@ func createGetParagraphPortionRequest() GetParagraphPortionRequest {
 func TestGetParagraphPortionInvalidname(t *testing.T) {
     request := createGetParagraphPortionRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetParagraphPortion", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1018,6 +1067,7 @@ func TestGetParagraphPortionInvalidname(t *testing.T) {
 func TestGetParagraphPortionInvalidslideIndex(t *testing.T) {
     request := createGetParagraphPortionRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetParagraphPortion", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1033,6 +1083,7 @@ func TestGetParagraphPortionInvalidslideIndex(t *testing.T) {
 func TestGetParagraphPortionInvalidpath(t *testing.T) {
     request := createGetParagraphPortionRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetParagraphPortion", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1048,6 +1099,7 @@ func TestGetParagraphPortionInvalidpath(t *testing.T) {
 func TestGetParagraphPortionInvalidshapeIndex(t *testing.T) {
     request := createGetParagraphPortionRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetParagraphPortion", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1063,6 +1115,7 @@ func TestGetParagraphPortionInvalidshapeIndex(t *testing.T) {
 func TestGetParagraphPortionInvalidparagraphIndex(t *testing.T) {
     request := createGetParagraphPortionRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("GetParagraphPortion", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1078,6 +1131,7 @@ func TestGetParagraphPortionInvalidparagraphIndex(t *testing.T) {
 func TestGetParagraphPortionInvalidportionIndex(t *testing.T) {
     request := createGetParagraphPortionRequest()
     request.portionIndex = invalidizeTestParamValue(request.portionIndex, "portionIndex", "int32").(int32)
+
     e := initializeTest("GetParagraphPortion", "portionIndex", request.portionIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1093,6 +1147,7 @@ func TestGetParagraphPortionInvalidportionIndex(t *testing.T) {
 func TestGetParagraphPortionInvalidpassword(t *testing.T) {
     request := createGetParagraphPortionRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetParagraphPortion", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1108,6 +1163,7 @@ func TestGetParagraphPortionInvalidpassword(t *testing.T) {
 func TestGetParagraphPortionInvalidfolder(t *testing.T) {
     request := createGetParagraphPortionRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetParagraphPortion", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1123,6 +1179,7 @@ func TestGetParagraphPortionInvalidfolder(t *testing.T) {
 func TestGetParagraphPortionInvalidstorage(t *testing.T) {
     request := createGetParagraphPortionRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetParagraphPortion", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1173,6 +1230,7 @@ func createGetParagraphPortionsRequest() GetParagraphPortionsRequest {
 func TestGetParagraphPortionsInvalidname(t *testing.T) {
     request := createGetParagraphPortionsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetParagraphPortions", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1188,6 +1246,7 @@ func TestGetParagraphPortionsInvalidname(t *testing.T) {
 func TestGetParagraphPortionsInvalidslideIndex(t *testing.T) {
     request := createGetParagraphPortionsRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetParagraphPortions", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1203,6 +1262,7 @@ func TestGetParagraphPortionsInvalidslideIndex(t *testing.T) {
 func TestGetParagraphPortionsInvalidpath(t *testing.T) {
     request := createGetParagraphPortionsRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetParagraphPortions", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1218,6 +1278,7 @@ func TestGetParagraphPortionsInvalidpath(t *testing.T) {
 func TestGetParagraphPortionsInvalidshapeIndex(t *testing.T) {
     request := createGetParagraphPortionsRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetParagraphPortions", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1233,6 +1294,7 @@ func TestGetParagraphPortionsInvalidshapeIndex(t *testing.T) {
 func TestGetParagraphPortionsInvalidparagraphIndex(t *testing.T) {
     request := createGetParagraphPortionsRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("GetParagraphPortions", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1248,6 +1310,7 @@ func TestGetParagraphPortionsInvalidparagraphIndex(t *testing.T) {
 func TestGetParagraphPortionsInvalidpassword(t *testing.T) {
     request := createGetParagraphPortionsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetParagraphPortions", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1263,6 +1326,7 @@ func TestGetParagraphPortionsInvalidpassword(t *testing.T) {
 func TestGetParagraphPortionsInvalidfolder(t *testing.T) {
     request := createGetParagraphPortionsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetParagraphPortions", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1278,6 +1342,7 @@ func TestGetParagraphPortionsInvalidfolder(t *testing.T) {
 func TestGetParagraphPortionsInvalidstorage(t *testing.T) {
     request := createGetParagraphPortionsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetParagraphPortions", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1328,6 +1393,7 @@ func createGetShapeParagraphRequest() GetShapeParagraphRequest {
 func TestGetShapeParagraphInvalidname(t *testing.T) {
     request := createGetShapeParagraphRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetShapeParagraph", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1343,6 +1409,7 @@ func TestGetShapeParagraphInvalidname(t *testing.T) {
 func TestGetShapeParagraphInvalidslideIndex(t *testing.T) {
     request := createGetShapeParagraphRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetShapeParagraph", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1358,6 +1425,7 @@ func TestGetShapeParagraphInvalidslideIndex(t *testing.T) {
 func TestGetShapeParagraphInvalidpath(t *testing.T) {
     request := createGetShapeParagraphRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetShapeParagraph", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1373,6 +1441,7 @@ func TestGetShapeParagraphInvalidpath(t *testing.T) {
 func TestGetShapeParagraphInvalidshapeIndex(t *testing.T) {
     request := createGetShapeParagraphRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetShapeParagraph", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1388,6 +1457,7 @@ func TestGetShapeParagraphInvalidshapeIndex(t *testing.T) {
 func TestGetShapeParagraphInvalidparagraphIndex(t *testing.T) {
     request := createGetShapeParagraphRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("GetShapeParagraph", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1403,6 +1473,7 @@ func TestGetShapeParagraphInvalidparagraphIndex(t *testing.T) {
 func TestGetShapeParagraphInvalidpassword(t *testing.T) {
     request := createGetShapeParagraphRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetShapeParagraph", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1418,6 +1489,7 @@ func TestGetShapeParagraphInvalidpassword(t *testing.T) {
 func TestGetShapeParagraphInvalidfolder(t *testing.T) {
     request := createGetShapeParagraphRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetShapeParagraph", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1433,6 +1505,7 @@ func TestGetShapeParagraphInvalidfolder(t *testing.T) {
 func TestGetShapeParagraphInvalidstorage(t *testing.T) {
     request := createGetShapeParagraphRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetShapeParagraph", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1470,8 +1543,18 @@ func createGetShapeWithFormatRequest() GetShapeWithFormatRequest {
     request.password = createTestParamValue("GetShapeWithFormat", "password", "string").(string)
     request.folder = createTestParamValue("GetShapeWithFormat", "folder", "string").(string)
     request.storage = createTestParamValue("GetShapeWithFormat", "storage", "string").(string)
-    request.scaleX = createTestParamValue("GetShapeWithFormat", "scaleX", "float64").(float64)
-    request.scaleY = createTestParamValue("GetShapeWithFormat", "scaleY", "float64").(float64)
+    testscaleX := createTestParamValue("GetShapeWithFormat", "scaleX", "float64")
+    switch v := testscaleX.(type) { 
+    case float64:
+        request.scaleX = new(float64)
+        *request.scaleX = v
+    }
+    testscaleY := createTestParamValue("GetShapeWithFormat", "scaleY", "float64")
+    switch v := testscaleY.(type) { 
+    case float64:
+        request.scaleY = new(float64)
+        *request.scaleY = v
+    }
     request.bounds = createTestParamValue("GetShapeWithFormat", "bounds", "string").(string)
     request.outPath = createTestParamValue("GetShapeWithFormat", "outPath", "string").(string)
     request.fontsFolder = createTestParamValue("GetShapeWithFormat", "fontsFolder", "string").(string)
@@ -1484,6 +1567,7 @@ func createGetShapeWithFormatRequest() GetShapeWithFormatRequest {
 func TestGetShapeWithFormatInvalidname(t *testing.T) {
     request := createGetShapeWithFormatRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetShapeWithFormat", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1499,6 +1583,7 @@ func TestGetShapeWithFormatInvalidname(t *testing.T) {
 func TestGetShapeWithFormatInvalidslideIndex(t *testing.T) {
     request := createGetShapeWithFormatRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetShapeWithFormat", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1514,6 +1599,7 @@ func TestGetShapeWithFormatInvalidslideIndex(t *testing.T) {
 func TestGetShapeWithFormatInvalidshapeIndex(t *testing.T) {
     request := createGetShapeWithFormatRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetShapeWithFormat", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1529,6 +1615,7 @@ func TestGetShapeWithFormatInvalidshapeIndex(t *testing.T) {
 func TestGetShapeWithFormatInvalidformat(t *testing.T) {
     request := createGetShapeWithFormatRequest()
     request.format = invalidizeTestParamValue(request.format, "format", "string").(string)
+
     e := initializeTest("GetShapeWithFormat", "format", request.format)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1544,6 +1631,7 @@ func TestGetShapeWithFormatInvalidformat(t *testing.T) {
 func TestGetShapeWithFormatInvalidpassword(t *testing.T) {
     request := createGetShapeWithFormatRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetShapeWithFormat", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1559,6 +1647,7 @@ func TestGetShapeWithFormatInvalidpassword(t *testing.T) {
 func TestGetShapeWithFormatInvalidfolder(t *testing.T) {
     request := createGetShapeWithFormatRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetShapeWithFormat", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1574,6 +1663,7 @@ func TestGetShapeWithFormatInvalidfolder(t *testing.T) {
 func TestGetShapeWithFormatInvalidstorage(t *testing.T) {
     request := createGetShapeWithFormatRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetShapeWithFormat", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1588,7 +1678,9 @@ func TestGetShapeWithFormatInvalidstorage(t *testing.T) {
 */
 func TestGetShapeWithFormatInvalidscaleX(t *testing.T) {
     request := createGetShapeWithFormatRequest()
-    request.scaleX = invalidizeTestParamValue(request.scaleX, "scaleX", "float64").(float64)
+    request.scaleX = new(float64)
+    *request.scaleX = invalidizeTestParamValue(request.scaleX, "scaleX", "float64").(float64)
+
     e := initializeTest("GetShapeWithFormat", "scaleX", request.scaleX)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1603,7 +1695,9 @@ func TestGetShapeWithFormatInvalidscaleX(t *testing.T) {
 */
 func TestGetShapeWithFormatInvalidscaleY(t *testing.T) {
     request := createGetShapeWithFormatRequest()
-    request.scaleY = invalidizeTestParamValue(request.scaleY, "scaleY", "float64").(float64)
+    request.scaleY = new(float64)
+    *request.scaleY = invalidizeTestParamValue(request.scaleY, "scaleY", "float64").(float64)
+
     e := initializeTest("GetShapeWithFormat", "scaleY", request.scaleY)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1619,6 +1713,7 @@ func TestGetShapeWithFormatInvalidscaleY(t *testing.T) {
 func TestGetShapeWithFormatInvalidbounds(t *testing.T) {
     request := createGetShapeWithFormatRequest()
     request.bounds = invalidizeTestParamValue(request.bounds, "bounds", "string").(string)
+
     e := initializeTest("GetShapeWithFormat", "bounds", request.bounds)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1634,6 +1729,7 @@ func TestGetShapeWithFormatInvalidbounds(t *testing.T) {
 func TestGetShapeWithFormatInvalidoutPath(t *testing.T) {
     request := createGetShapeWithFormatRequest()
     request.outPath = invalidizeTestParamValue(request.outPath, "outPath", "string").(string)
+
     e := initializeTest("GetShapeWithFormat", "outPath", request.outPath)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1649,6 +1745,7 @@ func TestGetShapeWithFormatInvalidoutPath(t *testing.T) {
 func TestGetShapeWithFormatInvalidfontsFolder(t *testing.T) {
     request := createGetShapeWithFormatRequest()
     request.fontsFolder = invalidizeTestParamValue(request.fontsFolder, "fontsFolder", "string").(string)
+
     e := initializeTest("GetShapeWithFormat", "fontsFolder", request.fontsFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1698,6 +1795,7 @@ func createGetSlideShapeRequest() GetSlideShapeRequest {
 func TestGetSlideShapeInvalidname(t *testing.T) {
     request := createGetSlideShapeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlideShape", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1713,6 +1811,7 @@ func TestGetSlideShapeInvalidname(t *testing.T) {
 func TestGetSlideShapeInvalidslideIndex(t *testing.T) {
     request := createGetSlideShapeRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetSlideShape", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1728,6 +1827,7 @@ func TestGetSlideShapeInvalidslideIndex(t *testing.T) {
 func TestGetSlideShapeInvalidpath(t *testing.T) {
     request := createGetSlideShapeRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetSlideShape", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1743,6 +1843,7 @@ func TestGetSlideShapeInvalidpath(t *testing.T) {
 func TestGetSlideShapeInvalidshapeIndex(t *testing.T) {
     request := createGetSlideShapeRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetSlideShape", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1758,6 +1859,7 @@ func TestGetSlideShapeInvalidshapeIndex(t *testing.T) {
 func TestGetSlideShapeInvalidpassword(t *testing.T) {
     request := createGetSlideShapeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlideShape", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1773,6 +1875,7 @@ func TestGetSlideShapeInvalidpassword(t *testing.T) {
 func TestGetSlideShapeInvalidfolder(t *testing.T) {
     request := createGetSlideShapeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlideShape", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1788,6 +1891,7 @@ func TestGetSlideShapeInvalidfolder(t *testing.T) {
 func TestGetSlideShapeInvalidstorage(t *testing.T) {
     request := createGetSlideShapeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlideShape", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1837,6 +1941,7 @@ func createGetSlideShapeParagraphsRequest() GetSlideShapeParagraphsRequest {
 func TestGetSlideShapeParagraphsInvalidname(t *testing.T) {
     request := createGetSlideShapeParagraphsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlideShapeParagraphs", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1852,6 +1957,7 @@ func TestGetSlideShapeParagraphsInvalidname(t *testing.T) {
 func TestGetSlideShapeParagraphsInvalidslideIndex(t *testing.T) {
     request := createGetSlideShapeParagraphsRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetSlideShapeParagraphs", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1867,6 +1973,7 @@ func TestGetSlideShapeParagraphsInvalidslideIndex(t *testing.T) {
 func TestGetSlideShapeParagraphsInvalidpath(t *testing.T) {
     request := createGetSlideShapeParagraphsRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetSlideShapeParagraphs", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1882,6 +1989,7 @@ func TestGetSlideShapeParagraphsInvalidpath(t *testing.T) {
 func TestGetSlideShapeParagraphsInvalidshapeIndex(t *testing.T) {
     request := createGetSlideShapeParagraphsRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetSlideShapeParagraphs", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1897,6 +2005,7 @@ func TestGetSlideShapeParagraphsInvalidshapeIndex(t *testing.T) {
 func TestGetSlideShapeParagraphsInvalidpassword(t *testing.T) {
     request := createGetSlideShapeParagraphsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlideShapeParagraphs", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1912,6 +2021,7 @@ func TestGetSlideShapeParagraphsInvalidpassword(t *testing.T) {
 func TestGetSlideShapeParagraphsInvalidfolder(t *testing.T) {
     request := createGetSlideShapeParagraphsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlideShapeParagraphs", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1927,6 +2037,7 @@ func TestGetSlideShapeParagraphsInvalidfolder(t *testing.T) {
 func TestGetSlideShapeParagraphsInvalidstorage(t *testing.T) {
     request := createGetSlideShapeParagraphsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlideShapeParagraphs", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1975,6 +2086,7 @@ func createGetSlideShapesRequest() GetSlideShapesRequest {
 func TestGetSlideShapesInvalidname(t *testing.T) {
     request := createGetSlideShapesRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlideShapes", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1990,6 +2102,7 @@ func TestGetSlideShapesInvalidname(t *testing.T) {
 func TestGetSlideShapesInvalidslideIndex(t *testing.T) {
     request := createGetSlideShapesRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetSlideShapes", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2005,6 +2118,7 @@ func TestGetSlideShapesInvalidslideIndex(t *testing.T) {
 func TestGetSlideShapesInvalidpath(t *testing.T) {
     request := createGetSlideShapesRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetSlideShapes", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2020,6 +2134,7 @@ func TestGetSlideShapesInvalidpath(t *testing.T) {
 func TestGetSlideShapesInvalidpassword(t *testing.T) {
     request := createGetSlideShapesRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlideShapes", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2035,6 +2150,7 @@ func TestGetSlideShapesInvalidpassword(t *testing.T) {
 func TestGetSlideShapesInvalidfolder(t *testing.T) {
     request := createGetSlideShapesRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlideShapes", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2050,6 +2166,7 @@ func TestGetSlideShapesInvalidfolder(t *testing.T) {
 func TestGetSlideShapesInvalidstorage(t *testing.T) {
     request := createGetSlideShapesRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlideShapes", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2091,7 +2208,12 @@ func createPostAddNewParagraphRequest() PostAddNewParagraphRequest {
     request.password = createTestParamValue("PostAddNewParagraph", "password", "string").(string)
     request.folder = createTestParamValue("PostAddNewParagraph", "folder", "string").(string)
     request.storage = createTestParamValue("PostAddNewParagraph", "storage", "string").(string)
-    request.position = createTestParamValue("PostAddNewParagraph", "position", "int32").(int32)
+    testposition := createTestParamValue("PostAddNewParagraph", "position", "int32")
+    switch v := testposition.(type) { 
+    case int32:
+        request.position = new(int32)
+        *request.position = v
+    }
     return request
 }
 
@@ -2101,6 +2223,7 @@ func createPostAddNewParagraphRequest() PostAddNewParagraphRequest {
 func TestPostAddNewParagraphInvalidname(t *testing.T) {
     request := createPostAddNewParagraphRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostAddNewParagraph", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2116,6 +2239,7 @@ func TestPostAddNewParagraphInvalidname(t *testing.T) {
 func TestPostAddNewParagraphInvalidslideIndex(t *testing.T) {
     request := createPostAddNewParagraphRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PostAddNewParagraph", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2131,6 +2255,7 @@ func TestPostAddNewParagraphInvalidslideIndex(t *testing.T) {
 func TestPostAddNewParagraphInvalidpath(t *testing.T) {
     request := createPostAddNewParagraphRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PostAddNewParagraph", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2146,6 +2271,7 @@ func TestPostAddNewParagraphInvalidpath(t *testing.T) {
 func TestPostAddNewParagraphInvalidshapeIndex(t *testing.T) {
     request := createPostAddNewParagraphRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PostAddNewParagraph", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2161,6 +2287,7 @@ func TestPostAddNewParagraphInvalidshapeIndex(t *testing.T) {
 func TestPostAddNewParagraphInvaliddto(t *testing.T) {
     request := createPostAddNewParagraphRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "Paragraph").(IParagraph)
+
     e := initializeTest("PostAddNewParagraph", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2176,6 +2303,7 @@ func TestPostAddNewParagraphInvaliddto(t *testing.T) {
 func TestPostAddNewParagraphInvalidpassword(t *testing.T) {
     request := createPostAddNewParagraphRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostAddNewParagraph", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2191,6 +2319,7 @@ func TestPostAddNewParagraphInvalidpassword(t *testing.T) {
 func TestPostAddNewParagraphInvalidfolder(t *testing.T) {
     request := createPostAddNewParagraphRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostAddNewParagraph", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2206,6 +2335,7 @@ func TestPostAddNewParagraphInvalidfolder(t *testing.T) {
 func TestPostAddNewParagraphInvalidstorage(t *testing.T) {
     request := createPostAddNewParagraphRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostAddNewParagraph", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2220,7 +2350,9 @@ func TestPostAddNewParagraphInvalidstorage(t *testing.T) {
 */
 func TestPostAddNewParagraphInvalidposition(t *testing.T) {
     request := createPostAddNewParagraphRequest()
-    request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+    request.position = new(int32)
+    *request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+
     e := initializeTest("PostAddNewParagraph", "position", request.position)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2263,7 +2395,12 @@ func createPostAddNewPortionRequest() PostAddNewPortionRequest {
     request.password = createTestParamValue("PostAddNewPortion", "password", "string").(string)
     request.folder = createTestParamValue("PostAddNewPortion", "folder", "string").(string)
     request.storage = createTestParamValue("PostAddNewPortion", "storage", "string").(string)
-    request.position = createTestParamValue("PostAddNewPortion", "position", "int32").(int32)
+    testposition := createTestParamValue("PostAddNewPortion", "position", "int32")
+    switch v := testposition.(type) { 
+    case int32:
+        request.position = new(int32)
+        *request.position = v
+    }
     return request
 }
 
@@ -2273,6 +2410,7 @@ func createPostAddNewPortionRequest() PostAddNewPortionRequest {
 func TestPostAddNewPortionInvalidname(t *testing.T) {
     request := createPostAddNewPortionRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostAddNewPortion", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2288,6 +2426,7 @@ func TestPostAddNewPortionInvalidname(t *testing.T) {
 func TestPostAddNewPortionInvalidslideIndex(t *testing.T) {
     request := createPostAddNewPortionRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PostAddNewPortion", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2303,6 +2442,7 @@ func TestPostAddNewPortionInvalidslideIndex(t *testing.T) {
 func TestPostAddNewPortionInvalidpath(t *testing.T) {
     request := createPostAddNewPortionRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PostAddNewPortion", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2318,6 +2458,7 @@ func TestPostAddNewPortionInvalidpath(t *testing.T) {
 func TestPostAddNewPortionInvalidshapeIndex(t *testing.T) {
     request := createPostAddNewPortionRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PostAddNewPortion", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2333,6 +2474,7 @@ func TestPostAddNewPortionInvalidshapeIndex(t *testing.T) {
 func TestPostAddNewPortionInvalidparagraphIndex(t *testing.T) {
     request := createPostAddNewPortionRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("PostAddNewPortion", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2348,6 +2490,7 @@ func TestPostAddNewPortionInvalidparagraphIndex(t *testing.T) {
 func TestPostAddNewPortionInvaliddto(t *testing.T) {
     request := createPostAddNewPortionRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "Portion").(IPortion)
+
     e := initializeTest("PostAddNewPortion", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2363,6 +2506,7 @@ func TestPostAddNewPortionInvaliddto(t *testing.T) {
 func TestPostAddNewPortionInvalidpassword(t *testing.T) {
     request := createPostAddNewPortionRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostAddNewPortion", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2378,6 +2522,7 @@ func TestPostAddNewPortionInvalidpassword(t *testing.T) {
 func TestPostAddNewPortionInvalidfolder(t *testing.T) {
     request := createPostAddNewPortionRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostAddNewPortion", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2393,6 +2538,7 @@ func TestPostAddNewPortionInvalidfolder(t *testing.T) {
 func TestPostAddNewPortionInvalidstorage(t *testing.T) {
     request := createPostAddNewPortionRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostAddNewPortion", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2407,7 +2553,9 @@ func TestPostAddNewPortionInvalidstorage(t *testing.T) {
 */
 func TestPostAddNewPortionInvalidposition(t *testing.T) {
     request := createPostAddNewPortionRequest()
-    request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+    request.position = new(int32)
+    *request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+
     e := initializeTest("PostAddNewPortion", "position", request.position)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2448,8 +2596,18 @@ func createPostAddNewShapeRequest() PostAddNewShapeRequest {
     request.password = createTestParamValue("PostAddNewShape", "password", "string").(string)
     request.folder = createTestParamValue("PostAddNewShape", "folder", "string").(string)
     request.storage = createTestParamValue("PostAddNewShape", "storage", "string").(string)
-    request.shapeToClone = createTestParamValue("PostAddNewShape", "shapeToClone", "int32").(int32)
-    request.position = createTestParamValue("PostAddNewShape", "position", "int32").(int32)
+    testshapeToClone := createTestParamValue("PostAddNewShape", "shapeToClone", "int32")
+    switch v := testshapeToClone.(type) { 
+    case int32:
+        request.shapeToClone = new(int32)
+        *request.shapeToClone = v
+    }
+    testposition := createTestParamValue("PostAddNewShape", "position", "int32")
+    switch v := testposition.(type) { 
+    case int32:
+        request.position = new(int32)
+        *request.position = v
+    }
     return request
 }
 
@@ -2459,6 +2617,7 @@ func createPostAddNewShapeRequest() PostAddNewShapeRequest {
 func TestPostAddNewShapeInvalidname(t *testing.T) {
     request := createPostAddNewShapeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostAddNewShape", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2474,6 +2633,7 @@ func TestPostAddNewShapeInvalidname(t *testing.T) {
 func TestPostAddNewShapeInvalidslideIndex(t *testing.T) {
     request := createPostAddNewShapeRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PostAddNewShape", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2489,6 +2649,7 @@ func TestPostAddNewShapeInvalidslideIndex(t *testing.T) {
 func TestPostAddNewShapeInvalidpath(t *testing.T) {
     request := createPostAddNewShapeRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PostAddNewShape", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2504,6 +2665,7 @@ func TestPostAddNewShapeInvalidpath(t *testing.T) {
 func TestPostAddNewShapeInvaliddto(t *testing.T) {
     request := createPostAddNewShapeRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "ShapeBase").(IShapeBase)
+
     e := initializeTest("PostAddNewShape", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2519,6 +2681,7 @@ func TestPostAddNewShapeInvaliddto(t *testing.T) {
 func TestPostAddNewShapeInvalidpassword(t *testing.T) {
     request := createPostAddNewShapeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostAddNewShape", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2534,6 +2697,7 @@ func TestPostAddNewShapeInvalidpassword(t *testing.T) {
 func TestPostAddNewShapeInvalidfolder(t *testing.T) {
     request := createPostAddNewShapeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostAddNewShape", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2549,6 +2713,7 @@ func TestPostAddNewShapeInvalidfolder(t *testing.T) {
 func TestPostAddNewShapeInvalidstorage(t *testing.T) {
     request := createPostAddNewShapeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostAddNewShape", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2563,7 +2728,9 @@ func TestPostAddNewShapeInvalidstorage(t *testing.T) {
 */
 func TestPostAddNewShapeInvalidshapeToClone(t *testing.T) {
     request := createPostAddNewShapeRequest()
-    request.shapeToClone = invalidizeTestParamValue(request.shapeToClone, "shapeToClone", "int32").(int32)
+    request.shapeToClone = new(int32)
+    *request.shapeToClone = invalidizeTestParamValue(request.shapeToClone, "shapeToClone", "int32").(int32)
+
     e := initializeTest("PostAddNewShape", "shapeToClone", request.shapeToClone)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2578,7 +2745,9 @@ func TestPostAddNewShapeInvalidshapeToClone(t *testing.T) {
 */
 func TestPostAddNewShapeInvalidposition(t *testing.T) {
     request := createPostAddNewShapeRequest()
-    request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+    request.position = new(int32)
+    *request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+
     e := initializeTest("PostAddNewShape", "position", request.position)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2617,8 +2786,18 @@ func createPostShapeSaveAsRequest() PostShapeSaveAsRequest {
     request.password = createTestParamValue("PostShapeSaveAs", "password", "string").(string)
     request.folder = createTestParamValue("PostShapeSaveAs", "folder", "string").(string)
     request.storage = createTestParamValue("PostShapeSaveAs", "storage", "string").(string)
-    request.scaleX = createTestParamValue("PostShapeSaveAs", "scaleX", "float64").(float64)
-    request.scaleY = createTestParamValue("PostShapeSaveAs", "scaleY", "float64").(float64)
+    testscaleX := createTestParamValue("PostShapeSaveAs", "scaleX", "float64")
+    switch v := testscaleX.(type) { 
+    case float64:
+        request.scaleX = new(float64)
+        *request.scaleX = v
+    }
+    testscaleY := createTestParamValue("PostShapeSaveAs", "scaleY", "float64")
+    switch v := testscaleY.(type) { 
+    case float64:
+        request.scaleY = new(float64)
+        *request.scaleY = v
+    }
     request.bounds = createTestParamValue("PostShapeSaveAs", "bounds", "string").(string)
     request.outPath = createTestParamValue("PostShapeSaveAs", "outPath", "string").(string)
     request.fontsFolder = createTestParamValue("PostShapeSaveAs", "fontsFolder", "string").(string)
@@ -2631,6 +2810,7 @@ func createPostShapeSaveAsRequest() PostShapeSaveAsRequest {
 func TestPostShapeSaveAsInvalidname(t *testing.T) {
     request := createPostShapeSaveAsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostShapeSaveAs", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2646,6 +2826,7 @@ func TestPostShapeSaveAsInvalidname(t *testing.T) {
 func TestPostShapeSaveAsInvalidslideIndex(t *testing.T) {
     request := createPostShapeSaveAsRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PostShapeSaveAs", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2661,6 +2842,7 @@ func TestPostShapeSaveAsInvalidslideIndex(t *testing.T) {
 func TestPostShapeSaveAsInvalidshapeIndex(t *testing.T) {
     request := createPostShapeSaveAsRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PostShapeSaveAs", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2676,6 +2858,7 @@ func TestPostShapeSaveAsInvalidshapeIndex(t *testing.T) {
 func TestPostShapeSaveAsInvalidformat(t *testing.T) {
     request := createPostShapeSaveAsRequest()
     request.format = invalidizeTestParamValue(request.format, "format", "string").(string)
+
     e := initializeTest("PostShapeSaveAs", "format", request.format)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2691,6 +2874,7 @@ func TestPostShapeSaveAsInvalidformat(t *testing.T) {
 func TestPostShapeSaveAsInvalidoptions(t *testing.T) {
     request := createPostShapeSaveAsRequest()
     request.options = invalidizeTestParamValue(request.options, "options", "IShapeExportOptions").(IIShapeExportOptions)
+
     e := initializeTest("PostShapeSaveAs", "options", request.options)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2706,6 +2890,7 @@ func TestPostShapeSaveAsInvalidoptions(t *testing.T) {
 func TestPostShapeSaveAsInvalidpassword(t *testing.T) {
     request := createPostShapeSaveAsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostShapeSaveAs", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2721,6 +2906,7 @@ func TestPostShapeSaveAsInvalidpassword(t *testing.T) {
 func TestPostShapeSaveAsInvalidfolder(t *testing.T) {
     request := createPostShapeSaveAsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostShapeSaveAs", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2736,6 +2922,7 @@ func TestPostShapeSaveAsInvalidfolder(t *testing.T) {
 func TestPostShapeSaveAsInvalidstorage(t *testing.T) {
     request := createPostShapeSaveAsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostShapeSaveAs", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2750,7 +2937,9 @@ func TestPostShapeSaveAsInvalidstorage(t *testing.T) {
 */
 func TestPostShapeSaveAsInvalidscaleX(t *testing.T) {
     request := createPostShapeSaveAsRequest()
-    request.scaleX = invalidizeTestParamValue(request.scaleX, "scaleX", "float64").(float64)
+    request.scaleX = new(float64)
+    *request.scaleX = invalidizeTestParamValue(request.scaleX, "scaleX", "float64").(float64)
+
     e := initializeTest("PostShapeSaveAs", "scaleX", request.scaleX)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2765,7 +2954,9 @@ func TestPostShapeSaveAsInvalidscaleX(t *testing.T) {
 */
 func TestPostShapeSaveAsInvalidscaleY(t *testing.T) {
     request := createPostShapeSaveAsRequest()
-    request.scaleY = invalidizeTestParamValue(request.scaleY, "scaleY", "float64").(float64)
+    request.scaleY = new(float64)
+    *request.scaleY = invalidizeTestParamValue(request.scaleY, "scaleY", "float64").(float64)
+
     e := initializeTest("PostShapeSaveAs", "scaleY", request.scaleY)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2781,6 +2972,7 @@ func TestPostShapeSaveAsInvalidscaleY(t *testing.T) {
 func TestPostShapeSaveAsInvalidbounds(t *testing.T) {
     request := createPostShapeSaveAsRequest()
     request.bounds = invalidizeTestParamValue(request.bounds, "bounds", "string").(string)
+
     e := initializeTest("PostShapeSaveAs", "bounds", request.bounds)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2796,6 +2988,7 @@ func TestPostShapeSaveAsInvalidbounds(t *testing.T) {
 func TestPostShapeSaveAsInvalidoutPath(t *testing.T) {
     request := createPostShapeSaveAsRequest()
     request.outPath = invalidizeTestParamValue(request.outPath, "outPath", "string").(string)
+
     e := initializeTest("PostShapeSaveAs", "outPath", request.outPath)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2811,6 +3004,7 @@ func TestPostShapeSaveAsInvalidoutPath(t *testing.T) {
 func TestPostShapeSaveAsInvalidfontsFolder(t *testing.T) {
     request := createPostShapeSaveAsRequest()
     request.fontsFolder = invalidizeTestParamValue(request.fontsFolder, "fontsFolder", "string").(string)
+
     e := initializeTest("PostShapeSaveAs", "fontsFolder", request.fontsFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2863,6 +3057,7 @@ func createPutSetParagraphPortionPropertiesRequest() PutSetParagraphPortionPrope
 func TestPutSetParagraphPortionPropertiesInvalidname(t *testing.T) {
     request := createPutSetParagraphPortionPropertiesRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutSetParagraphPortionProperties", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2878,6 +3073,7 @@ func TestPutSetParagraphPortionPropertiesInvalidname(t *testing.T) {
 func TestPutSetParagraphPortionPropertiesInvalidslideIndex(t *testing.T) {
     request := createPutSetParagraphPortionPropertiesRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PutSetParagraphPortionProperties", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2893,6 +3089,7 @@ func TestPutSetParagraphPortionPropertiesInvalidslideIndex(t *testing.T) {
 func TestPutSetParagraphPortionPropertiesInvalidpath(t *testing.T) {
     request := createPutSetParagraphPortionPropertiesRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PutSetParagraphPortionProperties", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2908,6 +3105,7 @@ func TestPutSetParagraphPortionPropertiesInvalidpath(t *testing.T) {
 func TestPutSetParagraphPortionPropertiesInvalidshapeIndex(t *testing.T) {
     request := createPutSetParagraphPortionPropertiesRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PutSetParagraphPortionProperties", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2923,6 +3121,7 @@ func TestPutSetParagraphPortionPropertiesInvalidshapeIndex(t *testing.T) {
 func TestPutSetParagraphPortionPropertiesInvalidparagraphIndex(t *testing.T) {
     request := createPutSetParagraphPortionPropertiesRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("PutSetParagraphPortionProperties", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2938,6 +3137,7 @@ func TestPutSetParagraphPortionPropertiesInvalidparagraphIndex(t *testing.T) {
 func TestPutSetParagraphPortionPropertiesInvalidportionIndex(t *testing.T) {
     request := createPutSetParagraphPortionPropertiesRequest()
     request.portionIndex = invalidizeTestParamValue(request.portionIndex, "portionIndex", "int32").(int32)
+
     e := initializeTest("PutSetParagraphPortionProperties", "portionIndex", request.portionIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2953,6 +3153,7 @@ func TestPutSetParagraphPortionPropertiesInvalidportionIndex(t *testing.T) {
 func TestPutSetParagraphPortionPropertiesInvaliddto(t *testing.T) {
     request := createPutSetParagraphPortionPropertiesRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "Portion").(IPortion)
+
     e := initializeTest("PutSetParagraphPortionProperties", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2968,6 +3169,7 @@ func TestPutSetParagraphPortionPropertiesInvaliddto(t *testing.T) {
 func TestPutSetParagraphPortionPropertiesInvalidpassword(t *testing.T) {
     request := createPutSetParagraphPortionPropertiesRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutSetParagraphPortionProperties", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2983,6 +3185,7 @@ func TestPutSetParagraphPortionPropertiesInvalidpassword(t *testing.T) {
 func TestPutSetParagraphPortionPropertiesInvalidfolder(t *testing.T) {
     request := createPutSetParagraphPortionPropertiesRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutSetParagraphPortionProperties", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2998,6 +3201,7 @@ func TestPutSetParagraphPortionPropertiesInvalidfolder(t *testing.T) {
 func TestPutSetParagraphPortionPropertiesInvalidstorage(t *testing.T) {
     request := createPutSetParagraphPortionPropertiesRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutSetParagraphPortionProperties", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3049,6 +3253,7 @@ func createPutSetParagraphPropertiesRequest() PutSetParagraphPropertiesRequest {
 func TestPutSetParagraphPropertiesInvalidname(t *testing.T) {
     request := createPutSetParagraphPropertiesRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutSetParagraphProperties", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3064,6 +3269,7 @@ func TestPutSetParagraphPropertiesInvalidname(t *testing.T) {
 func TestPutSetParagraphPropertiesInvalidslideIndex(t *testing.T) {
     request := createPutSetParagraphPropertiesRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PutSetParagraphProperties", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3079,6 +3285,7 @@ func TestPutSetParagraphPropertiesInvalidslideIndex(t *testing.T) {
 func TestPutSetParagraphPropertiesInvalidpath(t *testing.T) {
     request := createPutSetParagraphPropertiesRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PutSetParagraphProperties", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3094,6 +3301,7 @@ func TestPutSetParagraphPropertiesInvalidpath(t *testing.T) {
 func TestPutSetParagraphPropertiesInvalidshapeIndex(t *testing.T) {
     request := createPutSetParagraphPropertiesRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PutSetParagraphProperties", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3109,6 +3317,7 @@ func TestPutSetParagraphPropertiesInvalidshapeIndex(t *testing.T) {
 func TestPutSetParagraphPropertiesInvalidparagraphIndex(t *testing.T) {
     request := createPutSetParagraphPropertiesRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("PutSetParagraphProperties", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3124,6 +3333,7 @@ func TestPutSetParagraphPropertiesInvalidparagraphIndex(t *testing.T) {
 func TestPutSetParagraphPropertiesInvaliddto(t *testing.T) {
     request := createPutSetParagraphPropertiesRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "Paragraph").(IParagraph)
+
     e := initializeTest("PutSetParagraphProperties", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3139,6 +3349,7 @@ func TestPutSetParagraphPropertiesInvaliddto(t *testing.T) {
 func TestPutSetParagraphPropertiesInvalidpassword(t *testing.T) {
     request := createPutSetParagraphPropertiesRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutSetParagraphProperties", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3154,6 +3365,7 @@ func TestPutSetParagraphPropertiesInvalidpassword(t *testing.T) {
 func TestPutSetParagraphPropertiesInvalidfolder(t *testing.T) {
     request := createPutSetParagraphPropertiesRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutSetParagraphProperties", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3169,6 +3381,7 @@ func TestPutSetParagraphPropertiesInvalidfolder(t *testing.T) {
 func TestPutSetParagraphPropertiesInvalidstorage(t *testing.T) {
     request := createPutSetParagraphPropertiesRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutSetParagraphProperties", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3219,6 +3432,7 @@ func createPutSlideShapeInfoRequest() PutSlideShapeInfoRequest {
 func TestPutSlideShapeInfoInvalidname(t *testing.T) {
     request := createPutSlideShapeInfoRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutSlideShapeInfo", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3234,6 +3448,7 @@ func TestPutSlideShapeInfoInvalidname(t *testing.T) {
 func TestPutSlideShapeInfoInvalidslideIndex(t *testing.T) {
     request := createPutSlideShapeInfoRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PutSlideShapeInfo", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3249,6 +3464,7 @@ func TestPutSlideShapeInfoInvalidslideIndex(t *testing.T) {
 func TestPutSlideShapeInfoInvalidpath(t *testing.T) {
     request := createPutSlideShapeInfoRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PutSlideShapeInfo", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3264,6 +3480,7 @@ func TestPutSlideShapeInfoInvalidpath(t *testing.T) {
 func TestPutSlideShapeInfoInvalidshapeIndex(t *testing.T) {
     request := createPutSlideShapeInfoRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PutSlideShapeInfo", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3279,6 +3496,7 @@ func TestPutSlideShapeInfoInvalidshapeIndex(t *testing.T) {
 func TestPutSlideShapeInfoInvaliddto(t *testing.T) {
     request := createPutSlideShapeInfoRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "ShapeBase").(IShapeBase)
+
     e := initializeTest("PutSlideShapeInfo", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3294,6 +3512,7 @@ func TestPutSlideShapeInfoInvaliddto(t *testing.T) {
 func TestPutSlideShapeInfoInvalidpassword(t *testing.T) {
     request := createPutSlideShapeInfoRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutSlideShapeInfo", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3309,6 +3528,7 @@ func TestPutSlideShapeInfoInvalidpassword(t *testing.T) {
 func TestPutSlideShapeInfoInvalidfolder(t *testing.T) {
     request := createPutSlideShapeInfoRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutSlideShapeInfo", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3324,6 +3544,7 @@ func TestPutSlideShapeInfoInvalidfolder(t *testing.T) {
 func TestPutSlideShapeInfoInvalidstorage(t *testing.T) {
     request := createPutSlideShapeInfoRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutSlideShapeInfo", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)

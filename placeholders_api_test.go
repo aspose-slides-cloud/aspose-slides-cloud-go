@@ -70,6 +70,7 @@ func createGetSlidesPlaceholderRequest() GetSlidesPlaceholderRequest {
 func TestGetSlidesPlaceholderInvalidname(t *testing.T) {
     request := createGetSlidesPlaceholderRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesPlaceholder", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -85,6 +86,7 @@ func TestGetSlidesPlaceholderInvalidname(t *testing.T) {
 func TestGetSlidesPlaceholderInvalidslideIndex(t *testing.T) {
     request := createGetSlidesPlaceholderRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetSlidesPlaceholder", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -100,6 +102,7 @@ func TestGetSlidesPlaceholderInvalidslideIndex(t *testing.T) {
 func TestGetSlidesPlaceholderInvalidplaceholderIndex(t *testing.T) {
     request := createGetSlidesPlaceholderRequest()
     request.placeholderIndex = invalidizeTestParamValue(request.placeholderIndex, "placeholderIndex", "int32").(int32)
+
     e := initializeTest("GetSlidesPlaceholder", "placeholderIndex", request.placeholderIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -115,6 +118,7 @@ func TestGetSlidesPlaceholderInvalidplaceholderIndex(t *testing.T) {
 func TestGetSlidesPlaceholderInvalidpassword(t *testing.T) {
     request := createGetSlidesPlaceholderRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesPlaceholder", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -130,6 +134,7 @@ func TestGetSlidesPlaceholderInvalidpassword(t *testing.T) {
 func TestGetSlidesPlaceholderInvalidfolder(t *testing.T) {
     request := createGetSlidesPlaceholderRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesPlaceholder", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -145,6 +150,7 @@ func TestGetSlidesPlaceholderInvalidfolder(t *testing.T) {
 func TestGetSlidesPlaceholderInvalidstorage(t *testing.T) {
     request := createGetSlidesPlaceholderRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesPlaceholder", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -192,6 +198,7 @@ func createGetSlidesPlaceholdersRequest() GetSlidesPlaceholdersRequest {
 func TestGetSlidesPlaceholdersInvalidname(t *testing.T) {
     request := createGetSlidesPlaceholdersRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesPlaceholders", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -207,6 +214,7 @@ func TestGetSlidesPlaceholdersInvalidname(t *testing.T) {
 func TestGetSlidesPlaceholdersInvalidslideIndex(t *testing.T) {
     request := createGetSlidesPlaceholdersRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetSlidesPlaceholders", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -222,6 +230,7 @@ func TestGetSlidesPlaceholdersInvalidslideIndex(t *testing.T) {
 func TestGetSlidesPlaceholdersInvalidpassword(t *testing.T) {
     request := createGetSlidesPlaceholdersRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesPlaceholders", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -237,6 +246,7 @@ func TestGetSlidesPlaceholdersInvalidpassword(t *testing.T) {
 func TestGetSlidesPlaceholdersInvalidfolder(t *testing.T) {
     request := createGetSlidesPlaceholdersRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesPlaceholders", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -252,6 +262,7 @@ func TestGetSlidesPlaceholdersInvalidfolder(t *testing.T) {
 func TestGetSlidesPlaceholdersInvalidstorage(t *testing.T) {
     request := createGetSlidesPlaceholdersRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesPlaceholders", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)

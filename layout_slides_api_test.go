@@ -69,6 +69,7 @@ func createGetLayoutSlideRequest() GetLayoutSlideRequest {
 func TestGetLayoutSlideInvalidname(t *testing.T) {
     request := createGetLayoutSlideRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetLayoutSlide", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -84,6 +85,7 @@ func TestGetLayoutSlideInvalidname(t *testing.T) {
 func TestGetLayoutSlideInvalidslideIndex(t *testing.T) {
     request := createGetLayoutSlideRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetLayoutSlide", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -99,6 +101,7 @@ func TestGetLayoutSlideInvalidslideIndex(t *testing.T) {
 func TestGetLayoutSlideInvalidpassword(t *testing.T) {
     request := createGetLayoutSlideRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetLayoutSlide", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -114,6 +117,7 @@ func TestGetLayoutSlideInvalidpassword(t *testing.T) {
 func TestGetLayoutSlideInvalidfolder(t *testing.T) {
     request := createGetLayoutSlideRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetLayoutSlide", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -129,6 +133,7 @@ func TestGetLayoutSlideInvalidfolder(t *testing.T) {
 func TestGetLayoutSlideInvalidstorage(t *testing.T) {
     request := createGetLayoutSlideRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetLayoutSlide", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -175,6 +180,7 @@ func createGetLayoutSlidesListRequest() GetLayoutSlidesListRequest {
 func TestGetLayoutSlidesListInvalidname(t *testing.T) {
     request := createGetLayoutSlidesListRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetLayoutSlidesList", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -190,6 +196,7 @@ func TestGetLayoutSlidesListInvalidname(t *testing.T) {
 func TestGetLayoutSlidesListInvalidpassword(t *testing.T) {
     request := createGetLayoutSlidesListRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetLayoutSlidesList", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -205,6 +212,7 @@ func TestGetLayoutSlidesListInvalidpassword(t *testing.T) {
 func TestGetLayoutSlidesListInvalidfolder(t *testing.T) {
     request := createGetLayoutSlidesListRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetLayoutSlidesList", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -220,6 +228,7 @@ func TestGetLayoutSlidesListInvalidfolder(t *testing.T) {
 func TestGetLayoutSlidesListInvalidstorage(t *testing.T) {
     request := createGetLayoutSlidesListRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetLayoutSlidesList", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -270,6 +279,7 @@ func createPostCopyLayoutSlideFromSourcePresentationRequest() PostCopyLayoutSlid
 func TestPostCopyLayoutSlideFromSourcePresentationInvalidname(t *testing.T) {
     request := createPostCopyLayoutSlideFromSourcePresentationRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostCopyLayoutSlideFromSourcePresentation", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -285,6 +295,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidname(t *testing.T) {
 func TestPostCopyLayoutSlideFromSourcePresentationInvalidcloneFrom(t *testing.T) {
     request := createPostCopyLayoutSlideFromSourcePresentationRequest()
     request.cloneFrom = invalidizeTestParamValue(request.cloneFrom, "cloneFrom", "string").(string)
+
     e := initializeTest("PostCopyLayoutSlideFromSourcePresentation", "cloneFrom", request.cloneFrom)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -300,6 +311,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidcloneFrom(t *testing.T)
 func TestPostCopyLayoutSlideFromSourcePresentationInvalidcloneFromPosition(t *testing.T) {
     request := createPostCopyLayoutSlideFromSourcePresentationRequest()
     request.cloneFromPosition = invalidizeTestParamValue(request.cloneFromPosition, "cloneFromPosition", "int32").(int32)
+
     e := initializeTest("PostCopyLayoutSlideFromSourcePresentation", "cloneFromPosition", request.cloneFromPosition)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -315,6 +327,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidcloneFromPosition(t *te
 func TestPostCopyLayoutSlideFromSourcePresentationInvalidcloneFromPassword(t *testing.T) {
     request := createPostCopyLayoutSlideFromSourcePresentationRequest()
     request.cloneFromPassword = invalidizeTestParamValue(request.cloneFromPassword, "cloneFromPassword", "string").(string)
+
     e := initializeTest("PostCopyLayoutSlideFromSourcePresentation", "cloneFromPassword", request.cloneFromPassword)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -330,6 +343,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidcloneFromPassword(t *te
 func TestPostCopyLayoutSlideFromSourcePresentationInvalidcloneFromStorage(t *testing.T) {
     request := createPostCopyLayoutSlideFromSourcePresentationRequest()
     request.cloneFromStorage = invalidizeTestParamValue(request.cloneFromStorage, "cloneFromStorage", "string").(string)
+
     e := initializeTest("PostCopyLayoutSlideFromSourcePresentation", "cloneFromStorage", request.cloneFromStorage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -345,6 +359,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidcloneFromStorage(t *tes
 func TestPostCopyLayoutSlideFromSourcePresentationInvalidpassword(t *testing.T) {
     request := createPostCopyLayoutSlideFromSourcePresentationRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostCopyLayoutSlideFromSourcePresentation", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -360,6 +375,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidpassword(t *testing.T) 
 func TestPostCopyLayoutSlideFromSourcePresentationInvalidfolder(t *testing.T) {
     request := createPostCopyLayoutSlideFromSourcePresentationRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostCopyLayoutSlideFromSourcePresentation", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -375,6 +391,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidfolder(t *testing.T) {
 func TestPostCopyLayoutSlideFromSourcePresentationInvalidstorage(t *testing.T) {
     request := createPostCopyLayoutSlideFromSourcePresentationRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostCopyLayoutSlideFromSourcePresentation", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -423,6 +440,7 @@ func createPutLayoutSlideRequest() PutLayoutSlideRequest {
 func TestPutLayoutSlideInvalidname(t *testing.T) {
     request := createPutLayoutSlideRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutLayoutSlide", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -438,6 +456,7 @@ func TestPutLayoutSlideInvalidname(t *testing.T) {
 func TestPutLayoutSlideInvalidslideIndex(t *testing.T) {
     request := createPutLayoutSlideRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PutLayoutSlide", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -453,6 +472,7 @@ func TestPutLayoutSlideInvalidslideIndex(t *testing.T) {
 func TestPutLayoutSlideInvalidslideDto(t *testing.T) {
     request := createPutLayoutSlideRequest()
     request.slideDto = invalidizeTestParamValue(request.slideDto, "slideDto", "LayoutSlide").(ILayoutSlide)
+
     e := initializeTest("PutLayoutSlide", "slideDto", request.slideDto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -468,6 +488,7 @@ func TestPutLayoutSlideInvalidslideDto(t *testing.T) {
 func TestPutLayoutSlideInvalidpassword(t *testing.T) {
     request := createPutLayoutSlideRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutLayoutSlide", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -483,6 +504,7 @@ func TestPutLayoutSlideInvalidpassword(t *testing.T) {
 func TestPutLayoutSlideInvalidfolder(t *testing.T) {
     request := createPutLayoutSlideRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutLayoutSlide", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -498,6 +520,7 @@ func TestPutLayoutSlideInvalidfolder(t *testing.T) {
 func TestPutLayoutSlideInvalidstorage(t *testing.T) {
     request := createPutLayoutSlideRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutLayoutSlide", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)

@@ -72,6 +72,7 @@ func createDeleteNotesSlideParagraphRequest() DeleteNotesSlideParagraphRequest {
 func TestDeleteNotesSlideParagraphInvalidname(t *testing.T) {
     request := createDeleteNotesSlideParagraphRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteNotesSlideParagraph", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -87,6 +88,7 @@ func TestDeleteNotesSlideParagraphInvalidname(t *testing.T) {
 func TestDeleteNotesSlideParagraphInvalidslideIndex(t *testing.T) {
     request := createDeleteNotesSlideParagraphRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlideParagraph", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -102,6 +104,7 @@ func TestDeleteNotesSlideParagraphInvalidslideIndex(t *testing.T) {
 func TestDeleteNotesSlideParagraphInvalidpath(t *testing.T) {
     request := createDeleteNotesSlideParagraphRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeleteNotesSlideParagraph", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -117,6 +120,7 @@ func TestDeleteNotesSlideParagraphInvalidpath(t *testing.T) {
 func TestDeleteNotesSlideParagraphInvalidshapeIndex(t *testing.T) {
     request := createDeleteNotesSlideParagraphRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlideParagraph", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -132,6 +136,7 @@ func TestDeleteNotesSlideParagraphInvalidshapeIndex(t *testing.T) {
 func TestDeleteNotesSlideParagraphInvalidparagraphIndex(t *testing.T) {
     request := createDeleteNotesSlideParagraphRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlideParagraph", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -147,6 +152,7 @@ func TestDeleteNotesSlideParagraphInvalidparagraphIndex(t *testing.T) {
 func TestDeleteNotesSlideParagraphInvalidpassword(t *testing.T) {
     request := createDeleteNotesSlideParagraphRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteNotesSlideParagraph", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -162,6 +168,7 @@ func TestDeleteNotesSlideParagraphInvalidpassword(t *testing.T) {
 func TestDeleteNotesSlideParagraphInvalidfolder(t *testing.T) {
     request := createDeleteNotesSlideParagraphRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteNotesSlideParagraph", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -177,6 +184,7 @@ func TestDeleteNotesSlideParagraphInvalidfolder(t *testing.T) {
 func TestDeleteNotesSlideParagraphInvalidstorage(t *testing.T) {
     request := createDeleteNotesSlideParagraphRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteNotesSlideParagraph", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -227,6 +235,7 @@ func createDeleteNotesSlideParagraphsRequest() DeleteNotesSlideParagraphsRequest
 func TestDeleteNotesSlideParagraphsInvalidname(t *testing.T) {
     request := createDeleteNotesSlideParagraphsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteNotesSlideParagraphs", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -242,6 +251,7 @@ func TestDeleteNotesSlideParagraphsInvalidname(t *testing.T) {
 func TestDeleteNotesSlideParagraphsInvalidslideIndex(t *testing.T) {
     request := createDeleteNotesSlideParagraphsRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlideParagraphs", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -257,6 +267,7 @@ func TestDeleteNotesSlideParagraphsInvalidslideIndex(t *testing.T) {
 func TestDeleteNotesSlideParagraphsInvalidpath(t *testing.T) {
     request := createDeleteNotesSlideParagraphsRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeleteNotesSlideParagraphs", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -272,6 +283,7 @@ func TestDeleteNotesSlideParagraphsInvalidpath(t *testing.T) {
 func TestDeleteNotesSlideParagraphsInvalidshapeIndex(t *testing.T) {
     request := createDeleteNotesSlideParagraphsRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlideParagraphs", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -287,6 +299,7 @@ func TestDeleteNotesSlideParagraphsInvalidshapeIndex(t *testing.T) {
 func TestDeleteNotesSlideParagraphsInvalidparagraphs(t *testing.T) {
     request := createDeleteNotesSlideParagraphsRequest()
     request.paragraphs = invalidizeTestParamValue(request.paragraphs, "paragraphs", "[]int32").([]int32)
+
     e := initializeTest("DeleteNotesSlideParagraphs", "paragraphs", request.paragraphs)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -302,6 +315,7 @@ func TestDeleteNotesSlideParagraphsInvalidparagraphs(t *testing.T) {
 func TestDeleteNotesSlideParagraphsInvalidpassword(t *testing.T) {
     request := createDeleteNotesSlideParagraphsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteNotesSlideParagraphs", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -317,6 +331,7 @@ func TestDeleteNotesSlideParagraphsInvalidpassword(t *testing.T) {
 func TestDeleteNotesSlideParagraphsInvalidfolder(t *testing.T) {
     request := createDeleteNotesSlideParagraphsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteNotesSlideParagraphs", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -332,6 +347,7 @@ func TestDeleteNotesSlideParagraphsInvalidfolder(t *testing.T) {
 func TestDeleteNotesSlideParagraphsInvalidstorage(t *testing.T) {
     request := createDeleteNotesSlideParagraphsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteNotesSlideParagraphs", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -383,6 +399,7 @@ func createDeleteNotesSlidePortionRequest() DeleteNotesSlidePortionRequest {
 func TestDeleteNotesSlidePortionInvalidname(t *testing.T) {
     request := createDeleteNotesSlidePortionRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteNotesSlidePortion", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -398,6 +415,7 @@ func TestDeleteNotesSlidePortionInvalidname(t *testing.T) {
 func TestDeleteNotesSlidePortionInvalidslideIndex(t *testing.T) {
     request := createDeleteNotesSlidePortionRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlidePortion", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -413,6 +431,7 @@ func TestDeleteNotesSlidePortionInvalidslideIndex(t *testing.T) {
 func TestDeleteNotesSlidePortionInvalidpath(t *testing.T) {
     request := createDeleteNotesSlidePortionRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeleteNotesSlidePortion", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -428,6 +447,7 @@ func TestDeleteNotesSlidePortionInvalidpath(t *testing.T) {
 func TestDeleteNotesSlidePortionInvalidshapeIndex(t *testing.T) {
     request := createDeleteNotesSlidePortionRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlidePortion", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -443,6 +463,7 @@ func TestDeleteNotesSlidePortionInvalidshapeIndex(t *testing.T) {
 func TestDeleteNotesSlidePortionInvalidparagraphIndex(t *testing.T) {
     request := createDeleteNotesSlidePortionRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlidePortion", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -458,6 +479,7 @@ func TestDeleteNotesSlidePortionInvalidparagraphIndex(t *testing.T) {
 func TestDeleteNotesSlidePortionInvalidportionIndex(t *testing.T) {
     request := createDeleteNotesSlidePortionRequest()
     request.portionIndex = invalidizeTestParamValue(request.portionIndex, "portionIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlidePortion", "portionIndex", request.portionIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -473,6 +495,7 @@ func TestDeleteNotesSlidePortionInvalidportionIndex(t *testing.T) {
 func TestDeleteNotesSlidePortionInvalidpassword(t *testing.T) {
     request := createDeleteNotesSlidePortionRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteNotesSlidePortion", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -488,6 +511,7 @@ func TestDeleteNotesSlidePortionInvalidpassword(t *testing.T) {
 func TestDeleteNotesSlidePortionInvalidfolder(t *testing.T) {
     request := createDeleteNotesSlidePortionRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteNotesSlidePortion", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -503,6 +527,7 @@ func TestDeleteNotesSlidePortionInvalidfolder(t *testing.T) {
 func TestDeleteNotesSlidePortionInvalidstorage(t *testing.T) {
     request := createDeleteNotesSlidePortionRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteNotesSlidePortion", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -554,6 +579,7 @@ func createDeleteNotesSlidePortionsRequest() DeleteNotesSlidePortionsRequest {
 func TestDeleteNotesSlidePortionsInvalidname(t *testing.T) {
     request := createDeleteNotesSlidePortionsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteNotesSlidePortions", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -569,6 +595,7 @@ func TestDeleteNotesSlidePortionsInvalidname(t *testing.T) {
 func TestDeleteNotesSlidePortionsInvalidslideIndex(t *testing.T) {
     request := createDeleteNotesSlidePortionsRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlidePortions", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -584,6 +611,7 @@ func TestDeleteNotesSlidePortionsInvalidslideIndex(t *testing.T) {
 func TestDeleteNotesSlidePortionsInvalidpath(t *testing.T) {
     request := createDeleteNotesSlidePortionsRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeleteNotesSlidePortions", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -599,6 +627,7 @@ func TestDeleteNotesSlidePortionsInvalidpath(t *testing.T) {
 func TestDeleteNotesSlidePortionsInvalidshapeIndex(t *testing.T) {
     request := createDeleteNotesSlidePortionsRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlidePortions", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -614,6 +643,7 @@ func TestDeleteNotesSlidePortionsInvalidshapeIndex(t *testing.T) {
 func TestDeleteNotesSlidePortionsInvalidparagraphIndex(t *testing.T) {
     request := createDeleteNotesSlidePortionsRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlidePortions", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -629,6 +659,7 @@ func TestDeleteNotesSlidePortionsInvalidparagraphIndex(t *testing.T) {
 func TestDeleteNotesSlidePortionsInvalidportions(t *testing.T) {
     request := createDeleteNotesSlidePortionsRequest()
     request.portions = invalidizeTestParamValue(request.portions, "portions", "[]int32").([]int32)
+
     e := initializeTest("DeleteNotesSlidePortions", "portions", request.portions)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -644,6 +675,7 @@ func TestDeleteNotesSlidePortionsInvalidportions(t *testing.T) {
 func TestDeleteNotesSlidePortionsInvalidpassword(t *testing.T) {
     request := createDeleteNotesSlidePortionsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteNotesSlidePortions", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -659,6 +691,7 @@ func TestDeleteNotesSlidePortionsInvalidpassword(t *testing.T) {
 func TestDeleteNotesSlidePortionsInvalidfolder(t *testing.T) {
     request := createDeleteNotesSlidePortionsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteNotesSlidePortions", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -674,6 +707,7 @@ func TestDeleteNotesSlidePortionsInvalidfolder(t *testing.T) {
 func TestDeleteNotesSlidePortionsInvalidstorage(t *testing.T) {
     request := createDeleteNotesSlidePortionsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteNotesSlidePortions", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -723,6 +757,7 @@ func createDeleteNotesSlideShapeRequest() DeleteNotesSlideShapeRequest {
 func TestDeleteNotesSlideShapeInvalidname(t *testing.T) {
     request := createDeleteNotesSlideShapeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteNotesSlideShape", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -738,6 +773,7 @@ func TestDeleteNotesSlideShapeInvalidname(t *testing.T) {
 func TestDeleteNotesSlideShapeInvalidslideIndex(t *testing.T) {
     request := createDeleteNotesSlideShapeRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlideShape", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -753,6 +789,7 @@ func TestDeleteNotesSlideShapeInvalidslideIndex(t *testing.T) {
 func TestDeleteNotesSlideShapeInvalidpath(t *testing.T) {
     request := createDeleteNotesSlideShapeRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeleteNotesSlideShape", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -768,6 +805,7 @@ func TestDeleteNotesSlideShapeInvalidpath(t *testing.T) {
 func TestDeleteNotesSlideShapeInvalidshapeIndex(t *testing.T) {
     request := createDeleteNotesSlideShapeRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlideShape", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -783,6 +821,7 @@ func TestDeleteNotesSlideShapeInvalidshapeIndex(t *testing.T) {
 func TestDeleteNotesSlideShapeInvalidpassword(t *testing.T) {
     request := createDeleteNotesSlideShapeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteNotesSlideShape", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -798,6 +837,7 @@ func TestDeleteNotesSlideShapeInvalidpassword(t *testing.T) {
 func TestDeleteNotesSlideShapeInvalidfolder(t *testing.T) {
     request := createDeleteNotesSlideShapeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteNotesSlideShape", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -813,6 +853,7 @@ func TestDeleteNotesSlideShapeInvalidfolder(t *testing.T) {
 func TestDeleteNotesSlideShapeInvalidstorage(t *testing.T) {
     request := createDeleteNotesSlideShapeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteNotesSlideShape", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -862,6 +903,7 @@ func createDeleteNotesSlideShapesRequest() DeleteNotesSlideShapesRequest {
 func TestDeleteNotesSlideShapesInvalidname(t *testing.T) {
     request := createDeleteNotesSlideShapesRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteNotesSlideShapes", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -877,6 +919,7 @@ func TestDeleteNotesSlideShapesInvalidname(t *testing.T) {
 func TestDeleteNotesSlideShapesInvalidslideIndex(t *testing.T) {
     request := createDeleteNotesSlideShapesRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlideShapes", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -892,6 +935,7 @@ func TestDeleteNotesSlideShapesInvalidslideIndex(t *testing.T) {
 func TestDeleteNotesSlideShapesInvalidpath(t *testing.T) {
     request := createDeleteNotesSlideShapesRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("DeleteNotesSlideShapes", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -907,6 +951,7 @@ func TestDeleteNotesSlideShapesInvalidpath(t *testing.T) {
 func TestDeleteNotesSlideShapesInvalidshapes(t *testing.T) {
     request := createDeleteNotesSlideShapesRequest()
     request.shapes = invalidizeTestParamValue(request.shapes, "shapes", "[]int32").([]int32)
+
     e := initializeTest("DeleteNotesSlideShapes", "shapes", request.shapes)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -922,6 +967,7 @@ func TestDeleteNotesSlideShapesInvalidshapes(t *testing.T) {
 func TestDeleteNotesSlideShapesInvalidpassword(t *testing.T) {
     request := createDeleteNotesSlideShapesRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteNotesSlideShapes", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -937,6 +983,7 @@ func TestDeleteNotesSlideShapesInvalidpassword(t *testing.T) {
 func TestDeleteNotesSlideShapesInvalidfolder(t *testing.T) {
     request := createDeleteNotesSlideShapesRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteNotesSlideShapes", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -952,6 +999,7 @@ func TestDeleteNotesSlideShapesInvalidfolder(t *testing.T) {
 func TestDeleteNotesSlideShapesInvalidstorage(t *testing.T) {
     request := createDeleteNotesSlideShapesRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteNotesSlideShapes", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1001,6 +1049,7 @@ func createGetNotesSlideShapeRequest() GetNotesSlideShapeRequest {
 func TestGetNotesSlideShapeInvalidname(t *testing.T) {
     request := createGetNotesSlideShapeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetNotesSlideShape", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1016,6 +1065,7 @@ func TestGetNotesSlideShapeInvalidname(t *testing.T) {
 func TestGetNotesSlideShapeInvalidslideIndex(t *testing.T) {
     request := createGetNotesSlideShapeRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShape", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1031,6 +1081,7 @@ func TestGetNotesSlideShapeInvalidslideIndex(t *testing.T) {
 func TestGetNotesSlideShapeInvalidpath(t *testing.T) {
     request := createGetNotesSlideShapeRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetNotesSlideShape", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1046,6 +1097,7 @@ func TestGetNotesSlideShapeInvalidpath(t *testing.T) {
 func TestGetNotesSlideShapeInvalidshapeIndex(t *testing.T) {
     request := createGetNotesSlideShapeRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShape", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1061,6 +1113,7 @@ func TestGetNotesSlideShapeInvalidshapeIndex(t *testing.T) {
 func TestGetNotesSlideShapeInvalidpassword(t *testing.T) {
     request := createGetNotesSlideShapeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetNotesSlideShape", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1076,6 +1129,7 @@ func TestGetNotesSlideShapeInvalidpassword(t *testing.T) {
 func TestGetNotesSlideShapeInvalidfolder(t *testing.T) {
     request := createGetNotesSlideShapeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetNotesSlideShape", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1091,6 +1145,7 @@ func TestGetNotesSlideShapeInvalidfolder(t *testing.T) {
 func TestGetNotesSlideShapeInvalidstorage(t *testing.T) {
     request := createGetNotesSlideShapeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetNotesSlideShape", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1141,6 +1196,7 @@ func createGetNotesSlideShapeParagraphRequest() GetNotesSlideShapeParagraphReque
 func TestGetNotesSlideShapeParagraphInvalidname(t *testing.T) {
     request := createGetNotesSlideShapeParagraphRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeParagraph", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1156,6 +1212,7 @@ func TestGetNotesSlideShapeParagraphInvalidname(t *testing.T) {
 func TestGetNotesSlideShapeParagraphInvalidslideIndex(t *testing.T) {
     request := createGetNotesSlideShapeParagraphRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapeParagraph", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1171,6 +1228,7 @@ func TestGetNotesSlideShapeParagraphInvalidslideIndex(t *testing.T) {
 func TestGetNotesSlideShapeParagraphInvalidpath(t *testing.T) {
     request := createGetNotesSlideShapeParagraphRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeParagraph", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1186,6 +1244,7 @@ func TestGetNotesSlideShapeParagraphInvalidpath(t *testing.T) {
 func TestGetNotesSlideShapeParagraphInvalidshapeIndex(t *testing.T) {
     request := createGetNotesSlideShapeParagraphRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapeParagraph", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1201,6 +1260,7 @@ func TestGetNotesSlideShapeParagraphInvalidshapeIndex(t *testing.T) {
 func TestGetNotesSlideShapeParagraphInvalidparagraphIndex(t *testing.T) {
     request := createGetNotesSlideShapeParagraphRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapeParagraph", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1216,6 +1276,7 @@ func TestGetNotesSlideShapeParagraphInvalidparagraphIndex(t *testing.T) {
 func TestGetNotesSlideShapeParagraphInvalidpassword(t *testing.T) {
     request := createGetNotesSlideShapeParagraphRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeParagraph", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1231,6 +1292,7 @@ func TestGetNotesSlideShapeParagraphInvalidpassword(t *testing.T) {
 func TestGetNotesSlideShapeParagraphInvalidfolder(t *testing.T) {
     request := createGetNotesSlideShapeParagraphRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeParagraph", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1246,6 +1308,7 @@ func TestGetNotesSlideShapeParagraphInvalidfolder(t *testing.T) {
 func TestGetNotesSlideShapeParagraphInvalidstorage(t *testing.T) {
     request := createGetNotesSlideShapeParagraphRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeParagraph", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1295,6 +1358,7 @@ func createGetNotesSlideShapeParagraphsRequest() GetNotesSlideShapeParagraphsReq
 func TestGetNotesSlideShapeParagraphsInvalidname(t *testing.T) {
     request := createGetNotesSlideShapeParagraphsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeParagraphs", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1310,6 +1374,7 @@ func TestGetNotesSlideShapeParagraphsInvalidname(t *testing.T) {
 func TestGetNotesSlideShapeParagraphsInvalidslideIndex(t *testing.T) {
     request := createGetNotesSlideShapeParagraphsRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapeParagraphs", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1325,6 +1390,7 @@ func TestGetNotesSlideShapeParagraphsInvalidslideIndex(t *testing.T) {
 func TestGetNotesSlideShapeParagraphsInvalidpath(t *testing.T) {
     request := createGetNotesSlideShapeParagraphsRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeParagraphs", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1340,6 +1406,7 @@ func TestGetNotesSlideShapeParagraphsInvalidpath(t *testing.T) {
 func TestGetNotesSlideShapeParagraphsInvalidshapeIndex(t *testing.T) {
     request := createGetNotesSlideShapeParagraphsRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapeParagraphs", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1355,6 +1422,7 @@ func TestGetNotesSlideShapeParagraphsInvalidshapeIndex(t *testing.T) {
 func TestGetNotesSlideShapeParagraphsInvalidpassword(t *testing.T) {
     request := createGetNotesSlideShapeParagraphsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeParagraphs", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1370,6 +1438,7 @@ func TestGetNotesSlideShapeParagraphsInvalidpassword(t *testing.T) {
 func TestGetNotesSlideShapeParagraphsInvalidfolder(t *testing.T) {
     request := createGetNotesSlideShapeParagraphsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeParagraphs", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1385,6 +1454,7 @@ func TestGetNotesSlideShapeParagraphsInvalidfolder(t *testing.T) {
 func TestGetNotesSlideShapeParagraphsInvalidstorage(t *testing.T) {
     request := createGetNotesSlideShapeParagraphsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeParagraphs", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1436,6 +1506,7 @@ func createGetNotesSlideShapePortionRequest() GetNotesSlideShapePortionRequest {
 func TestGetNotesSlideShapePortionInvalidname(t *testing.T) {
     request := createGetNotesSlideShapePortionRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetNotesSlideShapePortion", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1451,6 +1522,7 @@ func TestGetNotesSlideShapePortionInvalidname(t *testing.T) {
 func TestGetNotesSlideShapePortionInvalidslideIndex(t *testing.T) {
     request := createGetNotesSlideShapePortionRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapePortion", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1466,6 +1538,7 @@ func TestGetNotesSlideShapePortionInvalidslideIndex(t *testing.T) {
 func TestGetNotesSlideShapePortionInvalidpath(t *testing.T) {
     request := createGetNotesSlideShapePortionRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetNotesSlideShapePortion", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1481,6 +1554,7 @@ func TestGetNotesSlideShapePortionInvalidpath(t *testing.T) {
 func TestGetNotesSlideShapePortionInvalidshapeIndex(t *testing.T) {
     request := createGetNotesSlideShapePortionRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapePortion", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1496,6 +1570,7 @@ func TestGetNotesSlideShapePortionInvalidshapeIndex(t *testing.T) {
 func TestGetNotesSlideShapePortionInvalidparagraphIndex(t *testing.T) {
     request := createGetNotesSlideShapePortionRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapePortion", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1511,6 +1586,7 @@ func TestGetNotesSlideShapePortionInvalidparagraphIndex(t *testing.T) {
 func TestGetNotesSlideShapePortionInvalidportionIndex(t *testing.T) {
     request := createGetNotesSlideShapePortionRequest()
     request.portionIndex = invalidizeTestParamValue(request.portionIndex, "portionIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapePortion", "portionIndex", request.portionIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1526,6 +1602,7 @@ func TestGetNotesSlideShapePortionInvalidportionIndex(t *testing.T) {
 func TestGetNotesSlideShapePortionInvalidpassword(t *testing.T) {
     request := createGetNotesSlideShapePortionRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetNotesSlideShapePortion", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1541,6 +1618,7 @@ func TestGetNotesSlideShapePortionInvalidpassword(t *testing.T) {
 func TestGetNotesSlideShapePortionInvalidfolder(t *testing.T) {
     request := createGetNotesSlideShapePortionRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetNotesSlideShapePortion", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1556,6 +1634,7 @@ func TestGetNotesSlideShapePortionInvalidfolder(t *testing.T) {
 func TestGetNotesSlideShapePortionInvalidstorage(t *testing.T) {
     request := createGetNotesSlideShapePortionRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetNotesSlideShapePortion", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1606,6 +1685,7 @@ func createGetNotesSlideShapePortionsRequest() GetNotesSlideShapePortionsRequest
 func TestGetNotesSlideShapePortionsInvalidname(t *testing.T) {
     request := createGetNotesSlideShapePortionsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetNotesSlideShapePortions", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1621,6 +1701,7 @@ func TestGetNotesSlideShapePortionsInvalidname(t *testing.T) {
 func TestGetNotesSlideShapePortionsInvalidslideIndex(t *testing.T) {
     request := createGetNotesSlideShapePortionsRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapePortions", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1636,6 +1717,7 @@ func TestGetNotesSlideShapePortionsInvalidslideIndex(t *testing.T) {
 func TestGetNotesSlideShapePortionsInvalidpath(t *testing.T) {
     request := createGetNotesSlideShapePortionsRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetNotesSlideShapePortions", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1651,6 +1733,7 @@ func TestGetNotesSlideShapePortionsInvalidpath(t *testing.T) {
 func TestGetNotesSlideShapePortionsInvalidshapeIndex(t *testing.T) {
     request := createGetNotesSlideShapePortionsRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapePortions", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1666,6 +1749,7 @@ func TestGetNotesSlideShapePortionsInvalidshapeIndex(t *testing.T) {
 func TestGetNotesSlideShapePortionsInvalidparagraphIndex(t *testing.T) {
     request := createGetNotesSlideShapePortionsRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapePortions", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1681,6 +1765,7 @@ func TestGetNotesSlideShapePortionsInvalidparagraphIndex(t *testing.T) {
 func TestGetNotesSlideShapePortionsInvalidpassword(t *testing.T) {
     request := createGetNotesSlideShapePortionsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetNotesSlideShapePortions", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1696,6 +1781,7 @@ func TestGetNotesSlideShapePortionsInvalidpassword(t *testing.T) {
 func TestGetNotesSlideShapePortionsInvalidfolder(t *testing.T) {
     request := createGetNotesSlideShapePortionsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetNotesSlideShapePortions", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1711,6 +1797,7 @@ func TestGetNotesSlideShapePortionsInvalidfolder(t *testing.T) {
 func TestGetNotesSlideShapePortionsInvalidstorage(t *testing.T) {
     request := createGetNotesSlideShapePortionsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetNotesSlideShapePortions", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1748,8 +1835,18 @@ func createGetNotesSlideShapeWithFormatRequest() GetNotesSlideShapeWithFormatReq
     request.password = createTestParamValue("GetNotesSlideShapeWithFormat", "password", "string").(string)
     request.folder = createTestParamValue("GetNotesSlideShapeWithFormat", "folder", "string").(string)
     request.storage = createTestParamValue("GetNotesSlideShapeWithFormat", "storage", "string").(string)
-    request.scaleX = createTestParamValue("GetNotesSlideShapeWithFormat", "scaleX", "float64").(float64)
-    request.scaleY = createTestParamValue("GetNotesSlideShapeWithFormat", "scaleY", "float64").(float64)
+    testscaleX := createTestParamValue("GetNotesSlideShapeWithFormat", "scaleX", "float64")
+    switch v := testscaleX.(type) { 
+    case float64:
+        request.scaleX = new(float64)
+        *request.scaleX = v
+    }
+    testscaleY := createTestParamValue("GetNotesSlideShapeWithFormat", "scaleY", "float64")
+    switch v := testscaleY.(type) { 
+    case float64:
+        request.scaleY = new(float64)
+        *request.scaleY = v
+    }
     request.bounds = createTestParamValue("GetNotesSlideShapeWithFormat", "bounds", "string").(string)
     request.outPath = createTestParamValue("GetNotesSlideShapeWithFormat", "outPath", "string").(string)
     request.fontsFolder = createTestParamValue("GetNotesSlideShapeWithFormat", "fontsFolder", "string").(string)
@@ -1762,6 +1859,7 @@ func createGetNotesSlideShapeWithFormatRequest() GetNotesSlideShapeWithFormatReq
 func TestGetNotesSlideShapeWithFormatInvalidname(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1777,6 +1875,7 @@ func TestGetNotesSlideShapeWithFormatInvalidname(t *testing.T) {
 func TestGetNotesSlideShapeWithFormatInvalidslideIndex(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1792,6 +1891,7 @@ func TestGetNotesSlideShapeWithFormatInvalidslideIndex(t *testing.T) {
 func TestGetNotesSlideShapeWithFormatInvalidshapeIndex(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1807,6 +1907,7 @@ func TestGetNotesSlideShapeWithFormatInvalidshapeIndex(t *testing.T) {
 func TestGetNotesSlideShapeWithFormatInvalidformat(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
     request.format = invalidizeTestParamValue(request.format, "format", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "format", request.format)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1822,6 +1923,7 @@ func TestGetNotesSlideShapeWithFormatInvalidformat(t *testing.T) {
 func TestGetNotesSlideShapeWithFormatInvalidpassword(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1837,6 +1939,7 @@ func TestGetNotesSlideShapeWithFormatInvalidpassword(t *testing.T) {
 func TestGetNotesSlideShapeWithFormatInvalidfolder(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1852,6 +1955,7 @@ func TestGetNotesSlideShapeWithFormatInvalidfolder(t *testing.T) {
 func TestGetNotesSlideShapeWithFormatInvalidstorage(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1866,7 +1970,9 @@ func TestGetNotesSlideShapeWithFormatInvalidstorage(t *testing.T) {
 */
 func TestGetNotesSlideShapeWithFormatInvalidscaleX(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
-    request.scaleX = invalidizeTestParamValue(request.scaleX, "scaleX", "float64").(float64)
+    request.scaleX = new(float64)
+    *request.scaleX = invalidizeTestParamValue(request.scaleX, "scaleX", "float64").(float64)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "scaleX", request.scaleX)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1881,7 +1987,9 @@ func TestGetNotesSlideShapeWithFormatInvalidscaleX(t *testing.T) {
 */
 func TestGetNotesSlideShapeWithFormatInvalidscaleY(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
-    request.scaleY = invalidizeTestParamValue(request.scaleY, "scaleY", "float64").(float64)
+    request.scaleY = new(float64)
+    *request.scaleY = invalidizeTestParamValue(request.scaleY, "scaleY", "float64").(float64)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "scaleY", request.scaleY)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1897,6 +2005,7 @@ func TestGetNotesSlideShapeWithFormatInvalidscaleY(t *testing.T) {
 func TestGetNotesSlideShapeWithFormatInvalidbounds(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
     request.bounds = invalidizeTestParamValue(request.bounds, "bounds", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "bounds", request.bounds)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1912,6 +2021,7 @@ func TestGetNotesSlideShapeWithFormatInvalidbounds(t *testing.T) {
 func TestGetNotesSlideShapeWithFormatInvalidoutPath(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
     request.outPath = invalidizeTestParamValue(request.outPath, "outPath", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "outPath", request.outPath)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1927,6 +2037,7 @@ func TestGetNotesSlideShapeWithFormatInvalidoutPath(t *testing.T) {
 func TestGetNotesSlideShapeWithFormatInvalidfontsFolder(t *testing.T) {
     request := createGetNotesSlideShapeWithFormatRequest()
     request.fontsFolder = invalidizeTestParamValue(request.fontsFolder, "fontsFolder", "string").(string)
+
     e := initializeTest("GetNotesSlideShapeWithFormat", "fontsFolder", request.fontsFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1975,6 +2086,7 @@ func createGetNotesSlideShapesRequest() GetNotesSlideShapesRequest {
 func TestGetNotesSlideShapesInvalidname(t *testing.T) {
     request := createGetNotesSlideShapesRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetNotesSlideShapes", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -1990,6 +2102,7 @@ func TestGetNotesSlideShapesInvalidname(t *testing.T) {
 func TestGetNotesSlideShapesInvalidslideIndex(t *testing.T) {
     request := createGetNotesSlideShapesRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideShapes", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2005,6 +2118,7 @@ func TestGetNotesSlideShapesInvalidslideIndex(t *testing.T) {
 func TestGetNotesSlideShapesInvalidpath(t *testing.T) {
     request := createGetNotesSlideShapesRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("GetNotesSlideShapes", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2020,6 +2134,7 @@ func TestGetNotesSlideShapesInvalidpath(t *testing.T) {
 func TestGetNotesSlideShapesInvalidpassword(t *testing.T) {
     request := createGetNotesSlideShapesRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetNotesSlideShapes", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2035,6 +2150,7 @@ func TestGetNotesSlideShapesInvalidpassword(t *testing.T) {
 func TestGetNotesSlideShapesInvalidfolder(t *testing.T) {
     request := createGetNotesSlideShapesRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetNotesSlideShapes", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2050,6 +2166,7 @@ func TestGetNotesSlideShapesInvalidfolder(t *testing.T) {
 func TestGetNotesSlideShapesInvalidstorage(t *testing.T) {
     request := createGetNotesSlideShapesRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetNotesSlideShapes", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2091,7 +2208,12 @@ func createPostNotesSlideAddNewParagraphRequest() PostNotesSlideAddNewParagraphR
     request.password = createTestParamValue("PostNotesSlideAddNewParagraph", "password", "string").(string)
     request.folder = createTestParamValue("PostNotesSlideAddNewParagraph", "folder", "string").(string)
     request.storage = createTestParamValue("PostNotesSlideAddNewParagraph", "storage", "string").(string)
-    request.position = createTestParamValue("PostNotesSlideAddNewParagraph", "position", "int32").(int32)
+    testposition := createTestParamValue("PostNotesSlideAddNewParagraph", "position", "int32")
+    switch v := testposition.(type) { 
+    case int32:
+        request.position = new(int32)
+        *request.position = v
+    }
     return request
 }
 
@@ -2101,6 +2223,7 @@ func createPostNotesSlideAddNewParagraphRequest() PostNotesSlideAddNewParagraphR
 func TestPostNotesSlideAddNewParagraphInvalidname(t *testing.T) {
     request := createPostNotesSlideAddNewParagraphRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewParagraph", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2116,6 +2239,7 @@ func TestPostNotesSlideAddNewParagraphInvalidname(t *testing.T) {
 func TestPostNotesSlideAddNewParagraphInvalidslideIndex(t *testing.T) {
     request := createPostNotesSlideAddNewParagraphRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PostNotesSlideAddNewParagraph", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2131,6 +2255,7 @@ func TestPostNotesSlideAddNewParagraphInvalidslideIndex(t *testing.T) {
 func TestPostNotesSlideAddNewParagraphInvalidpath(t *testing.T) {
     request := createPostNotesSlideAddNewParagraphRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewParagraph", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2146,6 +2271,7 @@ func TestPostNotesSlideAddNewParagraphInvalidpath(t *testing.T) {
 func TestPostNotesSlideAddNewParagraphInvalidshapeIndex(t *testing.T) {
     request := createPostNotesSlideAddNewParagraphRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PostNotesSlideAddNewParagraph", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2161,6 +2287,7 @@ func TestPostNotesSlideAddNewParagraphInvalidshapeIndex(t *testing.T) {
 func TestPostNotesSlideAddNewParagraphInvaliddto(t *testing.T) {
     request := createPostNotesSlideAddNewParagraphRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "Paragraph").(IParagraph)
+
     e := initializeTest("PostNotesSlideAddNewParagraph", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2176,6 +2303,7 @@ func TestPostNotesSlideAddNewParagraphInvaliddto(t *testing.T) {
 func TestPostNotesSlideAddNewParagraphInvalidpassword(t *testing.T) {
     request := createPostNotesSlideAddNewParagraphRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewParagraph", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2191,6 +2319,7 @@ func TestPostNotesSlideAddNewParagraphInvalidpassword(t *testing.T) {
 func TestPostNotesSlideAddNewParagraphInvalidfolder(t *testing.T) {
     request := createPostNotesSlideAddNewParagraphRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewParagraph", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2206,6 +2335,7 @@ func TestPostNotesSlideAddNewParagraphInvalidfolder(t *testing.T) {
 func TestPostNotesSlideAddNewParagraphInvalidstorage(t *testing.T) {
     request := createPostNotesSlideAddNewParagraphRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewParagraph", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2220,7 +2350,9 @@ func TestPostNotesSlideAddNewParagraphInvalidstorage(t *testing.T) {
 */
 func TestPostNotesSlideAddNewParagraphInvalidposition(t *testing.T) {
     request := createPostNotesSlideAddNewParagraphRequest()
-    request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+    request.position = new(int32)
+    *request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+
     e := initializeTest("PostNotesSlideAddNewParagraph", "position", request.position)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2263,7 +2395,12 @@ func createPostNotesSlideAddNewPortionRequest() PostNotesSlideAddNewPortionReque
     request.password = createTestParamValue("PostNotesSlideAddNewPortion", "password", "string").(string)
     request.folder = createTestParamValue("PostNotesSlideAddNewPortion", "folder", "string").(string)
     request.storage = createTestParamValue("PostNotesSlideAddNewPortion", "storage", "string").(string)
-    request.position = createTestParamValue("PostNotesSlideAddNewPortion", "position", "int32").(int32)
+    testposition := createTestParamValue("PostNotesSlideAddNewPortion", "position", "int32")
+    switch v := testposition.(type) { 
+    case int32:
+        request.position = new(int32)
+        *request.position = v
+    }
     return request
 }
 
@@ -2273,6 +2410,7 @@ func createPostNotesSlideAddNewPortionRequest() PostNotesSlideAddNewPortionReque
 func TestPostNotesSlideAddNewPortionInvalidname(t *testing.T) {
     request := createPostNotesSlideAddNewPortionRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewPortion", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2288,6 +2426,7 @@ func TestPostNotesSlideAddNewPortionInvalidname(t *testing.T) {
 func TestPostNotesSlideAddNewPortionInvalidslideIndex(t *testing.T) {
     request := createPostNotesSlideAddNewPortionRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PostNotesSlideAddNewPortion", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2303,6 +2442,7 @@ func TestPostNotesSlideAddNewPortionInvalidslideIndex(t *testing.T) {
 func TestPostNotesSlideAddNewPortionInvalidpath(t *testing.T) {
     request := createPostNotesSlideAddNewPortionRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewPortion", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2318,6 +2458,7 @@ func TestPostNotesSlideAddNewPortionInvalidpath(t *testing.T) {
 func TestPostNotesSlideAddNewPortionInvalidshapeIndex(t *testing.T) {
     request := createPostNotesSlideAddNewPortionRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PostNotesSlideAddNewPortion", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2333,6 +2474,7 @@ func TestPostNotesSlideAddNewPortionInvalidshapeIndex(t *testing.T) {
 func TestPostNotesSlideAddNewPortionInvalidparagraphIndex(t *testing.T) {
     request := createPostNotesSlideAddNewPortionRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("PostNotesSlideAddNewPortion", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2348,6 +2490,7 @@ func TestPostNotesSlideAddNewPortionInvalidparagraphIndex(t *testing.T) {
 func TestPostNotesSlideAddNewPortionInvaliddto(t *testing.T) {
     request := createPostNotesSlideAddNewPortionRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "Portion").(IPortion)
+
     e := initializeTest("PostNotesSlideAddNewPortion", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2363,6 +2506,7 @@ func TestPostNotesSlideAddNewPortionInvaliddto(t *testing.T) {
 func TestPostNotesSlideAddNewPortionInvalidpassword(t *testing.T) {
     request := createPostNotesSlideAddNewPortionRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewPortion", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2378,6 +2522,7 @@ func TestPostNotesSlideAddNewPortionInvalidpassword(t *testing.T) {
 func TestPostNotesSlideAddNewPortionInvalidfolder(t *testing.T) {
     request := createPostNotesSlideAddNewPortionRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewPortion", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2393,6 +2538,7 @@ func TestPostNotesSlideAddNewPortionInvalidfolder(t *testing.T) {
 func TestPostNotesSlideAddNewPortionInvalidstorage(t *testing.T) {
     request := createPostNotesSlideAddNewPortionRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewPortion", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2407,7 +2553,9 @@ func TestPostNotesSlideAddNewPortionInvalidstorage(t *testing.T) {
 */
 func TestPostNotesSlideAddNewPortionInvalidposition(t *testing.T) {
     request := createPostNotesSlideAddNewPortionRequest()
-    request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+    request.position = new(int32)
+    *request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+
     e := initializeTest("PostNotesSlideAddNewPortion", "position", request.position)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2448,8 +2596,18 @@ func createPostNotesSlideAddNewShapeRequest() PostNotesSlideAddNewShapeRequest {
     request.password = createTestParamValue("PostNotesSlideAddNewShape", "password", "string").(string)
     request.folder = createTestParamValue("PostNotesSlideAddNewShape", "folder", "string").(string)
     request.storage = createTestParamValue("PostNotesSlideAddNewShape", "storage", "string").(string)
-    request.shapeToClone = createTestParamValue("PostNotesSlideAddNewShape", "shapeToClone", "int32").(int32)
-    request.position = createTestParamValue("PostNotesSlideAddNewShape", "position", "int32").(int32)
+    testshapeToClone := createTestParamValue("PostNotesSlideAddNewShape", "shapeToClone", "int32")
+    switch v := testshapeToClone.(type) { 
+    case int32:
+        request.shapeToClone = new(int32)
+        *request.shapeToClone = v
+    }
+    testposition := createTestParamValue("PostNotesSlideAddNewShape", "position", "int32")
+    switch v := testposition.(type) { 
+    case int32:
+        request.position = new(int32)
+        *request.position = v
+    }
     return request
 }
 
@@ -2459,6 +2617,7 @@ func createPostNotesSlideAddNewShapeRequest() PostNotesSlideAddNewShapeRequest {
 func TestPostNotesSlideAddNewShapeInvalidname(t *testing.T) {
     request := createPostNotesSlideAddNewShapeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewShape", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2474,6 +2633,7 @@ func TestPostNotesSlideAddNewShapeInvalidname(t *testing.T) {
 func TestPostNotesSlideAddNewShapeInvalidslideIndex(t *testing.T) {
     request := createPostNotesSlideAddNewShapeRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PostNotesSlideAddNewShape", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2489,6 +2649,7 @@ func TestPostNotesSlideAddNewShapeInvalidslideIndex(t *testing.T) {
 func TestPostNotesSlideAddNewShapeInvalidpath(t *testing.T) {
     request := createPostNotesSlideAddNewShapeRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewShape", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2504,6 +2665,7 @@ func TestPostNotesSlideAddNewShapeInvalidpath(t *testing.T) {
 func TestPostNotesSlideAddNewShapeInvaliddto(t *testing.T) {
     request := createPostNotesSlideAddNewShapeRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "ShapeBase").(IShapeBase)
+
     e := initializeTest("PostNotesSlideAddNewShape", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2519,6 +2681,7 @@ func TestPostNotesSlideAddNewShapeInvaliddto(t *testing.T) {
 func TestPostNotesSlideAddNewShapeInvalidpassword(t *testing.T) {
     request := createPostNotesSlideAddNewShapeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewShape", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2534,6 +2697,7 @@ func TestPostNotesSlideAddNewShapeInvalidpassword(t *testing.T) {
 func TestPostNotesSlideAddNewShapeInvalidfolder(t *testing.T) {
     request := createPostNotesSlideAddNewShapeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewShape", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2549,6 +2713,7 @@ func TestPostNotesSlideAddNewShapeInvalidfolder(t *testing.T) {
 func TestPostNotesSlideAddNewShapeInvalidstorage(t *testing.T) {
     request := createPostNotesSlideAddNewShapeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostNotesSlideAddNewShape", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2563,7 +2728,9 @@ func TestPostNotesSlideAddNewShapeInvalidstorage(t *testing.T) {
 */
 func TestPostNotesSlideAddNewShapeInvalidshapeToClone(t *testing.T) {
     request := createPostNotesSlideAddNewShapeRequest()
-    request.shapeToClone = invalidizeTestParamValue(request.shapeToClone, "shapeToClone", "int32").(int32)
+    request.shapeToClone = new(int32)
+    *request.shapeToClone = invalidizeTestParamValue(request.shapeToClone, "shapeToClone", "int32").(int32)
+
     e := initializeTest("PostNotesSlideAddNewShape", "shapeToClone", request.shapeToClone)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2578,7 +2745,9 @@ func TestPostNotesSlideAddNewShapeInvalidshapeToClone(t *testing.T) {
 */
 func TestPostNotesSlideAddNewShapeInvalidposition(t *testing.T) {
     request := createPostNotesSlideAddNewShapeRequest()
-    request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+    request.position = new(int32)
+    *request.position = invalidizeTestParamValue(request.position, "position", "int32").(int32)
+
     e := initializeTest("PostNotesSlideAddNewShape", "position", request.position)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2617,8 +2786,18 @@ func createPostNotesSlideShapeSaveAsRequest() PostNotesSlideShapeSaveAsRequest {
     request.password = createTestParamValue("PostNotesSlideShapeSaveAs", "password", "string").(string)
     request.folder = createTestParamValue("PostNotesSlideShapeSaveAs", "folder", "string").(string)
     request.storage = createTestParamValue("PostNotesSlideShapeSaveAs", "storage", "string").(string)
-    request.scaleX = createTestParamValue("PostNotesSlideShapeSaveAs", "scaleX", "float64").(float64)
-    request.scaleY = createTestParamValue("PostNotesSlideShapeSaveAs", "scaleY", "float64").(float64)
+    testscaleX := createTestParamValue("PostNotesSlideShapeSaveAs", "scaleX", "float64")
+    switch v := testscaleX.(type) { 
+    case float64:
+        request.scaleX = new(float64)
+        *request.scaleX = v
+    }
+    testscaleY := createTestParamValue("PostNotesSlideShapeSaveAs", "scaleY", "float64")
+    switch v := testscaleY.(type) { 
+    case float64:
+        request.scaleY = new(float64)
+        *request.scaleY = v
+    }
     request.bounds = createTestParamValue("PostNotesSlideShapeSaveAs", "bounds", "string").(string)
     request.outPath = createTestParamValue("PostNotesSlideShapeSaveAs", "outPath", "string").(string)
     request.fontsFolder = createTestParamValue("PostNotesSlideShapeSaveAs", "fontsFolder", "string").(string)
@@ -2631,6 +2810,7 @@ func createPostNotesSlideShapeSaveAsRequest() PostNotesSlideShapeSaveAsRequest {
 func TestPostNotesSlideShapeSaveAsInvalidname(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2646,6 +2826,7 @@ func TestPostNotesSlideShapeSaveAsInvalidname(t *testing.T) {
 func TestPostNotesSlideShapeSaveAsInvalidslideIndex(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2661,6 +2842,7 @@ func TestPostNotesSlideShapeSaveAsInvalidslideIndex(t *testing.T) {
 func TestPostNotesSlideShapeSaveAsInvalidshapeIndex(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2676,6 +2858,7 @@ func TestPostNotesSlideShapeSaveAsInvalidshapeIndex(t *testing.T) {
 func TestPostNotesSlideShapeSaveAsInvalidformat(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
     request.format = invalidizeTestParamValue(request.format, "format", "string").(string)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "format", request.format)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2691,6 +2874,7 @@ func TestPostNotesSlideShapeSaveAsInvalidformat(t *testing.T) {
 func TestPostNotesSlideShapeSaveAsInvalidoptions(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
     request.options = invalidizeTestParamValue(request.options, "options", "IShapeExportOptions").(IIShapeExportOptions)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "options", request.options)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2706,6 +2890,7 @@ func TestPostNotesSlideShapeSaveAsInvalidoptions(t *testing.T) {
 func TestPostNotesSlideShapeSaveAsInvalidpassword(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2721,6 +2906,7 @@ func TestPostNotesSlideShapeSaveAsInvalidpassword(t *testing.T) {
 func TestPostNotesSlideShapeSaveAsInvalidfolder(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2736,6 +2922,7 @@ func TestPostNotesSlideShapeSaveAsInvalidfolder(t *testing.T) {
 func TestPostNotesSlideShapeSaveAsInvalidstorage(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2750,7 +2937,9 @@ func TestPostNotesSlideShapeSaveAsInvalidstorage(t *testing.T) {
 */
 func TestPostNotesSlideShapeSaveAsInvalidscaleX(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
-    request.scaleX = invalidizeTestParamValue(request.scaleX, "scaleX", "float64").(float64)
+    request.scaleX = new(float64)
+    *request.scaleX = invalidizeTestParamValue(request.scaleX, "scaleX", "float64").(float64)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "scaleX", request.scaleX)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2765,7 +2954,9 @@ func TestPostNotesSlideShapeSaveAsInvalidscaleX(t *testing.T) {
 */
 func TestPostNotesSlideShapeSaveAsInvalidscaleY(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
-    request.scaleY = invalidizeTestParamValue(request.scaleY, "scaleY", "float64").(float64)
+    request.scaleY = new(float64)
+    *request.scaleY = invalidizeTestParamValue(request.scaleY, "scaleY", "float64").(float64)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "scaleY", request.scaleY)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2781,6 +2972,7 @@ func TestPostNotesSlideShapeSaveAsInvalidscaleY(t *testing.T) {
 func TestPostNotesSlideShapeSaveAsInvalidbounds(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
     request.bounds = invalidizeTestParamValue(request.bounds, "bounds", "string").(string)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "bounds", request.bounds)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2796,6 +2988,7 @@ func TestPostNotesSlideShapeSaveAsInvalidbounds(t *testing.T) {
 func TestPostNotesSlideShapeSaveAsInvalidoutPath(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
     request.outPath = invalidizeTestParamValue(request.outPath, "outPath", "string").(string)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "outPath", request.outPath)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2811,6 +3004,7 @@ func TestPostNotesSlideShapeSaveAsInvalidoutPath(t *testing.T) {
 func TestPostNotesSlideShapeSaveAsInvalidfontsFolder(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
     request.fontsFolder = invalidizeTestParamValue(request.fontsFolder, "fontsFolder", "string").(string)
+
     e := initializeTest("PostNotesSlideShapeSaveAs", "fontsFolder", request.fontsFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2861,6 +3055,7 @@ func createPutUpdateNotesSlideShapeRequest() PutUpdateNotesSlideShapeRequest {
 func TestPutUpdateNotesSlideShapeInvalidname(t *testing.T) {
     request := createPutUpdateNotesSlideShapeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShape", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2876,6 +3071,7 @@ func TestPutUpdateNotesSlideShapeInvalidname(t *testing.T) {
 func TestPutUpdateNotesSlideShapeInvalidslideIndex(t *testing.T) {
     request := createPutUpdateNotesSlideShapeRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PutUpdateNotesSlideShape", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2891,6 +3087,7 @@ func TestPutUpdateNotesSlideShapeInvalidslideIndex(t *testing.T) {
 func TestPutUpdateNotesSlideShapeInvalidpath(t *testing.T) {
     request := createPutUpdateNotesSlideShapeRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShape", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2906,6 +3103,7 @@ func TestPutUpdateNotesSlideShapeInvalidpath(t *testing.T) {
 func TestPutUpdateNotesSlideShapeInvalidshapeIndex(t *testing.T) {
     request := createPutUpdateNotesSlideShapeRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PutUpdateNotesSlideShape", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2921,6 +3119,7 @@ func TestPutUpdateNotesSlideShapeInvalidshapeIndex(t *testing.T) {
 func TestPutUpdateNotesSlideShapeInvaliddto(t *testing.T) {
     request := createPutUpdateNotesSlideShapeRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "ShapeBase").(IShapeBase)
+
     e := initializeTest("PutUpdateNotesSlideShape", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2936,6 +3135,7 @@ func TestPutUpdateNotesSlideShapeInvaliddto(t *testing.T) {
 func TestPutUpdateNotesSlideShapeInvalidpassword(t *testing.T) {
     request := createPutUpdateNotesSlideShapeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShape", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2951,6 +3151,7 @@ func TestPutUpdateNotesSlideShapeInvalidpassword(t *testing.T) {
 func TestPutUpdateNotesSlideShapeInvalidfolder(t *testing.T) {
     request := createPutUpdateNotesSlideShapeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShape", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -2966,6 +3167,7 @@ func TestPutUpdateNotesSlideShapeInvalidfolder(t *testing.T) {
 func TestPutUpdateNotesSlideShapeInvalidstorage(t *testing.T) {
     request := createPutUpdateNotesSlideShapeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShape", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3017,6 +3219,7 @@ func createPutUpdateNotesSlideShapeParagraphRequest() PutUpdateNotesSlideShapePa
 func TestPutUpdateNotesSlideShapeParagraphInvalidname(t *testing.T) {
     request := createPutUpdateNotesSlideShapeParagraphRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShapeParagraph", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3032,6 +3235,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidname(t *testing.T) {
 func TestPutUpdateNotesSlideShapeParagraphInvalidslideIndex(t *testing.T) {
     request := createPutUpdateNotesSlideShapeParagraphRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PutUpdateNotesSlideShapeParagraph", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3047,6 +3251,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidslideIndex(t *testing.T) {
 func TestPutUpdateNotesSlideShapeParagraphInvalidpath(t *testing.T) {
     request := createPutUpdateNotesSlideShapeParagraphRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShapeParagraph", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3062,6 +3267,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidpath(t *testing.T) {
 func TestPutUpdateNotesSlideShapeParagraphInvalidshapeIndex(t *testing.T) {
     request := createPutUpdateNotesSlideShapeParagraphRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PutUpdateNotesSlideShapeParagraph", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3077,6 +3283,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidshapeIndex(t *testing.T) {
 func TestPutUpdateNotesSlideShapeParagraphInvalidparagraphIndex(t *testing.T) {
     request := createPutUpdateNotesSlideShapeParagraphRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("PutUpdateNotesSlideShapeParagraph", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3092,6 +3299,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidparagraphIndex(t *testing.T) {
 func TestPutUpdateNotesSlideShapeParagraphInvaliddto(t *testing.T) {
     request := createPutUpdateNotesSlideShapeParagraphRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "Paragraph").(IParagraph)
+
     e := initializeTest("PutUpdateNotesSlideShapeParagraph", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3107,6 +3315,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvaliddto(t *testing.T) {
 func TestPutUpdateNotesSlideShapeParagraphInvalidpassword(t *testing.T) {
     request := createPutUpdateNotesSlideShapeParagraphRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShapeParagraph", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3122,6 +3331,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidpassword(t *testing.T) {
 func TestPutUpdateNotesSlideShapeParagraphInvalidfolder(t *testing.T) {
     request := createPutUpdateNotesSlideShapeParagraphRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShapeParagraph", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3137,6 +3347,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidfolder(t *testing.T) {
 func TestPutUpdateNotesSlideShapeParagraphInvalidstorage(t *testing.T) {
     request := createPutUpdateNotesSlideShapeParagraphRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShapeParagraph", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3189,6 +3400,7 @@ func createPutUpdateNotesSlideShapePortionRequest() PutUpdateNotesSlideShapePort
 func TestPutUpdateNotesSlideShapePortionInvalidname(t *testing.T) {
     request := createPutUpdateNotesSlideShapePortionRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShapePortion", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3204,6 +3416,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidname(t *testing.T) {
 func TestPutUpdateNotesSlideShapePortionInvalidslideIndex(t *testing.T) {
     request := createPutUpdateNotesSlideShapePortionRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PutUpdateNotesSlideShapePortion", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3219,6 +3432,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidslideIndex(t *testing.T) {
 func TestPutUpdateNotesSlideShapePortionInvalidpath(t *testing.T) {
     request := createPutUpdateNotesSlideShapePortionRequest()
     request.path = invalidizeTestParamValue(request.path, "path", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShapePortion", "path", request.path)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3234,6 +3448,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidpath(t *testing.T) {
 func TestPutUpdateNotesSlideShapePortionInvalidshapeIndex(t *testing.T) {
     request := createPutUpdateNotesSlideShapePortionRequest()
     request.shapeIndex = invalidizeTestParamValue(request.shapeIndex, "shapeIndex", "int32").(int32)
+
     e := initializeTest("PutUpdateNotesSlideShapePortion", "shapeIndex", request.shapeIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3249,6 +3464,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidshapeIndex(t *testing.T) {
 func TestPutUpdateNotesSlideShapePortionInvalidparagraphIndex(t *testing.T) {
     request := createPutUpdateNotesSlideShapePortionRequest()
     request.paragraphIndex = invalidizeTestParamValue(request.paragraphIndex, "paragraphIndex", "int32").(int32)
+
     e := initializeTest("PutUpdateNotesSlideShapePortion", "paragraphIndex", request.paragraphIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3264,6 +3480,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidparagraphIndex(t *testing.T) {
 func TestPutUpdateNotesSlideShapePortionInvalidportionIndex(t *testing.T) {
     request := createPutUpdateNotesSlideShapePortionRequest()
     request.portionIndex = invalidizeTestParamValue(request.portionIndex, "portionIndex", "int32").(int32)
+
     e := initializeTest("PutUpdateNotesSlideShapePortion", "portionIndex", request.portionIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3279,6 +3496,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidportionIndex(t *testing.T) {
 func TestPutUpdateNotesSlideShapePortionInvaliddto(t *testing.T) {
     request := createPutUpdateNotesSlideShapePortionRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "Portion").(IPortion)
+
     e := initializeTest("PutUpdateNotesSlideShapePortion", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3294,6 +3512,7 @@ func TestPutUpdateNotesSlideShapePortionInvaliddto(t *testing.T) {
 func TestPutUpdateNotesSlideShapePortionInvalidpassword(t *testing.T) {
     request := createPutUpdateNotesSlideShapePortionRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShapePortion", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3309,6 +3528,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidpassword(t *testing.T) {
 func TestPutUpdateNotesSlideShapePortionInvalidfolder(t *testing.T) {
     request := createPutUpdateNotesSlideShapePortionRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShapePortion", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -3324,6 +3544,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidfolder(t *testing.T) {
 func TestPutUpdateNotesSlideShapePortionInvalidstorage(t *testing.T) {
     request := createPutUpdateNotesSlideShapePortionRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlideShapePortion", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)

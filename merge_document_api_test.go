@@ -69,6 +69,7 @@ func createPostPresentationMergeRequest() PostPresentationMergeRequest {
 func TestPostPresentationMergeInvalidname(t *testing.T) {
     request := createPostPresentationMergeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostPresentationMerge", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -84,6 +85,7 @@ func TestPostPresentationMergeInvalidname(t *testing.T) {
 func TestPostPresentationMergeInvalidrequest(t *testing.T) {
     request := createPostPresentationMergeRequest()
     request.request = invalidizeTestParamValue(request.request, "request", "PresentationsMergeRequest").(IPresentationsMergeRequest)
+
     e := initializeTest("PostPresentationMerge", "request", request.request)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -99,6 +101,7 @@ func TestPostPresentationMergeInvalidrequest(t *testing.T) {
 func TestPostPresentationMergeInvalidpassword(t *testing.T) {
     request := createPostPresentationMergeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostPresentationMerge", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -114,6 +117,7 @@ func TestPostPresentationMergeInvalidpassword(t *testing.T) {
 func TestPostPresentationMergeInvalidstorage(t *testing.T) {
     request := createPostPresentationMergeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostPresentationMerge", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -129,6 +133,7 @@ func TestPostPresentationMergeInvalidstorage(t *testing.T) {
 func TestPostPresentationMergeInvalidfolder(t *testing.T) {
     request := createPostPresentationMergeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostPresentationMerge", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -176,6 +181,7 @@ func createPutPresentationMergeRequest() PutPresentationMergeRequest {
 func TestPutPresentationMergeInvalidname(t *testing.T) {
     request := createPutPresentationMergeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutPresentationMerge", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -191,6 +197,7 @@ func TestPutPresentationMergeInvalidname(t *testing.T) {
 func TestPutPresentationMergeInvalidrequest(t *testing.T) {
     request := createPutPresentationMergeRequest()
     request.request = invalidizeTestParamValue(request.request, "request", "OrderedMergeRequest").(IOrderedMergeRequest)
+
     e := initializeTest("PutPresentationMerge", "request", request.request)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -206,6 +213,7 @@ func TestPutPresentationMergeInvalidrequest(t *testing.T) {
 func TestPutPresentationMergeInvalidpassword(t *testing.T) {
     request := createPutPresentationMergeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutPresentationMerge", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -221,6 +229,7 @@ func TestPutPresentationMergeInvalidpassword(t *testing.T) {
 func TestPutPresentationMergeInvalidstorage(t *testing.T) {
     request := createPutPresentationMergeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutPresentationMerge", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -236,6 +245,7 @@ func TestPutPresentationMergeInvalidstorage(t *testing.T) {
 func TestPutPresentationMergeInvalidfolder(t *testing.T) {
     request := createPutPresentationMergeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutPresentationMerge", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)

@@ -69,6 +69,7 @@ func createGetSlidesThemeRequest() GetSlidesThemeRequest {
 func TestGetSlidesThemeInvalidname(t *testing.T) {
     request := createGetSlidesThemeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesTheme", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -84,6 +85,7 @@ func TestGetSlidesThemeInvalidname(t *testing.T) {
 func TestGetSlidesThemeInvalidslideIndex(t *testing.T) {
     request := createGetSlidesThemeRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetSlidesTheme", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -99,6 +101,7 @@ func TestGetSlidesThemeInvalidslideIndex(t *testing.T) {
 func TestGetSlidesThemeInvalidpassword(t *testing.T) {
     request := createGetSlidesThemeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesTheme", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -114,6 +117,7 @@ func TestGetSlidesThemeInvalidpassword(t *testing.T) {
 func TestGetSlidesThemeInvalidfolder(t *testing.T) {
     request := createGetSlidesThemeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesTheme", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -129,6 +133,7 @@ func TestGetSlidesThemeInvalidfolder(t *testing.T) {
 func TestGetSlidesThemeInvalidstorage(t *testing.T) {
     request := createGetSlidesThemeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesTheme", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -176,6 +181,7 @@ func createGetSlidesThemeColorSchemeRequest() GetSlidesThemeColorSchemeRequest {
 func TestGetSlidesThemeColorSchemeInvalidname(t *testing.T) {
     request := createGetSlidesThemeColorSchemeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesThemeColorScheme", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -191,6 +197,7 @@ func TestGetSlidesThemeColorSchemeInvalidname(t *testing.T) {
 func TestGetSlidesThemeColorSchemeInvalidslideIndex(t *testing.T) {
     request := createGetSlidesThemeColorSchemeRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetSlidesThemeColorScheme", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -206,6 +213,7 @@ func TestGetSlidesThemeColorSchemeInvalidslideIndex(t *testing.T) {
 func TestGetSlidesThemeColorSchemeInvalidpassword(t *testing.T) {
     request := createGetSlidesThemeColorSchemeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesThemeColorScheme", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -221,6 +229,7 @@ func TestGetSlidesThemeColorSchemeInvalidpassword(t *testing.T) {
 func TestGetSlidesThemeColorSchemeInvalidfolder(t *testing.T) {
     request := createGetSlidesThemeColorSchemeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesThemeColorScheme", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -236,6 +245,7 @@ func TestGetSlidesThemeColorSchemeInvalidfolder(t *testing.T) {
 func TestGetSlidesThemeColorSchemeInvalidstorage(t *testing.T) {
     request := createGetSlidesThemeColorSchemeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesThemeColorScheme", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -283,6 +293,7 @@ func createGetSlidesThemeFontSchemeRequest() GetSlidesThemeFontSchemeRequest {
 func TestGetSlidesThemeFontSchemeInvalidname(t *testing.T) {
     request := createGetSlidesThemeFontSchemeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesThemeFontScheme", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -298,6 +309,7 @@ func TestGetSlidesThemeFontSchemeInvalidname(t *testing.T) {
 func TestGetSlidesThemeFontSchemeInvalidslideIndex(t *testing.T) {
     request := createGetSlidesThemeFontSchemeRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetSlidesThemeFontScheme", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -313,6 +325,7 @@ func TestGetSlidesThemeFontSchemeInvalidslideIndex(t *testing.T) {
 func TestGetSlidesThemeFontSchemeInvalidpassword(t *testing.T) {
     request := createGetSlidesThemeFontSchemeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesThemeFontScheme", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -328,6 +341,7 @@ func TestGetSlidesThemeFontSchemeInvalidpassword(t *testing.T) {
 func TestGetSlidesThemeFontSchemeInvalidfolder(t *testing.T) {
     request := createGetSlidesThemeFontSchemeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesThemeFontScheme", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -343,6 +357,7 @@ func TestGetSlidesThemeFontSchemeInvalidfolder(t *testing.T) {
 func TestGetSlidesThemeFontSchemeInvalidstorage(t *testing.T) {
     request := createGetSlidesThemeFontSchemeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesThemeFontScheme", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -390,6 +405,7 @@ func createGetSlidesThemeFormatSchemeRequest() GetSlidesThemeFormatSchemeRequest
 func TestGetSlidesThemeFormatSchemeInvalidname(t *testing.T) {
     request := createGetSlidesThemeFormatSchemeRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesThemeFormatScheme", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -405,6 +421,7 @@ func TestGetSlidesThemeFormatSchemeInvalidname(t *testing.T) {
 func TestGetSlidesThemeFormatSchemeInvalidslideIndex(t *testing.T) {
     request := createGetSlidesThemeFormatSchemeRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetSlidesThemeFormatScheme", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -420,6 +437,7 @@ func TestGetSlidesThemeFormatSchemeInvalidslideIndex(t *testing.T) {
 func TestGetSlidesThemeFormatSchemeInvalidpassword(t *testing.T) {
     request := createGetSlidesThemeFormatSchemeRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesThemeFormatScheme", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -435,6 +453,7 @@ func TestGetSlidesThemeFormatSchemeInvalidpassword(t *testing.T) {
 func TestGetSlidesThemeFormatSchemeInvalidfolder(t *testing.T) {
     request := createGetSlidesThemeFormatSchemeRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesThemeFormatScheme", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -450,6 +469,7 @@ func TestGetSlidesThemeFormatSchemeInvalidfolder(t *testing.T) {
 func TestGetSlidesThemeFormatSchemeInvalidstorage(t *testing.T) {
     request := createGetSlidesThemeFormatSchemeRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesThemeFormatScheme", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)

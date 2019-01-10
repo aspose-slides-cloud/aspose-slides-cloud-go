@@ -47,7 +47,7 @@ var (
 type ImagesApiService service
 
 
-/* ImagesApiService Gets image in specified format.
+/* ImagesApiService Get image in specified format.
 
  @param name Document name.
  @param index Image index.

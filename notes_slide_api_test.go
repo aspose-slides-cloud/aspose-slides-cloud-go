@@ -69,6 +69,7 @@ func createDeleteNotesSlideRequest() DeleteNotesSlideRequest {
 func TestDeleteNotesSlideInvalidname(t *testing.T) {
     request := createDeleteNotesSlideRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteNotesSlide", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -84,6 +85,7 @@ func TestDeleteNotesSlideInvalidname(t *testing.T) {
 func TestDeleteNotesSlideInvalidslideIndex(t *testing.T) {
     request := createDeleteNotesSlideRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("DeleteNotesSlide", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -99,6 +101,7 @@ func TestDeleteNotesSlideInvalidslideIndex(t *testing.T) {
 func TestDeleteNotesSlideInvalidpassword(t *testing.T) {
     request := createDeleteNotesSlideRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteNotesSlide", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -114,6 +117,7 @@ func TestDeleteNotesSlideInvalidpassword(t *testing.T) {
 func TestDeleteNotesSlideInvalidfolder(t *testing.T) {
     request := createDeleteNotesSlideRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteNotesSlide", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -129,6 +133,7 @@ func TestDeleteNotesSlideInvalidfolder(t *testing.T) {
 func TestDeleteNotesSlideInvalidstorage(t *testing.T) {
     request := createDeleteNotesSlideRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteNotesSlide", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -176,6 +181,7 @@ func createGetNotesSlideRequest() GetNotesSlideRequest {
 func TestGetNotesSlideInvalidname(t *testing.T) {
     request := createGetNotesSlideRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetNotesSlide", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -191,6 +197,7 @@ func TestGetNotesSlideInvalidname(t *testing.T) {
 func TestGetNotesSlideInvalidslideIndex(t *testing.T) {
     request := createGetNotesSlideRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlide", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -206,6 +213,7 @@ func TestGetNotesSlideInvalidslideIndex(t *testing.T) {
 func TestGetNotesSlideInvalidpassword(t *testing.T) {
     request := createGetNotesSlideRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetNotesSlide", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -221,6 +229,7 @@ func TestGetNotesSlideInvalidpassword(t *testing.T) {
 func TestGetNotesSlideInvalidfolder(t *testing.T) {
     request := createGetNotesSlideRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetNotesSlide", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -236,6 +245,7 @@ func TestGetNotesSlideInvalidfolder(t *testing.T) {
 func TestGetNotesSlideInvalidstorage(t *testing.T) {
     request := createGetNotesSlideRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetNotesSlide", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -269,8 +279,18 @@ func createGetNotesSlideWithFormatRequest() GetNotesSlideWithFormatRequest {
     request.name = createTestParamValue("GetNotesSlideWithFormat", "name", "string").(string)
     request.slideIndex = createTestParamValue("GetNotesSlideWithFormat", "slideIndex", "int32").(int32)
     request.format = createTestParamValue("GetNotesSlideWithFormat", "format", "string").(string)
-    request.width = createTestParamValue("GetNotesSlideWithFormat", "width", "int32").(int32)
-    request.height = createTestParamValue("GetNotesSlideWithFormat", "height", "int32").(int32)
+    testwidth := createTestParamValue("GetNotesSlideWithFormat", "width", "int32")
+    switch v := testwidth.(type) { 
+    case int32:
+        request.width = new(int32)
+        *request.width = v
+    }
+    testheight := createTestParamValue("GetNotesSlideWithFormat", "height", "int32")
+    switch v := testheight.(type) { 
+    case int32:
+        request.height = new(int32)
+        *request.height = v
+    }
     request.password = createTestParamValue("GetNotesSlideWithFormat", "password", "string").(string)
     request.folder = createTestParamValue("GetNotesSlideWithFormat", "folder", "string").(string)
     request.storage = createTestParamValue("GetNotesSlideWithFormat", "storage", "string").(string)
@@ -283,6 +303,7 @@ func createGetNotesSlideWithFormatRequest() GetNotesSlideWithFormatRequest {
 func TestGetNotesSlideWithFormatInvalidname(t *testing.T) {
     request := createGetNotesSlideWithFormatRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetNotesSlideWithFormat", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -298,6 +319,7 @@ func TestGetNotesSlideWithFormatInvalidname(t *testing.T) {
 func TestGetNotesSlideWithFormatInvalidslideIndex(t *testing.T) {
     request := createGetNotesSlideWithFormatRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetNotesSlideWithFormat", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -313,6 +335,7 @@ func TestGetNotesSlideWithFormatInvalidslideIndex(t *testing.T) {
 func TestGetNotesSlideWithFormatInvalidformat(t *testing.T) {
     request := createGetNotesSlideWithFormatRequest()
     request.format = invalidizeTestParamValue(request.format, "format", "string").(string)
+
     e := initializeTest("GetNotesSlideWithFormat", "format", request.format)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -327,7 +350,9 @@ func TestGetNotesSlideWithFormatInvalidformat(t *testing.T) {
 */
 func TestGetNotesSlideWithFormatInvalidwidth(t *testing.T) {
     request := createGetNotesSlideWithFormatRequest()
-    request.width = invalidizeTestParamValue(request.width, "width", "int32").(int32)
+    request.width = new(int32)
+    *request.width = invalidizeTestParamValue(request.width, "width", "int32").(int32)
+
     e := initializeTest("GetNotesSlideWithFormat", "width", request.width)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -342,7 +367,9 @@ func TestGetNotesSlideWithFormatInvalidwidth(t *testing.T) {
 */
 func TestGetNotesSlideWithFormatInvalidheight(t *testing.T) {
     request := createGetNotesSlideWithFormatRequest()
-    request.height = invalidizeTestParamValue(request.height, "height", "int32").(int32)
+    request.height = new(int32)
+    *request.height = invalidizeTestParamValue(request.height, "height", "int32").(int32)
+
     e := initializeTest("GetNotesSlideWithFormat", "height", request.height)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -358,6 +385,7 @@ func TestGetNotesSlideWithFormatInvalidheight(t *testing.T) {
 func TestGetNotesSlideWithFormatInvalidpassword(t *testing.T) {
     request := createGetNotesSlideWithFormatRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetNotesSlideWithFormat", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -373,6 +401,7 @@ func TestGetNotesSlideWithFormatInvalidpassword(t *testing.T) {
 func TestGetNotesSlideWithFormatInvalidfolder(t *testing.T) {
     request := createGetNotesSlideWithFormatRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetNotesSlideWithFormat", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -388,6 +417,7 @@ func TestGetNotesSlideWithFormatInvalidfolder(t *testing.T) {
 func TestGetNotesSlideWithFormatInvalidstorage(t *testing.T) {
     request := createGetNotesSlideWithFormatRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetNotesSlideWithFormat", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -436,6 +466,7 @@ func createPostAddNotesSlideRequest() PostAddNotesSlideRequest {
 func TestPostAddNotesSlideInvalidname(t *testing.T) {
     request := createPostAddNotesSlideRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostAddNotesSlide", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -451,6 +482,7 @@ func TestPostAddNotesSlideInvalidname(t *testing.T) {
 func TestPostAddNotesSlideInvalidslideIndex(t *testing.T) {
     request := createPostAddNotesSlideRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PostAddNotesSlide", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -466,6 +498,7 @@ func TestPostAddNotesSlideInvalidslideIndex(t *testing.T) {
 func TestPostAddNotesSlideInvaliddto(t *testing.T) {
     request := createPostAddNotesSlideRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "NotesSlide").(INotesSlide)
+
     e := initializeTest("PostAddNotesSlide", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -481,6 +514,7 @@ func TestPostAddNotesSlideInvaliddto(t *testing.T) {
 func TestPostAddNotesSlideInvalidpassword(t *testing.T) {
     request := createPostAddNotesSlideRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostAddNotesSlide", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -496,6 +530,7 @@ func TestPostAddNotesSlideInvalidpassword(t *testing.T) {
 func TestPostAddNotesSlideInvalidfolder(t *testing.T) {
     request := createPostAddNotesSlideRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostAddNotesSlide", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -511,6 +546,7 @@ func TestPostAddNotesSlideInvalidfolder(t *testing.T) {
 func TestPostAddNotesSlideInvalidstorage(t *testing.T) {
     request := createPostAddNotesSlideRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostAddNotesSlide", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -559,6 +595,7 @@ func createPutUpdateNotesSlideRequest() PutUpdateNotesSlideRequest {
 func TestPutUpdateNotesSlideInvalidname(t *testing.T) {
     request := createPutUpdateNotesSlideRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlide", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -574,6 +611,7 @@ func TestPutUpdateNotesSlideInvalidname(t *testing.T) {
 func TestPutUpdateNotesSlideInvalidslideIndex(t *testing.T) {
     request := createPutUpdateNotesSlideRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("PutUpdateNotesSlide", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -589,6 +627,7 @@ func TestPutUpdateNotesSlideInvalidslideIndex(t *testing.T) {
 func TestPutUpdateNotesSlideInvaliddto(t *testing.T) {
     request := createPutUpdateNotesSlideRequest()
     request.dto = invalidizeTestParamValue(request.dto, "dto", "NotesSlide").(INotesSlide)
+
     e := initializeTest("PutUpdateNotesSlide", "dto", request.dto)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -604,6 +643,7 @@ func TestPutUpdateNotesSlideInvaliddto(t *testing.T) {
 func TestPutUpdateNotesSlideInvalidpassword(t *testing.T) {
     request := createPutUpdateNotesSlideRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlide", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -619,6 +659,7 @@ func TestPutUpdateNotesSlideInvalidpassword(t *testing.T) {
 func TestPutUpdateNotesSlideInvalidfolder(t *testing.T) {
     request := createPutUpdateNotesSlideRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlide", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -634,6 +675,7 @@ func TestPutUpdateNotesSlideInvalidfolder(t *testing.T) {
 func TestPutUpdateNotesSlideInvalidstorage(t *testing.T) {
     request := createPutUpdateNotesSlideRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutUpdateNotesSlide", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)

@@ -215,6 +215,14 @@ func createTestParamValue(functionName string, paramName string, paramType strin
 		return data
 	}
 	if paramType == "[]int32" {
+		if paramName == "oldPositions" {
+			value := []int32{ 1, 2 }
+			return value
+		}
+		if paramName == "newPositions" {
+			value := []int32{ 2, 1 }
+			return value
+		}
 		value := []int32{}
 		return value
 	}
@@ -230,7 +238,8 @@ func createTestParamValue(functionName string, paramName string, paramType strin
 		if paramName == "shapeIndex" {
 			value = 3
 		} else if paramName == "shapeToClone" {
-			value = 0
+			var refValue *int32
+			return refValue
 		} else {
 			value = 1
 		}
@@ -251,7 +260,7 @@ func createTestParamValue(functionName string, paramName string, paramType strin
 		if functionName == "PutNewPresentation" {
 			return changedTestFileName
 		}
-		if (functionName == "DeleteSlidesCleanSlidesList" || functionName == "PutSlidesSlide") {
+		if (functionName == "DeleteSlidesCleanSlidesList" || functionName == "PutSlidesSlide" || functionName == "PostSlidesAdd") {
 			return unprotectedTestFileName
 		}
 		return testFileName
@@ -262,14 +271,14 @@ func createTestParamValue(functionName string, paramName string, paramType strin
 	if paramName == "folder" {
 		return testFolderName
 	}
-        if (paramName == "templatePath" || paramName == "cloneFrom") {
+        if (paramName == "templatePath" || paramName == "cloneFrom" || paramName == "source") {
             if (functionName == "PostSlidesDocument") {
                 return testFolderName + "/" + testTemplateFileName
             }
             return testFolderName + "/" + testFileName
         }
 	if strings.HasSuffix(strings.ToLower(paramName), "password") {
-		if (functionName == "DeleteSlidesCleanSlidesList" || functionName == "PutSlidesSlide") {
+		if (functionName == "DeleteSlidesCleanSlidesList" || functionName == "PutSlidesSlide" || functionName == "PostSlidesAdd") {
 			return ""
 		}
 		return testFilePassword
@@ -325,6 +334,8 @@ func assertError(t *testing.T, functionName string, paramName string, errorCode 
 			paramName != "ignoreCase" &&
 			paramName != "oldValue" &&
 			paramName != "newValue" &&
+			paramName != "oldPositions" &&
+			paramName != "newPositions" &&
 			paramName != "outPath" &&
 			paramName != "pipeline" &&
 			paramName != "options" &&
@@ -342,6 +353,7 @@ func assertError(t *testing.T, functionName string, paramName string, errorCode 
 			paramName != "applyToAll" &&
 			paramName != "destFolder" &&
 			paramName != "fontsFolder" &&
+			paramName != "layoutAlias" &&
 			paramName != "isImageDataEmbedded" &&
 			!(functionName == "PostSlidesReorderPosition" &&
 				(paramName == "slideToCopy" ||
@@ -357,7 +369,7 @@ func assertError(t *testing.T, functionName string, paramName string, errorCode 
 		}
 		return
 	}
-	if (paramName == "name" || paramName == "folder" || paramName == "cloneFrom" || paramName == "propertyName") &&
+	if (paramName == "name" || paramName == "folder" || paramName == "cloneFrom" || paramName == "source" || paramName == "propertyName") &&
 		(functionName != "PostAddNotesSlide") {
 		if errorCode != 404 {
 			t.Errorf("Unexpected error code: %v.", errorCode)
@@ -392,7 +404,7 @@ func assertError(t *testing.T, functionName string, paramName string, errorCode 
 				return
 			}
 		} else if strings.HasSuffix(strings.ToLower(paramName), "password") {
-			if functionName == "DeleteSlidesCleanSlidesList" || functionName == "PutSlidesSlide" {
+			if functionName == "DeleteSlidesCleanSlidesList" || functionName == "PutSlidesSlide" || functionName == "PostSlidesAdd" {
 				if !strings.Contains(e.Error(), "An attempt was made to move the position before the beginning of the stream") {
 					t.Errorf("Unexpected error message: %v.", e)
 					return
@@ -441,7 +453,12 @@ func assertError(t *testing.T, functionName string, paramName string, errorCode 
 				}
 			}
 		} else if paramName == "slideIndex" || paramName == "slides" || paramName == "shapeToClone" {
-			if paramName == "shapeToClone" ||
+			if paramName == "slideIndex" && functionName == "PostSlidesReorder" {
+				if !strings.Contains(e.Error(), "Index was out of range") {
+					t.Errorf("Unexpected error message: %v.", e)
+					return
+				}
+			} else if paramName == "shapeToClone" ||
 				functionName == "GetSlidesSlideComments" ||
 				(strings.HasPrefix(functionName, "GetNotesSlide") &&
 					!strings.HasPrefix(functionName, "GetNotesSlideShape")) {
@@ -471,16 +488,23 @@ func assertError(t *testing.T, functionName string, paramName string, errorCode 
 				return
 			}
 		} else if paramName == "position" {
-			if !strings.Contains(e.Error(), "Index must be within the bounds of the List") {
-				t.Errorf("Unexpected error message: %v.", e)
-				return
+			if functionName == "PostSlidesAdd" || functionName == "PostSlidesCopy" {
+				if !strings.Contains(e.Error(), "Specified argument was out of the range of valid values") {
+					t.Errorf("Unexpected error message: %v.", e)
+					return
+				}
+			} else {
+				if !strings.Contains(e.Error(), "Index must be within the bounds of the List") {
+					t.Errorf("Unexpected error message: %v.", e)
+					return
+				}
 			}
-		} else if paramName == "oldPosition" {
+		} else if paramName == "oldPosition" || paramName == "slideToCopy" {
 			if !strings.Contains(e.Error(), "Index was out of range") {
 				t.Errorf("Unexpected error message: %v.", e)
 				return
 			}
-		} else if paramName == "newPosition" {
+		} else if paramName == "newPosition" || paramName == "oldPositions" || paramName == "newPositions" {
 			if !strings.Contains(e.Error(), "Specified argument was out of the range of valid values") {
 				t.Errorf("Unexpected error message: %v.", e)
 				return

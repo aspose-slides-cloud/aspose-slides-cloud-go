@@ -31,30 +31,38 @@ import (
 	"encoding/json"
 )
 
-
+// Save slide task.
 type ISave interface {
 
+	// Task type.
 	getType() TaskType
 	setType(newValue TaskType)
 
+	// Format.
 	getFormat() ExportFormat
 	setFormat(newValue ExportFormat)
 
+	// Output file.
 	getOutput() IOutputFile
 	setOutput(newValue IOutputFile)
 
+	// Save options.
 	getOptions() IExportOptions
 	setOptions(newValue IExportOptions)
 }
 
 type Save struct {
 
+	// Task type.
 	Type_ TaskType `json:"Type"`
 
+	// Format.
 	Format ExportFormat `json:"Format,omitempty"`
 
+	// Output file.
 	Output IOutputFile `json:"Output,omitempty"`
 
+	// Save options.
 	Options IExportOptions `json:"Options,omitempty"`
 }
 

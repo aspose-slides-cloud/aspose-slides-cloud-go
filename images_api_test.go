@@ -31,7 +31,7 @@ import (
 	"testing"
 )
 
-/* ImagesApiServiceTests Gets image in specified format.
+/* ImagesApiServiceTests Get image in specified format.
    Test for ImagesApi.GetSlidesImageWithFormat method
 */
 func TestGetSlidesImageWithFormat(t *testing.T) {
@@ -61,12 +61,13 @@ func createGetSlidesImageWithFormatRequest() GetSlidesImageWithFormatRequest {
     return request
 }
 
-/* ImagesApiServiceTests Gets image in specified format.
+/* ImagesApiServiceTests Get image in specified format.
    Test for ImagesApi.GetSlidesImageWithFormat method with invalid name
 */
 func TestGetSlidesImageWithFormatInvalidname(t *testing.T) {
     request := createGetSlidesImageWithFormatRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesImageWithFormat", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -76,12 +77,13 @@ func TestGetSlidesImageWithFormatInvalidname(t *testing.T) {
     assertError(t, "GetSlidesImageWithFormat", "name", int32(r.StatusCode), e)
 }
 
-/* ImagesApiServiceTests Gets image in specified format.
+/* ImagesApiServiceTests Get image in specified format.
    Test for ImagesApi.GetSlidesImageWithFormat method with invalid index
 */
 func TestGetSlidesImageWithFormatInvalidindex(t *testing.T) {
     request := createGetSlidesImageWithFormatRequest()
     request.index = invalidizeTestParamValue(request.index, "index", "int32").(int32)
+
     e := initializeTest("GetSlidesImageWithFormat", "index", request.index)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -91,12 +93,13 @@ func TestGetSlidesImageWithFormatInvalidindex(t *testing.T) {
     assertError(t, "GetSlidesImageWithFormat", "index", int32(r.StatusCode), e)
 }
 
-/* ImagesApiServiceTests Gets image in specified format.
+/* ImagesApiServiceTests Get image in specified format.
    Test for ImagesApi.GetSlidesImageWithFormat method with invalid format
 */
 func TestGetSlidesImageWithFormatInvalidformat(t *testing.T) {
     request := createGetSlidesImageWithFormatRequest()
     request.format = invalidizeTestParamValue(request.format, "format", "string").(string)
+
     e := initializeTest("GetSlidesImageWithFormat", "format", request.format)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -106,12 +109,13 @@ func TestGetSlidesImageWithFormatInvalidformat(t *testing.T) {
     assertError(t, "GetSlidesImageWithFormat", "format", int32(r.StatusCode), e)
 }
 
-/* ImagesApiServiceTests Gets image in specified format.
+/* ImagesApiServiceTests Get image in specified format.
    Test for ImagesApi.GetSlidesImageWithFormat method with invalid password
 */
 func TestGetSlidesImageWithFormatInvalidpassword(t *testing.T) {
     request := createGetSlidesImageWithFormatRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesImageWithFormat", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -121,12 +125,13 @@ func TestGetSlidesImageWithFormatInvalidpassword(t *testing.T) {
     assertError(t, "GetSlidesImageWithFormat", "password", int32(r.StatusCode), e)
 }
 
-/* ImagesApiServiceTests Gets image in specified format.
+/* ImagesApiServiceTests Get image in specified format.
    Test for ImagesApi.GetSlidesImageWithFormat method with invalid folder
 */
 func TestGetSlidesImageWithFormatInvalidfolder(t *testing.T) {
     request := createGetSlidesImageWithFormatRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesImageWithFormat", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -136,12 +141,13 @@ func TestGetSlidesImageWithFormatInvalidfolder(t *testing.T) {
     assertError(t, "GetSlidesImageWithFormat", "folder", int32(r.StatusCode), e)
 }
 
-/* ImagesApiServiceTests Gets image in specified format.
+/* ImagesApiServiceTests Get image in specified format.
    Test for ImagesApi.GetSlidesImageWithFormat method with invalid storage
 */
 func TestGetSlidesImageWithFormatInvalidstorage(t *testing.T) {
     request := createGetSlidesImageWithFormatRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesImageWithFormat", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -188,6 +194,7 @@ func createGetSlidesImagesRequest() GetSlidesImagesRequest {
 func TestGetSlidesImagesInvalidname(t *testing.T) {
     request := createGetSlidesImagesRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesImages", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -203,6 +210,7 @@ func TestGetSlidesImagesInvalidname(t *testing.T) {
 func TestGetSlidesImagesInvalidpassword(t *testing.T) {
     request := createGetSlidesImagesRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesImages", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -218,6 +226,7 @@ func TestGetSlidesImagesInvalidpassword(t *testing.T) {
 func TestGetSlidesImagesInvalidfolder(t *testing.T) {
     request := createGetSlidesImagesRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesImages", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -233,6 +242,7 @@ func TestGetSlidesImagesInvalidfolder(t *testing.T) {
 func TestGetSlidesImagesInvalidstorage(t *testing.T) {
     request := createGetSlidesImagesRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesImages", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -280,6 +290,7 @@ func createGetSlidesSlideImagesRequest() GetSlidesSlideImagesRequest {
 func TestGetSlidesSlideImagesInvalidname(t *testing.T) {
     request := createGetSlidesSlideImagesRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesSlideImages", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -295,6 +306,7 @@ func TestGetSlidesSlideImagesInvalidname(t *testing.T) {
 func TestGetSlidesSlideImagesInvalidslideIndex(t *testing.T) {
     request := createGetSlidesSlideImagesRequest()
     request.slideIndex = invalidizeTestParamValue(request.slideIndex, "slideIndex", "int32").(int32)
+
     e := initializeTest("GetSlidesSlideImages", "slideIndex", request.slideIndex)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -310,6 +322,7 @@ func TestGetSlidesSlideImagesInvalidslideIndex(t *testing.T) {
 func TestGetSlidesSlideImagesInvalidpassword(t *testing.T) {
     request := createGetSlidesSlideImagesRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesSlideImages", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -325,6 +338,7 @@ func TestGetSlidesSlideImagesInvalidpassword(t *testing.T) {
 func TestGetSlidesSlideImagesInvalidfolder(t *testing.T) {
     request := createGetSlidesSlideImagesRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesSlideImages", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -340,6 +354,7 @@ func TestGetSlidesSlideImagesInvalidfolder(t *testing.T) {
 func TestGetSlidesSlideImagesInvalidstorage(t *testing.T) {
     request := createGetSlidesSlideImagesRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesSlideImages", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)

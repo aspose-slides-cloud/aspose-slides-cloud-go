@@ -68,6 +68,7 @@ func createDeleteSlidesDocumentPropertiesRequest() DeleteSlidesDocumentPropertie
 func TestDeleteSlidesDocumentPropertiesInvalidname(t *testing.T) {
     request := createDeleteSlidesDocumentPropertiesRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteSlidesDocumentProperties", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -83,6 +84,7 @@ func TestDeleteSlidesDocumentPropertiesInvalidname(t *testing.T) {
 func TestDeleteSlidesDocumentPropertiesInvalidpassword(t *testing.T) {
     request := createDeleteSlidesDocumentPropertiesRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteSlidesDocumentProperties", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -98,6 +100,7 @@ func TestDeleteSlidesDocumentPropertiesInvalidpassword(t *testing.T) {
 func TestDeleteSlidesDocumentPropertiesInvalidfolder(t *testing.T) {
     request := createDeleteSlidesDocumentPropertiesRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteSlidesDocumentProperties", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -113,6 +116,7 @@ func TestDeleteSlidesDocumentPropertiesInvalidfolder(t *testing.T) {
 func TestDeleteSlidesDocumentPropertiesInvalidstorage(t *testing.T) {
     request := createDeleteSlidesDocumentPropertiesRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteSlidesDocumentProperties", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -160,6 +164,7 @@ func createDeleteSlidesDocumentPropertyRequest() DeleteSlidesDocumentPropertyReq
 func TestDeleteSlidesDocumentPropertyInvalidname(t *testing.T) {
     request := createDeleteSlidesDocumentPropertyRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("DeleteSlidesDocumentProperty", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -175,6 +180,7 @@ func TestDeleteSlidesDocumentPropertyInvalidname(t *testing.T) {
 func TestDeleteSlidesDocumentPropertyInvalidpropertyName(t *testing.T) {
     request := createDeleteSlidesDocumentPropertyRequest()
     request.propertyName = invalidizeTestParamValue(request.propertyName, "propertyName", "string").(string)
+
     e := initializeTest("DeleteSlidesDocumentProperty", "propertyName", request.propertyName)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -190,6 +196,7 @@ func TestDeleteSlidesDocumentPropertyInvalidpropertyName(t *testing.T) {
 func TestDeleteSlidesDocumentPropertyInvalidpassword(t *testing.T) {
     request := createDeleteSlidesDocumentPropertyRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("DeleteSlidesDocumentProperty", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -205,6 +212,7 @@ func TestDeleteSlidesDocumentPropertyInvalidpassword(t *testing.T) {
 func TestDeleteSlidesDocumentPropertyInvalidfolder(t *testing.T) {
     request := createDeleteSlidesDocumentPropertyRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("DeleteSlidesDocumentProperty", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -220,6 +228,7 @@ func TestDeleteSlidesDocumentPropertyInvalidfolder(t *testing.T) {
 func TestDeleteSlidesDocumentPropertyInvalidstorage(t *testing.T) {
     request := createDeleteSlidesDocumentPropertyRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("DeleteSlidesDocumentProperty", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -266,6 +275,7 @@ func createGetSlidesDocumentPropertiesRequest() GetSlidesDocumentPropertiesReque
 func TestGetSlidesDocumentPropertiesInvalidname(t *testing.T) {
     request := createGetSlidesDocumentPropertiesRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesDocumentProperties", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -281,6 +291,7 @@ func TestGetSlidesDocumentPropertiesInvalidname(t *testing.T) {
 func TestGetSlidesDocumentPropertiesInvalidpassword(t *testing.T) {
     request := createGetSlidesDocumentPropertiesRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesDocumentProperties", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -296,6 +307,7 @@ func TestGetSlidesDocumentPropertiesInvalidpassword(t *testing.T) {
 func TestGetSlidesDocumentPropertiesInvalidfolder(t *testing.T) {
     request := createGetSlidesDocumentPropertiesRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesDocumentProperties", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -311,6 +323,7 @@ func TestGetSlidesDocumentPropertiesInvalidfolder(t *testing.T) {
 func TestGetSlidesDocumentPropertiesInvalidstorage(t *testing.T) {
     request := createGetSlidesDocumentPropertiesRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesDocumentProperties", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -358,6 +371,7 @@ func createGetSlidesDocumentPropertyRequest() GetSlidesDocumentPropertyRequest {
 func TestGetSlidesDocumentPropertyInvalidname(t *testing.T) {
     request := createGetSlidesDocumentPropertyRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("GetSlidesDocumentProperty", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -373,6 +387,7 @@ func TestGetSlidesDocumentPropertyInvalidname(t *testing.T) {
 func TestGetSlidesDocumentPropertyInvalidpropertyName(t *testing.T) {
     request := createGetSlidesDocumentPropertyRequest()
     request.propertyName = invalidizeTestParamValue(request.propertyName, "propertyName", "string").(string)
+
     e := initializeTest("GetSlidesDocumentProperty", "propertyName", request.propertyName)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -388,6 +403,7 @@ func TestGetSlidesDocumentPropertyInvalidpropertyName(t *testing.T) {
 func TestGetSlidesDocumentPropertyInvalidpassword(t *testing.T) {
     request := createGetSlidesDocumentPropertyRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("GetSlidesDocumentProperty", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -403,6 +419,7 @@ func TestGetSlidesDocumentPropertyInvalidpassword(t *testing.T) {
 func TestGetSlidesDocumentPropertyInvalidfolder(t *testing.T) {
     request := createGetSlidesDocumentPropertyRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("GetSlidesDocumentProperty", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -418,6 +435,7 @@ func TestGetSlidesDocumentPropertyInvalidfolder(t *testing.T) {
 func TestGetSlidesDocumentPropertyInvalidstorage(t *testing.T) {
     request := createGetSlidesDocumentPropertyRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("GetSlidesDocumentProperty", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -465,6 +483,7 @@ func createPostSlidesSetDocumentPropertiesRequest() PostSlidesSetDocumentPropert
 func TestPostSlidesSetDocumentPropertiesInvalidname(t *testing.T) {
     request := createPostSlidesSetDocumentPropertiesRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PostSlidesSetDocumentProperties", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -480,6 +499,7 @@ func TestPostSlidesSetDocumentPropertiesInvalidname(t *testing.T) {
 func TestPostSlidesSetDocumentPropertiesInvalidproperties(t *testing.T) {
     request := createPostSlidesSetDocumentPropertiesRequest()
     request.properties = invalidizeTestParamValue(request.properties, "properties", "DocumentProperties").(IDocumentProperties)
+
     e := initializeTest("PostSlidesSetDocumentProperties", "properties", request.properties)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -495,6 +515,7 @@ func TestPostSlidesSetDocumentPropertiesInvalidproperties(t *testing.T) {
 func TestPostSlidesSetDocumentPropertiesInvalidpassword(t *testing.T) {
     request := createPostSlidesSetDocumentPropertiesRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PostSlidesSetDocumentProperties", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -510,6 +531,7 @@ func TestPostSlidesSetDocumentPropertiesInvalidpassword(t *testing.T) {
 func TestPostSlidesSetDocumentPropertiesInvalidfolder(t *testing.T) {
     request := createPostSlidesSetDocumentPropertiesRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PostSlidesSetDocumentProperties", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -525,6 +547,7 @@ func TestPostSlidesSetDocumentPropertiesInvalidfolder(t *testing.T) {
 func TestPostSlidesSetDocumentPropertiesInvalidstorage(t *testing.T) {
     request := createPostSlidesSetDocumentPropertiesRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PostSlidesSetDocumentProperties", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -573,6 +596,7 @@ func createPutSlidesSetDocumentPropertyRequest() PutSlidesSetDocumentPropertyReq
 func TestPutSlidesSetDocumentPropertyInvalidname(t *testing.T) {
     request := createPutSlidesSetDocumentPropertyRequest()
     request.name = invalidizeTestParamValue(request.name, "name", "string").(string)
+
     e := initializeTest("PutSlidesSetDocumentProperty", "name", request.name)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -588,6 +612,7 @@ func TestPutSlidesSetDocumentPropertyInvalidname(t *testing.T) {
 func TestPutSlidesSetDocumentPropertyInvalidpropertyName(t *testing.T) {
     request := createPutSlidesSetDocumentPropertyRequest()
     request.propertyName = invalidizeTestParamValue(request.propertyName, "propertyName", "string").(string)
+
     e := initializeTest("PutSlidesSetDocumentProperty", "propertyName", request.propertyName)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -603,6 +628,7 @@ func TestPutSlidesSetDocumentPropertyInvalidpropertyName(t *testing.T) {
 func TestPutSlidesSetDocumentPropertyInvalidproperty(t *testing.T) {
     request := createPutSlidesSetDocumentPropertyRequest()
     request.property = invalidizeTestParamValue(request.property, "property", "DocumentProperty").(IDocumentProperty)
+
     e := initializeTest("PutSlidesSetDocumentProperty", "property", request.property)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -618,6 +644,7 @@ func TestPutSlidesSetDocumentPropertyInvalidproperty(t *testing.T) {
 func TestPutSlidesSetDocumentPropertyInvalidpassword(t *testing.T) {
     request := createPutSlidesSetDocumentPropertyRequest()
     request.password = invalidizeTestParamValue(request.password, "password", "string").(string)
+
     e := initializeTest("PutSlidesSetDocumentProperty", "password", request.password)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -633,6 +660,7 @@ func TestPutSlidesSetDocumentPropertyInvalidpassword(t *testing.T) {
 func TestPutSlidesSetDocumentPropertyInvalidfolder(t *testing.T) {
     request := createPutSlidesSetDocumentPropertyRequest()
     request.folder = invalidizeTestParamValue(request.folder, "folder", "string").(string)
+
     e := initializeTest("PutSlidesSetDocumentProperty", "folder", request.folder)
     if e != nil {
        t.Errorf("Error: %v.", e)
@@ -648,6 +676,7 @@ func TestPutSlidesSetDocumentPropertyInvalidfolder(t *testing.T) {
 func TestPutSlidesSetDocumentPropertyInvalidstorage(t *testing.T) {
     request := createPutSlidesSetDocumentPropertyRequest()
     request.storage = invalidizeTestParamValue(request.storage, "storage", "string").(string)
+
     e := initializeTest("PutSlidesSetDocumentProperty", "storage", request.storage)
     if e != nil {
        t.Errorf("Error: %v.", e)

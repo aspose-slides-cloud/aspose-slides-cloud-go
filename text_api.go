@@ -77,8 +77,10 @@ func (a *TextApiService) GetSlidesPresentationTextItems(request GetSlidesPresent
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(request.withEmpty, "bool", "withEmpty"); err != nil {
-		return successPayload, nil, err
+	if request.withEmpty != nil {
+		if err := typeCheckParameter(*request.withEmpty, "bool", "withEmpty"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -163,7 +165,7 @@ func (a *TextApiService) GetSlidesPresentationTextItems(request GetSlidesPresent
 */
 type GetSlidesPresentationTextItemsRequest struct {
     name string
-    withEmpty bool
+    withEmpty *bool
     password string
     folder string
     storage string
@@ -207,8 +209,10 @@ func (a *TextApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextItems
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(request.withEmpty, "bool", "withEmpty"); err != nil {
-		return successPayload, nil, err
+	if request.withEmpty != nil {
+		if err := typeCheckParameter(*request.withEmpty, "bool", "withEmpty"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -294,7 +298,7 @@ func (a *TextApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextItems
 type GetSlidesSlideTextItemsRequest struct {
     name string
     slideIndex int32
-    withEmpty bool
+    withEmpty *bool
     password string
     folder string
     storage string
@@ -333,8 +337,10 @@ func (a *TextApiService) PostSlidesPresentationReplaceText(request PostSlidesPre
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(request.ignoreCase, "bool", "ignoreCase"); err != nil {
-		return successPayload, nil, err
+	if request.ignoreCase != nil {
+		if err := typeCheckParameter(*request.ignoreCase, "bool", "ignoreCase"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -423,7 +429,7 @@ type PostSlidesPresentationReplaceTextRequest struct {
     name string
     oldValue string
     newValue string
-    ignoreCase bool
+    ignoreCase *bool
     password string
     folder string
     storage string
@@ -469,8 +475,10 @@ func (a *TextApiService) PostSlidesSlideReplaceText(request PostSlidesSlideRepla
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(request.ignoreCase, "bool", "ignoreCase"); err != nil {
-		return successPayload, nil, err
+	if request.ignoreCase != nil {
+		if err := typeCheckParameter(*request.ignoreCase, "bool", "ignoreCase"); err != nil {
+			return successPayload, nil, err
+		}
 	}
 	if err := typeCheckParameter(request.password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -560,7 +568,7 @@ type PostSlidesSlideReplaceTextRequest struct {
     slideIndex int32
     oldValue string
     newValue string
-    ignoreCase bool
+    ignoreCase *bool
     password string
     folder string
     storage string
