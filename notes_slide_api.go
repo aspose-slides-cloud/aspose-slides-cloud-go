@@ -49,12 +49,12 @@ type NotesSlideApiService service
 
 /* NotesSlideApiService Remove Notes Slide.
 
- @param name The presentation name.
- @param slideIndex The slide index.
+ @param name Document name.
+ @param slideIndex Slide index.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "password" (string) Document password.
-     @param "folder" (string) The presentation folder.
-     @param "storage" (string) Presentation storage.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
  @return SlideResponse*/
 func (a *NotesSlideApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (SlideResponse,  *http.Response, error) {
 	var (
@@ -174,12 +174,12 @@ type DeleteNotesSlideRequest struct {
 
 /* NotesSlideApiService Read Notes slide info.
 
- @param name The presentation name.
- @param slideIndex The slide index.
+ @param name Document name.
+ @param slideIndex Slide index.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "password" (string) Document password.
-     @param "folder" (string) The presentation folder.
-     @param "storage" (string) Presentation storage.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
  @return NotesSlideResponse*/
 func (a *NotesSlideApiService) GetNotesSlide(request GetNotesSlideRequest) (NotesSlideResponse,  *http.Response, error) {
 	var (
@@ -299,15 +299,15 @@ type GetNotesSlideRequest struct {
 
 /* NotesSlideApiService Convert Notes Slide to the specified picture format.
 
- @param name The presentation name.
- @param slideIndex The slide index.
- @param format Export format.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param format Output file format.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "width" (int32) 
-     @param "height" (int32) 
+     @param "width" (int32) Output file width.
+     @param "height" (int32) Output file height.
      @param "password" (string) Document password.
-     @param "folder" (string) The presentation folder.
-     @param "storage" (string) Presentation storage.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
  @return *os.File*/
 func (a *NotesSlideApiService) GetNotesSlideWithFormat(request GetNotesSlideWithFormatRequest) (*os.File,  *http.Response, error) {
 	var (
@@ -453,13 +453,13 @@ type GetNotesSlideWithFormatRequest struct {
 
 /* NotesSlideApiService Add new Notes Slide.
 
- @param name The presentation name.
- @param slideIndex The slide index.
+ @param name Document name.
+ @param slideIndex Slide index.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (NotesSlide) 
+     @param "dto" (NotesSlide) A  object with notes slide data.
      @param "password" (string) Document password.
-     @param "folder" (string) The presentation folder.
-     @param "storage" (string) Presentation storage.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
  @return NotesSlideResponse*/
 func (a *NotesSlideApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (NotesSlideResponse,  *http.Response, error) {
 	var (
@@ -582,13 +582,13 @@ type PostAddNotesSlideRequest struct {
 
 /* NotesSlideApiService Update Notes Slide properties.
 
- @param name The presentation name.
- @param slideIndex The slide index.
+ @param name Document name.
+ @param slideIndex Slide index.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (NotesSlide) 
+     @param "dto" (NotesSlide) A  object with notes slide data.
      @param "password" (string) Document password.
-     @param "folder" (string) The presentation folder.
-     @param "storage" (string) Presentation storage.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
  @return NotesSlideResponse*/
 func (a *NotesSlideApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideRequest) (NotesSlideResponse,  *http.Response, error) {
 	var (

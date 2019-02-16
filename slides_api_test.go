@@ -1227,7 +1227,7 @@ func TestPostSlideSaveAsInvalidfontsFolder(t *testing.T) {
     assertError(t, "PostSlideSaveAs", "fontsFolder", int32(r.StatusCode), e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Create a slide.
    Test for SlidesApi.PostSlidesAdd method
 */
 func TestPostSlidesAdd(t *testing.T) {
@@ -1265,7 +1265,7 @@ func createPostSlidesAddRequest() PostSlidesAddRequest {
     return request
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Create a slide.
    Test for SlidesApi.PostSlidesAdd method with invalid name
 */
 func TestPostSlidesAddInvalidname(t *testing.T) {
@@ -1281,7 +1281,7 @@ func TestPostSlidesAddInvalidname(t *testing.T) {
     assertError(t, "PostSlidesAdd", "name", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Create a slide.
    Test for SlidesApi.PostSlidesAdd method with invalid position
 */
 func TestPostSlidesAddInvalidposition(t *testing.T) {
@@ -1298,7 +1298,7 @@ func TestPostSlidesAddInvalidposition(t *testing.T) {
     assertError(t, "PostSlidesAdd", "position", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Create a slide.
    Test for SlidesApi.PostSlidesAdd method with invalid password
 */
 func TestPostSlidesAddInvalidpassword(t *testing.T) {
@@ -1314,7 +1314,7 @@ func TestPostSlidesAddInvalidpassword(t *testing.T) {
     assertError(t, "PostSlidesAdd", "password", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Create a slide.
    Test for SlidesApi.PostSlidesAdd method with invalid folder
 */
 func TestPostSlidesAddInvalidfolder(t *testing.T) {
@@ -1330,7 +1330,7 @@ func TestPostSlidesAddInvalidfolder(t *testing.T) {
     assertError(t, "PostSlidesAdd", "folder", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Create a slide.
    Test for SlidesApi.PostSlidesAdd method with invalid storage
 */
 func TestPostSlidesAddInvalidstorage(t *testing.T) {
@@ -1346,7 +1346,7 @@ func TestPostSlidesAddInvalidstorage(t *testing.T) {
     assertError(t, "PostSlidesAdd", "storage", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Create a slide.
    Test for SlidesApi.PostSlidesAdd method with invalid layoutAlias
 */
 func TestPostSlidesAddInvalidlayoutAlias(t *testing.T) {
@@ -1362,7 +1362,7 @@ func TestPostSlidesAddInvalidlayoutAlias(t *testing.T) {
     assertError(t, "PostSlidesAdd", "layoutAlias", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Copy a slide from the current or another presentation.
    Test for SlidesApi.PostSlidesCopy method
 */
 func TestPostSlidesCopy(t *testing.T) {
@@ -1402,7 +1402,7 @@ func createPostSlidesCopyRequest() PostSlidesCopyRequest {
     return request
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Copy a slide from the current or another presentation.
    Test for SlidesApi.PostSlidesCopy method with invalid name
 */
 func TestPostSlidesCopyInvalidname(t *testing.T) {
@@ -1418,7 +1418,7 @@ func TestPostSlidesCopyInvalidname(t *testing.T) {
     assertError(t, "PostSlidesCopy", "name", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Copy a slide from the current or another presentation.
    Test for SlidesApi.PostSlidesCopy method with invalid slideToCopy
 */
 func TestPostSlidesCopyInvalidslideToCopy(t *testing.T) {
@@ -1434,7 +1434,7 @@ func TestPostSlidesCopyInvalidslideToCopy(t *testing.T) {
     assertError(t, "PostSlidesCopy", "slideToCopy", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Copy a slide from the current or another presentation.
    Test for SlidesApi.PostSlidesCopy method with invalid position
 */
 func TestPostSlidesCopyInvalidposition(t *testing.T) {
@@ -1451,7 +1451,7 @@ func TestPostSlidesCopyInvalidposition(t *testing.T) {
     assertError(t, "PostSlidesCopy", "position", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Copy a slide from the current or another presentation.
    Test for SlidesApi.PostSlidesCopy method with invalid source
 */
 func TestPostSlidesCopyInvalidsource(t *testing.T) {
@@ -1467,7 +1467,7 @@ func TestPostSlidesCopyInvalidsource(t *testing.T) {
     assertError(t, "PostSlidesCopy", "source", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Copy a slide from the current or another presentation.
    Test for SlidesApi.PostSlidesCopy method with invalid sourcePassword
 */
 func TestPostSlidesCopyInvalidsourcePassword(t *testing.T) {
@@ -1483,7 +1483,7 @@ func TestPostSlidesCopyInvalidsourcePassword(t *testing.T) {
     assertError(t, "PostSlidesCopy", "sourcePassword", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Copy a slide from the current or another presentation.
    Test for SlidesApi.PostSlidesCopy method with invalid password
 */
 func TestPostSlidesCopyInvalidpassword(t *testing.T) {
@@ -1499,7 +1499,7 @@ func TestPostSlidesCopyInvalidpassword(t *testing.T) {
     assertError(t, "PostSlidesCopy", "password", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Copy a slide from the current or another presentation.
    Test for SlidesApi.PostSlidesCopy method with invalid folder
 */
 func TestPostSlidesCopyInvalidfolder(t *testing.T) {
@@ -1515,7 +1515,7 @@ func TestPostSlidesCopyInvalidfolder(t *testing.T) {
     assertError(t, "PostSlidesCopy", "folder", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Copy a slide from the current or another presentation.
    Test for SlidesApi.PostSlidesCopy method with invalid storage
 */
 func TestPostSlidesCopyInvalidstorage(t *testing.T) {
@@ -1531,7 +1531,7 @@ func TestPostSlidesCopyInvalidstorage(t *testing.T) {
     assertError(t, "PostSlidesCopy", "storage", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slide position.
    Test for SlidesApi.PostSlidesReorder method
 */
 func TestPostSlidesReorder(t *testing.T) {
@@ -1564,7 +1564,7 @@ func createPostSlidesReorderRequest() PostSlidesReorderRequest {
     return request
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slide position.
    Test for SlidesApi.PostSlidesReorder method with invalid name
 */
 func TestPostSlidesReorderInvalidname(t *testing.T) {
@@ -1580,7 +1580,7 @@ func TestPostSlidesReorderInvalidname(t *testing.T) {
     assertError(t, "PostSlidesReorder", "name", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slide position.
    Test for SlidesApi.PostSlidesReorder method with invalid slideIndex
 */
 func TestPostSlidesReorderInvalidslideIndex(t *testing.T) {
@@ -1596,7 +1596,7 @@ func TestPostSlidesReorderInvalidslideIndex(t *testing.T) {
     assertError(t, "PostSlidesReorder", "slideIndex", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slide position.
    Test for SlidesApi.PostSlidesReorder method with invalid newPosition
 */
 func TestPostSlidesReorderInvalidnewPosition(t *testing.T) {
@@ -1612,7 +1612,7 @@ func TestPostSlidesReorderInvalidnewPosition(t *testing.T) {
     assertError(t, "PostSlidesReorder", "newPosition", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slide position.
    Test for SlidesApi.PostSlidesReorder method with invalid password
 */
 func TestPostSlidesReorderInvalidpassword(t *testing.T) {
@@ -1628,7 +1628,7 @@ func TestPostSlidesReorderInvalidpassword(t *testing.T) {
     assertError(t, "PostSlidesReorder", "password", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slide position.
    Test for SlidesApi.PostSlidesReorder method with invalid folder
 */
 func TestPostSlidesReorderInvalidfolder(t *testing.T) {
@@ -1644,7 +1644,7 @@ func TestPostSlidesReorderInvalidfolder(t *testing.T) {
     assertError(t, "PostSlidesReorder", "folder", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slide position.
    Test for SlidesApi.PostSlidesReorder method with invalid storage
 */
 func TestPostSlidesReorderInvalidstorage(t *testing.T) {
@@ -1660,7 +1660,7 @@ func TestPostSlidesReorderInvalidstorage(t *testing.T) {
     assertError(t, "PostSlidesReorder", "storage", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slides positions.
    Test for SlidesApi.PostSlidesReorderMany method
 */
 func TestPostSlidesReorderMany(t *testing.T) {
@@ -1693,7 +1693,7 @@ func createPostSlidesReorderManyRequest() PostSlidesReorderManyRequest {
     return request
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slides positions.
    Test for SlidesApi.PostSlidesReorderMany method with invalid name
 */
 func TestPostSlidesReorderManyInvalidname(t *testing.T) {
@@ -1709,7 +1709,7 @@ func TestPostSlidesReorderManyInvalidname(t *testing.T) {
     assertError(t, "PostSlidesReorderMany", "name", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slides positions.
    Test for SlidesApi.PostSlidesReorderMany method with invalid oldPositions
 */
 func TestPostSlidesReorderManyInvalidoldPositions(t *testing.T) {
@@ -1725,7 +1725,7 @@ func TestPostSlidesReorderManyInvalidoldPositions(t *testing.T) {
     assertError(t, "PostSlidesReorderMany", "oldPositions", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slides positions.
    Test for SlidesApi.PostSlidesReorderMany method with invalid newPositions
 */
 func TestPostSlidesReorderManyInvalidnewPositions(t *testing.T) {
@@ -1741,7 +1741,7 @@ func TestPostSlidesReorderManyInvalidnewPositions(t *testing.T) {
     assertError(t, "PostSlidesReorderMany", "newPositions", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slides positions.
    Test for SlidesApi.PostSlidesReorderMany method with invalid password
 */
 func TestPostSlidesReorderManyInvalidpassword(t *testing.T) {
@@ -1757,7 +1757,7 @@ func TestPostSlidesReorderManyInvalidpassword(t *testing.T) {
     assertError(t, "PostSlidesReorderMany", "password", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slides positions.
    Test for SlidesApi.PostSlidesReorderMany method with invalid folder
 */
 func TestPostSlidesReorderManyInvalidfolder(t *testing.T) {
@@ -1773,7 +1773,7 @@ func TestPostSlidesReorderManyInvalidfolder(t *testing.T) {
     assertError(t, "PostSlidesReorderMany", "folder", r.Code, e)
 }
 
-/* SlidesApiServiceTests Reorder presentation slide position
+/* SlidesApiServiceTests Reorder presentation slides positions.
    Test for SlidesApi.PostSlidesReorderMany method with invalid storage
 */
 func TestPostSlidesReorderManyInvalidstorage(t *testing.T) {

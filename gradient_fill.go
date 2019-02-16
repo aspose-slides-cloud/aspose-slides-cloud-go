@@ -34,42 +34,56 @@ import (
 // Represents gradient fill format
 type IGradientFill interface {
 
+	// Type of fill.
 	getType() FillType
 	setType(newValue FillType)
 
+	// Gradient style.
 	getDirection() GradientDirection
 	setDirection(newValue GradientDirection)
 
+	// Gradient shape.
 	getShape() GradientShapeType
 	setShape(newValue GradientShapeType)
 
+	// Gradient stops.
 	getStops() []GradientFillStop
 	setStops(newValue []GradientFillStop)
 
+	// Gradient angle.
 	getLinearAngle() float64
 	setLinearAngle(newValue float64)
 
+	// True if the gradient is scaled.
 	getIsScaled() bool
 	setIsScaled(newValue bool)
 
+	// Gradient flipping mode.
 	getTileFlip() GradientTileFlip
 	setTileFlip(newValue GradientTileFlip)
 }
 
 type GradientFill struct {
 
+	// Type of fill.
 	Type_ FillType `json:"Type"`
 
+	// Gradient style.
 	Direction GradientDirection `json:"Direction,omitempty"`
 
+	// Gradient shape.
 	Shape GradientShapeType `json:"Shape,omitempty"`
 
+	// Gradient stops.
 	Stops []GradientFillStop `json:"Stops,omitempty"`
 
+	// Gradient angle.
 	LinearAngle float64 `json:"LinearAngle,omitempty"`
 
+	// True if the gradient is scaled.
 	IsScaled bool `json:"IsScaled,omitempty"`
 
+	// Gradient flipping mode.
 	TileFlip GradientTileFlip `json:"TileFlip,omitempty"`
 }
 

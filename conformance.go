@@ -26,50 +26,12 @@
  */
 
 package asposeslidescloud
+// Conformance : The conformance class to which the PresentationML document conforms.
+type Conformance string
 
-import (
-	"net/http"
+// List of Conformance Conformance
+const (
+	Conformance_ECMA376_2006 Conformance = "Ecma376_2006"
+	Conformance_ISO29500_2008_TRANSITIONAL Conformance = "Iso29500_2008_Transitional"
+	Conformance_ISO29500_2008_STRICT Conformance = "Iso29500_2008_Strict"
 )
-
-const ContextOAuth2 		int = 1
-const ContextBasicAuth 		int = 2
-const ContextAccessToken 	int = 3
-const ContextAPIKey 		int = 4 
-
-type BasicAuth struct {
-	UserName      string            `json:"userName,omitempty"`
-	Password      string            `json:"password,omitempty"`	
-}
-
-type APIKey struct {
-	Key 	string
-	Prefix	string
-}
-
-type Configuration struct {
-	BasePath      string            	`json:"BaseUrl,omitempty"`
-	Version       string            	`json:"Version,omitempty"`
-	Host          string            	`json:"host,omitempty"`
-	AppSid	      string            	`json:"AppSid,omitempty"`
-	AppKey	      string            	`json:"AppKey,omitempty"`
-	OAuthToken    string            	`json:"OAuthToken,omitempty"`
-	Scheme        string            	`json:"scheme,omitempty"`
-	ApiVersion    string            	`json:"ApiVersion,omitempty"`
-	Debug         bool 	           	`json:"Debug,omitempty"`
-	HTTPClient 	  *http.Client
-}
-
-func NewConfiguration() *Configuration {
-	cfg := &Configuration{
-		BasePath:      "https://api-dev.aspose.cloud",
-		AppSid:        "https",
-		AppKey:        "https",
-		Version:       "v1.1",
-		ApiVersion:    "19.1.0",
-	}
-	return cfg
-}
-
-func (c *Configuration) GetApiUrl() string {
-	return c.BasePath + "/" + c.Version
-}

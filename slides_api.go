@@ -1258,7 +1258,7 @@ type PostSlideSaveAsRequest struct {
     fontsFolder string
 }
 
-/* SlidesApiService Reorder presentation slide position
+/* SlidesApiService Create a slide.
 
  @param name Document name.
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -1393,7 +1393,7 @@ type PostSlidesAddRequest struct {
     layoutAlias string
 }
 
-/* SlidesApiService Reorder presentation slide position
+/* SlidesApiService Copy a slide from the current or another presentation.
 
  @param name Document name.
  @param slideToCopy The index of the slide to be copied from the source presentation.
@@ -1539,7 +1539,7 @@ type PostSlidesCopyRequest struct {
     storage string
 }
 
-/* SlidesApiService Reorder presentation slide position
+/* SlidesApiService Reorder presentation slide position.
 
  @param name Document name.
  @param slideIndex The position of the slide to be reordered.
@@ -1667,7 +1667,7 @@ type PostSlidesReorderRequest struct {
     storage string
 }
 
-/* SlidesApiService Reorder presentation slide position
+/* SlidesApiService Reorder presentation slides positions.
 
  @param name Document name.
  @param optional (nil or map[string]interface{}) with one or more of:

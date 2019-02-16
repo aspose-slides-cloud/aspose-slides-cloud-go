@@ -31,93 +31,66 @@ import (
 	"encoding/json"
 )
 
-// Table Row.
-type ITableRow interface {
 
-	// Cells for the row.
-	getCells() []TableCell
-	setCells(newValue []TableCell)
+type IPptxExportOptions interface {
 
-	// Minimal height of the row.
-	getMinimalHeight() float64
-	setMinimalHeight(newValue float64)
+	getFormat() string
+	setFormat(newValue string)
 
-	// Height of the row.
-	getHeight() float64
-	setHeight(newValue float64)
+	// The conformance class to which the PresentationML document conforms. Read/write .
+	getConformance() Conformance
+	setConformance(newValue Conformance)
 }
 
-type TableRow struct {
+type PptxExportOptions struct {
 
-	// Cells for the row.
-	Cells []TableCell `json:"Cells,omitempty"`
+	Format string `json:"Format,omitempty"`
 
-	// Minimal height of the row.
-	MinimalHeight float64 `json:"MinimalHeight"`
-
-	// Height of the row.
-	Height float64 `json:"Height"`
+	// The conformance class to which the PresentationML document conforms. Read/write .
+	Conformance Conformance `json:"Conformance,omitempty"`
 }
 
-func (this TableRow) getCells() []TableCell {
-	return this.Cells
+func (this PptxExportOptions) getFormat() string {
+	return this.Format
 }
 
-func (this TableRow) setCells(newValue []TableCell) {
-	this.Cells = newValue
+func (this PptxExportOptions) setFormat(newValue string) {
+	this.Format = newValue
 }
-func (this TableRow) getMinimalHeight() float64 {
-	return this.MinimalHeight
-}
-
-func (this TableRow) setMinimalHeight(newValue float64) {
-	this.MinimalHeight = newValue
-}
-func (this TableRow) getHeight() float64 {
-	return this.Height
+func (this PptxExportOptions) getConformance() Conformance {
+	return this.Conformance
 }
 
-func (this TableRow) setHeight(newValue float64) {
-	this.Height = newValue
+func (this PptxExportOptions) setConformance(newValue Conformance) {
+	this.Conformance = newValue
 }
 
-func (this *TableRow) UnmarshalJSON(b []byte) error {
+func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
 		return err
 	}
 
-	if valCells, ok := objMap["Cells"]; ok {
-		if valCells != nil {
-			var valueForCells []TableCell
-			err = json.Unmarshal(*valCells, &valueForCells)
+	if valFormat, ok := objMap["Format"]; ok {
+		if valFormat != nil {
+			var valueForFormat string
+			err = json.Unmarshal(*valFormat, &valueForFormat)
 			if err != nil {
 				return err
 			}
-			this.Cells = valueForCells
+			this.Format = valueForFormat
 		}
 	}
 
-	if valMinimalHeight, ok := objMap["MinimalHeight"]; ok {
-		if valMinimalHeight != nil {
-			var valueForMinimalHeight float64
-			err = json.Unmarshal(*valMinimalHeight, &valueForMinimalHeight)
+	if valConformance, ok := objMap["Conformance"]; ok {
+		if valConformance != nil {
+			var valueForConformance Conformance
+			err = json.Unmarshal(*valConformance, &valueForConformance)
 			if err != nil {
 				return err
 			}
-			this.MinimalHeight = valueForMinimalHeight
-		}
-	}
-
-	if valHeight, ok := objMap["Height"]; ok {
-		if valHeight != nil {
-			var valueForHeight float64
-			err = json.Unmarshal(*valHeight, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
+			this.Conformance = valueForConformance
 		}
 	}
 
