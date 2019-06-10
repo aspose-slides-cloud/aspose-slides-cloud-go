@@ -34,8 +34,8 @@ import (
 
 type IAddShape interface {
 
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	getShape() IShapeBase
 	setShape(newValue IShapeBase)
@@ -46,18 +46,18 @@ type IAddShape interface {
 
 type AddShape struct {
 
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	Shape IShapeBase `json:"Shape,omitempty"`
 
 	ShapePath string `json:"ShapePath,omitempty"`
 }
 
-func (this AddShape) getType() TaskType {
+func (this AddShape) getType() string {
 	return this.Type_
 }
 
-func (this AddShape) setType(newValue TaskType) {
+func (this AddShape) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this AddShape) getShape() IShapeBase {
@@ -84,7 +84,7 @@ func (this *AddShape) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

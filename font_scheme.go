@@ -41,10 +41,6 @@ type IFontScheme interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	// Gets or sets fonts collection for a \"heading\" part of the slide.
 	getMajor() IFontSet
 	setMajor(newValue IFontSet)
@@ -64,9 +60,6 @@ type FontScheme struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
-
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
 
 	// Gets or sets fonts collection for a \"heading\" part of the slide.
 	Major IFontSet `json:"Major,omitempty"`
@@ -91,13 +84,6 @@ func (this FontScheme) getAlternateLinks() []ResourceUri {
 
 func (this FontScheme) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this FontScheme) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this FontScheme) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
 }
 func (this FontScheme) getMajor() IFontSet {
 	return this.Major
@@ -147,17 +133,6 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
 		}
 	}
 

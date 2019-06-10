@@ -41,10 +41,6 @@ type ITextItems interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	// Gets or sets the text items.
 	getItems() []TextItem
 	setItems(newValue []TextItem)
@@ -56,9 +52,6 @@ type TextItems struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
-
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
 
 	// Gets or sets the text items.
 	Items []TextItem `json:"Items,omitempty"`
@@ -77,13 +70,6 @@ func (this TextItems) getAlternateLinks() []ResourceUri {
 
 func (this TextItems) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this TextItems) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this TextItems) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
 }
 func (this TextItems) getItems() []TextItem {
 	return this.Items
@@ -119,17 +105,6 @@ func (this *TextItems) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
 		}
 	}
 

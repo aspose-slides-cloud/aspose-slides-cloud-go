@@ -34,31 +34,22 @@ import (
 // Represents abstract input file source for pipeline.
 type IInputFile interface {
 
-	// Gets type of input source.
-	getType() InputFileType
-	setType(newValue InputFileType)
-
 	// Get or sets password to open document.
 	getPassword() string
 	setPassword(newValue string)
+
+	getType() string
+	setType(newValue string)
 }
 
 type InputFile struct {
 
-	// Gets type of input source.
-	Type_ InputFileType `json:"Type"`
-
 	// Get or sets password to open document.
 	Password string `json:"Password,omitempty"`
+
+	Type_ string `json:"Type,omitempty"`
 }
 
-func (this InputFile) getType() InputFileType {
-	return this.Type_
-}
-
-func (this InputFile) setType(newValue InputFileType) {
-	this.Type_ = newValue
-}
 func (this InputFile) getPassword() string {
 	return this.Password
 }
@@ -66,23 +57,19 @@ func (this InputFile) getPassword() string {
 func (this InputFile) setPassword(newValue string) {
 	this.Password = newValue
 }
+func (this InputFile) getType() string {
+	return this.Type_
+}
+
+func (this InputFile) setType(newValue string) {
+	this.Type_ = newValue
+}
 
 func (this *InputFile) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
 		return err
-	}
-
-	if valType, ok := objMap["Type"]; ok {
-		if valType != nil {
-			var valueForType InputFileType
-			err = json.Unmarshal(*valType, &valueForType)
-			if err != nil {
-				return err
-			}
-			this.Type_ = valueForType
-		}
 	}
 
 	if valPassword, ok := objMap["Password"]; ok {
@@ -93,6 +80,17 @@ func (this *InputFile) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Password = valueForPassword
+		}
+	}
+
+	if valType, ok := objMap["Type"]; ok {
+		if valType != nil {
+			var valueForType string
+			err = json.Unmarshal(*valType, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
 		}
 	}
 

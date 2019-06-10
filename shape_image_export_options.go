@@ -43,8 +43,8 @@ type IShapeImageExportOptions interface {
 	setScaleY(newValue float64)
 
 	// Get or sets thumbnail bounds
-	getThumbnailBounds() ShapeThumbnailBounds
-	setThumbnailBounds(newValue ShapeThumbnailBounds)
+	getThumbnailBounds() string
+	setThumbnailBounds(newValue string)
 
 	// Gets export format.
 	getFormat() string
@@ -60,7 +60,7 @@ type ShapeImageExportOptions struct {
 	ScaleY float64 `json:"ScaleY"`
 
 	// Get or sets thumbnail bounds
-	ThumbnailBounds ShapeThumbnailBounds `json:"ThumbnailBounds"`
+	ThumbnailBounds string `json:"ThumbnailBounds"`
 
 	// Gets export format.
 	Format string `json:"Format,omitempty"`
@@ -80,11 +80,11 @@ func (this ShapeImageExportOptions) getScaleY() float64 {
 func (this ShapeImageExportOptions) setScaleY(newValue float64) {
 	this.ScaleY = newValue
 }
-func (this ShapeImageExportOptions) getThumbnailBounds() ShapeThumbnailBounds {
+func (this ShapeImageExportOptions) getThumbnailBounds() string {
 	return this.ThumbnailBounds
 }
 
-func (this ShapeImageExportOptions) setThumbnailBounds(newValue ShapeThumbnailBounds) {
+func (this ShapeImageExportOptions) setThumbnailBounds(newValue string) {
 	this.ThumbnailBounds = newValue
 }
 func (this ShapeImageExportOptions) getFormat() string {
@@ -126,7 +126,7 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valThumbnailBounds, ok := objMap["ThumbnailBounds"]; ok {
 		if valThumbnailBounds != nil {
-			var valueForThumbnailBounds ShapeThumbnailBounds
+			var valueForThumbnailBounds string
 			err = json.Unmarshal(*valThumbnailBounds, &valueForThumbnailBounds)
 			if err != nil {
 				return err

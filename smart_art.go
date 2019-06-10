@@ -41,18 +41,6 @@ type ISmartArt interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
-	// Shape type.
-	getType() ShapeType
-	setType(newValue ShapeType)
-
-	// Combined shape type.
-	getShapeType() CombinedShapeType
-	setShapeType(newValue CombinedShapeType)
-
 	// Gets or sets the name.
 	getName() string
 	setName(newValue string)
@@ -69,7 +57,7 @@ type ISmartArt interface {
 	getAlternativeText() string
 	setAlternativeText(newValue string)
 
-	// Gets or sets a value indicating whether this  is hidden.
+	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	getHidden() bool
 	setHidden(newValue bool)
 
@@ -101,17 +89,25 @@ type ISmartArt interface {
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
 
+	// Shape type.
+	getType() string
+	setType(newValue string)
+
+	// Combined shape type.
+	getShapeType() string
+	setShapeType(newValue string)
+
 	// Layout type.
-	getLayout() SmartArtLayoutType
-	setLayout(newValue SmartArtLayoutType)
+	getLayout() string
+	setLayout(newValue string)
 
 	// Quick style.
-	getQuickStyle() SmartArtQuickStyleType
-	setQuickStyle(newValue SmartArtQuickStyleType)
+	getQuickStyle() string
+	setQuickStyle(newValue string)
 
 	// Color style.
-	getColorStyle() SmartArtColorType
-	setColorStyle(newValue SmartArtColorType)
+	getColorStyle() string
+	setColorStyle(newValue string)
 
 	// Collection of nodes in SmartArt object.             
 	getNodes() []SmartArtNode
@@ -129,15 +125,6 @@ type SmartArt struct {
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
-
-	// Shape type.
-	Type_ ShapeType `json:"Type,omitempty"`
-
-	// Combined shape type.
-	ShapeType CombinedShapeType `json:"ShapeType,omitempty"`
-
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
 
@@ -150,7 +137,7 @@ type SmartArt struct {
 	// Gets or sets the alternative text.
 	AlternativeText string `json:"AlternativeText,omitempty"`
 
-	// Gets or sets a value indicating whether this  is hidden.
+	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	Hidden bool `json:"Hidden,omitempty"`
 
 	// Gets or sets the X
@@ -160,7 +147,7 @@ type SmartArt struct {
 	Y float64 `json:"Y,omitempty"`
 
 	// Gets z-order position of shape
-	ZOrderPosition int32 `json:"ZOrderPosition,omitempty"`
+	ZOrderPosition int32 `json:"ZOrderPosition"`
 
 	// Gets or sets the link to shapes.
 	Shapes IResourceUriElement `json:"Shapes,omitempty"`
@@ -174,20 +161,26 @@ type SmartArt struct {
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
+	// Shape type.
+	Type_ string `json:"Type"`
+
+	// Combined shape type.
+	ShapeType string `json:"ShapeType"`
+
 	// Layout type.
-	Layout SmartArtLayoutType `json:"Layout,omitempty"`
+	Layout string `json:"Layout"`
 
 	// Quick style.
-	QuickStyle SmartArtQuickStyleType `json:"QuickStyle,omitempty"`
+	QuickStyle string `json:"QuickStyle"`
 
 	// Color style.
-	ColorStyle SmartArtColorType `json:"ColorStyle,omitempty"`
+	ColorStyle string `json:"ColorStyle"`
 
 	// Collection of nodes in SmartArt object.             
 	Nodes []SmartArtNode `json:"Nodes,omitempty"`
 
 	// The state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
-	IsReversed bool `json:"IsReversed,omitempty"`
+	IsReversed bool `json:"IsReversed"`
 }
 
 func (this SmartArt) getSelfUri() IResourceUri {
@@ -203,27 +196,6 @@ func (this SmartArt) getAlternateLinks() []ResourceUri {
 
 func (this SmartArt) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this SmartArt) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this SmartArt) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
-}
-func (this SmartArt) getType() ShapeType {
-	return this.Type_
-}
-
-func (this SmartArt) setType(newValue ShapeType) {
-	this.Type_ = newValue
-}
-func (this SmartArt) getShapeType() CombinedShapeType {
-	return this.ShapeType
-}
-
-func (this SmartArt) setShapeType(newValue CombinedShapeType) {
-	this.ShapeType = newValue
 }
 func (this SmartArt) getName() string {
 	return this.Name
@@ -309,25 +281,39 @@ func (this SmartArt) getLineFormat() ILineFormat {
 func (this SmartArt) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this SmartArt) getLayout() SmartArtLayoutType {
+func (this SmartArt) getType() string {
+	return this.Type_
+}
+
+func (this SmartArt) setType(newValue string) {
+	this.Type_ = newValue
+}
+func (this SmartArt) getShapeType() string {
+	return this.ShapeType
+}
+
+func (this SmartArt) setShapeType(newValue string) {
+	this.ShapeType = newValue
+}
+func (this SmartArt) getLayout() string {
 	return this.Layout
 }
 
-func (this SmartArt) setLayout(newValue SmartArtLayoutType) {
+func (this SmartArt) setLayout(newValue string) {
 	this.Layout = newValue
 }
-func (this SmartArt) getQuickStyle() SmartArtQuickStyleType {
+func (this SmartArt) getQuickStyle() string {
 	return this.QuickStyle
 }
 
-func (this SmartArt) setQuickStyle(newValue SmartArtQuickStyleType) {
+func (this SmartArt) setQuickStyle(newValue string) {
 	this.QuickStyle = newValue
 }
-func (this SmartArt) getColorStyle() SmartArtColorType {
+func (this SmartArt) getColorStyle() string {
 	return this.ColorStyle
 }
 
-func (this SmartArt) setColorStyle(newValue SmartArtColorType) {
+func (this SmartArt) setColorStyle(newValue string) {
 	this.ColorStyle = newValue
 }
 func (this SmartArt) getNodes() []SmartArtNode {
@@ -371,39 +357,6 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
-		}
-	}
-
-	if valType, ok := objMap["Type"]; ok {
-		if valType != nil {
-			var valueForType ShapeType
-			err = json.Unmarshal(*valType, &valueForType)
-			if err != nil {
-				return err
-			}
-			this.Type_ = valueForType
-		}
-	}
-
-	if valShapeType, ok := objMap["ShapeType"]; ok {
-		if valShapeType != nil {
-			var valueForShapeType CombinedShapeType
-			err = json.Unmarshal(*valShapeType, &valueForShapeType)
-			if err != nil {
-				return err
-			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 
@@ -539,9 +492,31 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 		}
 	}
 
+	if valType, ok := objMap["Type"]; ok {
+		if valType != nil {
+			var valueForType string
+			err = json.Unmarshal(*valType, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
+
+	if valShapeType, ok := objMap["ShapeType"]; ok {
+		if valShapeType != nil {
+			var valueForShapeType string
+			err = json.Unmarshal(*valShapeType, &valueForShapeType)
+			if err != nil {
+				return err
+			}
+			this.ShapeType = valueForShapeType
+		}
+	}
+
 	if valLayout, ok := objMap["Layout"]; ok {
 		if valLayout != nil {
-			var valueForLayout SmartArtLayoutType
+			var valueForLayout string
 			err = json.Unmarshal(*valLayout, &valueForLayout)
 			if err != nil {
 				return err
@@ -552,7 +527,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 
 	if valQuickStyle, ok := objMap["QuickStyle"]; ok {
 		if valQuickStyle != nil {
-			var valueForQuickStyle SmartArtQuickStyleType
+			var valueForQuickStyle string
 			err = json.Unmarshal(*valQuickStyle, &valueForQuickStyle)
 			if err != nil {
 				return err
@@ -563,7 +538,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 
 	if valColorStyle, ok := objMap["ColorStyle"]; ok {
 		if valColorStyle != nil {
-			var valueForColorStyle SmartArtColorType
+			var valueForColorStyle string
 			err = json.Unmarshal(*valColorStyle, &valueForColorStyle)
 			if err != nil {
 				return err

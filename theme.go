@@ -41,10 +41,6 @@ type ITheme interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	getName() string
 	setName(newValue string)
 
@@ -64,9 +60,6 @@ type Theme struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
-
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
 
 	Name string `json:"Name,omitempty"`
 
@@ -90,13 +83,6 @@ func (this Theme) getAlternateLinks() []ResourceUri {
 
 func (this Theme) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this Theme) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this Theme) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
 }
 func (this Theme) getName() string {
 	return this.Name
@@ -153,17 +139,6 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
 		}
 	}
 

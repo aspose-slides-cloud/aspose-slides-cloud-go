@@ -39,8 +39,8 @@ type ISeriesMarker interface {
 	setSize(newValue int32)
 
 	// symbol
-	getSymbol() MarkerStyleType
-	setSymbol(newValue MarkerStyleType)
+	getSymbol() string
+	setSymbol(newValue string)
 
 	// Get or sets the fill format.
 	getFillFormat() IFillFormat
@@ -61,7 +61,7 @@ type SeriesMarker struct {
 	Size int32 `json:"Size"`
 
 	// symbol
-	Symbol MarkerStyleType `json:"Symbol"`
+	Symbol string `json:"Symbol"`
 
 	// Get or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -80,11 +80,11 @@ func (this SeriesMarker) getSize() int32 {
 func (this SeriesMarker) setSize(newValue int32) {
 	this.Size = newValue
 }
-func (this SeriesMarker) getSymbol() MarkerStyleType {
+func (this SeriesMarker) getSymbol() string {
 	return this.Symbol
 }
 
-func (this SeriesMarker) setSymbol(newValue MarkerStyleType) {
+func (this SeriesMarker) setSymbol(newValue string) {
 	this.Symbol = newValue
 }
 func (this SeriesMarker) getFillFormat() IFillFormat {
@@ -129,7 +129,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 
 	if valSymbol, ok := objMap["Symbol"]; ok {
 		if valSymbol != nil {
-			var valueForSymbol MarkerStyleType
+			var valueForSymbol string
 			err = json.Unmarshal(*valSymbol, &valueForSymbol)
 			if err != nil {
 				return err

@@ -35,16 +35,16 @@ import (
 type IGradientFill interface {
 
 	// Type of fill.
-	getType() FillType
-	setType(newValue FillType)
+	getType() string
+	setType(newValue string)
 
 	// Gradient style.
-	getDirection() GradientDirection
-	setDirection(newValue GradientDirection)
+	getDirection() string
+	setDirection(newValue string)
 
 	// Gradient shape.
-	getShape() GradientShapeType
-	setShape(newValue GradientShapeType)
+	getShape() string
+	setShape(newValue string)
 
 	// Gradient stops.
 	getStops() []GradientFillStop
@@ -59,53 +59,53 @@ type IGradientFill interface {
 	setIsScaled(newValue bool)
 
 	// Gradient flipping mode.
-	getTileFlip() GradientTileFlip
-	setTileFlip(newValue GradientTileFlip)
+	getTileFlip() string
+	setTileFlip(newValue string)
 }
 
 type GradientFill struct {
 
 	// Type of fill.
-	Type_ FillType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// Gradient style.
-	Direction GradientDirection `json:"Direction,omitempty"`
+	Direction string `json:"Direction"`
 
 	// Gradient shape.
-	Shape GradientShapeType `json:"Shape,omitempty"`
+	Shape string `json:"Shape"`
 
 	// Gradient stops.
 	Stops []GradientFillStop `json:"Stops,omitempty"`
 
 	// Gradient angle.
-	LinearAngle float64 `json:"LinearAngle,omitempty"`
+	LinearAngle float64 `json:"LinearAngle"`
 
 	// True if the gradient is scaled.
-	IsScaled bool `json:"IsScaled,omitempty"`
+	IsScaled bool `json:"IsScaled"`
 
 	// Gradient flipping mode.
-	TileFlip GradientTileFlip `json:"TileFlip,omitempty"`
+	TileFlip string `json:"TileFlip"`
 }
 
-func (this GradientFill) getType() FillType {
+func (this GradientFill) getType() string {
 	return this.Type_
 }
 
-func (this GradientFill) setType(newValue FillType) {
+func (this GradientFill) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this GradientFill) getDirection() GradientDirection {
+func (this GradientFill) getDirection() string {
 	return this.Direction
 }
 
-func (this GradientFill) setDirection(newValue GradientDirection) {
+func (this GradientFill) setDirection(newValue string) {
 	this.Direction = newValue
 }
-func (this GradientFill) getShape() GradientShapeType {
+func (this GradientFill) getShape() string {
 	return this.Shape
 }
 
-func (this GradientFill) setShape(newValue GradientShapeType) {
+func (this GradientFill) setShape(newValue string) {
 	this.Shape = newValue
 }
 func (this GradientFill) getStops() []GradientFillStop {
@@ -129,11 +129,11 @@ func (this GradientFill) getIsScaled() bool {
 func (this GradientFill) setIsScaled(newValue bool) {
 	this.IsScaled = newValue
 }
-func (this GradientFill) getTileFlip() GradientTileFlip {
+func (this GradientFill) getTileFlip() string {
 	return this.TileFlip
 }
 
-func (this GradientFill) setTileFlip(newValue GradientTileFlip) {
+func (this GradientFill) setTileFlip(newValue string) {
 	this.TileFlip = newValue
 }
 
@@ -146,7 +146,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType FillType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err
@@ -157,7 +157,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 
 	if valDirection, ok := objMap["Direction"]; ok {
 		if valDirection != nil {
-			var valueForDirection GradientDirection
+			var valueForDirection string
 			err = json.Unmarshal(*valDirection, &valueForDirection)
 			if err != nil {
 				return err
@@ -168,7 +168,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 
 	if valShape, ok := objMap["Shape"]; ok {
 		if valShape != nil {
-			var valueForShape GradientShapeType
+			var valueForShape string
 			err = json.Unmarshal(*valShape, &valueForShape)
 			if err != nil {
 				return err
@@ -212,7 +212,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 
 	if valTileFlip, ok := objMap["TileFlip"]; ok {
 		if valTileFlip != nil {
-			var valueForTileFlip GradientTileFlip
+			var valueForTileFlip string
 			err = json.Unmarshal(*valTileFlip, &valueForTileFlip)
 			if err != nil {
 				return err

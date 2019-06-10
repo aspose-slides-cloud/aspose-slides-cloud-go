@@ -35,8 +35,8 @@ import (
 type IAddMasterSlide interface {
 
 	// Task type.
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	// Source presentation clone from.
 	getCloneFromFile() IInputFile
@@ -54,23 +54,23 @@ type IAddMasterSlide interface {
 type AddMasterSlide struct {
 
 	// Task type.
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// Source presentation clone from.
 	CloneFromFile IInputFile `json:"CloneFromFile,omitempty"`
 
 	// Index of slide to clone.
-	CloneFromPosition int32 `json:"CloneFromPosition,omitempty"`
+	CloneFromPosition int32 `json:"CloneFromPosition"`
 
 	// True if cloned master slide is applied to all slides.
-	ApplyToAll bool `json:"ApplyToAll,omitempty"`
+	ApplyToAll bool `json:"ApplyToAll"`
 }
 
-func (this AddMasterSlide) getType() TaskType {
+func (this AddMasterSlide) getType() string {
 	return this.Type_
 }
 
-func (this AddMasterSlide) setType(newValue TaskType) {
+func (this AddMasterSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this AddMasterSlide) getCloneFromFile() IInputFile {
@@ -104,7 +104,7 @@ func (this *AddMasterSlide) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

@@ -35,8 +35,8 @@ import (
 type IReplaceText interface {
 
 	// Task type.
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	// Text to be replaced.
 	getOldText() string
@@ -58,7 +58,7 @@ type IReplaceText interface {
 type ReplaceText struct {
 
 	// Task type.
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// Text to be replaced.
 	OldText string `json:"OldText,omitempty"`
@@ -67,17 +67,17 @@ type ReplaceText struct {
 	NewText string `json:"NewText,omitempty"`
 
 	// True to ignore case in replace pattern search.
-	IgnoreCase bool `json:"IgnoreCase,omitempty"`
+	IgnoreCase bool `json:"IgnoreCase"`
 
 	// One-based position of the slide to perform the replace in. 0 to make the replace throughout the presentation.
-	SlidePosition int32 `json:"SlidePosition,omitempty"`
+	SlidePosition int32 `json:"SlidePosition"`
 }
 
-func (this ReplaceText) getType() TaskType {
+func (this ReplaceText) getType() string {
 	return this.Type_
 }
 
-func (this ReplaceText) setType(newValue TaskType) {
+func (this ReplaceText) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this ReplaceText) getOldText() string {
@@ -118,7 +118,7 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

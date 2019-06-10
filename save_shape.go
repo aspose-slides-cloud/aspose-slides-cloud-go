@@ -35,12 +35,12 @@ import (
 type ISaveShape interface {
 
 	// Task type.
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	// Format.
-	getFormat() ShapeExportFormat
-	setFormat(newValue ShapeExportFormat)
+	getFormat() string
+	setFormat(newValue string)
 
 	// Shape path.
 	getShapePath() string
@@ -58,10 +58,10 @@ type ISaveShape interface {
 type SaveShape struct {
 
 	// Task type.
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// Format.
-	Format ShapeExportFormat `json:"Format,omitempty"`
+	Format string `json:"Format"`
 
 	// Shape path.
 	ShapePath string `json:"ShapePath,omitempty"`
@@ -73,18 +73,18 @@ type SaveShape struct {
 	Options IIShapeExportOptions `json:"Options,omitempty"`
 }
 
-func (this SaveShape) getType() TaskType {
+func (this SaveShape) getType() string {
 	return this.Type_
 }
 
-func (this SaveShape) setType(newValue TaskType) {
+func (this SaveShape) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this SaveShape) getFormat() ShapeExportFormat {
+func (this SaveShape) getFormat() string {
 	return this.Format
 }
 
-func (this SaveShape) setFormat(newValue ShapeExportFormat) {
+func (this SaveShape) setFormat(newValue string) {
 	this.Format = newValue
 }
 func (this SaveShape) getShapePath() string {
@@ -118,7 +118,7 @@ func (this *SaveShape) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err
@@ -129,7 +129,7 @@ func (this *SaveShape) UnmarshalJSON(b []byte) error {
 
 	if valFormat, ok := objMap["Format"]; ok {
 		if valFormat != nil {
-			var valueForFormat ShapeExportFormat
+			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
 			if err != nil {
 				return err

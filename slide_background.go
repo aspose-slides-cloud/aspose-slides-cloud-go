@@ -41,12 +41,8 @@ type ISlideBackground interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
-	getType() FillType
-	setType(newValue FillType)
+	getType() string
+	setType(newValue string)
 
 	getFillFormat() IFillFormat
 	setFillFormat(newValue IFillFormat)
@@ -62,10 +58,7 @@ type SlideBackground struct {
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
-
-	Type_ FillType `json:"Type,omitempty"`
+	Type_ string `json:"Type"`
 
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
 
@@ -86,18 +79,11 @@ func (this SlideBackground) getAlternateLinks() []ResourceUri {
 func (this SlideBackground) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this SlideBackground) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this SlideBackground) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
-}
-func (this SlideBackground) getType() FillType {
+func (this SlideBackground) getType() string {
 	return this.Type_
 }
 
-func (this SlideBackground) setType(newValue FillType) {
+func (this SlideBackground) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this SlideBackground) getFillFormat() IFillFormat {
@@ -144,20 +130,9 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
-		}
-	}
-
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType FillType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

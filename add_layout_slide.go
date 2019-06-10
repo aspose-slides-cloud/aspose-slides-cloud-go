@@ -34,8 +34,8 @@ import (
 
 type IAddLayoutSlide interface {
 
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	getCloneFromFile() IInputFile
 	setCloneFromFile(newValue IInputFile)
@@ -46,18 +46,18 @@ type IAddLayoutSlide interface {
 
 type AddLayoutSlide struct {
 
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	CloneFromFile IInputFile `json:"CloneFromFile,omitempty"`
 
-	CloneFromPosition int32 `json:"CloneFromPosition,omitempty"`
+	CloneFromPosition int32 `json:"CloneFromPosition"`
 }
 
-func (this AddLayoutSlide) getType() TaskType {
+func (this AddLayoutSlide) getType() string {
 	return this.Type_
 }
 
-func (this AddLayoutSlide) setType(newValue TaskType) {
+func (this AddLayoutSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this AddLayoutSlide) getCloneFromFile() IInputFile {
@@ -84,7 +84,7 @@ func (this *AddLayoutSlide) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

@@ -41,10 +41,6 @@ type IColorScheme interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	getAccent1() string
 	setAccent1(newValue string)
 
@@ -89,9 +85,6 @@ type ColorScheme struct {
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
-
 	Accent1 string `json:"Accent1,omitempty"`
 
 	Accent2 string `json:"Accent2,omitempty"`
@@ -130,13 +123,6 @@ func (this ColorScheme) getAlternateLinks() []ResourceUri {
 
 func (this ColorScheme) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this ColorScheme) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this ColorScheme) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
 }
 func (this ColorScheme) getAccent1() string {
 	return this.Accent1
@@ -249,17 +235,6 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
 		}
 	}
 

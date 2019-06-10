@@ -35,8 +35,8 @@ import (
 type IPatternFill interface {
 
 	// Type of fill.
-	getType() FillType
-	setType(newValue FillType)
+	getType() string
+	setType(newValue string)
 
 	// Gets or sets the back color of the pattern fill.
 	getBackColor() string
@@ -47,14 +47,14 @@ type IPatternFill interface {
 	setForeColor(newValue string)
 
 	// Gets or sets the style of pattern fill.
-	getStyle() PatternStyle
-	setStyle(newValue PatternStyle)
+	getStyle() string
+	setStyle(newValue string)
 }
 
 type PatternFill struct {
 
 	// Type of fill.
-	Type_ FillType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// Gets or sets the back color of the pattern fill.
 	BackColor string `json:"BackColor,omitempty"`
@@ -63,14 +63,14 @@ type PatternFill struct {
 	ForeColor string `json:"ForeColor,omitempty"`
 
 	// Gets or sets the style of pattern fill.
-	Style PatternStyle `json:"Style,omitempty"`
+	Style string `json:"Style"`
 }
 
-func (this PatternFill) getType() FillType {
+func (this PatternFill) getType() string {
 	return this.Type_
 }
 
-func (this PatternFill) setType(newValue FillType) {
+func (this PatternFill) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this PatternFill) getBackColor() string {
@@ -87,11 +87,11 @@ func (this PatternFill) getForeColor() string {
 func (this PatternFill) setForeColor(newValue string) {
 	this.ForeColor = newValue
 }
-func (this PatternFill) getStyle() PatternStyle {
+func (this PatternFill) getStyle() string {
 	return this.Style
 }
 
-func (this PatternFill) setStyle(newValue PatternStyle) {
+func (this PatternFill) setStyle(newValue string) {
 	this.Style = newValue
 }
 
@@ -104,7 +104,7 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType FillType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err
@@ -137,7 +137,7 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 
 	if valStyle, ok := objMap["Style"]; ok {
 		if valStyle != nil {
-			var valueForStyle PatternStyle
+			var valueForStyle string
 			err = json.Unmarshal(*valStyle, &valueForStyle)
 			if err != nil {
 				return err

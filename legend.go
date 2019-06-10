@@ -35,8 +35,8 @@ import (
 type ILegend interface {
 
 	// position
-	getPosition() LegendPositionType
-	setPosition(newValue LegendPositionType)
+	getPosition() string
+	setPosition(newValue string)
 
 	// the X location
 	getX() float64
@@ -74,7 +74,7 @@ type ILegend interface {
 type Legend struct {
 
 	// position
-	Position LegendPositionType `json:"Position"`
+	Position string `json:"Position"`
 
 	// the X location
 	X float64 `json:"X"`
@@ -101,11 +101,11 @@ type Legend struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
-func (this Legend) getPosition() LegendPositionType {
+func (this Legend) getPosition() string {
 	return this.Position
 }
 
-func (this Legend) setPosition(newValue LegendPositionType) {
+func (this Legend) setPosition(newValue string) {
 	this.Position = newValue
 }
 func (this Legend) getX() float64 {
@@ -174,7 +174,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 
 	if valPosition, ok := objMap["Position"]; ok {
 		if valPosition != nil {
-			var valueForPosition LegendPositionType
+			var valueForPosition string
 			err = json.Unmarshal(*valPosition, &valueForPosition)
 			if err != nil {
 				return err

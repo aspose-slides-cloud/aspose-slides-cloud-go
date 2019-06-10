@@ -37,17 +37,17 @@ type IPptxExportOptions interface {
 	getFormat() string
 	setFormat(newValue string)
 
-	// The conformance class to which the PresentationML document conforms. Read/write .
-	getConformance() Conformance
-	setConformance(newValue Conformance)
+	// The conformance class to which the PresentationML document conforms. Read/write Conformance.
+	getConformance() string
+	setConformance(newValue string)
 }
 
 type PptxExportOptions struct {
 
 	Format string `json:"Format,omitempty"`
 
-	// The conformance class to which the PresentationML document conforms. Read/write .
-	Conformance Conformance `json:"Conformance,omitempty"`
+	// The conformance class to which the PresentationML document conforms. Read/write Conformance.
+	Conformance string `json:"Conformance"`
 }
 
 func (this PptxExportOptions) getFormat() string {
@@ -57,11 +57,11 @@ func (this PptxExportOptions) getFormat() string {
 func (this PptxExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this PptxExportOptions) getConformance() Conformance {
+func (this PptxExportOptions) getConformance() string {
 	return this.Conformance
 }
 
-func (this PptxExportOptions) setConformance(newValue Conformance) {
+func (this PptxExportOptions) setConformance(newValue string) {
 	this.Conformance = newValue
 }
 
@@ -85,7 +85,7 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valConformance, ok := objMap["Conformance"]; ok {
 		if valConformance != nil {
-			var valueForConformance Conformance
+			var valueForConformance string
 			err = json.Unmarshal(*valConformance, &valueForConformance)
 			if err != nil {
 				return err

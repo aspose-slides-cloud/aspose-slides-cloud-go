@@ -63,12 +63,12 @@ type ITableCell interface {
 	setMarginBottom(newValue float64)
 
 	// Text anchor type.
-	getTextAnchorType() TextAnchorType
-	setTextAnchorType(newValue TextAnchorType)
+	getTextAnchorType() string
+	setTextAnchorType(newValue string)
 
 	// The type of vertical text.
-	getTextVerticalType() TextVerticalType
-	setTextVerticalType(newValue TextVerticalType)
+	getTextVerticalType() string
+	setTextVerticalType(newValue string)
 
 	// Fill properties set of the cell.
 	getFillFormat() IFillFormat
@@ -123,10 +123,10 @@ type TableCell struct {
 	MarginBottom float64 `json:"MarginBottom"`
 
 	// Text anchor type.
-	TextAnchorType TextAnchorType `json:"TextAnchorType"`
+	TextAnchorType string `json:"TextAnchorType"`
 
 	// The type of vertical text.
-	TextVerticalType TextVerticalType `json:"TextVerticalType"`
+	TextVerticalType string `json:"TextVerticalType"`
 
 	// Fill properties set of the cell.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -199,18 +199,18 @@ func (this TableCell) getMarginBottom() float64 {
 func (this TableCell) setMarginBottom(newValue float64) {
 	this.MarginBottom = newValue
 }
-func (this TableCell) getTextAnchorType() TextAnchorType {
+func (this TableCell) getTextAnchorType() string {
 	return this.TextAnchorType
 }
 
-func (this TableCell) setTextAnchorType(newValue TextAnchorType) {
+func (this TableCell) setTextAnchorType(newValue string) {
 	this.TextAnchorType = newValue
 }
-func (this TableCell) getTextVerticalType() TextVerticalType {
+func (this TableCell) getTextVerticalType() string {
 	return this.TextVerticalType
 }
 
-func (this TableCell) setTextVerticalType(newValue TextVerticalType) {
+func (this TableCell) setTextVerticalType(newValue string) {
 	this.TextVerticalType = newValue
 }
 func (this TableCell) getFillFormat() IFillFormat {
@@ -349,7 +349,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 
 	if valTextAnchorType, ok := objMap["TextAnchorType"]; ok {
 		if valTextAnchorType != nil {
-			var valueForTextAnchorType TextAnchorType
+			var valueForTextAnchorType string
 			err = json.Unmarshal(*valTextAnchorType, &valueForTextAnchorType)
 			if err != nil {
 				return err
@@ -360,7 +360,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 
 	if valTextVerticalType, ok := objMap["TextVerticalType"]; ok {
 		if valTextVerticalType != nil {
-			var valueForTextVerticalType TextVerticalType
+			var valueForTextVerticalType string
 			err = json.Unmarshal(*valTextVerticalType, &valueForTextVerticalType)
 			if err != nil {
 				return err

@@ -41,10 +41,6 @@ type IParagraph interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	getMarginLeft() float64
 	setMarginLeft(newValue float64)
 
@@ -63,11 +59,11 @@ type IParagraph interface {
 	getIndent() float64
 	setIndent(newValue float64)
 
-	getAlignment() TextAlignment
-	setAlignment(newValue TextAlignment)
+	getAlignment() string
+	setAlignment(newValue string)
 
-	getFontAlignment() FontAlignment
-	setFontAlignment(newValue FontAlignment)
+	getFontAlignment() string
+	setFontAlignment(newValue string)
 
 	getDefaultTabSize() float64
 	setDefaultTabSize(newValue float64)
@@ -81,26 +77,26 @@ type IParagraph interface {
 	getBulletHeight() float64
 	setBulletHeight(newValue float64)
 
-	getBulletType() BulletType
-	setBulletType(newValue BulletType)
+	getBulletType() string
+	setBulletType(newValue string)
 
 	getNumberedBulletStartWith() int32
 	setNumberedBulletStartWith(newValue int32)
 
-	getNumberedBulletStyle() NumberedBulletStyle
-	setNumberedBulletStyle(newValue NumberedBulletStyle)
+	getNumberedBulletStyle() string
+	setNumberedBulletStyle(newValue string)
 
-	getHangingPunctuation() int32
-	setHangingPunctuation(newValue int32)
+	getHangingPunctuation() string
+	setHangingPunctuation(newValue string)
 
-	getEastAsianLineBreak() int32
-	setEastAsianLineBreak(newValue int32)
+	getEastAsianLineBreak() string
+	setEastAsianLineBreak(newValue string)
 
-	getLatinLineBreak() int32
-	setLatinLineBreak(newValue int32)
+	getLatinLineBreak() string
+	setLatinLineBreak(newValue string)
 
-	getRightToLeft() int32
-	setRightToLeft(newValue int32)
+	getRightToLeft() string
+	setRightToLeft(newValue string)
 
 	getPortionList() []ResourceUriElement
 	setPortionList(newValue []ResourceUriElement)
@@ -112,9 +108,6 @@ type Paragraph struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
-
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
 
 	MarginLeft float64 `json:"MarginLeft,omitempty"`
 
@@ -128,9 +121,9 @@ type Paragraph struct {
 
 	Indent float64 `json:"Indent,omitempty"`
 
-	Alignment TextAlignment `json:"Alignment,omitempty"`
+	Alignment string `json:"Alignment,omitempty"`
 
-	FontAlignment FontAlignment `json:"FontAlignment,omitempty"`
+	FontAlignment string `json:"FontAlignment,omitempty"`
 
 	DefaultTabSize float64 `json:"DefaultTabSize,omitempty"`
 
@@ -140,19 +133,19 @@ type Paragraph struct {
 
 	BulletHeight float64 `json:"BulletHeight,omitempty"`
 
-	BulletType BulletType `json:"BulletType,omitempty"`
+	BulletType string `json:"BulletType,omitempty"`
 
 	NumberedBulletStartWith int32 `json:"NumberedBulletStartWith,omitempty"`
 
-	NumberedBulletStyle NumberedBulletStyle `json:"NumberedBulletStyle,omitempty"`
+	NumberedBulletStyle string `json:"NumberedBulletStyle,omitempty"`
 
-	HangingPunctuation int32 `json:"HangingPunctuation,omitempty"`
+	HangingPunctuation string `json:"HangingPunctuation,omitempty"`
 
-	EastAsianLineBreak int32 `json:"EastAsianLineBreak,omitempty"`
+	EastAsianLineBreak string `json:"EastAsianLineBreak,omitempty"`
 
-	LatinLineBreak int32 `json:"LatinLineBreak,omitempty"`
+	LatinLineBreak string `json:"LatinLineBreak,omitempty"`
 
-	RightToLeft int32 `json:"RightToLeft,omitempty"`
+	RightToLeft string `json:"RightToLeft,omitempty"`
 
 	PortionList []ResourceUriElement `json:"PortionList,omitempty"`
 }
@@ -170,13 +163,6 @@ func (this Paragraph) getAlternateLinks() []ResourceUri {
 
 func (this Paragraph) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this Paragraph) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this Paragraph) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
 }
 func (this Paragraph) getMarginLeft() float64 {
 	return this.MarginLeft
@@ -220,18 +206,18 @@ func (this Paragraph) getIndent() float64 {
 func (this Paragraph) setIndent(newValue float64) {
 	this.Indent = newValue
 }
-func (this Paragraph) getAlignment() TextAlignment {
+func (this Paragraph) getAlignment() string {
 	return this.Alignment
 }
 
-func (this Paragraph) setAlignment(newValue TextAlignment) {
+func (this Paragraph) setAlignment(newValue string) {
 	this.Alignment = newValue
 }
-func (this Paragraph) getFontAlignment() FontAlignment {
+func (this Paragraph) getFontAlignment() string {
 	return this.FontAlignment
 }
 
-func (this Paragraph) setFontAlignment(newValue FontAlignment) {
+func (this Paragraph) setFontAlignment(newValue string) {
 	this.FontAlignment = newValue
 }
 func (this Paragraph) getDefaultTabSize() float64 {
@@ -262,11 +248,11 @@ func (this Paragraph) getBulletHeight() float64 {
 func (this Paragraph) setBulletHeight(newValue float64) {
 	this.BulletHeight = newValue
 }
-func (this Paragraph) getBulletType() BulletType {
+func (this Paragraph) getBulletType() string {
 	return this.BulletType
 }
 
-func (this Paragraph) setBulletType(newValue BulletType) {
+func (this Paragraph) setBulletType(newValue string) {
 	this.BulletType = newValue
 }
 func (this Paragraph) getNumberedBulletStartWith() int32 {
@@ -276,39 +262,39 @@ func (this Paragraph) getNumberedBulletStartWith() int32 {
 func (this Paragraph) setNumberedBulletStartWith(newValue int32) {
 	this.NumberedBulletStartWith = newValue
 }
-func (this Paragraph) getNumberedBulletStyle() NumberedBulletStyle {
+func (this Paragraph) getNumberedBulletStyle() string {
 	return this.NumberedBulletStyle
 }
 
-func (this Paragraph) setNumberedBulletStyle(newValue NumberedBulletStyle) {
+func (this Paragraph) setNumberedBulletStyle(newValue string) {
 	this.NumberedBulletStyle = newValue
 }
-func (this Paragraph) getHangingPunctuation() int32 {
+func (this Paragraph) getHangingPunctuation() string {
 	return this.HangingPunctuation
 }
 
-func (this Paragraph) setHangingPunctuation(newValue int32) {
+func (this Paragraph) setHangingPunctuation(newValue string) {
 	this.HangingPunctuation = newValue
 }
-func (this Paragraph) getEastAsianLineBreak() int32 {
+func (this Paragraph) getEastAsianLineBreak() string {
 	return this.EastAsianLineBreak
 }
 
-func (this Paragraph) setEastAsianLineBreak(newValue int32) {
+func (this Paragraph) setEastAsianLineBreak(newValue string) {
 	this.EastAsianLineBreak = newValue
 }
-func (this Paragraph) getLatinLineBreak() int32 {
+func (this Paragraph) getLatinLineBreak() string {
 	return this.LatinLineBreak
 }
 
-func (this Paragraph) setLatinLineBreak(newValue int32) {
+func (this Paragraph) setLatinLineBreak(newValue string) {
 	this.LatinLineBreak = newValue
 }
-func (this Paragraph) getRightToLeft() int32 {
+func (this Paragraph) getRightToLeft() string {
 	return this.RightToLeft
 }
 
-func (this Paragraph) setRightToLeft(newValue int32) {
+func (this Paragraph) setRightToLeft(newValue string) {
 	this.RightToLeft = newValue
 }
 func (this Paragraph) getPortionList() []ResourceUriElement {
@@ -345,17 +331,6 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
 		}
 	}
 
@@ -427,7 +402,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 
 	if valAlignment, ok := objMap["Alignment"]; ok {
 		if valAlignment != nil {
-			var valueForAlignment TextAlignment
+			var valueForAlignment string
 			err = json.Unmarshal(*valAlignment, &valueForAlignment)
 			if err != nil {
 				return err
@@ -438,7 +413,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 
 	if valFontAlignment, ok := objMap["FontAlignment"]; ok {
 		if valFontAlignment != nil {
-			var valueForFontAlignment FontAlignment
+			var valueForFontAlignment string
 			err = json.Unmarshal(*valFontAlignment, &valueForFontAlignment)
 			if err != nil {
 				return err
@@ -493,7 +468,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 
 	if valBulletType, ok := objMap["BulletType"]; ok {
 		if valBulletType != nil {
-			var valueForBulletType BulletType
+			var valueForBulletType string
 			err = json.Unmarshal(*valBulletType, &valueForBulletType)
 			if err != nil {
 				return err
@@ -515,7 +490,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 
 	if valNumberedBulletStyle, ok := objMap["NumberedBulletStyle"]; ok {
 		if valNumberedBulletStyle != nil {
-			var valueForNumberedBulletStyle NumberedBulletStyle
+			var valueForNumberedBulletStyle string
 			err = json.Unmarshal(*valNumberedBulletStyle, &valueForNumberedBulletStyle)
 			if err != nil {
 				return err
@@ -526,7 +501,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 
 	if valHangingPunctuation, ok := objMap["HangingPunctuation"]; ok {
 		if valHangingPunctuation != nil {
-			var valueForHangingPunctuation int32
+			var valueForHangingPunctuation string
 			err = json.Unmarshal(*valHangingPunctuation, &valueForHangingPunctuation)
 			if err != nil {
 				return err
@@ -537,7 +512,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 
 	if valEastAsianLineBreak, ok := objMap["EastAsianLineBreak"]; ok {
 		if valEastAsianLineBreak != nil {
-			var valueForEastAsianLineBreak int32
+			var valueForEastAsianLineBreak string
 			err = json.Unmarshal(*valEastAsianLineBreak, &valueForEastAsianLineBreak)
 			if err != nil {
 				return err
@@ -548,7 +523,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 
 	if valLatinLineBreak, ok := objMap["LatinLineBreak"]; ok {
 		if valLatinLineBreak != nil {
-			var valueForLatinLineBreak int32
+			var valueForLatinLineBreak string
 			err = json.Unmarshal(*valLatinLineBreak, &valueForLatinLineBreak)
 			if err != nil {
 				return err
@@ -559,7 +534,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 
 	if valRightToLeft, ok := objMap["RightToLeft"]; ok {
 		if valRightToLeft != nil {
-			var valueForRightToLeft int32
+			var valueForRightToLeft string
 			err = json.Unmarshal(*valRightToLeft, &valueForRightToLeft)
 			if err != nil {
 				return err

@@ -34,12 +34,12 @@ import (
 // Represents base64 inline encoded file.
 type IBase64InputFile interface {
 
-	getType() InputFileType
-	setType(newValue InputFileType)
-
 	// Get or sets password to open document.
 	getPassword() string
 	setPassword(newValue string)
+
+	getType() string
+	setType(newValue string)
 
 	// Get or sets base64 data.
 	getData() string
@@ -48,28 +48,28 @@ type IBase64InputFile interface {
 
 type Base64InputFile struct {
 
-	Type_ InputFileType `json:"Type"`
-
 	// Get or sets password to open document.
 	Password string `json:"Password,omitempty"`
+
+	Type_ string `json:"Type"`
 
 	// Get or sets base64 data.
 	Data string `json:"Data,omitempty"`
 }
 
-func (this Base64InputFile) getType() InputFileType {
-	return this.Type_
-}
-
-func (this Base64InputFile) setType(newValue InputFileType) {
-	this.Type_ = newValue
-}
 func (this Base64InputFile) getPassword() string {
 	return this.Password
 }
 
 func (this Base64InputFile) setPassword(newValue string) {
 	this.Password = newValue
+}
+func (this Base64InputFile) getType() string {
+	return this.Type_
+}
+
+func (this Base64InputFile) setType(newValue string) {
+	this.Type_ = newValue
 }
 func (this Base64InputFile) getData() string {
 	return this.Data
@@ -86,17 +86,6 @@ func (this *Base64InputFile) UnmarshalJSON(b []byte) error {
 		return err
 	}
 
-	if valType, ok := objMap["Type"]; ok {
-		if valType != nil {
-			var valueForType InputFileType
-			err = json.Unmarshal(*valType, &valueForType)
-			if err != nil {
-				return err
-			}
-			this.Type_ = valueForType
-		}
-	}
-
 	if valPassword, ok := objMap["Password"]; ok {
 		if valPassword != nil {
 			var valueForPassword string
@@ -105,6 +94,17 @@ func (this *Base64InputFile) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Password = valueForPassword
+		}
+	}
+
+	if valType, ok := objMap["Type"]; ok {
+		if valType != nil {
+			var valueForType string
+			err = json.Unmarshal(*valType, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
 		}
 	}
 

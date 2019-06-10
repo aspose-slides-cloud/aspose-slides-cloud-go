@@ -34,13 +34,9 @@ import (
 // A chart series.
 type ISeries interface {
 
-	// Data point type.
-	getDataPointType() ChartDataPointType
-	setDataPointType(newValue ChartDataPointType)
-
 	// Series type.
-	getType() ChartType
-	setType(newValue ChartType)
+	getType() string
+	setType(newValue string)
 
 	// Series name.
 	getName() string
@@ -109,11 +105,8 @@ type ISeries interface {
 
 type Series struct {
 
-	// Data point type.
-	DataPointType ChartDataPointType `json:"DataPointType"`
-
 	// Series type.
-	Type_ ChartType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// Series name.
 	Name string `json:"Name,omitempty"`
@@ -164,18 +157,11 @@ type Series struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
-func (this Series) getDataPointType() ChartDataPointType {
-	return this.DataPointType
-}
-
-func (this Series) setDataPointType(newValue ChartDataPointType) {
-	this.DataPointType = newValue
-}
-func (this Series) getType() ChartType {
+func (this Series) getType() string {
 	return this.Type_
 }
 
-func (this Series) setType(newValue ChartType) {
+func (this Series) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this Series) getName() string {
@@ -298,20 +284,9 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 		return err
 	}
 
-	if valDataPointType, ok := objMap["DataPointType"]; ok {
-		if valDataPointType != nil {
-			var valueForDataPointType ChartDataPointType
-			err = json.Unmarshal(*valDataPointType, &valueForDataPointType)
-			if err != nil {
-				return err
-			}
-			this.DataPointType = valueForDataPointType
-		}
-	}
-
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType ChartType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

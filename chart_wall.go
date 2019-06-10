@@ -51,8 +51,8 @@ type IChartWall interface {
 	setThickness(newValue int32)
 
 	// Get or sets mode of bar picture filling.
-	getPictureType() PictureType
-	setPictureType(newValue PictureType)
+	getPictureType() string
+	setPictureType(newValue string)
 }
 
 type ChartWall struct {
@@ -70,7 +70,7 @@ type ChartWall struct {
 	Thickness int32 `json:"Thickness"`
 
 	// Get or sets mode of bar picture filling.
-	PictureType PictureType `json:"PictureType"`
+	PictureType string `json:"PictureType"`
 }
 
 func (this ChartWall) getFillFormat() IFillFormat {
@@ -101,11 +101,11 @@ func (this ChartWall) getThickness() int32 {
 func (this ChartWall) setThickness(newValue int32) {
 	this.Thickness = newValue
 }
-func (this ChartWall) getPictureType() PictureType {
+func (this ChartWall) getPictureType() string {
 	return this.PictureType
 }
 
-func (this ChartWall) setPictureType(newValue PictureType) {
+func (this ChartWall) setPictureType(newValue string) {
 	this.PictureType = newValue
 }
 
@@ -162,7 +162,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 
 	if valPictureType, ok := objMap["PictureType"]; ok {
 		if valPictureType != nil {
-			var valueForPictureType PictureType
+			var valueForPictureType string
 			err = json.Unmarshal(*valPictureType, &valueForPictureType)
 			if err != nil {
 				return err

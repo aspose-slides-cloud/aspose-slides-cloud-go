@@ -41,18 +41,6 @@ type ITable interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
-	// Shape type.
-	getType() ShapeType
-	setType(newValue ShapeType)
-
-	// Combined shape type.
-	getShapeType() CombinedShapeType
-	setShapeType(newValue CombinedShapeType)
-
 	// Gets or sets the name.
 	getName() string
 	setName(newValue string)
@@ -69,7 +57,7 @@ type ITable interface {
 	getAlternativeText() string
 	setAlternativeText(newValue string)
 
-	// Gets or sets a value indicating whether this  is hidden.
+	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	getHidden() bool
 	setHidden(newValue bool)
 
@@ -101,9 +89,17 @@ type ITable interface {
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
 
+	// Shape type.
+	getType() string
+	setType(newValue string)
+
+	// Combined shape type.
+	getShapeType() string
+	setShapeType(newValue string)
+
 	// Builtin table style.
-	getStyle() TableStylePreset
-	setStyle(newValue TableStylePreset)
+	getStyle() string
+	setStyle(newValue string)
 
 	// Rows.
 	getRows() []TableRow
@@ -149,15 +145,6 @@ type Table struct {
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
-
-	// Shape type.
-	Type_ ShapeType `json:"Type,omitempty"`
-
-	// Combined shape type.
-	ShapeType CombinedShapeType `json:"ShapeType,omitempty"`
-
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
 
@@ -170,7 +157,7 @@ type Table struct {
 	// Gets or sets the alternative text.
 	AlternativeText string `json:"AlternativeText,omitempty"`
 
-	// Gets or sets a value indicating whether this  is hidden.
+	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	Hidden bool `json:"Hidden,omitempty"`
 
 	// Gets or sets the X
@@ -180,7 +167,7 @@ type Table struct {
 	Y float64 `json:"Y,omitempty"`
 
 	// Gets z-order position of shape
-	ZOrderPosition int32 `json:"ZOrderPosition,omitempty"`
+	ZOrderPosition int32 `json:"ZOrderPosition"`
 
 	// Gets or sets the link to shapes.
 	Shapes IResourceUriElement `json:"Shapes,omitempty"`
@@ -194,8 +181,14 @@ type Table struct {
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
+	// Shape type.
+	Type_ string `json:"Type"`
+
+	// Combined shape type.
+	ShapeType string `json:"ShapeType"`
+
 	// Builtin table style.
-	Style TableStylePreset `json:"Style,omitempty"`
+	Style string `json:"Style"`
 
 	// Rows.
 	Rows []TableRow `json:"Rows,omitempty"`
@@ -204,25 +197,25 @@ type Table struct {
 	Columns []TableColumn `json:"Columns,omitempty"`
 
 	// Determines whether the first column of a table has to be drawn with a special formatting.
-	FirstCol bool `json:"FirstCol,omitempty"`
+	FirstCol bool `json:"FirstCol"`
 
 	// Determines whether the first row of a table has to be drawn with a special formatting.
-	FirstRow bool `json:"FirstRow,omitempty"`
+	FirstRow bool `json:"FirstRow"`
 
 	// Determines whether the even rows has to be drawn with a different formatting.
-	HorizontalBanding bool `json:"HorizontalBanding,omitempty"`
+	HorizontalBanding bool `json:"HorizontalBanding"`
 
 	// Determines whether the last column of a table has to be drawn with a special formatting.
-	LastCol bool `json:"LastCol,omitempty"`
+	LastCol bool `json:"LastCol"`
 
 	// Determines whether the last row of a table has to be drawn with a special formatting.
-	LastRow bool `json:"LastRow,omitempty"`
+	LastRow bool `json:"LastRow"`
 
 	// Determines whether the table has right to left reading order.
-	RightToLeft bool `json:"RightToLeft,omitempty"`
+	RightToLeft bool `json:"RightToLeft"`
 
 	// Determines whether the even columns has to be drawn with a different formatting.
-	VerticalBanding bool `json:"VerticalBanding,omitempty"`
+	VerticalBanding bool `json:"VerticalBanding"`
 }
 
 func (this Table) getSelfUri() IResourceUri {
@@ -238,27 +231,6 @@ func (this Table) getAlternateLinks() []ResourceUri {
 
 func (this Table) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this Table) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this Table) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
-}
-func (this Table) getType() ShapeType {
-	return this.Type_
-}
-
-func (this Table) setType(newValue ShapeType) {
-	this.Type_ = newValue
-}
-func (this Table) getShapeType() CombinedShapeType {
-	return this.ShapeType
-}
-
-func (this Table) setShapeType(newValue CombinedShapeType) {
-	this.ShapeType = newValue
 }
 func (this Table) getName() string {
 	return this.Name
@@ -344,11 +316,25 @@ func (this Table) getLineFormat() ILineFormat {
 func (this Table) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this Table) getStyle() TableStylePreset {
+func (this Table) getType() string {
+	return this.Type_
+}
+
+func (this Table) setType(newValue string) {
+	this.Type_ = newValue
+}
+func (this Table) getShapeType() string {
+	return this.ShapeType
+}
+
+func (this Table) setShapeType(newValue string) {
+	this.ShapeType = newValue
+}
+func (this Table) getStyle() string {
 	return this.Style
 }
 
-func (this Table) setStyle(newValue TableStylePreset) {
+func (this Table) setStyle(newValue string) {
 	this.Style = newValue
 }
 func (this Table) getRows() []TableRow {
@@ -441,39 +427,6 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
-		}
-	}
-
-	if valType, ok := objMap["Type"]; ok {
-		if valType != nil {
-			var valueForType ShapeType
-			err = json.Unmarshal(*valType, &valueForType)
-			if err != nil {
-				return err
-			}
-			this.Type_ = valueForType
-		}
-	}
-
-	if valShapeType, ok := objMap["ShapeType"]; ok {
-		if valShapeType != nil {
-			var valueForShapeType CombinedShapeType
-			err = json.Unmarshal(*valShapeType, &valueForShapeType)
-			if err != nil {
-				return err
-			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 
@@ -609,9 +562,31 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 		}
 	}
 
+	if valType, ok := objMap["Type"]; ok {
+		if valType != nil {
+			var valueForType string
+			err = json.Unmarshal(*valType, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
+
+	if valShapeType, ok := objMap["ShapeType"]; ok {
+		if valShapeType != nil {
+			var valueForShapeType string
+			err = json.Unmarshal(*valShapeType, &valueForShapeType)
+			if err != nil {
+				return err
+			}
+			this.ShapeType = valueForShapeType
+		}
+	}
+
 	if valStyle, ok := objMap["Style"]; ok {
 		if valStyle != nil {
-			var valueForStyle TableStylePreset
+			var valueForStyle string
 			err = json.Unmarshal(*valStyle, &valueForStyle)
 			if err != nil {
 				return err

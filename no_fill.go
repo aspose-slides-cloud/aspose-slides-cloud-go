@@ -34,20 +34,20 @@ import (
 // Represents empty fill
 type INoFill interface {
 
-	getType() FillType
-	setType(newValue FillType)
+	getType() string
+	setType(newValue string)
 }
 
 type NoFill struct {
 
-	Type_ FillType `json:"Type"`
+	Type_ string `json:"Type"`
 }
 
-func (this NoFill) getType() FillType {
+func (this NoFill) getType() string {
 	return this.Type_
 }
 
-func (this NoFill) setType(newValue FillType) {
+func (this NoFill) setType(newValue string) {
 	this.Type_ = newValue
 }
 
@@ -60,7 +60,7 @@ func (this *NoFill) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType FillType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

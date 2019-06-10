@@ -35,16 +35,16 @@ import (
 type ISaveSlide interface {
 
 	// Task type.
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	// Output to save the slide to.
 	getOutput() IOutputFile
 	setOutput(newValue IOutputFile)
 
 	// Save format.
-	getFormat() SlideExportFormat
-	setFormat(newValue SlideExportFormat)
+	getFormat() string
+	setFormat(newValue string)
 
 	// Save options.
 	getOptions() IExportOptions
@@ -66,13 +66,13 @@ type ISaveSlide interface {
 type SaveSlide struct {
 
 	// Task type.
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// Output to save the slide to.
 	Output IOutputFile `json:"Output,omitempty"`
 
 	// Save format.
-	Format SlideExportFormat `json:"Format,omitempty"`
+	Format string `json:"Format"`
 
 	// Save options.
 	Options IExportOptions `json:"Options,omitempty"`
@@ -84,14 +84,14 @@ type SaveSlide struct {
 	Height int32 `json:"Height,omitempty"`
 
 	// Slide index.
-	Position int32 `json:"Position,omitempty"`
+	Position int32 `json:"Position"`
 }
 
-func (this SaveSlide) getType() TaskType {
+func (this SaveSlide) getType() string {
 	return this.Type_
 }
 
-func (this SaveSlide) setType(newValue TaskType) {
+func (this SaveSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this SaveSlide) getOutput() IOutputFile {
@@ -101,11 +101,11 @@ func (this SaveSlide) getOutput() IOutputFile {
 func (this SaveSlide) setOutput(newValue IOutputFile) {
 	this.Output = newValue
 }
-func (this SaveSlide) getFormat() SlideExportFormat {
+func (this SaveSlide) getFormat() string {
 	return this.Format
 }
 
-func (this SaveSlide) setFormat(newValue SlideExportFormat) {
+func (this SaveSlide) setFormat(newValue string) {
 	this.Format = newValue
 }
 func (this SaveSlide) getOptions() IExportOptions {
@@ -146,7 +146,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err
@@ -168,7 +168,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 
 	if valFormat, ok := objMap["Format"]; ok {
 		if valFormat != nil {
-			var valueForFormat SlideExportFormat
+			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
 			if err != nil {
 				return err

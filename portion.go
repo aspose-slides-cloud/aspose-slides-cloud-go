@@ -41,27 +41,23 @@ type IPortion interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	getText() string
 	setText(newValue string)
 
-	getFontBold() int32
-	setFontBold(newValue int32)
+	getFontBold() string
+	setFontBold(newValue string)
 
-	getFontItalic() int32
-	setFontItalic(newValue int32)
+	getFontItalic() string
+	setFontItalic(newValue string)
 
-	getFontUnderline() TextUnderlineType
-	setFontUnderline(newValue TextUnderlineType)
+	getFontUnderline() string
+	setFontUnderline(newValue string)
 
-	getStrikethroughType() TextStrikethroughType
-	setStrikethroughType(newValue TextStrikethroughType)
+	getStrikethroughType() string
+	setStrikethroughType(newValue string)
 
-	getTextCapType() TextCapType
-	setTextCapType(newValue TextCapType)
+	getTextCapType() string
+	setTextCapType(newValue string)
 
 	getEscapement() float64
 	setEscapement(newValue float64)
@@ -78,11 +74,11 @@ type IPortion interface {
 	getFontHeight() float64
 	setFontHeight(newValue float64)
 
-	getNormaliseHeight() int32
-	setNormaliseHeight(newValue int32)
+	getNormaliseHeight() string
+	setNormaliseHeight(newValue string)
 
-	getProofDisabled() int32
-	setProofDisabled(newValue int32)
+	getProofDisabled() string
+	setProofDisabled(newValue string)
 
 	getSmartTagClean() bool
 	setSmartTagClean(newValue bool)
@@ -90,8 +86,8 @@ type IPortion interface {
 	getKerningMinimalSize() float64
 	setKerningMinimalSize(newValue float64)
 
-	getKumimoji() int32
-	setKumimoji(newValue int32)
+	getKumimoji() string
+	setKumimoji(newValue string)
 
 	getLanguageId() string
 	setLanguageId(newValue string)
@@ -99,11 +95,11 @@ type IPortion interface {
 	getAlternativeLanguageId() string
 	setAlternativeLanguageId(newValue string)
 
-	getIsHardUnderlineFill() int32
-	setIsHardUnderlineFill(newValue int32)
+	getIsHardUnderlineFill() string
+	setIsHardUnderlineFill(newValue string)
 
-	getIsHardUnderlineLine() int32
-	setIsHardUnderlineLine(newValue int32)
+	getIsHardUnderlineLine() string
+	setIsHardUnderlineLine(newValue string)
 
 	getFillFormat() IFillFormat
 	setFillFormat(newValue IFillFormat)
@@ -128,20 +124,17 @@ type Portion struct {
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
-
 	Text string `json:"Text,omitempty"`
 
-	FontBold int32 `json:"FontBold,omitempty"`
+	FontBold string `json:"FontBold,omitempty"`
 
-	FontItalic int32 `json:"FontItalic,omitempty"`
+	FontItalic string `json:"FontItalic,omitempty"`
 
-	FontUnderline TextUnderlineType `json:"FontUnderline,omitempty"`
+	FontUnderline string `json:"FontUnderline,omitempty"`
 
-	StrikethroughType TextStrikethroughType `json:"StrikethroughType,omitempty"`
+	StrikethroughType string `json:"StrikethroughType,omitempty"`
 
-	TextCapType TextCapType `json:"TextCapType,omitempty"`
+	TextCapType string `json:"TextCapType,omitempty"`
 
 	Escapement float64 `json:"Escapement,omitempty"`
 
@@ -153,23 +146,23 @@ type Portion struct {
 
 	FontHeight float64 `json:"FontHeight,omitempty"`
 
-	NormaliseHeight int32 `json:"NormaliseHeight,omitempty"`
+	NormaliseHeight string `json:"NormaliseHeight,omitempty"`
 
-	ProofDisabled int32 `json:"ProofDisabled,omitempty"`
+	ProofDisabled string `json:"ProofDisabled,omitempty"`
 
 	SmartTagClean bool `json:"SmartTagClean,omitempty"`
 
 	KerningMinimalSize float64 `json:"KerningMinimalSize,omitempty"`
 
-	Kumimoji int32 `json:"Kumimoji,omitempty"`
+	Kumimoji string `json:"Kumimoji,omitempty"`
 
 	LanguageId string `json:"LanguageId,omitempty"`
 
 	AlternativeLanguageId string `json:"AlternativeLanguageId,omitempty"`
 
-	IsHardUnderlineFill int32 `json:"IsHardUnderlineFill,omitempty"`
+	IsHardUnderlineFill string `json:"IsHardUnderlineFill,omitempty"`
 
-	IsHardUnderlineLine int32 `json:"IsHardUnderlineLine,omitempty"`
+	IsHardUnderlineLine string `json:"IsHardUnderlineLine,omitempty"`
 
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
 
@@ -196,13 +189,6 @@ func (this Portion) getAlternateLinks() []ResourceUri {
 func (this Portion) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Portion) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this Portion) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
-}
 func (this Portion) getText() string {
 	return this.Text
 }
@@ -210,39 +196,39 @@ func (this Portion) getText() string {
 func (this Portion) setText(newValue string) {
 	this.Text = newValue
 }
-func (this Portion) getFontBold() int32 {
+func (this Portion) getFontBold() string {
 	return this.FontBold
 }
 
-func (this Portion) setFontBold(newValue int32) {
+func (this Portion) setFontBold(newValue string) {
 	this.FontBold = newValue
 }
-func (this Portion) getFontItalic() int32 {
+func (this Portion) getFontItalic() string {
 	return this.FontItalic
 }
 
-func (this Portion) setFontItalic(newValue int32) {
+func (this Portion) setFontItalic(newValue string) {
 	this.FontItalic = newValue
 }
-func (this Portion) getFontUnderline() TextUnderlineType {
+func (this Portion) getFontUnderline() string {
 	return this.FontUnderline
 }
 
-func (this Portion) setFontUnderline(newValue TextUnderlineType) {
+func (this Portion) setFontUnderline(newValue string) {
 	this.FontUnderline = newValue
 }
-func (this Portion) getStrikethroughType() TextStrikethroughType {
+func (this Portion) getStrikethroughType() string {
 	return this.StrikethroughType
 }
 
-func (this Portion) setStrikethroughType(newValue TextStrikethroughType) {
+func (this Portion) setStrikethroughType(newValue string) {
 	this.StrikethroughType = newValue
 }
-func (this Portion) getTextCapType() TextCapType {
+func (this Portion) getTextCapType() string {
 	return this.TextCapType
 }
 
-func (this Portion) setTextCapType(newValue TextCapType) {
+func (this Portion) setTextCapType(newValue string) {
 	this.TextCapType = newValue
 }
 func (this Portion) getEscapement() float64 {
@@ -280,18 +266,18 @@ func (this Portion) getFontHeight() float64 {
 func (this Portion) setFontHeight(newValue float64) {
 	this.FontHeight = newValue
 }
-func (this Portion) getNormaliseHeight() int32 {
+func (this Portion) getNormaliseHeight() string {
 	return this.NormaliseHeight
 }
 
-func (this Portion) setNormaliseHeight(newValue int32) {
+func (this Portion) setNormaliseHeight(newValue string) {
 	this.NormaliseHeight = newValue
 }
-func (this Portion) getProofDisabled() int32 {
+func (this Portion) getProofDisabled() string {
 	return this.ProofDisabled
 }
 
-func (this Portion) setProofDisabled(newValue int32) {
+func (this Portion) setProofDisabled(newValue string) {
 	this.ProofDisabled = newValue
 }
 func (this Portion) getSmartTagClean() bool {
@@ -308,11 +294,11 @@ func (this Portion) getKerningMinimalSize() float64 {
 func (this Portion) setKerningMinimalSize(newValue float64) {
 	this.KerningMinimalSize = newValue
 }
-func (this Portion) getKumimoji() int32 {
+func (this Portion) getKumimoji() string {
 	return this.Kumimoji
 }
 
-func (this Portion) setKumimoji(newValue int32) {
+func (this Portion) setKumimoji(newValue string) {
 	this.Kumimoji = newValue
 }
 func (this Portion) getLanguageId() string {
@@ -329,18 +315,18 @@ func (this Portion) getAlternativeLanguageId() string {
 func (this Portion) setAlternativeLanguageId(newValue string) {
 	this.AlternativeLanguageId = newValue
 }
-func (this Portion) getIsHardUnderlineFill() int32 {
+func (this Portion) getIsHardUnderlineFill() string {
 	return this.IsHardUnderlineFill
 }
 
-func (this Portion) setIsHardUnderlineFill(newValue int32) {
+func (this Portion) setIsHardUnderlineFill(newValue string) {
 	this.IsHardUnderlineFill = newValue
 }
-func (this Portion) getIsHardUnderlineLine() int32 {
+func (this Portion) getIsHardUnderlineLine() string {
 	return this.IsHardUnderlineLine
 }
 
-func (this Portion) setIsHardUnderlineLine(newValue int32) {
+func (this Portion) setIsHardUnderlineLine(newValue string) {
 	this.IsHardUnderlineLine = newValue
 }
 func (this Portion) getFillFormat() IFillFormat {
@@ -408,17 +394,6 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
-		}
-	}
-
 	if valText, ok := objMap["Text"]; ok {
 		if valText != nil {
 			var valueForText string
@@ -432,7 +407,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 
 	if valFontBold, ok := objMap["FontBold"]; ok {
 		if valFontBold != nil {
-			var valueForFontBold int32
+			var valueForFontBold string
 			err = json.Unmarshal(*valFontBold, &valueForFontBold)
 			if err != nil {
 				return err
@@ -443,7 +418,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 
 	if valFontItalic, ok := objMap["FontItalic"]; ok {
 		if valFontItalic != nil {
-			var valueForFontItalic int32
+			var valueForFontItalic string
 			err = json.Unmarshal(*valFontItalic, &valueForFontItalic)
 			if err != nil {
 				return err
@@ -454,7 +429,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 
 	if valFontUnderline, ok := objMap["FontUnderline"]; ok {
 		if valFontUnderline != nil {
-			var valueForFontUnderline TextUnderlineType
+			var valueForFontUnderline string
 			err = json.Unmarshal(*valFontUnderline, &valueForFontUnderline)
 			if err != nil {
 				return err
@@ -465,7 +440,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 
 	if valStrikethroughType, ok := objMap["StrikethroughType"]; ok {
 		if valStrikethroughType != nil {
-			var valueForStrikethroughType TextStrikethroughType
+			var valueForStrikethroughType string
 			err = json.Unmarshal(*valStrikethroughType, &valueForStrikethroughType)
 			if err != nil {
 				return err
@@ -476,7 +451,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 
 	if valTextCapType, ok := objMap["TextCapType"]; ok {
 		if valTextCapType != nil {
-			var valueForTextCapType TextCapType
+			var valueForTextCapType string
 			err = json.Unmarshal(*valTextCapType, &valueForTextCapType)
 			if err != nil {
 				return err
@@ -542,7 +517,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 
 	if valNormaliseHeight, ok := objMap["NormaliseHeight"]; ok {
 		if valNormaliseHeight != nil {
-			var valueForNormaliseHeight int32
+			var valueForNormaliseHeight string
 			err = json.Unmarshal(*valNormaliseHeight, &valueForNormaliseHeight)
 			if err != nil {
 				return err
@@ -553,7 +528,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 
 	if valProofDisabled, ok := objMap["ProofDisabled"]; ok {
 		if valProofDisabled != nil {
-			var valueForProofDisabled int32
+			var valueForProofDisabled string
 			err = json.Unmarshal(*valProofDisabled, &valueForProofDisabled)
 			if err != nil {
 				return err
@@ -586,7 +561,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 
 	if valKumimoji, ok := objMap["Kumimoji"]; ok {
 		if valKumimoji != nil {
-			var valueForKumimoji int32
+			var valueForKumimoji string
 			err = json.Unmarshal(*valKumimoji, &valueForKumimoji)
 			if err != nil {
 				return err
@@ -619,7 +594,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 
 	if valIsHardUnderlineFill, ok := objMap["IsHardUnderlineFill"]; ok {
 		if valIsHardUnderlineFill != nil {
-			var valueForIsHardUnderlineFill int32
+			var valueForIsHardUnderlineFill string
 			err = json.Unmarshal(*valIsHardUnderlineFill, &valueForIsHardUnderlineFill)
 			if err != nil {
 				return err
@@ -630,7 +605,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 
 	if valIsHardUnderlineLine, ok := objMap["IsHardUnderlineLine"]; ok {
 		if valIsHardUnderlineLine != nil {
-			var valueForIsHardUnderlineLine int32
+			var valueForIsHardUnderlineLine string
 			err = json.Unmarshal(*valIsHardUnderlineLine, &valueForIsHardUnderlineLine)
 			if err != nil {
 				return err

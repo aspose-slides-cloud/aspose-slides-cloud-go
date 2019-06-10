@@ -54,7 +54,7 @@ type BubbleChartDataPoint struct {
 	// Y-value
 	YValue float64 `json:"YValue"`
 
-	BubbleSize float64 `json:"BubbleSize,omitempty"`
+	BubbleSize float64 `json:"BubbleSize"`
 }
 
 func (this BubbleChartDataPoint) getXValue() float64 {

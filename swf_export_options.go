@@ -89,7 +89,7 @@ type ISwfExportOptions interface {
 	getLogoImage() string
 	setLogoImage(newValue string)
 
-	// Gets or sets the full hyperlink address for a logo. Has an effect only if a  is specified. 
+	// Gets or sets the full hyperlink address for a logo. Has an effect only if a LogoImage is specified. 
 	getLogoLink() string
 	setLogoLink(newValue string)
 
@@ -98,12 +98,12 @@ type ISwfExportOptions interface {
 	setJpegQuality(newValue int32)
 
 	// Gets or sets the position of the notes on the page.
-	getNotesPosition() NotesPositions
-	setNotesPosition(newValue NotesPositions)
+	getNotesPosition() string
+	setNotesPosition(newValue string)
 
 	// Gets or sets the position of the comments on the page.
-	getCommentsPosition() CommentsPositions
-	setCommentsPosition(newValue CommentsPositions)
+	getCommentsPosition() string
+	setCommentsPosition(newValue string)
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
 	getCommentsAreaWidth() int32
@@ -123,64 +123,64 @@ type SwfExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	ShowHiddenSlides bool `json:"ShowHiddenSlides,omitempty"`
+	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
 
 	// Specifies whether the generated SWF document should be compressed or not. Default is true. 
-	Compressed bool `json:"Compressed,omitempty"`
+	Compressed bool `json:"Compressed"`
 
 	// Specifies whether the generated SWF document should include the integrated document viewer or not. Default is true. 
-	ViewerIncluded bool `json:"ViewerIncluded,omitempty"`
+	ViewerIncluded bool `json:"ViewerIncluded"`
 
 	// Specifies whether border around pages should be shown. Default is true. 
-	ShowPageBorder bool `json:"ShowPageBorder,omitempty"`
+	ShowPageBorder bool `json:"ShowPageBorder"`
 
 	// Show/hide fullscreen button. Can be overridden in flashvars. Default is true. 
-	ShowFullScreen bool `json:"ShowFullScreen,omitempty"`
+	ShowFullScreen bool `json:"ShowFullScreen"`
 
 	// Show/hide page stepper. Can be overridden in flashvars. Default is true. 
-	ShowPageStepper bool `json:"ShowPageStepper,omitempty"`
+	ShowPageStepper bool `json:"ShowPageStepper"`
 
 	// Show/hide search section. Can be overridden in flashvars. Default is true. 
-	ShowSearch bool `json:"ShowSearch,omitempty"`
+	ShowSearch bool `json:"ShowSearch"`
 
 	// Show/hide whole top pane. Can be overridden in flashvars. Default is true. 
-	ShowTopPane bool `json:"ShowTopPane,omitempty"`
+	ShowTopPane bool `json:"ShowTopPane"`
 
 	// Show/hide bottom pane. Can be overridden in flashvars. Default is true. 
-	ShowBottomPane bool `json:"ShowBottomPane,omitempty"`
+	ShowBottomPane bool `json:"ShowBottomPane"`
 
 	// Show/hide left pane. Can be overridden in flashvars. Default is true. 
-	ShowLeftPane bool `json:"ShowLeftPane,omitempty"`
+	ShowLeftPane bool `json:"ShowLeftPane"`
 
 	// Start with opened left pane. Can be overridden in flashvars. Default is false. 
-	StartOpenLeftPane bool `json:"StartOpenLeftPane,omitempty"`
+	StartOpenLeftPane bool `json:"StartOpenLeftPane"`
 
 	// Enable/disable context menu. Default is true. 
-	EnableContextMenu bool `json:"EnableContextMenu,omitempty"`
+	EnableContextMenu bool `json:"EnableContextMenu"`
 
 	// Image that will be displayed as logo in the top right corner of the viewer. The image data is a base 64 string. Image should be 32x64 pixels PNG image, otherwise logo can be displayed improperly. 
 	LogoImage string `json:"LogoImage,omitempty"`
 
-	// Gets or sets the full hyperlink address for a logo. Has an effect only if a  is specified. 
+	// Gets or sets the full hyperlink address for a logo. Has an effect only if a LogoImage is specified. 
 	LogoLink string `json:"LogoLink,omitempty"`
 
 	// Specifies the quality of JPEG images. Default is 95.
-	JpegQuality int32 `json:"JpegQuality,omitempty"`
+	JpegQuality int32 `json:"JpegQuality"`
 
 	// Gets or sets the position of the notes on the page.
-	NotesPosition NotesPositions `json:"NotesPosition,omitempty"`
+	NotesPosition string `json:"NotesPosition"`
 
 	// Gets or sets the position of the comments on the page.
-	CommentsPosition CommentsPositions `json:"CommentsPosition,omitempty"`
+	CommentsPosition string `json:"CommentsPosition"`
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	CommentsAreaWidth int32 `json:"CommentsAreaWidth,omitempty"`
+	CommentsAreaWidth int32 `json:"CommentsAreaWidth"`
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor,omitempty"`
+	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
 }
 
 func (this SwfExportOptions) getFormat() string {
@@ -295,18 +295,18 @@ func (this SwfExportOptions) getJpegQuality() int32 {
 func (this SwfExportOptions) setJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this SwfExportOptions) getNotesPosition() NotesPositions {
+func (this SwfExportOptions) getNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this SwfExportOptions) setNotesPosition(newValue NotesPositions) {
+func (this SwfExportOptions) setNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this SwfExportOptions) getCommentsPosition() CommentsPositions {
+func (this SwfExportOptions) getCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this SwfExportOptions) setCommentsPosition(newValue CommentsPositions) {
+func (this SwfExportOptions) setCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
 func (this SwfExportOptions) getCommentsAreaWidth() int32 {
@@ -516,7 +516,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valNotesPosition, ok := objMap["NotesPosition"]; ok {
 		if valNotesPosition != nil {
-			var valueForNotesPosition NotesPositions
+			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
 			if err != nil {
 				return err
@@ -527,7 +527,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valCommentsPosition, ok := objMap["CommentsPosition"]; ok {
 		if valCommentsPosition != nil {
-			var valueForCommentsPosition CommentsPositions
+			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
 			if err != nil {
 				return err

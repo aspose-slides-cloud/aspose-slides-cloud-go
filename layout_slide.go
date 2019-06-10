@@ -41,15 +41,11 @@ type ILayoutSlide interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	getName() string
 	setName(newValue string)
 
-	getType() LayoutSlideType
-	setType(newValue LayoutSlideType)
+	getType() string
+	setType(newValue string)
 
 	getMasterSlide() IResourceUriElement
 	setMasterSlide(newValue IResourceUriElement)
@@ -65,12 +61,9 @@ type LayoutSlide struct {
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
-
 	Name string `json:"Name,omitempty"`
 
-	Type_ LayoutSlideType `json:"Type,omitempty"`
+	Type_ string `json:"Type"`
 
 	MasterSlide IResourceUriElement `json:"MasterSlide,omitempty"`
 
@@ -91,13 +84,6 @@ func (this LayoutSlide) getAlternateLinks() []ResourceUri {
 func (this LayoutSlide) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this LayoutSlide) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this LayoutSlide) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
-}
 func (this LayoutSlide) getName() string {
 	return this.Name
 }
@@ -105,11 +91,11 @@ func (this LayoutSlide) getName() string {
 func (this LayoutSlide) setName(newValue string) {
 	this.Name = newValue
 }
-func (this LayoutSlide) getType() LayoutSlideType {
+func (this LayoutSlide) getType() string {
 	return this.Type_
 }
 
-func (this LayoutSlide) setType(newValue LayoutSlideType) {
+func (this LayoutSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this LayoutSlide) getMasterSlide() IResourceUriElement {
@@ -156,17 +142,6 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
-		}
-	}
-
 	if valName, ok := objMap["Name"]; ok {
 		if valName != nil {
 			var valueForName string
@@ -180,7 +155,7 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType LayoutSlideType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

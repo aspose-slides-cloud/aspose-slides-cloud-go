@@ -43,8 +43,8 @@ type IPresetShadowEffect interface {
 	setDistance(newValue float64)
 
 	// preset
-	getPreset() PresetShadowType
-	setPreset(newValue PresetShadowType)
+	getPreset() string
+	setPreset(newValue string)
 
 	// shadow color
 	getShadowColor() string
@@ -60,7 +60,7 @@ type PresetShadowEffect struct {
 	Distance float64 `json:"Distance"`
 
 	// preset
-	Preset PresetShadowType `json:"Preset"`
+	Preset string `json:"Preset"`
 
 	// shadow color
 	ShadowColor string `json:"ShadowColor,omitempty"`
@@ -80,11 +80,11 @@ func (this PresetShadowEffect) getDistance() float64 {
 func (this PresetShadowEffect) setDistance(newValue float64) {
 	this.Distance = newValue
 }
-func (this PresetShadowEffect) getPreset() PresetShadowType {
+func (this PresetShadowEffect) getPreset() string {
 	return this.Preset
 }
 
-func (this PresetShadowEffect) setPreset(newValue PresetShadowType) {
+func (this PresetShadowEffect) setPreset(newValue string) {
 	this.Preset = newValue
 }
 func (this PresetShadowEffect) getShadowColor() string {
@@ -126,7 +126,7 @@ func (this *PresetShadowEffect) UnmarshalJSON(b []byte) error {
 
 	if valPreset, ok := objMap["Preset"]; ok {
 		if valPreset != nil {
-			var valueForPreset PresetShadowType
+			var valueForPreset string
 			err = json.Unmarshal(*valPreset, &valueForPreset)
 			if err != nil {
 				return err

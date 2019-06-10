@@ -54,20 +54,20 @@ type IHtmlExportOptions interface {
 	setJpegQuality(newValue int32)
 
 	// Represents the pictures compression level
-	getPicturesCompression() PicturesCompression
-	setPicturesCompression(newValue PicturesCompression)
+	getPicturesCompression() string
+	setPicturesCompression(newValue string)
 
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
 	getDeletePicturesCroppedAreas() bool
 	setDeletePicturesCroppedAreas(newValue bool)
 
 	// Gets or sets the position of the notes on the page.
-	getNotesPosition() NotesPositions
-	setNotesPosition(newValue NotesPositions)
+	getNotesPosition() string
+	setNotesPosition(newValue string)
 
 	// Gets or sets the position of the comments on the page.
-	getCommentsPosition() CommentsPositions
-	setCommentsPosition(newValue CommentsPositions)
+	getCommentsPosition() string
+	setCommentsPosition(newValue string)
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
 	getCommentsAreaWidth() int32
@@ -87,37 +87,37 @@ type HtmlExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Get or sets flag for save presentation as zip file
-	SaveAsZip bool `json:"SaveAsZip,omitempty"`
+	SaveAsZip bool `json:"SaveAsZip"`
 
 	// Get or set name of subdirectory in zip-file for store external files
 	SubDirectoryName string `json:"SubDirectoryName,omitempty"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	ShowHiddenSlides bool `json:"ShowHiddenSlides,omitempty"`
+	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
 
 	// Returns or sets a value determining the quality of the JPEG images inside PDF document.
-	JpegQuality int32 `json:"JpegQuality,omitempty"`
+	JpegQuality int32 `json:"JpegQuality"`
 
 	// Represents the pictures compression level
-	PicturesCompression PicturesCompression `json:"PicturesCompression,omitempty"`
+	PicturesCompression string `json:"PicturesCompression,omitempty"`
 
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
-	DeletePicturesCroppedAreas bool `json:"DeletePicturesCroppedAreas,omitempty"`
+	DeletePicturesCroppedAreas bool `json:"DeletePicturesCroppedAreas"`
 
 	// Gets or sets the position of the notes on the page.
-	NotesPosition NotesPositions `json:"NotesPosition,omitempty"`
+	NotesPosition string `json:"NotesPosition"`
 
 	// Gets or sets the position of the comments on the page.
-	CommentsPosition CommentsPositions `json:"CommentsPosition,omitempty"`
+	CommentsPosition string `json:"CommentsPosition"`
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	CommentsAreaWidth int32 `json:"CommentsAreaWidth,omitempty"`
+	CommentsAreaWidth int32 `json:"CommentsAreaWidth"`
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor,omitempty"`
+	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
 }
 
 func (this HtmlExportOptions) getFormat() string {
@@ -155,11 +155,11 @@ func (this HtmlExportOptions) getJpegQuality() int32 {
 func (this HtmlExportOptions) setJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this HtmlExportOptions) getPicturesCompression() PicturesCompression {
+func (this HtmlExportOptions) getPicturesCompression() string {
 	return this.PicturesCompression
 }
 
-func (this HtmlExportOptions) setPicturesCompression(newValue PicturesCompression) {
+func (this HtmlExportOptions) setPicturesCompression(newValue string) {
 	this.PicturesCompression = newValue
 }
 func (this HtmlExportOptions) getDeletePicturesCroppedAreas() bool {
@@ -169,18 +169,18 @@ func (this HtmlExportOptions) getDeletePicturesCroppedAreas() bool {
 func (this HtmlExportOptions) setDeletePicturesCroppedAreas(newValue bool) {
 	this.DeletePicturesCroppedAreas = newValue
 }
-func (this HtmlExportOptions) getNotesPosition() NotesPositions {
+func (this HtmlExportOptions) getNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this HtmlExportOptions) setNotesPosition(newValue NotesPositions) {
+func (this HtmlExportOptions) setNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this HtmlExportOptions) getCommentsPosition() CommentsPositions {
+func (this HtmlExportOptions) getCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this HtmlExportOptions) setCommentsPosition(newValue CommentsPositions) {
+func (this HtmlExportOptions) setCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
 func (this HtmlExportOptions) getCommentsAreaWidth() int32 {
@@ -269,7 +269,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valPicturesCompression, ok := objMap["PicturesCompression"]; ok {
 		if valPicturesCompression != nil {
-			var valueForPicturesCompression PicturesCompression
+			var valueForPicturesCompression string
 			err = json.Unmarshal(*valPicturesCompression, &valueForPicturesCompression)
 			if err != nil {
 				return err
@@ -291,7 +291,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valNotesPosition, ok := objMap["NotesPosition"]; ok {
 		if valNotesPosition != nil {
-			var valueForNotesPosition NotesPositions
+			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
 			if err != nil {
 				return err
@@ -302,7 +302,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valCommentsPosition, ok := objMap["CommentsPosition"]; ok {
 		if valCommentsPosition != nil {
-			var valueForCommentsPosition CommentsPositions
+			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
 			if err != nil {
 				return err

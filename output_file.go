@@ -34,22 +34,20 @@ import (
 // Represents output file destination in pipeline.
 type IOutputFile interface {
 
-	// Gets type of output destination.
-	getType() OutputFileType
-	setType(newValue OutputFileType)
+	getType() string
+	setType(newValue string)
 }
 
 type OutputFile struct {
 
-	// Gets type of output destination.
-	Type_ OutputFileType `json:"Type"`
+	Type_ string `json:"Type,omitempty"`
 }
 
-func (this OutputFile) getType() OutputFileType {
+func (this OutputFile) getType() string {
 	return this.Type_
 }
 
-func (this OutputFile) setType(newValue OutputFileType) {
+func (this OutputFile) setType(newValue string) {
 	this.Type_ = newValue
 }
 
@@ -62,7 +60,7 @@ func (this *OutputFile) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType OutputFileType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

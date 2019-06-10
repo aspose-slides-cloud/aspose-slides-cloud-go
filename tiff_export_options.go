@@ -37,8 +37,8 @@ type ITiffExportOptions interface {
 	getFormat() string
 	setFormat(newValue string)
 
-	getCompression() TiffCompressionType
-	setCompression(newValue TiffCompressionType)
+	getCompression() string
+	setCompression(newValue string)
 
 	getWidth() int32
 	setWidth(newValue int32)
@@ -56,17 +56,17 @@ type ITiffExportOptions interface {
 	getShowHiddenSlides() bool
 	setShowHiddenSlides(newValue bool)
 
-	// Specifies the pixel format for the generated images. Read/write .
-	getPixelFormat() ImagePixelFormat
-	setPixelFormat(newValue ImagePixelFormat)
+	// Specifies the pixel format for the generated images. Read/write ImagePixelFormat.
+	getPixelFormat() string
+	setPixelFormat(newValue string)
 
 	// Gets or sets the position of the notes on the page.
-	getNotesPosition() NotesPositions
-	setNotesPosition(newValue NotesPositions)
+	getNotesPosition() string
+	setNotesPosition(newValue string)
 
 	// Gets or sets the position of the comments on the page.
-	getCommentsPosition() CommentsPositions
-	setCommentsPosition(newValue CommentsPositions)
+	getCommentsPosition() string
+	setCommentsPosition(newValue string)
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
 	getCommentsAreaWidth() int32
@@ -85,7 +85,7 @@ type TiffExportOptions struct {
 
 	Format string `json:"Format,omitempty"`
 
-	Compression TiffCompressionType `json:"Compression,omitempty"`
+	Compression string `json:"Compression"`
 
 	Width int32 `json:"Width,omitempty"`
 
@@ -96,25 +96,25 @@ type TiffExportOptions struct {
 	DpiY int32 `json:"DpiY,omitempty"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	ShowHiddenSlides bool `json:"ShowHiddenSlides,omitempty"`
+	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
 
-	// Specifies the pixel format for the generated images. Read/write .
-	PixelFormat ImagePixelFormat `json:"PixelFormat,omitempty"`
+	// Specifies the pixel format for the generated images. Read/write ImagePixelFormat.
+	PixelFormat string `json:"PixelFormat"`
 
 	// Gets or sets the position of the notes on the page.
-	NotesPosition NotesPositions `json:"NotesPosition,omitempty"`
+	NotesPosition string `json:"NotesPosition"`
 
 	// Gets or sets the position of the comments on the page.
-	CommentsPosition CommentsPositions `json:"CommentsPosition,omitempty"`
+	CommentsPosition string `json:"CommentsPosition"`
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	CommentsAreaWidth int32 `json:"CommentsAreaWidth,omitempty"`
+	CommentsAreaWidth int32 `json:"CommentsAreaWidth"`
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor,omitempty"`
+	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
 }
 
 func (this TiffExportOptions) getFormat() string {
@@ -124,11 +124,11 @@ func (this TiffExportOptions) getFormat() string {
 func (this TiffExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this TiffExportOptions) getCompression() TiffCompressionType {
+func (this TiffExportOptions) getCompression() string {
 	return this.Compression
 }
 
-func (this TiffExportOptions) setCompression(newValue TiffCompressionType) {
+func (this TiffExportOptions) setCompression(newValue string) {
 	this.Compression = newValue
 }
 func (this TiffExportOptions) getWidth() int32 {
@@ -166,25 +166,25 @@ func (this TiffExportOptions) getShowHiddenSlides() bool {
 func (this TiffExportOptions) setShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this TiffExportOptions) getPixelFormat() ImagePixelFormat {
+func (this TiffExportOptions) getPixelFormat() string {
 	return this.PixelFormat
 }
 
-func (this TiffExportOptions) setPixelFormat(newValue ImagePixelFormat) {
+func (this TiffExportOptions) setPixelFormat(newValue string) {
 	this.PixelFormat = newValue
 }
-func (this TiffExportOptions) getNotesPosition() NotesPositions {
+func (this TiffExportOptions) getNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this TiffExportOptions) setNotesPosition(newValue NotesPositions) {
+func (this TiffExportOptions) setNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this TiffExportOptions) getCommentsPosition() CommentsPositions {
+func (this TiffExportOptions) getCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this TiffExportOptions) setCommentsPosition(newValue CommentsPositions) {
+func (this TiffExportOptions) setCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
 func (this TiffExportOptions) getCommentsAreaWidth() int32 {
@@ -229,7 +229,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valCompression, ok := objMap["Compression"]; ok {
 		if valCompression != nil {
-			var valueForCompression TiffCompressionType
+			var valueForCompression string
 			err = json.Unmarshal(*valCompression, &valueForCompression)
 			if err != nil {
 				return err
@@ -295,7 +295,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valPixelFormat, ok := objMap["PixelFormat"]; ok {
 		if valPixelFormat != nil {
-			var valueForPixelFormat ImagePixelFormat
+			var valueForPixelFormat string
 			err = json.Unmarshal(*valPixelFormat, &valueForPixelFormat)
 			if err != nil {
 				return err
@@ -306,7 +306,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valNotesPosition, ok := objMap["NotesPosition"]; ok {
 		if valNotesPosition != nil {
-			var valueForNotesPosition NotesPositions
+			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
 			if err != nil {
 				return err
@@ -317,7 +317,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valCommentsPosition, ok := objMap["CommentsPosition"]; ok {
 		if valCommentsPosition != nil {
-			var valueForCommentsPosition CommentsPositions
+			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
 			if err != nil {
 				return err

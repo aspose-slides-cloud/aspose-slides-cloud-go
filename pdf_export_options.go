@@ -38,18 +38,18 @@ type IPdfExportOptions interface {
 	setFormat(newValue string)
 
 	// Specifies compression type to be used for all textual content in the document.
-	getTextCompression() PdfTextCompression
-	setTextCompression(newValue PdfTextCompression)
+	getTextCompression() string
+	setTextCompression(newValue string)
 
 	// Determines if all characters of font should be embedded or only used subset.
 	getEmbedFullFonts() bool
 	setEmbedFullFonts(newValue bool)
 
 	// Desired conformance level for generated PDF document.
-	getCompliance() PdfCompliance
-	setCompliance(newValue PdfCompliance)
+	getCompliance() string
+	setCompliance(newValue string)
 
-	// Returns or sets a value determining resolution of images inside PDF document. Property affects on file size, time of export and image quality.The default value is 96.
+	// Returns or sets a value determining resolution of images inside PDF document.  Property affects on file size, time of export and image quality. The default value is 96.
 	getSufficientResolution() float64
 	setSufficientResolution(newValue float64)
 
@@ -82,12 +82,12 @@ type IPdfExportOptions interface {
 	setAdditionalCommonFontFamilies(newValue []string)
 
 	// Gets or sets the position of the notes on the page.
-	getNotesPosition() NotesPositions
-	setNotesPosition(newValue NotesPositions)
+	getNotesPosition() string
+	setNotesPosition(newValue string)
 
 	// Gets or sets the position of the comments on the page.
-	getCommentsPosition() CommentsPositions
-	setCommentsPosition(newValue CommentsPositions)
+	getCommentsPosition() string
+	setCommentsPosition(newValue string)
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
 	getCommentsAreaWidth() int32
@@ -105,7 +105,7 @@ type IPdfExportOptions interface {
 	getImageTransparentColor() string
 	setImageTransparentColor(newValue string)
 
-	// True to apply specified   to an image.
+	// True to apply specified ImageTransparentColor  to an image.
 	getApplyImageTransparent() bool
 	setApplyImageTransparent(newValue bool)
 }
@@ -115,58 +115,58 @@ type PdfExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Specifies compression type to be used for all textual content in the document.
-	TextCompression PdfTextCompression `json:"TextCompression,omitempty"`
+	TextCompression string `json:"TextCompression"`
 
 	// Determines if all characters of font should be embedded or only used subset.
-	EmbedFullFonts bool `json:"EmbedFullFonts,omitempty"`
+	EmbedFullFonts bool `json:"EmbedFullFonts"`
 
 	// Desired conformance level for generated PDF document.
-	Compliance PdfCompliance `json:"Compliance,omitempty"`
+	Compliance string `json:"Compliance"`
 
-	// Returns or sets a value determining resolution of images inside PDF document. Property affects on file size, time of export and image quality.The default value is 96.
-	SufficientResolution float64 `json:"SufficientResolution,omitempty"`
+	// Returns or sets a value determining resolution of images inside PDF document.  Property affects on file size, time of export and image quality. The default value is 96.
+	SufficientResolution float64 `json:"SufficientResolution"`
 
 	// Returns or sets a value determining the quality of the JPEG images inside PDF document.
-	JpegQuality int32 `json:"JpegQuality,omitempty"`
+	JpegQuality int32 `json:"JpegQuality"`
 
 	// True to draw black frame around each slide.
-	DrawSlidesFrame bool `json:"DrawSlidesFrame,omitempty"`
+	DrawSlidesFrame bool `json:"DrawSlidesFrame"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	ShowHiddenSlides bool `json:"ShowHiddenSlides,omitempty"`
+	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
 
 	// True to convert all metafiles used in a presentation to the PNG images.
-	SaveMetafilesAsPng bool `json:"SaveMetafilesAsPng,omitempty"`
+	SaveMetafilesAsPng bool `json:"SaveMetafilesAsPng"`
 
 	// Setting user password to protect the PDF document. 
 	Password string `json:"Password,omitempty"`
 
 	// Determines if Aspose.Slides will embed common fonts for ASCII (33..127 code range) text. Fonts for character codes greater than 127 are always embedded. Common fonts list includes PDF's base 14 fonts and additional user specified fonts.
-	EmbedTrueTypeFontsForASCII bool `json:"EmbedTrueTypeFontsForASCII,omitempty"`
+	EmbedTrueTypeFontsForASCII bool `json:"EmbedTrueTypeFontsForASCII"`
 
 	// Returns or sets an array of user-defined names of font families which Aspose.Slides should consider common.
 	AdditionalCommonFontFamilies []string `json:"AdditionalCommonFontFamilies,omitempty"`
 
 	// Gets or sets the position of the notes on the page.
-	NotesPosition NotesPositions `json:"NotesPosition,omitempty"`
+	NotesPosition string `json:"NotesPosition"`
 
 	// Gets or sets the position of the comments on the page.
-	CommentsPosition CommentsPositions `json:"CommentsPosition,omitempty"`
+	CommentsPosition string `json:"CommentsPosition"`
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	CommentsAreaWidth int32 `json:"CommentsAreaWidth,omitempty"`
+	CommentsAreaWidth int32 `json:"CommentsAreaWidth"`
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor,omitempty"`
+	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
 
 	// Image transparent color.
 	ImageTransparentColor string `json:"ImageTransparentColor,omitempty"`
 
-	// True to apply specified   to an image.
-	ApplyImageTransparent bool `json:"ApplyImageTransparent,omitempty"`
+	// True to apply specified ImageTransparentColor  to an image.
+	ApplyImageTransparent bool `json:"ApplyImageTransparent"`
 }
 
 func (this PdfExportOptions) getFormat() string {
@@ -176,11 +176,11 @@ func (this PdfExportOptions) getFormat() string {
 func (this PdfExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this PdfExportOptions) getTextCompression() PdfTextCompression {
+func (this PdfExportOptions) getTextCompression() string {
 	return this.TextCompression
 }
 
-func (this PdfExportOptions) setTextCompression(newValue PdfTextCompression) {
+func (this PdfExportOptions) setTextCompression(newValue string) {
 	this.TextCompression = newValue
 }
 func (this PdfExportOptions) getEmbedFullFonts() bool {
@@ -190,11 +190,11 @@ func (this PdfExportOptions) getEmbedFullFonts() bool {
 func (this PdfExportOptions) setEmbedFullFonts(newValue bool) {
 	this.EmbedFullFonts = newValue
 }
-func (this PdfExportOptions) getCompliance() PdfCompliance {
+func (this PdfExportOptions) getCompliance() string {
 	return this.Compliance
 }
 
-func (this PdfExportOptions) setCompliance(newValue PdfCompliance) {
+func (this PdfExportOptions) setCompliance(newValue string) {
 	this.Compliance = newValue
 }
 func (this PdfExportOptions) getSufficientResolution() float64 {
@@ -253,18 +253,18 @@ func (this PdfExportOptions) getAdditionalCommonFontFamilies() []string {
 func (this PdfExportOptions) setAdditionalCommonFontFamilies(newValue []string) {
 	this.AdditionalCommonFontFamilies = newValue
 }
-func (this PdfExportOptions) getNotesPosition() NotesPositions {
+func (this PdfExportOptions) getNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this PdfExportOptions) setNotesPosition(newValue NotesPositions) {
+func (this PdfExportOptions) setNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this PdfExportOptions) getCommentsPosition() CommentsPositions {
+func (this PdfExportOptions) getCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this PdfExportOptions) setCommentsPosition(newValue CommentsPositions) {
+func (this PdfExportOptions) setCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
 func (this PdfExportOptions) getCommentsAreaWidth() int32 {
@@ -323,7 +323,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valTextCompression, ok := objMap["TextCompression"]; ok {
 		if valTextCompression != nil {
-			var valueForTextCompression PdfTextCompression
+			var valueForTextCompression string
 			err = json.Unmarshal(*valTextCompression, &valueForTextCompression)
 			if err != nil {
 				return err
@@ -345,7 +345,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valCompliance, ok := objMap["Compliance"]; ok {
 		if valCompliance != nil {
-			var valueForCompliance PdfCompliance
+			var valueForCompliance string
 			err = json.Unmarshal(*valCompliance, &valueForCompliance)
 			if err != nil {
 				return err
@@ -444,7 +444,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valNotesPosition, ok := objMap["NotesPosition"]; ok {
 		if valNotesPosition != nil {
-			var valueForNotesPosition NotesPositions
+			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
 			if err != nil {
 				return err
@@ -455,7 +455,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valCommentsPosition, ok := objMap["CommentsPosition"]; ok {
 		if valCommentsPosition != nil {
-			var valueForCommentsPosition CommentsPositions
+			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
 			if err != nil {
 				return err

@@ -62,16 +62,16 @@ type ISvgExportOptions interface {
 	setJpegQuality(newValue int32)
 
 	// Represents the pictures compression level
-	getPicturesCompression() PicturesCompression
-	setPicturesCompression(newValue PicturesCompression)
+	getPicturesCompression() string
+	setPicturesCompression(newValue string)
 
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
 	getDeletePicturesCroppedAreas() bool
 	setDeletePicturesCroppedAreas(newValue bool)
 
 	// Determines a way of handling externally loaded fonts.
-	getExternalFontsHandling() ExternalFontsHandling
-	setExternalFontsHandling(newValue ExternalFontsHandling)
+	getExternalFontsHandling() string
+	setExternalFontsHandling(newValue string)
 }
 
 type SvgExportOptions struct {
@@ -79,31 +79,31 @@ type SvgExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Determines whether the text on a slide will be saved as graphics.
-	VectorizeText bool `json:"VectorizeText,omitempty"`
+	VectorizeText bool `json:"VectorizeText"`
 
 	// Returns or sets the lower resolution limit for metafile rasterization.
-	MetafileRasterizationDpi int32 `json:"MetafileRasterizationDpi,omitempty"`
+	MetafileRasterizationDpi int32 `json:"MetafileRasterizationDpi"`
 
 	// Determines whether the 3D text is disabled in SVG.
-	Disable3DText bool `json:"Disable3DText,omitempty"`
+	Disable3DText bool `json:"Disable3DText"`
 
 	// Disables splitting FromCornerX and FromCenter gradients.
-	DisableGradientSplit bool `json:"DisableGradientSplit,omitempty"`
+	DisableGradientSplit bool `json:"DisableGradientSplit"`
 
 	// SVG 1.1 lacks ability to define insets for markers. Aspose.Slides SVG writing engine has workaround for that problem: it crops end of line with arrow, so, line doesn't overlap markers. This option switches off such behavior.
-	DisableLineEndCropping bool `json:"DisableLineEndCropping,omitempty"`
+	DisableLineEndCropping bool `json:"DisableLineEndCropping"`
 
 	// Determines JPEG encoding quality.
-	JpegQuality int32 `json:"JpegQuality,omitempty"`
+	JpegQuality int32 `json:"JpegQuality"`
 
 	// Represents the pictures compression level
-	PicturesCompression PicturesCompression `json:"PicturesCompression,omitempty"`
+	PicturesCompression string `json:"PicturesCompression"`
 
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
-	DeletePicturesCroppedAreas bool `json:"DeletePicturesCroppedAreas,omitempty"`
+	DeletePicturesCroppedAreas bool `json:"DeletePicturesCroppedAreas"`
 
 	// Determines a way of handling externally loaded fonts.
-	ExternalFontsHandling ExternalFontsHandling `json:"ExternalFontsHandling,omitempty"`
+	ExternalFontsHandling string `json:"ExternalFontsHandling"`
 }
 
 func (this SvgExportOptions) getFormat() string {
@@ -155,11 +155,11 @@ func (this SvgExportOptions) getJpegQuality() int32 {
 func (this SvgExportOptions) setJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this SvgExportOptions) getPicturesCompression() PicturesCompression {
+func (this SvgExportOptions) getPicturesCompression() string {
 	return this.PicturesCompression
 }
 
-func (this SvgExportOptions) setPicturesCompression(newValue PicturesCompression) {
+func (this SvgExportOptions) setPicturesCompression(newValue string) {
 	this.PicturesCompression = newValue
 }
 func (this SvgExportOptions) getDeletePicturesCroppedAreas() bool {
@@ -169,11 +169,11 @@ func (this SvgExportOptions) getDeletePicturesCroppedAreas() bool {
 func (this SvgExportOptions) setDeletePicturesCroppedAreas(newValue bool) {
 	this.DeletePicturesCroppedAreas = newValue
 }
-func (this SvgExportOptions) getExternalFontsHandling() ExternalFontsHandling {
+func (this SvgExportOptions) getExternalFontsHandling() string {
 	return this.ExternalFontsHandling
 }
 
-func (this SvgExportOptions) setExternalFontsHandling(newValue ExternalFontsHandling) {
+func (this SvgExportOptions) setExternalFontsHandling(newValue string) {
 	this.ExternalFontsHandling = newValue
 }
 
@@ -263,7 +263,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valPicturesCompression, ok := objMap["PicturesCompression"]; ok {
 		if valPicturesCompression != nil {
-			var valueForPicturesCompression PicturesCompression
+			var valueForPicturesCompression string
 			err = json.Unmarshal(*valPicturesCompression, &valueForPicturesCompression)
 			if err != nil {
 				return err
@@ -285,7 +285,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valExternalFontsHandling, ok := objMap["ExternalFontsHandling"]; ok {
 		if valExternalFontsHandling != nil {
-			var valueForExternalFontsHandling ExternalFontsHandling
+			var valueForExternalFontsHandling string
 			err = json.Unmarshal(*valExternalFontsHandling, &valueForExternalFontsHandling)
 			if err != nil {
 				return err

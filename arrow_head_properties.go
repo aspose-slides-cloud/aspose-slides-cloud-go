@@ -34,44 +34,44 @@ import (
 
 type IArrowHeadProperties interface {
 
-	getLength() LineArrowheadLength
-	setLength(newValue LineArrowheadLength)
+	getLength() string
+	setLength(newValue string)
 
-	getStyle() LineArrowheadStyle
-	setStyle(newValue LineArrowheadStyle)
+	getStyle() string
+	setStyle(newValue string)
 
-	getWidth() LineArrowheadWidth
-	setWidth(newValue LineArrowheadWidth)
+	getWidth() string
+	setWidth(newValue string)
 }
 
 type ArrowHeadProperties struct {
 
-	Length LineArrowheadLength `json:"Length"`
+	Length string `json:"Length"`
 
-	Style LineArrowheadStyle `json:"Style"`
+	Style string `json:"Style"`
 
-	Width LineArrowheadWidth `json:"Width"`
+	Width string `json:"Width"`
 }
 
-func (this ArrowHeadProperties) getLength() LineArrowheadLength {
+func (this ArrowHeadProperties) getLength() string {
 	return this.Length
 }
 
-func (this ArrowHeadProperties) setLength(newValue LineArrowheadLength) {
+func (this ArrowHeadProperties) setLength(newValue string) {
 	this.Length = newValue
 }
-func (this ArrowHeadProperties) getStyle() LineArrowheadStyle {
+func (this ArrowHeadProperties) getStyle() string {
 	return this.Style
 }
 
-func (this ArrowHeadProperties) setStyle(newValue LineArrowheadStyle) {
+func (this ArrowHeadProperties) setStyle(newValue string) {
 	this.Style = newValue
 }
-func (this ArrowHeadProperties) getWidth() LineArrowheadWidth {
+func (this ArrowHeadProperties) getWidth() string {
 	return this.Width
 }
 
-func (this ArrowHeadProperties) setWidth(newValue LineArrowheadWidth) {
+func (this ArrowHeadProperties) setWidth(newValue string) {
 	this.Width = newValue
 }
 
@@ -84,7 +84,7 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 
 	if valLength, ok := objMap["Length"]; ok {
 		if valLength != nil {
-			var valueForLength LineArrowheadLength
+			var valueForLength string
 			err = json.Unmarshal(*valLength, &valueForLength)
 			if err != nil {
 				return err
@@ -95,7 +95,7 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 
 	if valStyle, ok := objMap["Style"]; ok {
 		if valStyle != nil {
-			var valueForStyle LineArrowheadStyle
+			var valueForStyle string
 			err = json.Unmarshal(*valStyle, &valueForStyle)
 			if err != nil {
 				return err
@@ -106,7 +106,7 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 
 	if valWidth, ok := objMap["Width"]; ok {
 		if valWidth != nil {
-			var valueForWidth LineArrowheadWidth
+			var valueForWidth string
 			err = json.Unmarshal(*valWidth, &valueForWidth)
 			if err != nil {
 				return err

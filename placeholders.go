@@ -41,10 +41,6 @@ type IPlaceholders interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	getPlaceholderLinks() []ResourceUri
 	setPlaceholderLinks(newValue []ResourceUri)
 }
@@ -55,9 +51,6 @@ type Placeholders struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
-
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
 
 	PlaceholderLinks []ResourceUri `json:"PlaceholderLinks,omitempty"`
 }
@@ -75,13 +68,6 @@ func (this Placeholders) getAlternateLinks() []ResourceUri {
 
 func (this Placeholders) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this Placeholders) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this Placeholders) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
 }
 func (this Placeholders) getPlaceholderLinks() []ResourceUri {
 	return this.PlaceholderLinks
@@ -117,17 +103,6 @@ func (this *Placeholders) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
 		}
 	}
 

@@ -61,19 +61,7 @@ type APIClient struct {
 	common 	service 		// Reuse a single struct instead of allocating one for each service on the heap.
 
 	 // API Services
-	DocumentApi	*DocumentApiService
-	ImagesApi	*ImagesApiService
-	LayoutSlidesApi	*LayoutSlidesApiService
-	MasterSlidesApi	*MasterSlidesApiService
-	MergeDocumentApi	*MergeDocumentApiService
-	NotesSlideApi	*NotesSlideApiService
-	NotesSlideShapesApi	*NotesSlideShapesApiService
-	PlaceholdersApi	*PlaceholdersApiService
-	PropertiesApi	*PropertiesApiService
-	ShapesApi	*ShapesApiService
-	SlidesApi	*SlidesApiService
-	TextApi	*TextApiService
-	ThemeApi	*ThemeApiService
+	SlidesApi		*SlidesApiService
 }
 
 type service struct {
@@ -92,19 +80,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.DocumentApi = (*DocumentApiService)(&c.common)
-	c.ImagesApi = (*ImagesApiService)(&c.common)
-	c.LayoutSlidesApi = (*LayoutSlidesApiService)(&c.common)
-	c.MasterSlidesApi = (*MasterSlidesApiService)(&c.common)
-	c.MergeDocumentApi = (*MergeDocumentApiService)(&c.common)
-	c.NotesSlideApi = (*NotesSlideApiService)(&c.common)
-	c.NotesSlideShapesApi = (*NotesSlideShapesApiService)(&c.common)
-	c.PlaceholdersApi = (*PlaceholdersApiService)(&c.common)
-	c.PropertiesApi = (*PropertiesApiService)(&c.common)
-	c.ShapesApi = (*ShapesApiService)(&c.common)
 	c.SlidesApi = (*SlidesApiService)(&c.common)
-	c.TextApi = (*TextApiService)(&c.common)
-	c.ThemeApi = (*ThemeApiService)(&c.common)
 
 	return c
 }
@@ -318,11 +294,12 @@ func (c *APIClient) prepareRequestHeader(localVarRequest *http.Request, headerPa
 	if (len(c.cfg.OAuthToken) == 0) {
 		oauthRequest, err := http.NewRequest(
 			"POST",
-			c.cfg.BasePath + "/oauth2/token",
+			c.cfg.AuthBasePath + "/connect/token",
 			strings.NewReader("grant_type=client_credentials&client_id=" + c.cfg.AppSid + "&client_secret=" + c.cfg.AppKey))
 		if (err != nil) {
 			return err
 		}
+		oauthRequest.Header.Set("Content-type", "application/x-www-form-urlencoded")
 		oauthResponse, err := c.callAPI(oauthRequest)
 		if (err != nil) {
 			return err
@@ -374,6 +351,8 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 		_, err = bodyBuf.ReadFrom(reader)
 	} else if b, ok := body.([]byte); ok {
 		_, err = bodyBuf.Write(b)
+	} else if b, ok := body.(*[]byte); ok {
+		_, err = bodyBuf.Write(*b)
 	} else if s, ok := body.(string); ok {
 		_, err = bodyBuf.WriteString(s)
 	} else if jsonCheck.MatchString(contentType) {

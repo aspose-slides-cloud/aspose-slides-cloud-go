@@ -34,13 +34,9 @@ import (
 // A bubble series.
 type IBubbleSeries interface {
 
-	// Data point type.
-	getDataPointType() ChartDataPointType
-	setDataPointType(newValue ChartDataPointType)
-
 	// Series type.
-	getType() ChartType
-	setType(newValue ChartType)
+	getType() string
+	setType(newValue string)
 
 	// Series name.
 	getName() string
@@ -106,6 +102,10 @@ type IBubbleSeries interface {
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
 
+	// Data point type.
+	getDataPointType() string
+	setDataPointType(newValue string)
+
 	// Gets or sets the values.
 	getDataPoints() []BubbleChartDataPoint
 	setDataPoints(newValue []BubbleChartDataPoint)
@@ -113,11 +113,8 @@ type IBubbleSeries interface {
 
 type BubbleSeries struct {
 
-	// Data point type.
-	DataPointType ChartDataPointType `json:"DataPointType"`
-
 	// Series type.
-	Type_ ChartType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// Series name.
 	Name string `json:"Name,omitempty"`
@@ -167,22 +164,18 @@ type BubbleSeries struct {
 	// Line properties set for the series.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
+	// Data point type.
+	DataPointType string `json:"DataPointType"`
+
 	// Gets or sets the values.
 	DataPoints []BubbleChartDataPoint `json:"DataPoints,omitempty"`
 }
 
-func (this BubbleSeries) getDataPointType() ChartDataPointType {
-	return this.DataPointType
-}
-
-func (this BubbleSeries) setDataPointType(newValue ChartDataPointType) {
-	this.DataPointType = newValue
-}
-func (this BubbleSeries) getType() ChartType {
+func (this BubbleSeries) getType() string {
 	return this.Type_
 }
 
-func (this BubbleSeries) setType(newValue ChartType) {
+func (this BubbleSeries) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this BubbleSeries) getName() string {
@@ -297,6 +290,13 @@ func (this BubbleSeries) getLineFormat() ILineFormat {
 func (this BubbleSeries) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
+func (this BubbleSeries) getDataPointType() string {
+	return this.DataPointType
+}
+
+func (this BubbleSeries) setDataPointType(newValue string) {
+	this.DataPointType = newValue
+}
 func (this BubbleSeries) getDataPoints() []BubbleChartDataPoint {
 	return this.DataPoints
 }
@@ -312,20 +312,9 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 		return err
 	}
 
-	if valDataPointType, ok := objMap["DataPointType"]; ok {
-		if valDataPointType != nil {
-			var valueForDataPointType ChartDataPointType
-			err = json.Unmarshal(*valDataPointType, &valueForDataPointType)
-			if err != nil {
-				return err
-			}
-			this.DataPointType = valueForDataPointType
-		}
-	}
-
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType ChartType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err
@@ -507,6 +496,17 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.LineFormat = valueForLineFormat
+		}
+	}
+
+	if valDataPointType, ok := objMap["DataPointType"]; ok {
+		if valDataPointType != nil {
+			var valueForDataPointType string
+			err = json.Unmarshal(*valDataPointType, &valueForDataPointType)
+			if err != nil {
+				return err
+			}
+			this.DataPointType = valueForDataPointType
 		}
 	}
 

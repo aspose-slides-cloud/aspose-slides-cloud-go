@@ -34,13 +34,9 @@ import (
 // One value series.
 type IOneValueSeries interface {
 
-	// Data point type.
-	getDataPointType() ChartDataPointType
-	setDataPointType(newValue ChartDataPointType)
-
 	// Series type.
-	getType() ChartType
-	setType(newValue ChartType)
+	getType() string
+	setType(newValue string)
 
 	// Series name.
 	getName() string
@@ -106,6 +102,10 @@ type IOneValueSeries interface {
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
 
+	// Data point type.
+	getDataPointType() string
+	setDataPointType(newValue string)
+
 	// Gets or sets the values.
 	getDataPoints() []OneValueChartDataPoint
 	setDataPoints(newValue []OneValueChartDataPoint)
@@ -113,11 +113,8 @@ type IOneValueSeries interface {
 
 type OneValueSeries struct {
 
-	// Data point type.
-	DataPointType ChartDataPointType `json:"DataPointType"`
-
 	// Series type.
-	Type_ ChartType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// Series name.
 	Name string `json:"Name,omitempty"`
@@ -167,22 +164,18 @@ type OneValueSeries struct {
 	// Line properties set for the series.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
+	// Data point type.
+	DataPointType string `json:"DataPointType"`
+
 	// Gets or sets the values.
 	DataPoints []OneValueChartDataPoint `json:"DataPoints,omitempty"`
 }
 
-func (this OneValueSeries) getDataPointType() ChartDataPointType {
-	return this.DataPointType
-}
-
-func (this OneValueSeries) setDataPointType(newValue ChartDataPointType) {
-	this.DataPointType = newValue
-}
-func (this OneValueSeries) getType() ChartType {
+func (this OneValueSeries) getType() string {
 	return this.Type_
 }
 
-func (this OneValueSeries) setType(newValue ChartType) {
+func (this OneValueSeries) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this OneValueSeries) getName() string {
@@ -297,6 +290,13 @@ func (this OneValueSeries) getLineFormat() ILineFormat {
 func (this OneValueSeries) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
+func (this OneValueSeries) getDataPointType() string {
+	return this.DataPointType
+}
+
+func (this OneValueSeries) setDataPointType(newValue string) {
+	this.DataPointType = newValue
+}
 func (this OneValueSeries) getDataPoints() []OneValueChartDataPoint {
 	return this.DataPoints
 }
@@ -312,20 +312,9 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 		return err
 	}
 
-	if valDataPointType, ok := objMap["DataPointType"]; ok {
-		if valDataPointType != nil {
-			var valueForDataPointType ChartDataPointType
-			err = json.Unmarshal(*valDataPointType, &valueForDataPointType)
-			if err != nil {
-				return err
-			}
-			this.DataPointType = valueForDataPointType
-		}
-	}
-
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType ChartType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err
@@ -507,6 +496,17 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.LineFormat = valueForLineFormat
+		}
+	}
+
+	if valDataPointType, ok := objMap["DataPointType"]; ok {
+		if valDataPointType != nil {
+			var valueForDataPointType string
+			err = json.Unmarshal(*valDataPointType, &valueForDataPointType)
+			if err != nil {
+				return err
+			}
+			this.DataPointType = valueForDataPointType
 		}
 	}
 

@@ -41,10 +41,6 @@ type ISlides interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	getSlideList() []ResourceUriElement
 	setSlideList(newValue []ResourceUriElement)
 }
@@ -55,9 +51,6 @@ type Slides struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
-
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
 
 	SlideList []ResourceUriElement `json:"SlideList,omitempty"`
 }
@@ -75,13 +68,6 @@ func (this Slides) getAlternateLinks() []ResourceUri {
 
 func (this Slides) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this Slides) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this Slides) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
 }
 func (this Slides) getSlideList() []ResourceUriElement {
 	return this.SlideList
@@ -117,17 +103,6 @@ func (this *Slides) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
 		}
 	}
 

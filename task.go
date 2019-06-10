@@ -34,22 +34,20 @@ import (
 // Represents task for pipeline.
 type ITask interface {
 
-	// Gets type of task.
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 }
 
 type Task struct {
 
-	// Gets type of task.
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type,omitempty"`
 }
 
-func (this Task) getType() TaskType {
+func (this Task) getType() string {
 	return this.Type_
 }
 
-func (this Task) setType(newValue TaskType) {
+func (this Task) setType(newValue string) {
 	this.Type_ = newValue
 }
 
@@ -62,7 +60,7 @@ func (this *Task) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

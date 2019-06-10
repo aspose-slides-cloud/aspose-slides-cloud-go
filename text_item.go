@@ -31,7 +31,7 @@ import (
 	"encoding/json"
 )
 
-// Represents text item, referenced by 
+// Represents text item, referenced by TextItems
 type ITextItem interface {
 
 	// Gets or sets the URI to resource that contains text

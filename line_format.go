@@ -34,20 +34,20 @@ import (
 
 type ILineFormat interface {
 
-	getAlignment() LineAlignment
-	setAlignment(newValue LineAlignment)
+	getAlignment() string
+	setAlignment(newValue string)
 
-	getCapStyle() LineCapStyle
-	setCapStyle(newValue LineCapStyle)
+	getCapStyle() string
+	setCapStyle(newValue string)
 
-	getDashStyle() LineDashStyle
-	setDashStyle(newValue LineDashStyle)
+	getDashStyle() string
+	setDashStyle(newValue string)
 
-	getJoinStyle() LineJoinStyle
-	setJoinStyle(newValue LineJoinStyle)
+	getJoinStyle() string
+	setJoinStyle(newValue string)
 
-	getStyle() LineStyle
-	setStyle(newValue LineStyle)
+	getStyle() string
+	setStyle(newValue string)
 
 	getBeginArrowHead() IArrowHeadProperties
 	setBeginArrowHead(newValue IArrowHeadProperties)
@@ -70,15 +70,15 @@ type ILineFormat interface {
 
 type LineFormat struct {
 
-	Alignment LineAlignment `json:"Alignment"`
+	Alignment string `json:"Alignment"`
 
-	CapStyle LineCapStyle `json:"CapStyle"`
+	CapStyle string `json:"CapStyle"`
 
-	DashStyle LineDashStyle `json:"DashStyle"`
+	DashStyle string `json:"DashStyle"`
 
-	JoinStyle LineJoinStyle `json:"JoinStyle"`
+	JoinStyle string `json:"JoinStyle"`
 
-	Style LineStyle `json:"Style"`
+	Style string `json:"Style"`
 
 	BeginArrowHead IArrowHeadProperties `json:"BeginArrowHead,omitempty"`
 
@@ -93,39 +93,39 @@ type LineFormat struct {
 	Width float64 `json:"Width"`
 }
 
-func (this LineFormat) getAlignment() LineAlignment {
+func (this LineFormat) getAlignment() string {
 	return this.Alignment
 }
 
-func (this LineFormat) setAlignment(newValue LineAlignment) {
+func (this LineFormat) setAlignment(newValue string) {
 	this.Alignment = newValue
 }
-func (this LineFormat) getCapStyle() LineCapStyle {
+func (this LineFormat) getCapStyle() string {
 	return this.CapStyle
 }
 
-func (this LineFormat) setCapStyle(newValue LineCapStyle) {
+func (this LineFormat) setCapStyle(newValue string) {
 	this.CapStyle = newValue
 }
-func (this LineFormat) getDashStyle() LineDashStyle {
+func (this LineFormat) getDashStyle() string {
 	return this.DashStyle
 }
 
-func (this LineFormat) setDashStyle(newValue LineDashStyle) {
+func (this LineFormat) setDashStyle(newValue string) {
 	this.DashStyle = newValue
 }
-func (this LineFormat) getJoinStyle() LineJoinStyle {
+func (this LineFormat) getJoinStyle() string {
 	return this.JoinStyle
 }
 
-func (this LineFormat) setJoinStyle(newValue LineJoinStyle) {
+func (this LineFormat) setJoinStyle(newValue string) {
 	this.JoinStyle = newValue
 }
-func (this LineFormat) getStyle() LineStyle {
+func (this LineFormat) getStyle() string {
 	return this.Style
 }
 
-func (this LineFormat) setStyle(newValue LineStyle) {
+func (this LineFormat) setStyle(newValue string) {
 	this.Style = newValue
 }
 func (this LineFormat) getBeginArrowHead() IArrowHeadProperties {
@@ -180,7 +180,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 
 	if valAlignment, ok := objMap["Alignment"]; ok {
 		if valAlignment != nil {
-			var valueForAlignment LineAlignment
+			var valueForAlignment string
 			err = json.Unmarshal(*valAlignment, &valueForAlignment)
 			if err != nil {
 				return err
@@ -191,7 +191,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 
 	if valCapStyle, ok := objMap["CapStyle"]; ok {
 		if valCapStyle != nil {
-			var valueForCapStyle LineCapStyle
+			var valueForCapStyle string
 			err = json.Unmarshal(*valCapStyle, &valueForCapStyle)
 			if err != nil {
 				return err
@@ -202,7 +202,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 
 	if valDashStyle, ok := objMap["DashStyle"]; ok {
 		if valDashStyle != nil {
-			var valueForDashStyle LineDashStyle
+			var valueForDashStyle string
 			err = json.Unmarshal(*valDashStyle, &valueForDashStyle)
 			if err != nil {
 				return err
@@ -213,7 +213,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 
 	if valJoinStyle, ok := objMap["JoinStyle"]; ok {
 		if valJoinStyle != nil {
-			var valueForJoinStyle LineJoinStyle
+			var valueForJoinStyle string
 			err = json.Unmarshal(*valJoinStyle, &valueForJoinStyle)
 			if err != nil {
 				return err
@@ -224,7 +224,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 
 	if valStyle, ok := objMap["Style"]; ok {
 		if valStyle != nil {
-			var valueForStyle LineStyle
+			var valueForStyle string
 			err = json.Unmarshal(*valStyle, &valueForStyle)
 			if err != nil {
 				return err

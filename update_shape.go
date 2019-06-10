@@ -34,8 +34,8 @@ import (
 
 type IUpdateShape interface {
 
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	getShape() IShapeBase
 	setShape(newValue IShapeBase)
@@ -46,18 +46,18 @@ type IUpdateShape interface {
 
 type UpdateShape struct {
 
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	Shape IShapeBase `json:"Shape,omitempty"`
 
 	ShapePath string `json:"ShapePath,omitempty"`
 }
 
-func (this UpdateShape) getType() TaskType {
+func (this UpdateShape) getType() string {
 	return this.Type_
 }
 
-func (this UpdateShape) setType(newValue TaskType) {
+func (this UpdateShape) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this UpdateShape) getShape() IShapeBase {
@@ -84,7 +84,7 @@ func (this *UpdateShape) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

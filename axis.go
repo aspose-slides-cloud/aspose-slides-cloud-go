@@ -43,16 +43,16 @@ type IAxis interface {
 	setHasTitle(newValue bool)
 
 	// Axis position
-	getPosition() AxisPositionType
-	setPosition(newValue AxisPositionType)
+	getPosition() string
+	setPosition(newValue string)
 
 	// The scaling value of the display units for the value axis
-	getDisplayUnit() DisplayUnitType
-	setDisplayUnit(newValue DisplayUnitType)
+	getDisplayUnit() string
+	setDisplayUnit(newValue string)
 
 	// The smallest time unit that is represented on the date axis
-	getBaseUnitScale() TimeUnitType
-	setBaseUnitScale(newValue TimeUnitType)
+	getBaseUnitScale() string
+	setBaseUnitScale(newValue string)
 
 	// True the major unit of the axis is automatically assigned
 	getIsAutomaticMajorUnit() bool
@@ -63,12 +63,12 @@ type IAxis interface {
 	setMajorUnit(newValue float64)
 
 	// The major unit scale for the date axis
-	getMajorUnitScale() TimeUnitType
-	setMajorUnitScale(newValue TimeUnitType)
+	getMajorUnitScale() string
+	setMajorUnitScale(newValue string)
 
 	// The type of major tick mark for the specified axis
-	getMajorTickMark() TickMarkType
-	setMajorTickMark(newValue TickMarkType)
+	getMajorTickMark() string
+	setMajorTickMark(newValue string)
 
 	// True the minor unit of the axis is automatically assigned
 	getIsAutomaticMinorUnit() bool
@@ -79,12 +79,12 @@ type IAxis interface {
 	setMinorUnit(newValue float64)
 
 	// The minor unit scale for the date axis
-	getMinorUnitScale() TimeUnitType
-	setMinorUnitScale(newValue TimeUnitType)
+	getMinorUnitScale() string
+	setMinorUnitScale(newValue string)
 
 	// The type of minor tick mark for the specified axis
-	getMinorTickMark() TickMarkType
-	setMinorTickMark(newValue TickMarkType)
+	getMinorTickMark() string
+	setMinorTickMark(newValue string)
 
 	// True if the max value is automatically assigned
 	getIsAutomaticMaxValue() bool
@@ -111,8 +111,8 @@ type IAxis interface {
 	setLogBase(newValue float64)
 
 	// The type of the category axis
-	getCategoryAxisType() CategoryAxisType
-	setCategoryAxisType(newValue CategoryAxisType)
+	getCategoryAxisType() string
+	setCategoryAxisType(newValue string)
 
 	// True if the value axis crosses the category axis between categories. This property applies only to category axes, and it doesn't apply to 3-D charts
 	getAxisBetweenCategories() bool
@@ -135,8 +135,8 @@ type IAxis interface {
 	setNumberFormat(newValue string)
 
 	// The CrossType on the specified axis where the other axis crosses
-	getCrossType() CrossesType
-	setCrossType(newValue CrossesType)
+	getCrossType() string
+	setCrossType(newValue string)
 
 	// The point on the axis where the perpendicular axis crosses it
 	getCrossAt() float64
@@ -159,8 +159,8 @@ type IAxis interface {
 	setTickLabelSpacing(newValue int32)
 
 	// The position of tick-mark labels on the specified axis.
-	getTickLabelPosition() TickLabelPositionType
-	setTickLabelPosition(newValue TickLabelPositionType)
+	getTickLabelPosition() string
+	setTickLabelPosition(newValue string)
 
 	// Represents the rotation angle of tick labels.
 	getTickLabelRotationAngle() float64
@@ -188,13 +188,13 @@ type Axis struct {
 	HasTitle bool `json:"HasTitle"`
 
 	// Axis position
-	Position AxisPositionType `json:"Position"`
+	Position string `json:"Position"`
 
 	// The scaling value of the display units for the value axis
-	DisplayUnit DisplayUnitType `json:"DisplayUnit"`
+	DisplayUnit string `json:"DisplayUnit"`
 
 	// The smallest time unit that is represented on the date axis
-	BaseUnitScale TimeUnitType `json:"BaseUnitScale"`
+	BaseUnitScale string `json:"BaseUnitScale"`
 
 	// True the major unit of the axis is automatically assigned
 	IsAutomaticMajorUnit bool `json:"IsAutomaticMajorUnit"`
@@ -203,10 +203,10 @@ type Axis struct {
 	MajorUnit float64 `json:"MajorUnit"`
 
 	// The major unit scale for the date axis
-	MajorUnitScale TimeUnitType `json:"MajorUnitScale"`
+	MajorUnitScale string `json:"MajorUnitScale"`
 
 	// The type of major tick mark for the specified axis
-	MajorTickMark TickMarkType `json:"MajorTickMark"`
+	MajorTickMark string `json:"MajorTickMark"`
 
 	// True the minor unit of the axis is automatically assigned
 	IsAutomaticMinorUnit bool `json:"IsAutomaticMinorUnit"`
@@ -215,10 +215,10 @@ type Axis struct {
 	MinorUnit float64 `json:"MinorUnit"`
 
 	// The minor unit scale for the date axis
-	MinorUnitScale TimeUnitType `json:"MinorUnitScale"`
+	MinorUnitScale string `json:"MinorUnitScale"`
 
 	// The type of minor tick mark for the specified axis
-	MinorTickMark TickMarkType `json:"MinorTickMark"`
+	MinorTickMark string `json:"MinorTickMark"`
 
 	// True if the max value is automatically assigned
 	IsAutomaticMaxValue bool `json:"IsAutomaticMaxValue"`
@@ -239,7 +239,7 @@ type Axis struct {
 	LogBase float64 `json:"LogBase"`
 
 	// The type of the category axis
-	CategoryAxisType CategoryAxisType `json:"CategoryAxisType"`
+	CategoryAxisType string `json:"CategoryAxisType"`
 
 	// True if the value axis crosses the category axis between categories. This property applies only to category axes, and it doesn't apply to 3-D charts
 	AxisBetweenCategories bool `json:"AxisBetweenCategories"`
@@ -257,7 +257,7 @@ type Axis struct {
 	NumberFormat string `json:"NumberFormat,omitempty"`
 
 	// The CrossType on the specified axis where the other axis crosses
-	CrossType CrossesType `json:"CrossType"`
+	CrossType string `json:"CrossType"`
 
 	// The point on the axis where the perpendicular axis crosses it
 	CrossAt float64 `json:"CrossAt"`
@@ -275,7 +275,7 @@ type Axis struct {
 	TickLabelSpacing int32 `json:"TickLabelSpacing"`
 
 	// The position of tick-mark labels on the specified axis.
-	TickLabelPosition TickLabelPositionType `json:"TickLabelPosition"`
+	TickLabelPosition string `json:"TickLabelPosition"`
 
 	// Represents the rotation angle of tick labels.
 	TickLabelRotationAngle float64 `json:"TickLabelRotationAngle"`
@@ -304,25 +304,25 @@ func (this Axis) getHasTitle() bool {
 func (this Axis) setHasTitle(newValue bool) {
 	this.HasTitle = newValue
 }
-func (this Axis) getPosition() AxisPositionType {
+func (this Axis) getPosition() string {
 	return this.Position
 }
 
-func (this Axis) setPosition(newValue AxisPositionType) {
+func (this Axis) setPosition(newValue string) {
 	this.Position = newValue
 }
-func (this Axis) getDisplayUnit() DisplayUnitType {
+func (this Axis) getDisplayUnit() string {
 	return this.DisplayUnit
 }
 
-func (this Axis) setDisplayUnit(newValue DisplayUnitType) {
+func (this Axis) setDisplayUnit(newValue string) {
 	this.DisplayUnit = newValue
 }
-func (this Axis) getBaseUnitScale() TimeUnitType {
+func (this Axis) getBaseUnitScale() string {
 	return this.BaseUnitScale
 }
 
-func (this Axis) setBaseUnitScale(newValue TimeUnitType) {
+func (this Axis) setBaseUnitScale(newValue string) {
 	this.BaseUnitScale = newValue
 }
 func (this Axis) getIsAutomaticMajorUnit() bool {
@@ -339,18 +339,18 @@ func (this Axis) getMajorUnit() float64 {
 func (this Axis) setMajorUnit(newValue float64) {
 	this.MajorUnit = newValue
 }
-func (this Axis) getMajorUnitScale() TimeUnitType {
+func (this Axis) getMajorUnitScale() string {
 	return this.MajorUnitScale
 }
 
-func (this Axis) setMajorUnitScale(newValue TimeUnitType) {
+func (this Axis) setMajorUnitScale(newValue string) {
 	this.MajorUnitScale = newValue
 }
-func (this Axis) getMajorTickMark() TickMarkType {
+func (this Axis) getMajorTickMark() string {
 	return this.MajorTickMark
 }
 
-func (this Axis) setMajorTickMark(newValue TickMarkType) {
+func (this Axis) setMajorTickMark(newValue string) {
 	this.MajorTickMark = newValue
 }
 func (this Axis) getIsAutomaticMinorUnit() bool {
@@ -367,18 +367,18 @@ func (this Axis) getMinorUnit() float64 {
 func (this Axis) setMinorUnit(newValue float64) {
 	this.MinorUnit = newValue
 }
-func (this Axis) getMinorUnitScale() TimeUnitType {
+func (this Axis) getMinorUnitScale() string {
 	return this.MinorUnitScale
 }
 
-func (this Axis) setMinorUnitScale(newValue TimeUnitType) {
+func (this Axis) setMinorUnitScale(newValue string) {
 	this.MinorUnitScale = newValue
 }
-func (this Axis) getMinorTickMark() TickMarkType {
+func (this Axis) getMinorTickMark() string {
 	return this.MinorTickMark
 }
 
-func (this Axis) setMinorTickMark(newValue TickMarkType) {
+func (this Axis) setMinorTickMark(newValue string) {
 	this.MinorTickMark = newValue
 }
 func (this Axis) getIsAutomaticMaxValue() bool {
@@ -423,11 +423,11 @@ func (this Axis) getLogBase() float64 {
 func (this Axis) setLogBase(newValue float64) {
 	this.LogBase = newValue
 }
-func (this Axis) getCategoryAxisType() CategoryAxisType {
+func (this Axis) getCategoryAxisType() string {
 	return this.CategoryAxisType
 }
 
-func (this Axis) setCategoryAxisType(newValue CategoryAxisType) {
+func (this Axis) setCategoryAxisType(newValue string) {
 	this.CategoryAxisType = newValue
 }
 func (this Axis) getAxisBetweenCategories() bool {
@@ -465,11 +465,11 @@ func (this Axis) getNumberFormat() string {
 func (this Axis) setNumberFormat(newValue string) {
 	this.NumberFormat = newValue
 }
-func (this Axis) getCrossType() CrossesType {
+func (this Axis) getCrossType() string {
 	return this.CrossType
 }
 
-func (this Axis) setCrossType(newValue CrossesType) {
+func (this Axis) setCrossType(newValue string) {
 	this.CrossType = newValue
 }
 func (this Axis) getCrossAt() float64 {
@@ -507,11 +507,11 @@ func (this Axis) getTickLabelSpacing() int32 {
 func (this Axis) setTickLabelSpacing(newValue int32) {
 	this.TickLabelSpacing = newValue
 }
-func (this Axis) getTickLabelPosition() TickLabelPositionType {
+func (this Axis) getTickLabelPosition() string {
 	return this.TickLabelPosition
 }
 
-func (this Axis) setTickLabelPosition(newValue TickLabelPositionType) {
+func (this Axis) setTickLabelPosition(newValue string) {
 	this.TickLabelPosition = newValue
 }
 func (this Axis) getTickLabelRotationAngle() float64 {
@@ -574,7 +574,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 
 	if valPosition, ok := objMap["Position"]; ok {
 		if valPosition != nil {
-			var valueForPosition AxisPositionType
+			var valueForPosition string
 			err = json.Unmarshal(*valPosition, &valueForPosition)
 			if err != nil {
 				return err
@@ -585,7 +585,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 
 	if valDisplayUnit, ok := objMap["DisplayUnit"]; ok {
 		if valDisplayUnit != nil {
-			var valueForDisplayUnit DisplayUnitType
+			var valueForDisplayUnit string
 			err = json.Unmarshal(*valDisplayUnit, &valueForDisplayUnit)
 			if err != nil {
 				return err
@@ -596,7 +596,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 
 	if valBaseUnitScale, ok := objMap["BaseUnitScale"]; ok {
 		if valBaseUnitScale != nil {
-			var valueForBaseUnitScale TimeUnitType
+			var valueForBaseUnitScale string
 			err = json.Unmarshal(*valBaseUnitScale, &valueForBaseUnitScale)
 			if err != nil {
 				return err
@@ -629,7 +629,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 
 	if valMajorUnitScale, ok := objMap["MajorUnitScale"]; ok {
 		if valMajorUnitScale != nil {
-			var valueForMajorUnitScale TimeUnitType
+			var valueForMajorUnitScale string
 			err = json.Unmarshal(*valMajorUnitScale, &valueForMajorUnitScale)
 			if err != nil {
 				return err
@@ -640,7 +640,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 
 	if valMajorTickMark, ok := objMap["MajorTickMark"]; ok {
 		if valMajorTickMark != nil {
-			var valueForMajorTickMark TickMarkType
+			var valueForMajorTickMark string
 			err = json.Unmarshal(*valMajorTickMark, &valueForMajorTickMark)
 			if err != nil {
 				return err
@@ -673,7 +673,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 
 	if valMinorUnitScale, ok := objMap["MinorUnitScale"]; ok {
 		if valMinorUnitScale != nil {
-			var valueForMinorUnitScale TimeUnitType
+			var valueForMinorUnitScale string
 			err = json.Unmarshal(*valMinorUnitScale, &valueForMinorUnitScale)
 			if err != nil {
 				return err
@@ -684,7 +684,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 
 	if valMinorTickMark, ok := objMap["MinorTickMark"]; ok {
 		if valMinorTickMark != nil {
-			var valueForMinorTickMark TickMarkType
+			var valueForMinorTickMark string
 			err = json.Unmarshal(*valMinorTickMark, &valueForMinorTickMark)
 			if err != nil {
 				return err
@@ -761,7 +761,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 
 	if valCategoryAxisType, ok := objMap["CategoryAxisType"]; ok {
 		if valCategoryAxisType != nil {
-			var valueForCategoryAxisType CategoryAxisType
+			var valueForCategoryAxisType string
 			err = json.Unmarshal(*valCategoryAxisType, &valueForCategoryAxisType)
 			if err != nil {
 				return err
@@ -827,7 +827,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 
 	if valCrossType, ok := objMap["CrossType"]; ok {
 		if valCrossType != nil {
-			var valueForCrossType CrossesType
+			var valueForCrossType string
 			err = json.Unmarshal(*valCrossType, &valueForCrossType)
 			if err != nil {
 				return err
@@ -893,7 +893,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 
 	if valTickLabelPosition, ok := objMap["TickLabelPosition"]; ok {
 		if valTickLabelPosition != nil {
-			var valueForTickLabelPosition TickLabelPositionType
+			var valueForTickLabelPosition string
 			err = json.Unmarshal(*valTickLabelPosition, &valueForTickLabelPosition)
 			if err != nil {
 				return err

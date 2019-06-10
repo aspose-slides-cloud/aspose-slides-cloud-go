@@ -41,16 +41,6 @@ type IConnector interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
-	getType() ShapeType
-	setType(newValue ShapeType)
-
-	getShapeType() CombinedShapeType
-	setShapeType(newValue CombinedShapeType)
-
 	// Gets or sets the name.
 	getName() string
 	setName(newValue string)
@@ -67,7 +57,7 @@ type IConnector interface {
 	getAlternativeText() string
 	setAlternativeText(newValue string)
 
-	// Gets or sets a value indicating whether this  is hidden.
+	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	getHidden() bool
 	setHidden(newValue bool)
 
@@ -99,8 +89,14 @@ type IConnector interface {
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
 
-	getGeometryShapeType() GeometryShapeType
-	setGeometryShapeType(newValue GeometryShapeType)
+	getType() string
+	setType(newValue string)
+
+	getShapeType() string
+	setShapeType(newValue string)
+
+	getGeometryShapeType() string
+	setGeometryShapeType(newValue string)
 
 	getStartShapeConnectedTo() IResourceUri
 	setStartShapeConnectedTo(newValue IResourceUri)
@@ -122,13 +118,6 @@ type Connector struct {
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
-
-	Type_ ShapeType `json:"Type,omitempty"`
-
-	ShapeType CombinedShapeType `json:"ShapeType,omitempty"`
-
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
 
@@ -141,7 +130,7 @@ type Connector struct {
 	// Gets or sets the alternative text.
 	AlternativeText string `json:"AlternativeText,omitempty"`
 
-	// Gets or sets a value indicating whether this  is hidden.
+	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	Hidden bool `json:"Hidden,omitempty"`
 
 	// Gets or sets the X
@@ -151,7 +140,7 @@ type Connector struct {
 	Y float64 `json:"Y,omitempty"`
 
 	// Gets z-order position of shape
-	ZOrderPosition int32 `json:"ZOrderPosition,omitempty"`
+	ZOrderPosition int32 `json:"ZOrderPosition"`
 
 	// Gets or sets the link to shapes.
 	Shapes IResourceUriElement `json:"Shapes,omitempty"`
@@ -165,7 +154,11 @@ type Connector struct {
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
-	GeometryShapeType GeometryShapeType `json:"GeometryShapeType,omitempty"`
+	Type_ string `json:"Type"`
+
+	ShapeType string `json:"ShapeType"`
+
+	GeometryShapeType string `json:"GeometryShapeType"`
 
 	StartShapeConnectedTo IResourceUri `json:"StartShapeConnectedTo,omitempty"`
 
@@ -189,27 +182,6 @@ func (this Connector) getAlternateLinks() []ResourceUri {
 
 func (this Connector) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this Connector) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this Connector) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
-}
-func (this Connector) getType() ShapeType {
-	return this.Type_
-}
-
-func (this Connector) setType(newValue ShapeType) {
-	this.Type_ = newValue
-}
-func (this Connector) getShapeType() CombinedShapeType {
-	return this.ShapeType
-}
-
-func (this Connector) setShapeType(newValue CombinedShapeType) {
-	this.ShapeType = newValue
 }
 func (this Connector) getName() string {
 	return this.Name
@@ -295,11 +267,25 @@ func (this Connector) getLineFormat() ILineFormat {
 func (this Connector) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this Connector) getGeometryShapeType() GeometryShapeType {
+func (this Connector) getType() string {
+	return this.Type_
+}
+
+func (this Connector) setType(newValue string) {
+	this.Type_ = newValue
+}
+func (this Connector) getShapeType() string {
+	return this.ShapeType
+}
+
+func (this Connector) setShapeType(newValue string) {
+	this.ShapeType = newValue
+}
+func (this Connector) getGeometryShapeType() string {
 	return this.GeometryShapeType
 }
 
-func (this Connector) setGeometryShapeType(newValue GeometryShapeType) {
+func (this Connector) setGeometryShapeType(newValue string) {
 	this.GeometryShapeType = newValue
 }
 func (this Connector) getStartShapeConnectedTo() IResourceUri {
@@ -357,39 +343,6 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
-		}
-	}
-
-	if valType, ok := objMap["Type"]; ok {
-		if valType != nil {
-			var valueForType ShapeType
-			err = json.Unmarshal(*valType, &valueForType)
-			if err != nil {
-				return err
-			}
-			this.Type_ = valueForType
-		}
-	}
-
-	if valShapeType, ok := objMap["ShapeType"]; ok {
-		if valShapeType != nil {
-			var valueForShapeType CombinedShapeType
-			err = json.Unmarshal(*valShapeType, &valueForShapeType)
-			if err != nil {
-				return err
-			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 
@@ -525,9 +478,31 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 		}
 	}
 
+	if valType, ok := objMap["Type"]; ok {
+		if valType != nil {
+			var valueForType string
+			err = json.Unmarshal(*valType, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
+
+	if valShapeType, ok := objMap["ShapeType"]; ok {
+		if valShapeType != nil {
+			var valueForShapeType string
+			err = json.Unmarshal(*valShapeType, &valueForShapeType)
+			if err != nil {
+				return err
+			}
+			this.ShapeType = valueForShapeType
+		}
+	}
+
 	if valGeometryShapeType, ok := objMap["GeometryShapeType"]; ok {
 		if valGeometryShapeType != nil {
-			var valueForGeometryShapeType GeometryShapeType
+			var valueForGeometryShapeType string
 			err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeType)
 			if err != nil {
 				return err

@@ -35,21 +35,21 @@ import (
 type IFillOverlayEffect interface {
 
 	// blend mode
-	getBlend() FillBlendMode
-	setBlend(newValue FillBlendMode)
+	getBlend() string
+	setBlend(newValue string)
 }
 
 type FillOverlayEffect struct {
 
 	// blend mode
-	Blend FillBlendMode `json:"Blend"`
+	Blend string `json:"Blend"`
 }
 
-func (this FillOverlayEffect) getBlend() FillBlendMode {
+func (this FillOverlayEffect) getBlend() string {
 	return this.Blend
 }
 
-func (this FillOverlayEffect) setBlend(newValue FillBlendMode) {
+func (this FillOverlayEffect) setBlend(newValue string) {
 	this.Blend = newValue
 }
 
@@ -62,7 +62,7 @@ func (this *FillOverlayEffect) UnmarshalJSON(b []byte) error {
 
 	if valBlend, ok := objMap["Blend"]; ok {
 		if valBlend != nil {
-			var valueForBlend FillBlendMode
+			var valueForBlend string
 			err = json.Unmarshal(*valBlend, &valueForBlend)
 			if err != nil {
 				return err

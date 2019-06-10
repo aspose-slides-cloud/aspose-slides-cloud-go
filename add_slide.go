@@ -35,8 +35,8 @@ import (
 type IAddSlide interface {
 
 	// Task type.
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	// File to clone a slide from.
 	getCloneFromFile() IInputFile
@@ -58,26 +58,26 @@ type IAddSlide interface {
 type AddSlide struct {
 
 	// Task type.
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// File to clone a slide from.
 	CloneFromFile IInputFile `json:"CloneFromFile,omitempty"`
 
 	// Position of the slide to clone.
-	CloneFromPosition int32 `json:"CloneFromPosition,omitempty"`
+	CloneFromPosition int32 `json:"CloneFromPosition"`
 
 	// Position at which to insert the slide.
-	Position int32 `json:"Position,omitempty"`
+	Position int32 `json:"Position"`
 
 	// Alias of layout (href, index or type). If value is null a blank slide is added.
 	LayoutAlias string `json:"LayoutAlias,omitempty"`
 }
 
-func (this AddSlide) getType() TaskType {
+func (this AddSlide) getType() string {
 	return this.Type_
 }
 
-func (this AddSlide) setType(newValue TaskType) {
+func (this AddSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this AddSlide) getCloneFromFile() IInputFile {
@@ -118,7 +118,7 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

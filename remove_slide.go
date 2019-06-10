@@ -34,8 +34,8 @@ import (
 
 type IRemoveSlide interface {
 
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	getPosition() int32
 	setPosition(newValue int32)
@@ -43,16 +43,16 @@ type IRemoveSlide interface {
 
 type RemoveSlide struct {
 
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
-	Position int32 `json:"Position,omitempty"`
+	Position int32 `json:"Position"`
 }
 
-func (this RemoveSlide) getType() TaskType {
+func (this RemoveSlide) getType() string {
 	return this.Type_
 }
 
-func (this RemoveSlide) setType(newValue TaskType) {
+func (this RemoveSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this RemoveSlide) getPosition() int32 {
@@ -72,7 +72,7 @@ func (this *RemoveSlide) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

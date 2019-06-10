@@ -55,13 +55,13 @@ type XpsExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	ShowHiddenSlides bool `json:"ShowHiddenSlides,omitempty"`
+	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
 
 	// True to convert all metafiles used in a presentation to the PNG images.
-	SaveMetafilesAsPng bool `json:"SaveMetafilesAsPng,omitempty"`
+	SaveMetafilesAsPng bool `json:"SaveMetafilesAsPng"`
 
 	// True to draw black frame around each slide.
-	DrawSlidesFrame bool `json:"DrawSlidesFrame,omitempty"`
+	DrawSlidesFrame bool `json:"DrawSlidesFrame"`
 }
 
 func (this XpsExportOptions) getFormat() string {

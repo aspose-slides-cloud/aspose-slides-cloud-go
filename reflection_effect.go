@@ -83,8 +83,8 @@ type IReflectionEffect interface {
 	setEndReflectionOpacity(newValue float64)
 
 	// rectangle alignment
-	getRectangleAlign() RectangleAlignment
-	setRectangleAlign(newValue RectangleAlignment)
+	getRectangleAlign() string
+	setRectangleAlign(newValue string)
 
 	// true if the reflection should rotate with the shape when the shape is rotated
 	getRotateShadowWithShape() bool
@@ -130,7 +130,7 @@ type ReflectionEffect struct {
 	EndReflectionOpacity float64 `json:"EndReflectionOpacity"`
 
 	// rectangle alignment
-	RectangleAlign RectangleAlignment `json:"RectangleAlign"`
+	RectangleAlign string `json:"RectangleAlign"`
 
 	// true if the reflection should rotate with the shape when the shape is rotated
 	RotateShadowWithShape bool `json:"RotateShadowWithShape"`
@@ -220,11 +220,11 @@ func (this ReflectionEffect) getEndReflectionOpacity() float64 {
 func (this ReflectionEffect) setEndReflectionOpacity(newValue float64) {
 	this.EndReflectionOpacity = newValue
 }
-func (this ReflectionEffect) getRectangleAlign() RectangleAlignment {
+func (this ReflectionEffect) getRectangleAlign() string {
 	return this.RectangleAlign
 }
 
-func (this ReflectionEffect) setRectangleAlign(newValue RectangleAlignment) {
+func (this ReflectionEffect) setRectangleAlign(newValue string) {
 	this.RectangleAlign = newValue
 }
 func (this ReflectionEffect) getRotateShadowWithShape() bool {
@@ -376,7 +376,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 
 	if valRectangleAlign, ok := objMap["RectangleAlign"]; ok {
 		if valRectangleAlign != nil {
-			var valueForRectangleAlign RectangleAlignment
+			var valueForRectangleAlign string
 			err = json.Unmarshal(*valRectangleAlign, &valueForRectangleAlign)
 			if err != nil {
 				return err

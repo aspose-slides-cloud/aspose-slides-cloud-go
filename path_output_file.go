@@ -34,8 +34,8 @@ import (
 // Represents fileSystem file with path.
 type IPathOutputFile interface {
 
-	getType() OutputFileType
-	setType(newValue OutputFileType)
+	getType() string
+	setType(newValue string)
 
 	// Get or sets path to file.
 	getPath() string
@@ -48,7 +48,7 @@ type IPathOutputFile interface {
 
 type PathOutputFile struct {
 
-	Type_ OutputFileType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// Get or sets path to file.
 	Path string `json:"Path,omitempty"`
@@ -57,11 +57,11 @@ type PathOutputFile struct {
 	Storage string `json:"Storage,omitempty"`
 }
 
-func (this PathOutputFile) getType() OutputFileType {
+func (this PathOutputFile) getType() string {
 	return this.Type_
 }
 
-func (this PathOutputFile) setType(newValue OutputFileType) {
+func (this PathOutputFile) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this PathOutputFile) getPath() string {
@@ -88,7 +88,7 @@ func (this *PathOutputFile) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType OutputFileType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

@@ -34,8 +34,8 @@ import (
 
 type IReorderSlide interface {
 
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	getOldPosition() int32
 	setOldPosition(newValue int32)
@@ -46,18 +46,18 @@ type IReorderSlide interface {
 
 type ReorderSlide struct {
 
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
-	OldPosition int32 `json:"OldPosition,omitempty"`
+	OldPosition int32 `json:"OldPosition"`
 
-	NewPosition int32 `json:"NewPosition,omitempty"`
+	NewPosition int32 `json:"NewPosition"`
 }
 
-func (this ReorderSlide) getType() TaskType {
+func (this ReorderSlide) getType() string {
 	return this.Type_
 }
 
-func (this ReorderSlide) setType(newValue TaskType) {
+func (this ReorderSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this ReorderSlide) getOldPosition() int32 {
@@ -84,7 +84,7 @@ func (this *ReorderSlide) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

@@ -34,12 +34,12 @@ import (
 // Represents input file from multipart request.
 type IRequestInputFile interface {
 
-	getType() InputFileType
-	setType(newValue InputFileType)
-
 	// Get or sets password to open document.
 	getPassword() string
 	setPassword(newValue string)
+
+	getType() string
+	setType(newValue string)
 
 	// Get or sets index of file from request.
 	getIndex() int32
@@ -48,28 +48,28 @@ type IRequestInputFile interface {
 
 type RequestInputFile struct {
 
-	Type_ InputFileType `json:"Type"`
-
 	// Get or sets password to open document.
 	Password string `json:"Password,omitempty"`
 
+	Type_ string `json:"Type"`
+
 	// Get or sets index of file from request.
-	Index int32 `json:"Index,omitempty"`
+	Index int32 `json:"Index"`
 }
 
-func (this RequestInputFile) getType() InputFileType {
-	return this.Type_
-}
-
-func (this RequestInputFile) setType(newValue InputFileType) {
-	this.Type_ = newValue
-}
 func (this RequestInputFile) getPassword() string {
 	return this.Password
 }
 
 func (this RequestInputFile) setPassword(newValue string) {
 	this.Password = newValue
+}
+func (this RequestInputFile) getType() string {
+	return this.Type_
+}
+
+func (this RequestInputFile) setType(newValue string) {
+	this.Type_ = newValue
 }
 func (this RequestInputFile) getIndex() int32 {
 	return this.Index
@@ -86,17 +86,6 @@ func (this *RequestInputFile) UnmarshalJSON(b []byte) error {
 		return err
 	}
 
-	if valType, ok := objMap["Type"]; ok {
-		if valType != nil {
-			var valueForType InputFileType
-			err = json.Unmarshal(*valType, &valueForType)
-			if err != nil {
-				return err
-			}
-			this.Type_ = valueForType
-		}
-	}
-
 	if valPassword, ok := objMap["Password"]; ok {
 		if valPassword != nil {
 			var valueForPassword string
@@ -105,6 +94,17 @@ func (this *RequestInputFile) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Password = valueForPassword
+		}
+	}
+
+	if valType, ok := objMap["Type"]; ok {
+		if valType != nil {
+			var valueForType string
+			err = json.Unmarshal(*valType, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
 		}
 	}
 

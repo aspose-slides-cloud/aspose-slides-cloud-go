@@ -41,10 +41,6 @@ type IImage interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	// Get or sets the width of an image.
 	getWidth() int32
 	setWidth(newValue int32)
@@ -65,14 +61,11 @@ type Image struct {
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
-
 	// Get or sets the width of an image.
-	Width int32 `json:"Width,omitempty"`
+	Width int32 `json:"Width"`
 
 	// Get or sets the height of an image.
-	Height int32 `json:"Height,omitempty"`
+	Height int32 `json:"Height"`
 
 	// Get or sets the content type of an image.
 	ContentType string `json:"ContentType,omitempty"`
@@ -91,13 +84,6 @@ func (this Image) getAlternateLinks() []ResourceUri {
 
 func (this Image) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this Image) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this Image) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
 }
 func (this Image) getWidth() int32 {
 	return this.Width
@@ -147,17 +133,6 @@ func (this *Image) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
 		}
 	}
 

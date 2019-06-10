@@ -41,10 +41,6 @@ type ISlide interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	// Gets or sets the width.
 	getWidth() float64
 	setWidth(newValue float64)
@@ -97,17 +93,14 @@ type Slide struct {
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
-
 	// Gets or sets the width.
-	Width float64 `json:"Width,omitempty"`
+	Width float64 `json:"Width"`
 
 	// Gets or sets the height.
-	Height float64 `json:"Height,omitempty"`
+	Height float64 `json:"Height"`
 
 	// Specifies if shapes of the master slide should be shown on the slide. True by default.
-	ShowMasterShapes bool `json:"ShowMasterShapes,omitempty"`
+	ShowMasterShapes bool `json:"ShowMasterShapes"`
 
 	// Gets or sets the  link to the layout slide.
 	LayoutSlide IResourceUriElement `json:"LayoutSlide,omitempty"`
@@ -147,13 +140,6 @@ func (this Slide) getAlternateLinks() []ResourceUri {
 
 func (this Slide) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this Slide) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this Slide) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
 }
 func (this Slide) getWidth() float64 {
 	return this.Width
@@ -259,17 +245,6 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
 		}
 	}
 

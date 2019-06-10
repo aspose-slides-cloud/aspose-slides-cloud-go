@@ -34,8 +34,8 @@ import (
 
 type IUpdateBackground interface {
 
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	getSlides() []int32
 	setSlides(newValue []int32)
@@ -46,18 +46,18 @@ type IUpdateBackground interface {
 
 type UpdateBackground struct {
 
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	Slides []int32 `json:"Slides,omitempty"`
 
 	Background ISlideBackground `json:"Background,omitempty"`
 }
 
-func (this UpdateBackground) getType() TaskType {
+func (this UpdateBackground) getType() string {
 	return this.Type_
 }
 
-func (this UpdateBackground) setType(newValue TaskType) {
+func (this UpdateBackground) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this UpdateBackground) getSlides() []int32 {
@@ -84,7 +84,7 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

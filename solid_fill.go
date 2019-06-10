@@ -34,8 +34,8 @@ import (
 // Represents solid fill format 
 type ISolidFill interface {
 
-	getType() FillType
-	setType(newValue FillType)
+	getType() string
+	setType(newValue string)
 
 	getColor() string
 	setColor(newValue string)
@@ -43,16 +43,16 @@ type ISolidFill interface {
 
 type SolidFill struct {
 
-	Type_ FillType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	Color string `json:"Color,omitempty"`
 }
 
-func (this SolidFill) getType() FillType {
+func (this SolidFill) getType() string {
 	return this.Type_
 }
 
-func (this SolidFill) setType(newValue FillType) {
+func (this SolidFill) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this SolidFill) getColor() string {
@@ -72,7 +72,7 @@ func (this *SolidFill) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType FillType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

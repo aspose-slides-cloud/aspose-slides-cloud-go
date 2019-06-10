@@ -38,12 +38,12 @@ type IImageExportOptions interface {
 	setFormat(newValue string)
 
 	// Gets or sets the position of the notes on the page.
-	getNotesPosition() NotesPositions
-	setNotesPosition(newValue NotesPositions)
+	getNotesPosition() string
+	setNotesPosition(newValue string)
 
 	// Gets or sets the position of the comments on the page.
-	getCommentsPosition() CommentsPositions
-	setCommentsPosition(newValue CommentsPositions)
+	getCommentsPosition() string
+	setCommentsPosition(newValue string)
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
 	getCommentsAreaWidth() int32
@@ -59,13 +59,13 @@ type ImageExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Gets or sets the position of the notes on the page.
-	NotesPosition NotesPositions `json:"NotesPosition,omitempty"`
+	NotesPosition string `json:"NotesPosition"`
 
 	// Gets or sets the position of the comments on the page.
-	CommentsPosition CommentsPositions `json:"CommentsPosition,omitempty"`
+	CommentsPosition string `json:"CommentsPosition"`
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	CommentsAreaWidth int32 `json:"CommentsAreaWidth,omitempty"`
+	CommentsAreaWidth int32 `json:"CommentsAreaWidth"`
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
@@ -78,18 +78,18 @@ func (this ImageExportOptions) getFormat() string {
 func (this ImageExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this ImageExportOptions) getNotesPosition() NotesPositions {
+func (this ImageExportOptions) getNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this ImageExportOptions) setNotesPosition(newValue NotesPositions) {
+func (this ImageExportOptions) setNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this ImageExportOptions) getCommentsPosition() CommentsPositions {
+func (this ImageExportOptions) getCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this ImageExportOptions) setCommentsPosition(newValue CommentsPositions) {
+func (this ImageExportOptions) setCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
 func (this ImageExportOptions) getCommentsAreaWidth() int32 {
@@ -127,7 +127,7 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valNotesPosition, ok := objMap["NotesPosition"]; ok {
 		if valNotesPosition != nil {
-			var valueForNotesPosition NotesPositions
+			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
 			if err != nil {
 				return err
@@ -138,7 +138,7 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 
 	if valCommentsPosition, ok := objMap["CommentsPosition"]; ok {
 		if valCommentsPosition != nil {
-			var valueForCommentsPosition CommentsPositions
+			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
 			if err != nil {
 				return err

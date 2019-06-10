@@ -41,10 +41,6 @@ type IDocument interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
 	// Link to Document properties.
 	getDocumentProperties() IResourceUriElement
 	setDocumentProperties(newValue IResourceUriElement)
@@ -72,9 +68,6 @@ type Document struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
-
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
 
 	// Link to Document properties.
 	DocumentProperties IResourceUriElement `json:"DocumentProperties,omitempty"`
@@ -105,13 +98,6 @@ func (this Document) getAlternateLinks() []ResourceUri {
 
 func (this Document) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this Document) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this Document) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
 }
 func (this Document) getDocumentProperties() IResourceUriElement {
 	return this.DocumentProperties
@@ -175,17 +161,6 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
 		}
 	}
 

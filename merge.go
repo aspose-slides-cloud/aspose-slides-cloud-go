@@ -35,8 +35,8 @@ import (
 type IMerge interface {
 
 	// Task type.
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	// Information about documents and slides being merging sources.
 	getPresentations() []MergingSource
@@ -46,17 +46,17 @@ type IMerge interface {
 type Merge struct {
 
 	// Task type.
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	// Information about documents and slides being merging sources.
 	Presentations []MergingSource `json:"Presentations,omitempty"`
 }
 
-func (this Merge) getType() TaskType {
+func (this Merge) getType() string {
 	return this.Type_
 }
 
-func (this Merge) setType(newValue TaskType) {
+func (this Merge) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this Merge) getPresentations() []MergingSource {
@@ -76,7 +76,7 @@ func (this *Merge) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

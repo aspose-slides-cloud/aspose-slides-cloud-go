@@ -34,8 +34,8 @@ import (
 
 type IPictureFill interface {
 
-	getType() FillType
-	setType(newValue FillType)
+	getType() string
+	setType(newValue string)
 
 	getCropBottom() float64
 	setCropBottom(newValue float64)
@@ -61,23 +61,23 @@ type IPictureFill interface {
 	getSvgData() string
 	setSvgData(newValue string)
 
-	getPictureFillMode() PictureFillMode
-	setPictureFillMode(newValue PictureFillMode)
+	getPictureFillMode() string
+	setPictureFillMode(newValue string)
 }
 
 type PictureFill struct {
 
-	Type_ FillType `json:"Type"`
+	Type_ string `json:"Type"`
 
-	CropBottom float64 `json:"CropBottom,omitempty"`
+	CropBottom float64 `json:"CropBottom"`
 
-	CropLeft float64 `json:"CropLeft,omitempty"`
+	CropLeft float64 `json:"CropLeft"`
 
-	CropRight float64 `json:"CropRight,omitempty"`
+	CropRight float64 `json:"CropRight"`
 
-	CropTop float64 `json:"CropTop,omitempty"`
+	CropTop float64 `json:"CropTop"`
 
-	Dpi int32 `json:"Dpi,omitempty"`
+	Dpi int32 `json:"Dpi"`
 
 	Image IResourceUriElement `json:"Image,omitempty"`
 
@@ -85,14 +85,14 @@ type PictureFill struct {
 
 	SvgData string `json:"SvgData,omitempty"`
 
-	PictureFillMode PictureFillMode `json:"PictureFillMode,omitempty"`
+	PictureFillMode string `json:"PictureFillMode"`
 }
 
-func (this PictureFill) getType() FillType {
+func (this PictureFill) getType() string {
 	return this.Type_
 }
 
-func (this PictureFill) setType(newValue FillType) {
+func (this PictureFill) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this PictureFill) getCropBottom() float64 {
@@ -151,11 +151,11 @@ func (this PictureFill) getSvgData() string {
 func (this PictureFill) setSvgData(newValue string) {
 	this.SvgData = newValue
 }
-func (this PictureFill) getPictureFillMode() PictureFillMode {
+func (this PictureFill) getPictureFillMode() string {
 	return this.PictureFillMode
 }
 
-func (this PictureFill) setPictureFillMode(newValue PictureFillMode) {
+func (this PictureFill) setPictureFillMode(newValue string) {
 	this.PictureFillMode = newValue
 }
 
@@ -168,7 +168,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType FillType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err
@@ -267,7 +267,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 
 	if valPictureFillMode, ok := objMap["PictureFillMode"]; ok {
 		if valPictureFillMode != nil {
-			var valueForPictureFillMode PictureFillMode
+			var valueForPictureFillMode string
 			err = json.Unmarshal(*valPictureFillMode, &valueForPictureFillMode)
 			if err != nil {
 				return err

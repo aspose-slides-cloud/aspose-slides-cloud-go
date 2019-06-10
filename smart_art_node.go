@@ -51,8 +51,8 @@ type ISmartArtNode interface {
 	setText(newValue string)
 
 	// Organization chart layout type associated with current node.
-	getOrgChartLayout() OrganizationChartLayoutType
-	setOrgChartLayout(newValue OrganizationChartLayoutType)
+	getOrgChartLayout() string
+	setOrgChartLayout(newValue string)
 }
 
 type SmartArtNode struct {
@@ -70,7 +70,7 @@ type SmartArtNode struct {
 	Text string `json:"Text,omitempty"`
 
 	// Organization chart layout type associated with current node.
-	OrgChartLayout OrganizationChartLayoutType `json:"OrgChartLayout"`
+	OrgChartLayout string `json:"OrgChartLayout"`
 }
 
 func (this SmartArtNode) getNodes() []SmartArtNode {
@@ -101,11 +101,11 @@ func (this SmartArtNode) getText() string {
 func (this SmartArtNode) setText(newValue string) {
 	this.Text = newValue
 }
-func (this SmartArtNode) getOrgChartLayout() OrganizationChartLayoutType {
+func (this SmartArtNode) getOrgChartLayout() string {
 	return this.OrgChartLayout
 }
 
-func (this SmartArtNode) setOrgChartLayout(newValue OrganizationChartLayoutType) {
+func (this SmartArtNode) setOrgChartLayout(newValue string) {
 	this.OrgChartLayout = newValue
 }
 
@@ -162,7 +162,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 
 	if valOrgChartLayout, ok := objMap["OrgChartLayout"]; ok {
 		if valOrgChartLayout != nil {
-			var valueForOrgChartLayout OrganizationChartLayoutType
+			var valueForOrgChartLayout string
 			err = json.Unmarshal(*valOrgChartLayout, &valueForOrgChartLayout)
 			if err != nil {
 				return err

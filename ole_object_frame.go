@@ -41,16 +41,6 @@ type IOleObjectFrame interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	// A list of links that originate from this document.
-	getLinks() []ResourceUri
-	setLinks(newValue []ResourceUri)
-
-	getType() ShapeType
-	setType(newValue ShapeType)
-
-	getShapeType() CombinedShapeType
-	setShapeType(newValue CombinedShapeType)
-
 	// Gets or sets the name.
 	getName() string
 	setName(newValue string)
@@ -67,7 +57,7 @@ type IOleObjectFrame interface {
 	getAlternativeText() string
 	setAlternativeText(newValue string)
 
-	// Gets or sets a value indicating whether this  is hidden.
+	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	getHidden() bool
 	setHidden(newValue bool)
 
@@ -98,6 +88,12 @@ type IOleObjectFrame interface {
 	// Gets or sets the line format.
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
+
+	getType() string
+	setType(newValue string)
+
+	getShapeType() string
+	setShapeType(newValue string)
 }
 
 type OleObjectFrame struct {
@@ -106,13 +102,6 @@ type OleObjectFrame struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
-
-	// A list of links that originate from this document.
-	Links []ResourceUri `json:"Links,omitempty"`
-
-	Type_ ShapeType `json:"Type,omitempty"`
-
-	ShapeType CombinedShapeType `json:"ShapeType,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -126,7 +115,7 @@ type OleObjectFrame struct {
 	// Gets or sets the alternative text.
 	AlternativeText string `json:"AlternativeText,omitempty"`
 
-	// Gets or sets a value indicating whether this  is hidden.
+	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	Hidden bool `json:"Hidden,omitempty"`
 
 	// Gets or sets the X
@@ -136,7 +125,7 @@ type OleObjectFrame struct {
 	Y float64 `json:"Y,omitempty"`
 
 	// Gets z-order position of shape
-	ZOrderPosition int32 `json:"ZOrderPosition,omitempty"`
+	ZOrderPosition int32 `json:"ZOrderPosition"`
 
 	// Gets or sets the link to shapes.
 	Shapes IResourceUriElement `json:"Shapes,omitempty"`
@@ -149,6 +138,10 @@ type OleObjectFrame struct {
 
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
+
+	Type_ string `json:"Type"`
+
+	ShapeType string `json:"ShapeType"`
 }
 
 func (this OleObjectFrame) getSelfUri() IResourceUri {
@@ -164,27 +157,6 @@ func (this OleObjectFrame) getAlternateLinks() []ResourceUri {
 
 func (this OleObjectFrame) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
-}
-func (this OleObjectFrame) getLinks() []ResourceUri {
-	return this.Links
-}
-
-func (this OleObjectFrame) setLinks(newValue []ResourceUri) {
-	this.Links = newValue
-}
-func (this OleObjectFrame) getType() ShapeType {
-	return this.Type_
-}
-
-func (this OleObjectFrame) setType(newValue ShapeType) {
-	this.Type_ = newValue
-}
-func (this OleObjectFrame) getShapeType() CombinedShapeType {
-	return this.ShapeType
-}
-
-func (this OleObjectFrame) setShapeType(newValue CombinedShapeType) {
-	this.ShapeType = newValue
 }
 func (this OleObjectFrame) getName() string {
 	return this.Name
@@ -270,6 +242,20 @@ func (this OleObjectFrame) getLineFormat() ILineFormat {
 func (this OleObjectFrame) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
+func (this OleObjectFrame) getType() string {
+	return this.Type_
+}
+
+func (this OleObjectFrame) setType(newValue string) {
+	this.Type_ = newValue
+}
+func (this OleObjectFrame) getShapeType() string {
+	return this.ShapeType
+}
+
+func (this OleObjectFrame) setShapeType(newValue string) {
+	this.ShapeType = newValue
+}
 
 func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
@@ -297,39 +283,6 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternateLinks = valueForAlternateLinks
-		}
-	}
-
-	if valLinks, ok := objMap["Links"]; ok {
-		if valLinks != nil {
-			var valueForLinks []ResourceUri
-			err = json.Unmarshal(*valLinks, &valueForLinks)
-			if err != nil {
-				return err
-			}
-			this.Links = valueForLinks
-		}
-	}
-
-	if valType, ok := objMap["Type"]; ok {
-		if valType != nil {
-			var valueForType ShapeType
-			err = json.Unmarshal(*valType, &valueForType)
-			if err != nil {
-				return err
-			}
-			this.Type_ = valueForType
-		}
-	}
-
-	if valShapeType, ok := objMap["ShapeType"]; ok {
-		if valShapeType != nil {
-			var valueForShapeType CombinedShapeType
-			err = json.Unmarshal(*valShapeType, &valueForShapeType)
-			if err != nil {
-				return err
-			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 
@@ -462,6 +415,28 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.LineFormat = valueForLineFormat
+		}
+	}
+
+	if valType, ok := objMap["Type"]; ok {
+		if valType != nil {
+			var valueForType string
+			err = json.Unmarshal(*valType, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
+
+	if valShapeType, ok := objMap["ShapeType"]; ok {
+		if valShapeType != nil {
+			var valueForShapeType string
+			err = json.Unmarshal(*valShapeType, &valueForShapeType)
+			if err != nil {
+				return err
+			}
+			this.ShapeType = valueForShapeType
 		}
 	}
 

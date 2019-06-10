@@ -34,8 +34,8 @@ import (
 
 type IRemoveShape interface {
 
-	getType() TaskType
-	setType(newValue TaskType)
+	getType() string
+	setType(newValue string)
 
 	getShapePath() string
 	setShapePath(newValue string)
@@ -43,16 +43,16 @@ type IRemoveShape interface {
 
 type RemoveShape struct {
 
-	Type_ TaskType `json:"Type"`
+	Type_ string `json:"Type"`
 
 	ShapePath string `json:"ShapePath,omitempty"`
 }
 
-func (this RemoveShape) getType() TaskType {
+func (this RemoveShape) getType() string {
 	return this.Type_
 }
 
-func (this RemoveShape) setType(newValue TaskType) {
+func (this RemoveShape) setType(newValue string) {
 	this.Type_ = newValue
 }
 func (this RemoveShape) getShapePath() string {
@@ -72,7 +72,7 @@ func (this *RemoveShape) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType TaskType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err

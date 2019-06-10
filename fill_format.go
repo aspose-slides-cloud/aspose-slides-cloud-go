@@ -34,20 +34,20 @@ import (
 
 type IFillFormat interface {
 
-	getType() FillType
-	setType(newValue FillType)
+	getType() string
+	setType(newValue string)
 }
 
 type FillFormat struct {
 
-	Type_ FillType `json:"Type"`
+	Type_ string `json:"Type,omitempty"`
 }
 
-func (this FillFormat) getType() FillType {
+func (this FillFormat) getType() string {
 	return this.Type_
 }
 
-func (this FillFormat) setType(newValue FillType) {
+func (this FillFormat) setType(newValue string) {
 	this.Type_ = newValue
 }
 
@@ -60,7 +60,7 @@ func (this *FillFormat) UnmarshalJSON(b []byte) error {
 
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
-			var valueForType FillType
+			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				return err
