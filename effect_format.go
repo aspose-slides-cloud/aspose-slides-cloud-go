@@ -157,7 +157,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valBlur, ok := objMap["Blur"]; ok {
 		if valBlur != nil {
 			var valueForBlur BlurEffect
@@ -168,7 +168,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.Blur = valueForBlur
 		}
 	}
-
+	
 	if valGlow, ok := objMap["Glow"]; ok {
 		if valGlow != nil {
 			var valueForGlow GlowEffect
@@ -179,7 +179,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.Glow = valueForGlow
 		}
 	}
-
+	
 	if valInnerShadow, ok := objMap["InnerShadow"]; ok {
 		if valInnerShadow != nil {
 			var valueForInnerShadow InnerShadowEffect
@@ -190,7 +190,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.InnerShadow = valueForInnerShadow
 		}
 	}
-
+	
 	if valOuterShadow, ok := objMap["OuterShadow"]; ok {
 		if valOuterShadow != nil {
 			var valueForOuterShadow OuterShadowEffect
@@ -201,7 +201,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.OuterShadow = valueForOuterShadow
 		}
 	}
-
+	
 	if valPresetShadow, ok := objMap["PresetShadow"]; ok {
 		if valPresetShadow != nil {
 			var valueForPresetShadow PresetShadowEffect
@@ -212,7 +212,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.PresetShadow = valueForPresetShadow
 		}
 	}
-
+	
 	if valSoftEdge, ok := objMap["SoftEdge"]; ok {
 		if valSoftEdge != nil {
 			var valueForSoftEdge SoftEdgeEffect
@@ -223,7 +223,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.SoftEdge = valueForSoftEdge
 		}
 	}
-
+	
 	if valReflection, ok := objMap["Reflection"]; ok {
 		if valReflection != nil {
 			var valueForReflection ReflectionEffect
@@ -234,7 +234,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.Reflection = valueForReflection
 		}
 	}
-
+	
 	if valFillOverlay, ok := objMap["FillOverlay"]; ok {
 		if valFillOverlay != nil {
 			var valueForFillOverlay FillOverlayEffect

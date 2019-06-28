@@ -69,7 +69,7 @@ func (this *RemoveShape) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "Save"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -80,7 +80,7 @@ func (this *RemoveShape) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valShapePath, ok := objMap["ShapePath"]; ok {
 		if valShapePath != nil {
 			var valueForShapePath string

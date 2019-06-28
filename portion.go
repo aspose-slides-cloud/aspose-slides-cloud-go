@@ -371,7 +371,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSelfUri, ok := objMap["SelfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
@@ -382,7 +382,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
-
+	
 	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
@@ -393,7 +393,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
-
+	
 	if valText, ok := objMap["Text"]; ok {
 		if valText != nil {
 			var valueForText string
@@ -404,7 +404,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
-
+	this.FontBold = "null"
 	if valFontBold, ok := objMap["FontBold"]; ok {
 		if valFontBold != nil {
 			var valueForFontBold string
@@ -415,7 +415,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.FontBold = valueForFontBold
 		}
 	}
-
+	this.FontItalic = "null"
 	if valFontItalic, ok := objMap["FontItalic"]; ok {
 		if valFontItalic != nil {
 			var valueForFontItalic string
@@ -426,7 +426,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.FontItalic = valueForFontItalic
 		}
 	}
-
+	this.FontUnderline = "null"
 	if valFontUnderline, ok := objMap["FontUnderline"]; ok {
 		if valFontUnderline != nil {
 			var valueForFontUnderline string
@@ -437,7 +437,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.FontUnderline = valueForFontUnderline
 		}
 	}
-
+	this.StrikethroughType = "null"
 	if valStrikethroughType, ok := objMap["StrikethroughType"]; ok {
 		if valStrikethroughType != nil {
 			var valueForStrikethroughType string
@@ -448,7 +448,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.StrikethroughType = valueForStrikethroughType
 		}
 	}
-
+	this.TextCapType = "null"
 	if valTextCapType, ok := objMap["TextCapType"]; ok {
 		if valTextCapType != nil {
 			var valueForTextCapType string
@@ -459,7 +459,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.TextCapType = valueForTextCapType
 		}
 	}
-
+	
 	if valEscapement, ok := objMap["Escapement"]; ok {
 		if valEscapement != nil {
 			var valueForEscapement float64
@@ -470,7 +470,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.Escapement = valueForEscapement
 		}
 	}
-
+	
 	if valSpacing, ok := objMap["Spacing"]; ok {
 		if valSpacing != nil {
 			var valueForSpacing float64
@@ -481,7 +481,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.Spacing = valueForSpacing
 		}
 	}
-
+	
 	if valFontColor, ok := objMap["FontColor"]; ok {
 		if valFontColor != nil {
 			var valueForFontColor string
@@ -492,7 +492,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.FontColor = valueForFontColor
 		}
 	}
-
+	
 	if valHighlightColor, ok := objMap["HighlightColor"]; ok {
 		if valHighlightColor != nil {
 			var valueForHighlightColor string
@@ -503,7 +503,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.HighlightColor = valueForHighlightColor
 		}
 	}
-
+	
 	if valFontHeight, ok := objMap["FontHeight"]; ok {
 		if valFontHeight != nil {
 			var valueForFontHeight float64
@@ -514,7 +514,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.FontHeight = valueForFontHeight
 		}
 	}
-
+	this.NormaliseHeight = "null"
 	if valNormaliseHeight, ok := objMap["NormaliseHeight"]; ok {
 		if valNormaliseHeight != nil {
 			var valueForNormaliseHeight string
@@ -525,7 +525,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.NormaliseHeight = valueForNormaliseHeight
 		}
 	}
-
+	this.ProofDisabled = "null"
 	if valProofDisabled, ok := objMap["ProofDisabled"]; ok {
 		if valProofDisabled != nil {
 			var valueForProofDisabled string
@@ -536,7 +536,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.ProofDisabled = valueForProofDisabled
 		}
 	}
-
+	
 	if valSmartTagClean, ok := objMap["SmartTagClean"]; ok {
 		if valSmartTagClean != nil {
 			var valueForSmartTagClean bool
@@ -547,7 +547,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.SmartTagClean = valueForSmartTagClean
 		}
 	}
-
+	
 	if valKerningMinimalSize, ok := objMap["KerningMinimalSize"]; ok {
 		if valKerningMinimalSize != nil {
 			var valueForKerningMinimalSize float64
@@ -558,7 +558,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.KerningMinimalSize = valueForKerningMinimalSize
 		}
 	}
-
+	this.Kumimoji = "null"
 	if valKumimoji, ok := objMap["Kumimoji"]; ok {
 		if valKumimoji != nil {
 			var valueForKumimoji string
@@ -569,7 +569,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.Kumimoji = valueForKumimoji
 		}
 	}
-
+	
 	if valLanguageId, ok := objMap["LanguageId"]; ok {
 		if valLanguageId != nil {
 			var valueForLanguageId string
@@ -580,7 +580,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.LanguageId = valueForLanguageId
 		}
 	}
-
+	
 	if valAlternativeLanguageId, ok := objMap["AlternativeLanguageId"]; ok {
 		if valAlternativeLanguageId != nil {
 			var valueForAlternativeLanguageId string
@@ -591,7 +591,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.AlternativeLanguageId = valueForAlternativeLanguageId
 		}
 	}
-
+	this.IsHardUnderlineFill = "null"
 	if valIsHardUnderlineFill, ok := objMap["IsHardUnderlineFill"]; ok {
 		if valIsHardUnderlineFill != nil {
 			var valueForIsHardUnderlineFill string
@@ -602,7 +602,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.IsHardUnderlineFill = valueForIsHardUnderlineFill
 		}
 	}
-
+	this.IsHardUnderlineLine = "null"
 	if valIsHardUnderlineLine, ok := objMap["IsHardUnderlineLine"]; ok {
 		if valIsHardUnderlineLine != nil {
 			var valueForIsHardUnderlineLine string
@@ -613,7 +613,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.IsHardUnderlineLine = valueForIsHardUnderlineLine
 		}
 	}
-
+	
 	if valFillFormat, ok := objMap["FillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
@@ -624,7 +624,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
-
+	
 	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
@@ -635,7 +635,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
-
+	
 	if valLineFormat, ok := objMap["LineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
@@ -646,7 +646,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.LineFormat = valueForLineFormat
 		}
 	}
-
+	
 	if valUnderlineFillFormat, ok := objMap["UnderlineFillFormat"]; ok {
 		if valUnderlineFillFormat != nil {
 			var valueForUnderlineFillFormat FillFormat
@@ -657,7 +657,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			this.UnderlineFillFormat = valueForUnderlineFillFormat
 		}
 	}
-
+	
 	if valUnderlineLineFormat, ok := objMap["UnderlineLineFormat"]; ok {
 		if valUnderlineLineFormat != nil {
 			var valueForUnderlineLineFormat LineFormat

@@ -115,7 +115,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSize, ok := objMap["Size"]; ok {
 		if valSize != nil {
 			var valueForSize int32
@@ -126,7 +126,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			this.Size = valueForSize
 		}
 	}
-
+	this.Symbol = "Circle"
 	if valSymbol, ok := objMap["Symbol"]; ok {
 		if valSymbol != nil {
 			var valueForSymbol string
@@ -137,7 +137,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			this.Symbol = valueForSymbol
 		}
 	}
-
+	
 	if valFillFormat, ok := objMap["FillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
@@ -148,7 +148,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
-
+	
 	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
@@ -159,7 +159,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
-
+	
 	if valLineFormat, ok := objMap["LineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat

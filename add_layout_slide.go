@@ -81,7 +81,7 @@ func (this *AddLayoutSlide) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "Save"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -92,7 +92,7 @@ func (this *AddLayoutSlide) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valCloneFromFile, ok := objMap["CloneFromFile"]; ok {
 		if valCloneFromFile != nil {
 			var valueForCloneFromFile InputFile
@@ -103,7 +103,7 @@ func (this *AddLayoutSlide) UnmarshalJSON(b []byte) error {
 			this.CloneFromFile = valueForCloneFromFile
 		}
 	}
-
+	
 	if valCloneFromPosition, ok := objMap["CloneFromPosition"]; ok {
 		if valCloneFromPosition != nil {
 			var valueForCloneFromPosition int32

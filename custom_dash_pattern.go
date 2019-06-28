@@ -57,7 +57,7 @@ func (this *CustomDashPattern) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valItems, ok := objMap["Items"]; ok {
 		if valItems != nil {
 			var valueForItems []float64

@@ -119,7 +119,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSelfUri, ok := objMap["SelfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
@@ -130,7 +130,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
-
+	
 	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
@@ -141,7 +141,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
-
+	
 	if valBackgroundStyles, ok := objMap["BackgroundStyles"]; ok {
 		if valBackgroundStyles != nil {
 			var valueForBackgroundStyles []ResourceUri
@@ -152,7 +152,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			this.BackgroundStyles = valueForBackgroundStyles
 		}
 	}
-
+	
 	if valEffectStyles, ok := objMap["EffectStyles"]; ok {
 		if valEffectStyles != nil {
 			var valueForEffectStyles []ResourceUri
@@ -163,7 +163,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			this.EffectStyles = valueForEffectStyles
 		}
 	}
-
+	
 	if valFillStyles, ok := objMap["FillStyles"]; ok {
 		if valFillStyles != nil {
 			var valueForFillStyles []ResourceUri
@@ -174,7 +174,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			this.FillStyles = valueForFillStyles
 		}
 	}
-
+	
 	if valLineStyles, ok := objMap["LineStyles"]; ok {
 		if valLineStyles != nil {
 			var valueForLineStyles []ResourceUri

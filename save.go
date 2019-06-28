@@ -101,7 +101,7 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "Save"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -112,7 +112,7 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	this.Format = "Pdf"
 	if valFormat, ok := objMap["Format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
@@ -123,7 +123,7 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-
+	
 	if valOutput, ok := objMap["Output"]; ok {
 		if valOutput != nil {
 			var valueForOutput OutputFile
@@ -134,7 +134,7 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			this.Output = valueForOutput
 		}
 	}
-
+	
 	if valOptions, ok := objMap["Options"]; ok {
 		if valOptions != nil {
 			var valueForOptions ExportOptions

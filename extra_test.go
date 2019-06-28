@@ -26,15 +26,40 @@
  */
 
 package asposeslidescloud
-// ShapeExportFormat2 : Represents a format for export individual shape.
-type ShapeExportFormat2 string
 
-// List of ShapeExportFormat2 ShapeExportFormat2
-const (
-	ShapeExportFormat2_JPEG ShapeExportFormat2 = "Jpeg"
-	ShapeExportFormat2_PNG ShapeExportFormat2 = "Png"
-	ShapeExportFormat2_GIF ShapeExportFormat2 = "Gif"
-	ShapeExportFormat2_BMP ShapeExportFormat2 = "Bmp"
-	ShapeExportFormat2_TIFF ShapeExportFormat2 = "Tiff"
-	ShapeExportFormat2_SVG ShapeExportFormat2 = "Svg"
+import (
+	"encoding/json"
+	"os"
+	"testing"
 )
+
+/* 
+   Test for SlidesApi.PostSlideSaveAs with timeout method
+*/
+func TestTimeout(t *testing.T) {
+    e := initializeTest("PostSlideSaveAs", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+
+    var request PostSlideSaveAsRequest
+    request.name = "test.ppt"
+    request.slideIndex = 1
+    request.format = "svg"
+    request.password = "password"
+    request.folder = "TempSlidesSDK"
+
+    cfg := NewConfiguration()
+    configFile, err := os.Open("testConfig.json")
+    if err == nil {
+        json.NewDecoder(configFile).Decode(cfg)
+    }
+    cfg.Timeout = 1
+    testApiClient = NewAPIClient(cfg)
+    _, _, e = testApiClient.SlidesApi.PostSlideSaveAs(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}

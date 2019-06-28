@@ -87,7 +87,7 @@ func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valPath, ok := objMap["Path"]; ok {
 		if valPath != nil {
 			var valueForPath string
@@ -98,7 +98,7 @@ func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
 			this.Path = valueForPath
 		}
 	}
-
+	
 	if valPassword, ok := objMap["Password"]; ok {
 		if valPassword != nil {
 			var valueForPassword string
@@ -109,7 +109,7 @@ func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
 			this.Password = valueForPassword
 		}
 	}
-
+	
 	if valSlides, ok := objMap["Slides"]; ok {
 		if valSlides != nil {
 			var valueForSlides []int32

@@ -119,7 +119,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSelfUri, ok := objMap["SelfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
@@ -130,7 +130,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
-
+	
 	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
@@ -141,7 +141,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
-
+	
 	if valName, ok := objMap["Name"]; ok {
 		if valName != nil {
 			var valueForName string
@@ -152,7 +152,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-
+	
 	if valColorScheme, ok := objMap["ColorScheme"]; ok {
 		if valColorScheme != nil {
 			var valueForColorScheme ResourceUriElement
@@ -163,7 +163,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			this.ColorScheme = valueForColorScheme
 		}
 	}
-
+	
 	if valFontScheme, ok := objMap["FontScheme"]; ok {
 		if valFontScheme != nil {
 			var valueForFontScheme ResourceUriElement
@@ -174,7 +174,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			this.FontScheme = valueForFontScheme
 		}
 	}
-
+	
 	if valFormatScheme, ok := objMap["FormatScheme"]; ok {
 		if valFormatScheme != nil {
 			var valueForFormatScheme ResourceUriElement

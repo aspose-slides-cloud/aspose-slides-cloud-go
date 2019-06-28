@@ -73,7 +73,7 @@ func (this *ApiInfo) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valName, ok := objMap["Name"]; ok {
 		if valName != nil {
 			var valueForName string
@@ -84,7 +84,7 @@ func (this *ApiInfo) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-
+	
 	if valVersion, ok := objMap["Version"]; ok {
 		if valVersion != nil {
 			var valueForVersion string

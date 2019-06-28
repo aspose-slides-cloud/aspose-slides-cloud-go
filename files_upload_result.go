@@ -73,7 +73,7 @@ func (this *FilesUploadResult) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valUploaded, ok := objMap["Uploaded"]; ok {
 		if valUploaded != nil {
 			var valueForUploaded []string
@@ -84,7 +84,7 @@ func (this *FilesUploadResult) UnmarshalJSON(b []byte) error {
 			this.Uploaded = valueForUploaded
 		}
 	}
-
+	
 	if valErrors, ok := objMap["Errors"]; ok {
 		if valErrors != nil {
 			var valueForErrors []ModelError

@@ -31,7 +31,7 @@ import (
 	"encoding/json"
 )
 
-
+// Document property.
 type IDocumentProperty interface {
 
 	// Gets or sets the link to this resource.
@@ -41,12 +41,15 @@ type IDocumentProperty interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// Name.
 	getName() string
 	setName(newValue string)
 
+	// Value.
 	getValue() string
 	setValue(newValue string)
 
+	// True for builtin property.
 	getBuiltIn() bool
 	setBuiltIn(newValue bool)
 }
@@ -58,10 +61,13 @@ type DocumentProperty struct {
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// Name.
 	Name string `json:"Name,omitempty"`
 
+	// Value.
 	Value string `json:"Value,omitempty"`
 
+	// True for builtin property.
 	BuiltIn bool `json:"BuiltIn"`
 }
 
@@ -107,7 +113,7 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSelfUri, ok := objMap["SelfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
@@ -118,7 +124,7 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
-
+	
 	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
@@ -129,7 +135,7 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
-
+	
 	if valName, ok := objMap["Name"]; ok {
 		if valName != nil {
 			var valueForName string
@@ -140,7 +146,7 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-
+	
 	if valValue, ok := objMap["Value"]; ok {
 		if valValue != nil {
 			var valueForValue string
@@ -151,7 +157,7 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			this.Value = valueForValue
 		}
 	}
-
+	
 	if valBuiltIn, ok := objMap["BuiltIn"]; ok {
 		if valBuiltIn != nil {
 			var valueForBuiltIn bool

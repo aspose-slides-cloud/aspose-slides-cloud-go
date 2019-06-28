@@ -115,7 +115,7 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "Save"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -126,7 +126,7 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valCloneFromFile, ok := objMap["CloneFromFile"]; ok {
 		if valCloneFromFile != nil {
 			var valueForCloneFromFile InputFile
@@ -137,7 +137,7 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 			this.CloneFromFile = valueForCloneFromFile
 		}
 	}
-
+	
 	if valCloneFromPosition, ok := objMap["CloneFromPosition"]; ok {
 		if valCloneFromPosition != nil {
 			var valueForCloneFromPosition int32
@@ -148,7 +148,7 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 			this.CloneFromPosition = valueForCloneFromPosition
 		}
 	}
-
+	
 	if valPosition, ok := objMap["Position"]; ok {
 		if valPosition != nil {
 			var valueForPosition int32
@@ -159,7 +159,7 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 			this.Position = valueForPosition
 		}
 	}
-
+	
 	if valLayoutAlias, ok := objMap["LayoutAlias"]; ok {
 		if valLayoutAlias != nil {
 			var valueForLayoutAlias string

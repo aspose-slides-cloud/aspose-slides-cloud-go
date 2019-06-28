@@ -73,7 +73,7 @@ func (this *ObjectExist) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valExists, ok := objMap["Exists"]; ok {
 		if valExists != nil {
 			var valueForExists bool
@@ -84,7 +84,7 @@ func (this *ObjectExist) UnmarshalJSON(b []byte) error {
 			this.Exists = valueForExists
 		}
 	}
-
+	
 	if valIsFolder, ok := objMap["IsFolder"]; ok {
 		if valIsFolder != nil {
 			var valueForIsFolder bool

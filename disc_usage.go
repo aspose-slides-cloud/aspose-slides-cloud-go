@@ -73,7 +73,7 @@ func (this *DiscUsage) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valUsedSize, ok := objMap["UsedSize"]; ok {
 		if valUsedSize != nil {
 			var valueForUsedSize int64
@@ -84,7 +84,7 @@ func (this *DiscUsage) UnmarshalJSON(b []byte) error {
 			this.UsedSize = valueForUsedSize
 		}
 	}
-
+	
 	if valTotalSize, ok := objMap["TotalSize"]; ok {
 		if valTotalSize != nil {
 			var valueForTotalSize int64

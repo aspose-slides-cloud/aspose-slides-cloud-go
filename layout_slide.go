@@ -119,7 +119,7 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSelfUri, ok := objMap["SelfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
@@ -130,7 +130,7 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
-
+	
 	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
@@ -141,7 +141,7 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
-
+	
 	if valName, ok := objMap["Name"]; ok {
 		if valName != nil {
 			var valueForName string
@@ -152,7 +152,7 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-
+	this.Type_ = "Title"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -163,7 +163,7 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valMasterSlide, ok := objMap["MasterSlide"]; ok {
 		if valMasterSlide != nil {
 			var valueForMasterSlide ResourceUriElement
@@ -174,7 +174,7 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 			this.MasterSlide = valueForMasterSlide
 		}
 	}
-
+	
 	if valDependingSlides, ok := objMap["DependingSlides"]; ok {
 		if valDependingSlides != nil {
 			var valueForDependingSlides []ResourceUriElement

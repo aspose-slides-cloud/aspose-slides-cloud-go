@@ -183,7 +183,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valFormat, ok := objMap["Format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
@@ -194,7 +194,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-
+	
 	if valVectorizeText, ok := objMap["VectorizeText"]; ok {
 		if valVectorizeText != nil {
 			var valueForVectorizeText bool
@@ -205,7 +205,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.VectorizeText = valueForVectorizeText
 		}
 	}
-
+	
 	if valMetafileRasterizationDpi, ok := objMap["MetafileRasterizationDpi"]; ok {
 		if valMetafileRasterizationDpi != nil {
 			var valueForMetafileRasterizationDpi int32
@@ -216,7 +216,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.MetafileRasterizationDpi = valueForMetafileRasterizationDpi
 		}
 	}
-
+	
 	if valDisable3DText, ok := objMap["Disable3DText"]; ok {
 		if valDisable3DText != nil {
 			var valueForDisable3DText bool
@@ -227,7 +227,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.Disable3DText = valueForDisable3DText
 		}
 	}
-
+	
 	if valDisableGradientSplit, ok := objMap["DisableGradientSplit"]; ok {
 		if valDisableGradientSplit != nil {
 			var valueForDisableGradientSplit bool
@@ -238,7 +238,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.DisableGradientSplit = valueForDisableGradientSplit
 		}
 	}
-
+	
 	if valDisableLineEndCropping, ok := objMap["DisableLineEndCropping"]; ok {
 		if valDisableLineEndCropping != nil {
 			var valueForDisableLineEndCropping bool
@@ -249,7 +249,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.DisableLineEndCropping = valueForDisableLineEndCropping
 		}
 	}
-
+	
 	if valJpegQuality, ok := objMap["JpegQuality"]; ok {
 		if valJpegQuality != nil {
 			var valueForJpegQuality int32
@@ -260,7 +260,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.JpegQuality = valueForJpegQuality
 		}
 	}
-
+	this.PicturesCompression = "Dpi330"
 	if valPicturesCompression, ok := objMap["PicturesCompression"]; ok {
 		if valPicturesCompression != nil {
 			var valueForPicturesCompression string
@@ -271,7 +271,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.PicturesCompression = valueForPicturesCompression
 		}
 	}
-
+	
 	if valDeletePicturesCroppedAreas, ok := objMap["DeletePicturesCroppedAreas"]; ok {
 		if valDeletePicturesCroppedAreas != nil {
 			var valueForDeletePicturesCroppedAreas bool
@@ -282,7 +282,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.DeletePicturesCroppedAreas = valueForDeletePicturesCroppedAreas
 		}
 	}
-
+	this.ExternalFontsHandling = "AddLinksToFontFiles"
 	if valExternalFontsHandling, ok := objMap["ExternalFontsHandling"]; ok {
 		if valExternalFontsHandling != nil {
 			var valueForExternalFontsHandling string

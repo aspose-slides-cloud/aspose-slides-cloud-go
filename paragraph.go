@@ -311,7 +311,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSelfUri, ok := objMap["SelfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
@@ -322,7 +322,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
-
+	
 	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
@@ -333,7 +333,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
-
+	
 	if valMarginLeft, ok := objMap["MarginLeft"]; ok {
 		if valMarginLeft != nil {
 			var valueForMarginLeft float64
@@ -344,7 +344,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.MarginLeft = valueForMarginLeft
 		}
 	}
-
+	
 	if valMarginRight, ok := objMap["MarginRight"]; ok {
 		if valMarginRight != nil {
 			var valueForMarginRight float64
@@ -355,7 +355,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.MarginRight = valueForMarginRight
 		}
 	}
-
+	
 	if valSpaceBefore, ok := objMap["SpaceBefore"]; ok {
 		if valSpaceBefore != nil {
 			var valueForSpaceBefore float64
@@ -366,7 +366,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.SpaceBefore = valueForSpaceBefore
 		}
 	}
-
+	
 	if valSpaceAfter, ok := objMap["SpaceAfter"]; ok {
 		if valSpaceAfter != nil {
 			var valueForSpaceAfter float64
@@ -377,7 +377,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.SpaceAfter = valueForSpaceAfter
 		}
 	}
-
+	
 	if valSpaceWithin, ok := objMap["SpaceWithin"]; ok {
 		if valSpaceWithin != nil {
 			var valueForSpaceWithin float64
@@ -388,7 +388,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.SpaceWithin = valueForSpaceWithin
 		}
 	}
-
+	
 	if valIndent, ok := objMap["Indent"]; ok {
 		if valIndent != nil {
 			var valueForIndent float64
@@ -399,7 +399,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.Indent = valueForIndent
 		}
 	}
-
+	this.Alignment = "null"
 	if valAlignment, ok := objMap["Alignment"]; ok {
 		if valAlignment != nil {
 			var valueForAlignment string
@@ -410,7 +410,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.Alignment = valueForAlignment
 		}
 	}
-
+	this.FontAlignment = "null"
 	if valFontAlignment, ok := objMap["FontAlignment"]; ok {
 		if valFontAlignment != nil {
 			var valueForFontAlignment string
@@ -421,7 +421,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.FontAlignment = valueForFontAlignment
 		}
 	}
-
+	
 	if valDefaultTabSize, ok := objMap["DefaultTabSize"]; ok {
 		if valDefaultTabSize != nil {
 			var valueForDefaultTabSize float64
@@ -432,7 +432,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.DefaultTabSize = valueForDefaultTabSize
 		}
 	}
-
+	
 	if valDepth, ok := objMap["Depth"]; ok {
 		if valDepth != nil {
 			var valueForDepth int32
@@ -443,7 +443,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.Depth = valueForDepth
 		}
 	}
-
+	
 	if valBulletChar, ok := objMap["BulletChar"]; ok {
 		if valBulletChar != nil {
 			var valueForBulletChar string
@@ -454,7 +454,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.BulletChar = valueForBulletChar
 		}
 	}
-
+	
 	if valBulletHeight, ok := objMap["BulletHeight"]; ok {
 		if valBulletHeight != nil {
 			var valueForBulletHeight float64
@@ -465,7 +465,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.BulletHeight = valueForBulletHeight
 		}
 	}
-
+	this.BulletType = "null"
 	if valBulletType, ok := objMap["BulletType"]; ok {
 		if valBulletType != nil {
 			var valueForBulletType string
@@ -476,7 +476,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.BulletType = valueForBulletType
 		}
 	}
-
+	
 	if valNumberedBulletStartWith, ok := objMap["NumberedBulletStartWith"]; ok {
 		if valNumberedBulletStartWith != nil {
 			var valueForNumberedBulletStartWith int32
@@ -487,7 +487,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.NumberedBulletStartWith = valueForNumberedBulletStartWith
 		}
 	}
-
+	this.NumberedBulletStyle = "null"
 	if valNumberedBulletStyle, ok := objMap["NumberedBulletStyle"]; ok {
 		if valNumberedBulletStyle != nil {
 			var valueForNumberedBulletStyle string
@@ -498,7 +498,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.NumberedBulletStyle = valueForNumberedBulletStyle
 		}
 	}
-
+	this.HangingPunctuation = "null"
 	if valHangingPunctuation, ok := objMap["HangingPunctuation"]; ok {
 		if valHangingPunctuation != nil {
 			var valueForHangingPunctuation string
@@ -509,7 +509,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.HangingPunctuation = valueForHangingPunctuation
 		}
 	}
-
+	this.EastAsianLineBreak = "null"
 	if valEastAsianLineBreak, ok := objMap["EastAsianLineBreak"]; ok {
 		if valEastAsianLineBreak != nil {
 			var valueForEastAsianLineBreak string
@@ -520,7 +520,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.EastAsianLineBreak = valueForEastAsianLineBreak
 		}
 	}
-
+	this.LatinLineBreak = "null"
 	if valLatinLineBreak, ok := objMap["LatinLineBreak"]; ok {
 		if valLatinLineBreak != nil {
 			var valueForLatinLineBreak string
@@ -531,7 +531,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.LatinLineBreak = valueForLatinLineBreak
 		}
 	}
-
+	this.RightToLeft = "null"
 	if valRightToLeft, ok := objMap["RightToLeft"]; ok {
 		if valRightToLeft != nil {
 			var valueForRightToLeft string
@@ -542,7 +542,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			this.RightToLeft = valueForRightToLeft
 		}
 	}
-
+	
 	if valPortionList, ok := objMap["PortionList"]; ok {
 		if valPortionList != nil {
 			var valueForPortionList []ResourceUriElement

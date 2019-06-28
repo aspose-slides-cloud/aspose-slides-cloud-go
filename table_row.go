@@ -87,7 +87,7 @@ func (this *TableRow) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valCells, ok := objMap["Cells"]; ok {
 		if valCells != nil {
 			var valueForCells []TableCell
@@ -98,7 +98,7 @@ func (this *TableRow) UnmarshalJSON(b []byte) error {
 			this.Cells = valueForCells
 		}
 	}
-
+	
 	if valMinimalHeight, ok := objMap["MinimalHeight"]; ok {
 		if valMinimalHeight != nil {
 			var valueForMinimalHeight float64
@@ -109,7 +109,7 @@ func (this *TableRow) UnmarshalJSON(b []byte) error {
 			this.MinimalHeight = valueForMinimalHeight
 		}
 	}
-
+	
 	if valHeight, ok := objMap["Height"]; ok {
 		if valHeight != nil {
 			var valueForHeight float64

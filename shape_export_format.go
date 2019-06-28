@@ -26,75 +26,15 @@
  */
 
 package asposeslidescloud
+// ShapeExportFormat : Represents a format for export individual shape.
+type ShapeExportFormat string
 
-import (
-	"encoding/json"
+// List of ShapeExportFormat ShapeExportFormat
+const (
+	ShapeExportFormat_JPEG ShapeExportFormat = "Jpeg"
+	ShapeExportFormat_PNG ShapeExportFormat = "Png"
+	ShapeExportFormat_GIF ShapeExportFormat = "Gif"
+	ShapeExportFormat_BMP ShapeExportFormat = "Bmp"
+	ShapeExportFormat_TIFF ShapeExportFormat = "Tiff"
+	ShapeExportFormat_SVG ShapeExportFormat = "Svg"
 )
-
-// Represents blur effect 
-type IBlurEffect interface {
-
-	// radius
-	getRadius() float64
-	setRadius(newValue float64)
-
-	// true if the bounds are grown
-	getGrow() bool
-	setGrow(newValue bool)
-}
-
-type BlurEffect struct {
-
-	// radius
-	Radius float64 `json:"Radius"`
-
-	// true if the bounds are grown
-	Grow bool `json:"Grow"`
-}
-
-func (this BlurEffect) getRadius() float64 {
-	return this.Radius
-}
-
-func (this BlurEffect) setRadius(newValue float64) {
-	this.Radius = newValue
-}
-func (this BlurEffect) getGrow() bool {
-	return this.Grow
-}
-
-func (this BlurEffect) setGrow(newValue bool) {
-	this.Grow = newValue
-}
-
-func (this *BlurEffect) UnmarshalJSON(b []byte) error {
-	var objMap map[string]*json.RawMessage
-	err := json.Unmarshal(b, &objMap)
-	if err != nil {
-		return err
-	}
-	
-	if valRadius, ok := objMap["Radius"]; ok {
-		if valRadius != nil {
-			var valueForRadius float64
-			err = json.Unmarshal(*valRadius, &valueForRadius)
-			if err != nil {
-				return err
-			}
-			this.Radius = valueForRadius
-		}
-	}
-	
-	if valGrow, ok := objMap["Grow"]; ok {
-		if valGrow != nil {
-			var valueForGrow bool
-			err = json.Unmarshal(*valGrow, &valueForGrow)
-			if err != nil {
-				return err
-			}
-			this.Grow = valueForGrow
-		}
-	}
-
-    return nil
-}

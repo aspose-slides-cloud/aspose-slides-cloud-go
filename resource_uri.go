@@ -101,7 +101,7 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valHref, ok := objMap["Href"]; ok {
 		if valHref != nil {
 			var valueForHref string
@@ -112,7 +112,7 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 			this.Href = valueForHref
 		}
 	}
-
+	
 	if valRelation, ok := objMap["Relation"]; ok {
 		if valRelation != nil {
 			var valueForRelation string
@@ -123,7 +123,7 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 			this.Relation = valueForRelation
 		}
 	}
-
+	
 	if valLinkType, ok := objMap["LinkType"]; ok {
 		if valLinkType != nil {
 			var valueForLinkType string
@@ -134,7 +134,7 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 			this.LinkType = valueForLinkType
 		}
 	}
-
+	
 	if valTitle, ok := objMap["Title"]; ok {
 		if valTitle != nil {
 			var valueForTitle string

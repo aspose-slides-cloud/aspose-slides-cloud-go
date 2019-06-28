@@ -57,7 +57,7 @@ func (this *ResourceUriElement) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valUri, ok := objMap["Uri"]; ok {
 		if valUri != nil {
 			var valueForUri ResourceUri

@@ -71,7 +71,7 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valFormat, ok := objMap["Format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
@@ -82,7 +82,7 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-
+	this.Conformance = "Ecma376_2006"
 	if valConformance, ok := objMap["Conformance"]; ok {
 		if valConformance != nil {
 			var valueForConformance string

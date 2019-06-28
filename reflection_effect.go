@@ -241,7 +241,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valDirection, ok := objMap["Direction"]; ok {
 		if valDirection != nil {
 			var valueForDirection float64
@@ -252,7 +252,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.Direction = valueForDirection
 		}
 	}
-
+	
 	if valFadeDirection, ok := objMap["FadeDirection"]; ok {
 		if valFadeDirection != nil {
 			var valueForFadeDirection float64
@@ -263,7 +263,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.FadeDirection = valueForFadeDirection
 		}
 	}
-
+	
 	if valDistance, ok := objMap["Distance"]; ok {
 		if valDistance != nil {
 			var valueForDistance float64
@@ -274,7 +274,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.Distance = valueForDistance
 		}
 	}
-
+	
 	if valBlurRadius, ok := objMap["BlurRadius"]; ok {
 		if valBlurRadius != nil {
 			var valueForBlurRadius float64
@@ -285,7 +285,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.BlurRadius = valueForBlurRadius
 		}
 	}
-
+	
 	if valScaleHorizontal, ok := objMap["ScaleHorizontal"]; ok {
 		if valScaleHorizontal != nil {
 			var valueForScaleHorizontal float64
@@ -296,7 +296,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.ScaleHorizontal = valueForScaleHorizontal
 		}
 	}
-
+	
 	if valScaleVertical, ok := objMap["ScaleVertical"]; ok {
 		if valScaleVertical != nil {
 			var valueForScaleVertical float64
@@ -307,7 +307,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.ScaleVertical = valueForScaleVertical
 		}
 	}
-
+	
 	if valSkewHorizontal, ok := objMap["SkewHorizontal"]; ok {
 		if valSkewHorizontal != nil {
 			var valueForSkewHorizontal float64
@@ -318,7 +318,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.SkewHorizontal = valueForSkewHorizontal
 		}
 	}
-
+	
 	if valSkewVertical, ok := objMap["SkewVertical"]; ok {
 		if valSkewVertical != nil {
 			var valueForSkewVertical float64
@@ -329,7 +329,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.SkewVertical = valueForSkewVertical
 		}
 	}
-
+	
 	if valStartPosAlpha, ok := objMap["StartPosAlpha"]; ok {
 		if valStartPosAlpha != nil {
 			var valueForStartPosAlpha float64
@@ -340,7 +340,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.StartPosAlpha = valueForStartPosAlpha
 		}
 	}
-
+	
 	if valEndPosAlpha, ok := objMap["EndPosAlpha"]; ok {
 		if valEndPosAlpha != nil {
 			var valueForEndPosAlpha float64
@@ -351,7 +351,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.EndPosAlpha = valueForEndPosAlpha
 		}
 	}
-
+	
 	if valStartReflectionOpacity, ok := objMap["StartReflectionOpacity"]; ok {
 		if valStartReflectionOpacity != nil {
 			var valueForStartReflectionOpacity float64
@@ -362,7 +362,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.StartReflectionOpacity = valueForStartReflectionOpacity
 		}
 	}
-
+	
 	if valEndReflectionOpacity, ok := objMap["EndReflectionOpacity"]; ok {
 		if valEndReflectionOpacity != nil {
 			var valueForEndReflectionOpacity float64
@@ -373,7 +373,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.EndReflectionOpacity = valueForEndReflectionOpacity
 		}
 	}
-
+	this.RectangleAlign = "TopLeft"
 	if valRectangleAlign, ok := objMap["RectangleAlign"]; ok {
 		if valRectangleAlign != nil {
 			var valueForRectangleAlign string
@@ -384,7 +384,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			this.RectangleAlign = valueForRectangleAlign
 		}
 	}
-
+	
 	if valRotateShadowWithShape, ok := objMap["RotateShadowWithShape"]; ok {
 		if valRotateShadowWithShape != nil {
 			var valueForRotateShadowWithShape bool

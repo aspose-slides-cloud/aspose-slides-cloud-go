@@ -48,6 +48,7 @@ type APIKey struct {
 
 type Configuration struct {
 	BasePath      string            	`json:"BaseUrl,omitempty"`
+	AuthBasePath  string            	`json:"AuthBaseUrl,omitempty"`
 	Version       string            	`json:"Version,omitempty"`
 	Host          string            	`json:"host,omitempty"`
 	AppSid	      string            	`json:"AppSid,omitempty"`
@@ -56,16 +57,18 @@ type Configuration struct {
 	Scheme        string            	`json:"scheme,omitempty"`
 	ApiVersion    string            	`json:"ApiVersion,omitempty"`
 	Debug         bool 	           	`json:"Debug,omitempty"`
+	Timeout       int 	           	`json:"Timeout,omitempty"`
 	HTTPClient 	  *http.Client
 }
 
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		BasePath:      "https://api-dev.aspose.cloud",
+		BasePath:      "https://api.aspose.cloud",
+		AuthBasePath: "https://api.aspose.cloud",
 		AppSid:        "https",
 		AppKey:        "https",
-		Version:       "v1.1",
-		ApiVersion:    "19.4.0",
+		Version:       "v3.0",
+		ApiVersion:    "19.6.0",
 	}
 	return cfg
 }

@@ -59,7 +59,7 @@ func (this *FillOverlayEffect) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Blend = "Darken"
 	if valBlend, ok := objMap["Blend"]; ok {
 		if valBlend != nil {
 			var valueForBlend string

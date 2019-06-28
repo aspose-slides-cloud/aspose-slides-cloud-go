@@ -101,7 +101,7 @@ func (this *InnerShadowEffect) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valDirection, ok := objMap["Direction"]; ok {
 		if valDirection != nil {
 			var valueForDirection float64
@@ -112,7 +112,7 @@ func (this *InnerShadowEffect) UnmarshalJSON(b []byte) error {
 			this.Direction = valueForDirection
 		}
 	}
-
+	
 	if valDistance, ok := objMap["Distance"]; ok {
 		if valDistance != nil {
 			var valueForDistance float64
@@ -123,7 +123,7 @@ func (this *InnerShadowEffect) UnmarshalJSON(b []byte) error {
 			this.Distance = valueForDistance
 		}
 	}
-
+	
 	if valBlurRadius, ok := objMap["BlurRadius"]; ok {
 		if valBlurRadius != nil {
 			var valueForBlurRadius float64
@@ -134,7 +134,7 @@ func (this *InnerShadowEffect) UnmarshalJSON(b []byte) error {
 			this.BlurRadius = valueForBlurRadius
 		}
 	}
-
+	
 	if valShadowColor, ok := objMap["ShadowColor"]; ok {
 		if valShadowColor != nil {
 			var valueForShadowColor string

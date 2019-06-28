@@ -73,7 +73,7 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valXValue, ok := objMap["XValue"]; ok {
 		if valXValue != nil {
 			var valueForXValue float64
@@ -84,7 +84,7 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 			this.XValue = valueForXValue
 		}
 	}
-
+	
 	if valYValue, ok := objMap["YValue"]; ok {
 		if valYValue != nil {
 			var valueForYValue float64

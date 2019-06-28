@@ -101,7 +101,7 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valCode, ok := objMap["Code"]; ok {
 		if valCode != nil {
 			var valueForCode string
@@ -112,7 +112,7 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 			this.Code = valueForCode
 		}
 	}
-
+	
 	if valMessage, ok := objMap["Message"]; ok {
 		if valMessage != nil {
 			var valueForMessage string
@@ -123,7 +123,7 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 			this.Message = valueForMessage
 		}
 	}
-
+	
 	if valDescription, ok := objMap["Description"]; ok {
 		if valDescription != nil {
 			var valueForDescription string
@@ -134,7 +134,7 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 			this.Description = valueForDescription
 		}
 	}
-
+	
 	if valInnerError, ok := objMap["InnerError"]; ok {
 		if valInnerError != nil {
 			var valueForInnerError ErrorDetails

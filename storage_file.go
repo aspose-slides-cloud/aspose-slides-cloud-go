@@ -119,7 +119,7 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valName, ok := objMap["Name"]; ok {
 		if valName != nil {
 			var valueForName string
@@ -130,7 +130,7 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-
+	
 	if valIsFolder, ok := objMap["IsFolder"]; ok {
 		if valIsFolder != nil {
 			var valueForIsFolder bool
@@ -141,7 +141,7 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 			this.IsFolder = valueForIsFolder
 		}
 	}
-
+	
 	if valModifiedDate, ok := objMap["ModifiedDate"]; ok {
 		if valModifiedDate != nil {
 			var valueForModifiedDate time.Time
@@ -152,7 +152,7 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 			this.ModifiedDate = valueForModifiedDate
 		}
 	}
-
+	
 	if valSize, ok := objMap["Size"]; ok {
 		if valSize != nil {
 			var valueForSize int64
@@ -163,7 +163,7 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 			this.Size = valueForSize
 		}
 	}
-
+	
 	if valPath, ok := objMap["Path"]; ok {
 		if valPath != nil {
 			var valueForPath string

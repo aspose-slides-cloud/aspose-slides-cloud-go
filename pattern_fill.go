@@ -101,7 +101,7 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "NoFill"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -112,7 +112,7 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valBackColor, ok := objMap["BackColor"]; ok {
 		if valBackColor != nil {
 			var valueForBackColor string
@@ -123,7 +123,7 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 			this.BackColor = valueForBackColor
 		}
 	}
-
+	
 	if valForeColor, ok := objMap["ForeColor"]; ok {
 		if valForeColor != nil {
 			var valueForForeColor string
@@ -134,7 +134,7 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 			this.ForeColor = valueForForeColor
 		}
 	}
-
+	this.Style = "Unknown"
 	if valStyle, ok := objMap["Style"]; ok {
 		if valStyle != nil {
 			var valueForStyle string

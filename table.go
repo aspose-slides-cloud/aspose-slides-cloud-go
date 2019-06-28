@@ -407,7 +407,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSelfUri, ok := objMap["SelfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
@@ -418,7 +418,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
-
+	
 	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
@@ -429,7 +429,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
-
+	
 	if valName, ok := objMap["Name"]; ok {
 		if valName != nil {
 			var valueForName string
@@ -440,7 +440,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-
+	
 	if valWidth, ok := objMap["Width"]; ok {
 		if valWidth != nil {
 			var valueForWidth float64
@@ -451,7 +451,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-
+	
 	if valHeight, ok := objMap["Height"]; ok {
 		if valHeight != nil {
 			var valueForHeight float64
@@ -462,7 +462,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
-
+	
 	if valAlternativeText, ok := objMap["AlternativeText"]; ok {
 		if valAlternativeText != nil {
 			var valueForAlternativeText string
@@ -473,7 +473,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.AlternativeText = valueForAlternativeText
 		}
 	}
-
+	
 	if valHidden, ok := objMap["Hidden"]; ok {
 		if valHidden != nil {
 			var valueForHidden bool
@@ -484,7 +484,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.Hidden = valueForHidden
 		}
 	}
-
+	
 	if valX, ok := objMap["X"]; ok {
 		if valX != nil {
 			var valueForX float64
@@ -495,7 +495,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.X = valueForX
 		}
 	}
-
+	
 	if valY, ok := objMap["Y"]; ok {
 		if valY != nil {
 			var valueForY float64
@@ -506,7 +506,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.Y = valueForY
 		}
 	}
-
+	
 	if valZOrderPosition, ok := objMap["ZOrderPosition"]; ok {
 		if valZOrderPosition != nil {
 			var valueForZOrderPosition int32
@@ -517,7 +517,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.ZOrderPosition = valueForZOrderPosition
 		}
 	}
-
+	
 	if valShapes, ok := objMap["Shapes"]; ok {
 		if valShapes != nil {
 			var valueForShapes ResourceUriElement
@@ -528,7 +528,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.Shapes = valueForShapes
 		}
 	}
-
+	
 	if valFillFormat, ok := objMap["FillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
@@ -539,7 +539,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
-
+	
 	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
@@ -550,7 +550,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
-
+	
 	if valLineFormat, ok := objMap["LineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
@@ -561,7 +561,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.LineFormat = valueForLineFormat
 		}
 	}
-
+	this.Type_ = "Shape"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -572,7 +572,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	this.ShapeType = "Custom"
 	if valShapeType, ok := objMap["ShapeType"]; ok {
 		if valShapeType != nil {
 			var valueForShapeType string
@@ -583,7 +583,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.ShapeType = valueForShapeType
 		}
 	}
-
+	this.Style = "None"
 	if valStyle, ok := objMap["Style"]; ok {
 		if valStyle != nil {
 			var valueForStyle string
@@ -594,7 +594,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.Style = valueForStyle
 		}
 	}
-
+	
 	if valRows, ok := objMap["Rows"]; ok {
 		if valRows != nil {
 			var valueForRows []TableRow
@@ -605,7 +605,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.Rows = valueForRows
 		}
 	}
-
+	
 	if valColumns, ok := objMap["Columns"]; ok {
 		if valColumns != nil {
 			var valueForColumns []TableColumn
@@ -616,7 +616,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.Columns = valueForColumns
 		}
 	}
-
+	
 	if valFirstCol, ok := objMap["FirstCol"]; ok {
 		if valFirstCol != nil {
 			var valueForFirstCol bool
@@ -627,7 +627,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.FirstCol = valueForFirstCol
 		}
 	}
-
+	
 	if valFirstRow, ok := objMap["FirstRow"]; ok {
 		if valFirstRow != nil {
 			var valueForFirstRow bool
@@ -638,7 +638,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.FirstRow = valueForFirstRow
 		}
 	}
-
+	
 	if valHorizontalBanding, ok := objMap["HorizontalBanding"]; ok {
 		if valHorizontalBanding != nil {
 			var valueForHorizontalBanding bool
@@ -649,7 +649,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.HorizontalBanding = valueForHorizontalBanding
 		}
 	}
-
+	
 	if valLastCol, ok := objMap["LastCol"]; ok {
 		if valLastCol != nil {
 			var valueForLastCol bool
@@ -660,7 +660,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.LastCol = valueForLastCol
 		}
 	}
-
+	
 	if valLastRow, ok := objMap["LastRow"]; ok {
 		if valLastRow != nil {
 			var valueForLastRow bool
@@ -671,7 +671,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.LastRow = valueForLastRow
 		}
 	}
-
+	
 	if valRightToLeft, ok := objMap["RightToLeft"]; ok {
 		if valRightToLeft != nil {
 			var valueForRightToLeft bool
@@ -682,7 +682,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.RightToLeft = valueForRightToLeft
 		}
 	}
-
+	
 	if valVerticalBanding, ok := objMap["VerticalBanding"]; ok {
 		if valVerticalBanding != nil {
 			var valueForVerticalBanding bool

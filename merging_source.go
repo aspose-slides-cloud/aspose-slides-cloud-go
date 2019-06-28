@@ -69,7 +69,7 @@ func (this *MergingSource) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valInput, ok := objMap["Input"]; ok {
 		if valInput != nil {
 			var valueForInput InputFile
@@ -80,7 +80,7 @@ func (this *MergingSource) UnmarshalJSON(b []byte) error {
 			this.Input = valueForInput
 		}
 	}
-
+	
 	if valSlides, ok := objMap["Slides"]; ok {
 		if valSlides != nil {
 			var valueForSlides []int32

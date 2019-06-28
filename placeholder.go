@@ -131,7 +131,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSelfUri, ok := objMap["SelfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
@@ -142,7 +142,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
-
+	
 	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
@@ -153,7 +153,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
-
+	
 	if valIndex, ok := objMap["Index"]; ok {
 		if valIndex != nil {
 			var valueForIndex int32
@@ -164,7 +164,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.Index = valueForIndex
 		}
 	}
-
+	this.Orientation = "Horizontal"
 	if valOrientation, ok := objMap["Orientation"]; ok {
 		if valOrientation != nil {
 			var valueForOrientation string
@@ -175,7 +175,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.Orientation = valueForOrientation
 		}
 	}
-
+	this.Size = "Full"
 	if valSize, ok := objMap["Size"]; ok {
 		if valSize != nil {
 			var valueForSize string
@@ -186,7 +186,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.Size = valueForSize
 		}
 	}
-
+	this.Type_ = "Title"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -197,7 +197,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valShape, ok := objMap["Shape"]; ok {
 		if valShape != nil {
 			var valueForShape ResourceUriElement

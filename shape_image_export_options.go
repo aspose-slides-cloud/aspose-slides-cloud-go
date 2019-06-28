@@ -101,7 +101,7 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valScaleX, ok := objMap["ScaleX"]; ok {
 		if valScaleX != nil {
 			var valueForScaleX float64
@@ -112,7 +112,7 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 			this.ScaleX = valueForScaleX
 		}
 	}
-
+	
 	if valScaleY, ok := objMap["ScaleY"]; ok {
 		if valScaleY != nil {
 			var valueForScaleY float64
@@ -123,7 +123,7 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 			this.ScaleY = valueForScaleY
 		}
 	}
-
+	this.ThumbnailBounds = "Slide"
 	if valThumbnailBounds, ok := objMap["ThumbnailBounds"]; ok {
 		if valThumbnailBounds != nil {
 			var valueForThumbnailBounds string
@@ -134,7 +134,7 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 			this.ThumbnailBounds = valueForThumbnailBounds
 		}
 	}
-
+	
 	if valFormat, ok := objMap["Format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string

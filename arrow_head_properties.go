@@ -31,25 +31,31 @@ import (
 	"encoding/json"
 )
 
-
+// Arrow head properties.
 type IArrowHeadProperties interface {
 
+	// Length.
 	getLength() string
 	setLength(newValue string)
 
+	// Style.
 	getStyle() string
 	setStyle(newValue string)
 
+	// Width.
 	getWidth() string
 	setWidth(newValue string)
 }
 
 type ArrowHeadProperties struct {
 
+	// Length.
 	Length string `json:"Length"`
 
+	// Style.
 	Style string `json:"Style"`
 
+	// Width.
 	Width string `json:"Width"`
 }
 
@@ -81,7 +87,7 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Length = "Short"
 	if valLength, ok := objMap["Length"]; ok {
 		if valLength != nil {
 			var valueForLength string
@@ -92,7 +98,7 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 			this.Length = valueForLength
 		}
 	}
-
+	this.Style = "None"
 	if valStyle, ok := objMap["Style"]; ok {
 		if valStyle != nil {
 			var valueForStyle string
@@ -103,7 +109,7 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 			this.Style = valueForStyle
 		}
 	}
-
+	this.Width = "Narrow"
 	if valWidth, ok := objMap["Width"]; ok {
 		if valWidth != nil {
 			var valueForWidth string

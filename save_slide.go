@@ -143,7 +143,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "Save"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -154,7 +154,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valOutput, ok := objMap["Output"]; ok {
 		if valOutput != nil {
 			var valueForOutput OutputFile
@@ -165,7 +165,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			this.Output = valueForOutput
 		}
 	}
-
+	this.Format = "Jpeg"
 	if valFormat, ok := objMap["Format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
@@ -176,7 +176,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-
+	
 	if valOptions, ok := objMap["Options"]; ok {
 		if valOptions != nil {
 			var valueForOptions ExportOptions
@@ -187,7 +187,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			this.Options = valueForOptions
 		}
 	}
-
+	
 	if valWidth, ok := objMap["Width"]; ok {
 		if valWidth != nil {
 			var valueForWidth int32
@@ -198,7 +198,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-
+	
 	if valHeight, ok := objMap["Height"]; ok {
 		if valHeight != nil {
 			var valueForHeight int32
@@ -209,7 +209,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
-
+	
 	if valPosition, ok := objMap["Position"]; ok {
 		if valPosition != nil {
 			var valueForPosition int32

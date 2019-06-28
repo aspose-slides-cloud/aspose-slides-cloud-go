@@ -69,7 +69,7 @@ func (this *ResetSlide) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "Save"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -80,7 +80,7 @@ func (this *ResetSlide) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valPosition, ok := objMap["Position"]; ok {
 		if valPosition != nil {
 			var valueForPosition int32

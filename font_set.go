@@ -81,7 +81,7 @@ func (this *FontSet) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valComplexScript, ok := objMap["ComplexScript"]; ok {
 		if valComplexScript != nil {
 			var valueForComplexScript string
@@ -92,7 +92,7 @@ func (this *FontSet) UnmarshalJSON(b []byte) error {
 			this.ComplexScript = valueForComplexScript
 		}
 	}
-
+	
 	if valEastAsian, ok := objMap["EastAsian"]; ok {
 		if valEastAsian != nil {
 			var valueForEastAsian string
@@ -103,7 +103,7 @@ func (this *FontSet) UnmarshalJSON(b []byte) error {
 			this.EastAsian = valueForEastAsian
 		}
 	}
-
+	
 	if valLatin, ok := objMap["Latin"]; ok {
 		if valLatin != nil {
 			var valueForLatin string

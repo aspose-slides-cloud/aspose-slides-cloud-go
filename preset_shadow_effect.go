@@ -101,7 +101,7 @@ func (this *PresetShadowEffect) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valDirection, ok := objMap["Direction"]; ok {
 		if valDirection != nil {
 			var valueForDirection float64
@@ -112,7 +112,7 @@ func (this *PresetShadowEffect) UnmarshalJSON(b []byte) error {
 			this.Direction = valueForDirection
 		}
 	}
-
+	
 	if valDistance, ok := objMap["Distance"]; ok {
 		if valDistance != nil {
 			var valueForDistance float64
@@ -123,7 +123,7 @@ func (this *PresetShadowEffect) UnmarshalJSON(b []byte) error {
 			this.Distance = valueForDistance
 		}
 	}
-
+	this.Preset = "TopLeftDropShadow"
 	if valPreset, ok := objMap["Preset"]; ok {
 		if valPreset != nil {
 			var valueForPreset string
@@ -134,7 +134,7 @@ func (this *PresetShadowEffect) UnmarshalJSON(b []byte) error {
 			this.Preset = valueForPreset
 		}
 	}
-
+	
 	if valShadowColor, ok := objMap["ShadowColor"]; ok {
 		if valShadowColor != nil {
 			var valueForShadowColor string

@@ -26,7 +26,7 @@
  */
 
 package asposeslidescloud
-// SizeType : 
+// SizeType : Slide size preset.
 type SizeType string
 
 // List of SizeType SizeType

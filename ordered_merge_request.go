@@ -59,7 +59,7 @@ func (this *OrderedMergeRequest) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valPresentations, ok := objMap["Presentations"]; ok {
 		if valPresentations != nil {
 			var valueForPresentations []PresentationToMerge

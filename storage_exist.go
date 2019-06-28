@@ -59,7 +59,7 @@ func (this *StorageExist) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valExists, ok := objMap["Exists"]; ok {
 		if valExists != nil {
 			var valueForExists bool

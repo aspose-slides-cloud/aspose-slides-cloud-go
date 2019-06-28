@@ -115,7 +115,7 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "Save"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -126,7 +126,7 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valOldText, ok := objMap["OldText"]; ok {
 		if valOldText != nil {
 			var valueForOldText string
@@ -137,7 +137,7 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 			this.OldText = valueForOldText
 		}
 	}
-
+	
 	if valNewText, ok := objMap["NewText"]; ok {
 		if valNewText != nil {
 			var valueForNewText string
@@ -148,7 +148,7 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 			this.NewText = valueForNewText
 		}
 	}
-
+	
 	if valIgnoreCase, ok := objMap["IgnoreCase"]; ok {
 		if valIgnoreCase != nil {
 			var valueForIgnoreCase bool
@@ -159,7 +159,7 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 			this.IgnoreCase = valueForIgnoreCase
 		}
 	}
-
+	
 	if valSlidePosition, ok := objMap["SlidePosition"]; ok {
 		if valSlidePosition != nil {
 			var valueForSlidePosition int32

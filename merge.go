@@ -73,7 +73,7 @@ func (this *Merge) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "Save"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -84,7 +84,7 @@ func (this *Merge) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valPresentations, ok := objMap["Presentations"]; ok {
 		if valPresentations != nil {
 			var valueForPresentations []MergingSource

@@ -165,7 +165,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "NoFill"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -176,7 +176,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valCropBottom, ok := objMap["CropBottom"]; ok {
 		if valCropBottom != nil {
 			var valueForCropBottom float64
@@ -187,7 +187,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropBottom = valueForCropBottom
 		}
 	}
-
+	
 	if valCropLeft, ok := objMap["CropLeft"]; ok {
 		if valCropLeft != nil {
 			var valueForCropLeft float64
@@ -198,7 +198,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropLeft = valueForCropLeft
 		}
 	}
-
+	
 	if valCropRight, ok := objMap["CropRight"]; ok {
 		if valCropRight != nil {
 			var valueForCropRight float64
@@ -209,7 +209,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropRight = valueForCropRight
 		}
 	}
-
+	
 	if valCropTop, ok := objMap["CropTop"]; ok {
 		if valCropTop != nil {
 			var valueForCropTop float64
@@ -220,7 +220,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropTop = valueForCropTop
 		}
 	}
-
+	
 	if valDpi, ok := objMap["Dpi"]; ok {
 		if valDpi != nil {
 			var valueForDpi int32
@@ -231,7 +231,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.Dpi = valueForDpi
 		}
 	}
-
+	
 	if valImage, ok := objMap["Image"]; ok {
 		if valImage != nil {
 			var valueForImage ResourceUriElement
@@ -242,7 +242,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.Image = valueForImage
 		}
 	}
-
+	
 	if valBase64Data, ok := objMap["Base64Data"]; ok {
 		if valBase64Data != nil {
 			var valueForBase64Data string
@@ -253,7 +253,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.Base64Data = valueForBase64Data
 		}
 	}
-
+	
 	if valSvgData, ok := objMap["SvgData"]; ok {
 		if valSvgData != nil {
 			var valueForSvgData string
@@ -264,7 +264,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.SvgData = valueForSvgData
 		}
 	}
-
+	this.PictureFillMode = "Tile"
 	if valPictureFillMode, ok := objMap["PictureFillMode"]; ok {
 		if valPictureFillMode != nil {
 			var valueForPictureFillMode string

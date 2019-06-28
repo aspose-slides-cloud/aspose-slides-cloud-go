@@ -290,6 +290,9 @@ func (c *APIClient) prepareRequestHeader(localVarRequest *http.Request, headerPa
 	// Add the user agent to the request.
 	localVarRequest.Header.Add("x-aspose-client", "go sdk")
 	localVarRequest.Header.Add("x-aspose-client-version", c.cfg.ApiVersion)
+	if c.cfg.Timeout > 0 {
+		localVarRequest.Header.Add("x-aspose-timeout", strconv.FormatInt(int64(c.cfg.Timeout), 10))
+	}
 
 	if (len(c.cfg.OAuthToken) == 0) {
 		oauthRequest, err := http.NewRequest(

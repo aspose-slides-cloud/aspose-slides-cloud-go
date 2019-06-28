@@ -303,7 +303,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSelfUri, ok := objMap["SelfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
@@ -314,7 +314,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
-
+	
 	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
@@ -325,7 +325,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
-
+	
 	if valName, ok := objMap["Name"]; ok {
 		if valName != nil {
 			var valueForName string
@@ -336,7 +336,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-
+	
 	if valWidth, ok := objMap["Width"]; ok {
 		if valWidth != nil {
 			var valueForWidth float64
@@ -347,7 +347,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-
+	
 	if valHeight, ok := objMap["Height"]; ok {
 		if valHeight != nil {
 			var valueForHeight float64
@@ -358,7 +358,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
-
+	
 	if valAlternativeText, ok := objMap["AlternativeText"]; ok {
 		if valAlternativeText != nil {
 			var valueForAlternativeText string
@@ -369,7 +369,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.AlternativeText = valueForAlternativeText
 		}
 	}
-
+	
 	if valHidden, ok := objMap["Hidden"]; ok {
 		if valHidden != nil {
 			var valueForHidden bool
@@ -380,7 +380,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.Hidden = valueForHidden
 		}
 	}
-
+	
 	if valX, ok := objMap["X"]; ok {
 		if valX != nil {
 			var valueForX float64
@@ -391,7 +391,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.X = valueForX
 		}
 	}
-
+	
 	if valY, ok := objMap["Y"]; ok {
 		if valY != nil {
 			var valueForY float64
@@ -402,7 +402,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.Y = valueForY
 		}
 	}
-
+	
 	if valZOrderPosition, ok := objMap["ZOrderPosition"]; ok {
 		if valZOrderPosition != nil {
 			var valueForZOrderPosition int32
@@ -413,7 +413,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.ZOrderPosition = valueForZOrderPosition
 		}
 	}
-
+	
 	if valShapes, ok := objMap["Shapes"]; ok {
 		if valShapes != nil {
 			var valueForShapes ResourceUriElement
@@ -424,7 +424,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.Shapes = valueForShapes
 		}
 	}
-
+	
 	if valFillFormat, ok := objMap["FillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
@@ -435,7 +435,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
-
+	
 	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
@@ -446,7 +446,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
-
+	
 	if valLineFormat, ok := objMap["LineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
@@ -457,7 +457,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.LineFormat = valueForLineFormat
 		}
 	}
-
+	this.Type_ = "Shape"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -468,7 +468,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	this.ShapeType = "Custom"
 	if valShapeType, ok := objMap["ShapeType"]; ok {
 		if valShapeType != nil {
 			var valueForShapeType string
@@ -479,7 +479,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.ShapeType = valueForShapeType
 		}
 	}
-
+	this.GeometryShapeType = "Custom"
 	if valGeometryShapeType, ok := objMap["GeometryShapeType"]; ok {
 		if valGeometryShapeType != nil {
 			var valueForGeometryShapeType string
@@ -490,7 +490,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.GeometryShapeType = valueForGeometryShapeType
 		}
 	}
-
+	
 	if valText, ok := objMap["Text"]; ok {
 		if valText != nil {
 			var valueForText string
@@ -501,7 +501,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
-
+	
 	if valParagraphs, ok := objMap["Paragraphs"]; ok {
 		if valParagraphs != nil {
 			var valueForParagraphs ResourceUriElement

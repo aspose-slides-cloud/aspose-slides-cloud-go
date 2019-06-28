@@ -115,7 +115,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valFillFormat, ok := objMap["FillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
@@ -126,7 +126,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
-
+	
 	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
@@ -137,7 +137,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
-
+	
 	if valLineFormat, ok := objMap["LineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
@@ -148,7 +148,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			this.LineFormat = valueForLineFormat
 		}
 	}
-
+	
 	if valThickness, ok := objMap["Thickness"]; ok {
 		if valThickness != nil {
 			var valueForThickness int32
@@ -159,7 +159,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			this.Thickness = valueForThickness
 		}
 	}
-
+	this.PictureType = "Stack"
 	if valPictureType, ok := objMap["PictureType"]; ok {
 		if valPictureType != nil {
 			var valueForPictureType string

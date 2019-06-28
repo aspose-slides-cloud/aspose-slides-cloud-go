@@ -269,7 +269,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valText, ok := objMap["Text"]; ok {
 		if valText != nil {
 			var valueForText string
@@ -280,7 +280,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
-
+	
 	if valRowSpan, ok := objMap["RowSpan"]; ok {
 		if valRowSpan != nil {
 			var valueForRowSpan int32
@@ -291,7 +291,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.RowSpan = valueForRowSpan
 		}
 	}
-
+	
 	if valColSpan, ok := objMap["ColSpan"]; ok {
 		if valColSpan != nil {
 			var valueForColSpan int32
@@ -302,7 +302,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.ColSpan = valueForColSpan
 		}
 	}
-
+	
 	if valMarginTop, ok := objMap["MarginTop"]; ok {
 		if valMarginTop != nil {
 			var valueForMarginTop float64
@@ -313,7 +313,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginTop = valueForMarginTop
 		}
 	}
-
+	
 	if valMarginRight, ok := objMap["MarginRight"]; ok {
 		if valMarginRight != nil {
 			var valueForMarginRight float64
@@ -324,7 +324,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginRight = valueForMarginRight
 		}
 	}
-
+	
 	if valMarginLeft, ok := objMap["MarginLeft"]; ok {
 		if valMarginLeft != nil {
 			var valueForMarginLeft float64
@@ -335,7 +335,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginLeft = valueForMarginLeft
 		}
 	}
-
+	
 	if valMarginBottom, ok := objMap["MarginBottom"]; ok {
 		if valMarginBottom != nil {
 			var valueForMarginBottom float64
@@ -346,7 +346,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginBottom = valueForMarginBottom
 		}
 	}
-
+	this.TextAnchorType = "Top"
 	if valTextAnchorType, ok := objMap["TextAnchorType"]; ok {
 		if valTextAnchorType != nil {
 			var valueForTextAnchorType string
@@ -357,7 +357,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.TextAnchorType = valueForTextAnchorType
 		}
 	}
-
+	this.TextVerticalType = "Horizontal"
 	if valTextVerticalType, ok := objMap["TextVerticalType"]; ok {
 		if valTextVerticalType != nil {
 			var valueForTextVerticalType string
@@ -368,7 +368,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.TextVerticalType = valueForTextVerticalType
 		}
 	}
-
+	
 	if valFillFormat, ok := objMap["FillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
@@ -379,7 +379,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
-
+	
 	if valBorderTop, ok := objMap["BorderTop"]; ok {
 		if valBorderTop != nil {
 			var valueForBorderTop LineFormat
@@ -390,7 +390,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.BorderTop = valueForBorderTop
 		}
 	}
-
+	
 	if valBorderRight, ok := objMap["BorderRight"]; ok {
 		if valBorderRight != nil {
 			var valueForBorderRight LineFormat
@@ -401,7 +401,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.BorderRight = valueForBorderRight
 		}
 	}
-
+	
 	if valBorderLeft, ok := objMap["BorderLeft"]; ok {
 		if valBorderLeft != nil {
 			var valueForBorderLeft LineFormat
@@ -412,7 +412,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.BorderLeft = valueForBorderLeft
 		}
 	}
-
+	
 	if valBorderBottom, ok := objMap["BorderBottom"]; ok {
 		if valBorderBottom != nil {
 			var valueForBorderBottom LineFormat
@@ -423,7 +423,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.BorderBottom = valueForBorderBottom
 		}
 	}
-
+	
 	if valBorderDiagonalUp, ok := objMap["BorderDiagonalUp"]; ok {
 		if valBorderDiagonalUp != nil {
 			var valueForBorderDiagonalUp LineFormat
@@ -434,7 +434,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.BorderDiagonalUp = valueForBorderDiagonalUp
 		}
 	}
-
+	
 	if valBorderDiagonalDown, ok := objMap["BorderDiagonalDown"]; ok {
 		if valBorderDiagonalDown != nil {
 			var valueForBorderDiagonalDown LineFormat

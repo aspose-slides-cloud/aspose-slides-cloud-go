@@ -73,7 +73,7 @@ func (this *ChartTitle) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valText, ok := objMap["Text"]; ok {
 		if valText != nil {
 			var valueForText string
@@ -84,7 +84,7 @@ func (this *ChartTitle) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
-
+	
 	if valHasTitle, ok := objMap["HasTitle"]; ok {
 		if valHasTitle != nil {
 			var valueForHasTitle bool

@@ -113,7 +113,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSelfUri, ok := objMap["SelfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
@@ -124,7 +124,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
-
+	
 	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
@@ -135,7 +135,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
-
+	
 	if valMajor, ok := objMap["Major"]; ok {
 		if valMajor != nil {
 			var valueForMajor FontSet
@@ -146,7 +146,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			this.Major = valueForMajor
 		}
 	}
-
+	
 	if valMinor, ok := objMap["Minor"]; ok {
 		if valMinor != nil {
 			var valueForMinor FontSet
@@ -157,7 +157,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			this.Minor = valueForMinor
 		}
 	}
-
+	
 	if valName, ok := objMap["Name"]; ok {
 		if valName != nil {
 			var valueForName string

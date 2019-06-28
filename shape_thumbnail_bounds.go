@@ -26,12 +26,12 @@
  */
 
 package asposeslidescloud
-// ShapeThumbnailBounds2 : Represents thumnail bounds settings.
-type ShapeThumbnailBounds2 string
+// ShapeThumbnailBounds : Represents thumnail bounds settings.
+type ShapeThumbnailBounds string
 
-// List of ShapeThumbnailBounds2 ShapeThumbnailBounds2
+// List of ShapeThumbnailBounds ShapeThumbnailBounds
 const (
-	ShapeThumbnailBounds2_SLIDE ShapeThumbnailBounds2 = "Slide"
-	ShapeThumbnailBounds2_SHAPE ShapeThumbnailBounds2 = "Shape"
-	ShapeThumbnailBounds2_APPEARANCE ShapeThumbnailBounds2 = "Appearance"
+	ShapeThumbnailBounds_SLIDE ShapeThumbnailBounds = "Slide"
+	ShapeThumbnailBounds_SHAPE ShapeThumbnailBounds = "Shape"
+	ShapeThumbnailBounds_APPEARANCE ShapeThumbnailBounds = "Appearance"
 )

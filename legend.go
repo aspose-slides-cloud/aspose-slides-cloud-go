@@ -171,7 +171,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Position = "Bottom"
 	if valPosition, ok := objMap["Position"]; ok {
 		if valPosition != nil {
 			var valueForPosition string
@@ -182,7 +182,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			this.Position = valueForPosition
 		}
 	}
-
+	
 	if valX, ok := objMap["X"]; ok {
 		if valX != nil {
 			var valueForX float64
@@ -193,7 +193,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			this.X = valueForX
 		}
 	}
-
+	
 	if valY, ok := objMap["Y"]; ok {
 		if valY != nil {
 			var valueForY float64
@@ -204,7 +204,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			this.Y = valueForY
 		}
 	}
-
+	
 	if valWidth, ok := objMap["Width"]; ok {
 		if valWidth != nil {
 			var valueForWidth float64
@@ -215,7 +215,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-
+	
 	if valHeight, ok := objMap["Height"]; ok {
 		if valHeight != nil {
 			var valueForHeight float64
@@ -226,7 +226,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
-
+	
 	if valOverlay, ok := objMap["Overlay"]; ok {
 		if valOverlay != nil {
 			var valueForOverlay bool
@@ -237,7 +237,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			this.Overlay = valueForOverlay
 		}
 	}
-
+	
 	if valFillFormat, ok := objMap["FillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
@@ -248,7 +248,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
-
+	
 	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
@@ -259,7 +259,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
-
+	
 	if valLineFormat, ok := objMap["LineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat

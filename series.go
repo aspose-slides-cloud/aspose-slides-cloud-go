@@ -283,7 +283,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "ClusteredColumn"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -294,7 +294,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valName, ok := objMap["Name"]; ok {
 		if valName != nil {
 			var valueForName string
@@ -305,7 +305,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-
+	
 	if valIsColorVaried, ok := objMap["IsColorVaried"]; ok {
 		if valIsColorVaried != nil {
 			var valueForIsColorVaried bool
@@ -316,7 +316,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.IsColorVaried = valueForIsColorVaried
 		}
 	}
-
+	
 	if valInvertedSolidFillColor, ok := objMap["InvertedSolidFillColor"]; ok {
 		if valInvertedSolidFillColor != nil {
 			var valueForInvertedSolidFillColor string
@@ -327,7 +327,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.InvertedSolidFillColor = valueForInvertedSolidFillColor
 		}
 	}
-
+	
 	if valSmooth, ok := objMap["Smooth"]; ok {
 		if valSmooth != nil {
 			var valueForSmooth bool
@@ -338,7 +338,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.Smooth = valueForSmooth
 		}
 	}
-
+	
 	if valPlotOnSecondAxis, ok := objMap["PlotOnSecondAxis"]; ok {
 		if valPlotOnSecondAxis != nil {
 			var valueForPlotOnSecondAxis bool
@@ -349,7 +349,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.PlotOnSecondAxis = valueForPlotOnSecondAxis
 		}
 	}
-
+	
 	if valOrder, ok := objMap["Order"]; ok {
 		if valOrder != nil {
 			var valueForOrder int32
@@ -360,7 +360,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.Order = valueForOrder
 		}
 	}
-
+	
 	if valNumberFormatOfYValues, ok := objMap["NumberFormatOfYValues"]; ok {
 		if valNumberFormatOfYValues != nil {
 			var valueForNumberFormatOfYValues string
@@ -371,7 +371,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.NumberFormatOfYValues = valueForNumberFormatOfYValues
 		}
 	}
-
+	
 	if valNumberFormatOfXValues, ok := objMap["NumberFormatOfXValues"]; ok {
 		if valNumberFormatOfXValues != nil {
 			var valueForNumberFormatOfXValues string
@@ -382,7 +382,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.NumberFormatOfXValues = valueForNumberFormatOfXValues
 		}
 	}
-
+	
 	if valNumberFormatOfValues, ok := objMap["NumberFormatOfValues"]; ok {
 		if valNumberFormatOfValues != nil {
 			var valueForNumberFormatOfValues string
@@ -393,7 +393,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.NumberFormatOfValues = valueForNumberFormatOfValues
 		}
 	}
-
+	
 	if valNumberFormatOfBubbleSizes, ok := objMap["NumberFormatOfBubbleSizes"]; ok {
 		if valNumberFormatOfBubbleSizes != nil {
 			var valueForNumberFormatOfBubbleSizes string
@@ -404,7 +404,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.NumberFormatOfBubbleSizes = valueForNumberFormatOfBubbleSizes
 		}
 	}
-
+	
 	if valInvertIfNegative, ok := objMap["InvertIfNegative"]; ok {
 		if valInvertIfNegative != nil {
 			var valueForInvertIfNegative bool
@@ -415,7 +415,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.InvertIfNegative = valueForInvertIfNegative
 		}
 	}
-
+	
 	if valExplosion, ok := objMap["Explosion"]; ok {
 		if valExplosion != nil {
 			var valueForExplosion int32
@@ -426,7 +426,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.Explosion = valueForExplosion
 		}
 	}
-
+	
 	if valMarker, ok := objMap["Marker"]; ok {
 		if valMarker != nil {
 			var valueForMarker SeriesMarker
@@ -437,7 +437,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.Marker = valueForMarker
 		}
 	}
-
+	
 	if valFillFormat, ok := objMap["FillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
@@ -448,7 +448,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
-
+	
 	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
@@ -459,7 +459,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
-
+	
 	if valLineFormat, ok := objMap["LineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat

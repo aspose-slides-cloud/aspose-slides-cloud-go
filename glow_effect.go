@@ -73,7 +73,7 @@ func (this *GlowEffect) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valRadius, ok := objMap["Radius"]; ok {
 		if valRadius != nil {
 			var valueForRadius float64
@@ -84,7 +84,7 @@ func (this *GlowEffect) UnmarshalJSON(b []byte) error {
 			this.Radius = valueForRadius
 		}
 	}
-
+	
 	if valColor, ok := objMap["Color"]; ok {
 		if valColor != nil {
 			var valueForColor string

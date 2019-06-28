@@ -69,7 +69,7 @@ func (this *GradientFillStop) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valColor, ok := objMap["Color"]; ok {
 		if valColor != nil {
 			var valueForColor string
@@ -80,7 +80,7 @@ func (this *GradientFillStop) UnmarshalJSON(b []byte) error {
 			this.Color = valueForColor
 		}
 	}
-
+	
 	if valPosition, ok := objMap["Position"]; ok {
 		if valPosition != nil {
 			var valueForPosition float64

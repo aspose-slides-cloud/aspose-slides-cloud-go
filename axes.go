@@ -101,7 +101,7 @@ func (this *Axes) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valHorizontalAxis, ok := objMap["HorizontalAxis"]; ok {
 		if valHorizontalAxis != nil {
 			var valueForHorizontalAxis Axis
@@ -112,7 +112,7 @@ func (this *Axes) UnmarshalJSON(b []byte) error {
 			this.HorizontalAxis = valueForHorizontalAxis
 		}
 	}
-
+	
 	if valVerticalAxis, ok := objMap["VerticalAxis"]; ok {
 		if valVerticalAxis != nil {
 			var valueForVerticalAxis Axis
@@ -123,7 +123,7 @@ func (this *Axes) UnmarshalJSON(b []byte) error {
 			this.VerticalAxis = valueForVerticalAxis
 		}
 	}
-
+	
 	if valSecondaryHorizontalAxis, ok := objMap["SecondaryHorizontalAxis"]; ok {
 		if valSecondaryHorizontalAxis != nil {
 			var valueForSecondaryHorizontalAxis Axis
@@ -134,7 +134,7 @@ func (this *Axes) UnmarshalJSON(b []byte) error {
 			this.SecondaryHorizontalAxis = valueForSecondaryHorizontalAxis
 		}
 	}
-
+	
 	if valSecondaryVerticalAxis, ok := objMap["SecondaryVerticalAxis"]; ok {
 		if valSecondaryVerticalAxis != nil {
 			var valueForSecondaryVerticalAxis Axis

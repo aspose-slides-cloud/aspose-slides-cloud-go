@@ -99,7 +99,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valFormat, ok := objMap["Format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
@@ -110,7 +110,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-
+	
 	if valShowHiddenSlides, ok := objMap["ShowHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
 			var valueForShowHiddenSlides bool
@@ -121,7 +121,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.ShowHiddenSlides = valueForShowHiddenSlides
 		}
 	}
-
+	
 	if valSaveMetafilesAsPng, ok := objMap["SaveMetafilesAsPng"]; ok {
 		if valSaveMetafilesAsPng != nil {
 			var valueForSaveMetafilesAsPng bool
@@ -132,7 +132,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.SaveMetafilesAsPng = valueForSaveMetafilesAsPng
 		}
 	}
-
+	
 	if valDrawSlidesFrame, ok := objMap["DrawSlidesFrame"]; ok {
 		if valDrawSlidesFrame != nil {
 			var valueForDrawSlidesFrame bool

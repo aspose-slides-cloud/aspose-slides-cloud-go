@@ -71,7 +71,7 @@ func (this *InputFile) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valPassword, ok := objMap["Password"]; ok {
 		if valPassword != nil {
 			var valueForPassword string
@@ -82,7 +82,7 @@ func (this *InputFile) UnmarshalJSON(b []byte) error {
 			this.Password = valueForPassword
 		}
 	}
-
+	this.Type_ = "null"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string

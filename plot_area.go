@@ -143,7 +143,7 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valX, ok := objMap["X"]; ok {
 		if valX != nil {
 			var valueForX float64
@@ -154,7 +154,7 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			this.X = valueForX
 		}
 	}
-
+	
 	if valY, ok := objMap["Y"]; ok {
 		if valY != nil {
 			var valueForY float64
@@ -165,7 +165,7 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			this.Y = valueForY
 		}
 	}
-
+	
 	if valWidth, ok := objMap["Width"]; ok {
 		if valWidth != nil {
 			var valueForWidth float64
@@ -176,7 +176,7 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-
+	
 	if valHeight, ok := objMap["Height"]; ok {
 		if valHeight != nil {
 			var valueForHeight float64
@@ -187,7 +187,7 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
-
+	
 	if valFillFormat, ok := objMap["FillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
@@ -198,7 +198,7 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
-
+	
 	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
@@ -209,7 +209,7 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
-
+	
 	if valLineFormat, ok := objMap["LineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat

@@ -87,7 +87,7 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valTemplate, ok := objMap["Template"]; ok {
 		if valTemplate != nil {
 			var valueForTemplate InputFile
@@ -98,7 +98,7 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 			this.Template = valueForTemplate
 		}
 	}
-
+	
 	if valHtmlData, ok := objMap["HtmlData"]; ok {
 		if valHtmlData != nil {
 			var valueForHtmlData InputFile
@@ -109,7 +109,7 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 			this.HtmlData = valueForHtmlData
 		}
 	}
-
+	
 	if valTemplateData, ok := objMap["TemplateData"]; ok {
 		if valTemplateData != nil {
 			var valueForTemplateData InputFile

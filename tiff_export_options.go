@@ -215,7 +215,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valFormat, ok := objMap["Format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
@@ -226,7 +226,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-
+	this.Compression = "Default"
 	if valCompression, ok := objMap["Compression"]; ok {
 		if valCompression != nil {
 			var valueForCompression string
@@ -237,7 +237,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.Compression = valueForCompression
 		}
 	}
-
+	
 	if valWidth, ok := objMap["Width"]; ok {
 		if valWidth != nil {
 			var valueForWidth int32
@@ -248,7 +248,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-
+	
 	if valHeight, ok := objMap["Height"]; ok {
 		if valHeight != nil {
 			var valueForHeight int32
@@ -259,7 +259,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
-
+	
 	if valDpiX, ok := objMap["DpiX"]; ok {
 		if valDpiX != nil {
 			var valueForDpiX int32
@@ -270,7 +270,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.DpiX = valueForDpiX
 		}
 	}
-
+	
 	if valDpiY, ok := objMap["DpiY"]; ok {
 		if valDpiY != nil {
 			var valueForDpiY int32
@@ -281,7 +281,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.DpiY = valueForDpiY
 		}
 	}
-
+	
 	if valShowHiddenSlides, ok := objMap["ShowHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
 			var valueForShowHiddenSlides bool
@@ -292,7 +292,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.ShowHiddenSlides = valueForShowHiddenSlides
 		}
 	}
-
+	this.PixelFormat = "Format1bppIndexed"
 	if valPixelFormat, ok := objMap["PixelFormat"]; ok {
 		if valPixelFormat != nil {
 			var valueForPixelFormat string
@@ -303,7 +303,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.PixelFormat = valueForPixelFormat
 		}
 	}
-
+	this.NotesPosition = "None"
 	if valNotesPosition, ok := objMap["NotesPosition"]; ok {
 		if valNotesPosition != nil {
 			var valueForNotesPosition string
@@ -314,7 +314,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.NotesPosition = valueForNotesPosition
 		}
 	}
-
+	this.CommentsPosition = "None"
 	if valCommentsPosition, ok := objMap["CommentsPosition"]; ok {
 		if valCommentsPosition != nil {
 			var valueForCommentsPosition string
@@ -325,7 +325,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.CommentsPosition = valueForCommentsPosition
 		}
 	}
-
+	
 	if valCommentsAreaWidth, ok := objMap["CommentsAreaWidth"]; ok {
 		if valCommentsAreaWidth != nil {
 			var valueForCommentsAreaWidth int32
@@ -336,7 +336,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.CommentsAreaWidth = valueForCommentsAreaWidth
 		}
 	}
-
+	
 	if valCommentsAreaColor, ok := objMap["CommentsAreaColor"]; ok {
 		if valCommentsAreaColor != nil {
 			var valueForCommentsAreaColor string
@@ -347,7 +347,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.CommentsAreaColor = valueForCommentsAreaColor
 		}
 	}
-
+	
 	if valShowCommentsByNoAuthor, ok := objMap["ShowCommentsByNoAuthor"]; ok {
 		if valShowCommentsByNoAuthor != nil {
 			var valueForShowCommentsByNoAuthor bool

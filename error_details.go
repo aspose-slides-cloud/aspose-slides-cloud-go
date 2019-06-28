@@ -77,7 +77,7 @@ func (this *ErrorDetails) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valRequestId, ok := objMap["RequestId"]; ok {
 		if valRequestId != nil {
 			var valueForRequestId string
@@ -88,7 +88,7 @@ func (this *ErrorDetails) UnmarshalJSON(b []byte) error {
 			this.RequestId = valueForRequestId
 		}
 	}
-
+	
 	if valDate, ok := objMap["Date"]; ok {
 		if valDate != nil {
 			var valueForDate time.Time

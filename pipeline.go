@@ -73,7 +73,7 @@ func (this *Pipeline) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valInput, ok := objMap["Input"]; ok {
 		if valInput != nil {
 			var valueForInput Input
@@ -84,7 +84,7 @@ func (this *Pipeline) UnmarshalJSON(b []byte) error {
 			this.Input = valueForInput
 		}
 	}
-
+	
 	if valTasks, ok := objMap["Tasks"]; ok {
 		if valTasks != nil {
 			var valueForTasks []Task

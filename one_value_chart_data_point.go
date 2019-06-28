@@ -57,7 +57,7 @@ func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valValue, ok := objMap["Value"]; ok {
 		if valValue != nil {
 			var valueForValue float64

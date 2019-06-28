@@ -115,7 +115,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valNodes, ok := objMap["Nodes"]; ok {
 		if valNodes != nil {
 			var valueForNodes []SmartArtNode
@@ -126,7 +126,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			this.Nodes = valueForNodes
 		}
 	}
-
+	
 	if valShapes, ok := objMap["Shapes"]; ok {
 		if valShapes != nil {
 			var valueForShapes ResourceUriElement
@@ -137,7 +137,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			this.Shapes = valueForShapes
 		}
 	}
-
+	
 	if valIsAssistant, ok := objMap["IsAssistant"]; ok {
 		if valIsAssistant != nil {
 			var valueForIsAssistant bool
@@ -148,7 +148,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			this.IsAssistant = valueForIsAssistant
 		}
 	}
-
+	
 	if valText, ok := objMap["Text"]; ok {
 		if valText != nil {
 			var valueForText string
@@ -159,7 +159,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
-
+	this.OrgChartLayout = "Initial"
 	if valOrgChartLayout, ok := objMap["OrgChartLayout"]; ok {
 		if valOrgChartLayout != nil {
 			var valueForOrgChartLayout string

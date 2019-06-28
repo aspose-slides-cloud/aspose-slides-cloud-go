@@ -57,7 +57,7 @@ func (this *NoFill) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "NoFill"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string

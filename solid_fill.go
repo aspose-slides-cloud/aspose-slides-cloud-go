@@ -69,7 +69,7 @@ func (this *SolidFill) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "NoFill"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -80,7 +80,7 @@ func (this *SolidFill) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	
 	if valColor, ok := objMap["Color"]; ok {
 		if valColor != nil {
 			var valueForColor string

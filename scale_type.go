@@ -26,7 +26,7 @@
  */
 
 package asposeslidescloud
-// ScaleType : 
+// ScaleType : Scale type of slide content.
 type ScaleType string
 
 // List of ScaleType ScaleType

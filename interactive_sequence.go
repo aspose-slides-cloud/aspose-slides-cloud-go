@@ -31,68 +31,68 @@ import (
 	"encoding/json"
 )
 
-// Represents blur effect 
-type IBlurEffect interface {
+// Represents comments collection of slide
+type IInteractiveSequence interface {
 
-	// radius
-	getRadius() float64
-	setRadius(newValue float64)
+	// Effect list.
+	getEffects() []Effect
+	setEffects(newValue []Effect)
 
-	// true if the bounds are grown
-	getGrow() bool
-	setGrow(newValue bool)
+	// Index of the shape that triggers the sequence.
+	getTriggerShapeIndex() int32
+	setTriggerShapeIndex(newValue int32)
 }
 
-type BlurEffect struct {
+type InteractiveSequence struct {
 
-	// radius
-	Radius float64 `json:"Radius"`
+	// Effect list.
+	Effects []Effect `json:"Effects,omitempty"`
 
-	// true if the bounds are grown
-	Grow bool `json:"Grow"`
+	// Index of the shape that triggers the sequence.
+	TriggerShapeIndex int32 `json:"TriggerShapeIndex"`
 }
 
-func (this BlurEffect) getRadius() float64 {
-	return this.Radius
+func (this InteractiveSequence) getEffects() []Effect {
+	return this.Effects
 }
 
-func (this BlurEffect) setRadius(newValue float64) {
-	this.Radius = newValue
+func (this InteractiveSequence) setEffects(newValue []Effect) {
+	this.Effects = newValue
 }
-func (this BlurEffect) getGrow() bool {
-	return this.Grow
-}
-
-func (this BlurEffect) setGrow(newValue bool) {
-	this.Grow = newValue
+func (this InteractiveSequence) getTriggerShapeIndex() int32 {
+	return this.TriggerShapeIndex
 }
 
-func (this *BlurEffect) UnmarshalJSON(b []byte) error {
+func (this InteractiveSequence) setTriggerShapeIndex(newValue int32) {
+	this.TriggerShapeIndex = newValue
+}
+
+func (this *InteractiveSequence) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
 		return err
 	}
 	
-	if valRadius, ok := objMap["Radius"]; ok {
-		if valRadius != nil {
-			var valueForRadius float64
-			err = json.Unmarshal(*valRadius, &valueForRadius)
+	if valEffects, ok := objMap["Effects"]; ok {
+		if valEffects != nil {
+			var valueForEffects []Effect
+			err = json.Unmarshal(*valEffects, &valueForEffects)
 			if err != nil {
 				return err
 			}
-			this.Radius = valueForRadius
+			this.Effects = valueForEffects
 		}
 	}
 	
-	if valGrow, ok := objMap["Grow"]; ok {
-		if valGrow != nil {
-			var valueForGrow bool
-			err = json.Unmarshal(*valGrow, &valueForGrow)
+	if valTriggerShapeIndex, ok := objMap["TriggerShapeIndex"]; ok {
+		if valTriggerShapeIndex != nil {
+			var valueForTriggerShapeIndex int32
+			err = json.Unmarshal(*valTriggerShapeIndex, &valueForTriggerShapeIndex)
 			if err != nil {
 				return err
 			}
-			this.Grow = valueForGrow
+			this.TriggerShapeIndex = valueForTriggerShapeIndex
 		}
 	}
 

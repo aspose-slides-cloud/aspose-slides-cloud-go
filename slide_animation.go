@@ -31,8 +31,8 @@ import (
 	"encoding/json"
 )
 
-// List of images.
-type IImages interface {
+// Represents comments collection of slide
+type ISlideAnimation interface {
 
 	// Gets or sets the link to this resource.
 	getSelfUri() IResourceUri
@@ -41,43 +41,59 @@ type IImages interface {
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
-	getList() []Image
-	setList(newValue []Image)
+	// Main sequence.
+	getMainSequence() []Effect
+	setMainSequence(newValue []Effect)
+
+	// Interactive sequence list.
+	getInteractiveSequences() []InteractiveSequence
+	setInteractiveSequences(newValue []InteractiveSequence)
 }
 
-type Images struct {
+type SlideAnimation struct {
 
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
-	List []Image `json:"List,omitempty"`
+	// Main sequence.
+	MainSequence []Effect `json:"MainSequence,omitempty"`
+
+	// Interactive sequence list.
+	InteractiveSequences []InteractiveSequence `json:"InteractiveSequences,omitempty"`
 }
 
-func (this Images) getSelfUri() IResourceUri {
+func (this SlideAnimation) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Images) setSelfUri(newValue IResourceUri) {
+func (this SlideAnimation) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Images) getAlternateLinks() []ResourceUri {
+func (this SlideAnimation) getAlternateLinks() []ResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Images) setAlternateLinks(newValue []ResourceUri) {
+func (this SlideAnimation) setAlternateLinks(newValue []ResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Images) getList() []Image {
-	return this.List
+func (this SlideAnimation) getMainSequence() []Effect {
+	return this.MainSequence
 }
 
-func (this Images) setList(newValue []Image) {
-	this.List = newValue
+func (this SlideAnimation) setMainSequence(newValue []Effect) {
+	this.MainSequence = newValue
+}
+func (this SlideAnimation) getInteractiveSequences() []InteractiveSequence {
+	return this.InteractiveSequences
 }
 
-func (this *Images) UnmarshalJSON(b []byte) error {
+func (this SlideAnimation) setInteractiveSequences(newValue []InteractiveSequence) {
+	this.InteractiveSequences = newValue
+}
+
+func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
@@ -106,14 +122,25 @@ func (this *Images) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
-	if valList, ok := objMap["List"]; ok {
-		if valList != nil {
-			var valueForList []Image
-			err = json.Unmarshal(*valList, &valueForList)
+	if valMainSequence, ok := objMap["MainSequence"]; ok {
+		if valMainSequence != nil {
+			var valueForMainSequence []Effect
+			err = json.Unmarshal(*valMainSequence, &valueForMainSequence)
 			if err != nil {
 				return err
 			}
-			this.List = valueForList
+			this.MainSequence = valueForMainSequence
+		}
+	}
+	
+	if valInteractiveSequences, ok := objMap["InteractiveSequences"]; ok {
+		if valInteractiveSequences != nil {
+			var valueForInteractiveSequences []InteractiveSequence
+			err = json.Unmarshal(*valInteractiveSequences, &valueForInteractiveSequences)
+			if err != nil {
+				return err
+			}
+			this.InteractiveSequences = valueForInteractiveSequences
 		}
 	}
 

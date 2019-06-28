@@ -549,7 +549,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valIsVisible, ok := objMap["IsVisible"]; ok {
 		if valIsVisible != nil {
 			var valueForIsVisible bool
@@ -560,7 +560,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsVisible = valueForIsVisible
 		}
 	}
-
+	
 	if valHasTitle, ok := objMap["HasTitle"]; ok {
 		if valHasTitle != nil {
 			var valueForHasTitle bool
@@ -571,7 +571,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.HasTitle = valueForHasTitle
 		}
 	}
-
+	this.Position = "Bottom"
 	if valPosition, ok := objMap["Position"]; ok {
 		if valPosition != nil {
 			var valueForPosition string
@@ -582,7 +582,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.Position = valueForPosition
 		}
 	}
-
+	this.DisplayUnit = "None"
 	if valDisplayUnit, ok := objMap["DisplayUnit"]; ok {
 		if valDisplayUnit != nil {
 			var valueForDisplayUnit string
@@ -593,7 +593,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.DisplayUnit = valueForDisplayUnit
 		}
 	}
-
+	this.BaseUnitScale = "Days"
 	if valBaseUnitScale, ok := objMap["BaseUnitScale"]; ok {
 		if valBaseUnitScale != nil {
 			var valueForBaseUnitScale string
@@ -604,7 +604,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.BaseUnitScale = valueForBaseUnitScale
 		}
 	}
-
+	
 	if valIsAutomaticMajorUnit, ok := objMap["IsAutomaticMajorUnit"]; ok {
 		if valIsAutomaticMajorUnit != nil {
 			var valueForIsAutomaticMajorUnit bool
@@ -615,7 +615,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticMajorUnit = valueForIsAutomaticMajorUnit
 		}
 	}
-
+	
 	if valMajorUnit, ok := objMap["MajorUnit"]; ok {
 		if valMajorUnit != nil {
 			var valueForMajorUnit float64
@@ -626,7 +626,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MajorUnit = valueForMajorUnit
 		}
 	}
-
+	this.MajorUnitScale = "Days"
 	if valMajorUnitScale, ok := objMap["MajorUnitScale"]; ok {
 		if valMajorUnitScale != nil {
 			var valueForMajorUnitScale string
@@ -637,7 +637,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MajorUnitScale = valueForMajorUnitScale
 		}
 	}
-
+	this.MajorTickMark = "Cross"
 	if valMajorTickMark, ok := objMap["MajorTickMark"]; ok {
 		if valMajorTickMark != nil {
 			var valueForMajorTickMark string
@@ -648,7 +648,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MajorTickMark = valueForMajorTickMark
 		}
 	}
-
+	
 	if valIsAutomaticMinorUnit, ok := objMap["IsAutomaticMinorUnit"]; ok {
 		if valIsAutomaticMinorUnit != nil {
 			var valueForIsAutomaticMinorUnit bool
@@ -659,7 +659,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticMinorUnit = valueForIsAutomaticMinorUnit
 		}
 	}
-
+	
 	if valMinorUnit, ok := objMap["MinorUnit"]; ok {
 		if valMinorUnit != nil {
 			var valueForMinorUnit float64
@@ -670,7 +670,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MinorUnit = valueForMinorUnit
 		}
 	}
-
+	this.MinorUnitScale = "Days"
 	if valMinorUnitScale, ok := objMap["MinorUnitScale"]; ok {
 		if valMinorUnitScale != nil {
 			var valueForMinorUnitScale string
@@ -681,7 +681,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MinorUnitScale = valueForMinorUnitScale
 		}
 	}
-
+	this.MinorTickMark = "Cross"
 	if valMinorTickMark, ok := objMap["MinorTickMark"]; ok {
 		if valMinorTickMark != nil {
 			var valueForMinorTickMark string
@@ -692,7 +692,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MinorTickMark = valueForMinorTickMark
 		}
 	}
-
+	
 	if valIsAutomaticMaxValue, ok := objMap["IsAutomaticMaxValue"]; ok {
 		if valIsAutomaticMaxValue != nil {
 			var valueForIsAutomaticMaxValue bool
@@ -703,7 +703,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticMaxValue = valueForIsAutomaticMaxValue
 		}
 	}
-
+	
 	if valMaxValue, ok := objMap["MaxValue"]; ok {
 		if valMaxValue != nil {
 			var valueForMaxValue float64
@@ -714,7 +714,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MaxValue = valueForMaxValue
 		}
 	}
-
+	
 	if valIsAutomaticMinValue, ok := objMap["IsAutomaticMinValue"]; ok {
 		if valIsAutomaticMinValue != nil {
 			var valueForIsAutomaticMinValue bool
@@ -725,7 +725,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticMinValue = valueForIsAutomaticMinValue
 		}
 	}
-
+	
 	if valMinValue, ok := objMap["MinValue"]; ok {
 		if valMinValue != nil {
 			var valueForMinValue float64
@@ -736,7 +736,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MinValue = valueForMinValue
 		}
 	}
-
+	
 	if valIsLogarithmic, ok := objMap["IsLogarithmic"]; ok {
 		if valIsLogarithmic != nil {
 			var valueForIsLogarithmic bool
@@ -747,7 +747,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsLogarithmic = valueForIsLogarithmic
 		}
 	}
-
+	
 	if valLogBase, ok := objMap["LogBase"]; ok {
 		if valLogBase != nil {
 			var valueForLogBase float64
@@ -758,7 +758,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.LogBase = valueForLogBase
 		}
 	}
-
+	this.CategoryAxisType = "Text"
 	if valCategoryAxisType, ok := objMap["CategoryAxisType"]; ok {
 		if valCategoryAxisType != nil {
 			var valueForCategoryAxisType string
@@ -769,7 +769,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.CategoryAxisType = valueForCategoryAxisType
 		}
 	}
-
+	
 	if valAxisBetweenCategories, ok := objMap["AxisBetweenCategories"]; ok {
 		if valAxisBetweenCategories != nil {
 			var valueForAxisBetweenCategories bool
@@ -780,7 +780,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.AxisBetweenCategories = valueForAxisBetweenCategories
 		}
 	}
-
+	
 	if valLabelOffset, ok := objMap["LabelOffset"]; ok {
 		if valLabelOffset != nil {
 			var valueForLabelOffset int32
@@ -791,7 +791,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.LabelOffset = valueForLabelOffset
 		}
 	}
-
+	
 	if valIsPlotOrderReversed, ok := objMap["IsPlotOrderReversed"]; ok {
 		if valIsPlotOrderReversed != nil {
 			var valueForIsPlotOrderReversed bool
@@ -802,7 +802,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsPlotOrderReversed = valueForIsPlotOrderReversed
 		}
 	}
-
+	
 	if valIsNumberFormatLinkedToSource, ok := objMap["IsNumberFormatLinkedToSource"]; ok {
 		if valIsNumberFormatLinkedToSource != nil {
 			var valueForIsNumberFormatLinkedToSource bool
@@ -813,7 +813,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsNumberFormatLinkedToSource = valueForIsNumberFormatLinkedToSource
 		}
 	}
-
+	
 	if valNumberFormat, ok := objMap["NumberFormat"]; ok {
 		if valNumberFormat != nil {
 			var valueForNumberFormat string
@@ -824,7 +824,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.NumberFormat = valueForNumberFormat
 		}
 	}
-
+	this.CrossType = "AxisCrossesAtZero"
 	if valCrossType, ok := objMap["CrossType"]; ok {
 		if valCrossType != nil {
 			var valueForCrossType string
@@ -835,7 +835,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.CrossType = valueForCrossType
 		}
 	}
-
+	
 	if valCrossAt, ok := objMap["CrossAt"]; ok {
 		if valCrossAt != nil {
 			var valueForCrossAt float64
@@ -846,7 +846,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.CrossAt = valueForCrossAt
 		}
 	}
-
+	
 	if valIsAutomaticTickMarksSpacing, ok := objMap["IsAutomaticTickMarksSpacing"]; ok {
 		if valIsAutomaticTickMarksSpacing != nil {
 			var valueForIsAutomaticTickMarksSpacing bool
@@ -857,7 +857,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticTickMarksSpacing = valueForIsAutomaticTickMarksSpacing
 		}
 	}
-
+	
 	if valTickMarksSpacing, ok := objMap["TickMarksSpacing"]; ok {
 		if valTickMarksSpacing != nil {
 			var valueForTickMarksSpacing int32
@@ -868,7 +868,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.TickMarksSpacing = valueForTickMarksSpacing
 		}
 	}
-
+	
 	if valIsAutomaticTickLabelSpacing, ok := objMap["IsAutomaticTickLabelSpacing"]; ok {
 		if valIsAutomaticTickLabelSpacing != nil {
 			var valueForIsAutomaticTickLabelSpacing bool
@@ -879,7 +879,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticTickLabelSpacing = valueForIsAutomaticTickLabelSpacing
 		}
 	}
-
+	
 	if valTickLabelSpacing, ok := objMap["TickLabelSpacing"]; ok {
 		if valTickLabelSpacing != nil {
 			var valueForTickLabelSpacing int32
@@ -890,7 +890,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.TickLabelSpacing = valueForTickLabelSpacing
 		}
 	}
-
+	this.TickLabelPosition = "High"
 	if valTickLabelPosition, ok := objMap["TickLabelPosition"]; ok {
 		if valTickLabelPosition != nil {
 			var valueForTickLabelPosition string
@@ -901,7 +901,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.TickLabelPosition = valueForTickLabelPosition
 		}
 	}
-
+	
 	if valTickLabelRotationAngle, ok := objMap["TickLabelRotationAngle"]; ok {
 		if valTickLabelRotationAngle != nil {
 			var valueForTickLabelRotationAngle float64
@@ -912,7 +912,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.TickLabelRotationAngle = valueForTickLabelRotationAngle
 		}
 	}
-
+	
 	if valFillFormat, ok := objMap["FillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
@@ -923,7 +923,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
-
+	
 	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
@@ -934,7 +934,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
-
+	
 	if valLineFormat, ok := objMap["LineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat

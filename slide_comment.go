@@ -81,7 +81,7 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valAuthor, ok := objMap["Author"]; ok {
 		if valAuthor != nil {
 			var valueForAuthor string
@@ -92,7 +92,7 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 			this.Author = valueForAuthor
 		}
 	}
-
+	
 	if valText, ok := objMap["Text"]; ok {
 		if valText != nil {
 			var valueForText string
@@ -103,7 +103,7 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
-
+	
 	if valCreatedTime, ok := objMap["CreatedTime"]; ok {
 		if valCreatedTime != nil {
 			var valueForCreatedTime string

@@ -147,7 +147,7 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valName, ok := objMap["Name"]; ok {
 		if valName != nil {
 			var valueForName string
@@ -158,7 +158,7 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-
+	
 	if valIsFolder, ok := objMap["IsFolder"]; ok {
 		if valIsFolder != nil {
 			var valueForIsFolder bool
@@ -169,7 +169,7 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 			this.IsFolder = valueForIsFolder
 		}
 	}
-
+	
 	if valModifiedDate, ok := objMap["ModifiedDate"]; ok {
 		if valModifiedDate != nil {
 			var valueForModifiedDate time.Time
@@ -180,7 +180,7 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 			this.ModifiedDate = valueForModifiedDate
 		}
 	}
-
+	
 	if valSize, ok := objMap["Size"]; ok {
 		if valSize != nil {
 			var valueForSize int64
@@ -191,7 +191,7 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 			this.Size = valueForSize
 		}
 	}
-
+	
 	if valPath, ok := objMap["Path"]; ok {
 		if valPath != nil {
 			var valueForPath string
@@ -202,7 +202,7 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 			this.Path = valueForPath
 		}
 	}
-
+	
 	if valVersionId, ok := objMap["VersionId"]; ok {
 		if valVersionId != nil {
 			var valueForVersionId string
@@ -213,7 +213,7 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 			this.VersionId = valueForVersionId
 		}
 	}
-
+	
 	if valIsLatest, ok := objMap["IsLatest"]; ok {
 		if valIsLatest != nil {
 			var valueForIsLatest bool

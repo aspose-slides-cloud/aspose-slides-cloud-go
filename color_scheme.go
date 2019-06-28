@@ -215,7 +215,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	
 	if valSelfUri, ok := objMap["SelfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
@@ -226,7 +226,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
-
+	
 	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
@@ -237,7 +237,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
-
+	
 	if valAccent1, ok := objMap["Accent1"]; ok {
 		if valAccent1 != nil {
 			var valueForAccent1 string
@@ -248,7 +248,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent1 = valueForAccent1
 		}
 	}
-
+	
 	if valAccent2, ok := objMap["Accent2"]; ok {
 		if valAccent2 != nil {
 			var valueForAccent2 string
@@ -259,7 +259,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent2 = valueForAccent2
 		}
 	}
-
+	
 	if valAccent3, ok := objMap["Accent3"]; ok {
 		if valAccent3 != nil {
 			var valueForAccent3 string
@@ -270,7 +270,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent3 = valueForAccent3
 		}
 	}
-
+	
 	if valAccent4, ok := objMap["Accent4"]; ok {
 		if valAccent4 != nil {
 			var valueForAccent4 string
@@ -281,7 +281,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent4 = valueForAccent4
 		}
 	}
-
+	
 	if valAccent5, ok := objMap["Accent5"]; ok {
 		if valAccent5 != nil {
 			var valueForAccent5 string
@@ -292,7 +292,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent5 = valueForAccent5
 		}
 	}
-
+	
 	if valAccent6, ok := objMap["Accent6"]; ok {
 		if valAccent6 != nil {
 			var valueForAccent6 string
@@ -303,7 +303,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent6 = valueForAccent6
 		}
 	}
-
+	
 	if valDark1, ok := objMap["Dark1"]; ok {
 		if valDark1 != nil {
 			var valueForDark1 string
@@ -314,7 +314,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Dark1 = valueForDark1
 		}
 	}
-
+	
 	if valDark2, ok := objMap["Dark2"]; ok {
 		if valDark2 != nil {
 			var valueForDark2 string
@@ -325,7 +325,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Dark2 = valueForDark2
 		}
 	}
-
+	
 	if valFollowedHyperlink, ok := objMap["FollowedHyperlink"]; ok {
 		if valFollowedHyperlink != nil {
 			var valueForFollowedHyperlink string
@@ -336,7 +336,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.FollowedHyperlink = valueForFollowedHyperlink
 		}
 	}
-
+	
 	if valHyperlink, ok := objMap["Hyperlink"]; ok {
 		if valHyperlink != nil {
 			var valueForHyperlink string
@@ -347,7 +347,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Hyperlink = valueForHyperlink
 		}
 	}
-
+	
 	if valLight1, ok := objMap["Light1"]; ok {
 		if valLight1 != nil {
 			var valueForLight1 string
@@ -358,7 +358,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Light1 = valueForLight1
 		}
 	}
-
+	
 	if valLight2, ok := objMap["Light2"]; ok {
 		if valLight2 != nil {
 			var valueForLight2 string

@@ -143,7 +143,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-
+	this.Type_ = "NoFill"
 	if valType, ok := objMap["Type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -154,7 +154,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-
+	this.Direction = "FromCorner1"
 	if valDirection, ok := objMap["Direction"]; ok {
 		if valDirection != nil {
 			var valueForDirection string
@@ -165,7 +165,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.Direction = valueForDirection
 		}
 	}
-
+	this.Shape = "Linear"
 	if valShape, ok := objMap["Shape"]; ok {
 		if valShape != nil {
 			var valueForShape string
@@ -176,7 +176,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.Shape = valueForShape
 		}
 	}
-
+	
 	if valStops, ok := objMap["Stops"]; ok {
 		if valStops != nil {
 			var valueForStops []GradientFillStop
@@ -187,7 +187,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.Stops = valueForStops
 		}
 	}
-
+	
 	if valLinearAngle, ok := objMap["LinearAngle"]; ok {
 		if valLinearAngle != nil {
 			var valueForLinearAngle float64
@@ -198,7 +198,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.LinearAngle = valueForLinearAngle
 		}
 	}
-
+	
 	if valIsScaled, ok := objMap["IsScaled"]; ok {
 		if valIsScaled != nil {
 			var valueForIsScaled bool
@@ -209,7 +209,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.IsScaled = valueForIsScaled
 		}
 	}
-
+	this.TileFlip = "NoFlip"
 	if valTileFlip, ok := objMap["TileFlip"]; ok {
 		if valTileFlip != nil {
 			var valueForTileFlip string
