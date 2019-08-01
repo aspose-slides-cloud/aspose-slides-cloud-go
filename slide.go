@@ -31,13 +31,14 @@ import (
 	"encoding/json"
 )
 
-
+// Presentation slide.
 type ISlide interface {
 
 	// Gets or sets the link to this resource.
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
@@ -91,6 +92,7 @@ type Slide struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the width.

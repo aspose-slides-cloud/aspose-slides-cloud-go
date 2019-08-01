@@ -31,25 +31,31 @@ import (
 	"encoding/json"
 )
 
-
+// Update shape task.
 type IUpdateShape interface {
 
+	// Task type.
 	getType() string
 	setType(newValue string)
 
+	// Shape DTO.
 	getShape() IShapeBase
 	setShape(newValue IShapeBase)
 
+	// Shape path for a grouped or SmartArt shape.
 	getShapePath() string
 	setShapePath(newValue string)
 }
 
 type UpdateShape struct {
 
+	// Task type.
 	Type_ string `json:"Type"`
 
+	// Shape DTO.
 	Shape IShapeBase `json:"Shape,omitempty"`
 
+	// Shape path for a grouped or SmartArt shape.
 	ShapePath string `json:"ShapePath,omitempty"`
 }
 

@@ -34,6 +34,7 @@ import (
 // Provides options that control how a presentation is saved in SWF format.
 type ISwfExportOptions interface {
 
+	// Export format.
 	getFormat() string
 	setFormat(newValue string)
 
@@ -120,6 +121,7 @@ type ISwfExportOptions interface {
 
 type SwfExportOptions struct {
 
+	// Export format.
 	Format string `json:"Format,omitempty"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 

@@ -34,6 +34,7 @@ import (
 // Provides options that control how a presentation is saved in an image format.
 type IImageExportOptions interface {
 
+	// Export format.
 	getFormat() string
 	setFormat(newValue string)
 
@@ -56,6 +57,7 @@ type IImageExportOptions interface {
 
 type ImageExportOptions struct {
 
+	// Export format.
 	Format string `json:"Format,omitempty"`
 
 	// Gets or sets the position of the notes on the page.

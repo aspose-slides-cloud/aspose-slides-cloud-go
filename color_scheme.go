@@ -38,42 +38,55 @@ type IColorScheme interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// First accent color.
 	getAccent1() string
 	setAccent1(newValue string)
 
+	// Second accent color.
 	getAccent2() string
 	setAccent2(newValue string)
 
+	// Third accent color.
 	getAccent3() string
 	setAccent3(newValue string)
 
+	// Fourth accent color.
 	getAccent4() string
 	setAccent4(newValue string)
 
+	// Fifth accent color.
 	getAccent5() string
 	setAccent5(newValue string)
 
+	// Sixth accent color.
 	getAccent6() string
 	setAccent6(newValue string)
 
+	// First dark color.
 	getDark1() string
 	setDark1(newValue string)
 
+	// Second dark color.
 	getDark2() string
 	setDark2(newValue string)
 
+	// Visited hyperlink color.
 	getFollowedHyperlink() string
 	setFollowedHyperlink(newValue string)
 
+	// Hyperlink color/
 	getHyperlink() string
 	setHyperlink(newValue string)
 
+	// First light color.
 	getLight1() string
 	setLight1(newValue string)
 
+	// Second light color.
 	getLight2() string
 	setLight2(newValue string)
 }
@@ -83,30 +96,43 @@ type ColorScheme struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// First accent color.
 	Accent1 string `json:"Accent1,omitempty"`
 
+	// Second accent color.
 	Accent2 string `json:"Accent2,omitempty"`
 
+	// Third accent color.
 	Accent3 string `json:"Accent3,omitempty"`
 
+	// Fourth accent color.
 	Accent4 string `json:"Accent4,omitempty"`
 
+	// Fifth accent color.
 	Accent5 string `json:"Accent5,omitempty"`
 
+	// Sixth accent color.
 	Accent6 string `json:"Accent6,omitempty"`
 
+	// First dark color.
 	Dark1 string `json:"Dark1,omitempty"`
 
+	// Second dark color.
 	Dark2 string `json:"Dark2,omitempty"`
 
+	// Visited hyperlink color.
 	FollowedHyperlink string `json:"FollowedHyperlink,omitempty"`
 
+	// Hyperlink color/
 	Hyperlink string `json:"Hyperlink,omitempty"`
 
+	// First light color.
 	Light1 string `json:"Light1,omitempty"`
 
+	// Second light color.
 	Light2 string `json:"Light2,omitempty"`
 }
 

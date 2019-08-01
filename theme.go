@@ -38,18 +38,23 @@ type ITheme interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// Name.
 	getName() string
 	setName(newValue string)
 
+	// Color scheme.
 	getColorScheme() IResourceUriElement
 	setColorScheme(newValue IResourceUriElement)
 
+	// Font scheme.
 	getFontScheme() IResourceUriElement
 	setFontScheme(newValue IResourceUriElement)
 
+	// Format scheme.
 	getFormatScheme() IResourceUriElement
 	setFormatScheme(newValue IResourceUriElement)
 }
@@ -59,14 +64,19 @@ type Theme struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// Name.
 	Name string `json:"Name,omitempty"`
 
+	// Color scheme.
 	ColorScheme IResourceUriElement `json:"ColorScheme,omitempty"`
 
+	// Font scheme.
 	FontScheme IResourceUriElement `json:"FontScheme,omitempty"`
 
+	// Format scheme.
 	FormatScheme IResourceUriElement `json:"FormatScheme,omitempty"`
 }
 

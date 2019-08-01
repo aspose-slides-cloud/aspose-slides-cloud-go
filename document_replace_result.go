@@ -38,6 +38,7 @@ type IDocumentReplaceResult interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
@@ -71,6 +72,7 @@ type DocumentReplaceResult struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Link to Document properties.

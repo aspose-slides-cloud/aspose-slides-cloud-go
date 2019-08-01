@@ -31,20 +31,24 @@ import (
 	"encoding/json"
 )
 
-
+// Reset slide task.
 type IResetSlide interface {
 
+	// Task type.
 	getType() string
 	setType(newValue string)
 
+	// Slide position.
 	getPosition() int32
 	setPosition(newValue int32)
 }
 
 type ResetSlide struct {
 
+	// Task type.
 	Type_ string `json:"Type"`
 
+	// Slide position.
 	Position int32 `json:"Position"`
 }
 

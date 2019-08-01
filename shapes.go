@@ -38,9 +38,11 @@ type IShapes interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// List of shape links.
 	getShapesLinks() []ResourceUriElement
 	setShapesLinks(newValue []ResourceUriElement)
 }
@@ -50,8 +52,10 @@ type Shapes struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// List of shape links.
 	ShapesLinks []ResourceUriElement `json:"ShapesLinks,omitempty"`
 }
 

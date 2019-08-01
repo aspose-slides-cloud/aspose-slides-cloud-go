@@ -31,20 +31,24 @@ import (
 	"encoding/json"
 )
 
-
+// Remove slide task.
 type IRemoveSlide interface {
 
+	// Task type.
 	getType() string
 	setType(newValue string)
 
+	// Position of slide to be removed.
 	getPosition() int32
 	setPosition(newValue int32)
 }
 
 type RemoveSlide struct {
 
+	// Task type.
 	Type_ string `json:"Type"`
 
+	// Position of slide to be removed.
 	Position int32 `json:"Position"`
 }
 

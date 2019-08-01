@@ -38,6 +38,7 @@ type IGeometryShape interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
@@ -56,6 +57,10 @@ type IGeometryShape interface {
 	// Gets or sets the alternative text.
 	getAlternativeText() string
 	setAlternativeText(newValue string)
+
+	// The title of alternative text associated with the shape.
+	getAlternativeTextTitle() string
+	setAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	getHidden() bool
@@ -92,9 +97,11 @@ type IGeometryShape interface {
 	getType() string
 	setType(newValue string)
 
+	// Shape type.
 	getShapeType() string
 	setShapeType(newValue string)
 
+	// Geometry shape type.
 	getGeometryShapeType() string
 	setGeometryShapeType(newValue string)
 }
@@ -104,6 +111,7 @@ type GeometryShape struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
@@ -117,6 +125,9 @@ type GeometryShape struct {
 
 	// Gets or sets the alternative text.
 	AlternativeText string `json:"AlternativeText,omitempty"`
+
+	// The title of alternative text associated with the shape.
+	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	Hidden bool `json:"Hidden,omitempty"`
@@ -144,8 +155,10 @@ type GeometryShape struct {
 
 	Type_ string `json:"Type,omitempty"`
 
+	// Shape type.
 	ShapeType string `json:"ShapeType"`
 
+	// Geometry shape type.
 	GeometryShapeType string `json:"GeometryShapeType"`
 }
 
@@ -190,6 +203,13 @@ func (this GeometryShape) getAlternativeText() string {
 
 func (this GeometryShape) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
+}
+func (this GeometryShape) getAlternativeTextTitle() string {
+	return this.AlternativeTextTitle
+}
+
+func (this GeometryShape) setAlternativeTextTitle(newValue string) {
+	this.AlternativeTextTitle = newValue
 }
 func (this GeometryShape) getHidden() bool {
 	return this.Hidden
@@ -339,6 +359,17 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternativeText = valueForAlternativeText
+		}
+	}
+	
+	if valAlternativeTextTitle, ok := objMap["AlternativeTextTitle"]; ok {
+		if valAlternativeTextTitle != nil {
+			var valueForAlternativeTextTitle string
+			err = json.Unmarshal(*valAlternativeTextTitle, &valueForAlternativeTextTitle)
+			if err != nil {
+				return err
+			}
+			this.AlternativeTextTitle = valueForAlternativeTextTitle
 		}
 	}
 	

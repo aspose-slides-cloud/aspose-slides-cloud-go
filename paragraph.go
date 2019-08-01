@@ -38,66 +38,87 @@ type IParagraph interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// Left margin.
 	getMarginLeft() float64
 	setMarginLeft(newValue float64)
 
+	// Right margin.
 	getMarginRight() float64
 	setMarginRight(newValue float64)
 
+	// Left spacing.
 	getSpaceBefore() float64
 	setSpaceBefore(newValue float64)
 
+	// Right spacing.
 	getSpaceAfter() float64
 	setSpaceAfter(newValue float64)
 
+	// Spacing between lines.
 	getSpaceWithin() float64
 	setSpaceWithin(newValue float64)
 
+	// First line indent.
 	getIndent() float64
 	setIndent(newValue float64)
 
+	// Text alignment.
 	getAlignment() string
 	setAlignment(newValue string)
 
+	// Font alignment.
 	getFontAlignment() string
 	setFontAlignment(newValue string)
 
+	// Default tabulation size.
 	getDefaultTabSize() float64
 	setDefaultTabSize(newValue float64)
 
+	// Depth.
 	getDepth() int32
 	setDepth(newValue int32)
 
+	// Bullet char.
 	getBulletChar() string
 	setBulletChar(newValue string)
 
+	// Bullet height.
 	getBulletHeight() float64
 	setBulletHeight(newValue float64)
 
+	// Bullet type.
 	getBulletType() string
 	setBulletType(newValue string)
 
+	// Starting number for a numbered bullet.
 	getNumberedBulletStartWith() int32
 	setNumberedBulletStartWith(newValue int32)
 
+	// Numbered bullet style.
 	getNumberedBulletStyle() string
 	setNumberedBulletStyle(newValue string)
 
+	// True if hanging punctuation is used with the paragraph.
 	getHangingPunctuation() string
 	setHangingPunctuation(newValue string)
 
+	// True if East Asian line break is used with the paragraph.
 	getEastAsianLineBreak() string
 	setEastAsianLineBreak(newValue string)
 
+	// True if Latin line break is used with the paragraph.
 	getLatinLineBreak() string
 	setLatinLineBreak(newValue string)
 
+	// True if right to left direction is used with the paragraph.
 	getRightToLeft() string
 	setRightToLeft(newValue string)
 
+	// List of portion links.
 	getPortionList() []ResourceUriElement
 	setPortionList(newValue []ResourceUriElement)
 }
@@ -107,46 +128,67 @@ type Paragraph struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// Left margin.
 	MarginLeft float64 `json:"MarginLeft,omitempty"`
 
+	// Right margin.
 	MarginRight float64 `json:"MarginRight,omitempty"`
 
+	// Left spacing.
 	SpaceBefore float64 `json:"SpaceBefore,omitempty"`
 
+	// Right spacing.
 	SpaceAfter float64 `json:"SpaceAfter,omitempty"`
 
+	// Spacing between lines.
 	SpaceWithin float64 `json:"SpaceWithin,omitempty"`
 
+	// First line indent.
 	Indent float64 `json:"Indent,omitempty"`
 
+	// Text alignment.
 	Alignment string `json:"Alignment,omitempty"`
 
+	// Font alignment.
 	FontAlignment string `json:"FontAlignment,omitempty"`
 
+	// Default tabulation size.
 	DefaultTabSize float64 `json:"DefaultTabSize,omitempty"`
 
+	// Depth.
 	Depth int32 `json:"Depth,omitempty"`
 
+	// Bullet char.
 	BulletChar string `json:"BulletChar,omitempty"`
 
+	// Bullet height.
 	BulletHeight float64 `json:"BulletHeight,omitempty"`
 
+	// Bullet type.
 	BulletType string `json:"BulletType,omitempty"`
 
+	// Starting number for a numbered bullet.
 	NumberedBulletStartWith int32 `json:"NumberedBulletStartWith,omitempty"`
 
+	// Numbered bullet style.
 	NumberedBulletStyle string `json:"NumberedBulletStyle,omitempty"`
 
+	// True if hanging punctuation is used with the paragraph.
 	HangingPunctuation string `json:"HangingPunctuation,omitempty"`
 
+	// True if East Asian line break is used with the paragraph.
 	EastAsianLineBreak string `json:"EastAsianLineBreak,omitempty"`
 
+	// True if Latin line break is used with the paragraph.
 	LatinLineBreak string `json:"LatinLineBreak,omitempty"`
 
+	// True if right to left direction is used with the paragraph.
 	RightToLeft string `json:"RightToLeft,omitempty"`
 
+	// List of portion links.
 	PortionList []ResourceUriElement `json:"PortionList,omitempty"`
 }
 

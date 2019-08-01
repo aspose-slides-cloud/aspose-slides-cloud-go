@@ -26,7 +26,7 @@
  */
 
 package asposeslidescloud
-// ShapeExportFormat : Represents a format for export individual shape.
+// ShapeExportFormat : Represents a format for individual shape export.
 type ShapeExportFormat string
 
 // List of ShapeExportFormat ShapeExportFormat

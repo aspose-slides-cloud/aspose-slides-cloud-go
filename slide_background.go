@@ -38,15 +38,19 @@ type ISlideBackground interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// Fill type.
 	getType() string
 	setType(newValue string)
 
+	// Fill format.
 	getFillFormat() IFillFormat
 	setFillFormat(newValue IFillFormat)
 
+	// Effect format.
 	getEffectFormat() IEffectFormat
 	setEffectFormat(newValue IEffectFormat)
 }
@@ -56,12 +60,16 @@ type SlideBackground struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// Fill type.
 	Type_ string `json:"Type"`
 
+	// Fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
 
+	// Effect format.
 	EffectFormat IEffectFormat `json:"EffectFormat,omitempty"`
 }
 

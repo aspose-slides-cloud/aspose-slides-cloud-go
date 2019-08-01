@@ -31,15 +31,17 @@ import (
 	"encoding/json"
 )
 
-
+// One value chart data point.
 type IOneValueChartDataPoint interface {
 
+	// Value.
 	getValue() float64
 	setValue(newValue float64)
 }
 
 type OneValueChartDataPoint struct {
 
+	// Value.
 	Value float64 `json:"Value"`
 }
 

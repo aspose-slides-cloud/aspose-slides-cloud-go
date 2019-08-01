@@ -31,22 +31,26 @@ import (
 	"encoding/json"
 )
 
-
+// Master slide.
 type IMasterSlide interface {
 
 	// Gets or sets the link to this resource.
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// Name.
 	getName() string
 	setName(newValue string)
 
+	// List of layout slide links.
 	getLayoutSlides() []ResourceUriElement
 	setLayoutSlides(newValue []ResourceUriElement)
 
+	// List of depending slide links.
 	getDependingSlides() []ResourceUriElement
 	setDependingSlides(newValue []ResourceUriElement)
 }
@@ -56,12 +60,16 @@ type MasterSlide struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// Name.
 	Name string `json:"Name,omitempty"`
 
+	// List of layout slide links.
 	LayoutSlides []ResourceUriElement `json:"LayoutSlides,omitempty"`
 
+	// List of depending slide links.
 	DependingSlides []ResourceUriElement `json:"DependingSlides,omitempty"`
 }
 

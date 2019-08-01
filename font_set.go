@@ -31,25 +31,31 @@ import (
 	"encoding/json"
 )
 
-
+// Font set.
 type IFontSet interface {
 
+	// Complex script font.
 	getComplexScript() string
 	setComplexScript(newValue string)
 
+	// East Asian font.
 	getEastAsian() string
 	setEastAsian(newValue string)
 
+	// Latin font.
 	getLatin() string
 	setLatin(newValue string)
 }
 
 type FontSet struct {
 
+	// Complex script font.
 	ComplexScript string `json:"ComplexScript,omitempty"`
 
+	// East Asian font.
 	EastAsian string `json:"EastAsian,omitempty"`
 
+	// Latin font.
 	Latin string `json:"Latin,omitempty"`
 }
 

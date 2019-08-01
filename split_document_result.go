@@ -31,16 +31,18 @@ import (
 	"encoding/json"
 )
 
-
+// Split document result.
 type ISplitDocumentResult interface {
 
 	// Gets or sets the link to this resource.
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// List of slide links.
 	getSlides() []ResourceUri
 	setSlides(newValue []ResourceUri)
 }
@@ -50,8 +52,10 @@ type SplitDocumentResult struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// List of slide links.
 	Slides []ResourceUri `json:"Slides,omitempty"`
 }
 

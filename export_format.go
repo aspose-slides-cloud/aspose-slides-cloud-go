@@ -42,6 +42,7 @@ const (
 	ExportFormat_PPSX ExportFormat = "Ppsx"
 	ExportFormat_PPTM ExportFormat = "Pptm"
 	ExportFormat_PPSM ExportFormat = "Ppsm"
+	ExportFormat_POT ExportFormat = "Pot"
 	ExportFormat_POTX ExportFormat = "Potx"
 	ExportFormat_POTM ExportFormat = "Potm"
 	ExportFormat_HTML ExportFormat = "Html"

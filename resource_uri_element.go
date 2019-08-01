@@ -31,15 +31,17 @@ import (
 	"encoding/json"
 )
 
-
+// Resource URI element.
 type IResourceUriElement interface {
 
+	// Resource URI.
 	getUri() IResourceUri
 	setUri(newValue IResourceUri)
 }
 
 type ResourceUriElement struct {
 
+	// Resource URI.
 	Uri IResourceUri `json:"Uri,omitempty"`
 }
 

@@ -38,9 +38,11 @@ type IParagraphs interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// List of paragraph links.
 	getParagraphLinks() []ResourceUriElement
 	setParagraphLinks(newValue []ResourceUriElement)
 }
@@ -50,8 +52,10 @@ type Paragraphs struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// List of paragraph links.
 	ParagraphLinks []ResourceUriElement `json:"ParagraphLinks,omitempty"`
 }
 

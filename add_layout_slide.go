@@ -31,25 +31,31 @@ import (
 	"encoding/json"
 )
 
-
+// Add layout slide task.
 type IAddLayoutSlide interface {
 
+	// Task type.
 	getType() string
 	setType(newValue string)
 
+	// Source file.
 	getCloneFromFile() IInputFile
 	setCloneFromFile(newValue IInputFile)
 
+	// Source layout slide position.
 	getCloneFromPosition() int32
 	setCloneFromPosition(newValue int32)
 }
 
 type AddLayoutSlide struct {
 
+	// Task type.
 	Type_ string `json:"Type"`
 
+	// Source file.
 	CloneFromFile IInputFile `json:"CloneFromFile,omitempty"`
 
+	// Source layout slide position.
 	CloneFromPosition int32 `json:"CloneFromPosition"`
 }
 

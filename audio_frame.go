@@ -38,6 +38,7 @@ type IAudioFrame interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
@@ -56,6 +57,10 @@ type IAudioFrame interface {
 	// Gets or sets the alternative text.
 	getAlternativeText() string
 	setAlternativeText(newValue string)
+
+	// The title of alternative text associated with the shape.
+	getAlternativeTextTitle() string
+	setAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	getHidden() bool
@@ -89,12 +94,15 @@ type IAudioFrame interface {
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
 
+	// Shape type.
 	getType() string
 	setType(newValue string)
 
+	// Combined shape type.
 	getShapeType() string
 	setShapeType(newValue string)
 
+	// Geometry shape type.
 	getGeometryShapeType() string
 	setGeometryShapeType(newValue string)
 
@@ -144,6 +152,7 @@ type AudioFrame struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
@@ -157,6 +166,9 @@ type AudioFrame struct {
 
 	// Gets or sets the alternative text.
 	AlternativeText string `json:"AlternativeText,omitempty"`
+
+	// The title of alternative text associated with the shape.
+	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	Hidden bool `json:"Hidden,omitempty"`
@@ -182,10 +194,13 @@ type AudioFrame struct {
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
+	// Shape type.
 	Type_ string `json:"Type"`
 
+	// Combined shape type.
 	ShapeType string `json:"ShapeType"`
 
+	// Geometry shape type.
 	GeometryShapeType string `json:"GeometryShapeType"`
 
 	// Returns or sets a last track index.
@@ -260,6 +275,13 @@ func (this AudioFrame) getAlternativeText() string {
 
 func (this AudioFrame) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
+}
+func (this AudioFrame) getAlternativeTextTitle() string {
+	return this.AlternativeTextTitle
+}
+
+func (this AudioFrame) setAlternativeTextTitle(newValue string) {
+	this.AlternativeTextTitle = newValue
 }
 func (this AudioFrame) getHidden() bool {
 	return this.Hidden
@@ -479,6 +501,17 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternativeText = valueForAlternativeText
+		}
+	}
+	
+	if valAlternativeTextTitle, ok := objMap["AlternativeTextTitle"]; ok {
+		if valAlternativeTextTitle != nil {
+			var valueForAlternativeTextTitle string
+			err = json.Unmarshal(*valAlternativeTextTitle, &valueForAlternativeTextTitle)
+			if err != nil {
+				return err
+			}
+			this.AlternativeTextTitle = valueForAlternativeTextTitle
 		}
 	}
 	

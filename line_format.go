@@ -31,65 +31,87 @@ import (
 	"encoding/json"
 )
 
-
+// Line format.
 type ILineFormat interface {
 
+	// Alignment.
 	getAlignment() string
 	setAlignment(newValue string)
 
+	// Cap style.
 	getCapStyle() string
 	setCapStyle(newValue string)
 
+	// Dash style.
 	getDashStyle() string
 	setDashStyle(newValue string)
 
+	// Join style.
 	getJoinStyle() string
 	setJoinStyle(newValue string)
 
+	// Style.
 	getStyle() string
 	setStyle(newValue string)
 
+	// Begin arrowhead.
 	getBeginArrowHead() IArrowHeadProperties
 	setBeginArrowHead(newValue IArrowHeadProperties)
 
+	// End arrowhead.
 	getEndArrowHead() IArrowHeadProperties
 	setEndArrowHead(newValue IArrowHeadProperties)
 
+	// Custom dash pattern.
 	getCustomDashPattern() ICustomDashPattern
 	setCustomDashPattern(newValue ICustomDashPattern)
 
+	// Fill format.
 	getFillFormat() IFillFormat
 	setFillFormat(newValue IFillFormat)
 
+	// Miter limit.
 	getMiterLimit() float64
 	setMiterLimit(newValue float64)
 
+	// Width.
 	getWidth() float64
 	setWidth(newValue float64)
 }
 
 type LineFormat struct {
 
+	// Alignment.
 	Alignment string `json:"Alignment"`
 
+	// Cap style.
 	CapStyle string `json:"CapStyle"`
 
+	// Dash style.
 	DashStyle string `json:"DashStyle"`
 
+	// Join style.
 	JoinStyle string `json:"JoinStyle"`
 
+	// Style.
 	Style string `json:"Style"`
 
+	// Begin arrowhead.
 	BeginArrowHead IArrowHeadProperties `json:"BeginArrowHead,omitempty"`
 
+	// End arrowhead.
 	EndArrowHead IArrowHeadProperties `json:"EndArrowHead,omitempty"`
 
+	// Custom dash pattern.
 	CustomDashPattern ICustomDashPattern `json:"CustomDashPattern,omitempty"`
 
+	// Fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
 
+	// Miter limit.
 	MiterLimit float64 `json:"MiterLimit"`
 
+	// Width.
 	Width float64 `json:"Width"`
 }
 

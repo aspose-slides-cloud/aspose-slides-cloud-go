@@ -31,7 +31,7 @@ import (
 	"encoding/json"
 )
 
-
+// Base class for fill formats 
 type IFillFormat interface {
 
 	getType() string

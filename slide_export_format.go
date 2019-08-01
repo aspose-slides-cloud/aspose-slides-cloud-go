@@ -48,6 +48,7 @@ const (
 	SlideExportFormat_PPTM SlideExportFormat = "Pptm"
 	SlideExportFormat_PPSM SlideExportFormat = "Ppsm"
 	SlideExportFormat_POTX SlideExportFormat = "Potx"
+	SlideExportFormat_POT SlideExportFormat = "Pot"
 	SlideExportFormat_POTM SlideExportFormat = "Potm"
 	SlideExportFormat_SVG SlideExportFormat = "Svg"
 )

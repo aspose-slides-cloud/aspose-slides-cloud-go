@@ -38,81 +38,107 @@ type IPortion interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// Text.
 	getText() string
 	setText(newValue string)
 
+	// True for bold font.
 	getFontBold() string
 	setFontBold(newValue string)
 
+	// True for italic font.
 	getFontItalic() string
 	setFontItalic(newValue string)
 
+	// Text underline type.
 	getFontUnderline() string
 	setFontUnderline(newValue string)
 
+	// Text strikethrough type.
 	getStrikethroughType() string
 	setStrikethroughType(newValue string)
 
+	// Text capitalization type.
 	getTextCapType() string
 	setTextCapType(newValue string)
 
+	// Superscript or subscript of the text.
 	getEscapement() float64
 	setEscapement(newValue float64)
 
+	// Intercharacter spacing increment.
 	getSpacing() float64
 	setSpacing(newValue float64)
 
+	// Font color.
 	getFontColor() string
 	setFontColor(newValue string)
 
+	// Highlight color.
 	getHighlightColor() string
 	setHighlightColor(newValue string)
 
+	// Font height.
 	getFontHeight() float64
 	setFontHeight(newValue float64)
 
+	// True to normalize the text.
 	getNormaliseHeight() string
 	setNormaliseHeight(newValue string)
 
+	// True if the text proof should be disabled.
 	getProofDisabled() string
 	setProofDisabled(newValue string)
 
+	// True if smart tag should be cleaned.
 	getSmartTagClean() bool
 	setSmartTagClean(newValue bool)
 
+	// Minimal font size for kerning.
 	getKerningMinimalSize() float64
 	setKerningMinimalSize(newValue float64)
 
+	// True if numbers should ignore East-Asian specific vertical text layout.
 	getKumimoji() string
 	setKumimoji(newValue string)
 
+	// Proving language ID.
 	getLanguageId() string
 	setLanguageId(newValue string)
 
+	// Alternative proving language ID.
 	getAlternativeLanguageId() string
 	setAlternativeLanguageId(newValue string)
 
+	// True if underline style has own FillFormat properties.
 	getIsHardUnderlineFill() string
 	setIsHardUnderlineFill(newValue string)
 
+	// True if underline style has own LineFormat properties.
 	getIsHardUnderlineLine() string
 	setIsHardUnderlineLine(newValue string)
 
+	// Fill format.
 	getFillFormat() IFillFormat
 	setFillFormat(newValue IFillFormat)
 
+	// Effect format.
 	getEffectFormat() IEffectFormat
 	setEffectFormat(newValue IEffectFormat)
 
+	// Line format.
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
 
+	// Underline fill format.
 	getUnderlineFillFormat() IFillFormat
 	setUnderlineFillFormat(newValue IFillFormat)
 
+	// Underline line format.
 	getUnderlineLineFormat() ILineFormat
 	setUnderlineLineFormat(newValue ILineFormat)
 }
@@ -122,56 +148,82 @@ type Portion struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// Text.
 	Text string `json:"Text,omitempty"`
 
+	// True for bold font.
 	FontBold string `json:"FontBold,omitempty"`
 
+	// True for italic font.
 	FontItalic string `json:"FontItalic,omitempty"`
 
+	// Text underline type.
 	FontUnderline string `json:"FontUnderline,omitempty"`
 
+	// Text strikethrough type.
 	StrikethroughType string `json:"StrikethroughType,omitempty"`
 
+	// Text capitalization type.
 	TextCapType string `json:"TextCapType,omitempty"`
 
+	// Superscript or subscript of the text.
 	Escapement float64 `json:"Escapement,omitempty"`
 
+	// Intercharacter spacing increment.
 	Spacing float64 `json:"Spacing,omitempty"`
 
+	// Font color.
 	FontColor string `json:"FontColor,omitempty"`
 
+	// Highlight color.
 	HighlightColor string `json:"HighlightColor,omitempty"`
 
+	// Font height.
 	FontHeight float64 `json:"FontHeight,omitempty"`
 
+	// True to normalize the text.
 	NormaliseHeight string `json:"NormaliseHeight,omitempty"`
 
+	// True if the text proof should be disabled.
 	ProofDisabled string `json:"ProofDisabled,omitempty"`
 
+	// True if smart tag should be cleaned.
 	SmartTagClean bool `json:"SmartTagClean,omitempty"`
 
+	// Minimal font size for kerning.
 	KerningMinimalSize float64 `json:"KerningMinimalSize,omitempty"`
 
+	// True if numbers should ignore East-Asian specific vertical text layout.
 	Kumimoji string `json:"Kumimoji,omitempty"`
 
+	// Proving language ID.
 	LanguageId string `json:"LanguageId,omitempty"`
 
+	// Alternative proving language ID.
 	AlternativeLanguageId string `json:"AlternativeLanguageId,omitempty"`
 
+	// True if underline style has own FillFormat properties.
 	IsHardUnderlineFill string `json:"IsHardUnderlineFill,omitempty"`
 
+	// True if underline style has own LineFormat properties.
 	IsHardUnderlineLine string `json:"IsHardUnderlineLine,omitempty"`
 
+	// Fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
 
+	// Effect format.
 	EffectFormat IEffectFormat `json:"EffectFormat,omitempty"`
 
+	// Line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
+	// Underline fill format.
 	UnderlineFillFormat IFillFormat `json:"UnderlineFillFormat,omitempty"`
 
+	// Underline line format.
 	UnderlineLineFormat ILineFormat `json:"UnderlineLineFormat,omitempty"`
 }
 

@@ -31,25 +31,31 @@ import (
 	"encoding/json"
 )
 
-
+// Update background task.
 type IUpdateBackground interface {
 
+	// Task type.
 	getType() string
 	setType(newValue string)
 
+	// List of slide indices.
 	getSlides() []int32
 	setSlides(newValue []int32)
 
+	// Background DTO.
 	getBackground() ISlideBackground
 	setBackground(newValue ISlideBackground)
 }
 
 type UpdateBackground struct {
 
+	// Task type.
 	Type_ string `json:"Type"`
 
+	// List of slide indices.
 	Slides []int32 `json:"Slides,omitempty"`
 
+	// Background DTO.
 	Background ISlideBackground `json:"Background,omitempty"`
 }
 

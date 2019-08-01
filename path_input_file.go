@@ -38,6 +38,7 @@ type IPathInputFile interface {
 	getPassword() string
 	setPassword(newValue string)
 
+	// File type.
 	getType() string
 	setType(newValue string)
 
@@ -55,6 +56,7 @@ type PathInputFile struct {
 	// Get or sets password to open document.
 	Password string `json:"Password,omitempty"`
 
+	// File type.
 	Type_ string `json:"Type"`
 
 	// Get or sets path to file.

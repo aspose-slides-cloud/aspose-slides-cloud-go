@@ -34,6 +34,7 @@ import (
 // Provides options that control how a presentation is saved in Pdf format.
 type IPdfExportOptions interface {
 
+	// Export format.
 	getFormat() string
 	setFormat(newValue string)
 
@@ -112,6 +113,7 @@ type IPdfExportOptions interface {
 
 type PdfExportOptions struct {
 
+	// Export format.
 	Format string `json:"Format,omitempty"`
 
 	// Specifies compression type to be used for all textual content in the document.

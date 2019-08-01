@@ -34,17 +34,21 @@ import (
 // Represents solid fill format 
 type ISolidFill interface {
 
+	// Fill type.
 	getType() string
 	setType(newValue string)
 
+	// Color.
 	getColor() string
 	setColor(newValue string)
 }
 
 type SolidFill struct {
 
+	// Fill type.
 	Type_ string `json:"Type"`
 
+	// Color.
 	Color string `json:"Color,omitempty"`
 }
 

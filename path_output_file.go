@@ -34,6 +34,7 @@ import (
 // Represents fileSystem file with path.
 type IPathOutputFile interface {
 
+	// File type.
 	getType() string
 	setType(newValue string)
 
@@ -48,6 +49,7 @@ type IPathOutputFile interface {
 
 type PathOutputFile struct {
 
+	// File type.
 	Type_ string `json:"Type"`
 
 	// Get or sets path to file.

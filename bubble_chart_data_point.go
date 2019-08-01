@@ -31,7 +31,7 @@ import (
 	"encoding/json"
 )
 
-
+// Bubble chart data point.
 type IBubbleChartDataPoint interface {
 
 	// X-value
@@ -42,6 +42,7 @@ type IBubbleChartDataPoint interface {
 	getYValue() float64
 	setYValue(newValue float64)
 
+	// Bubble size.
 	getBubbleSize() float64
 	setBubbleSize(newValue float64)
 }
@@ -54,6 +55,7 @@ type BubbleChartDataPoint struct {
 	// Y-value
 	YValue float64 `json:"YValue"`
 
+	// Bubble size.
 	BubbleSize float64 `json:"BubbleSize"`
 }
 

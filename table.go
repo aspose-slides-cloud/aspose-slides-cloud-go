@@ -38,6 +38,7 @@ type ITable interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
@@ -56,6 +57,10 @@ type ITable interface {
 	// Gets or sets the alternative text.
 	getAlternativeText() string
 	setAlternativeText(newValue string)
+
+	// The title of alternative text associated with the shape.
+	getAlternativeTextTitle() string
+	setAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	getHidden() bool
@@ -143,6 +148,7 @@ type Table struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
@@ -156,6 +162,9 @@ type Table struct {
 
 	// Gets or sets the alternative text.
 	AlternativeText string `json:"AlternativeText,omitempty"`
+
+	// The title of alternative text associated with the shape.
+	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	Hidden bool `json:"Hidden,omitempty"`
@@ -259,6 +268,13 @@ func (this Table) getAlternativeText() string {
 
 func (this Table) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
+}
+func (this Table) getAlternativeTextTitle() string {
+	return this.AlternativeTextTitle
+}
+
+func (this Table) setAlternativeTextTitle(newValue string) {
+	this.AlternativeTextTitle = newValue
 }
 func (this Table) getHidden() bool {
 	return this.Hidden
@@ -471,6 +487,17 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternativeText = valueForAlternativeText
+		}
+	}
+	
+	if valAlternativeTextTitle, ok := objMap["AlternativeTextTitle"]; ok {
+		if valAlternativeTextTitle != nil {
+			var valueForAlternativeTextTitle string
+			err = json.Unmarshal(*valAlternativeTextTitle, &valueForAlternativeTextTitle)
+			if err != nil {
+				return err
+			}
+			this.AlternativeTextTitle = valueForAlternativeTextTitle
 		}
 	}
 	

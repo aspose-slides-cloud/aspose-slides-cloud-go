@@ -38,18 +38,23 @@ type IFormatScheme interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// Background style links.
 	getBackgroundStyles() []ResourceUri
 	setBackgroundStyles(newValue []ResourceUri)
 
+	// Effect style links.
 	getEffectStyles() []ResourceUri
 	setEffectStyles(newValue []ResourceUri)
 
+	// Fill style links.
 	getFillStyles() []ResourceUri
 	setFillStyles(newValue []ResourceUri)
 
+	// Line style links.
 	getLineStyles() []ResourceUri
 	setLineStyles(newValue []ResourceUri)
 }
@@ -59,14 +64,19 @@ type FormatScheme struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// Background style links.
 	BackgroundStyles []ResourceUri `json:"BackgroundStyles,omitempty"`
 
+	// Effect style links.
 	EffectStyles []ResourceUri `json:"EffectStyles,omitempty"`
 
+	// Fill style links.
 	FillStyles []ResourceUri `json:"FillStyles,omitempty"`
 
+	// Line style links.
 	LineStyles []ResourceUri `json:"LineStyles,omitempty"`
 }
 

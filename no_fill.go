@@ -34,12 +34,14 @@ import (
 // Represents empty fill
 type INoFill interface {
 
+	// Fill type.
 	getType() string
 	setType(newValue string)
 }
 
 type NoFill struct {
 
+	// Fill type.
 	Type_ string `json:"Type"`
 }
 

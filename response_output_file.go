@@ -34,12 +34,14 @@ import (
 // Represents output file that will be sent to response.
 type IResponseOutputFile interface {
 
+	// File type.
 	getType() string
 	setType(newValue string)
 }
 
 type ResponseOutputFile struct {
 
+	// File type.
 	Type_ string `json:"Type"`
 }
 

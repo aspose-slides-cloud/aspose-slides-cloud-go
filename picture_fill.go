@@ -31,60 +31,80 @@ import (
 	"encoding/json"
 )
 
-
+// Picture fill.
 type IPictureFill interface {
 
+	// Fill type.
 	getType() string
 	setType(newValue string)
 
+	// Percentage of image height that is cropped from the bottom.
 	getCropBottom() float64
 	setCropBottom(newValue float64)
 
+	// Percentage of image height that is cropped from the left.
 	getCropLeft() float64
 	setCropLeft(newValue float64)
 
+	// Percentage of image height that is cropped from the right.
 	getCropRight() float64
 	setCropRight(newValue float64)
 
+	// Percentage of image height that is cropped from the top.
 	getCropTop() float64
 	setCropTop(newValue float64)
 
+	// Picture resolution.
 	getDpi() int32
 	setDpi(newValue int32)
 
+	// Internal image link.
 	getImage() IResourceUriElement
 	setImage(newValue IResourceUriElement)
 
+	// Base 64 image data.
 	getBase64Data() string
 	setBase64Data(newValue string)
 
+	// SVG image data.
 	getSvgData() string
 	setSvgData(newValue string)
 
+	// Fill mode.
 	getPictureFillMode() string
 	setPictureFillMode(newValue string)
 }
 
 type PictureFill struct {
 
+	// Fill type.
 	Type_ string `json:"Type"`
 
+	// Percentage of image height that is cropped from the bottom.
 	CropBottom float64 `json:"CropBottom"`
 
+	// Percentage of image height that is cropped from the left.
 	CropLeft float64 `json:"CropLeft"`
 
+	// Percentage of image height that is cropped from the right.
 	CropRight float64 `json:"CropRight"`
 
+	// Percentage of image height that is cropped from the top.
 	CropTop float64 `json:"CropTop"`
 
+	// Picture resolution.
 	Dpi int32 `json:"Dpi"`
 
+	// Internal image link.
 	Image IResourceUriElement `json:"Image,omitempty"`
 
+	// Base 64 image data.
 	Base64Data string `json:"Base64Data,omitempty"`
 
+	// SVG image data.
 	SvgData string `json:"SvgData,omitempty"`
 
+	// Fill mode.
 	PictureFillMode string `json:"PictureFillMode"`
 }
 

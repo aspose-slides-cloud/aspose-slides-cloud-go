@@ -31,20 +31,24 @@ import (
 	"encoding/json"
 )
 
-
+// Remove shape task.
 type IRemoveShape interface {
 
+	// Task type.
 	getType() string
 	setType(newValue string)
 
+	// Shape path for a grouped or smart art shape.
 	getShapePath() string
 	setShapePath(newValue string)
 }
 
 type RemoveShape struct {
 
+	// Task type.
 	Type_ string `json:"Type"`
 
+	// Shape path for a grouped or smart art shape.
 	ShapePath string `json:"ShapePath,omitempty"`
 }
 

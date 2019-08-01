@@ -31,20 +31,24 @@ import (
 	"encoding/json"
 )
 
-
+// Merging source.
 type IMergingSource interface {
 
+	// Source file.
 	getInput() IInputFile
 	setInput(newValue IInputFile)
 
+	// Indices of slides to be merged.
 	getSlides() []int32
 	setSlides(newValue []int32)
 }
 
 type MergingSource struct {
 
+	// Source file.
 	Input IInputFile `json:"Input,omitempty"`
 
+	// Indices of slides to be merged.
 	Slides []int32 `json:"Slides,omitempty"`
 }
 

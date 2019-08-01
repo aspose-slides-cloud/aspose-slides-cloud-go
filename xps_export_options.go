@@ -31,9 +31,10 @@ import (
 	"encoding/json"
 )
 
-
+// Provides options that control how a presentation is saved in XPS format.
 type IXpsExportOptions interface {
 
+	// Export format.
 	getFormat() string
 	setFormat(newValue string)
 
@@ -52,6 +53,7 @@ type IXpsExportOptions interface {
 
 type XpsExportOptions struct {
 
+	// Export format.
 	Format string `json:"Format,omitempty"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 

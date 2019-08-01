@@ -31,16 +31,18 @@ import (
 	"encoding/json"
 )
 
-
+// Slide list.
 type ISlides interface {
 
 	// Gets or sets the link to this resource.
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// List of slide links.
 	getSlideList() []ResourceUriElement
 	setSlideList(newValue []ResourceUriElement)
 }
@@ -50,8 +52,10 @@ type Slides struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// List of slide links.
 	SlideList []ResourceUriElement `json:"SlideList,omitempty"`
 }
 

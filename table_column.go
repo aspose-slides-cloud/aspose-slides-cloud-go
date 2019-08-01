@@ -31,15 +31,17 @@ import (
 	"encoding/json"
 )
 
-
+// Table column.
 type ITableColumn interface {
 
+	// Width.
 	getWidth() float64
 	setWidth(newValue float64)
 }
 
 type TableColumn struct {
 
+	// Width.
 	Width float64 `json:"Width"`
 }
 

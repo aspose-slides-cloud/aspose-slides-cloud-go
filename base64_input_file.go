@@ -38,6 +38,7 @@ type IBase64InputFile interface {
 	getPassword() string
 	setPassword(newValue string)
 
+	// File type.
 	getType() string
 	setType(newValue string)
 
@@ -51,6 +52,7 @@ type Base64InputFile struct {
 	// Get or sets password to open document.
 	Password string `json:"Password,omitempty"`
 
+	// File type.
 	Type_ string `json:"Type"`
 
 	// Get or sets base64 data.

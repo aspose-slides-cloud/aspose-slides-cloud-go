@@ -31,25 +31,31 @@ import (
 	"encoding/json"
 )
 
-
+// Reorder slide task.
 type IReorderSlide interface {
 
+	// Task type.
 	getType() string
 	setType(newValue string)
 
+	// Old position.
 	getOldPosition() int32
 	setOldPosition(newValue int32)
 
+	// New position.
 	getNewPosition() int32
 	setNewPosition(newValue int32)
 }
 
 type ReorderSlide struct {
 
+	// Task type.
 	Type_ string `json:"Type"`
 
+	// Old position.
 	OldPosition int32 `json:"OldPosition"`
 
+	// New position.
 	NewPosition int32 `json:"NewPosition"`
 }
 

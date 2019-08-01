@@ -31,9 +31,10 @@ import (
 	"encoding/json"
 )
 
-
+// Provides options that control how a presentation is saved in SVG format.
 type ISvgExportOptions interface {
 
+	// Export format.
 	getFormat() string
 	setFormat(newValue string)
 
@@ -76,6 +77,7 @@ type ISvgExportOptions interface {
 
 type SvgExportOptions struct {
 
+	// Export format.
 	Format string `json:"Format,omitempty"`
 
 	// Determines whether the text on a slide will be saved as graphics.

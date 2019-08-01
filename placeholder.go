@@ -38,21 +38,27 @@ type IPlaceholder interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// Index.
 	getIndex() int32
 	setIndex(newValue int32)
 
+	// Orientation.
 	getOrientation() string
 	setOrientation(newValue string)
 
+	// Size.
 	getSize() string
 	setSize(newValue string)
 
+	// Placeholder type.
 	getType() string
 	setType(newValue string)
 
+	// Shape link.
 	getShape() IResourceUriElement
 	setShape(newValue IResourceUriElement)
 }
@@ -62,16 +68,22 @@ type Placeholder struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// Index.
 	Index int32 `json:"Index"`
 
+	// Orientation.
 	Orientation string `json:"Orientation"`
 
+	// Size.
 	Size string `json:"Size"`
 
+	// Placeholder type.
 	Type_ string `json:"Type"`
 
+	// Shape link.
 	Shape IResourceUriElement `json:"Shape,omitempty"`
 }
 

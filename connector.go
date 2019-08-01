@@ -38,6 +38,7 @@ type IConnector interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
@@ -56,6 +57,10 @@ type IConnector interface {
 	// Gets or sets the alternative text.
 	getAlternativeText() string
 	setAlternativeText(newValue string)
+
+	// The title of alternative text associated with the shape.
+	getAlternativeTextTitle() string
+	setAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	getHidden() bool
@@ -89,24 +94,31 @@ type IConnector interface {
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
 
+	// Shape type.
 	getType() string
 	setType(newValue string)
 
+	// Shape type.
 	getShapeType() string
 	setShapeType(newValue string)
 
+	// Geometry shape type.
 	getGeometryShapeType() string
 	setGeometryShapeType(newValue string)
 
+	// Start shape link.
 	getStartShapeConnectedTo() IResourceUri
 	setStartShapeConnectedTo(newValue IResourceUri)
 
+	// Start shape index.
 	getStartShapeConnectedToIndex() int32
 	setStartShapeConnectedToIndex(newValue int32)
 
+	// End shape link.
 	getEndShapeConnectedTo() IResourceUri
 	setEndShapeConnectedTo(newValue IResourceUri)
 
+	// End shape index.
 	getEndShapeConnectedToIndex() int32
 	setEndShapeConnectedToIndex(newValue int32)
 }
@@ -116,6 +128,7 @@ type Connector struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
@@ -129,6 +142,9 @@ type Connector struct {
 
 	// Gets or sets the alternative text.
 	AlternativeText string `json:"AlternativeText,omitempty"`
+
+	// The title of alternative text associated with the shape.
+	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	Hidden bool `json:"Hidden,omitempty"`
@@ -154,18 +170,25 @@ type Connector struct {
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
+	// Shape type.
 	Type_ string `json:"Type"`
 
+	// Shape type.
 	ShapeType string `json:"ShapeType"`
 
+	// Geometry shape type.
 	GeometryShapeType string `json:"GeometryShapeType"`
 
+	// Start shape link.
 	StartShapeConnectedTo IResourceUri `json:"StartShapeConnectedTo,omitempty"`
 
+	// Start shape index.
 	StartShapeConnectedToIndex int32 `json:"StartShapeConnectedToIndex,omitempty"`
 
+	// End shape link.
 	EndShapeConnectedTo IResourceUri `json:"EndShapeConnectedTo,omitempty"`
 
+	// End shape index.
 	EndShapeConnectedToIndex int32 `json:"EndShapeConnectedToIndex,omitempty"`
 }
 
@@ -210,6 +233,13 @@ func (this Connector) getAlternativeText() string {
 
 func (this Connector) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
+}
+func (this Connector) getAlternativeTextTitle() string {
+	return this.AlternativeTextTitle
+}
+
+func (this Connector) setAlternativeTextTitle(newValue string) {
+	this.AlternativeTextTitle = newValue
 }
 func (this Connector) getHidden() bool {
 	return this.Hidden
@@ -387,6 +417,17 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternativeText = valueForAlternativeText
+		}
+	}
+	
+	if valAlternativeTextTitle, ok := objMap["AlternativeTextTitle"]; ok {
+		if valAlternativeTextTitle != nil {
+			var valueForAlternativeTextTitle string
+			err = json.Unmarshal(*valAlternativeTextTitle, &valueForAlternativeTextTitle)
+			if err != nil {
+				return err
+			}
+			this.AlternativeTextTitle = valueForAlternativeTextTitle
 		}
 	}
 	

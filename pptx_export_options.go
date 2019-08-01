@@ -31,9 +31,10 @@ import (
 	"encoding/json"
 )
 
-
+// Provides options that control how a presentation is saved in PPTX format.
 type IPptxExportOptions interface {
 
+	// Export format.
 	getFormat() string
 	setFormat(newValue string)
 
@@ -44,6 +45,7 @@ type IPptxExportOptions interface {
 
 type PptxExportOptions struct {
 
+	// Export format.
 	Format string `json:"Format,omitempty"`
 
 	// The conformance class to which the PresentationML document conforms. Read/write Conformance.

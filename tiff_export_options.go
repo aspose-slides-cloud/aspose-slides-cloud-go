@@ -31,24 +31,30 @@ import (
 	"encoding/json"
 )
 
-
+// Provides options that control how a presentation is saved in TIFF format.
 type ITiffExportOptions interface {
 
+	// Export format.
 	getFormat() string
 	setFormat(newValue string)
 
+	// Compression type.
 	getCompression() string
 	setCompression(newValue string)
 
+	// Width.
 	getWidth() int32
 	setWidth(newValue int32)
 
+	// Height.
 	getHeight() int32
 	setHeight(newValue int32)
 
+	// Horizontal resolution, in dots per inch.
 	getDpiX() int32
 	setDpiX(newValue int32)
 
+	// Vertical resolution, in dots per inch.
 	getDpiY() int32
 	setDpiY(newValue int32)
 
@@ -83,16 +89,22 @@ type ITiffExportOptions interface {
 
 type TiffExportOptions struct {
 
+	// Export format.
 	Format string `json:"Format,omitempty"`
 
+	// Compression type.
 	Compression string `json:"Compression"`
 
+	// Width.
 	Width int32 `json:"Width,omitempty"`
 
+	// Height.
 	Height int32 `json:"Height,omitempty"`
 
+	// Horizontal resolution, in dots per inch.
 	DpiX int32 `json:"DpiX,omitempty"`
 
+	// Vertical resolution, in dots per inch.
 	DpiY int32 `json:"DpiY,omitempty"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 

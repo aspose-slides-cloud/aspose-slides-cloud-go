@@ -50,6 +50,10 @@ type IHtmlExportOptions interface {
 	getShowHiddenSlides() bool
 	setShowHiddenSlides(newValue bool)
 
+	// True to make layout responsive by excluding width and height attributes from svg container.
+	getSvgResponsiveLayout() bool
+	setSvgResponsiveLayout(newValue bool)
+
 	// Returns or sets a value determining the quality of the JPEG images inside PDF document.
 	getJpegQuality() int32
 	setJpegQuality(newValue int32)
@@ -96,6 +100,9 @@ type HtmlExportOptions struct {
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
 	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
+
+	// True to make layout responsive by excluding width and height attributes from svg container.
+	SvgResponsiveLayout bool `json:"SvgResponsiveLayout"`
 
 	// Returns or sets a value determining the quality of the JPEG images inside PDF document.
 	JpegQuality int32 `json:"JpegQuality"`
@@ -149,6 +156,13 @@ func (this HtmlExportOptions) getShowHiddenSlides() bool {
 
 func (this HtmlExportOptions) setShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
+}
+func (this HtmlExportOptions) getSvgResponsiveLayout() bool {
+	return this.SvgResponsiveLayout
+}
+
+func (this HtmlExportOptions) setSvgResponsiveLayout(newValue bool) {
+	this.SvgResponsiveLayout = newValue
 }
 func (this HtmlExportOptions) getJpegQuality() int32 {
 	return this.JpegQuality
@@ -255,6 +269,17 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.ShowHiddenSlides = valueForShowHiddenSlides
+		}
+	}
+	
+	if valSvgResponsiveLayout, ok := objMap["SvgResponsiveLayout"]; ok {
+		if valSvgResponsiveLayout != nil {
+			var valueForSvgResponsiveLayout bool
+			err = json.Unmarshal(*valSvgResponsiveLayout, &valueForSvgResponsiveLayout)
+			if err != nil {
+				return err
+			}
+			this.SvgResponsiveLayout = valueForSvgResponsiveLayout
 		}
 	}
 	

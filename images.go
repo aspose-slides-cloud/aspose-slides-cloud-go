@@ -38,9 +38,11 @@ type IImages interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// Image list.
 	getList() []Image
 	setList(newValue []Image)
 }
@@ -50,8 +52,10 @@ type Images struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// Image list.
 	List []Image `json:"List,omitempty"`
 }
 

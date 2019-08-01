@@ -26,7 +26,7 @@
  */
 
 package asposeslidescloud
-// NotesSlideExportFormat : 
+// NotesSlideExportFormat : Represents a format for notes slide export.
 type NotesSlideExportFormat string
 
 // List of NotesSlideExportFormat NotesSlideExportFormat

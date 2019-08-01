@@ -31,20 +31,24 @@ import (
 	"encoding/json"
 )
 
-
+// Gradient stop.
 type IGradientFillStop interface {
 
+	// Color.
 	getColor() string
 	setColor(newValue string)
 
+	// Stop position (0..1).
 	getPosition() float64
 	setPosition(newValue float64)
 }
 
 type GradientFillStop struct {
 
+	// Color.
 	Color string `json:"Color,omitempty"`
 
+	// Stop position (0..1).
 	Position float64 `json:"Position"`
 }
 

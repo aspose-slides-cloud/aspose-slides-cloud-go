@@ -149,7 +149,9 @@ func undefaultize(value interface{}, paramType string) interface{} {
         return []byte{}
     }
     if paramType == "[]int32" {
-        return []int32{}
+        var arr = []int32{}
+        mapstructure.Decode(value, &arr)
+        return arr
     }
     if paramType == "int32" {
         return int32(value.(float64))

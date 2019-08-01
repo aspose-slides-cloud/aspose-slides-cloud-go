@@ -38,9 +38,11 @@ type IPortions interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// List of portion links.
 	getPortionLinks() []ResourceUriElement
 	setPortionLinks(newValue []ResourceUriElement)
 }
@@ -50,8 +52,10 @@ type Portions struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// List of portion links.
 	PortionLinks []ResourceUriElement `json:"PortionLinks,omitempty"`
 }
 

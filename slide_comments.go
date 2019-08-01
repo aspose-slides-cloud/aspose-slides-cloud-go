@@ -38,9 +38,11 @@ type ISlideComments interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// Slide comment list.
 	getList() []SlideComment
 	setList(newValue []SlideComment)
 }
@@ -50,8 +52,10 @@ type SlideComments struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// Slide comment list.
 	List []SlideComment `json:"List,omitempty"`
 }
 

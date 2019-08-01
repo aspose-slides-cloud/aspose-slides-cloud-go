@@ -34,23 +34,36 @@ import (
 // Represents comment of slide
 type ISlideComment interface {
 
+	// Author.
 	getAuthor() string
 	setAuthor(newValue string)
 
+	// Text.
 	getText() string
 	setText(newValue string)
 
+	// Creation time.
 	getCreatedTime() string
 	setCreatedTime(newValue string)
+
+	// Child comments.
+	getChildComments() []SlideComment
+	setChildComments(newValue []SlideComment)
 }
 
 type SlideComment struct {
 
+	// Author.
 	Author string `json:"Author,omitempty"`
 
+	// Text.
 	Text string `json:"Text,omitempty"`
 
+	// Creation time.
 	CreatedTime string `json:"CreatedTime,omitempty"`
+
+	// Child comments.
+	ChildComments []SlideComment `json:"ChildComments,omitempty"`
 }
 
 func (this SlideComment) getAuthor() string {
@@ -73,6 +86,13 @@ func (this SlideComment) getCreatedTime() string {
 
 func (this SlideComment) setCreatedTime(newValue string) {
 	this.CreatedTime = newValue
+}
+func (this SlideComment) getChildComments() []SlideComment {
+	return this.ChildComments
+}
+
+func (this SlideComment) setChildComments(newValue []SlideComment) {
+	this.ChildComments = newValue
 }
 
 func (this *SlideComment) UnmarshalJSON(b []byte) error {
@@ -112,6 +132,17 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.CreatedTime = valueForCreatedTime
+		}
+	}
+	
+	if valChildComments, ok := objMap["ChildComments"]; ok {
+		if valChildComments != nil {
+			var valueForChildComments []SlideComment
+			err = json.Unmarshal(*valChildComments, &valueForChildComments)
+			if err != nil {
+				return err
+			}
+			this.ChildComments = valueForChildComments
 		}
 	}
 

@@ -38,6 +38,7 @@ type IOleObjectFrame interface {
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
@@ -56,6 +57,10 @@ type IOleObjectFrame interface {
 	// Gets or sets the alternative text.
 	getAlternativeText() string
 	setAlternativeText(newValue string)
+
+	// The title of alternative text associated with the shape.
+	getAlternativeTextTitle() string
+	setAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	getHidden() bool
@@ -89,11 +94,21 @@ type IOleObjectFrame interface {
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
 
+	// Shape type.
 	getType() string
 	setType(newValue string)
 
+	// Combined shape type.
 	getShapeType() string
 	setShapeType(newValue string)
+
+	// True if an object is visible as icon.
+	getIsObjectIcon() bool
+	setIsObjectIcon(newValue bool)
+
+	// The title for OleObject icon.             
+	getSubstitutePictureTitle() string
+	setSubstitutePictureTitle(newValue string)
 }
 
 type OleObjectFrame struct {
@@ -101,6 +116,7 @@ type OleObjectFrame struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
@@ -114,6 +130,9 @@ type OleObjectFrame struct {
 
 	// Gets or sets the alternative text.
 	AlternativeText string `json:"AlternativeText,omitempty"`
+
+	// The title of alternative text associated with the shape.
+	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	Hidden bool `json:"Hidden,omitempty"`
@@ -139,9 +158,17 @@ type OleObjectFrame struct {
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
+	// Shape type.
 	Type_ string `json:"Type"`
 
+	// Combined shape type.
 	ShapeType string `json:"ShapeType"`
+
+	// True if an object is visible as icon.
+	IsObjectIcon bool `json:"IsObjectIcon"`
+
+	// The title for OleObject icon.             
+	SubstitutePictureTitle string `json:"SubstitutePictureTitle,omitempty"`
 }
 
 func (this OleObjectFrame) getSelfUri() IResourceUri {
@@ -185,6 +212,13 @@ func (this OleObjectFrame) getAlternativeText() string {
 
 func (this OleObjectFrame) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
+}
+func (this OleObjectFrame) getAlternativeTextTitle() string {
+	return this.AlternativeTextTitle
+}
+
+func (this OleObjectFrame) setAlternativeTextTitle(newValue string) {
+	this.AlternativeTextTitle = newValue
 }
 func (this OleObjectFrame) getHidden() bool {
 	return this.Hidden
@@ -255,6 +289,20 @@ func (this OleObjectFrame) getShapeType() string {
 
 func (this OleObjectFrame) setShapeType(newValue string) {
 	this.ShapeType = newValue
+}
+func (this OleObjectFrame) getIsObjectIcon() bool {
+	return this.IsObjectIcon
+}
+
+func (this OleObjectFrame) setIsObjectIcon(newValue bool) {
+	this.IsObjectIcon = newValue
+}
+func (this OleObjectFrame) getSubstitutePictureTitle() string {
+	return this.SubstitutePictureTitle
+}
+
+func (this OleObjectFrame) setSubstitutePictureTitle(newValue string) {
+	this.SubstitutePictureTitle = newValue
 }
 
 func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
@@ -327,6 +375,17 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AlternativeText = valueForAlternativeText
+		}
+	}
+	
+	if valAlternativeTextTitle, ok := objMap["AlternativeTextTitle"]; ok {
+		if valAlternativeTextTitle != nil {
+			var valueForAlternativeTextTitle string
+			err = json.Unmarshal(*valAlternativeTextTitle, &valueForAlternativeTextTitle)
+			if err != nil {
+				return err
+			}
+			this.AlternativeTextTitle = valueForAlternativeTextTitle
 		}
 	}
 	
@@ -437,6 +496,28 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.ShapeType = valueForShapeType
+		}
+	}
+	
+	if valIsObjectIcon, ok := objMap["IsObjectIcon"]; ok {
+		if valIsObjectIcon != nil {
+			var valueForIsObjectIcon bool
+			err = json.Unmarshal(*valIsObjectIcon, &valueForIsObjectIcon)
+			if err != nil {
+				return err
+			}
+			this.IsObjectIcon = valueForIsObjectIcon
+		}
+	}
+	
+	if valSubstitutePictureTitle, ok := objMap["SubstitutePictureTitle"]; ok {
+		if valSubstitutePictureTitle != nil {
+			var valueForSubstitutePictureTitle string
+			err = json.Unmarshal(*valSubstitutePictureTitle, &valueForSubstitutePictureTitle)
+			if err != nil {
+				return err
+			}
+			this.SubstitutePictureTitle = valueForSubstitutePictureTitle
 		}
 	}
 

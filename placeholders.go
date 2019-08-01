@@ -31,16 +31,18 @@ import (
 	"encoding/json"
 )
 
-
+// Placeholder list.
 type IPlaceholders interface {
 
 	// Gets or sets the link to this resource.
 	getSelfUri() IResourceUri
 	setSelfUri(newValue IResourceUri)
 
+	// List of alternate links.
 	getAlternateLinks() []ResourceUri
 	setAlternateLinks(newValue []ResourceUri)
 
+	// List for placeholder links.
 	getPlaceholderLinks() []ResourceUri
 	setPlaceholderLinks(newValue []ResourceUri)
 }
@@ -50,8 +52,10 @@ type Placeholders struct {
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
+	// List of alternate links.
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
+	// List for placeholder links.
 	PlaceholderLinks []ResourceUri `json:"PlaceholderLinks,omitempty"`
 }
 

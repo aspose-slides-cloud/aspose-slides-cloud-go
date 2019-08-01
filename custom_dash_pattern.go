@@ -31,15 +31,17 @@ import (
 	"encoding/json"
 )
 
-
+// Custom dash pattern.
 type ICustomDashPattern interface {
 
+	// Pattern items.
 	getItems() []float64
 	setItems(newValue []float64)
 }
 
 type CustomDashPattern struct {
 
+	// Pattern items.
 	Items []float64 `json:"Items,omitempty"`
 }
 

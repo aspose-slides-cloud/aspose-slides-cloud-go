@@ -34,12 +34,14 @@ import (
 // Represents export options for whole presentation.
 type IIShapeExportOptions interface {
 
+	// Export format.
 	getFormat() string
 	setFormat(newValue string)
 }
 
 type IShapeExportOptions struct {
 
+	// Export format.
 	Format string `json:"Format,omitempty"`
 }
 
