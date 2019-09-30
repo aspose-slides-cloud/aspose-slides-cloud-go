@@ -116,7 +116,7 @@ func (this *Image) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["SelfUri"]; ok {
+	if valSelfUri, ok := objMap["selfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -126,8 +126,18 @@ func (this *Image) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
+	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
+		if valSelfUriCap != nil {
+			var valueForSelfUri ResourceUri
+			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
+			if err != nil {
+				return err
+			}
+			this.SelfUri = valueForSelfUri
+		}
+	}
 	
-	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
+	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -137,8 +147,18 @@ func (this *Image) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
+	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
+		if valAlternateLinksCap != nil {
+			var valueForAlternateLinks []ResourceUri
+			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
+			if err != nil {
+				return err
+			}
+			this.AlternateLinks = valueForAlternateLinks
+		}
+	}
 	
-	if valWidth, ok := objMap["Width"]; ok {
+	if valWidth, ok := objMap["width"]; ok {
 		if valWidth != nil {
 			var valueForWidth int32
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -148,8 +168,18 @@ func (this *Image) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
 	
-	if valHeight, ok := objMap["Height"]; ok {
+	if valHeight, ok := objMap["height"]; ok {
 		if valHeight != nil {
 			var valueForHeight int32
 			err = json.Unmarshal(*valHeight, &valueForHeight)
@@ -159,11 +189,31 @@ func (this *Image) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
 	
-	if valContentType, ok := objMap["ContentType"]; ok {
+	if valContentType, ok := objMap["contentType"]; ok {
 		if valContentType != nil {
 			var valueForContentType string
 			err = json.Unmarshal(*valContentType, &valueForContentType)
+			if err != nil {
+				return err
+			}
+			this.ContentType = valueForContentType
+		}
+	}
+	if valContentTypeCap, ok := objMap["ContentType"]; ok {
+		if valContentTypeCap != nil {
+			var valueForContentType string
+			err = json.Unmarshal(*valContentTypeCap, &valueForContentType)
 			if err != nil {
 				return err
 			}

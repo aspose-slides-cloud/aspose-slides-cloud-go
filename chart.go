@@ -424,7 +424,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["SelfUri"]; ok {
+	if valSelfUri, ok := objMap["selfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -434,8 +434,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
+	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
+		if valSelfUriCap != nil {
+			var valueForSelfUri ResourceUri
+			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
+			if err != nil {
+				return err
+			}
+			this.SelfUri = valueForSelfUri
+		}
+	}
 	
-	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
+	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -445,8 +455,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
+	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
+		if valAlternateLinksCap != nil {
+			var valueForAlternateLinks []ResourceUri
+			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
+			if err != nil {
+				return err
+			}
+			this.AlternateLinks = valueForAlternateLinks
+		}
+	}
 	
-	if valName, ok := objMap["Name"]; ok {
+	if valName, ok := objMap["name"]; ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -456,8 +476,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
+	if valNameCap, ok := objMap["Name"]; ok {
+		if valNameCap != nil {
+			var valueForName string
+			err = json.Unmarshal(*valNameCap, &valueForName)
+			if err != nil {
+				return err
+			}
+			this.Name = valueForName
+		}
+	}
 	
-	if valWidth, ok := objMap["Width"]; ok {
+	if valWidth, ok := objMap["width"]; ok {
 		if valWidth != nil {
 			var valueForWidth float64
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -467,8 +497,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth float64
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
 	
-	if valHeight, ok := objMap["Height"]; ok {
+	if valHeight, ok := objMap["height"]; ok {
 		if valHeight != nil {
 			var valueForHeight float64
 			err = json.Unmarshal(*valHeight, &valueForHeight)
@@ -478,8 +518,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight float64
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
 	
-	if valAlternativeText, ok := objMap["AlternativeText"]; ok {
+	if valAlternativeText, ok := objMap["alternativeText"]; ok {
 		if valAlternativeText != nil {
 			var valueForAlternativeText string
 			err = json.Unmarshal(*valAlternativeText, &valueForAlternativeText)
@@ -489,8 +539,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.AlternativeText = valueForAlternativeText
 		}
 	}
+	if valAlternativeTextCap, ok := objMap["AlternativeText"]; ok {
+		if valAlternativeTextCap != nil {
+			var valueForAlternativeText string
+			err = json.Unmarshal(*valAlternativeTextCap, &valueForAlternativeText)
+			if err != nil {
+				return err
+			}
+			this.AlternativeText = valueForAlternativeText
+		}
+	}
 	
-	if valAlternativeTextTitle, ok := objMap["AlternativeTextTitle"]; ok {
+	if valAlternativeTextTitle, ok := objMap["alternativeTextTitle"]; ok {
 		if valAlternativeTextTitle != nil {
 			var valueForAlternativeTextTitle string
 			err = json.Unmarshal(*valAlternativeTextTitle, &valueForAlternativeTextTitle)
@@ -500,8 +560,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.AlternativeTextTitle = valueForAlternativeTextTitle
 		}
 	}
+	if valAlternativeTextTitleCap, ok := objMap["AlternativeTextTitle"]; ok {
+		if valAlternativeTextTitleCap != nil {
+			var valueForAlternativeTextTitle string
+			err = json.Unmarshal(*valAlternativeTextTitleCap, &valueForAlternativeTextTitle)
+			if err != nil {
+				return err
+			}
+			this.AlternativeTextTitle = valueForAlternativeTextTitle
+		}
+	}
 	
-	if valHidden, ok := objMap["Hidden"]; ok {
+	if valHidden, ok := objMap["hidden"]; ok {
 		if valHidden != nil {
 			var valueForHidden bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
@@ -511,8 +581,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Hidden = valueForHidden
 		}
 	}
+	if valHiddenCap, ok := objMap["Hidden"]; ok {
+		if valHiddenCap != nil {
+			var valueForHidden bool
+			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
+			if err != nil {
+				return err
+			}
+			this.Hidden = valueForHidden
+		}
+	}
 	
-	if valX, ok := objMap["X"]; ok {
+	if valX, ok := objMap["x"]; ok {
 		if valX != nil {
 			var valueForX float64
 			err = json.Unmarshal(*valX, &valueForX)
@@ -522,8 +602,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.X = valueForX
 		}
 	}
+	if valXCap, ok := objMap["X"]; ok {
+		if valXCap != nil {
+			var valueForX float64
+			err = json.Unmarshal(*valXCap, &valueForX)
+			if err != nil {
+				return err
+			}
+			this.X = valueForX
+		}
+	}
 	
-	if valY, ok := objMap["Y"]; ok {
+	if valY, ok := objMap["y"]; ok {
 		if valY != nil {
 			var valueForY float64
 			err = json.Unmarshal(*valY, &valueForY)
@@ -533,8 +623,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Y = valueForY
 		}
 	}
+	if valYCap, ok := objMap["Y"]; ok {
+		if valYCap != nil {
+			var valueForY float64
+			err = json.Unmarshal(*valYCap, &valueForY)
+			if err != nil {
+				return err
+			}
+			this.Y = valueForY
+		}
+	}
 	
-	if valZOrderPosition, ok := objMap["ZOrderPosition"]; ok {
+	if valZOrderPosition, ok := objMap["zOrderPosition"]; ok {
 		if valZOrderPosition != nil {
 			var valueForZOrderPosition int32
 			err = json.Unmarshal(*valZOrderPosition, &valueForZOrderPosition)
@@ -544,8 +644,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.ZOrderPosition = valueForZOrderPosition
 		}
 	}
+	if valZOrderPositionCap, ok := objMap["ZOrderPosition"]; ok {
+		if valZOrderPositionCap != nil {
+			var valueForZOrderPosition int32
+			err = json.Unmarshal(*valZOrderPositionCap, &valueForZOrderPosition)
+			if err != nil {
+				return err
+			}
+			this.ZOrderPosition = valueForZOrderPosition
+		}
+	}
 	
-	if valShapes, ok := objMap["Shapes"]; ok {
+	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
 			var valueForShapes ResourceUriElement
 			err = json.Unmarshal(*valShapes, &valueForShapes)
@@ -555,8 +665,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Shapes = valueForShapes
 		}
 	}
+	if valShapesCap, ok := objMap["Shapes"]; ok {
+		if valShapesCap != nil {
+			var valueForShapes ResourceUriElement
+			err = json.Unmarshal(*valShapesCap, &valueForShapes)
+			if err != nil {
+				return err
+			}
+			this.Shapes = valueForShapes
+		}
+	}
 	
-	if valFillFormat, ok := objMap["FillFormat"]; ok {
+	if valFillFormat, ok := objMap["fillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -566,8 +686,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
+	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
+		if valFillFormatCap != nil {
+			var valueForFillFormat FillFormat
+			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
+			if err != nil {
+				return err
+			}
+			this.FillFormat = valueForFillFormat
+		}
+	}
 	
-	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
+	if valEffectFormat, ok := objMap["effectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
 			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
@@ -577,8 +707,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
+	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
+		if valEffectFormatCap != nil {
+			var valueForEffectFormat EffectFormat
+			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
+			if err != nil {
+				return err
+			}
+			this.EffectFormat = valueForEffectFormat
+		}
+	}
 	
-	if valLineFormat, ok := objMap["LineFormat"]; ok {
+	if valLineFormat, ok := objMap["lineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
 			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
@@ -588,8 +728,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.LineFormat = valueForLineFormat
 		}
 	}
-	this.Type_ = "Shape"
-	if valType, ok := objMap["Type"]; ok {
+	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
+		if valLineFormatCap != nil {
+			var valueForLineFormat LineFormat
+			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
+			if err != nil {
+				return err
+			}
+			this.LineFormat = valueForLineFormat
+		}
+	}
+	this.Type_ = "TYPE__CHART"
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -599,8 +749,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-	this.ShapeType = "Custom"
-	if valShapeType, ok := objMap["ShapeType"]; ok {
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
+	this.ShapeType = "SHAPE_TYPE_CHART"
+	if valShapeType, ok := objMap["shapeType"]; ok {
 		if valShapeType != nil {
 			var valueForShapeType string
 			err = json.Unmarshal(*valShapeType, &valueForShapeType)
@@ -610,8 +770,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.ShapeType = valueForShapeType
 		}
 	}
+	if valShapeTypeCap, ok := objMap["ShapeType"]; ok {
+		if valShapeTypeCap != nil {
+			var valueForShapeType string
+			err = json.Unmarshal(*valShapeTypeCap, &valueForShapeType)
+			if err != nil {
+				return err
+			}
+			this.ShapeType = valueForShapeType
+		}
+	}
 	this.ChartType = "ClusteredColumn"
-	if valChartType, ok := objMap["ChartType"]; ok {
+	if valChartType, ok := objMap["chartType"]; ok {
 		if valChartType != nil {
 			var valueForChartType string
 			err = json.Unmarshal(*valChartType, &valueForChartType)
@@ -621,8 +791,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.ChartType = valueForChartType
 		}
 	}
+	if valChartTypeCap, ok := objMap["ChartType"]; ok {
+		if valChartTypeCap != nil {
+			var valueForChartType string
+			err = json.Unmarshal(*valChartTypeCap, &valueForChartType)
+			if err != nil {
+				return err
+			}
+			this.ChartType = valueForChartType
+		}
+	}
 	
-	if valSeries, ok := objMap["Series"]; ok {
+	if valSeries, ok := objMap["series"]; ok {
 		if valSeries != nil {
 			var valueForSeries []Series
 			err = json.Unmarshal(*valSeries, &valueForSeries)
@@ -632,8 +812,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Series = valueForSeries
 		}
 	}
+	if valSeriesCap, ok := objMap["Series"]; ok {
+		if valSeriesCap != nil {
+			var valueForSeries []Series
+			err = json.Unmarshal(*valSeriesCap, &valueForSeries)
+			if err != nil {
+				return err
+			}
+			this.Series = valueForSeries
+		}
+	}
 	
-	if valCategories, ok := objMap["Categories"]; ok {
+	if valCategories, ok := objMap["categories"]; ok {
 		if valCategories != nil {
 			var valueForCategories []string
 			err = json.Unmarshal(*valCategories, &valueForCategories)
@@ -643,8 +833,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Categories = valueForCategories
 		}
 	}
+	if valCategoriesCap, ok := objMap["Categories"]; ok {
+		if valCategoriesCap != nil {
+			var valueForCategories []string
+			err = json.Unmarshal(*valCategoriesCap, &valueForCategories)
+			if err != nil {
+				return err
+			}
+			this.Categories = valueForCategories
+		}
+	}
 	
-	if valTitle, ok := objMap["Title"]; ok {
+	if valTitle, ok := objMap["title"]; ok {
 		if valTitle != nil {
 			var valueForTitle ChartTitle
 			err = json.Unmarshal(*valTitle, &valueForTitle)
@@ -654,8 +854,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Title = valueForTitle
 		}
 	}
+	if valTitleCap, ok := objMap["Title"]; ok {
+		if valTitleCap != nil {
+			var valueForTitle ChartTitle
+			err = json.Unmarshal(*valTitleCap, &valueForTitle)
+			if err != nil {
+				return err
+			}
+			this.Title = valueForTitle
+		}
+	}
 	
-	if valBackWall, ok := objMap["BackWall"]; ok {
+	if valBackWall, ok := objMap["backWall"]; ok {
 		if valBackWall != nil {
 			var valueForBackWall ChartWall
 			err = json.Unmarshal(*valBackWall, &valueForBackWall)
@@ -665,8 +875,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.BackWall = valueForBackWall
 		}
 	}
+	if valBackWallCap, ok := objMap["BackWall"]; ok {
+		if valBackWallCap != nil {
+			var valueForBackWall ChartWall
+			err = json.Unmarshal(*valBackWallCap, &valueForBackWall)
+			if err != nil {
+				return err
+			}
+			this.BackWall = valueForBackWall
+		}
+	}
 	
-	if valSideWall, ok := objMap["SideWall"]; ok {
+	if valSideWall, ok := objMap["sideWall"]; ok {
 		if valSideWall != nil {
 			var valueForSideWall ChartWall
 			err = json.Unmarshal(*valSideWall, &valueForSideWall)
@@ -676,8 +896,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.SideWall = valueForSideWall
 		}
 	}
+	if valSideWallCap, ok := objMap["SideWall"]; ok {
+		if valSideWallCap != nil {
+			var valueForSideWall ChartWall
+			err = json.Unmarshal(*valSideWallCap, &valueForSideWall)
+			if err != nil {
+				return err
+			}
+			this.SideWall = valueForSideWall
+		}
+	}
 	
-	if valFloor, ok := objMap["Floor"]; ok {
+	if valFloor, ok := objMap["floor"]; ok {
 		if valFloor != nil {
 			var valueForFloor ChartWall
 			err = json.Unmarshal(*valFloor, &valueForFloor)
@@ -687,8 +917,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Floor = valueForFloor
 		}
 	}
+	if valFloorCap, ok := objMap["Floor"]; ok {
+		if valFloorCap != nil {
+			var valueForFloor ChartWall
+			err = json.Unmarshal(*valFloorCap, &valueForFloor)
+			if err != nil {
+				return err
+			}
+			this.Floor = valueForFloor
+		}
+	}
 	
-	if valLegend, ok := objMap["Legend"]; ok {
+	if valLegend, ok := objMap["legend"]; ok {
 		if valLegend != nil {
 			var valueForLegend Legend
 			err = json.Unmarshal(*valLegend, &valueForLegend)
@@ -698,8 +938,18 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Legend = valueForLegend
 		}
 	}
+	if valLegendCap, ok := objMap["Legend"]; ok {
+		if valLegendCap != nil {
+			var valueForLegend Legend
+			err = json.Unmarshal(*valLegendCap, &valueForLegend)
+			if err != nil {
+				return err
+			}
+			this.Legend = valueForLegend
+		}
+	}
 	
-	if valAxes, ok := objMap["Axes"]; ok {
+	if valAxes, ok := objMap["axes"]; ok {
 		if valAxes != nil {
 			var valueForAxes Axes
 			err = json.Unmarshal(*valAxes, &valueForAxes)
@@ -709,11 +959,31 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.Axes = valueForAxes
 		}
 	}
+	if valAxesCap, ok := objMap["Axes"]; ok {
+		if valAxesCap != nil {
+			var valueForAxes Axes
+			err = json.Unmarshal(*valAxesCap, &valueForAxes)
+			if err != nil {
+				return err
+			}
+			this.Axes = valueForAxes
+		}
+	}
 	
-	if valPlotArea, ok := objMap["PlotArea"]; ok {
+	if valPlotArea, ok := objMap["plotArea"]; ok {
 		if valPlotArea != nil {
 			var valueForPlotArea PlotArea
 			err = json.Unmarshal(*valPlotArea, &valueForPlotArea)
+			if err != nil {
+				return err
+			}
+			this.PlotArea = valueForPlotArea
+		}
+	}
+	if valPlotAreaCap, ok := objMap["PlotArea"]; ok {
+		if valPlotAreaCap != nil {
+			var valueForPlotArea PlotArea
+			err = json.Unmarshal(*valPlotAreaCap, &valueForPlotArea)
 			if err != nil {
 				return err
 			}

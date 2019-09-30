@@ -88,7 +88,7 @@ func (this *Base64InputFile) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valPassword, ok := objMap["Password"]; ok {
+	if valPassword, ok := objMap["password"]; ok {
 		if valPassword != nil {
 			var valueForPassword string
 			err = json.Unmarshal(*valPassword, &valueForPassword)
@@ -98,8 +98,18 @@ func (this *Base64InputFile) UnmarshalJSON(b []byte) error {
 			this.Password = valueForPassword
 		}
 	}
-	this.Type_ = "Path"
-	if valType, ok := objMap["Type"]; ok {
+	if valPasswordCap, ok := objMap["Password"]; ok {
+		if valPasswordCap != nil {
+			var valueForPassword string
+			err = json.Unmarshal(*valPasswordCap, &valueForPassword)
+			if err != nil {
+				return err
+			}
+			this.Password = valueForPassword
+		}
+	}
+	this.Type_ = "TYPE__BASE64"
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,11 +119,31 @@ func (this *Base64InputFile) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
 	
-	if valData, ok := objMap["Data"]; ok {
+	if valData, ok := objMap["data"]; ok {
 		if valData != nil {
 			var valueForData string
 			err = json.Unmarshal(*valData, &valueForData)
+			if err != nil {
+				return err
+			}
+			this.Data = valueForData
+		}
+	}
+	if valDataCap, ok := objMap["Data"]; ok {
+		if valDataCap != nil {
+			var valueForData string
+			err = json.Unmarshal(*valDataCap, &valueForData)
 			if err != nil {
 				return err
 			}

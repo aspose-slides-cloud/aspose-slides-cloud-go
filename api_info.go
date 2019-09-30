@@ -74,7 +74,7 @@ func (this *ApiInfo) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valName, ok := objMap["Name"]; ok {
+	if valName, ok := objMap["name"]; ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -84,11 +84,31 @@ func (this *ApiInfo) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
+	if valNameCap, ok := objMap["Name"]; ok {
+		if valNameCap != nil {
+			var valueForName string
+			err = json.Unmarshal(*valNameCap, &valueForName)
+			if err != nil {
+				return err
+			}
+			this.Name = valueForName
+		}
+	}
 	
-	if valVersion, ok := objMap["Version"]; ok {
+	if valVersion, ok := objMap["version"]; ok {
 		if valVersion != nil {
 			var valueForVersion string
 			err = json.Unmarshal(*valVersion, &valueForVersion)
+			if err != nil {
+				return err
+			}
+			this.Version = valueForVersion
+		}
+	}
+	if valVersionCap, ok := objMap["Version"]; ok {
+		if valVersionCap != nil {
+			var valueForVersion string
+			err = json.Unmarshal(*valVersionCap, &valueForVersion)
 			if err != nil {
 				return err
 			}

@@ -116,7 +116,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valNodes, ok := objMap["Nodes"]; ok {
+	if valNodes, ok := objMap["nodes"]; ok {
 		if valNodes != nil {
 			var valueForNodes []SmartArtNode
 			err = json.Unmarshal(*valNodes, &valueForNodes)
@@ -126,8 +126,18 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			this.Nodes = valueForNodes
 		}
 	}
+	if valNodesCap, ok := objMap["Nodes"]; ok {
+		if valNodesCap != nil {
+			var valueForNodes []SmartArtNode
+			err = json.Unmarshal(*valNodesCap, &valueForNodes)
+			if err != nil {
+				return err
+			}
+			this.Nodes = valueForNodes
+		}
+	}
 	
-	if valShapes, ok := objMap["Shapes"]; ok {
+	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
 			var valueForShapes ResourceUriElement
 			err = json.Unmarshal(*valShapes, &valueForShapes)
@@ -137,8 +147,18 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			this.Shapes = valueForShapes
 		}
 	}
+	if valShapesCap, ok := objMap["Shapes"]; ok {
+		if valShapesCap != nil {
+			var valueForShapes ResourceUriElement
+			err = json.Unmarshal(*valShapesCap, &valueForShapes)
+			if err != nil {
+				return err
+			}
+			this.Shapes = valueForShapes
+		}
+	}
 	
-	if valIsAssistant, ok := objMap["IsAssistant"]; ok {
+	if valIsAssistant, ok := objMap["isAssistant"]; ok {
 		if valIsAssistant != nil {
 			var valueForIsAssistant bool
 			err = json.Unmarshal(*valIsAssistant, &valueForIsAssistant)
@@ -148,8 +168,18 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			this.IsAssistant = valueForIsAssistant
 		}
 	}
+	if valIsAssistantCap, ok := objMap["IsAssistant"]; ok {
+		if valIsAssistantCap != nil {
+			var valueForIsAssistant bool
+			err = json.Unmarshal(*valIsAssistantCap, &valueForIsAssistant)
+			if err != nil {
+				return err
+			}
+			this.IsAssistant = valueForIsAssistant
+		}
+	}
 	
-	if valText, ok := objMap["Text"]; ok {
+	if valText, ok := objMap["text"]; ok {
 		if valText != nil {
 			var valueForText string
 			err = json.Unmarshal(*valText, &valueForText)
@@ -159,11 +189,31 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
+	if valTextCap, ok := objMap["Text"]; ok {
+		if valTextCap != nil {
+			var valueForText string
+			err = json.Unmarshal(*valTextCap, &valueForText)
+			if err != nil {
+				return err
+			}
+			this.Text = valueForText
+		}
+	}
 	this.OrgChartLayout = "Initial"
-	if valOrgChartLayout, ok := objMap["OrgChartLayout"]; ok {
+	if valOrgChartLayout, ok := objMap["orgChartLayout"]; ok {
 		if valOrgChartLayout != nil {
 			var valueForOrgChartLayout string
 			err = json.Unmarshal(*valOrgChartLayout, &valueForOrgChartLayout)
+			if err != nil {
+				return err
+			}
+			this.OrgChartLayout = valueForOrgChartLayout
+		}
+	}
+	if valOrgChartLayoutCap, ok := objMap["OrgChartLayout"]; ok {
+		if valOrgChartLayoutCap != nil {
+			var valueForOrgChartLayout string
+			err = json.Unmarshal(*valOrgChartLayoutCap, &valueForOrgChartLayout)
 			if err != nil {
 				return err
 			}

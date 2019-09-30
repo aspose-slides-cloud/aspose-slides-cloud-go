@@ -116,7 +116,7 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFormat, ok := objMap["Format"]; ok {
+	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -126,8 +126,18 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
+	if valFormatCap, ok := objMap["Format"]; ok {
+		if valFormatCap != nil {
+			var valueForFormat string
+			err = json.Unmarshal(*valFormatCap, &valueForFormat)
+			if err != nil {
+				return err
+			}
+			this.Format = valueForFormat
+		}
+	}
 	this.NotesPosition = "None"
-	if valNotesPosition, ok := objMap["NotesPosition"]; ok {
+	if valNotesPosition, ok := objMap["notesPosition"]; ok {
 		if valNotesPosition != nil {
 			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
@@ -137,8 +147,18 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 			this.NotesPosition = valueForNotesPosition
 		}
 	}
+	if valNotesPositionCap, ok := objMap["NotesPosition"]; ok {
+		if valNotesPositionCap != nil {
+			var valueForNotesPosition string
+			err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPosition)
+			if err != nil {
+				return err
+			}
+			this.NotesPosition = valueForNotesPosition
+		}
+	}
 	this.CommentsPosition = "None"
-	if valCommentsPosition, ok := objMap["CommentsPosition"]; ok {
+	if valCommentsPosition, ok := objMap["commentsPosition"]; ok {
 		if valCommentsPosition != nil {
 			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
@@ -148,8 +168,18 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 			this.CommentsPosition = valueForCommentsPosition
 		}
 	}
+	if valCommentsPositionCap, ok := objMap["CommentsPosition"]; ok {
+		if valCommentsPositionCap != nil {
+			var valueForCommentsPosition string
+			err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPosition)
+			if err != nil {
+				return err
+			}
+			this.CommentsPosition = valueForCommentsPosition
+		}
+	}
 	
-	if valCommentsAreaWidth, ok := objMap["CommentsAreaWidth"]; ok {
+	if valCommentsAreaWidth, ok := objMap["commentsAreaWidth"]; ok {
 		if valCommentsAreaWidth != nil {
 			var valueForCommentsAreaWidth int32
 			err = json.Unmarshal(*valCommentsAreaWidth, &valueForCommentsAreaWidth)
@@ -159,11 +189,31 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 			this.CommentsAreaWidth = valueForCommentsAreaWidth
 		}
 	}
+	if valCommentsAreaWidthCap, ok := objMap["CommentsAreaWidth"]; ok {
+		if valCommentsAreaWidthCap != nil {
+			var valueForCommentsAreaWidth int32
+			err = json.Unmarshal(*valCommentsAreaWidthCap, &valueForCommentsAreaWidth)
+			if err != nil {
+				return err
+			}
+			this.CommentsAreaWidth = valueForCommentsAreaWidth
+		}
+	}
 	
-	if valCommentsAreaColor, ok := objMap["CommentsAreaColor"]; ok {
+	if valCommentsAreaColor, ok := objMap["commentsAreaColor"]; ok {
 		if valCommentsAreaColor != nil {
 			var valueForCommentsAreaColor string
 			err = json.Unmarshal(*valCommentsAreaColor, &valueForCommentsAreaColor)
+			if err != nil {
+				return err
+			}
+			this.CommentsAreaColor = valueForCommentsAreaColor
+		}
+	}
+	if valCommentsAreaColorCap, ok := objMap["CommentsAreaColor"]; ok {
+		if valCommentsAreaColorCap != nil {
+			var valueForCommentsAreaColor string
+			err = json.Unmarshal(*valCommentsAreaColorCap, &valueForCommentsAreaColor)
 			if err != nil {
 				return err
 			}

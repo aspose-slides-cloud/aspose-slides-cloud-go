@@ -102,7 +102,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFormat, ok := objMap["Format"]; ok {
+	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -112,8 +112,18 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
+	if valFormatCap, ok := objMap["Format"]; ok {
+		if valFormatCap != nil {
+			var valueForFormat string
+			err = json.Unmarshal(*valFormatCap, &valueForFormat)
+			if err != nil {
+				return err
+			}
+			this.Format = valueForFormat
+		}
+	}
 	
-	if valShowHiddenSlides, ok := objMap["ShowHiddenSlides"]; ok {
+	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
 			var valueForShowHiddenSlides bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
@@ -123,8 +133,18 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.ShowHiddenSlides = valueForShowHiddenSlides
 		}
 	}
+	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
+		if valShowHiddenSlidesCap != nil {
+			var valueForShowHiddenSlides bool
+			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
+			if err != nil {
+				return err
+			}
+			this.ShowHiddenSlides = valueForShowHiddenSlides
+		}
+	}
 	
-	if valSaveMetafilesAsPng, ok := objMap["SaveMetafilesAsPng"]; ok {
+	if valSaveMetafilesAsPng, ok := objMap["saveMetafilesAsPng"]; ok {
 		if valSaveMetafilesAsPng != nil {
 			var valueForSaveMetafilesAsPng bool
 			err = json.Unmarshal(*valSaveMetafilesAsPng, &valueForSaveMetafilesAsPng)
@@ -134,11 +154,31 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.SaveMetafilesAsPng = valueForSaveMetafilesAsPng
 		}
 	}
+	if valSaveMetafilesAsPngCap, ok := objMap["SaveMetafilesAsPng"]; ok {
+		if valSaveMetafilesAsPngCap != nil {
+			var valueForSaveMetafilesAsPng bool
+			err = json.Unmarshal(*valSaveMetafilesAsPngCap, &valueForSaveMetafilesAsPng)
+			if err != nil {
+				return err
+			}
+			this.SaveMetafilesAsPng = valueForSaveMetafilesAsPng
+		}
+	}
 	
-	if valDrawSlidesFrame, ok := objMap["DrawSlidesFrame"]; ok {
+	if valDrawSlidesFrame, ok := objMap["drawSlidesFrame"]; ok {
 		if valDrawSlidesFrame != nil {
 			var valueForDrawSlidesFrame bool
 			err = json.Unmarshal(*valDrawSlidesFrame, &valueForDrawSlidesFrame)
+			if err != nil {
+				return err
+			}
+			this.DrawSlidesFrame = valueForDrawSlidesFrame
+		}
+	}
+	if valDrawSlidesFrameCap, ok := objMap["DrawSlidesFrame"]; ok {
+		if valDrawSlidesFrameCap != nil {
+			var valueForDrawSlidesFrame bool
+			err = json.Unmarshal(*valDrawSlidesFrameCap, &valueForDrawSlidesFrame)
 			if err != nil {
 				return err
 			}

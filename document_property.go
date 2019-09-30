@@ -116,7 +116,7 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["SelfUri"]; ok {
+	if valSelfUri, ok := objMap["selfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -126,8 +126,18 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
+	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
+		if valSelfUriCap != nil {
+			var valueForSelfUri ResourceUri
+			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
+			if err != nil {
+				return err
+			}
+			this.SelfUri = valueForSelfUri
+		}
+	}
 	
-	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
+	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -137,8 +147,18 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
+	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
+		if valAlternateLinksCap != nil {
+			var valueForAlternateLinks []ResourceUri
+			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
+			if err != nil {
+				return err
+			}
+			this.AlternateLinks = valueForAlternateLinks
+		}
+	}
 	
-	if valName, ok := objMap["Name"]; ok {
+	if valName, ok := objMap["name"]; ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -148,8 +168,18 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
+	if valNameCap, ok := objMap["Name"]; ok {
+		if valNameCap != nil {
+			var valueForName string
+			err = json.Unmarshal(*valNameCap, &valueForName)
+			if err != nil {
+				return err
+			}
+			this.Name = valueForName
+		}
+	}
 	
-	if valValue, ok := objMap["Value"]; ok {
+	if valValue, ok := objMap["value"]; ok {
 		if valValue != nil {
 			var valueForValue string
 			err = json.Unmarshal(*valValue, &valueForValue)
@@ -159,11 +189,31 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			this.Value = valueForValue
 		}
 	}
+	if valValueCap, ok := objMap["Value"]; ok {
+		if valValueCap != nil {
+			var valueForValue string
+			err = json.Unmarshal(*valValueCap, &valueForValue)
+			if err != nil {
+				return err
+			}
+			this.Value = valueForValue
+		}
+	}
 	
-	if valBuiltIn, ok := objMap["BuiltIn"]; ok {
+	if valBuiltIn, ok := objMap["builtIn"]; ok {
 		if valBuiltIn != nil {
 			var valueForBuiltIn bool
 			err = json.Unmarshal(*valBuiltIn, &valueForBuiltIn)
+			if err != nil {
+				return err
+			}
+			this.BuiltIn = valueForBuiltIn
+		}
+	}
+	if valBuiltInCap, ok := objMap["BuiltIn"]; ok {
+		if valBuiltInCap != nil {
+			var valueForBuiltIn bool
+			err = json.Unmarshal(*valBuiltInCap, &valueForBuiltIn)
 			if err != nil {
 				return err
 			}

@@ -13641,8 +13641,7 @@ func TestPostAddNewParagraphInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PostAddNewParagraph", "dto", "Paragraph")
     if (invalidValue == nil) {
-        var nullValue Paragraph
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IParagraph)
     }
@@ -13950,8 +13949,7 @@ func TestPostAddNewPortionInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PostAddNewPortion", "dto", "Portion")
     if (invalidValue == nil) {
-        var nullValue Portion
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IPortion)
     }
@@ -14209,8 +14207,7 @@ func TestPostAddNewShapeInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PostAddNewShape", "dto", "ShapeBase")
     if (invalidValue == nil) {
-        var nullValue ShapeBase
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IShapeBase)
     }
@@ -14456,8 +14453,7 @@ func TestPostAddNotesSlideInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PostAddNotesSlide", "dto", "NotesSlide")
     if (invalidValue == nil) {
-        var nullValue NotesSlide
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(INotesSlide)
     }
@@ -15237,8 +15233,7 @@ func TestPostNotesSlideAddNewParagraphInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PostNotesSlideAddNewParagraph", "dto", "Paragraph")
     if (invalidValue == nil) {
-        var nullValue Paragraph
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IParagraph)
     }
@@ -15546,8 +15541,7 @@ func TestPostNotesSlideAddNewPortionInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PostNotesSlideAddNewPortion", "dto", "Portion")
     if (invalidValue == nil) {
-        var nullValue Portion
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IPortion)
     }
@@ -15805,8 +15799,7 @@ func TestPostNotesSlideAddNewShapeInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PostNotesSlideAddNewShape", "dto", "ShapeBase")
     if (invalidValue == nil) {
-        var nullValue ShapeBase
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IShapeBase)
     }
@@ -16003,12 +15996,7 @@ func createPostNotesSlideShapeSaveAsRequest() PostNotesSlideShapeSaveAsRequest {
         request.scaleY = new(float64)
         *request.scaleY = v
     }
-    testbounds := createTestParamValue("PostNotesSlideShapeSaveAs", "bounds", "string")
-    switch v := testbounds.(type) { 
-    case string:
-        request.bounds = new(string)
-        *request.bounds = v
-    }
+    request.bounds = createTestParamValue("PostNotesSlideShapeSaveAs", "bounds", "string").(string)
     request.fontsFolder = createTestParamValue("PostNotesSlideShapeSaveAs", "fontsFolder", "string").(string)
     return request
 }
@@ -16156,8 +16144,7 @@ func TestPostNotesSlideShapeSaveAsInvalidoptions(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.options, "PostNotesSlideShapeSaveAs", "options", "IShapeExportOptions")
     if (invalidValue == nil) {
-        var nullValue IShapeExportOptions
-        request.options = nullValue
+        request.options = nil
     } else {
         request.options = invalidValue.(IIShapeExportOptions)
     }
@@ -16317,14 +16304,13 @@ func TestPostNotesSlideShapeSaveAsInvalidscaleY(t *testing.T) {
 */
 func TestPostNotesSlideShapeSaveAsInvalidbounds(t *testing.T) {
     request := createPostNotesSlideShapeSaveAsRequest()
-    request.bounds = new(string)
 
     invalidValue := invalidizeTestParamValue(request.bounds, "PostNotesSlideShapeSaveAs", "bounds", "string")
     if (invalidValue == nil) {
-        var nullValue *string
+        var nullValue string
         request.bounds = nullValue
     } else {
-        *request.bounds = invalidValue.(string)
+        request.bounds = invalidValue.(string)
     }
 
     e := initializeTest("PostNotesSlideShapeSaveAs", "bounds", request.bounds)
@@ -16430,8 +16416,7 @@ func TestPostPresentationMergeInvalidrequest(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.request, "PostPresentationMerge", "request", "PresentationsMergeRequest")
     if (invalidValue == nil) {
-        var nullValue PresentationsMergeRequest
-        request.request = nullValue
+        request.request = nil
     } else {
         request.request = invalidValue.(IPresentationsMergeRequest)
     }
@@ -16572,12 +16557,7 @@ func createPostShapeSaveAsRequest() PostShapeSaveAsRequest {
         request.scaleY = new(float64)
         *request.scaleY = v
     }
-    testbounds := createTestParamValue("PostShapeSaveAs", "bounds", "string")
-    switch v := testbounds.(type) { 
-    case string:
-        request.bounds = new(string)
-        *request.bounds = v
-    }
+    request.bounds = createTestParamValue("PostShapeSaveAs", "bounds", "string").(string)
     request.fontsFolder = createTestParamValue("PostShapeSaveAs", "fontsFolder", "string").(string)
     return request
 }
@@ -16725,8 +16705,7 @@ func TestPostShapeSaveAsInvalidoptions(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.options, "PostShapeSaveAs", "options", "IShapeExportOptions")
     if (invalidValue == nil) {
-        var nullValue IShapeExportOptions
-        request.options = nullValue
+        request.options = nil
     } else {
         request.options = invalidValue.(IIShapeExportOptions)
     }
@@ -16886,14 +16865,13 @@ func TestPostShapeSaveAsInvalidscaleY(t *testing.T) {
 */
 func TestPostShapeSaveAsInvalidbounds(t *testing.T) {
     request := createPostShapeSaveAsRequest()
-    request.bounds = new(string)
 
     invalidValue := invalidizeTestParamValue(request.bounds, "PostShapeSaveAs", "bounds", "string")
     if (invalidValue == nil) {
-        var nullValue *string
+        var nullValue string
         request.bounds = nullValue
     } else {
-        *request.bounds = invalidValue.(string)
+        request.bounds = invalidValue.(string)
     }
 
     e := initializeTest("PostShapeSaveAs", "bounds", request.bounds)
@@ -17027,8 +17005,7 @@ func TestPostSlideAnimationEffectInvalideffect(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.effect, "PostSlideAnimationEffect", "effect", "Effect")
     if (invalidValue == nil) {
-        var nullValue Effect
-        request.effect = nullValue
+        request.effect = nil
     } else {
         request.effect = invalidValue.(IEffect)
     }
@@ -17218,8 +17195,7 @@ func TestPostSlideAnimationInteractiveSequenceInvalidsequence(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.sequence, "PostSlideAnimationInteractiveSequence", "sequence", "InteractiveSequence")
     if (invalidValue == nil) {
-        var nullValue InteractiveSequence
-        request.sequence = nullValue
+        request.sequence = nil
     } else {
         request.sequence = invalidValue.(IInteractiveSequence)
     }
@@ -17437,8 +17413,7 @@ func TestPostSlideAnimationInteractiveSequenceEffectInvalideffect(t *testing.T) 
 
     invalidValue := invalidizeTestParamValue(request.effect, "PostSlideAnimationInteractiveSequenceEffect", "effect", "Effect")
     if (invalidValue == nil) {
-        var nullValue Effect
-        request.effect = nullValue
+        request.effect = nil
     } else {
         request.effect = invalidValue.(IEffect)
     }
@@ -17670,8 +17645,7 @@ func TestPostSlideSaveAsInvalidoptions(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.options, "PostSlideSaveAs", "options", "ExportOptions")
     if (invalidValue == nil) {
-        var nullValue ExportOptions
-        request.options = nullValue
+        request.options = nil
     } else {
         request.options = invalidValue.(IExportOptions)
     }
@@ -18113,8 +18087,7 @@ func TestPostSlidesConvertInvaliddocument(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.document, "PostSlidesConvert", "document", "[]byte")
     if (invalidValue == nil) {
-        var nullValue []byte
-        request.document = nullValue
+        request.document = nil
     } else {
         request.document = invalidValue.([]byte)
     }
@@ -18531,8 +18504,7 @@ func TestPostSlidesDocumentInvaliddata(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.data, "PostSlidesDocument", "data", "[]byte")
     if (invalidValue == nil) {
-        var nullValue []byte
-        request.data = nullValue
+        request.data = nil
     } else {
         request.data = invalidValue.([]byte)
     }
@@ -19354,8 +19326,7 @@ func TestPostSlidesPipelineInvalidpipeline(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.pipeline, "PostSlidesPipeline", "pipeline", "Pipeline")
     if (invalidValue == nil) {
-        var nullValue Pipeline
-        request.pipeline = nullValue
+        request.pipeline = nil
     } else {
         request.pipeline = invalidValue.(IPipeline)
     }
@@ -20073,8 +20044,7 @@ func TestPostSlidesSaveAsInvalidoptions(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.options, "PostSlidesSaveAs", "options", "ExportOptions")
     if (invalidValue == nil) {
-        var nullValue ExportOptions
-        request.options = nullValue
+        request.options = nil
     } else {
         request.options = invalidValue.(IExportOptions)
     }
@@ -20263,8 +20233,7 @@ func TestPostSlidesSetDocumentPropertiesInvalidproperties(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.properties, "PostSlidesSetDocumentProperties", "properties", "DocumentProperties")
     if (invalidValue == nil) {
-        var nullValue DocumentProperties
-        request.properties = nullValue
+        request.properties = nil
     } else {
         request.properties = invalidValue.(IDocumentProperties)
     }
@@ -20638,12 +20607,7 @@ func createPostSlidesSplitRequest() PostSlidesSplitRequest {
     var request PostSlidesSplitRequest
     request.name = createTestParamValue("PostSlidesSplit", "name", "string").(string)
     request.options = createTestParamValue("PostSlidesSplit", "options", "ExportOptions").(IExportOptions)
-    testformat := createTestParamValue("PostSlidesSplit", "format", "string")
-    switch v := testformat.(type) { 
-    case string:
-        request.format = new(string)
-        *request.format = v
-    }
+    request.format = createTestParamValue("PostSlidesSplit", "format", "string").(string)
     testwidth := createTestParamValue("PostSlidesSplit", "width", "int32")
     switch v := testwidth.(type) { 
     case int32:
@@ -20711,8 +20675,7 @@ func TestPostSlidesSplitInvalidoptions(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.options, "PostSlidesSplit", "options", "ExportOptions")
     if (invalidValue == nil) {
-        var nullValue ExportOptions
-        request.options = nullValue
+        request.options = nil
     } else {
         request.options = invalidValue.(IExportOptions)
     }
@@ -20735,14 +20698,13 @@ func TestPostSlidesSplitInvalidoptions(t *testing.T) {
 */
 func TestPostSlidesSplitInvalidformat(t *testing.T) {
     request := createPostSlidesSplitRequest()
-    request.format = new(string)
 
     invalidValue := invalidizeTestParamValue(request.format, "PostSlidesSplit", "format", "string")
     if (invalidValue == nil) {
-        var nullValue *string
+        var nullValue string
         request.format = nullValue
     } else {
-        *request.format = invalidValue.(string)
+        request.format = invalidValue.(string)
     }
 
     e := initializeTest("PostSlidesSplit", "format", request.format)
@@ -21096,8 +21058,7 @@ func TestPutLayoutSlideInvalidslideDto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.slideDto, "PutLayoutSlide", "slideDto", "LayoutSlide")
     if (invalidValue == nil) {
-        var nullValue LayoutSlide
-        request.slideDto = nullValue
+        request.slideDto = nil
     } else {
         request.slideDto = invalidValue.(ILayoutSlide)
     }
@@ -21238,12 +21199,7 @@ func createPutNotesSlideShapeSaveAsRequest() PutNotesSlideShapeSaveAsRequest {
         request.scaleY = new(float64)
         *request.scaleY = v
     }
-    testbounds := createTestParamValue("PutNotesSlideShapeSaveAs", "bounds", "string")
-    switch v := testbounds.(type) { 
-    case string:
-        request.bounds = new(string)
-        *request.bounds = v
-    }
+    request.bounds = createTestParamValue("PutNotesSlideShapeSaveAs", "bounds", "string").(string)
     request.fontsFolder = createTestParamValue("PutNotesSlideShapeSaveAs", "fontsFolder", "string").(string)
     return request
 }
@@ -21418,8 +21374,7 @@ func TestPutNotesSlideShapeSaveAsInvalidoptions(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.options, "PutNotesSlideShapeSaveAs", "options", "IShapeExportOptions")
     if (invalidValue == nil) {
-        var nullValue IShapeExportOptions
-        request.options = nullValue
+        request.options = nil
     } else {
         request.options = invalidValue.(IIShapeExportOptions)
     }
@@ -21579,14 +21534,13 @@ func TestPutNotesSlideShapeSaveAsInvalidscaleY(t *testing.T) {
 */
 func TestPutNotesSlideShapeSaveAsInvalidbounds(t *testing.T) {
     request := createPutNotesSlideShapeSaveAsRequest()
-    request.bounds = new(string)
 
     invalidValue := invalidizeTestParamValue(request.bounds, "PutNotesSlideShapeSaveAs", "bounds", "string")
     if (invalidValue == nil) {
-        var nullValue *string
+        var nullValue string
         request.bounds = nullValue
     } else {
-        *request.bounds = invalidValue.(string)
+        request.bounds = invalidValue.(string)
     }
 
     e := initializeTest("PutNotesSlideShapeSaveAs", "bounds", request.bounds)
@@ -21692,8 +21646,7 @@ func TestPutPresentationMergeInvalidrequest(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.request, "PutPresentationMerge", "request", "OrderedMergeRequest")
     if (invalidValue == nil) {
-        var nullValue OrderedMergeRequest
-        request.request = nullValue
+        request.request = nil
     } else {
         request.request = invalidValue.(IOrderedMergeRequest)
     }
@@ -21995,8 +21948,7 @@ func TestPutSetParagraphPortionPropertiesInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PutSetParagraphPortionProperties", "dto", "Portion")
     if (invalidValue == nil) {
-        var nullValue Portion
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IPortion)
     }
@@ -22270,8 +22222,7 @@ func TestPutSetParagraphPropertiesInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PutSetParagraphProperties", "dto", "Paragraph")
     if (invalidValue == nil) {
-        var nullValue Paragraph
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IParagraph)
     }
@@ -22412,12 +22363,7 @@ func createPutShapeSaveAsRequest() PutShapeSaveAsRequest {
         request.scaleY = new(float64)
         *request.scaleY = v
     }
-    testbounds := createTestParamValue("PutShapeSaveAs", "bounds", "string")
-    switch v := testbounds.(type) { 
-    case string:
-        request.bounds = new(string)
-        *request.bounds = v
-    }
+    request.bounds = createTestParamValue("PutShapeSaveAs", "bounds", "string").(string)
     request.fontsFolder = createTestParamValue("PutShapeSaveAs", "fontsFolder", "string").(string)
     return request
 }
@@ -22592,8 +22538,7 @@ func TestPutShapeSaveAsInvalidoptions(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.options, "PutShapeSaveAs", "options", "IShapeExportOptions")
     if (invalidValue == nil) {
-        var nullValue IShapeExportOptions
-        request.options = nullValue
+        request.options = nil
     } else {
         request.options = invalidValue.(IIShapeExportOptions)
     }
@@ -22753,14 +22698,13 @@ func TestPutShapeSaveAsInvalidscaleY(t *testing.T) {
 */
 func TestPutShapeSaveAsInvalidbounds(t *testing.T) {
     request := createPutShapeSaveAsRequest()
-    request.bounds = new(string)
 
     invalidValue := invalidizeTestParamValue(request.bounds, "PutShapeSaveAs", "bounds", "string")
     if (invalidValue == nil) {
-        var nullValue *string
+        var nullValue string
         request.bounds = nullValue
     } else {
-        *request.bounds = invalidValue.(string)
+        request.bounds = invalidValue.(string)
     }
 
     e := initializeTest("PutShapeSaveAs", "bounds", request.bounds)
@@ -22894,8 +22838,7 @@ func TestPutSlideAnimationInvalidanimation(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.animation, "PutSlideAnimation", "animation", "SlideAnimation")
     if (invalidValue == nil) {
-        var nullValue SlideAnimation
-        request.animation = nullValue
+        request.animation = nil
     } else {
         request.animation = invalidValue.(ISlideAnimation)
     }
@@ -23113,8 +23056,7 @@ func TestPutSlideAnimationEffectInvalideffect(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.effect, "PutSlideAnimationEffect", "effect", "Effect")
     if (invalidValue == nil) {
-        var nullValue Effect
-        request.effect = nullValue
+        request.effect = nil
     } else {
         request.effect = invalidValue.(IEffect)
     }
@@ -23360,8 +23302,7 @@ func TestPutSlideAnimationInteractiveSequenceEffectInvalideffect(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.effect, "PutSlideAnimationInteractiveSequenceEffect", "effect", "Effect")
     if (invalidValue == nil) {
-        var nullValue Effect
-        request.effect = nullValue
+        request.effect = nil
     } else {
         request.effect = invalidValue.(IEffect)
     }
@@ -23620,8 +23561,7 @@ func TestPutSlideSaveAsInvalidoptions(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.options, "PutSlideSaveAs", "options", "ExportOptions")
     if (invalidValue == nil) {
-        var nullValue ExportOptions
-        request.options = nullValue
+        request.options = nil
     } else {
         request.options = invalidValue.(IExportOptions)
     }
@@ -23950,8 +23890,7 @@ func TestPutSlideShapeInfoInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PutSlideShapeInfo", "dto", "ShapeBase")
     if (invalidValue == nil) {
-        var nullValue ShapeBase
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IShapeBase)
     }
@@ -24140,8 +24079,7 @@ func TestPutSlidesConvertInvaliddocument(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.document, "PutSlidesConvert", "document", "[]byte")
     if (invalidValue == nil) {
-        var nullValue []byte
-        request.document = nullValue
+        request.document = nil
     } else {
         request.document = invalidValue.([]byte)
     }
@@ -24496,8 +24434,7 @@ func TestPutSlidesSaveAsInvalidoptions(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.options, "PutSlidesSaveAs", "options", "ExportOptions")
     if (invalidValue == nil) {
-        var nullValue ExportOptions
-        request.options = nullValue
+        request.options = nil
     } else {
         request.options = invalidValue.(IExportOptions)
     }
@@ -24714,8 +24651,7 @@ func TestPutSlidesSetDocumentPropertyInvalidproperty(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.property, "PutSlidesSetDocumentProperty", "property", "DocumentProperty")
     if (invalidValue == nil) {
-        var nullValue DocumentProperty
-        request.property = nullValue
+        request.property = nil
     } else {
         request.property = invalidValue.(IDocumentProperty)
     }
@@ -24905,8 +24841,7 @@ func TestPutSlidesSlideInvalidslideDto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.slideDto, "PutSlidesSlide", "slideDto", "Slide")
     if (invalidValue == nil) {
-        var nullValue Slide
-        request.slideDto = nullValue
+        request.slideDto = nil
     } else {
         request.slideDto = invalidValue.(ISlide)
     }
@@ -25096,8 +25031,7 @@ func TestPutSlidesSlideBackgroundInvalidbackground(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.background, "PutSlidesSlideBackground", "background", "SlideBackground")
     if (invalidValue == nil) {
-        var nullValue SlideBackground
-        request.background = nullValue
+        request.background = nil
     } else {
         request.background = invalidValue.(ISlideBackground)
     }
@@ -25423,18 +25357,8 @@ func createPutSlidesSlideSizeRequest() PutSlidesSlideSizeRequest {
         request.height = new(int32)
         *request.height = v
     }
-    testsizeType := createTestParamValue("PutSlidesSlideSize", "sizeType", "string")
-    switch v := testsizeType.(type) { 
-    case string:
-        request.sizeType = new(string)
-        *request.sizeType = v
-    }
-    testscaleType := createTestParamValue("PutSlidesSlideSize", "scaleType", "string")
-    switch v := testscaleType.(type) { 
-    case string:
-        request.scaleType = new(string)
-        *request.scaleType = v
-    }
+    request.sizeType = createTestParamValue("PutSlidesSlideSize", "sizeType", "string").(string)
+    request.scaleType = createTestParamValue("PutSlidesSlideSize", "scaleType", "string").(string)
     return request
 }
 
@@ -25607,14 +25531,13 @@ func TestPutSlidesSlideSizeInvalidheight(t *testing.T) {
 */
 func TestPutSlidesSlideSizeInvalidsizeType(t *testing.T) {
     request := createPutSlidesSlideSizeRequest()
-    request.sizeType = new(string)
 
     invalidValue := invalidizeTestParamValue(request.sizeType, "PutSlidesSlideSize", "sizeType", "string")
     if (invalidValue == nil) {
-        var nullValue *string
+        var nullValue string
         request.sizeType = nullValue
     } else {
-        *request.sizeType = invalidValue.(string)
+        request.sizeType = invalidValue.(string)
     }
 
     e := initializeTest("PutSlidesSlideSize", "sizeType", request.sizeType)
@@ -25635,14 +25558,13 @@ func TestPutSlidesSlideSizeInvalidsizeType(t *testing.T) {
 */
 func TestPutSlidesSlideSizeInvalidscaleType(t *testing.T) {
     request := createPutSlidesSlideSizeRequest()
-    request.scaleType = new(string)
 
     invalidValue := invalidizeTestParamValue(request.scaleType, "PutSlidesSlideSize", "scaleType", "string")
     if (invalidValue == nil) {
-        var nullValue *string
+        var nullValue string
         request.scaleType = nullValue
     } else {
-        *request.scaleType = invalidValue.(string)
+        request.scaleType = invalidValue.(string)
     }
 
     e := initializeTest("PutSlidesSlideSize", "scaleType", request.scaleType)
@@ -25749,8 +25671,7 @@ func TestPutUpdateNotesSlideInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PutUpdateNotesSlide", "dto", "NotesSlide")
     if (invalidValue == nil) {
-        var nullValue NotesSlide
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(INotesSlide)
     }
@@ -25996,8 +25917,7 @@ func TestPutUpdateNotesSlideShapeInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PutUpdateNotesSlideShape", "dto", "ShapeBase")
     if (invalidValue == nil) {
-        var nullValue ShapeBase
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IShapeBase)
     }
@@ -26271,8 +26191,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PutUpdateNotesSlideShapeParagraph", "dto", "Paragraph")
     if (invalidValue == nil) {
-        var nullValue Paragraph
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IParagraph)
     }
@@ -26574,8 +26493,7 @@ func TestPutUpdateNotesSlideShapePortionInvaliddto(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.dto, "PutUpdateNotesSlideShapePortion", "dto", "Portion")
     if (invalidValue == nil) {
-        var nullValue Portion
-        request.dto = nullValue
+        request.dto = nil
     } else {
         request.dto = invalidValue.(IPortion)
     }
@@ -26786,8 +26704,7 @@ func TestUploadFileInvalidfile(t *testing.T) {
 
     invalidValue := invalidizeTestParamValue(request.file, "UploadFile", "file", "[]byte")
     if (invalidValue == nil) {
-        var nullValue []byte
-        request.file = nullValue
+        request.file = nil
     } else {
         request.file = invalidValue.([]byte)
     }

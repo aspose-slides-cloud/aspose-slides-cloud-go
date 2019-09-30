@@ -72,7 +72,7 @@ func (this *InputFile) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valPassword, ok := objMap["Password"]; ok {
+	if valPassword, ok := objMap["password"]; ok {
 		if valPassword != nil {
 			var valueForPassword string
 			err = json.Unmarshal(*valPassword, &valueForPassword)
@@ -82,11 +82,31 @@ func (this *InputFile) UnmarshalJSON(b []byte) error {
 			this.Password = valueForPassword
 		}
 	}
-	this.Type_ = "null"
-	if valType, ok := objMap["Type"]; ok {
+	if valPasswordCap, ok := objMap["Password"]; ok {
+		if valPasswordCap != nil {
+			var valueForPassword string
+			err = json.Unmarshal(*valPasswordCap, &valueForPassword)
+			if err != nil {
+				return err
+			}
+			this.Password = valueForPassword
+		}
+	}
+	this.Type_ = ""
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
 				return err
 			}

@@ -88,7 +88,7 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valTemplate, ok := objMap["Template"]; ok {
+	if valTemplate, ok := objMap["template"]; ok {
 		if valTemplate != nil {
 			var valueForTemplate InputFile
 			err = json.Unmarshal(*valTemplate, &valueForTemplate)
@@ -98,8 +98,18 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 			this.Template = valueForTemplate
 		}
 	}
+	if valTemplateCap, ok := objMap["Template"]; ok {
+		if valTemplateCap != nil {
+			var valueForTemplate InputFile
+			err = json.Unmarshal(*valTemplateCap, &valueForTemplate)
+			if err != nil {
+				return err
+			}
+			this.Template = valueForTemplate
+		}
+	}
 	
-	if valHtmlData, ok := objMap["HtmlData"]; ok {
+	if valHtmlData, ok := objMap["htmlData"]; ok {
 		if valHtmlData != nil {
 			var valueForHtmlData InputFile
 			err = json.Unmarshal(*valHtmlData, &valueForHtmlData)
@@ -109,11 +119,31 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 			this.HtmlData = valueForHtmlData
 		}
 	}
+	if valHtmlDataCap, ok := objMap["HtmlData"]; ok {
+		if valHtmlDataCap != nil {
+			var valueForHtmlData InputFile
+			err = json.Unmarshal(*valHtmlDataCap, &valueForHtmlData)
+			if err != nil {
+				return err
+			}
+			this.HtmlData = valueForHtmlData
+		}
+	}
 	
-	if valTemplateData, ok := objMap["TemplateData"]; ok {
+	if valTemplateData, ok := objMap["templateData"]; ok {
 		if valTemplateData != nil {
 			var valueForTemplateData InputFile
 			err = json.Unmarshal(*valTemplateData, &valueForTemplateData)
+			if err != nil {
+				return err
+			}
+			this.TemplateData = valueForTemplateData
+		}
+	}
+	if valTemplateDataCap, ok := objMap["TemplateData"]; ok {
+		if valTemplateDataCap != nil {
+			var valueForTemplateData InputFile
+			err = json.Unmarshal(*valTemplateDataCap, &valueForTemplateData)
 			if err != nil {
 				return err
 			}

@@ -58,10 +58,20 @@ func (this *ExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFormat, ok := objMap["Format"]; ok {
+	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
+			if err != nil {
+				return err
+			}
+			this.Format = valueForFormat
+		}
+	}
+	if valFormatCap, ok := objMap["Format"]; ok {
+		if valFormatCap != nil {
+			var valueForFormat string
+			err = json.Unmarshal(*valFormatCap, &valueForFormat)
 			if err != nil {
 				return err
 			}

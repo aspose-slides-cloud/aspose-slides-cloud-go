@@ -156,6 +156,9 @@ func parameterToString(obj interface{}, collectionFormat string) string {
 		return strings.Trim(strings.Replace(fmt.Sprint(obj), " ", delimiter, -1), "[]")
 	}
 
+        if reflect.ValueOf(obj).Kind() == reflect.Ptr {
+		return fmt.Sprintf("%v", reflect.ValueOf(obj).Elem())
+	}
 	return fmt.Sprintf("%v", obj)
 }
 
@@ -348,6 +351,9 @@ func reportError(format string, a ...interface{}) (error) {
 func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err error) {
 	if bodyBuf == nil {
 		bodyBuf = &bytes.Buffer{}
+	}
+        if reflect.ValueOf(body).Kind() == reflect.Ptr && reflect.ValueOf(body).Elem().IsNil() {
+		return bodyBuf, nil
 	}
 
 	if reader, ok := body.(io.Reader); ok {

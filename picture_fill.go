@@ -185,8 +185,8 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "NoFill"
-	if valType, ok := objMap["Type"]; ok {
+	this.Type_ = "TYPE__PICTURE"
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -196,8 +196,18 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
 	
-	if valCropBottom, ok := objMap["CropBottom"]; ok {
+	if valCropBottom, ok := objMap["cropBottom"]; ok {
 		if valCropBottom != nil {
 			var valueForCropBottom float64
 			err = json.Unmarshal(*valCropBottom, &valueForCropBottom)
@@ -207,8 +217,18 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropBottom = valueForCropBottom
 		}
 	}
+	if valCropBottomCap, ok := objMap["CropBottom"]; ok {
+		if valCropBottomCap != nil {
+			var valueForCropBottom float64
+			err = json.Unmarshal(*valCropBottomCap, &valueForCropBottom)
+			if err != nil {
+				return err
+			}
+			this.CropBottom = valueForCropBottom
+		}
+	}
 	
-	if valCropLeft, ok := objMap["CropLeft"]; ok {
+	if valCropLeft, ok := objMap["cropLeft"]; ok {
 		if valCropLeft != nil {
 			var valueForCropLeft float64
 			err = json.Unmarshal(*valCropLeft, &valueForCropLeft)
@@ -218,8 +238,18 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropLeft = valueForCropLeft
 		}
 	}
+	if valCropLeftCap, ok := objMap["CropLeft"]; ok {
+		if valCropLeftCap != nil {
+			var valueForCropLeft float64
+			err = json.Unmarshal(*valCropLeftCap, &valueForCropLeft)
+			if err != nil {
+				return err
+			}
+			this.CropLeft = valueForCropLeft
+		}
+	}
 	
-	if valCropRight, ok := objMap["CropRight"]; ok {
+	if valCropRight, ok := objMap["cropRight"]; ok {
 		if valCropRight != nil {
 			var valueForCropRight float64
 			err = json.Unmarshal(*valCropRight, &valueForCropRight)
@@ -229,8 +259,18 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropRight = valueForCropRight
 		}
 	}
+	if valCropRightCap, ok := objMap["CropRight"]; ok {
+		if valCropRightCap != nil {
+			var valueForCropRight float64
+			err = json.Unmarshal(*valCropRightCap, &valueForCropRight)
+			if err != nil {
+				return err
+			}
+			this.CropRight = valueForCropRight
+		}
+	}
 	
-	if valCropTop, ok := objMap["CropTop"]; ok {
+	if valCropTop, ok := objMap["cropTop"]; ok {
 		if valCropTop != nil {
 			var valueForCropTop float64
 			err = json.Unmarshal(*valCropTop, &valueForCropTop)
@@ -240,8 +280,18 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropTop = valueForCropTop
 		}
 	}
+	if valCropTopCap, ok := objMap["CropTop"]; ok {
+		if valCropTopCap != nil {
+			var valueForCropTop float64
+			err = json.Unmarshal(*valCropTopCap, &valueForCropTop)
+			if err != nil {
+				return err
+			}
+			this.CropTop = valueForCropTop
+		}
+	}
 	
-	if valDpi, ok := objMap["Dpi"]; ok {
+	if valDpi, ok := objMap["dpi"]; ok {
 		if valDpi != nil {
 			var valueForDpi int32
 			err = json.Unmarshal(*valDpi, &valueForDpi)
@@ -251,8 +301,18 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.Dpi = valueForDpi
 		}
 	}
+	if valDpiCap, ok := objMap["Dpi"]; ok {
+		if valDpiCap != nil {
+			var valueForDpi int32
+			err = json.Unmarshal(*valDpiCap, &valueForDpi)
+			if err != nil {
+				return err
+			}
+			this.Dpi = valueForDpi
+		}
+	}
 	
-	if valImage, ok := objMap["Image"]; ok {
+	if valImage, ok := objMap["image"]; ok {
 		if valImage != nil {
 			var valueForImage ResourceUriElement
 			err = json.Unmarshal(*valImage, &valueForImage)
@@ -262,8 +322,18 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.Image = valueForImage
 		}
 	}
+	if valImageCap, ok := objMap["Image"]; ok {
+		if valImageCap != nil {
+			var valueForImage ResourceUriElement
+			err = json.Unmarshal(*valImageCap, &valueForImage)
+			if err != nil {
+				return err
+			}
+			this.Image = valueForImage
+		}
+	}
 	
-	if valBase64Data, ok := objMap["Base64Data"]; ok {
+	if valBase64Data, ok := objMap["base64Data"]; ok {
 		if valBase64Data != nil {
 			var valueForBase64Data string
 			err = json.Unmarshal(*valBase64Data, &valueForBase64Data)
@@ -273,8 +343,18 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.Base64Data = valueForBase64Data
 		}
 	}
+	if valBase64DataCap, ok := objMap["Base64Data"]; ok {
+		if valBase64DataCap != nil {
+			var valueForBase64Data string
+			err = json.Unmarshal(*valBase64DataCap, &valueForBase64Data)
+			if err != nil {
+				return err
+			}
+			this.Base64Data = valueForBase64Data
+		}
+	}
 	
-	if valSvgData, ok := objMap["SvgData"]; ok {
+	if valSvgData, ok := objMap["svgData"]; ok {
 		if valSvgData != nil {
 			var valueForSvgData string
 			err = json.Unmarshal(*valSvgData, &valueForSvgData)
@@ -284,11 +364,31 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.SvgData = valueForSvgData
 		}
 	}
+	if valSvgDataCap, ok := objMap["SvgData"]; ok {
+		if valSvgDataCap != nil {
+			var valueForSvgData string
+			err = json.Unmarshal(*valSvgDataCap, &valueForSvgData)
+			if err != nil {
+				return err
+			}
+			this.SvgData = valueForSvgData
+		}
+	}
 	this.PictureFillMode = "Tile"
-	if valPictureFillMode, ok := objMap["PictureFillMode"]; ok {
+	if valPictureFillMode, ok := objMap["pictureFillMode"]; ok {
 		if valPictureFillMode != nil {
 			var valueForPictureFillMode string
 			err = json.Unmarshal(*valPictureFillMode, &valueForPictureFillMode)
+			if err != nil {
+				return err
+			}
+			this.PictureFillMode = valueForPictureFillMode
+		}
+	}
+	if valPictureFillModeCap, ok := objMap["PictureFillMode"]; ok {
+		if valPictureFillModeCap != nil {
+			var valueForPictureFillMode string
+			err = json.Unmarshal(*valPictureFillModeCap, &valueForPictureFillMode)
 			if err != nil {
 				return err
 			}

@@ -354,7 +354,7 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["SelfUri"]; ok {
+	if valSelfUri, ok := objMap["selfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -364,8 +364,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
+	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
+		if valSelfUriCap != nil {
+			var valueForSelfUri ResourceUri
+			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
+			if err != nil {
+				return err
+			}
+			this.SelfUri = valueForSelfUri
+		}
+	}
 	
-	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
+	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -375,8 +385,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
+	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
+		if valAlternateLinksCap != nil {
+			var valueForAlternateLinks []ResourceUri
+			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
+			if err != nil {
+				return err
+			}
+			this.AlternateLinks = valueForAlternateLinks
+		}
+	}
 	
-	if valName, ok := objMap["Name"]; ok {
+	if valName, ok := objMap["name"]; ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -386,8 +406,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
+	if valNameCap, ok := objMap["Name"]; ok {
+		if valNameCap != nil {
+			var valueForName string
+			err = json.Unmarshal(*valNameCap, &valueForName)
+			if err != nil {
+				return err
+			}
+			this.Name = valueForName
+		}
+	}
 	
-	if valWidth, ok := objMap["Width"]; ok {
+	if valWidth, ok := objMap["width"]; ok {
 		if valWidth != nil {
 			var valueForWidth float64
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -397,8 +427,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth float64
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
 	
-	if valHeight, ok := objMap["Height"]; ok {
+	if valHeight, ok := objMap["height"]; ok {
 		if valHeight != nil {
 			var valueForHeight float64
 			err = json.Unmarshal(*valHeight, &valueForHeight)
@@ -408,8 +448,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight float64
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
 	
-	if valAlternativeText, ok := objMap["AlternativeText"]; ok {
+	if valAlternativeText, ok := objMap["alternativeText"]; ok {
 		if valAlternativeText != nil {
 			var valueForAlternativeText string
 			err = json.Unmarshal(*valAlternativeText, &valueForAlternativeText)
@@ -419,8 +469,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.AlternativeText = valueForAlternativeText
 		}
 	}
+	if valAlternativeTextCap, ok := objMap["AlternativeText"]; ok {
+		if valAlternativeTextCap != nil {
+			var valueForAlternativeText string
+			err = json.Unmarshal(*valAlternativeTextCap, &valueForAlternativeText)
+			if err != nil {
+				return err
+			}
+			this.AlternativeText = valueForAlternativeText
+		}
+	}
 	
-	if valAlternativeTextTitle, ok := objMap["AlternativeTextTitle"]; ok {
+	if valAlternativeTextTitle, ok := objMap["alternativeTextTitle"]; ok {
 		if valAlternativeTextTitle != nil {
 			var valueForAlternativeTextTitle string
 			err = json.Unmarshal(*valAlternativeTextTitle, &valueForAlternativeTextTitle)
@@ -430,8 +490,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.AlternativeTextTitle = valueForAlternativeTextTitle
 		}
 	}
+	if valAlternativeTextTitleCap, ok := objMap["AlternativeTextTitle"]; ok {
+		if valAlternativeTextTitleCap != nil {
+			var valueForAlternativeTextTitle string
+			err = json.Unmarshal(*valAlternativeTextTitleCap, &valueForAlternativeTextTitle)
+			if err != nil {
+				return err
+			}
+			this.AlternativeTextTitle = valueForAlternativeTextTitle
+		}
+	}
 	
-	if valHidden, ok := objMap["Hidden"]; ok {
+	if valHidden, ok := objMap["hidden"]; ok {
 		if valHidden != nil {
 			var valueForHidden bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
@@ -441,8 +511,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.Hidden = valueForHidden
 		}
 	}
+	if valHiddenCap, ok := objMap["Hidden"]; ok {
+		if valHiddenCap != nil {
+			var valueForHidden bool
+			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
+			if err != nil {
+				return err
+			}
+			this.Hidden = valueForHidden
+		}
+	}
 	
-	if valX, ok := objMap["X"]; ok {
+	if valX, ok := objMap["x"]; ok {
 		if valX != nil {
 			var valueForX float64
 			err = json.Unmarshal(*valX, &valueForX)
@@ -452,8 +532,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.X = valueForX
 		}
 	}
+	if valXCap, ok := objMap["X"]; ok {
+		if valXCap != nil {
+			var valueForX float64
+			err = json.Unmarshal(*valXCap, &valueForX)
+			if err != nil {
+				return err
+			}
+			this.X = valueForX
+		}
+	}
 	
-	if valY, ok := objMap["Y"]; ok {
+	if valY, ok := objMap["y"]; ok {
 		if valY != nil {
 			var valueForY float64
 			err = json.Unmarshal(*valY, &valueForY)
@@ -463,8 +553,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.Y = valueForY
 		}
 	}
+	if valYCap, ok := objMap["Y"]; ok {
+		if valYCap != nil {
+			var valueForY float64
+			err = json.Unmarshal(*valYCap, &valueForY)
+			if err != nil {
+				return err
+			}
+			this.Y = valueForY
+		}
+	}
 	
-	if valZOrderPosition, ok := objMap["ZOrderPosition"]; ok {
+	if valZOrderPosition, ok := objMap["zOrderPosition"]; ok {
 		if valZOrderPosition != nil {
 			var valueForZOrderPosition int32
 			err = json.Unmarshal(*valZOrderPosition, &valueForZOrderPosition)
@@ -474,8 +574,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.ZOrderPosition = valueForZOrderPosition
 		}
 	}
+	if valZOrderPositionCap, ok := objMap["ZOrderPosition"]; ok {
+		if valZOrderPositionCap != nil {
+			var valueForZOrderPosition int32
+			err = json.Unmarshal(*valZOrderPositionCap, &valueForZOrderPosition)
+			if err != nil {
+				return err
+			}
+			this.ZOrderPosition = valueForZOrderPosition
+		}
+	}
 	
-	if valShapes, ok := objMap["Shapes"]; ok {
+	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
 			var valueForShapes ResourceUriElement
 			err = json.Unmarshal(*valShapes, &valueForShapes)
@@ -485,8 +595,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.Shapes = valueForShapes
 		}
 	}
+	if valShapesCap, ok := objMap["Shapes"]; ok {
+		if valShapesCap != nil {
+			var valueForShapes ResourceUriElement
+			err = json.Unmarshal(*valShapesCap, &valueForShapes)
+			if err != nil {
+				return err
+			}
+			this.Shapes = valueForShapes
+		}
+	}
 	
-	if valFillFormat, ok := objMap["FillFormat"]; ok {
+	if valFillFormat, ok := objMap["fillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -496,8 +616,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
+	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
+		if valFillFormatCap != nil {
+			var valueForFillFormat FillFormat
+			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
+			if err != nil {
+				return err
+			}
+			this.FillFormat = valueForFillFormat
+		}
+	}
 	
-	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
+	if valEffectFormat, ok := objMap["effectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
 			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
@@ -507,8 +637,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
+	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
+		if valEffectFormatCap != nil {
+			var valueForEffectFormat EffectFormat
+			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
+			if err != nil {
+				return err
+			}
+			this.EffectFormat = valueForEffectFormat
+		}
+	}
 	
-	if valLineFormat, ok := objMap["LineFormat"]; ok {
+	if valLineFormat, ok := objMap["lineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
 			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
@@ -518,8 +658,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.LineFormat = valueForLineFormat
 		}
 	}
-	this.Type_ = "Shape"
-	if valType, ok := objMap["Type"]; ok {
+	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
+		if valLineFormatCap != nil {
+			var valueForLineFormat LineFormat
+			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
+			if err != nil {
+				return err
+			}
+			this.LineFormat = valueForLineFormat
+		}
+	}
+	this.Type_ = "TYPE__CONNECTOR"
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -529,8 +679,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
 	this.ShapeType = "Custom"
-	if valShapeType, ok := objMap["ShapeType"]; ok {
+	if valShapeType, ok := objMap["shapeType"]; ok {
 		if valShapeType != nil {
 			var valueForShapeType string
 			err = json.Unmarshal(*valShapeType, &valueForShapeType)
@@ -540,8 +700,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.ShapeType = valueForShapeType
 		}
 	}
+	if valShapeTypeCap, ok := objMap["ShapeType"]; ok {
+		if valShapeTypeCap != nil {
+			var valueForShapeType string
+			err = json.Unmarshal(*valShapeTypeCap, &valueForShapeType)
+			if err != nil {
+				return err
+			}
+			this.ShapeType = valueForShapeType
+		}
+	}
 	this.GeometryShapeType = "Custom"
-	if valGeometryShapeType, ok := objMap["GeometryShapeType"]; ok {
+	if valGeometryShapeType, ok := objMap["geometryShapeType"]; ok {
 		if valGeometryShapeType != nil {
 			var valueForGeometryShapeType string
 			err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeType)
@@ -551,8 +721,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.GeometryShapeType = valueForGeometryShapeType
 		}
 	}
+	if valGeometryShapeTypeCap, ok := objMap["GeometryShapeType"]; ok {
+		if valGeometryShapeTypeCap != nil {
+			var valueForGeometryShapeType string
+			err = json.Unmarshal(*valGeometryShapeTypeCap, &valueForGeometryShapeType)
+			if err != nil {
+				return err
+			}
+			this.GeometryShapeType = valueForGeometryShapeType
+		}
+	}
 	
-	if valStartShapeConnectedTo, ok := objMap["StartShapeConnectedTo"]; ok {
+	if valStartShapeConnectedTo, ok := objMap["startShapeConnectedTo"]; ok {
 		if valStartShapeConnectedTo != nil {
 			var valueForStartShapeConnectedTo ResourceUri
 			err = json.Unmarshal(*valStartShapeConnectedTo, &valueForStartShapeConnectedTo)
@@ -562,8 +742,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.StartShapeConnectedTo = valueForStartShapeConnectedTo
 		}
 	}
+	if valStartShapeConnectedToCap, ok := objMap["StartShapeConnectedTo"]; ok {
+		if valStartShapeConnectedToCap != nil {
+			var valueForStartShapeConnectedTo ResourceUri
+			err = json.Unmarshal(*valStartShapeConnectedToCap, &valueForStartShapeConnectedTo)
+			if err != nil {
+				return err
+			}
+			this.StartShapeConnectedTo = valueForStartShapeConnectedTo
+		}
+	}
 	
-	if valStartShapeConnectedToIndex, ok := objMap["StartShapeConnectedToIndex"]; ok {
+	if valStartShapeConnectedToIndex, ok := objMap["startShapeConnectedToIndex"]; ok {
 		if valStartShapeConnectedToIndex != nil {
 			var valueForStartShapeConnectedToIndex int32
 			err = json.Unmarshal(*valStartShapeConnectedToIndex, &valueForStartShapeConnectedToIndex)
@@ -573,8 +763,18 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.StartShapeConnectedToIndex = valueForStartShapeConnectedToIndex
 		}
 	}
+	if valStartShapeConnectedToIndexCap, ok := objMap["StartShapeConnectedToIndex"]; ok {
+		if valStartShapeConnectedToIndexCap != nil {
+			var valueForStartShapeConnectedToIndex int32
+			err = json.Unmarshal(*valStartShapeConnectedToIndexCap, &valueForStartShapeConnectedToIndex)
+			if err != nil {
+				return err
+			}
+			this.StartShapeConnectedToIndex = valueForStartShapeConnectedToIndex
+		}
+	}
 	
-	if valEndShapeConnectedTo, ok := objMap["EndShapeConnectedTo"]; ok {
+	if valEndShapeConnectedTo, ok := objMap["endShapeConnectedTo"]; ok {
 		if valEndShapeConnectedTo != nil {
 			var valueForEndShapeConnectedTo ResourceUri
 			err = json.Unmarshal(*valEndShapeConnectedTo, &valueForEndShapeConnectedTo)
@@ -584,11 +784,31 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 			this.EndShapeConnectedTo = valueForEndShapeConnectedTo
 		}
 	}
+	if valEndShapeConnectedToCap, ok := objMap["EndShapeConnectedTo"]; ok {
+		if valEndShapeConnectedToCap != nil {
+			var valueForEndShapeConnectedTo ResourceUri
+			err = json.Unmarshal(*valEndShapeConnectedToCap, &valueForEndShapeConnectedTo)
+			if err != nil {
+				return err
+			}
+			this.EndShapeConnectedTo = valueForEndShapeConnectedTo
+		}
+	}
 	
-	if valEndShapeConnectedToIndex, ok := objMap["EndShapeConnectedToIndex"]; ok {
+	if valEndShapeConnectedToIndex, ok := objMap["endShapeConnectedToIndex"]; ok {
 		if valEndShapeConnectedToIndex != nil {
 			var valueForEndShapeConnectedToIndex int32
 			err = json.Unmarshal(*valEndShapeConnectedToIndex, &valueForEndShapeConnectedToIndex)
+			if err != nil {
+				return err
+			}
+			this.EndShapeConnectedToIndex = valueForEndShapeConnectedToIndex
+		}
+	}
+	if valEndShapeConnectedToIndexCap, ok := objMap["EndShapeConnectedToIndex"]; ok {
+		if valEndShapeConnectedToIndexCap != nil {
+			var valueForEndShapeConnectedToIndex int32
+			err = json.Unmarshal(*valEndShapeConnectedToIndexCap, &valueForEndShapeConnectedToIndex)
 			if err != nil {
 				return err
 			}

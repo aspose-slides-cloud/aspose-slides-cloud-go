@@ -29,7 +29,6 @@ package asposeslidescloud
 
 import (
 	"encoding/json"
-	"github.com/mitchellh/mapstructure"
 	"io/ioutil"
 	"os"
 	"reflect"
@@ -150,7 +149,8 @@ func undefaultize(value interface{}, paramType string) interface{} {
     }
     if paramType == "[]int32" {
         var arr = []int32{}
-        mapstructure.Decode(value, &arr)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &arr)
         return arr
     }
     if paramType == "int32" {
@@ -158,83 +158,99 @@ func undefaultize(value interface{}, paramType string) interface{} {
     }
     if paramType == "Paragraph" {
         var para Paragraph
-        mapstructure.Decode(value, &para)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &para)
         return para
     }
     if paramType == "Portion" {
         var portion Portion
-        mapstructure.Decode(value, &portion)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &portion)
         return portion
     }
     if paramType == "ShapeBase" {
         var shape Shape
-        mapstructure.Decode(value, &shape)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &shape)
         return shape
     }
     if paramType == "NotesSlide" {
         var slide NotesSlide
-        mapstructure.Decode(value, &slide)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         return slide
     }
     if paramType == "Slide" {
         var slide Slide
-        mapstructure.Decode(value, &slide)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         return slide
     }
     if paramType == "LayoutSlide" {
         var slide LayoutSlide
-        mapstructure.Decode(value, &slide)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         return slide
     }
     if paramType == "MasterSlide" {
         var slide MasterSlide
-        mapstructure.Decode(value, &slide)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         return slide
     }
     if paramType == "Pipeline" {
         var slide Pipeline
-        mapstructure.Decode(value, &slide)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         return slide
     }
     if paramType == "PresentationsMergeRequest" {
         var slide PresentationsMergeRequest
-        mapstructure.Decode(value, &slide)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         return slide
     }
     if paramType == "OrderedMergeRequest" {
         var slide OrderedMergeRequest
-        mapstructure.Decode(value, &slide)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         return slide
     }
     if paramType == "SlideBackground" {
         var slide SlideBackground
-        mapstructure.Decode(value, &slide)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         return slide
     }
     if paramType == "SlideAnimation" {
         var slide SlideAnimation
-        mapstructure.Decode(value, &slide)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         return slide
     }
     if paramType == "InteractiveSequence" {
         var slide InteractiveSequence
-        mapstructure.Decode(value, &slide)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         return slide
     }
     if paramType == "Effect" {
         var slide Effect
-        mapstructure.Decode(value, &slide)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         slide.Type_ = value.(map[string]interface{})["Type"].(string)
         return slide
     }
     if paramType == "DocumentProperties" {
         var para DocumentProperties
-        mapstructure.Decode(value, &para)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &para)
         return para
     }
     if paramType == "DocumentProperty" {
         var para DocumentProperty
-        mapstructure.Decode(value, &para)
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &para)
         return para
     }
     return value

@@ -116,7 +116,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFillFormat, ok := objMap["FillFormat"]; ok {
+	if valFillFormat, ok := objMap["fillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -126,8 +126,18 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
+	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
+		if valFillFormatCap != nil {
+			var valueForFillFormat FillFormat
+			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
+			if err != nil {
+				return err
+			}
+			this.FillFormat = valueForFillFormat
+		}
+	}
 	
-	if valEffectFormat, ok := objMap["EffectFormat"]; ok {
+	if valEffectFormat, ok := objMap["effectFormat"]; ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
 			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
@@ -137,8 +147,18 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			this.EffectFormat = valueForEffectFormat
 		}
 	}
+	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
+		if valEffectFormatCap != nil {
+			var valueForEffectFormat EffectFormat
+			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
+			if err != nil {
+				return err
+			}
+			this.EffectFormat = valueForEffectFormat
+		}
+	}
 	
-	if valLineFormat, ok := objMap["LineFormat"]; ok {
+	if valLineFormat, ok := objMap["lineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
 			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
@@ -148,8 +168,18 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			this.LineFormat = valueForLineFormat
 		}
 	}
+	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
+		if valLineFormatCap != nil {
+			var valueForLineFormat LineFormat
+			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
+			if err != nil {
+				return err
+			}
+			this.LineFormat = valueForLineFormat
+		}
+	}
 	
-	if valThickness, ok := objMap["Thickness"]; ok {
+	if valThickness, ok := objMap["thickness"]; ok {
 		if valThickness != nil {
 			var valueForThickness int32
 			err = json.Unmarshal(*valThickness, &valueForThickness)
@@ -159,11 +189,31 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			this.Thickness = valueForThickness
 		}
 	}
+	if valThicknessCap, ok := objMap["Thickness"]; ok {
+		if valThicknessCap != nil {
+			var valueForThickness int32
+			err = json.Unmarshal(*valThicknessCap, &valueForThickness)
+			if err != nil {
+				return err
+			}
+			this.Thickness = valueForThickness
+		}
+	}
 	this.PictureType = "Stack"
-	if valPictureType, ok := objMap["PictureType"]; ok {
+	if valPictureType, ok := objMap["pictureType"]; ok {
 		if valPictureType != nil {
 			var valueForPictureType string
 			err = json.Unmarshal(*valPictureType, &valueForPictureType)
+			if err != nil {
+				return err
+			}
+			this.PictureType = valueForPictureType
+		}
+	}
+	if valPictureTypeCap, ok := objMap["PictureType"]; ok {
+		if valPictureTypeCap != nil {
+			var valueForPictureType string
+			err = json.Unmarshal(*valPictureTypeCap, &valueForPictureType)
 			if err != nil {
 				return err
 			}

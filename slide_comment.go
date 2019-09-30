@@ -102,7 +102,7 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valAuthor, ok := objMap["Author"]; ok {
+	if valAuthor, ok := objMap["author"]; ok {
 		if valAuthor != nil {
 			var valueForAuthor string
 			err = json.Unmarshal(*valAuthor, &valueForAuthor)
@@ -112,8 +112,18 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 			this.Author = valueForAuthor
 		}
 	}
+	if valAuthorCap, ok := objMap["Author"]; ok {
+		if valAuthorCap != nil {
+			var valueForAuthor string
+			err = json.Unmarshal(*valAuthorCap, &valueForAuthor)
+			if err != nil {
+				return err
+			}
+			this.Author = valueForAuthor
+		}
+	}
 	
-	if valText, ok := objMap["Text"]; ok {
+	if valText, ok := objMap["text"]; ok {
 		if valText != nil {
 			var valueForText string
 			err = json.Unmarshal(*valText, &valueForText)
@@ -123,8 +133,18 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
+	if valTextCap, ok := objMap["Text"]; ok {
+		if valTextCap != nil {
+			var valueForText string
+			err = json.Unmarshal(*valTextCap, &valueForText)
+			if err != nil {
+				return err
+			}
+			this.Text = valueForText
+		}
+	}
 	
-	if valCreatedTime, ok := objMap["CreatedTime"]; ok {
+	if valCreatedTime, ok := objMap["createdTime"]; ok {
 		if valCreatedTime != nil {
 			var valueForCreatedTime string
 			err = json.Unmarshal(*valCreatedTime, &valueForCreatedTime)
@@ -134,11 +154,31 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 			this.CreatedTime = valueForCreatedTime
 		}
 	}
+	if valCreatedTimeCap, ok := objMap["CreatedTime"]; ok {
+		if valCreatedTimeCap != nil {
+			var valueForCreatedTime string
+			err = json.Unmarshal(*valCreatedTimeCap, &valueForCreatedTime)
+			if err != nil {
+				return err
+			}
+			this.CreatedTime = valueForCreatedTime
+		}
+	}
 	
-	if valChildComments, ok := objMap["ChildComments"]; ok {
+	if valChildComments, ok := objMap["childComments"]; ok {
 		if valChildComments != nil {
 			var valueForChildComments []SlideComment
 			err = json.Unmarshal(*valChildComments, &valueForChildComments)
+			if err != nil {
+				return err
+			}
+			this.ChildComments = valueForChildComments
+		}
+	}
+	if valChildCommentsCap, ok := objMap["ChildComments"]; ok {
+		if valChildCommentsCap != nil {
+			var valueForChildComments []SlideComment
+			err = json.Unmarshal(*valChildCommentsCap, &valueForChildComments)
 			if err != nil {
 				return err
 			}

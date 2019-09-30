@@ -101,8 +101,8 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "Save"
-	if valType, ok := objMap["Type"]; ok {
+	this.Type_ = "TYPE__SAVE"
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -112,8 +112,18 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
 	this.Format = "Pdf"
-	if valFormat, ok := objMap["Format"]; ok {
+	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -123,8 +133,18 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
+	if valFormatCap, ok := objMap["Format"]; ok {
+		if valFormatCap != nil {
+			var valueForFormat string
+			err = json.Unmarshal(*valFormatCap, &valueForFormat)
+			if err != nil {
+				return err
+			}
+			this.Format = valueForFormat
+		}
+	}
 	
-	if valOutput, ok := objMap["Output"]; ok {
+	if valOutput, ok := objMap["output"]; ok {
 		if valOutput != nil {
 			var valueForOutput OutputFile
 			err = json.Unmarshal(*valOutput, &valueForOutput)
@@ -134,11 +154,31 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			this.Output = valueForOutput
 		}
 	}
+	if valOutputCap, ok := objMap["Output"]; ok {
+		if valOutputCap != nil {
+			var valueForOutput OutputFile
+			err = json.Unmarshal(*valOutputCap, &valueForOutput)
+			if err != nil {
+				return err
+			}
+			this.Output = valueForOutput
+		}
+	}
 	
-	if valOptions, ok := objMap["Options"]; ok {
+	if valOptions, ok := objMap["options"]; ok {
 		if valOptions != nil {
 			var valueForOptions ExportOptions
 			err = json.Unmarshal(*valOptions, &valueForOptions)
+			if err != nil {
+				return err
+			}
+			this.Options = valueForOptions
+		}
+	}
+	if valOptionsCap, ok := objMap["Options"]; ok {
+		if valOptionsCap != nil {
+			var valueForOptions ExportOptions
+			err = json.Unmarshal(*valOptionsCap, &valueForOptions)
 			if err != nil {
 				return err
 			}

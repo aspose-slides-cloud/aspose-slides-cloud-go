@@ -101,8 +101,8 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "NoFill"
-	if valType, ok := objMap["Type"]; ok {
+	this.Type_ = "TYPE__PATTERN"
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -112,8 +112,18 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
 	
-	if valBackColor, ok := objMap["BackColor"]; ok {
+	if valBackColor, ok := objMap["backColor"]; ok {
 		if valBackColor != nil {
 			var valueForBackColor string
 			err = json.Unmarshal(*valBackColor, &valueForBackColor)
@@ -123,8 +133,18 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 			this.BackColor = valueForBackColor
 		}
 	}
+	if valBackColorCap, ok := objMap["BackColor"]; ok {
+		if valBackColorCap != nil {
+			var valueForBackColor string
+			err = json.Unmarshal(*valBackColorCap, &valueForBackColor)
+			if err != nil {
+				return err
+			}
+			this.BackColor = valueForBackColor
+		}
+	}
 	
-	if valForeColor, ok := objMap["ForeColor"]; ok {
+	if valForeColor, ok := objMap["foreColor"]; ok {
 		if valForeColor != nil {
 			var valueForForeColor string
 			err = json.Unmarshal(*valForeColor, &valueForForeColor)
@@ -134,11 +154,31 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 			this.ForeColor = valueForForeColor
 		}
 	}
+	if valForeColorCap, ok := objMap["ForeColor"]; ok {
+		if valForeColorCap != nil {
+			var valueForForeColor string
+			err = json.Unmarshal(*valForeColorCap, &valueForForeColor)
+			if err != nil {
+				return err
+			}
+			this.ForeColor = valueForForeColor
+		}
+	}
 	this.Style = "Unknown"
-	if valStyle, ok := objMap["Style"]; ok {
+	if valStyle, ok := objMap["style"]; ok {
 		if valStyle != nil {
 			var valueForStyle string
 			err = json.Unmarshal(*valStyle, &valueForStyle)
+			if err != nil {
+				return err
+			}
+			this.Style = valueForStyle
+		}
+	}
+	if valStyleCap, ok := objMap["Style"]; ok {
+		if valStyleCap != nil {
+			var valueForStyle string
+			err = json.Unmarshal(*valStyleCap, &valueForStyle)
 			if err != nil {
 				return err
 			}

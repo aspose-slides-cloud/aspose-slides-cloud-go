@@ -115,8 +115,8 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "Save"
-	if valType, ok := objMap["Type"]; ok {
+	this.Type_ = "TYPE__REPLACE_TEXT"
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -126,8 +126,18 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
 	
-	if valOldText, ok := objMap["OldText"]; ok {
+	if valOldText, ok := objMap["oldText"]; ok {
 		if valOldText != nil {
 			var valueForOldText string
 			err = json.Unmarshal(*valOldText, &valueForOldText)
@@ -137,8 +147,18 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 			this.OldText = valueForOldText
 		}
 	}
+	if valOldTextCap, ok := objMap["OldText"]; ok {
+		if valOldTextCap != nil {
+			var valueForOldText string
+			err = json.Unmarshal(*valOldTextCap, &valueForOldText)
+			if err != nil {
+				return err
+			}
+			this.OldText = valueForOldText
+		}
+	}
 	
-	if valNewText, ok := objMap["NewText"]; ok {
+	if valNewText, ok := objMap["newText"]; ok {
 		if valNewText != nil {
 			var valueForNewText string
 			err = json.Unmarshal(*valNewText, &valueForNewText)
@@ -148,8 +168,18 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 			this.NewText = valueForNewText
 		}
 	}
+	if valNewTextCap, ok := objMap["NewText"]; ok {
+		if valNewTextCap != nil {
+			var valueForNewText string
+			err = json.Unmarshal(*valNewTextCap, &valueForNewText)
+			if err != nil {
+				return err
+			}
+			this.NewText = valueForNewText
+		}
+	}
 	
-	if valIgnoreCase, ok := objMap["IgnoreCase"]; ok {
+	if valIgnoreCase, ok := objMap["ignoreCase"]; ok {
 		if valIgnoreCase != nil {
 			var valueForIgnoreCase bool
 			err = json.Unmarshal(*valIgnoreCase, &valueForIgnoreCase)
@@ -159,11 +189,31 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 			this.IgnoreCase = valueForIgnoreCase
 		}
 	}
+	if valIgnoreCaseCap, ok := objMap["IgnoreCase"]; ok {
+		if valIgnoreCaseCap != nil {
+			var valueForIgnoreCase bool
+			err = json.Unmarshal(*valIgnoreCaseCap, &valueForIgnoreCase)
+			if err != nil {
+				return err
+			}
+			this.IgnoreCase = valueForIgnoreCase
+		}
+	}
 	
-	if valSlidePosition, ok := objMap["SlidePosition"]; ok {
+	if valSlidePosition, ok := objMap["slidePosition"]; ok {
 		if valSlidePosition != nil {
 			var valueForSlidePosition int32
 			err = json.Unmarshal(*valSlidePosition, &valueForSlidePosition)
+			if err != nil {
+				return err
+			}
+			this.SlidePosition = valueForSlidePosition
+		}
+	}
+	if valSlidePositionCap, ok := objMap["SlidePosition"]; ok {
+		if valSlidePositionCap != nil {
+			var valueForSlidePosition int32
+			err = json.Unmarshal(*valSlidePositionCap, &valueForSlidePosition)
 			if err != nil {
 				return err
 			}

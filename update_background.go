@@ -87,8 +87,8 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "Save"
-	if valType, ok := objMap["Type"]; ok {
+	this.Type_ = "TYPE__UPDATE_BACKGROUND"
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -98,8 +98,18 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
 	
-	if valSlides, ok := objMap["Slides"]; ok {
+	if valSlides, ok := objMap["slides"]; ok {
 		if valSlides != nil {
 			var valueForSlides []int32
 			err = json.Unmarshal(*valSlides, &valueForSlides)
@@ -109,11 +119,31 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 			this.Slides = valueForSlides
 		}
 	}
+	if valSlidesCap, ok := objMap["Slides"]; ok {
+		if valSlidesCap != nil {
+			var valueForSlides []int32
+			err = json.Unmarshal(*valSlidesCap, &valueForSlides)
+			if err != nil {
+				return err
+			}
+			this.Slides = valueForSlides
+		}
+	}
 	
-	if valBackground, ok := objMap["Background"]; ok {
+	if valBackground, ok := objMap["background"]; ok {
 		if valBackground != nil {
 			var valueForBackground SlideBackground
 			err = json.Unmarshal(*valBackground, &valueForBackground)
+			if err != nil {
+				return err
+			}
+			this.Background = valueForBackground
+		}
+	}
+	if valBackgroundCap, ok := objMap["Background"]; ok {
+		if valBackgroundCap != nil {
+			var valueForBackground SlideBackground
+			err = json.Unmarshal(*valBackgroundCap, &valueForBackground)
 			if err != nil {
 				return err
 			}

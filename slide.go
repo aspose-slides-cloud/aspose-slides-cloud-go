@@ -228,7 +228,7 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["SelfUri"]; ok {
+	if valSelfUri, ok := objMap["selfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -238,8 +238,18 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
+	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
+		if valSelfUriCap != nil {
+			var valueForSelfUri ResourceUri
+			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
+			if err != nil {
+				return err
+			}
+			this.SelfUri = valueForSelfUri
+		}
+	}
 	
-	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
+	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -249,8 +259,18 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
+	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
+		if valAlternateLinksCap != nil {
+			var valueForAlternateLinks []ResourceUri
+			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
+			if err != nil {
+				return err
+			}
+			this.AlternateLinks = valueForAlternateLinks
+		}
+	}
 	
-	if valWidth, ok := objMap["Width"]; ok {
+	if valWidth, ok := objMap["width"]; ok {
 		if valWidth != nil {
 			var valueForWidth float64
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -260,8 +280,18 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth float64
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
 	
-	if valHeight, ok := objMap["Height"]; ok {
+	if valHeight, ok := objMap["height"]; ok {
 		if valHeight != nil {
 			var valueForHeight float64
 			err = json.Unmarshal(*valHeight, &valueForHeight)
@@ -271,8 +301,18 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight float64
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
 	
-	if valShowMasterShapes, ok := objMap["ShowMasterShapes"]; ok {
+	if valShowMasterShapes, ok := objMap["showMasterShapes"]; ok {
 		if valShowMasterShapes != nil {
 			var valueForShowMasterShapes bool
 			err = json.Unmarshal(*valShowMasterShapes, &valueForShowMasterShapes)
@@ -282,8 +322,18 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.ShowMasterShapes = valueForShowMasterShapes
 		}
 	}
+	if valShowMasterShapesCap, ok := objMap["ShowMasterShapes"]; ok {
+		if valShowMasterShapesCap != nil {
+			var valueForShowMasterShapes bool
+			err = json.Unmarshal(*valShowMasterShapesCap, &valueForShowMasterShapes)
+			if err != nil {
+				return err
+			}
+			this.ShowMasterShapes = valueForShowMasterShapes
+		}
+	}
 	
-	if valLayoutSlide, ok := objMap["LayoutSlide"]; ok {
+	if valLayoutSlide, ok := objMap["layoutSlide"]; ok {
 		if valLayoutSlide != nil {
 			var valueForLayoutSlide ResourceUriElement
 			err = json.Unmarshal(*valLayoutSlide, &valueForLayoutSlide)
@@ -293,8 +343,18 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.LayoutSlide = valueForLayoutSlide
 		}
 	}
+	if valLayoutSlideCap, ok := objMap["LayoutSlide"]; ok {
+		if valLayoutSlideCap != nil {
+			var valueForLayoutSlide ResourceUriElement
+			err = json.Unmarshal(*valLayoutSlideCap, &valueForLayoutSlide)
+			if err != nil {
+				return err
+			}
+			this.LayoutSlide = valueForLayoutSlide
+		}
+	}
 	
-	if valShapes, ok := objMap["Shapes"]; ok {
+	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
 			var valueForShapes ResourceUriElement
 			err = json.Unmarshal(*valShapes, &valueForShapes)
@@ -304,8 +364,18 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.Shapes = valueForShapes
 		}
 	}
+	if valShapesCap, ok := objMap["Shapes"]; ok {
+		if valShapesCap != nil {
+			var valueForShapes ResourceUriElement
+			err = json.Unmarshal(*valShapesCap, &valueForShapes)
+			if err != nil {
+				return err
+			}
+			this.Shapes = valueForShapes
+		}
+	}
 	
-	if valTheme, ok := objMap["Theme"]; ok {
+	if valTheme, ok := objMap["theme"]; ok {
 		if valTheme != nil {
 			var valueForTheme ResourceUriElement
 			err = json.Unmarshal(*valTheme, &valueForTheme)
@@ -315,8 +385,18 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.Theme = valueForTheme
 		}
 	}
+	if valThemeCap, ok := objMap["Theme"]; ok {
+		if valThemeCap != nil {
+			var valueForTheme ResourceUriElement
+			err = json.Unmarshal(*valThemeCap, &valueForTheme)
+			if err != nil {
+				return err
+			}
+			this.Theme = valueForTheme
+		}
+	}
 	
-	if valPlaceholders, ok := objMap["Placeholders"]; ok {
+	if valPlaceholders, ok := objMap["placeholders"]; ok {
 		if valPlaceholders != nil {
 			var valueForPlaceholders ResourceUriElement
 			err = json.Unmarshal(*valPlaceholders, &valueForPlaceholders)
@@ -326,8 +406,18 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.Placeholders = valueForPlaceholders
 		}
 	}
+	if valPlaceholdersCap, ok := objMap["Placeholders"]; ok {
+		if valPlaceholdersCap != nil {
+			var valueForPlaceholders ResourceUriElement
+			err = json.Unmarshal(*valPlaceholdersCap, &valueForPlaceholders)
+			if err != nil {
+				return err
+			}
+			this.Placeholders = valueForPlaceholders
+		}
+	}
 	
-	if valImages, ok := objMap["Images"]; ok {
+	if valImages, ok := objMap["images"]; ok {
 		if valImages != nil {
 			var valueForImages ResourceUriElement
 			err = json.Unmarshal(*valImages, &valueForImages)
@@ -337,8 +427,18 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.Images = valueForImages
 		}
 	}
+	if valImagesCap, ok := objMap["Images"]; ok {
+		if valImagesCap != nil {
+			var valueForImages ResourceUriElement
+			err = json.Unmarshal(*valImagesCap, &valueForImages)
+			if err != nil {
+				return err
+			}
+			this.Images = valueForImages
+		}
+	}
 	
-	if valComments, ok := objMap["Comments"]; ok {
+	if valComments, ok := objMap["comments"]; ok {
 		if valComments != nil {
 			var valueForComments ResourceUriElement
 			err = json.Unmarshal(*valComments, &valueForComments)
@@ -348,8 +448,18 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.Comments = valueForComments
 		}
 	}
+	if valCommentsCap, ok := objMap["Comments"]; ok {
+		if valCommentsCap != nil {
+			var valueForComments ResourceUriElement
+			err = json.Unmarshal(*valCommentsCap, &valueForComments)
+			if err != nil {
+				return err
+			}
+			this.Comments = valueForComments
+		}
+	}
 	
-	if valBackground, ok := objMap["Background"]; ok {
+	if valBackground, ok := objMap["background"]; ok {
 		if valBackground != nil {
 			var valueForBackground ResourceUriElement
 			err = json.Unmarshal(*valBackground, &valueForBackground)
@@ -359,11 +469,31 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 			this.Background = valueForBackground
 		}
 	}
+	if valBackgroundCap, ok := objMap["Background"]; ok {
+		if valBackgroundCap != nil {
+			var valueForBackground ResourceUriElement
+			err = json.Unmarshal(*valBackgroundCap, &valueForBackground)
+			if err != nil {
+				return err
+			}
+			this.Background = valueForBackground
+		}
+	}
 	
-	if valNotesSlide, ok := objMap["NotesSlide"]; ok {
+	if valNotesSlide, ok := objMap["notesSlide"]; ok {
 		if valNotesSlide != nil {
 			var valueForNotesSlide ResourceUriElement
 			err = json.Unmarshal(*valNotesSlide, &valueForNotesSlide)
+			if err != nil {
+				return err
+			}
+			this.NotesSlide = valueForNotesSlide
+		}
+	}
+	if valNotesSlideCap, ok := objMap["NotesSlide"]; ok {
+		if valNotesSlideCap != nil {
+			var valueForNotesSlide ResourceUriElement
+			err = json.Unmarshal(*valNotesSlideCap, &valueForNotesSlide)
 			if err != nil {
 				return err
 			}

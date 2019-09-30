@@ -74,7 +74,7 @@ func (this *MergingSource) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valInput, ok := objMap["Input"]; ok {
+	if valInput, ok := objMap["input"]; ok {
 		if valInput != nil {
 			var valueForInput InputFile
 			err = json.Unmarshal(*valInput, &valueForInput)
@@ -84,11 +84,31 @@ func (this *MergingSource) UnmarshalJSON(b []byte) error {
 			this.Input = valueForInput
 		}
 	}
+	if valInputCap, ok := objMap["Input"]; ok {
+		if valInputCap != nil {
+			var valueForInput InputFile
+			err = json.Unmarshal(*valInputCap, &valueForInput)
+			if err != nil {
+				return err
+			}
+			this.Input = valueForInput
+		}
+	}
 	
-	if valSlides, ok := objMap["Slides"]; ok {
+	if valSlides, ok := objMap["slides"]; ok {
 		if valSlides != nil {
 			var valueForSlides []int32
 			err = json.Unmarshal(*valSlides, &valueForSlides)
+			if err != nil {
+				return err
+			}
+			this.Slides = valueForSlides
+		}
+	}
+	if valSlidesCap, ok := objMap["Slides"]; ok {
+		if valSlidesCap != nil {
+			var valueForSlides []int32
+			err = json.Unmarshal(*valSlidesCap, &valueForSlides)
 			if err != nil {
 				return err
 			}

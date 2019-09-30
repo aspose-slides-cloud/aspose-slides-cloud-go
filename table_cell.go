@@ -270,7 +270,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valText, ok := objMap["Text"]; ok {
+	if valText, ok := objMap["text"]; ok {
 		if valText != nil {
 			var valueForText string
 			err = json.Unmarshal(*valText, &valueForText)
@@ -280,8 +280,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
+	if valTextCap, ok := objMap["Text"]; ok {
+		if valTextCap != nil {
+			var valueForText string
+			err = json.Unmarshal(*valTextCap, &valueForText)
+			if err != nil {
+				return err
+			}
+			this.Text = valueForText
+		}
+	}
 	
-	if valRowSpan, ok := objMap["RowSpan"]; ok {
+	if valRowSpan, ok := objMap["rowSpan"]; ok {
 		if valRowSpan != nil {
 			var valueForRowSpan int32
 			err = json.Unmarshal(*valRowSpan, &valueForRowSpan)
@@ -291,8 +301,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.RowSpan = valueForRowSpan
 		}
 	}
+	if valRowSpanCap, ok := objMap["RowSpan"]; ok {
+		if valRowSpanCap != nil {
+			var valueForRowSpan int32
+			err = json.Unmarshal(*valRowSpanCap, &valueForRowSpan)
+			if err != nil {
+				return err
+			}
+			this.RowSpan = valueForRowSpan
+		}
+	}
 	
-	if valColSpan, ok := objMap["ColSpan"]; ok {
+	if valColSpan, ok := objMap["colSpan"]; ok {
 		if valColSpan != nil {
 			var valueForColSpan int32
 			err = json.Unmarshal(*valColSpan, &valueForColSpan)
@@ -302,8 +322,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.ColSpan = valueForColSpan
 		}
 	}
+	if valColSpanCap, ok := objMap["ColSpan"]; ok {
+		if valColSpanCap != nil {
+			var valueForColSpan int32
+			err = json.Unmarshal(*valColSpanCap, &valueForColSpan)
+			if err != nil {
+				return err
+			}
+			this.ColSpan = valueForColSpan
+		}
+	}
 	
-	if valMarginTop, ok := objMap["MarginTop"]; ok {
+	if valMarginTop, ok := objMap["marginTop"]; ok {
 		if valMarginTop != nil {
 			var valueForMarginTop float64
 			err = json.Unmarshal(*valMarginTop, &valueForMarginTop)
@@ -313,8 +343,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginTop = valueForMarginTop
 		}
 	}
+	if valMarginTopCap, ok := objMap["MarginTop"]; ok {
+		if valMarginTopCap != nil {
+			var valueForMarginTop float64
+			err = json.Unmarshal(*valMarginTopCap, &valueForMarginTop)
+			if err != nil {
+				return err
+			}
+			this.MarginTop = valueForMarginTop
+		}
+	}
 	
-	if valMarginRight, ok := objMap["MarginRight"]; ok {
+	if valMarginRight, ok := objMap["marginRight"]; ok {
 		if valMarginRight != nil {
 			var valueForMarginRight float64
 			err = json.Unmarshal(*valMarginRight, &valueForMarginRight)
@@ -324,8 +364,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginRight = valueForMarginRight
 		}
 	}
+	if valMarginRightCap, ok := objMap["MarginRight"]; ok {
+		if valMarginRightCap != nil {
+			var valueForMarginRight float64
+			err = json.Unmarshal(*valMarginRightCap, &valueForMarginRight)
+			if err != nil {
+				return err
+			}
+			this.MarginRight = valueForMarginRight
+		}
+	}
 	
-	if valMarginLeft, ok := objMap["MarginLeft"]; ok {
+	if valMarginLeft, ok := objMap["marginLeft"]; ok {
 		if valMarginLeft != nil {
 			var valueForMarginLeft float64
 			err = json.Unmarshal(*valMarginLeft, &valueForMarginLeft)
@@ -335,8 +385,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginLeft = valueForMarginLeft
 		}
 	}
+	if valMarginLeftCap, ok := objMap["MarginLeft"]; ok {
+		if valMarginLeftCap != nil {
+			var valueForMarginLeft float64
+			err = json.Unmarshal(*valMarginLeftCap, &valueForMarginLeft)
+			if err != nil {
+				return err
+			}
+			this.MarginLeft = valueForMarginLeft
+		}
+	}
 	
-	if valMarginBottom, ok := objMap["MarginBottom"]; ok {
+	if valMarginBottom, ok := objMap["marginBottom"]; ok {
 		if valMarginBottom != nil {
 			var valueForMarginBottom float64
 			err = json.Unmarshal(*valMarginBottom, &valueForMarginBottom)
@@ -346,8 +406,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginBottom = valueForMarginBottom
 		}
 	}
+	if valMarginBottomCap, ok := objMap["MarginBottom"]; ok {
+		if valMarginBottomCap != nil {
+			var valueForMarginBottom float64
+			err = json.Unmarshal(*valMarginBottomCap, &valueForMarginBottom)
+			if err != nil {
+				return err
+			}
+			this.MarginBottom = valueForMarginBottom
+		}
+	}
 	this.TextAnchorType = "Top"
-	if valTextAnchorType, ok := objMap["TextAnchorType"]; ok {
+	if valTextAnchorType, ok := objMap["textAnchorType"]; ok {
 		if valTextAnchorType != nil {
 			var valueForTextAnchorType string
 			err = json.Unmarshal(*valTextAnchorType, &valueForTextAnchorType)
@@ -357,8 +427,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.TextAnchorType = valueForTextAnchorType
 		}
 	}
+	if valTextAnchorTypeCap, ok := objMap["TextAnchorType"]; ok {
+		if valTextAnchorTypeCap != nil {
+			var valueForTextAnchorType string
+			err = json.Unmarshal(*valTextAnchorTypeCap, &valueForTextAnchorType)
+			if err != nil {
+				return err
+			}
+			this.TextAnchorType = valueForTextAnchorType
+		}
+	}
 	this.TextVerticalType = "Horizontal"
-	if valTextVerticalType, ok := objMap["TextVerticalType"]; ok {
+	if valTextVerticalType, ok := objMap["textVerticalType"]; ok {
 		if valTextVerticalType != nil {
 			var valueForTextVerticalType string
 			err = json.Unmarshal(*valTextVerticalType, &valueForTextVerticalType)
@@ -368,8 +448,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.TextVerticalType = valueForTextVerticalType
 		}
 	}
+	if valTextVerticalTypeCap, ok := objMap["TextVerticalType"]; ok {
+		if valTextVerticalTypeCap != nil {
+			var valueForTextVerticalType string
+			err = json.Unmarshal(*valTextVerticalTypeCap, &valueForTextVerticalType)
+			if err != nil {
+				return err
+			}
+			this.TextVerticalType = valueForTextVerticalType
+		}
+	}
 	
-	if valFillFormat, ok := objMap["FillFormat"]; ok {
+	if valFillFormat, ok := objMap["fillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -379,8 +469,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
+	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
+		if valFillFormatCap != nil {
+			var valueForFillFormat FillFormat
+			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
+			if err != nil {
+				return err
+			}
+			this.FillFormat = valueForFillFormat
+		}
+	}
 	
-	if valBorderTop, ok := objMap["BorderTop"]; ok {
+	if valBorderTop, ok := objMap["borderTop"]; ok {
 		if valBorderTop != nil {
 			var valueForBorderTop LineFormat
 			err = json.Unmarshal(*valBorderTop, &valueForBorderTop)
@@ -390,8 +490,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.BorderTop = valueForBorderTop
 		}
 	}
+	if valBorderTopCap, ok := objMap["BorderTop"]; ok {
+		if valBorderTopCap != nil {
+			var valueForBorderTop LineFormat
+			err = json.Unmarshal(*valBorderTopCap, &valueForBorderTop)
+			if err != nil {
+				return err
+			}
+			this.BorderTop = valueForBorderTop
+		}
+	}
 	
-	if valBorderRight, ok := objMap["BorderRight"]; ok {
+	if valBorderRight, ok := objMap["borderRight"]; ok {
 		if valBorderRight != nil {
 			var valueForBorderRight LineFormat
 			err = json.Unmarshal(*valBorderRight, &valueForBorderRight)
@@ -401,8 +511,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.BorderRight = valueForBorderRight
 		}
 	}
+	if valBorderRightCap, ok := objMap["BorderRight"]; ok {
+		if valBorderRightCap != nil {
+			var valueForBorderRight LineFormat
+			err = json.Unmarshal(*valBorderRightCap, &valueForBorderRight)
+			if err != nil {
+				return err
+			}
+			this.BorderRight = valueForBorderRight
+		}
+	}
 	
-	if valBorderLeft, ok := objMap["BorderLeft"]; ok {
+	if valBorderLeft, ok := objMap["borderLeft"]; ok {
 		if valBorderLeft != nil {
 			var valueForBorderLeft LineFormat
 			err = json.Unmarshal(*valBorderLeft, &valueForBorderLeft)
@@ -412,8 +532,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.BorderLeft = valueForBorderLeft
 		}
 	}
+	if valBorderLeftCap, ok := objMap["BorderLeft"]; ok {
+		if valBorderLeftCap != nil {
+			var valueForBorderLeft LineFormat
+			err = json.Unmarshal(*valBorderLeftCap, &valueForBorderLeft)
+			if err != nil {
+				return err
+			}
+			this.BorderLeft = valueForBorderLeft
+		}
+	}
 	
-	if valBorderBottom, ok := objMap["BorderBottom"]; ok {
+	if valBorderBottom, ok := objMap["borderBottom"]; ok {
 		if valBorderBottom != nil {
 			var valueForBorderBottom LineFormat
 			err = json.Unmarshal(*valBorderBottom, &valueForBorderBottom)
@@ -423,8 +553,18 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.BorderBottom = valueForBorderBottom
 		}
 	}
+	if valBorderBottomCap, ok := objMap["BorderBottom"]; ok {
+		if valBorderBottomCap != nil {
+			var valueForBorderBottom LineFormat
+			err = json.Unmarshal(*valBorderBottomCap, &valueForBorderBottom)
+			if err != nil {
+				return err
+			}
+			this.BorderBottom = valueForBorderBottom
+		}
+	}
 	
-	if valBorderDiagonalUp, ok := objMap["BorderDiagonalUp"]; ok {
+	if valBorderDiagonalUp, ok := objMap["borderDiagonalUp"]; ok {
 		if valBorderDiagonalUp != nil {
 			var valueForBorderDiagonalUp LineFormat
 			err = json.Unmarshal(*valBorderDiagonalUp, &valueForBorderDiagonalUp)
@@ -434,11 +574,31 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.BorderDiagonalUp = valueForBorderDiagonalUp
 		}
 	}
+	if valBorderDiagonalUpCap, ok := objMap["BorderDiagonalUp"]; ok {
+		if valBorderDiagonalUpCap != nil {
+			var valueForBorderDiagonalUp LineFormat
+			err = json.Unmarshal(*valBorderDiagonalUpCap, &valueForBorderDiagonalUp)
+			if err != nil {
+				return err
+			}
+			this.BorderDiagonalUp = valueForBorderDiagonalUp
+		}
+	}
 	
-	if valBorderDiagonalDown, ok := objMap["BorderDiagonalDown"]; ok {
+	if valBorderDiagonalDown, ok := objMap["borderDiagonalDown"]; ok {
 		if valBorderDiagonalDown != nil {
 			var valueForBorderDiagonalDown LineFormat
 			err = json.Unmarshal(*valBorderDiagonalDown, &valueForBorderDiagonalDown)
+			if err != nil {
+				return err
+			}
+			this.BorderDiagonalDown = valueForBorderDiagonalDown
+		}
+	}
+	if valBorderDiagonalDownCap, ok := objMap["BorderDiagonalDown"]; ok {
+		if valBorderDiagonalDownCap != nil {
+			var valueForBorderDiagonalDown LineFormat
+			err = json.Unmarshal(*valBorderDiagonalDownCap, &valueForBorderDiagonalDown)
 			if err != nil {
 				return err
 			}

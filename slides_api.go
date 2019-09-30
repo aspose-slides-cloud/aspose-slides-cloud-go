@@ -578,13 +578,13 @@ type DeleteFolderRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Slide*/
-func (a *SlidesApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (Slide, *http.Response, error) {
+func (a *SlidesApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (ISlide, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Slide
+	 	successPayload ISlide
 	)
 
 	// create path and map variables
@@ -676,8 +676,17 @@ func (a *SlidesApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (Sl
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Slide", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlide); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -704,13 +713,13 @@ type DeleteNotesSlideRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Paragraphs*/
-func (a *SlidesApiService) DeleteNotesSlideParagraph(request DeleteNotesSlideParagraphRequest) (Paragraphs, *http.Response, error) {
+func (a *SlidesApiService) DeleteNotesSlideParagraph(request DeleteNotesSlideParagraphRequest) (IParagraphs, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraphs
+	 	successPayload IParagraphs
 	)
 
 	// create path and map variables
@@ -820,8 +829,17 @@ func (a *SlidesApiService) DeleteNotesSlideParagraph(request DeleteNotesSlidePar
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraphs); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraphs); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -851,13 +869,13 @@ type DeleteNotesSlideParagraphRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Paragraphs*/
-func (a *SlidesApiService) DeleteNotesSlideParagraphs(request DeleteNotesSlideParagraphsRequest) (Paragraphs, *http.Response, error) {
+func (a *SlidesApiService) DeleteNotesSlideParagraphs(request DeleteNotesSlideParagraphsRequest) (IParagraphs, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraphs
+	 	successPayload IParagraphs
 	)
 
 	// create path and map variables
@@ -967,8 +985,17 @@ func (a *SlidesApiService) DeleteNotesSlideParagraphs(request DeleteNotesSlidePa
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraphs); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraphs); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -999,13 +1026,13 @@ type DeleteNotesSlideParagraphsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Portions*/
-func (a *SlidesApiService) DeleteNotesSlidePortion(request DeleteNotesSlidePortionRequest) (Portions, *http.Response, error) {
+func (a *SlidesApiService) DeleteNotesSlidePortion(request DeleteNotesSlidePortionRequest) (IPortions, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portions
+	 	successPayload IPortions
 	)
 
 	// create path and map variables
@@ -1121,8 +1148,17 @@ func (a *SlidesApiService) DeleteNotesSlidePortion(request DeleteNotesSlidePorti
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portions", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortions); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortions); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -1154,13 +1190,13 @@ type DeleteNotesSlidePortionRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Portions*/
-func (a *SlidesApiService) DeleteNotesSlidePortions(request DeleteNotesSlidePortionsRequest) (Portions, *http.Response, error) {
+func (a *SlidesApiService) DeleteNotesSlidePortions(request DeleteNotesSlidePortionsRequest) (IPortions, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portions
+	 	successPayload IPortions
 	)
 
 	// create path and map variables
@@ -1276,8 +1312,17 @@ func (a *SlidesApiService) DeleteNotesSlidePortions(request DeleteNotesSlidePort
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portions", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortions); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortions); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -1307,13 +1352,13 @@ type DeleteNotesSlidePortionsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Shapes*/
-func (a *SlidesApiService) DeleteNotesSlideShape(request DeleteNotesSlideShapeRequest) (Shapes, *http.Response, error) {
+func (a *SlidesApiService) DeleteNotesSlideShape(request DeleteNotesSlideShapeRequest) (IShapes, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Shapes
+	 	successPayload IShapes
 	)
 
 	// create path and map variables
@@ -1417,8 +1462,17 @@ func (a *SlidesApiService) DeleteNotesSlideShape(request DeleteNotesSlideShapeRe
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapes); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapes); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -1446,13 +1500,13 @@ type DeleteNotesSlideShapeRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Shapes*/
-func (a *SlidesApiService) DeleteNotesSlideShapes(request DeleteNotesSlideShapesRequest) (Shapes, *http.Response, error) {
+func (a *SlidesApiService) DeleteNotesSlideShapes(request DeleteNotesSlideShapesRequest) (IShapes, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Shapes
+	 	successPayload IShapes
 	)
 
 	// create path and map variables
@@ -1556,8 +1610,17 @@ func (a *SlidesApiService) DeleteNotesSlideShapes(request DeleteNotesSlideShapes
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapes); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapes); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -1586,13 +1649,13 @@ type DeleteNotesSlideShapesRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Paragraphs*/
-func (a *SlidesApiService) DeleteParagraph(request DeleteParagraphRequest) (Paragraphs, *http.Response, error) {
+func (a *SlidesApiService) DeleteParagraph(request DeleteParagraphRequest) (IParagraphs, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraphs
+	 	successPayload IParagraphs
 	)
 
 	// create path and map variables
@@ -1702,8 +1765,17 @@ func (a *SlidesApiService) DeleteParagraph(request DeleteParagraphRequest) (Para
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraphs); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraphs); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -1733,13 +1805,13 @@ type DeleteParagraphRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Paragraphs*/
-func (a *SlidesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (Paragraphs, *http.Response, error) {
+func (a *SlidesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (IParagraphs, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraphs
+	 	successPayload IParagraphs
 	)
 
 	// create path and map variables
@@ -1849,8 +1921,17 @@ func (a *SlidesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (Pa
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraphs); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraphs); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -1881,13 +1962,13 @@ type DeleteParagraphsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Portions*/
-func (a *SlidesApiService) DeletePortion(request DeletePortionRequest) (Portions, *http.Response, error) {
+func (a *SlidesApiService) DeletePortion(request DeletePortionRequest) (IPortions, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portions
+	 	successPayload IPortions
 	)
 
 	// create path and map variables
@@ -2003,8 +2084,17 @@ func (a *SlidesApiService) DeletePortion(request DeletePortionRequest) (Portions
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portions", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortions); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortions); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -2036,13 +2126,13 @@ type DeletePortionRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Portions*/
-func (a *SlidesApiService) DeletePortions(request DeletePortionsRequest) (Portions, *http.Response, error) {
+func (a *SlidesApiService) DeletePortions(request DeletePortionsRequest) (IPortions, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portions
+	 	successPayload IPortions
 	)
 
 	// create path and map variables
@@ -2158,8 +2248,17 @@ func (a *SlidesApiService) DeletePortions(request DeletePortionsRequest) (Portio
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portions", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortions); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortions); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -2187,13 +2286,13 @@ type DeletePortionsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) DeleteSlideAnimation(request DeleteSlideAnimationRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlideAnimation(request DeleteSlideAnimationRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -2285,8 +2384,17 @@ func (a *SlidesApiService) DeleteSlideAnimation(request DeleteSlideAnimationRequ
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -2311,13 +2419,13 @@ type DeleteSlideAnimationRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) DeleteSlideAnimationEffect(request DeleteSlideAnimationEffectRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlideAnimationEffect(request DeleteSlideAnimationEffectRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -2415,8 +2523,17 @@ func (a *SlidesApiService) DeleteSlideAnimationEffect(request DeleteSlideAnimati
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -2442,13 +2559,13 @@ type DeleteSlideAnimationEffectRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequence(request DeleteSlideAnimationInteractiveSequenceRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequence(request DeleteSlideAnimationInteractiveSequenceRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -2546,8 +2663,17 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequence(request Delet
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -2574,13 +2700,13 @@ type DeleteSlideAnimationInteractiveSequenceRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequenceEffect(request DeleteSlideAnimationInteractiveSequenceEffectRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequenceEffect(request DeleteSlideAnimationInteractiveSequenceEffectRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -2684,8 +2810,17 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequenceEffect(request
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -2711,13 +2846,13 @@ type DeleteSlideAnimationInteractiveSequenceEffectRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequences(request DeleteSlideAnimationInteractiveSequencesRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequences(request DeleteSlideAnimationInteractiveSequencesRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -2809,8 +2944,17 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequences(request Dele
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -2834,13 +2978,13 @@ type DeleteSlideAnimationInteractiveSequencesRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) DeleteSlideAnimationMainSequence(request DeleteSlideAnimationMainSequenceRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlideAnimationMainSequence(request DeleteSlideAnimationMainSequenceRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -2932,8 +3076,17 @@ func (a *SlidesApiService) DeleteSlideAnimationMainSequence(request DeleteSlideA
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -2957,13 +3110,13 @@ type DeleteSlideAnimationMainSequenceRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Slides*/
-func (a *SlidesApiService) DeleteSlideByIndex(request DeleteSlideByIndexRequest) (Slides, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlideByIndex(request DeleteSlideByIndexRequest) (ISlides, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Slides
+	 	successPayload ISlides
 	)
 
 	// create path and map variables
@@ -3055,8 +3208,17 @@ func (a *SlidesApiService) DeleteSlideByIndex(request DeleteSlideByIndexRequest)
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Slides", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlides); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlides); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -3082,13 +3244,13 @@ type DeleteSlideByIndexRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Shapes*/
-func (a *SlidesApiService) DeleteSlideShape(request DeleteSlideShapeRequest) (Shapes, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlideShape(request DeleteSlideShapeRequest) (IShapes, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Shapes
+	 	successPayload IShapes
 	)
 
 	// create path and map variables
@@ -3192,8 +3354,17 @@ func (a *SlidesApiService) DeleteSlideShape(request DeleteSlideShapeRequest) (Sh
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapes); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapes); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -3221,13 +3392,13 @@ type DeleteSlideShapeRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Shapes*/
-func (a *SlidesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (Shapes, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (IShapes, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Shapes
+	 	successPayload IShapes
 	)
 
 	// create path and map variables
@@ -3331,8 +3502,17 @@ func (a *SlidesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapes); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapes); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -3358,13 +3538,13 @@ type DeleteSlideShapesRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Slides*/
-func (a *SlidesApiService) DeleteSlidesCleanSlidesList(request DeleteSlidesCleanSlidesListRequest) (Slides, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlidesCleanSlidesList(request DeleteSlidesCleanSlidesListRequest) (ISlides, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Slides
+	 	successPayload ISlides
 	)
 
 	// create path and map variables
@@ -3456,8 +3636,17 @@ func (a *SlidesApiService) DeleteSlidesCleanSlidesList(request DeleteSlidesClean
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Slides", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlides); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlides); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -3480,13 +3669,13 @@ type DeleteSlidesCleanSlidesListRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return DocumentProperties*/
-func (a *SlidesApiService) DeleteSlidesDocumentProperties(request DeleteSlidesDocumentPropertiesRequest) (DocumentProperties, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlidesDocumentProperties(request DeleteSlidesDocumentPropertiesRequest) (IDocumentProperties, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentProperties
+	 	successPayload IDocumentProperties
 	)
 
 	// create path and map variables
@@ -3572,8 +3761,17 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperties(request DeleteSlidesDo
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("DocumentProperties", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocumentProperties); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocumentProperties); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -3596,13 +3794,13 @@ type DeleteSlidesDocumentPropertiesRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return DocumentProperties*/
-func (a *SlidesApiService) DeleteSlidesDocumentProperty(request DeleteSlidesDocumentPropertyRequest) (DocumentProperties, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlidesDocumentProperty(request DeleteSlidesDocumentPropertyRequest) (IDocumentProperties, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentProperties
+	 	successPayload IDocumentProperties
 	)
 
 	// create path and map variables
@@ -3694,8 +3892,17 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperty(request DeleteSlidesDocu
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("DocumentProperties", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocumentProperties); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocumentProperties); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -3719,13 +3926,13 @@ type DeleteSlidesDocumentPropertyRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideBackground*/
-func (a *SlidesApiService) DeleteSlidesSlideBackground(request DeleteSlidesSlideBackgroundRequest) (SlideBackground, *http.Response, error) {
+func (a *SlidesApiService) DeleteSlidesSlideBackground(request DeleteSlidesSlideBackgroundRequest) (ISlideBackground, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideBackground
+	 	successPayload ISlideBackground
 	)
 
 	// create path and map variables
@@ -3817,8 +4024,17 @@ func (a *SlidesApiService) DeleteSlidesSlideBackground(request DeleteSlidesSlide
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideBackground", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideBackground); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideBackground); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -3846,7 +4062,7 @@ func (a *SlidesApiService) DownloadFile(request DownloadFileRequest) (*os.File, 
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload *os.File
 	)
 
 	// create path and map variables
@@ -3947,13 +4163,13 @@ type DownloadFileRequest struct {
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storageName" (string) Storage name
  @return DiscUsage*/
-func (a *SlidesApiService) GetDiscUsage(request GetDiscUsageRequest) (DiscUsage, *http.Response, error) {
+func (a *SlidesApiService) GetDiscUsage(request GetDiscUsageRequest) (IDiscUsage, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DiscUsage
+	 	successPayload IDiscUsage
 	)
 
 	// create path and map variables
@@ -4021,8 +4237,17 @@ func (a *SlidesApiService) GetDiscUsage(request GetDiscUsageRequest) (DiscUsage,
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("DiscUsage", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDiscUsage); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDiscUsage); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -4039,13 +4264,13 @@ type GetDiscUsageRequest struct {
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storageName" (string) Storage name
  @return FileVersions*/
-func (a *SlidesApiService) GetFileVersions(request GetFileVersionsRequest) (FileVersions, *http.Response, error) {
+func (a *SlidesApiService) GetFileVersions(request GetFileVersionsRequest) (IFileVersions, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FileVersions
+	 	successPayload IFileVersions
 	)
 
 	// create path and map variables
@@ -4119,8 +4344,17 @@ func (a *SlidesApiService) GetFileVersions(request GetFileVersionsRequest) (File
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("FileVersions", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IFileVersions); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IFileVersions); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -4138,13 +4372,13 @@ type GetFileVersionsRequest struct {
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storageName" (string) Storage name
  @return FilesList*/
-func (a *SlidesApiService) GetFilesList(request GetFilesListRequest) (FilesList, *http.Response, error) {
+func (a *SlidesApiService) GetFilesList(request GetFilesListRequest) (IFilesList, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FilesList
+	 	successPayload IFilesList
 	)
 
 	// create path and map variables
@@ -4218,8 +4452,17 @@ func (a *SlidesApiService) GetFilesList(request GetFilesListRequest) (FilesList,
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("FilesList", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IFilesList); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IFilesList); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -4240,13 +4483,13 @@ type GetFilesListRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return LayoutSlide*/
-func (a *SlidesApiService) GetLayoutSlide(request GetLayoutSlideRequest) (LayoutSlide, *http.Response, error) {
+func (a *SlidesApiService) GetLayoutSlide(request GetLayoutSlideRequest) (ILayoutSlide, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LayoutSlide
+	 	successPayload ILayoutSlide
 	)
 
 	// create path and map variables
@@ -4338,8 +4581,17 @@ func (a *SlidesApiService) GetLayoutSlide(request GetLayoutSlideRequest) (Layout
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("LayoutSlide", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ILayoutSlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ILayoutSlide); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -4362,13 +4614,13 @@ type GetLayoutSlideRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return LayoutSlides*/
-func (a *SlidesApiService) GetLayoutSlidesList(request GetLayoutSlidesListRequest) (LayoutSlides, *http.Response, error) {
+func (a *SlidesApiService) GetLayoutSlidesList(request GetLayoutSlidesListRequest) (ILayoutSlides, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LayoutSlides
+	 	successPayload ILayoutSlides
 	)
 
 	// create path and map variables
@@ -4454,8 +4706,17 @@ func (a *SlidesApiService) GetLayoutSlidesList(request GetLayoutSlidesListReques
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("LayoutSlides", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ILayoutSlides); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ILayoutSlides); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -4478,13 +4739,13 @@ type GetLayoutSlidesListRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return MasterSlide*/
-func (a *SlidesApiService) GetMasterSlide(request GetMasterSlideRequest) (MasterSlide, *http.Response, error) {
+func (a *SlidesApiService) GetMasterSlide(request GetMasterSlideRequest) (IMasterSlide, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  MasterSlide
+	 	successPayload IMasterSlide
 	)
 
 	// create path and map variables
@@ -4576,8 +4837,17 @@ func (a *SlidesApiService) GetMasterSlide(request GetMasterSlideRequest) (Master
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("MasterSlide", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IMasterSlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IMasterSlide); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -4600,13 +4870,13 @@ type GetMasterSlideRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return MasterSlides*/
-func (a *SlidesApiService) GetMasterSlidesList(request GetMasterSlidesListRequest) (MasterSlides, *http.Response, error) {
+func (a *SlidesApiService) GetMasterSlidesList(request GetMasterSlidesListRequest) (IMasterSlides, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  MasterSlides
+	 	successPayload IMasterSlides
 	)
 
 	// create path and map variables
@@ -4692,8 +4962,17 @@ func (a *SlidesApiService) GetMasterSlidesList(request GetMasterSlidesListReques
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("MasterSlides", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IMasterSlides); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IMasterSlides); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -4716,13 +4995,13 @@ type GetMasterSlidesListRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return NotesSlide*/
-func (a *SlidesApiService) GetNotesSlide(request GetNotesSlideRequest) (NotesSlide, *http.Response, error) {
+func (a *SlidesApiService) GetNotesSlide(request GetNotesSlideRequest) (INotesSlide, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  NotesSlide
+	 	successPayload INotesSlide
 	)
 
 	// create path and map variables
@@ -4814,8 +5093,17 @@ func (a *SlidesApiService) GetNotesSlide(request GetNotesSlideRequest) (NotesSli
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("NotesSlide", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(INotesSlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(INotesSlide); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -4841,13 +5129,13 @@ type GetNotesSlideRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return ShapeBase*/
-func (a *SlidesApiService) GetNotesSlideShape(request GetNotesSlideShapeRequest) (ShapeBase, *http.Response, error) {
+func (a *SlidesApiService) GetNotesSlideShape(request GetNotesSlideShapeRequest) (IShapeBase, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ShapeBase
+	 	successPayload IShapeBase
 	)
 
 	// create path and map variables
@@ -4951,8 +5239,17 @@ func (a *SlidesApiService) GetNotesSlideShape(request GetNotesSlideShapeRequest)
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapeBase); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapeBase); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -4981,13 +5278,13 @@ type GetNotesSlideShapeRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Paragraph*/
-func (a *SlidesApiService) GetNotesSlideShapeParagraph(request GetNotesSlideShapeParagraphRequest) (Paragraph, *http.Response, error) {
+func (a *SlidesApiService) GetNotesSlideShapeParagraph(request GetNotesSlideShapeParagraphRequest) (IParagraph, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraph
+	 	successPayload IParagraph
 	)
 
 	// create path and map variables
@@ -5097,8 +5394,17 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraph(request GetNotesSlideShap
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraph); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraph); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -5127,13 +5433,13 @@ type GetNotesSlideShapeParagraphRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Paragraphs*/
-func (a *SlidesApiService) GetNotesSlideShapeParagraphs(request GetNotesSlideShapeParagraphsRequest) (Paragraphs, *http.Response, error) {
+func (a *SlidesApiService) GetNotesSlideShapeParagraphs(request GetNotesSlideShapeParagraphsRequest) (IParagraphs, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraphs
+	 	successPayload IParagraphs
 	)
 
 	// create path and map variables
@@ -5237,8 +5543,17 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraphs(request GetNotesSlideSha
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraphs); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraphs); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -5268,13 +5583,13 @@ type GetNotesSlideShapeParagraphsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Portion*/
-func (a *SlidesApiService) GetNotesSlideShapePortion(request GetNotesSlideShapePortionRequest) (Portion, *http.Response, error) {
+func (a *SlidesApiService) GetNotesSlideShapePortion(request GetNotesSlideShapePortionRequest) (IPortion, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portion
+	 	successPayload IPortion
 	)
 
 	// create path and map variables
@@ -5390,8 +5705,17 @@ func (a *SlidesApiService) GetNotesSlideShapePortion(request GetNotesSlideShapeP
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portion", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortion); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortion); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -5422,13 +5746,13 @@ type GetNotesSlideShapePortionRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Portions*/
-func (a *SlidesApiService) GetNotesSlideShapePortions(request GetNotesSlideShapePortionsRequest) (Portions, *http.Response, error) {
+func (a *SlidesApiService) GetNotesSlideShapePortions(request GetNotesSlideShapePortionsRequest) (IPortions, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portions
+	 	successPayload IPortions
 	)
 
 	// create path and map variables
@@ -5538,8 +5862,17 @@ func (a *SlidesApiService) GetNotesSlideShapePortions(request GetNotesSlideShape
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portions", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortions); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortions); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -5567,13 +5900,13 @@ type GetNotesSlideShapePortionsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Shapes*/
-func (a *SlidesApiService) GetNotesSlideShapes(request GetNotesSlideShapesRequest) (Shapes, *http.Response, error) {
+func (a *SlidesApiService) GetNotesSlideShapes(request GetNotesSlideShapesRequest) (IShapes, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Shapes
+	 	successPayload IShapes
 	)
 
 	// create path and map variables
@@ -5671,8 +6004,17 @@ func (a *SlidesApiService) GetNotesSlideShapes(request GetNotesSlideShapesReques
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapes); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapes); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -5707,7 +6049,7 @@ func (a *SlidesApiService) GetNotesSlideWithFormat(request GetNotesSlideWithForm
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload *os.File
 	)
 
 	// create path and map variables
@@ -5862,13 +6204,13 @@ type GetNotesSlideWithFormatRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Portion*/
-func (a *SlidesApiService) GetParagraphPortion(request GetParagraphPortionRequest) (Portion, *http.Response, error) {
+func (a *SlidesApiService) GetParagraphPortion(request GetParagraphPortionRequest) (IPortion, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portion
+	 	successPayload IPortion
 	)
 
 	// create path and map variables
@@ -5984,8 +6326,17 @@ func (a *SlidesApiService) GetParagraphPortion(request GetParagraphPortionReques
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portion", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortion); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortion); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -6016,13 +6367,13 @@ type GetParagraphPortionRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Portions*/
-func (a *SlidesApiService) GetParagraphPortions(request GetParagraphPortionsRequest) (Portions, *http.Response, error) {
+func (a *SlidesApiService) GetParagraphPortions(request GetParagraphPortionsRequest) (IPortions, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portions
+	 	successPayload IPortions
 	)
 
 	// create path and map variables
@@ -6132,8 +6483,17 @@ func (a *SlidesApiService) GetParagraphPortions(request GetParagraphPortionsRequ
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portions", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortions); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortions); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -6161,13 +6521,13 @@ type GetParagraphPortionsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -6260,8 +6620,17 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -6288,13 +6657,13 @@ type GetSlideAnimationRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return ShapeBase*/
-func (a *SlidesApiService) GetSlideShape(request GetSlideShapeRequest) (ShapeBase, *http.Response, error) {
+func (a *SlidesApiService) GetSlideShape(request GetSlideShapeRequest) (IShapeBase, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ShapeBase
+	 	successPayload IShapeBase
 	)
 
 	// create path and map variables
@@ -6398,8 +6767,17 @@ func (a *SlidesApiService) GetSlideShape(request GetSlideShapeRequest) (ShapeBas
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapeBase); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapeBase); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -6428,13 +6806,13 @@ type GetSlideShapeRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Paragraph*/
-func (a *SlidesApiService) GetSlideShapeParagraph(request GetSlideShapeParagraphRequest) (Paragraph, *http.Response, error) {
+func (a *SlidesApiService) GetSlideShapeParagraph(request GetSlideShapeParagraphRequest) (IParagraph, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraph
+	 	successPayload IParagraph
 	)
 
 	// create path and map variables
@@ -6544,8 +6922,17 @@ func (a *SlidesApiService) GetSlideShapeParagraph(request GetSlideShapeParagraph
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraph); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraph); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -6574,13 +6961,13 @@ type GetSlideShapeParagraphRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Paragraphs*/
-func (a *SlidesApiService) GetSlideShapeParagraphs(request GetSlideShapeParagraphsRequest) (Paragraphs, *http.Response, error) {
+func (a *SlidesApiService) GetSlideShapeParagraphs(request GetSlideShapeParagraphsRequest) (IParagraphs, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraphs
+	 	successPayload IParagraphs
 	)
 
 	// create path and map variables
@@ -6684,8 +7071,17 @@ func (a *SlidesApiService) GetSlideShapeParagraphs(request GetSlideShapeParagrap
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraphs); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraphs); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -6712,13 +7108,13 @@ type GetSlideShapeParagraphsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Shapes*/
-func (a *SlidesApiService) GetSlideShapes(request GetSlideShapesRequest) (Shapes, *http.Response, error) {
+func (a *SlidesApiService) GetSlideShapes(request GetSlideShapesRequest) (IShapes, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Shapes
+	 	successPayload IShapes
 	)
 
 	// create path and map variables
@@ -6816,8 +7212,17 @@ func (a *SlidesApiService) GetSlideShapes(request GetSlideShapesRequest) (Shapes
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapes); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapes); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -6836,13 +7241,13 @@ type GetSlideShapesRequest struct {
 
 /* SlidesApiService Get API info.
  @return ApiInfo*/
-func (a *SlidesApiService) GetSlidesApiInfo() (ApiInfo, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesApiInfo() (IApiInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ApiInfo
+	 	successPayload IApiInfo
 	)
 
 	// create path and map variables
@@ -6904,8 +7309,17 @@ func (a *SlidesApiService) GetSlidesApiInfo() (ApiInfo, *http.Response, error) {
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("ApiInfo", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IApiInfo); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IApiInfo); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -6919,13 +7333,13 @@ func (a *SlidesApiService) GetSlidesApiInfo() (ApiInfo, *http.Response, error) {
      @param "storage" (string) Documentstorage.
      @param "folder" (string) Document folder.
  @return Document*/
-func (a *SlidesApiService) GetSlidesDocument(request GetSlidesDocumentRequest) (Document, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesDocument(request GetSlidesDocumentRequest) (IDocument, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Document
+	 	successPayload IDocument
 	)
 
 	// create path and map variables
@@ -7011,8 +7425,17 @@ func (a *SlidesApiService) GetSlidesDocument(request GetSlidesDocumentRequest) (
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -7034,13 +7457,13 @@ type GetSlidesDocumentRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return DocumentProperties*/
-func (a *SlidesApiService) GetSlidesDocumentProperties(request GetSlidesDocumentPropertiesRequest) (DocumentProperties, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesDocumentProperties(request GetSlidesDocumentPropertiesRequest) (IDocumentProperties, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentProperties
+	 	successPayload IDocumentProperties
 	)
 
 	// create path and map variables
@@ -7126,8 +7549,17 @@ func (a *SlidesApiService) GetSlidesDocumentProperties(request GetSlidesDocument
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("DocumentProperties", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocumentProperties); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocumentProperties); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -7150,13 +7582,13 @@ type GetSlidesDocumentPropertiesRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return DocumentProperty*/
-func (a *SlidesApiService) GetSlidesDocumentProperty(request GetSlidesDocumentPropertyRequest) (DocumentProperty, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesDocumentProperty(request GetSlidesDocumentPropertyRequest) (IDocumentProperty, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentProperty
+	 	successPayload IDocumentProperty
 	)
 
 	// create path and map variables
@@ -7248,8 +7680,17 @@ func (a *SlidesApiService) GetSlidesDocumentProperty(request GetSlidesDocumentPr
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("DocumentProperty", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocumentProperty); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocumentProperty); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -7279,7 +7720,7 @@ func (a *SlidesApiService) GetSlidesImageWithDefaultFormat(request GetSlidesImag
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload *os.File
 	)
 
 	// create path and map variables
@@ -7405,7 +7846,7 @@ func (a *SlidesApiService) GetSlidesImageWithFormat(request GetSlidesImageWithFo
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload *os.File
 	)
 
 	// create path and map variables
@@ -7530,13 +7971,13 @@ type GetSlidesImageWithFormatRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Images*/
-func (a *SlidesApiService) GetSlidesImages(request GetSlidesImagesRequest) (Images, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesImages(request GetSlidesImagesRequest) (IImages, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Images
+	 	successPayload IImages
 	)
 
 	// create path and map variables
@@ -7622,8 +8063,17 @@ func (a *SlidesApiService) GetSlidesImages(request GetSlidesImagesRequest) (Imag
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Images", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IImages); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IImages); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -7647,13 +8097,13 @@ type GetSlidesImagesRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Placeholder*/
-func (a *SlidesApiService) GetSlidesPlaceholder(request GetSlidesPlaceholderRequest) (Placeholder, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesPlaceholder(request GetSlidesPlaceholderRequest) (IPlaceholder, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Placeholder
+	 	successPayload IPlaceholder
 	)
 
 	// create path and map variables
@@ -7751,8 +8201,17 @@ func (a *SlidesApiService) GetSlidesPlaceholder(request GetSlidesPlaceholderRequ
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Placeholder", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPlaceholder); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPlaceholder); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -7777,13 +8236,13 @@ type GetSlidesPlaceholderRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Placeholders*/
-func (a *SlidesApiService) GetSlidesPlaceholders(request GetSlidesPlaceholdersRequest) (Placeholders, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesPlaceholders(request GetSlidesPlaceholdersRequest) (IPlaceholders, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Placeholders
+	 	successPayload IPlaceholders
 	)
 
 	// create path and map variables
@@ -7875,8 +8334,17 @@ func (a *SlidesApiService) GetSlidesPlaceholders(request GetSlidesPlaceholdersRe
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Placeholders", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPlaceholders); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPlaceholders); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -7900,13 +8368,13 @@ type GetSlidesPlaceholdersRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return TextItems*/
-func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPresentationTextItemsRequest) (TextItems, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPresentationTextItemsRequest) (ITextItems, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  TextItems
+	 	successPayload ITextItems
 	)
 
 	// create path and map variables
@@ -8000,8 +8468,17 @@ func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPrese
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("TextItems", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ITextItems); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ITextItems); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -8025,13 +8502,13 @@ type GetSlidesPresentationTextItemsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Slide*/
-func (a *SlidesApiService) GetSlidesSlide(request GetSlidesSlideRequest) (Slide, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesSlide(request GetSlidesSlideRequest) (ISlide, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Slide
+	 	successPayload ISlide
 	)
 
 	// create path and map variables
@@ -8123,8 +8600,17 @@ func (a *SlidesApiService) GetSlidesSlide(request GetSlidesSlideRequest) (Slide,
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Slide", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlide); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -8148,13 +8634,13 @@ type GetSlidesSlideRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideBackground*/
-func (a *SlidesApiService) GetSlidesSlideBackground(request GetSlidesSlideBackgroundRequest) (SlideBackground, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesSlideBackground(request GetSlidesSlideBackgroundRequest) (ISlideBackground, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideBackground
+	 	successPayload ISlideBackground
 	)
 
 	// create path and map variables
@@ -8246,8 +8732,17 @@ func (a *SlidesApiService) GetSlidesSlideBackground(request GetSlidesSlideBackgr
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideBackground", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideBackground); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideBackground); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -8271,13 +8766,13 @@ type GetSlidesSlideBackgroundRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideComments*/
-func (a *SlidesApiService) GetSlidesSlideComments(request GetSlidesSlideCommentsRequest) (SlideComments, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesSlideComments(request GetSlidesSlideCommentsRequest) (ISlideComments, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideComments
+	 	successPayload ISlideComments
 	)
 
 	// create path and map variables
@@ -8369,8 +8864,17 @@ func (a *SlidesApiService) GetSlidesSlideComments(request GetSlidesSlideComments
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideComments", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideComments); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideComments); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -8394,13 +8898,13 @@ type GetSlidesSlideCommentsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Images*/
-func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequest) (Images, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequest) (IImages, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Images
+	 	successPayload IImages
 	)
 
 	// create path and map variables
@@ -8492,8 +8996,17 @@ func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequ
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Images", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IImages); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IImages); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -8518,13 +9031,13 @@ type GetSlidesSlideImagesRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return TextItems*/
-func (a *SlidesApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextItemsRequest) (TextItems, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextItemsRequest) (ITextItems, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  TextItems
+	 	successPayload ITextItems
 	)
 
 	// create path and map variables
@@ -8624,8 +9137,17 @@ func (a *SlidesApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextIte
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("TextItems", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ITextItems); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ITextItems); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -8649,13 +9171,13 @@ type GetSlidesSlideTextItemsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Slides*/
-func (a *SlidesApiService) GetSlidesSlidesList(request GetSlidesSlidesListRequest) (Slides, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesSlidesList(request GetSlidesSlidesListRequest) (ISlides, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Slides
+	 	successPayload ISlides
 	)
 
 	// create path and map variables
@@ -8741,8 +9263,17 @@ func (a *SlidesApiService) GetSlidesSlidesList(request GetSlidesSlidesListReques
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Slides", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlides); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlides); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -8765,13 +9296,13 @@ type GetSlidesSlidesListRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Theme*/
-func (a *SlidesApiService) GetSlidesTheme(request GetSlidesThemeRequest) (Theme, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesTheme(request GetSlidesThemeRequest) (ITheme, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Theme
+	 	successPayload ITheme
 	)
 
 	// create path and map variables
@@ -8863,8 +9394,17 @@ func (a *SlidesApiService) GetSlidesTheme(request GetSlidesThemeRequest) (Theme,
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Theme", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ITheme); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ITheme); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -8888,13 +9428,13 @@ type GetSlidesThemeRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return ColorScheme*/
-func (a *SlidesApiService) GetSlidesThemeColorScheme(request GetSlidesThemeColorSchemeRequest) (ColorScheme, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesThemeColorScheme(request GetSlidesThemeColorSchemeRequest) (IColorScheme, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ColorScheme
+	 	successPayload IColorScheme
 	)
 
 	// create path and map variables
@@ -8986,8 +9526,17 @@ func (a *SlidesApiService) GetSlidesThemeColorScheme(request GetSlidesThemeColor
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("ColorScheme", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IColorScheme); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IColorScheme); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -9011,13 +9560,13 @@ type GetSlidesThemeColorSchemeRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return FontScheme*/
-func (a *SlidesApiService) GetSlidesThemeFontScheme(request GetSlidesThemeFontSchemeRequest) (FontScheme, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesThemeFontScheme(request GetSlidesThemeFontSchemeRequest) (IFontScheme, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FontScheme
+	 	successPayload IFontScheme
 	)
 
 	// create path and map variables
@@ -9109,8 +9658,17 @@ func (a *SlidesApiService) GetSlidesThemeFontScheme(request GetSlidesThemeFontSc
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("FontScheme", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IFontScheme); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IFontScheme); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -9134,13 +9692,13 @@ type GetSlidesThemeFontSchemeRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return FormatScheme*/
-func (a *SlidesApiService) GetSlidesThemeFormatScheme(request GetSlidesThemeFormatSchemeRequest) (FormatScheme, *http.Response, error) {
+func (a *SlidesApiService) GetSlidesThemeFormatScheme(request GetSlidesThemeFormatSchemeRequest) (IFormatScheme, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FormatScheme
+	 	successPayload IFormatScheme
 	)
 
 	// create path and map variables
@@ -9232,8 +9790,17 @@ func (a *SlidesApiService) GetSlidesThemeFormatScheme(request GetSlidesThemeForm
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("FormatScheme", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IFormatScheme); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IFormatScheme); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -9475,13 +10042,13 @@ type MoveFolderRequest struct {
      @param "storageName" (string) Storage name
      @param "versionId" (string) File version ID
  @return ObjectExist*/
-func (a *SlidesApiService) ObjectExists(request ObjectExistsRequest) (ObjectExist, *http.Response, error) {
+func (a *SlidesApiService) ObjectExists(request ObjectExistsRequest) (IObjectExist, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ObjectExist
+	 	successPayload IObjectExist
 	)
 
 	// create path and map variables
@@ -9561,8 +10128,17 @@ func (a *SlidesApiService) ObjectExists(request ObjectExistsRequest) (ObjectExis
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("ObjectExist", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IObjectExist); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IObjectExist); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -9588,13 +10164,13 @@ type ObjectExistsRequest struct {
      @param "storage" (string) Document storage.
      @param "position" (int32) Position of the new paragraph in the list. Default is at the end of the list.
  @return Paragraph*/
-func (a *SlidesApiService) PostAddNewParagraph(request PostAddNewParagraphRequest) (Paragraph, *http.Response, error) {
+func (a *SlidesApiService) PostAddNewParagraph(request PostAddNewParagraphRequest) (IParagraph, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraph
+	 	successPayload IParagraph
 	)
 
 	// create path and map variables
@@ -9708,8 +10284,17 @@ func (a *SlidesApiService) PostAddNewParagraph(request PostAddNewParagraphReques
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraph); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraph); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -9742,13 +10327,13 @@ type PostAddNewParagraphRequest struct {
      @param "storage" (string) Document storage.
      @param "position" (int32) Position of the new portion in the list. Default is at the end of the list.
  @return Portion*/
-func (a *SlidesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (Portion, *http.Response, error) {
+func (a *SlidesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (IPortion, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portion
+	 	successPayload IPortion
 	)
 
 	// create path and map variables
@@ -9868,8 +10453,17 @@ func (a *SlidesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portion", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortion); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortion); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -9902,13 +10496,13 @@ type PostAddNewPortionRequest struct {
      @param "shapeToClone" (int32) Optional index for clone shape instead of adding a new one.
      @param "position" (int32) Position of the new shape in the list. Default is at the end of the list.
  @return ShapeBase*/
-func (a *SlidesApiService) PostAddNewShape(request PostAddNewShapeRequest) (ShapeBase, *http.Response, error) {
+func (a *SlidesApiService) PostAddNewShape(request PostAddNewShapeRequest) (IShapeBase, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ShapeBase
+	 	successPayload IShapeBase
 	)
 
 	// create path and map variables
@@ -10024,8 +10618,17 @@ func (a *SlidesApiService) PostAddNewShape(request PostAddNewShapeRequest) (Shap
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapeBase); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapeBase); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -10054,13 +10657,13 @@ type PostAddNewShapeRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return NotesSlide*/
-func (a *SlidesApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (NotesSlide, *http.Response, error) {
+func (a *SlidesApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (INotesSlide, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  NotesSlide
+	 	successPayload INotesSlide
 	)
 
 	// create path and map variables
@@ -10154,8 +10757,17 @@ func (a *SlidesApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("NotesSlide", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(INotesSlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(INotesSlide); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -10183,13 +10795,13 @@ type PostAddNotesSlideRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return LayoutSlide*/
-func (a *SlidesApiService) PostCopyLayoutSlideFromSourcePresentation(request PostCopyLayoutSlideFromSourcePresentationRequest) (LayoutSlide, *http.Response, error) {
+func (a *SlidesApiService) PostCopyLayoutSlideFromSourcePresentation(request PostCopyLayoutSlideFromSourcePresentationRequest) (ILayoutSlide, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LayoutSlide
+	 	successPayload ILayoutSlide
 	)
 
 	// create path and map variables
@@ -10289,8 +10901,17 @@ func (a *SlidesApiService) PostCopyLayoutSlideFromSourcePresentation(request Pos
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("LayoutSlide", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ILayoutSlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ILayoutSlide); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -10321,13 +10942,13 @@ type PostCopyLayoutSlideFromSourcePresentationRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return MasterSlide*/
-func (a *SlidesApiService) PostCopyMasterSlideFromSourcePresentation(request PostCopyMasterSlideFromSourcePresentationRequest) (MasterSlide, *http.Response, error) {
+func (a *SlidesApiService) PostCopyMasterSlideFromSourcePresentation(request PostCopyMasterSlideFromSourcePresentationRequest) (IMasterSlide, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  MasterSlide
+	 	successPayload IMasterSlide
 	)
 
 	// create path and map variables
@@ -10435,8 +11056,17 @@ func (a *SlidesApiService) PostCopyMasterSlideFromSourcePresentation(request Pos
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("MasterSlide", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IMasterSlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IMasterSlide); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -10468,13 +11098,13 @@ type PostCopyMasterSlideFromSourcePresentationRequest struct {
      @param "storage" (string) Document storage.
      @param "position" (int32) Position of the new paragraph in the list. Default is at the end of the list.
  @return Paragraph*/
-func (a *SlidesApiService) PostNotesSlideAddNewParagraph(request PostNotesSlideAddNewParagraphRequest) (Paragraph, *http.Response, error) {
+func (a *SlidesApiService) PostNotesSlideAddNewParagraph(request PostNotesSlideAddNewParagraphRequest) (IParagraph, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraph
+	 	successPayload IParagraph
 	)
 
 	// create path and map variables
@@ -10588,8 +11218,17 @@ func (a *SlidesApiService) PostNotesSlideAddNewParagraph(request PostNotesSlideA
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraph); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraph); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -10622,13 +11261,13 @@ type PostNotesSlideAddNewParagraphRequest struct {
      @param "storage" (string) Document storage.
      @param "position" (int32) Position of the new portion in the list. Default is at the end of the list.
  @return Portion*/
-func (a *SlidesApiService) PostNotesSlideAddNewPortion(request PostNotesSlideAddNewPortionRequest) (Portion, *http.Response, error) {
+func (a *SlidesApiService) PostNotesSlideAddNewPortion(request PostNotesSlideAddNewPortionRequest) (IPortion, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portion
+	 	successPayload IPortion
 	)
 
 	// create path and map variables
@@ -10748,8 +11387,17 @@ func (a *SlidesApiService) PostNotesSlideAddNewPortion(request PostNotesSlideAdd
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portion", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortion); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortion); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -10782,13 +11430,13 @@ type PostNotesSlideAddNewPortionRequest struct {
      @param "shapeToClone" (int32) Optional index for clone shape instead of adding a new one.
      @param "position" (int32) Position of the new shape in the list. Default is at the end of the list.
  @return ShapeBase*/
-func (a *SlidesApiService) PostNotesSlideAddNewShape(request PostNotesSlideAddNewShapeRequest) (ShapeBase, *http.Response, error) {
+func (a *SlidesApiService) PostNotesSlideAddNewShape(request PostNotesSlideAddNewShapeRequest) (IShapeBase, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ShapeBase
+	 	successPayload IShapeBase
 	)
 
 	// create path and map variables
@@ -10904,8 +11552,17 @@ func (a *SlidesApiService) PostNotesSlideAddNewShape(request PostNotesSlideAddNe
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapeBase); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapeBase); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -10947,7 +11604,7 @@ func (a *SlidesApiService) PostNotesSlideShapeSaveAs(request PostNotesSlideShape
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload *os.File
 	)
 
 	// create path and map variables
@@ -11006,10 +11663,8 @@ func (a *SlidesApiService) PostNotesSlideShapeSaveAs(request PostNotesSlideShape
 			return successPayload, nil, err
 		}
 	}
-	if request.bounds != nil {
-		if err := typeCheckParameter(*request.bounds, "string", "bounds"); err != nil {
-			return successPayload, nil, err
-		}
+	if err := typeCheckParameter(request.bounds, "string", "bounds"); err != nil {
+		return successPayload, nil, err
 	}
 	if err := typeCheckParameter(request.fontsFolder, "string", "fontsFolder"); err != nil {
 		return successPayload, nil, err
@@ -11030,8 +11685,8 @@ func (a *SlidesApiService) PostNotesSlideShapeSaveAs(request PostNotesSlideShape
 	if request.scaleY != nil {
 		localVarQueryParams.Add("scaleY", parameterToString(*request.scaleY, ""))
 	}
-	if request.bounds != nil && *request.bounds != "" {
-		localVarQueryParams.Add("bounds", parameterToString(*request.bounds, ""))
+	if localVarTempParam := request.bounds; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("bounds", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := request.fontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("fontsFolder", parameterToString(localVarTempParam, ""))
@@ -11112,7 +11767,7 @@ type PostNotesSlideShapeSaveAsRequest struct {
     storage string
     scaleX *float64
     scaleY *float64
-    bounds *string
+    bounds string
     fontsFolder string
 }
 
@@ -11124,13 +11779,13 @@ type PostNotesSlideShapeSaveAsRequest struct {
      @param "storage" (string) Document storage.
      @param "folder" (string) Document folder.
  @return Document*/
-func (a *SlidesApiService) PostPresentationMerge(request PostPresentationMergeRequest) (Document, *http.Response, error) {
+func (a *SlidesApiService) PostPresentationMerge(request PostPresentationMergeRequest) (IDocument, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Document
+	 	successPayload IDocument
 	)
 
 	// create path and map variables
@@ -11218,8 +11873,17 @@ func (a *SlidesApiService) PostPresentationMerge(request PostPresentationMergeRe
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -11257,7 +11921,7 @@ func (a *SlidesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload *os.File
 	)
 
 	// create path and map variables
@@ -11316,10 +11980,8 @@ func (a *SlidesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 			return successPayload, nil, err
 		}
 	}
-	if request.bounds != nil {
-		if err := typeCheckParameter(*request.bounds, "string", "bounds"); err != nil {
-			return successPayload, nil, err
-		}
+	if err := typeCheckParameter(request.bounds, "string", "bounds"); err != nil {
+		return successPayload, nil, err
 	}
 	if err := typeCheckParameter(request.fontsFolder, "string", "fontsFolder"); err != nil {
 		return successPayload, nil, err
@@ -11340,8 +12002,8 @@ func (a *SlidesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 	if request.scaleY != nil {
 		localVarQueryParams.Add("scaleY", parameterToString(*request.scaleY, ""))
 	}
-	if request.bounds != nil && *request.bounds != "" {
-		localVarQueryParams.Add("bounds", parameterToString(*request.bounds, ""))
+	if localVarTempParam := request.bounds; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("bounds", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := request.fontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("fontsFolder", parameterToString(localVarTempParam, ""))
@@ -11422,7 +12084,7 @@ type PostShapeSaveAsRequest struct {
     storage string
     scaleX *float64
     scaleY *float64
-    bounds *string
+    bounds string
     fontsFolder string
 }
 
@@ -11435,13 +12097,13 @@ type PostShapeSaveAsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) PostSlideAnimationEffect(request PostSlideAnimationEffectRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) PostSlideAnimationEffect(request PostSlideAnimationEffectRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -11535,8 +12197,17 @@ func (a *SlidesApiService) PostSlideAnimationEffect(request PostSlideAnimationEf
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -11562,13 +12233,13 @@ type PostSlideAnimationEffectRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) PostSlideAnimationInteractiveSequence(request PostSlideAnimationInteractiveSequenceRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) PostSlideAnimationInteractiveSequence(request PostSlideAnimationInteractiveSequenceRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -11662,8 +12333,17 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequence(request PostSli
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -11690,13 +12370,13 @@ type PostSlideAnimationInteractiveSequenceRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) PostSlideAnimationInteractiveSequenceEffect(request PostSlideAnimationInteractiveSequenceEffectRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) PostSlideAnimationInteractiveSequenceEffect(request PostSlideAnimationInteractiveSequenceEffectRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -11796,8 +12476,17 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequenceEffect(request P
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -11834,7 +12523,7 @@ func (a *SlidesApiService) PostSlideSaveAs(request PostSlideSaveAsRequest) (*os.
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload *os.File
 	)
 
 	// create path and map variables
@@ -11989,13 +12678,13 @@ type PostSlideSaveAsRequest struct {
      @param "storage" (string) Document storage.
      @param "layoutAlias" (string) Alias of layout slide for new slide. Alias may be the type of layout, name of layout slide or index
  @return Slides*/
-func (a *SlidesApiService) PostSlidesAdd(request PostSlidesAddRequest) (Slides, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesAdd(request PostSlidesAddRequest) (ISlides, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Slides
+	 	successPayload ISlides
 	)
 
 	// create path and map variables
@@ -12095,8 +12784,17 @@ func (a *SlidesApiService) PostSlidesAdd(request PostSlidesAddRequest) (Slides, 
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Slides", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlides); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlides); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -12126,7 +12824,7 @@ func (a *SlidesApiService) PostSlidesConvert(request PostSlidesConvertRequest) (
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload *os.File
 	)
 
 	// create path and map variables
@@ -12238,13 +12936,13 @@ type PostSlidesConvertRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Slides*/
-func (a *SlidesApiService) PostSlidesCopy(request PostSlidesCopyRequest) (Slides, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesCopy(request PostSlidesCopyRequest) (ISlides, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Slides
+	 	successPayload ISlides
 	)
 
 	// create path and map variables
@@ -12357,8 +13055,17 @@ func (a *SlidesApiService) PostSlidesCopy(request PostSlidesCopyRequest) (Slides
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Slides", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlides); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlides); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -12387,13 +13094,13 @@ type PostSlidesCopyRequest struct {
      @param "storage" (string) Document storage.
      @param "folder" (string) Document folder.
  @return Document*/
-func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest) (Document, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest) (IDocument, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Document
+	 	successPayload IDocument
 	)
 
 	// create path and map variables
@@ -12487,8 +13194,17 @@ func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest)
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -12513,13 +13229,13 @@ type PostSlidesDocumentRequest struct {
      @param "storage" (string) Document storage.
      @param "folder" (string) Document folder.
  @return Document*/
-func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocumentFromHtmlRequest) (Document, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocumentFromHtmlRequest) (IDocument, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Document
+	 	successPayload IDocument
 	)
 
 	// create path and map variables
@@ -12610,8 +13326,17 @@ func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocument
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -12637,13 +13362,13 @@ type PostSlidesDocumentFromHtmlRequest struct {
      @param "storage" (string) Document storage.
      @param "folder" (string) Document folder.
  @return Document*/
-func (a *SlidesApiService) PostSlidesDocumentFromSource(request PostSlidesDocumentFromSourceRequest) (Document, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesDocumentFromSource(request PostSlidesDocumentFromSourceRequest) (IDocument, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Document
+	 	successPayload IDocument
 	)
 
 	// create path and map variables
@@ -12747,8 +13472,17 @@ func (a *SlidesApiService) PostSlidesDocumentFromSource(request PostSlidesDocume
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -12778,13 +13512,13 @@ type PostSlidesDocumentFromSourceRequest struct {
      @param "storage" (string) Document storage.
      @param "folder" (string) Document folder.
  @return Document*/
-func (a *SlidesApiService) PostSlidesDocumentFromTemplate(request PostSlidesDocumentFromTemplateRequest) (Document, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesDocumentFromTemplate(request PostSlidesDocumentFromTemplateRequest) (IDocument, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Document
+	 	successPayload IDocument
 	)
 
 	// create path and map variables
@@ -12896,8 +13630,17 @@ func (a *SlidesApiService) PostSlidesDocumentFromTemplate(request PostSlidesDocu
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -12927,7 +13670,7 @@ func (a *SlidesApiService) PostSlidesPipeline(request PostSlidesPipelineRequest)
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload *os.File
 	)
 
 	// create path and map variables
@@ -13016,13 +13759,13 @@ type PostSlidesPipelineRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return DocumentReplaceResult*/
-func (a *SlidesApiService) PostSlidesPresentationReplaceText(request PostSlidesPresentationReplaceTextRequest) (DocumentReplaceResult, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesPresentationReplaceText(request PostSlidesPresentationReplaceTextRequest) (IDocumentReplaceResult, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentReplaceResult
+	 	successPayload IDocumentReplaceResult
 	)
 
 	// create path and map variables
@@ -13118,8 +13861,17 @@ func (a *SlidesApiService) PostSlidesPresentationReplaceText(request PostSlidesP
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("DocumentReplaceResult", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocumentReplaceResult); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocumentReplaceResult); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -13146,13 +13898,13 @@ type PostSlidesPresentationReplaceTextRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Slides*/
-func (a *SlidesApiService) PostSlidesReorder(request PostSlidesReorderRequest) (Slides, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesReorder(request PostSlidesReorderRequest) (ISlides, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Slides
+	 	successPayload ISlides
 	)
 
 	// create path and map variables
@@ -13245,8 +13997,17 @@ func (a *SlidesApiService) PostSlidesReorder(request PostSlidesReorderRequest) (
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Slides", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlides); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlides); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -13272,13 +14033,13 @@ type PostSlidesReorderRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Slides*/
-func (a *SlidesApiService) PostSlidesReorderMany(request PostSlidesReorderManyRequest) (Slides, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesReorderMany(request PostSlidesReorderManyRequest) (ISlides, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Slides
+	 	successPayload ISlides
 	)
 
 	// create path and map variables
@@ -13376,8 +14137,17 @@ func (a *SlidesApiService) PostSlidesReorderMany(request PostSlidesReorderManyRe
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Slides", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlides); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlides); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -13410,7 +14180,7 @@ func (a *SlidesApiService) PostSlidesSaveAs(request PostSlidesSaveAsRequest) (*o
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  *os.File
+	 	successPayload *os.File
 	)
 
 	// create path and map variables
@@ -13539,13 +14309,13 @@ type PostSlidesSaveAsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return DocumentProperties*/
-func (a *SlidesApiService) PostSlidesSetDocumentProperties(request PostSlidesSetDocumentPropertiesRequest) (DocumentProperties, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesSetDocumentProperties(request PostSlidesSetDocumentPropertiesRequest) (IDocumentProperties, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentProperties
+	 	successPayload IDocumentProperties
 	)
 
 	// create path and map variables
@@ -13633,8 +14403,17 @@ func (a *SlidesApiService) PostSlidesSetDocumentProperties(request PostSlidesSet
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("DocumentProperties", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocumentProperties); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocumentProperties); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -13661,13 +14440,13 @@ type PostSlidesSetDocumentPropertiesRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideReplaceResult*/
-func (a *SlidesApiService) PostSlidesSlideReplaceText(request PostSlidesSlideReplaceTextRequest) (SlideReplaceResult, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesSlideReplaceText(request PostSlidesSlideReplaceTextRequest) (ISlideReplaceResult, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideReplaceResult
+	 	successPayload ISlideReplaceResult
 	)
 
 	// create path and map variables
@@ -13769,8 +14548,17 @@ func (a *SlidesApiService) PostSlidesSlideReplaceText(request PostSlidesSlideRep
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideReplaceResult", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideReplaceResult); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideReplaceResult); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -13804,13 +14592,13 @@ type PostSlidesSlideReplaceTextRequest struct {
      @param "folder" (string) Document folder.
      @param "fontsFolder" (string) Custom fonts folder.
  @return SplitDocumentResult*/
-func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (SplitDocumentResult, *http.Response, error) {
+func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (ISplitDocumentResult, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SplitDocumentResult
+	 	successPayload ISplitDocumentResult
 	)
 
 	// create path and map variables
@@ -13826,10 +14614,8 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (Spli
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if request.format != nil {
-		if err := typeCheckParameter(*request.format, "string", "format"); err != nil {
-			return successPayload, nil, err
-		}
+	if err := typeCheckParameter(request.format, "string", "format"); err != nil {
+		return successPayload, nil, err
 	}
 	if request.width != nil {
 		if err := typeCheckParameter(*request.width, "int32", "width"); err != nil {
@@ -13867,8 +14653,8 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (Spli
 		return successPayload, nil, err
 	}
 
-	if request.format != nil && *request.format != "" {
-		localVarQueryParams.Add("format", parameterToString(*request.format, ""))
+	if localVarTempParam := request.format; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("format", parameterToString(localVarTempParam, ""))
 	}
 	if request.width != nil {
 		localVarQueryParams.Add("width", parameterToString(*request.width, ""))
@@ -13950,8 +14736,17 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (Spli
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SplitDocumentResult", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISplitDocumentResult); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISplitDocumentResult); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -13962,7 +14757,7 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (Spli
 type PostSlidesSplitRequest struct {
     name string
     options IExportOptions
-    format *string
+    format string
     width *int32
     height *int32
     to *int32
@@ -13983,13 +14778,13 @@ type PostSlidesSplitRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return LayoutSlide*/
-func (a *SlidesApiService) PutLayoutSlide(request PutLayoutSlideRequest) (LayoutSlide, *http.Response, error) {
+func (a *SlidesApiService) PutLayoutSlide(request PutLayoutSlideRequest) (ILayoutSlide, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  LayoutSlide
+	 	successPayload ILayoutSlide
 	)
 
 	// create path and map variables
@@ -14083,8 +14878,17 @@ func (a *SlidesApiService) PutLayoutSlide(request PutLayoutSlideRequest) (Layout
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("LayoutSlide", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ILayoutSlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ILayoutSlide); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -14182,10 +14986,8 @@ func (a *SlidesApiService) PutNotesSlideShapeSaveAs(request PutNotesSlideShapeSa
 			return nil, err
 		}
 	}
-	if request.bounds != nil {
-		if err := typeCheckParameter(*request.bounds, "string", "bounds"); err != nil {
-			return nil, err
-		}
+	if err := typeCheckParameter(request.bounds, "string", "bounds"); err != nil {
+		return nil, err
 	}
 	if err := typeCheckParameter(request.fontsFolder, "string", "fontsFolder"); err != nil {
 		return nil, err
@@ -14207,8 +15009,8 @@ func (a *SlidesApiService) PutNotesSlideShapeSaveAs(request PutNotesSlideShapeSa
 	if request.scaleY != nil {
 		localVarQueryParams.Add("scaleY", parameterToString(*request.scaleY, ""))
 	}
-	if request.bounds != nil && *request.bounds != "" {
-		localVarQueryParams.Add("bounds", parameterToString(*request.bounds, ""))
+	if localVarTempParam := request.bounds; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("bounds", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := request.fontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("fontsFolder", parameterToString(localVarTempParam, ""))
@@ -14285,7 +15087,7 @@ type PutNotesSlideShapeSaveAsRequest struct {
     storage string
     scaleX *float64
     scaleY *float64
-    bounds *string
+    bounds string
     fontsFolder string
 }
 
@@ -14297,13 +15099,13 @@ type PutNotesSlideShapeSaveAsRequest struct {
      @param "storage" (string) Document storage.
      @param "folder" (string) Document folder.
  @return Document*/
-func (a *SlidesApiService) PutPresentationMerge(request PutPresentationMergeRequest) (Document, *http.Response, error) {
+func (a *SlidesApiService) PutPresentationMerge(request PutPresentationMergeRequest) (IDocument, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Document
+	 	successPayload IDocument
 	)
 
 	// create path and map variables
@@ -14391,8 +15193,17 @@ func (a *SlidesApiService) PutPresentationMerge(request PutPresentationMergeRequ
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -14421,13 +15232,13 @@ type PutPresentationMergeRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Portion*/
-func (a *SlidesApiService) PutSetParagraphPortionProperties(request PutSetParagraphPortionPropertiesRequest) (Portion, *http.Response, error) {
+func (a *SlidesApiService) PutSetParagraphPortionProperties(request PutSetParagraphPortionPropertiesRequest) (IPortion, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portion
+	 	successPayload IPortion
 	)
 
 	// create path and map variables
@@ -14545,8 +15356,17 @@ func (a *SlidesApiService) PutSetParagraphPortionProperties(request PutSetParagr
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portion", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortion); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortion); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -14579,13 +15399,13 @@ type PutSetParagraphPortionPropertiesRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Paragraph*/
-func (a *SlidesApiService) PutSetParagraphProperties(request PutSetParagraphPropertiesRequest) (Paragraph, *http.Response, error) {
+func (a *SlidesApiService) PutSetParagraphProperties(request PutSetParagraphPropertiesRequest) (IParagraph, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraph
+	 	successPayload IParagraph
 	)
 
 	// create path and map variables
@@ -14697,8 +15517,17 @@ func (a *SlidesApiService) PutSetParagraphProperties(request PutSetParagraphProp
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraph); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraph); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -14799,10 +15628,8 @@ func (a *SlidesApiService) PutShapeSaveAs(request PutShapeSaveAsRequest) (*http.
 			return nil, err
 		}
 	}
-	if request.bounds != nil {
-		if err := typeCheckParameter(*request.bounds, "string", "bounds"); err != nil {
-			return nil, err
-		}
+	if err := typeCheckParameter(request.bounds, "string", "bounds"); err != nil {
+		return nil, err
 	}
 	if err := typeCheckParameter(request.fontsFolder, "string", "fontsFolder"); err != nil {
 		return nil, err
@@ -14824,8 +15651,8 @@ func (a *SlidesApiService) PutShapeSaveAs(request PutShapeSaveAsRequest) (*http.
 	if request.scaleY != nil {
 		localVarQueryParams.Add("scaleY", parameterToString(*request.scaleY, ""))
 	}
-	if request.bounds != nil && *request.bounds != "" {
-		localVarQueryParams.Add("bounds", parameterToString(*request.bounds, ""))
+	if localVarTempParam := request.bounds; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("bounds", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := request.fontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("fontsFolder", parameterToString(localVarTempParam, ""))
@@ -14902,7 +15729,7 @@ type PutShapeSaveAsRequest struct {
     storage string
     scaleX *float64
     scaleY *float64
-    bounds *string
+    bounds string
     fontsFolder string
 }
 
@@ -14915,13 +15742,13 @@ type PutShapeSaveAsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) PutSlideAnimation(request PutSlideAnimationRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) PutSlideAnimation(request PutSlideAnimationRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -15015,8 +15842,17 @@ func (a *SlidesApiService) PutSlideAnimation(request PutSlideAnimationRequest) (
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -15043,13 +15879,13 @@ type PutSlideAnimationRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) PutSlideAnimationEffect(request PutSlideAnimationEffectRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) PutSlideAnimationEffect(request PutSlideAnimationEffectRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -15149,8 +15985,17 @@ func (a *SlidesApiService) PutSlideAnimationEffect(request PutSlideAnimationEffe
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -15179,13 +16024,13 @@ type PutSlideAnimationEffectRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) PutSlideAnimationInteractiveSequenceEffect(request PutSlideAnimationInteractiveSequenceEffectRequest) (SlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) PutSlideAnimationInteractiveSequenceEffect(request PutSlideAnimationInteractiveSequenceEffectRequest) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideAnimation
+	 	successPayload ISlideAnimation
 	)
 
 	// create path and map variables
@@ -15291,8 +16136,17 @@ func (a *SlidesApiService) PutSlideAnimationInteractiveSequenceEffect(request Pu
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideAnimation); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideAnimation); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -15484,13 +16338,13 @@ type PutSlideSaveAsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return ShapeBase*/
-func (a *SlidesApiService) PutSlideShapeInfo(request PutSlideShapeInfoRequest) (ShapeBase, *http.Response, error) {
+func (a *SlidesApiService) PutSlideShapeInfo(request PutSlideShapeInfoRequest) (IShapeBase, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ShapeBase
+	 	successPayload IShapeBase
 	)
 
 	// create path and map variables
@@ -15596,8 +16450,17 @@ func (a *SlidesApiService) PutSlideShapeInfo(request PutSlideShapeInfoRequest) (
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapeBase); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapeBase); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -15734,13 +16597,13 @@ type PutSlidesConvertRequest struct {
      @param "storage" (string) Document storage.
      @param "folder" (string) Document folder.
  @return Document*/
-func (a *SlidesApiService) PutSlidesDocumentFromHtml(request PutSlidesDocumentFromHtmlRequest) (Document, *http.Response, error) {
+func (a *SlidesApiService) PutSlidesDocumentFromHtml(request PutSlidesDocumentFromHtmlRequest) (IDocument, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Document
+	 	successPayload IDocument
 	)
 
 	// create path and map variables
@@ -15831,8 +16694,17 @@ func (a *SlidesApiService) PutSlidesDocumentFromHtml(request PutSlidesDocumentFr
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -15991,13 +16863,13 @@ type PutSlidesSaveAsRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return DocumentProperty*/
-func (a *SlidesApiService) PutSlidesSetDocumentProperty(request PutSlidesSetDocumentPropertyRequest) (DocumentProperty, *http.Response, error) {
+func (a *SlidesApiService) PutSlidesSetDocumentProperty(request PutSlidesSetDocumentPropertyRequest) (IDocumentProperty, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  DocumentProperty
+	 	successPayload IDocumentProperty
 	)
 
 	// create path and map variables
@@ -16091,8 +16963,17 @@ func (a *SlidesApiService) PutSlidesSetDocumentProperty(request PutSlidesSetDocu
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("DocumentProperty", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocumentProperty); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocumentProperty); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -16118,13 +16999,13 @@ type PutSlidesSetDocumentPropertyRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Slide*/
-func (a *SlidesApiService) PutSlidesSlide(request PutSlidesSlideRequest) (Slide, *http.Response, error) {
+func (a *SlidesApiService) PutSlidesSlide(request PutSlidesSlideRequest) (ISlide, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Slide
+	 	successPayload ISlide
 	)
 
 	// create path and map variables
@@ -16218,8 +17099,17 @@ func (a *SlidesApiService) PutSlidesSlide(request PutSlidesSlideRequest) (Slide,
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Slide", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlide); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -16245,13 +17135,13 @@ type PutSlidesSlideRequest struct {
      @param "password" (string) Document password.
      @param "storage" (string) Document storage.
  @return SlideBackground*/
-func (a *SlidesApiService) PutSlidesSlideBackground(request PutSlidesSlideBackgroundRequest) (SlideBackground, *http.Response, error) {
+func (a *SlidesApiService) PutSlidesSlideBackground(request PutSlidesSlideBackgroundRequest) (ISlideBackground, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideBackground
+	 	successPayload ISlideBackground
 	)
 
 	// create path and map variables
@@ -16345,8 +17235,17 @@ func (a *SlidesApiService) PutSlidesSlideBackground(request PutSlidesSlideBackgr
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideBackground", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideBackground); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideBackground); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -16372,13 +17271,13 @@ type PutSlidesSlideBackgroundRequest struct {
      @param "password" (string) Document password.
      @param "storage" (string) Document storage.
  @return SlideBackground*/
-func (a *SlidesApiService) PutSlidesSlideBackgroundColor(request PutSlidesSlideBackgroundColorRequest) (SlideBackground, *http.Response, error) {
+func (a *SlidesApiService) PutSlidesSlideBackgroundColor(request PutSlidesSlideBackgroundColorRequest) (ISlideBackground, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  SlideBackground
+	 	successPayload ISlideBackground
 	)
 
 	// create path and map variables
@@ -16471,8 +17370,17 @@ func (a *SlidesApiService) PutSlidesSlideBackgroundColor(request PutSlidesSlideB
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("SlideBackground", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideBackground); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideBackground); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -16500,13 +17408,13 @@ type PutSlidesSlideBackgroundColorRequest struct {
      @param "sizeType" (string) Standard slide size type.
      @param "scaleType" (string) Standard slide scale type.
  @return Document*/
-func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest) (Document, *http.Response, error) {
+func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest) (IDocument, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Document
+	 	successPayload IDocument
 	)
 
 	// create path and map variables
@@ -16541,15 +17449,11 @@ func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest)
 			return successPayload, nil, err
 		}
 	}
-	if request.sizeType != nil {
-		if err := typeCheckParameter(*request.sizeType, "string", "sizeType"); err != nil {
-			return successPayload, nil, err
-		}
+	if err := typeCheckParameter(request.sizeType, "string", "sizeType"); err != nil {
+		return successPayload, nil, err
 	}
-	if request.scaleType != nil {
-		if err := typeCheckParameter(*request.scaleType, "string", "scaleType"); err != nil {
-			return successPayload, nil, err
-		}
+	if err := typeCheckParameter(request.scaleType, "string", "scaleType"); err != nil {
+		return successPayload, nil, err
 	}
 
 	if localVarTempParam := request.password; len(localVarTempParam) > 0 {
@@ -16567,11 +17471,11 @@ func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest)
 	if request.height != nil {
 		localVarQueryParams.Add("height", parameterToString(*request.height, ""))
 	}
-	if request.sizeType != nil && *request.sizeType != "" {
-		localVarQueryParams.Add("sizeType", parameterToString(*request.sizeType, ""))
+	if localVarTempParam := request.sizeType; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("sizeType", parameterToString(localVarTempParam, ""))
 	}
-	if request.scaleType != nil && *request.scaleType != "" {
-		localVarQueryParams.Add("scaleType", parameterToString(*request.scaleType, ""))
+	if localVarTempParam := request.scaleType; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("scaleType", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json",  }
@@ -16624,8 +17528,17 @@ func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest)
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -16640,8 +17553,8 @@ type PutSlidesSlideSizeRequest struct {
     folder string
     width *int32
     height *int32
-    sizeType *string
-    scaleType *string
+    sizeType string
+    scaleType string
 }
 
 /* SlidesApiService Update notes slide properties.
@@ -16653,13 +17566,13 @@ type PutSlidesSlideSizeRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return NotesSlide*/
-func (a *SlidesApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideRequest) (NotesSlide, *http.Response, error) {
+func (a *SlidesApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideRequest) (INotesSlide, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  NotesSlide
+	 	successPayload INotesSlide
 	)
 
 	// create path and map variables
@@ -16753,8 +17666,17 @@ func (a *SlidesApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideReques
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("NotesSlide", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(INotesSlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(INotesSlide); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -16782,13 +17704,13 @@ type PutUpdateNotesSlideRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return ShapeBase*/
-func (a *SlidesApiService) PutUpdateNotesSlideShape(request PutUpdateNotesSlideShapeRequest) (ShapeBase, *http.Response, error) {
+func (a *SlidesApiService) PutUpdateNotesSlideShape(request PutUpdateNotesSlideShapeRequest) (IShapeBase, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  ShapeBase
+	 	successPayload IShapeBase
 	)
 
 	// create path and map variables
@@ -16894,8 +17816,17 @@ func (a *SlidesApiService) PutUpdateNotesSlideShape(request PutUpdateNotesSlideS
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IShapeBase); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IShapeBase); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -16926,13 +17857,13 @@ type PutUpdateNotesSlideShapeRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Paragraph*/
-func (a *SlidesApiService) PutUpdateNotesSlideShapeParagraph(request PutUpdateNotesSlideShapeParagraphRequest) (Paragraph, *http.Response, error) {
+func (a *SlidesApiService) PutUpdateNotesSlideShapeParagraph(request PutUpdateNotesSlideShapeParagraphRequest) (IParagraph, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Paragraph
+	 	successPayload IParagraph
 	)
 
 	// create path and map variables
@@ -17044,8 +17975,17 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapeParagraph(request PutUpdateNo
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IParagraph); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IParagraph); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -17078,13 +18018,13 @@ type PutUpdateNotesSlideShapeParagraphRequest struct {
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Portion*/
-func (a *SlidesApiService) PutUpdateNotesSlideShapePortion(request PutUpdateNotesSlideShapePortionRequest) (Portion, *http.Response, error) {
+func (a *SlidesApiService) PutUpdateNotesSlideShapePortion(request PutUpdateNotesSlideShapePortionRequest) (IPortion, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  Portion
+	 	successPayload IPortion
 	)
 
 	// create path and map variables
@@ -17202,8 +18142,17 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapePortion(request PutUpdateNote
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("Portion", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IPortion); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IPortion); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -17227,13 +18176,13 @@ type PutUpdateNotesSlideShapePortionRequest struct {
 /* SlidesApiService Check if storage exists
  @param storageName Storage name
  @return StorageExist*/
-func (a *SlidesApiService) StorageExists(request StorageExistsRequest) (StorageExist, *http.Response, error) {
+func (a *SlidesApiService) StorageExists(request StorageExistsRequest) (IStorageExist, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  StorageExist
+	 	successPayload IStorageExist
 	)
 
 	// create path and map variables
@@ -17301,8 +18250,17 @@ func (a *SlidesApiService) StorageExists(request StorageExistsRequest) (StorageE
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("StorageExist", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IStorageExist); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IStorageExist); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -17320,13 +18278,13 @@ type StorageExistsRequest struct {
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storageName" (string) Storage name
  @return FilesUploadResult*/
-func (a *SlidesApiService) UploadFile(request UploadFileRequest) (FilesUploadResult, *http.Response, error) {
+func (a *SlidesApiService) UploadFile(request UploadFileRequest) (IFilesUploadResult, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
 		localVarFileName string
 		localVarFileBytes []byte
-	 	successPayload  FilesUploadResult
+	 	successPayload IFilesUploadResult
 	)
 
 	// create path and map variables
@@ -17401,8 +18359,17 @@ func (a *SlidesApiService) UploadFile(request UploadFileRequest) (FilesUploadRes
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	if err = json.NewDecoder(responseBody).Decode(&successPayload); err != nil {
+	successPayloadObject, err := createObjectForType("FilesUploadResult", responseBytes)
+	if err != nil {
 		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IFilesUploadResult); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IFilesUploadResult); true {
 	}
 
 	return successPayload, localVarHttpResponse, err

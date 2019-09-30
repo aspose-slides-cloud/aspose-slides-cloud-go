@@ -130,7 +130,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["SelfUri"]; ok {
+	if valSelfUri, ok := objMap["selfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -140,8 +140,18 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
+	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
+		if valSelfUriCap != nil {
+			var valueForSelfUri ResourceUri
+			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
+			if err != nil {
+				return err
+			}
+			this.SelfUri = valueForSelfUri
+		}
+	}
 	
-	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
+	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -151,8 +161,18 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
+	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
+		if valAlternateLinksCap != nil {
+			var valueForAlternateLinks []ResourceUri
+			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
+			if err != nil {
+				return err
+			}
+			this.AlternateLinks = valueForAlternateLinks
+		}
+	}
 	
-	if valBackgroundStyles, ok := objMap["BackgroundStyles"]; ok {
+	if valBackgroundStyles, ok := objMap["backgroundStyles"]; ok {
 		if valBackgroundStyles != nil {
 			var valueForBackgroundStyles []ResourceUri
 			err = json.Unmarshal(*valBackgroundStyles, &valueForBackgroundStyles)
@@ -162,8 +182,18 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			this.BackgroundStyles = valueForBackgroundStyles
 		}
 	}
+	if valBackgroundStylesCap, ok := objMap["BackgroundStyles"]; ok {
+		if valBackgroundStylesCap != nil {
+			var valueForBackgroundStyles []ResourceUri
+			err = json.Unmarshal(*valBackgroundStylesCap, &valueForBackgroundStyles)
+			if err != nil {
+				return err
+			}
+			this.BackgroundStyles = valueForBackgroundStyles
+		}
+	}
 	
-	if valEffectStyles, ok := objMap["EffectStyles"]; ok {
+	if valEffectStyles, ok := objMap["effectStyles"]; ok {
 		if valEffectStyles != nil {
 			var valueForEffectStyles []ResourceUri
 			err = json.Unmarshal(*valEffectStyles, &valueForEffectStyles)
@@ -173,8 +203,18 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			this.EffectStyles = valueForEffectStyles
 		}
 	}
+	if valEffectStylesCap, ok := objMap["EffectStyles"]; ok {
+		if valEffectStylesCap != nil {
+			var valueForEffectStyles []ResourceUri
+			err = json.Unmarshal(*valEffectStylesCap, &valueForEffectStyles)
+			if err != nil {
+				return err
+			}
+			this.EffectStyles = valueForEffectStyles
+		}
+	}
 	
-	if valFillStyles, ok := objMap["FillStyles"]; ok {
+	if valFillStyles, ok := objMap["fillStyles"]; ok {
 		if valFillStyles != nil {
 			var valueForFillStyles []ResourceUri
 			err = json.Unmarshal(*valFillStyles, &valueForFillStyles)
@@ -184,11 +224,31 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			this.FillStyles = valueForFillStyles
 		}
 	}
+	if valFillStylesCap, ok := objMap["FillStyles"]; ok {
+		if valFillStylesCap != nil {
+			var valueForFillStyles []ResourceUri
+			err = json.Unmarshal(*valFillStylesCap, &valueForFillStyles)
+			if err != nil {
+				return err
+			}
+			this.FillStyles = valueForFillStyles
+		}
+	}
 	
-	if valLineStyles, ok := objMap["LineStyles"]; ok {
+	if valLineStyles, ok := objMap["lineStyles"]; ok {
 		if valLineStyles != nil {
 			var valueForLineStyles []ResourceUri
 			err = json.Unmarshal(*valLineStyles, &valueForLineStyles)
+			if err != nil {
+				return err
+			}
+			this.LineStyles = valueForLineStyles
+		}
+	}
+	if valLineStylesCap, ok := objMap["LineStyles"]; ok {
+		if valLineStylesCap != nil {
+			var valueForLineStyles []ResourceUri
+			err = json.Unmarshal(*valLineStylesCap, &valueForLineStyles)
 			if err != nil {
 				return err
 			}

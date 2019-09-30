@@ -116,7 +116,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["SelfUri"]; ok {
+	if valSelfUri, ok := objMap["selfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -126,8 +126,18 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
+	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
+		if valSelfUriCap != nil {
+			var valueForSelfUri ResourceUri
+			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
+			if err != nil {
+				return err
+			}
+			this.SelfUri = valueForSelfUri
+		}
+	}
 	
-	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
+	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -137,8 +147,18 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
+	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
+		if valAlternateLinksCap != nil {
+			var valueForAlternateLinks []ResourceUri
+			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
+			if err != nil {
+				return err
+			}
+			this.AlternateLinks = valueForAlternateLinks
+		}
+	}
 	
-	if valMajor, ok := objMap["Major"]; ok {
+	if valMajor, ok := objMap["major"]; ok {
 		if valMajor != nil {
 			var valueForMajor FontSet
 			err = json.Unmarshal(*valMajor, &valueForMajor)
@@ -148,8 +168,18 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			this.Major = valueForMajor
 		}
 	}
+	if valMajorCap, ok := objMap["Major"]; ok {
+		if valMajorCap != nil {
+			var valueForMajor FontSet
+			err = json.Unmarshal(*valMajorCap, &valueForMajor)
+			if err != nil {
+				return err
+			}
+			this.Major = valueForMajor
+		}
+	}
 	
-	if valMinor, ok := objMap["Minor"]; ok {
+	if valMinor, ok := objMap["minor"]; ok {
 		if valMinor != nil {
 			var valueForMinor FontSet
 			err = json.Unmarshal(*valMinor, &valueForMinor)
@@ -159,11 +189,31 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			this.Minor = valueForMinor
 		}
 	}
+	if valMinorCap, ok := objMap["Minor"]; ok {
+		if valMinorCap != nil {
+			var valueForMinor FontSet
+			err = json.Unmarshal(*valMinorCap, &valueForMinor)
+			if err != nil {
+				return err
+			}
+			this.Minor = valueForMinor
+		}
+	}
 	
-	if valName, ok := objMap["Name"]; ok {
+	if valName, ok := objMap["name"]; ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
+			if err != nil {
+				return err
+			}
+			this.Name = valueForName
+		}
+	}
+	if valNameCap, ok := objMap["Name"]; ok {
+		if valNameCap != nil {
+			var valueForName string
+			err = json.Unmarshal(*valNameCap, &valueForName)
 			if err != nil {
 				return err
 			}

@@ -74,7 +74,7 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFormat, ok := objMap["Format"]; ok {
+	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -84,11 +84,31 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
+	if valFormatCap, ok := objMap["Format"]; ok {
+		if valFormatCap != nil {
+			var valueForFormat string
+			err = json.Unmarshal(*valFormatCap, &valueForFormat)
+			if err != nil {
+				return err
+			}
+			this.Format = valueForFormat
+		}
+	}
 	this.Conformance = "Ecma376_2006"
-	if valConformance, ok := objMap["Conformance"]; ok {
+	if valConformance, ok := objMap["conformance"]; ok {
 		if valConformance != nil {
 			var valueForConformance string
 			err = json.Unmarshal(*valConformance, &valueForConformance)
+			if err != nil {
+				return err
+			}
+			this.Conformance = valueForConformance
+		}
+	}
+	if valConformanceCap, ok := objMap["Conformance"]; ok {
+		if valConformanceCap != nil {
+			var valueForConformance string
+			err = json.Unmarshal(*valConformanceCap, &valueForConformance)
 			if err != nil {
 				return err
 			}

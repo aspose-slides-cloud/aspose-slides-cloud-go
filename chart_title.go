@@ -74,7 +74,7 @@ func (this *ChartTitle) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valText, ok := objMap["Text"]; ok {
+	if valText, ok := objMap["text"]; ok {
 		if valText != nil {
 			var valueForText string
 			err = json.Unmarshal(*valText, &valueForText)
@@ -84,11 +84,31 @@ func (this *ChartTitle) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
+	if valTextCap, ok := objMap["Text"]; ok {
+		if valTextCap != nil {
+			var valueForText string
+			err = json.Unmarshal(*valTextCap, &valueForText)
+			if err != nil {
+				return err
+			}
+			this.Text = valueForText
+		}
+	}
 	
-	if valHasTitle, ok := objMap["HasTitle"]; ok {
+	if valHasTitle, ok := objMap["hasTitle"]; ok {
 		if valHasTitle != nil {
 			var valueForHasTitle bool
 			err = json.Unmarshal(*valHasTitle, &valueForHasTitle)
+			if err != nil {
+				return err
+			}
+			this.HasTitle = valueForHasTitle
+		}
+	}
+	if valHasTitleCap, ok := objMap["HasTitle"]; ok {
+		if valHasTitleCap != nil {
+			var valueForHasTitle bool
+			err = json.Unmarshal(*valHasTitleCap, &valueForHasTitle)
 			if err != nil {
 				return err
 			}

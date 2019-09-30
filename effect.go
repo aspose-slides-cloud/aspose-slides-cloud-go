@@ -241,8 +241,8 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "null"
-	if valType, ok := objMap["Type"]; ok {
+	this.Type_ = ""
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -252,8 +252,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
-	this.Subtype = "null"
-	if valSubtype, ok := objMap["Subtype"]; ok {
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
+	this.Subtype = ""
+	if valSubtype, ok := objMap["subtype"]; ok {
 		if valSubtype != nil {
 			var valueForSubtype string
 			err = json.Unmarshal(*valSubtype, &valueForSubtype)
@@ -263,8 +273,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.Subtype = valueForSubtype
 		}
 	}
-	this.PresetClassType = "null"
-	if valPresetClassType, ok := objMap["PresetClassType"]; ok {
+	if valSubtypeCap, ok := objMap["Subtype"]; ok {
+		if valSubtypeCap != nil {
+			var valueForSubtype string
+			err = json.Unmarshal(*valSubtypeCap, &valueForSubtype)
+			if err != nil {
+				return err
+			}
+			this.Subtype = valueForSubtype
+		}
+	}
+	this.PresetClassType = ""
+	if valPresetClassType, ok := objMap["presetClassType"]; ok {
 		if valPresetClassType != nil {
 			var valueForPresetClassType string
 			err = json.Unmarshal(*valPresetClassType, &valueForPresetClassType)
@@ -274,8 +294,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.PresetClassType = valueForPresetClassType
 		}
 	}
+	if valPresetClassTypeCap, ok := objMap["PresetClassType"]; ok {
+		if valPresetClassTypeCap != nil {
+			var valueForPresetClassType string
+			err = json.Unmarshal(*valPresetClassTypeCap, &valueForPresetClassType)
+			if err != nil {
+				return err
+			}
+			this.PresetClassType = valueForPresetClassType
+		}
+	}
 	
-	if valShapeIndex, ok := objMap["ShapeIndex"]; ok {
+	if valShapeIndex, ok := objMap["shapeIndex"]; ok {
 		if valShapeIndex != nil {
 			var valueForShapeIndex int32
 			err = json.Unmarshal(*valShapeIndex, &valueForShapeIndex)
@@ -285,8 +315,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.ShapeIndex = valueForShapeIndex
 		}
 	}
-	this.TriggerType = "null"
-	if valTriggerType, ok := objMap["TriggerType"]; ok {
+	if valShapeIndexCap, ok := objMap["ShapeIndex"]; ok {
+		if valShapeIndexCap != nil {
+			var valueForShapeIndex int32
+			err = json.Unmarshal(*valShapeIndexCap, &valueForShapeIndex)
+			if err != nil {
+				return err
+			}
+			this.ShapeIndex = valueForShapeIndex
+		}
+	}
+	this.TriggerType = ""
+	if valTriggerType, ok := objMap["triggerType"]; ok {
 		if valTriggerType != nil {
 			var valueForTriggerType string
 			err = json.Unmarshal(*valTriggerType, &valueForTriggerType)
@@ -296,8 +336,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.TriggerType = valueForTriggerType
 		}
 	}
+	if valTriggerTypeCap, ok := objMap["TriggerType"]; ok {
+		if valTriggerTypeCap != nil {
+			var valueForTriggerType string
+			err = json.Unmarshal(*valTriggerTypeCap, &valueForTriggerType)
+			if err != nil {
+				return err
+			}
+			this.TriggerType = valueForTriggerType
+		}
+	}
 	
-	if valAccelerate, ok := objMap["Accelerate"]; ok {
+	if valAccelerate, ok := objMap["accelerate"]; ok {
 		if valAccelerate != nil {
 			var valueForAccelerate float64
 			err = json.Unmarshal(*valAccelerate, &valueForAccelerate)
@@ -307,8 +357,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.Accelerate = valueForAccelerate
 		}
 	}
+	if valAccelerateCap, ok := objMap["Accelerate"]; ok {
+		if valAccelerateCap != nil {
+			var valueForAccelerate float64
+			err = json.Unmarshal(*valAccelerateCap, &valueForAccelerate)
+			if err != nil {
+				return err
+			}
+			this.Accelerate = valueForAccelerate
+		}
+	}
 	
-	if valAutoReverse, ok := objMap["AutoReverse"]; ok {
+	if valAutoReverse, ok := objMap["autoReverse"]; ok {
 		if valAutoReverse != nil {
 			var valueForAutoReverse bool
 			err = json.Unmarshal(*valAutoReverse, &valueForAutoReverse)
@@ -318,8 +378,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.AutoReverse = valueForAutoReverse
 		}
 	}
+	if valAutoReverseCap, ok := objMap["AutoReverse"]; ok {
+		if valAutoReverseCap != nil {
+			var valueForAutoReverse bool
+			err = json.Unmarshal(*valAutoReverseCap, &valueForAutoReverse)
+			if err != nil {
+				return err
+			}
+			this.AutoReverse = valueForAutoReverse
+		}
+	}
 	
-	if valDecelerate, ok := objMap["Decelerate"]; ok {
+	if valDecelerate, ok := objMap["decelerate"]; ok {
 		if valDecelerate != nil {
 			var valueForDecelerate float64
 			err = json.Unmarshal(*valDecelerate, &valueForDecelerate)
@@ -329,8 +399,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.Decelerate = valueForDecelerate
 		}
 	}
+	if valDecelerateCap, ok := objMap["Decelerate"]; ok {
+		if valDecelerateCap != nil {
+			var valueForDecelerate float64
+			err = json.Unmarshal(*valDecelerateCap, &valueForDecelerate)
+			if err != nil {
+				return err
+			}
+			this.Decelerate = valueForDecelerate
+		}
+	}
 	
-	if valDuration, ok := objMap["Duration"]; ok {
+	if valDuration, ok := objMap["duration"]; ok {
 		if valDuration != nil {
 			var valueForDuration float64
 			err = json.Unmarshal(*valDuration, &valueForDuration)
@@ -340,8 +420,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.Duration = valueForDuration
 		}
 	}
+	if valDurationCap, ok := objMap["Duration"]; ok {
+		if valDurationCap != nil {
+			var valueForDuration float64
+			err = json.Unmarshal(*valDurationCap, &valueForDuration)
+			if err != nil {
+				return err
+			}
+			this.Duration = valueForDuration
+		}
+	}
 	
-	if valRepeatCount, ok := objMap["RepeatCount"]; ok {
+	if valRepeatCount, ok := objMap["repeatCount"]; ok {
 		if valRepeatCount != nil {
 			var valueForRepeatCount float64
 			err = json.Unmarshal(*valRepeatCount, &valueForRepeatCount)
@@ -351,8 +441,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.RepeatCount = valueForRepeatCount
 		}
 	}
+	if valRepeatCountCap, ok := objMap["RepeatCount"]; ok {
+		if valRepeatCountCap != nil {
+			var valueForRepeatCount float64
+			err = json.Unmarshal(*valRepeatCountCap, &valueForRepeatCount)
+			if err != nil {
+				return err
+			}
+			this.RepeatCount = valueForRepeatCount
+		}
+	}
 	
-	if valRepeatDuration, ok := objMap["RepeatDuration"]; ok {
+	if valRepeatDuration, ok := objMap["repeatDuration"]; ok {
 		if valRepeatDuration != nil {
 			var valueForRepeatDuration float64
 			err = json.Unmarshal(*valRepeatDuration, &valueForRepeatDuration)
@@ -362,8 +462,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.RepeatDuration = valueForRepeatDuration
 		}
 	}
-	this.Restart = "null"
-	if valRestart, ok := objMap["Restart"]; ok {
+	if valRepeatDurationCap, ok := objMap["RepeatDuration"]; ok {
+		if valRepeatDurationCap != nil {
+			var valueForRepeatDuration float64
+			err = json.Unmarshal(*valRepeatDurationCap, &valueForRepeatDuration)
+			if err != nil {
+				return err
+			}
+			this.RepeatDuration = valueForRepeatDuration
+		}
+	}
+	this.Restart = ""
+	if valRestart, ok := objMap["restart"]; ok {
 		if valRestart != nil {
 			var valueForRestart string
 			err = json.Unmarshal(*valRestart, &valueForRestart)
@@ -373,8 +483,18 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.Restart = valueForRestart
 		}
 	}
+	if valRestartCap, ok := objMap["Restart"]; ok {
+		if valRestartCap != nil {
+			var valueForRestart string
+			err = json.Unmarshal(*valRestartCap, &valueForRestart)
+			if err != nil {
+				return err
+			}
+			this.Restart = valueForRestart
+		}
+	}
 	
-	if valSpeed, ok := objMap["Speed"]; ok {
+	if valSpeed, ok := objMap["speed"]; ok {
 		if valSpeed != nil {
 			var valueForSpeed float64
 			err = json.Unmarshal(*valSpeed, &valueForSpeed)
@@ -384,11 +504,31 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			this.Speed = valueForSpeed
 		}
 	}
+	if valSpeedCap, ok := objMap["Speed"]; ok {
+		if valSpeedCap != nil {
+			var valueForSpeed float64
+			err = json.Unmarshal(*valSpeedCap, &valueForSpeed)
+			if err != nil {
+				return err
+			}
+			this.Speed = valueForSpeed
+		}
+	}
 	
-	if valTriggerDelayTime, ok := objMap["TriggerDelayTime"]; ok {
+	if valTriggerDelayTime, ok := objMap["triggerDelayTime"]; ok {
 		if valTriggerDelayTime != nil {
 			var valueForTriggerDelayTime float64
 			err = json.Unmarshal(*valTriggerDelayTime, &valueForTriggerDelayTime)
+			if err != nil {
+				return err
+			}
+			this.TriggerDelayTime = valueForTriggerDelayTime
+		}
+	}
+	if valTriggerDelayTimeCap, ok := objMap["TriggerDelayTime"]; ok {
+		if valTriggerDelayTimeCap != nil {
+			var valueForTriggerDelayTime float64
+			err = json.Unmarshal(*valTriggerDelayTimeCap, &valueForTriggerDelayTime)
 			if err != nil {
 				return err
 			}

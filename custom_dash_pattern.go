@@ -60,10 +60,20 @@ func (this *CustomDashPattern) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valItems, ok := objMap["Items"]; ok {
+	if valItems, ok := objMap["items"]; ok {
 		if valItems != nil {
 			var valueForItems []float64
 			err = json.Unmarshal(*valItems, &valueForItems)
+			if err != nil {
+				return err
+			}
+			this.Items = valueForItems
+		}
+	}
+	if valItemsCap, ok := objMap["Items"]; ok {
+		if valItemsCap != nil {
+			var valueForItems []float64
+			err = json.Unmarshal(*valItemsCap, &valueForItems)
 			if err != nil {
 				return err
 			}

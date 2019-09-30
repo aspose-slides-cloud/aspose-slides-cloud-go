@@ -60,10 +60,20 @@ func (this *FillOverlayEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Blend = "Darken"
-	if valBlend, ok := objMap["Blend"]; ok {
+	if valBlend, ok := objMap["blend"]; ok {
 		if valBlend != nil {
 			var valueForBlend string
 			err = json.Unmarshal(*valBlend, &valueForBlend)
+			if err != nil {
+				return err
+			}
+			this.Blend = valueForBlend
+		}
+	}
+	if valBlendCap, ok := objMap["Blend"]; ok {
+		if valBlendCap != nil {
+			var valueForBlend string
+			err = json.Unmarshal(*valBlendCap, &valueForBlend)
 			if err != nil {
 				return err
 			}

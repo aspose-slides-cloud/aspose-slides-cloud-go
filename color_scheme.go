@@ -242,7 +242,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["SelfUri"]; ok {
+	if valSelfUri, ok := objMap["selfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -252,8 +252,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
+	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
+		if valSelfUriCap != nil {
+			var valueForSelfUri ResourceUri
+			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
+			if err != nil {
+				return err
+			}
+			this.SelfUri = valueForSelfUri
+		}
+	}
 	
-	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
+	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -263,8 +273,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
+	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
+		if valAlternateLinksCap != nil {
+			var valueForAlternateLinks []ResourceUri
+			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
+			if err != nil {
+				return err
+			}
+			this.AlternateLinks = valueForAlternateLinks
+		}
+	}
 	
-	if valAccent1, ok := objMap["Accent1"]; ok {
+	if valAccent1, ok := objMap["accent1"]; ok {
 		if valAccent1 != nil {
 			var valueForAccent1 string
 			err = json.Unmarshal(*valAccent1, &valueForAccent1)
@@ -274,8 +294,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent1 = valueForAccent1
 		}
 	}
+	if valAccent1Cap, ok := objMap["Accent1"]; ok {
+		if valAccent1Cap != nil {
+			var valueForAccent1 string
+			err = json.Unmarshal(*valAccent1Cap, &valueForAccent1)
+			if err != nil {
+				return err
+			}
+			this.Accent1 = valueForAccent1
+		}
+	}
 	
-	if valAccent2, ok := objMap["Accent2"]; ok {
+	if valAccent2, ok := objMap["accent2"]; ok {
 		if valAccent2 != nil {
 			var valueForAccent2 string
 			err = json.Unmarshal(*valAccent2, &valueForAccent2)
@@ -285,8 +315,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent2 = valueForAccent2
 		}
 	}
+	if valAccent2Cap, ok := objMap["Accent2"]; ok {
+		if valAccent2Cap != nil {
+			var valueForAccent2 string
+			err = json.Unmarshal(*valAccent2Cap, &valueForAccent2)
+			if err != nil {
+				return err
+			}
+			this.Accent2 = valueForAccent2
+		}
+	}
 	
-	if valAccent3, ok := objMap["Accent3"]; ok {
+	if valAccent3, ok := objMap["accent3"]; ok {
 		if valAccent3 != nil {
 			var valueForAccent3 string
 			err = json.Unmarshal(*valAccent3, &valueForAccent3)
@@ -296,8 +336,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent3 = valueForAccent3
 		}
 	}
+	if valAccent3Cap, ok := objMap["Accent3"]; ok {
+		if valAccent3Cap != nil {
+			var valueForAccent3 string
+			err = json.Unmarshal(*valAccent3Cap, &valueForAccent3)
+			if err != nil {
+				return err
+			}
+			this.Accent3 = valueForAccent3
+		}
+	}
 	
-	if valAccent4, ok := objMap["Accent4"]; ok {
+	if valAccent4, ok := objMap["accent4"]; ok {
 		if valAccent4 != nil {
 			var valueForAccent4 string
 			err = json.Unmarshal(*valAccent4, &valueForAccent4)
@@ -307,8 +357,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent4 = valueForAccent4
 		}
 	}
+	if valAccent4Cap, ok := objMap["Accent4"]; ok {
+		if valAccent4Cap != nil {
+			var valueForAccent4 string
+			err = json.Unmarshal(*valAccent4Cap, &valueForAccent4)
+			if err != nil {
+				return err
+			}
+			this.Accent4 = valueForAccent4
+		}
+	}
 	
-	if valAccent5, ok := objMap["Accent5"]; ok {
+	if valAccent5, ok := objMap["accent5"]; ok {
 		if valAccent5 != nil {
 			var valueForAccent5 string
 			err = json.Unmarshal(*valAccent5, &valueForAccent5)
@@ -318,8 +378,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent5 = valueForAccent5
 		}
 	}
+	if valAccent5Cap, ok := objMap["Accent5"]; ok {
+		if valAccent5Cap != nil {
+			var valueForAccent5 string
+			err = json.Unmarshal(*valAccent5Cap, &valueForAccent5)
+			if err != nil {
+				return err
+			}
+			this.Accent5 = valueForAccent5
+		}
+	}
 	
-	if valAccent6, ok := objMap["Accent6"]; ok {
+	if valAccent6, ok := objMap["accent6"]; ok {
 		if valAccent6 != nil {
 			var valueForAccent6 string
 			err = json.Unmarshal(*valAccent6, &valueForAccent6)
@@ -329,8 +399,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Accent6 = valueForAccent6
 		}
 	}
+	if valAccent6Cap, ok := objMap["Accent6"]; ok {
+		if valAccent6Cap != nil {
+			var valueForAccent6 string
+			err = json.Unmarshal(*valAccent6Cap, &valueForAccent6)
+			if err != nil {
+				return err
+			}
+			this.Accent6 = valueForAccent6
+		}
+	}
 	
-	if valDark1, ok := objMap["Dark1"]; ok {
+	if valDark1, ok := objMap["dark1"]; ok {
 		if valDark1 != nil {
 			var valueForDark1 string
 			err = json.Unmarshal(*valDark1, &valueForDark1)
@@ -340,8 +420,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Dark1 = valueForDark1
 		}
 	}
+	if valDark1Cap, ok := objMap["Dark1"]; ok {
+		if valDark1Cap != nil {
+			var valueForDark1 string
+			err = json.Unmarshal(*valDark1Cap, &valueForDark1)
+			if err != nil {
+				return err
+			}
+			this.Dark1 = valueForDark1
+		}
+	}
 	
-	if valDark2, ok := objMap["Dark2"]; ok {
+	if valDark2, ok := objMap["dark2"]; ok {
 		if valDark2 != nil {
 			var valueForDark2 string
 			err = json.Unmarshal(*valDark2, &valueForDark2)
@@ -351,8 +441,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Dark2 = valueForDark2
 		}
 	}
+	if valDark2Cap, ok := objMap["Dark2"]; ok {
+		if valDark2Cap != nil {
+			var valueForDark2 string
+			err = json.Unmarshal(*valDark2Cap, &valueForDark2)
+			if err != nil {
+				return err
+			}
+			this.Dark2 = valueForDark2
+		}
+	}
 	
-	if valFollowedHyperlink, ok := objMap["FollowedHyperlink"]; ok {
+	if valFollowedHyperlink, ok := objMap["followedHyperlink"]; ok {
 		if valFollowedHyperlink != nil {
 			var valueForFollowedHyperlink string
 			err = json.Unmarshal(*valFollowedHyperlink, &valueForFollowedHyperlink)
@@ -362,8 +462,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.FollowedHyperlink = valueForFollowedHyperlink
 		}
 	}
+	if valFollowedHyperlinkCap, ok := objMap["FollowedHyperlink"]; ok {
+		if valFollowedHyperlinkCap != nil {
+			var valueForFollowedHyperlink string
+			err = json.Unmarshal(*valFollowedHyperlinkCap, &valueForFollowedHyperlink)
+			if err != nil {
+				return err
+			}
+			this.FollowedHyperlink = valueForFollowedHyperlink
+		}
+	}
 	
-	if valHyperlink, ok := objMap["Hyperlink"]; ok {
+	if valHyperlink, ok := objMap["hyperlink"]; ok {
 		if valHyperlink != nil {
 			var valueForHyperlink string
 			err = json.Unmarshal(*valHyperlink, &valueForHyperlink)
@@ -373,8 +483,18 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Hyperlink = valueForHyperlink
 		}
 	}
+	if valHyperlinkCap, ok := objMap["Hyperlink"]; ok {
+		if valHyperlinkCap != nil {
+			var valueForHyperlink string
+			err = json.Unmarshal(*valHyperlinkCap, &valueForHyperlink)
+			if err != nil {
+				return err
+			}
+			this.Hyperlink = valueForHyperlink
+		}
+	}
 	
-	if valLight1, ok := objMap["Light1"]; ok {
+	if valLight1, ok := objMap["light1"]; ok {
 		if valLight1 != nil {
 			var valueForLight1 string
 			err = json.Unmarshal(*valLight1, &valueForLight1)
@@ -384,11 +504,31 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			this.Light1 = valueForLight1
 		}
 	}
+	if valLight1Cap, ok := objMap["Light1"]; ok {
+		if valLight1Cap != nil {
+			var valueForLight1 string
+			err = json.Unmarshal(*valLight1Cap, &valueForLight1)
+			if err != nil {
+				return err
+			}
+			this.Light1 = valueForLight1
+		}
+	}
 	
-	if valLight2, ok := objMap["Light2"]; ok {
+	if valLight2, ok := objMap["light2"]; ok {
 		if valLight2 != nil {
 			var valueForLight2 string
 			err = json.Unmarshal(*valLight2, &valueForLight2)
+			if err != nil {
+				return err
+			}
+			this.Light2 = valueForLight2
+		}
+	}
+	if valLight2Cap, ok := objMap["Light2"]; ok {
+		if valLight2Cap != nil {
+			var valueForLight2 string
+			err = json.Unmarshal(*valLight2Cap, &valueForLight2)
 			if err != nil {
 				return err
 			}

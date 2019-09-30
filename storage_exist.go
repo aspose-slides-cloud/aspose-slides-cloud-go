@@ -60,10 +60,20 @@ func (this *StorageExist) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valExists, ok := objMap["Exists"]; ok {
+	if valExists, ok := objMap["exists"]; ok {
 		if valExists != nil {
 			var valueForExists bool
 			err = json.Unmarshal(*valExists, &valueForExists)
+			if err != nil {
+				return err
+			}
+			this.Exists = valueForExists
+		}
+	}
+	if valExistsCap, ok := objMap["Exists"]; ok {
+		if valExistsCap != nil {
+			var valueForExists bool
+			err = json.Unmarshal(*valExistsCap, &valueForExists)
 			if err != nil {
 				return err
 			}

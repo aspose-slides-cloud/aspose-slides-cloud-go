@@ -60,10 +60,20 @@ func (this *ResourceUriElement) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valUri, ok := objMap["Uri"]; ok {
+	if valUri, ok := objMap["uri"]; ok {
 		if valUri != nil {
 			var valueForUri ResourceUri
 			err = json.Unmarshal(*valUri, &valueForUri)
+			if err != nil {
+				return err
+			}
+			this.Uri = valueForUri
+		}
+	}
+	if valUriCap, ok := objMap["Uri"]; ok {
+		if valUriCap != nil {
+			var valueForUri ResourceUri
+			err = json.Unmarshal(*valUriCap, &valueForUri)
 			if err != nil {
 				return err
 			}

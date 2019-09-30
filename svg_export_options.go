@@ -186,7 +186,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFormat, ok := objMap["Format"]; ok {
+	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -196,8 +196,18 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
+	if valFormatCap, ok := objMap["Format"]; ok {
+		if valFormatCap != nil {
+			var valueForFormat string
+			err = json.Unmarshal(*valFormatCap, &valueForFormat)
+			if err != nil {
+				return err
+			}
+			this.Format = valueForFormat
+		}
+	}
 	
-	if valVectorizeText, ok := objMap["VectorizeText"]; ok {
+	if valVectorizeText, ok := objMap["vectorizeText"]; ok {
 		if valVectorizeText != nil {
 			var valueForVectorizeText bool
 			err = json.Unmarshal(*valVectorizeText, &valueForVectorizeText)
@@ -207,8 +217,18 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.VectorizeText = valueForVectorizeText
 		}
 	}
+	if valVectorizeTextCap, ok := objMap["VectorizeText"]; ok {
+		if valVectorizeTextCap != nil {
+			var valueForVectorizeText bool
+			err = json.Unmarshal(*valVectorizeTextCap, &valueForVectorizeText)
+			if err != nil {
+				return err
+			}
+			this.VectorizeText = valueForVectorizeText
+		}
+	}
 	
-	if valMetafileRasterizationDpi, ok := objMap["MetafileRasterizationDpi"]; ok {
+	if valMetafileRasterizationDpi, ok := objMap["metafileRasterizationDpi"]; ok {
 		if valMetafileRasterizationDpi != nil {
 			var valueForMetafileRasterizationDpi int32
 			err = json.Unmarshal(*valMetafileRasterizationDpi, &valueForMetafileRasterizationDpi)
@@ -218,8 +238,18 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.MetafileRasterizationDpi = valueForMetafileRasterizationDpi
 		}
 	}
+	if valMetafileRasterizationDpiCap, ok := objMap["MetafileRasterizationDpi"]; ok {
+		if valMetafileRasterizationDpiCap != nil {
+			var valueForMetafileRasterizationDpi int32
+			err = json.Unmarshal(*valMetafileRasterizationDpiCap, &valueForMetafileRasterizationDpi)
+			if err != nil {
+				return err
+			}
+			this.MetafileRasterizationDpi = valueForMetafileRasterizationDpi
+		}
+	}
 	
-	if valDisable3DText, ok := objMap["Disable3DText"]; ok {
+	if valDisable3DText, ok := objMap["disable3DText"]; ok {
 		if valDisable3DText != nil {
 			var valueForDisable3DText bool
 			err = json.Unmarshal(*valDisable3DText, &valueForDisable3DText)
@@ -229,8 +259,18 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.Disable3DText = valueForDisable3DText
 		}
 	}
+	if valDisable3DTextCap, ok := objMap["Disable3DText"]; ok {
+		if valDisable3DTextCap != nil {
+			var valueForDisable3DText bool
+			err = json.Unmarshal(*valDisable3DTextCap, &valueForDisable3DText)
+			if err != nil {
+				return err
+			}
+			this.Disable3DText = valueForDisable3DText
+		}
+	}
 	
-	if valDisableGradientSplit, ok := objMap["DisableGradientSplit"]; ok {
+	if valDisableGradientSplit, ok := objMap["disableGradientSplit"]; ok {
 		if valDisableGradientSplit != nil {
 			var valueForDisableGradientSplit bool
 			err = json.Unmarshal(*valDisableGradientSplit, &valueForDisableGradientSplit)
@@ -240,8 +280,18 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.DisableGradientSplit = valueForDisableGradientSplit
 		}
 	}
+	if valDisableGradientSplitCap, ok := objMap["DisableGradientSplit"]; ok {
+		if valDisableGradientSplitCap != nil {
+			var valueForDisableGradientSplit bool
+			err = json.Unmarshal(*valDisableGradientSplitCap, &valueForDisableGradientSplit)
+			if err != nil {
+				return err
+			}
+			this.DisableGradientSplit = valueForDisableGradientSplit
+		}
+	}
 	
-	if valDisableLineEndCropping, ok := objMap["DisableLineEndCropping"]; ok {
+	if valDisableLineEndCropping, ok := objMap["disableLineEndCropping"]; ok {
 		if valDisableLineEndCropping != nil {
 			var valueForDisableLineEndCropping bool
 			err = json.Unmarshal(*valDisableLineEndCropping, &valueForDisableLineEndCropping)
@@ -251,8 +301,18 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.DisableLineEndCropping = valueForDisableLineEndCropping
 		}
 	}
+	if valDisableLineEndCroppingCap, ok := objMap["DisableLineEndCropping"]; ok {
+		if valDisableLineEndCroppingCap != nil {
+			var valueForDisableLineEndCropping bool
+			err = json.Unmarshal(*valDisableLineEndCroppingCap, &valueForDisableLineEndCropping)
+			if err != nil {
+				return err
+			}
+			this.DisableLineEndCropping = valueForDisableLineEndCropping
+		}
+	}
 	
-	if valJpegQuality, ok := objMap["JpegQuality"]; ok {
+	if valJpegQuality, ok := objMap["jpegQuality"]; ok {
 		if valJpegQuality != nil {
 			var valueForJpegQuality int32
 			err = json.Unmarshal(*valJpegQuality, &valueForJpegQuality)
@@ -262,8 +322,18 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.JpegQuality = valueForJpegQuality
 		}
 	}
+	if valJpegQualityCap, ok := objMap["JpegQuality"]; ok {
+		if valJpegQualityCap != nil {
+			var valueForJpegQuality int32
+			err = json.Unmarshal(*valJpegQualityCap, &valueForJpegQuality)
+			if err != nil {
+				return err
+			}
+			this.JpegQuality = valueForJpegQuality
+		}
+	}
 	this.PicturesCompression = "Dpi330"
-	if valPicturesCompression, ok := objMap["PicturesCompression"]; ok {
+	if valPicturesCompression, ok := objMap["picturesCompression"]; ok {
 		if valPicturesCompression != nil {
 			var valueForPicturesCompression string
 			err = json.Unmarshal(*valPicturesCompression, &valueForPicturesCompression)
@@ -273,8 +343,18 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.PicturesCompression = valueForPicturesCompression
 		}
 	}
+	if valPicturesCompressionCap, ok := objMap["PicturesCompression"]; ok {
+		if valPicturesCompressionCap != nil {
+			var valueForPicturesCompression string
+			err = json.Unmarshal(*valPicturesCompressionCap, &valueForPicturesCompression)
+			if err != nil {
+				return err
+			}
+			this.PicturesCompression = valueForPicturesCompression
+		}
+	}
 	
-	if valDeletePicturesCroppedAreas, ok := objMap["DeletePicturesCroppedAreas"]; ok {
+	if valDeletePicturesCroppedAreas, ok := objMap["deletePicturesCroppedAreas"]; ok {
 		if valDeletePicturesCroppedAreas != nil {
 			var valueForDeletePicturesCroppedAreas bool
 			err = json.Unmarshal(*valDeletePicturesCroppedAreas, &valueForDeletePicturesCroppedAreas)
@@ -284,11 +364,31 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.DeletePicturesCroppedAreas = valueForDeletePicturesCroppedAreas
 		}
 	}
+	if valDeletePicturesCroppedAreasCap, ok := objMap["DeletePicturesCroppedAreas"]; ok {
+		if valDeletePicturesCroppedAreasCap != nil {
+			var valueForDeletePicturesCroppedAreas bool
+			err = json.Unmarshal(*valDeletePicturesCroppedAreasCap, &valueForDeletePicturesCroppedAreas)
+			if err != nil {
+				return err
+			}
+			this.DeletePicturesCroppedAreas = valueForDeletePicturesCroppedAreas
+		}
+	}
 	this.ExternalFontsHandling = "AddLinksToFontFiles"
-	if valExternalFontsHandling, ok := objMap["ExternalFontsHandling"]; ok {
+	if valExternalFontsHandling, ok := objMap["externalFontsHandling"]; ok {
 		if valExternalFontsHandling != nil {
 			var valueForExternalFontsHandling string
 			err = json.Unmarshal(*valExternalFontsHandling, &valueForExternalFontsHandling)
+			if err != nil {
+				return err
+			}
+			this.ExternalFontsHandling = valueForExternalFontsHandling
+		}
+	}
+	if valExternalFontsHandlingCap, ok := objMap["ExternalFontsHandling"]; ok {
+		if valExternalFontsHandlingCap != nil {
+			var valueForExternalFontsHandling string
+			err = json.Unmarshal(*valExternalFontsHandlingCap, &valueForExternalFontsHandling)
 			if err != nil {
 				return err
 			}

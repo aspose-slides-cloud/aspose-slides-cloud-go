@@ -74,7 +74,7 @@ func (this *Pipeline) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valInput, ok := objMap["Input"]; ok {
+	if valInput, ok := objMap["input"]; ok {
 		if valInput != nil {
 			var valueForInput Input
 			err = json.Unmarshal(*valInput, &valueForInput)
@@ -84,11 +84,31 @@ func (this *Pipeline) UnmarshalJSON(b []byte) error {
 			this.Input = valueForInput
 		}
 	}
+	if valInputCap, ok := objMap["Input"]; ok {
+		if valInputCap != nil {
+			var valueForInput Input
+			err = json.Unmarshal(*valInputCap, &valueForInput)
+			if err != nil {
+				return err
+			}
+			this.Input = valueForInput
+		}
+	}
 	
-	if valTasks, ok := objMap["Tasks"]; ok {
+	if valTasks, ok := objMap["tasks"]; ok {
 		if valTasks != nil {
 			var valueForTasks []Task
 			err = json.Unmarshal(*valTasks, &valueForTasks)
+			if err != nil {
+				return err
+			}
+			this.Tasks = valueForTasks
+		}
+	}
+	if valTasksCap, ok := objMap["Tasks"]; ok {
+		if valTasksCap != nil {
+			var valueForTasks []Task
+			err = json.Unmarshal(*valTasksCap, &valueForTasks)
 			if err != nil {
 				return err
 			}

@@ -102,7 +102,7 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valCode, ok := objMap["Code"]; ok {
+	if valCode, ok := objMap["code"]; ok {
 		if valCode != nil {
 			var valueForCode string
 			err = json.Unmarshal(*valCode, &valueForCode)
@@ -112,8 +112,18 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 			this.Code = valueForCode
 		}
 	}
+	if valCodeCap, ok := objMap["Code"]; ok {
+		if valCodeCap != nil {
+			var valueForCode string
+			err = json.Unmarshal(*valCodeCap, &valueForCode)
+			if err != nil {
+				return err
+			}
+			this.Code = valueForCode
+		}
+	}
 	
-	if valMessage, ok := objMap["Message"]; ok {
+	if valMessage, ok := objMap["message"]; ok {
 		if valMessage != nil {
 			var valueForMessage string
 			err = json.Unmarshal(*valMessage, &valueForMessage)
@@ -123,8 +133,18 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 			this.Message = valueForMessage
 		}
 	}
+	if valMessageCap, ok := objMap["Message"]; ok {
+		if valMessageCap != nil {
+			var valueForMessage string
+			err = json.Unmarshal(*valMessageCap, &valueForMessage)
+			if err != nil {
+				return err
+			}
+			this.Message = valueForMessage
+		}
+	}
 	
-	if valDescription, ok := objMap["Description"]; ok {
+	if valDescription, ok := objMap["description"]; ok {
 		if valDescription != nil {
 			var valueForDescription string
 			err = json.Unmarshal(*valDescription, &valueForDescription)
@@ -134,11 +154,31 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 			this.Description = valueForDescription
 		}
 	}
+	if valDescriptionCap, ok := objMap["Description"]; ok {
+		if valDescriptionCap != nil {
+			var valueForDescription string
+			err = json.Unmarshal(*valDescriptionCap, &valueForDescription)
+			if err != nil {
+				return err
+			}
+			this.Description = valueForDescription
+		}
+	}
 	
-	if valInnerError, ok := objMap["InnerError"]; ok {
+	if valInnerError, ok := objMap["innerError"]; ok {
 		if valInnerError != nil {
 			var valueForInnerError ErrorDetails
 			err = json.Unmarshal(*valInnerError, &valueForInnerError)
+			if err != nil {
+				return err
+			}
+			this.InnerError = valueForInnerError
+		}
+	}
+	if valInnerErrorCap, ok := objMap["InnerError"]; ok {
+		if valInnerErrorCap != nil {
+			var valueForInnerError ErrorDetails
+			err = json.Unmarshal(*valInnerErrorCap, &valueForInnerError)
 			if err != nil {
 				return err
 			}

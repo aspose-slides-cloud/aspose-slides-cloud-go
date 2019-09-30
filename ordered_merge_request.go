@@ -60,10 +60,20 @@ func (this *OrderedMergeRequest) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valPresentations, ok := objMap["Presentations"]; ok {
+	if valPresentations, ok := objMap["presentations"]; ok {
 		if valPresentations != nil {
 			var valueForPresentations []PresentationToMerge
 			err = json.Unmarshal(*valPresentations, &valueForPresentations)
+			if err != nil {
+				return err
+			}
+			this.Presentations = valueForPresentations
+		}
+	}
+	if valPresentationsCap, ok := objMap["Presentations"]; ok {
+		if valPresentationsCap != nil {
+			var valueForPresentations []PresentationToMerge
+			err = json.Unmarshal(*valPresentationsCap, &valueForPresentations)
 			if err != nil {
 				return err
 			}

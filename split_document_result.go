@@ -88,7 +88,7 @@ func (this *SplitDocumentResult) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["SelfUri"]; ok {
+	if valSelfUri, ok := objMap["selfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -98,8 +98,18 @@ func (this *SplitDocumentResult) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
+	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
+		if valSelfUriCap != nil {
+			var valueForSelfUri ResourceUri
+			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
+			if err != nil {
+				return err
+			}
+			this.SelfUri = valueForSelfUri
+		}
+	}
 	
-	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
+	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -109,11 +119,31 @@ func (this *SplitDocumentResult) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
+	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
+		if valAlternateLinksCap != nil {
+			var valueForAlternateLinks []ResourceUri
+			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
+			if err != nil {
+				return err
+			}
+			this.AlternateLinks = valueForAlternateLinks
+		}
+	}
 	
-	if valSlides, ok := objMap["Slides"]; ok {
+	if valSlides, ok := objMap["slides"]; ok {
 		if valSlides != nil {
 			var valueForSlides []ResourceUri
 			err = json.Unmarshal(*valSlides, &valueForSlides)
+			if err != nil {
+				return err
+			}
+			this.Slides = valueForSlides
+		}
+	}
+	if valSlidesCap, ok := objMap["Slides"]; ok {
+		if valSlidesCap != nil {
+			var valueForSlides []ResourceUri
+			err = json.Unmarshal(*valSlidesCap, &valueForSlides)
 			if err != nil {
 				return err
 			}

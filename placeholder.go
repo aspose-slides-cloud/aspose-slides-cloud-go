@@ -144,7 +144,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["SelfUri"]; ok {
+	if valSelfUri, ok := objMap["selfUri"]; ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -154,8 +154,18 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.SelfUri = valueForSelfUri
 		}
 	}
+	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
+		if valSelfUriCap != nil {
+			var valueForSelfUri ResourceUri
+			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
+			if err != nil {
+				return err
+			}
+			this.SelfUri = valueForSelfUri
+		}
+	}
 	
-	if valAlternateLinks, ok := objMap["AlternateLinks"]; ok {
+	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []ResourceUri
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -165,8 +175,18 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForAlternateLinks
 		}
 	}
+	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
+		if valAlternateLinksCap != nil {
+			var valueForAlternateLinks []ResourceUri
+			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
+			if err != nil {
+				return err
+			}
+			this.AlternateLinks = valueForAlternateLinks
+		}
+	}
 	
-	if valIndex, ok := objMap["Index"]; ok {
+	if valIndex, ok := objMap["index"]; ok {
 		if valIndex != nil {
 			var valueForIndex int32
 			err = json.Unmarshal(*valIndex, &valueForIndex)
@@ -176,8 +196,18 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.Index = valueForIndex
 		}
 	}
+	if valIndexCap, ok := objMap["Index"]; ok {
+		if valIndexCap != nil {
+			var valueForIndex int32
+			err = json.Unmarshal(*valIndexCap, &valueForIndex)
+			if err != nil {
+				return err
+			}
+			this.Index = valueForIndex
+		}
+	}
 	this.Orientation = "Horizontal"
-	if valOrientation, ok := objMap["Orientation"]; ok {
+	if valOrientation, ok := objMap["orientation"]; ok {
 		if valOrientation != nil {
 			var valueForOrientation string
 			err = json.Unmarshal(*valOrientation, &valueForOrientation)
@@ -187,8 +217,18 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.Orientation = valueForOrientation
 		}
 	}
+	if valOrientationCap, ok := objMap["Orientation"]; ok {
+		if valOrientationCap != nil {
+			var valueForOrientation string
+			err = json.Unmarshal(*valOrientationCap, &valueForOrientation)
+			if err != nil {
+				return err
+			}
+			this.Orientation = valueForOrientation
+		}
+	}
 	this.Size = "Full"
-	if valSize, ok := objMap["Size"]; ok {
+	if valSize, ok := objMap["size"]; ok {
 		if valSize != nil {
 			var valueForSize string
 			err = json.Unmarshal(*valSize, &valueForSize)
@@ -198,8 +238,18 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.Size = valueForSize
 		}
 	}
+	if valSizeCap, ok := objMap["Size"]; ok {
+		if valSizeCap != nil {
+			var valueForSize string
+			err = json.Unmarshal(*valSizeCap, &valueForSize)
+			if err != nil {
+				return err
+			}
+			this.Size = valueForSize
+		}
+	}
 	this.Type_ = "Title"
-	if valType, ok := objMap["Type"]; ok {
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -209,11 +259,31 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
 	
-	if valShape, ok := objMap["Shape"]; ok {
+	if valShape, ok := objMap["shape"]; ok {
 		if valShape != nil {
 			var valueForShape ResourceUriElement
 			err = json.Unmarshal(*valShape, &valueForShape)
+			if err != nil {
+				return err
+			}
+			this.Shape = valueForShape
+		}
+	}
+	if valShapeCap, ok := objMap["Shape"]; ok {
+		if valShapeCap != nil {
+			var valueForShape ResourceUriElement
+			err = json.Unmarshal(*valShapeCap, &valueForShape)
 			if err != nil {
 				return err
 			}

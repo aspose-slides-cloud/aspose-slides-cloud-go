@@ -74,7 +74,7 @@ func (this *DiscUsage) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valUsedSize, ok := objMap["UsedSize"]; ok {
+	if valUsedSize, ok := objMap["usedSize"]; ok {
 		if valUsedSize != nil {
 			var valueForUsedSize int64
 			err = json.Unmarshal(*valUsedSize, &valueForUsedSize)
@@ -84,11 +84,31 @@ func (this *DiscUsage) UnmarshalJSON(b []byte) error {
 			this.UsedSize = valueForUsedSize
 		}
 	}
+	if valUsedSizeCap, ok := objMap["UsedSize"]; ok {
+		if valUsedSizeCap != nil {
+			var valueForUsedSize int64
+			err = json.Unmarshal(*valUsedSizeCap, &valueForUsedSize)
+			if err != nil {
+				return err
+			}
+			this.UsedSize = valueForUsedSize
+		}
+	}
 	
-	if valTotalSize, ok := objMap["TotalSize"]; ok {
+	if valTotalSize, ok := objMap["totalSize"]; ok {
 		if valTotalSize != nil {
 			var valueForTotalSize int64
 			err = json.Unmarshal(*valTotalSize, &valueForTotalSize)
+			if err != nil {
+				return err
+			}
+			this.TotalSize = valueForTotalSize
+		}
+	}
+	if valTotalSizeCap, ok := objMap["TotalSize"]; ok {
+		if valTotalSizeCap != nil {
+			var valueForTotalSize int64
+			err = json.Unmarshal(*valTotalSizeCap, &valueForTotalSize)
 			if err != nil {
 				return err
 			}

@@ -88,7 +88,7 @@ func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valPath, ok := objMap["Path"]; ok {
+	if valPath, ok := objMap["path"]; ok {
 		if valPath != nil {
 			var valueForPath string
 			err = json.Unmarshal(*valPath, &valueForPath)
@@ -98,8 +98,18 @@ func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
 			this.Path = valueForPath
 		}
 	}
+	if valPathCap, ok := objMap["Path"]; ok {
+		if valPathCap != nil {
+			var valueForPath string
+			err = json.Unmarshal(*valPathCap, &valueForPath)
+			if err != nil {
+				return err
+			}
+			this.Path = valueForPath
+		}
+	}
 	
-	if valPassword, ok := objMap["Password"]; ok {
+	if valPassword, ok := objMap["password"]; ok {
 		if valPassword != nil {
 			var valueForPassword string
 			err = json.Unmarshal(*valPassword, &valueForPassword)
@@ -109,11 +119,31 @@ func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
 			this.Password = valueForPassword
 		}
 	}
+	if valPasswordCap, ok := objMap["Password"]; ok {
+		if valPasswordCap != nil {
+			var valueForPassword string
+			err = json.Unmarshal(*valPasswordCap, &valueForPassword)
+			if err != nil {
+				return err
+			}
+			this.Password = valueForPassword
+		}
+	}
 	
-	if valSlides, ok := objMap["Slides"]; ok {
+	if valSlides, ok := objMap["slides"]; ok {
 		if valSlides != nil {
 			var valueForSlides []int32
 			err = json.Unmarshal(*valSlides, &valueForSlides)
+			if err != nil {
+				return err
+			}
+			this.Slides = valueForSlides
+		}
+	}
+	if valSlidesCap, ok := objMap["Slides"]; ok {
+		if valSlidesCap != nil {
+			var valueForSlides []int32
+			err = json.Unmarshal(*valSlidesCap, &valueForSlides)
 			if err != nil {
 				return err
 			}

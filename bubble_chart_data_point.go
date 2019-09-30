@@ -88,7 +88,7 @@ func (this *BubbleChartDataPoint) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valXValue, ok := objMap["XValue"]; ok {
+	if valXValue, ok := objMap["xValue"]; ok {
 		if valXValue != nil {
 			var valueForXValue float64
 			err = json.Unmarshal(*valXValue, &valueForXValue)
@@ -98,8 +98,18 @@ func (this *BubbleChartDataPoint) UnmarshalJSON(b []byte) error {
 			this.XValue = valueForXValue
 		}
 	}
+	if valXValueCap, ok := objMap["XValue"]; ok {
+		if valXValueCap != nil {
+			var valueForXValue float64
+			err = json.Unmarshal(*valXValueCap, &valueForXValue)
+			if err != nil {
+				return err
+			}
+			this.XValue = valueForXValue
+		}
+	}
 	
-	if valYValue, ok := objMap["YValue"]; ok {
+	if valYValue, ok := objMap["yValue"]; ok {
 		if valYValue != nil {
 			var valueForYValue float64
 			err = json.Unmarshal(*valYValue, &valueForYValue)
@@ -109,11 +119,31 @@ func (this *BubbleChartDataPoint) UnmarshalJSON(b []byte) error {
 			this.YValue = valueForYValue
 		}
 	}
+	if valYValueCap, ok := objMap["YValue"]; ok {
+		if valYValueCap != nil {
+			var valueForYValue float64
+			err = json.Unmarshal(*valYValueCap, &valueForYValue)
+			if err != nil {
+				return err
+			}
+			this.YValue = valueForYValue
+		}
+	}
 	
-	if valBubbleSize, ok := objMap["BubbleSize"]; ok {
+	if valBubbleSize, ok := objMap["bubbleSize"]; ok {
 		if valBubbleSize != nil {
 			var valueForBubbleSize float64
 			err = json.Unmarshal(*valBubbleSize, &valueForBubbleSize)
+			if err != nil {
+				return err
+			}
+			this.BubbleSize = valueForBubbleSize
+		}
+	}
+	if valBubbleSizeCap, ok := objMap["BubbleSize"]; ok {
+		if valBubbleSizeCap != nil {
+			var valueForBubbleSize float64
+			err = json.Unmarshal(*valBubbleSizeCap, &valueForBubbleSize)
 			if err != nil {
 				return err
 			}

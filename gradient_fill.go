@@ -143,8 +143,8 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "NoFill"
-	if valType, ok := objMap["Type"]; ok {
+	this.Type_ = "TYPE__GRADIENT"
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -154,8 +154,18 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
 	this.Direction = "FromCorner1"
-	if valDirection, ok := objMap["Direction"]; ok {
+	if valDirection, ok := objMap["direction"]; ok {
 		if valDirection != nil {
 			var valueForDirection string
 			err = json.Unmarshal(*valDirection, &valueForDirection)
@@ -165,8 +175,18 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.Direction = valueForDirection
 		}
 	}
+	if valDirectionCap, ok := objMap["Direction"]; ok {
+		if valDirectionCap != nil {
+			var valueForDirection string
+			err = json.Unmarshal(*valDirectionCap, &valueForDirection)
+			if err != nil {
+				return err
+			}
+			this.Direction = valueForDirection
+		}
+	}
 	this.Shape = "Linear"
-	if valShape, ok := objMap["Shape"]; ok {
+	if valShape, ok := objMap["shape"]; ok {
 		if valShape != nil {
 			var valueForShape string
 			err = json.Unmarshal(*valShape, &valueForShape)
@@ -176,8 +196,18 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.Shape = valueForShape
 		}
 	}
+	if valShapeCap, ok := objMap["Shape"]; ok {
+		if valShapeCap != nil {
+			var valueForShape string
+			err = json.Unmarshal(*valShapeCap, &valueForShape)
+			if err != nil {
+				return err
+			}
+			this.Shape = valueForShape
+		}
+	}
 	
-	if valStops, ok := objMap["Stops"]; ok {
+	if valStops, ok := objMap["stops"]; ok {
 		if valStops != nil {
 			var valueForStops []GradientFillStop
 			err = json.Unmarshal(*valStops, &valueForStops)
@@ -187,8 +217,18 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.Stops = valueForStops
 		}
 	}
+	if valStopsCap, ok := objMap["Stops"]; ok {
+		if valStopsCap != nil {
+			var valueForStops []GradientFillStop
+			err = json.Unmarshal(*valStopsCap, &valueForStops)
+			if err != nil {
+				return err
+			}
+			this.Stops = valueForStops
+		}
+	}
 	
-	if valLinearAngle, ok := objMap["LinearAngle"]; ok {
+	if valLinearAngle, ok := objMap["linearAngle"]; ok {
 		if valLinearAngle != nil {
 			var valueForLinearAngle float64
 			err = json.Unmarshal(*valLinearAngle, &valueForLinearAngle)
@@ -198,8 +238,18 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.LinearAngle = valueForLinearAngle
 		}
 	}
+	if valLinearAngleCap, ok := objMap["LinearAngle"]; ok {
+		if valLinearAngleCap != nil {
+			var valueForLinearAngle float64
+			err = json.Unmarshal(*valLinearAngleCap, &valueForLinearAngle)
+			if err != nil {
+				return err
+			}
+			this.LinearAngle = valueForLinearAngle
+		}
+	}
 	
-	if valIsScaled, ok := objMap["IsScaled"]; ok {
+	if valIsScaled, ok := objMap["isScaled"]; ok {
 		if valIsScaled != nil {
 			var valueForIsScaled bool
 			err = json.Unmarshal(*valIsScaled, &valueForIsScaled)
@@ -209,11 +259,31 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			this.IsScaled = valueForIsScaled
 		}
 	}
+	if valIsScaledCap, ok := objMap["IsScaled"]; ok {
+		if valIsScaledCap != nil {
+			var valueForIsScaled bool
+			err = json.Unmarshal(*valIsScaledCap, &valueForIsScaled)
+			if err != nil {
+				return err
+			}
+			this.IsScaled = valueForIsScaled
+		}
+	}
 	this.TileFlip = "NoFlip"
-	if valTileFlip, ok := objMap["TileFlip"]; ok {
+	if valTileFlip, ok := objMap["tileFlip"]; ok {
 		if valTileFlip != nil {
 			var valueForTileFlip string
 			err = json.Unmarshal(*valTileFlip, &valueForTileFlip)
+			if err != nil {
+				return err
+			}
+			this.TileFlip = valueForTileFlip
+		}
+	}
+	if valTileFlipCap, ok := objMap["TileFlip"]; ok {
+		if valTileFlipCap != nil {
+			var valueForTileFlip string
+			err = json.Unmarshal(*valTileFlipCap, &valueForTileFlip)
 			if err != nil {
 				return err
 			}

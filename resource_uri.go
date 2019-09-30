@@ -102,7 +102,7 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valHref, ok := objMap["Href"]; ok {
+	if valHref, ok := objMap["href"]; ok {
 		if valHref != nil {
 			var valueForHref string
 			err = json.Unmarshal(*valHref, &valueForHref)
@@ -112,8 +112,18 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 			this.Href = valueForHref
 		}
 	}
+	if valHrefCap, ok := objMap["Href"]; ok {
+		if valHrefCap != nil {
+			var valueForHref string
+			err = json.Unmarshal(*valHrefCap, &valueForHref)
+			if err != nil {
+				return err
+			}
+			this.Href = valueForHref
+		}
+	}
 	
-	if valRelation, ok := objMap["Relation"]; ok {
+	if valRelation, ok := objMap["relation"]; ok {
 		if valRelation != nil {
 			var valueForRelation string
 			err = json.Unmarshal(*valRelation, &valueForRelation)
@@ -123,8 +133,18 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 			this.Relation = valueForRelation
 		}
 	}
+	if valRelationCap, ok := objMap["Relation"]; ok {
+		if valRelationCap != nil {
+			var valueForRelation string
+			err = json.Unmarshal(*valRelationCap, &valueForRelation)
+			if err != nil {
+				return err
+			}
+			this.Relation = valueForRelation
+		}
+	}
 	
-	if valLinkType, ok := objMap["LinkType"]; ok {
+	if valLinkType, ok := objMap["linkType"]; ok {
 		if valLinkType != nil {
 			var valueForLinkType string
 			err = json.Unmarshal(*valLinkType, &valueForLinkType)
@@ -134,11 +154,31 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 			this.LinkType = valueForLinkType
 		}
 	}
+	if valLinkTypeCap, ok := objMap["LinkType"]; ok {
+		if valLinkTypeCap != nil {
+			var valueForLinkType string
+			err = json.Unmarshal(*valLinkTypeCap, &valueForLinkType)
+			if err != nil {
+				return err
+			}
+			this.LinkType = valueForLinkType
+		}
+	}
 	
-	if valTitle, ok := objMap["Title"]; ok {
+	if valTitle, ok := objMap["title"]; ok {
 		if valTitle != nil {
 			var valueForTitle string
 			err = json.Unmarshal(*valTitle, &valueForTitle)
+			if err != nil {
+				return err
+			}
+			this.Title = valueForTitle
+		}
+	}
+	if valTitleCap, ok := objMap["Title"]; ok {
+		if valTitleCap != nil {
+			var valueForTitle string
+			err = json.Unmarshal(*valTitleCap, &valueForTitle)
 			if err != nil {
 				return err
 			}

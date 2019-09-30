@@ -228,7 +228,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFormat, ok := objMap["Format"]; ok {
+	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -238,8 +238,18 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
+	if valFormatCap, ok := objMap["Format"]; ok {
+		if valFormatCap != nil {
+			var valueForFormat string
+			err = json.Unmarshal(*valFormatCap, &valueForFormat)
+			if err != nil {
+				return err
+			}
+			this.Format = valueForFormat
+		}
+	}
 	this.Compression = "Default"
-	if valCompression, ok := objMap["Compression"]; ok {
+	if valCompression, ok := objMap["compression"]; ok {
 		if valCompression != nil {
 			var valueForCompression string
 			err = json.Unmarshal(*valCompression, &valueForCompression)
@@ -249,8 +259,18 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.Compression = valueForCompression
 		}
 	}
+	if valCompressionCap, ok := objMap["Compression"]; ok {
+		if valCompressionCap != nil {
+			var valueForCompression string
+			err = json.Unmarshal(*valCompressionCap, &valueForCompression)
+			if err != nil {
+				return err
+			}
+			this.Compression = valueForCompression
+		}
+	}
 	
-	if valWidth, ok := objMap["Width"]; ok {
+	if valWidth, ok := objMap["width"]; ok {
 		if valWidth != nil {
 			var valueForWidth int32
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -260,8 +280,18 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
 	
-	if valHeight, ok := objMap["Height"]; ok {
+	if valHeight, ok := objMap["height"]; ok {
 		if valHeight != nil {
 			var valueForHeight int32
 			err = json.Unmarshal(*valHeight, &valueForHeight)
@@ -271,8 +301,18 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
 	
-	if valDpiX, ok := objMap["DpiX"]; ok {
+	if valDpiX, ok := objMap["dpiX"]; ok {
 		if valDpiX != nil {
 			var valueForDpiX int32
 			err = json.Unmarshal(*valDpiX, &valueForDpiX)
@@ -282,8 +322,18 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.DpiX = valueForDpiX
 		}
 	}
+	if valDpiXCap, ok := objMap["DpiX"]; ok {
+		if valDpiXCap != nil {
+			var valueForDpiX int32
+			err = json.Unmarshal(*valDpiXCap, &valueForDpiX)
+			if err != nil {
+				return err
+			}
+			this.DpiX = valueForDpiX
+		}
+	}
 	
-	if valDpiY, ok := objMap["DpiY"]; ok {
+	if valDpiY, ok := objMap["dpiY"]; ok {
 		if valDpiY != nil {
 			var valueForDpiY int32
 			err = json.Unmarshal(*valDpiY, &valueForDpiY)
@@ -293,8 +343,18 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.DpiY = valueForDpiY
 		}
 	}
+	if valDpiYCap, ok := objMap["DpiY"]; ok {
+		if valDpiYCap != nil {
+			var valueForDpiY int32
+			err = json.Unmarshal(*valDpiYCap, &valueForDpiY)
+			if err != nil {
+				return err
+			}
+			this.DpiY = valueForDpiY
+		}
+	}
 	
-	if valShowHiddenSlides, ok := objMap["ShowHiddenSlides"]; ok {
+	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
 			var valueForShowHiddenSlides bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
@@ -304,8 +364,18 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.ShowHiddenSlides = valueForShowHiddenSlides
 		}
 	}
+	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
+		if valShowHiddenSlidesCap != nil {
+			var valueForShowHiddenSlides bool
+			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
+			if err != nil {
+				return err
+			}
+			this.ShowHiddenSlides = valueForShowHiddenSlides
+		}
+	}
 	this.PixelFormat = "Format1bppIndexed"
-	if valPixelFormat, ok := objMap["PixelFormat"]; ok {
+	if valPixelFormat, ok := objMap["pixelFormat"]; ok {
 		if valPixelFormat != nil {
 			var valueForPixelFormat string
 			err = json.Unmarshal(*valPixelFormat, &valueForPixelFormat)
@@ -315,8 +385,18 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.PixelFormat = valueForPixelFormat
 		}
 	}
+	if valPixelFormatCap, ok := objMap["PixelFormat"]; ok {
+		if valPixelFormatCap != nil {
+			var valueForPixelFormat string
+			err = json.Unmarshal(*valPixelFormatCap, &valueForPixelFormat)
+			if err != nil {
+				return err
+			}
+			this.PixelFormat = valueForPixelFormat
+		}
+	}
 	this.NotesPosition = "None"
-	if valNotesPosition, ok := objMap["NotesPosition"]; ok {
+	if valNotesPosition, ok := objMap["notesPosition"]; ok {
 		if valNotesPosition != nil {
 			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
@@ -326,8 +406,18 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.NotesPosition = valueForNotesPosition
 		}
 	}
+	if valNotesPositionCap, ok := objMap["NotesPosition"]; ok {
+		if valNotesPositionCap != nil {
+			var valueForNotesPosition string
+			err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPosition)
+			if err != nil {
+				return err
+			}
+			this.NotesPosition = valueForNotesPosition
+		}
+	}
 	this.CommentsPosition = "None"
-	if valCommentsPosition, ok := objMap["CommentsPosition"]; ok {
+	if valCommentsPosition, ok := objMap["commentsPosition"]; ok {
 		if valCommentsPosition != nil {
 			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
@@ -337,8 +427,18 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.CommentsPosition = valueForCommentsPosition
 		}
 	}
+	if valCommentsPositionCap, ok := objMap["CommentsPosition"]; ok {
+		if valCommentsPositionCap != nil {
+			var valueForCommentsPosition string
+			err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPosition)
+			if err != nil {
+				return err
+			}
+			this.CommentsPosition = valueForCommentsPosition
+		}
+	}
 	
-	if valCommentsAreaWidth, ok := objMap["CommentsAreaWidth"]; ok {
+	if valCommentsAreaWidth, ok := objMap["commentsAreaWidth"]; ok {
 		if valCommentsAreaWidth != nil {
 			var valueForCommentsAreaWidth int32
 			err = json.Unmarshal(*valCommentsAreaWidth, &valueForCommentsAreaWidth)
@@ -348,8 +448,18 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.CommentsAreaWidth = valueForCommentsAreaWidth
 		}
 	}
+	if valCommentsAreaWidthCap, ok := objMap["CommentsAreaWidth"]; ok {
+		if valCommentsAreaWidthCap != nil {
+			var valueForCommentsAreaWidth int32
+			err = json.Unmarshal(*valCommentsAreaWidthCap, &valueForCommentsAreaWidth)
+			if err != nil {
+				return err
+			}
+			this.CommentsAreaWidth = valueForCommentsAreaWidth
+		}
+	}
 	
-	if valCommentsAreaColor, ok := objMap["CommentsAreaColor"]; ok {
+	if valCommentsAreaColor, ok := objMap["commentsAreaColor"]; ok {
 		if valCommentsAreaColor != nil {
 			var valueForCommentsAreaColor string
 			err = json.Unmarshal(*valCommentsAreaColor, &valueForCommentsAreaColor)
@@ -359,11 +469,31 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.CommentsAreaColor = valueForCommentsAreaColor
 		}
 	}
+	if valCommentsAreaColorCap, ok := objMap["CommentsAreaColor"]; ok {
+		if valCommentsAreaColorCap != nil {
+			var valueForCommentsAreaColor string
+			err = json.Unmarshal(*valCommentsAreaColorCap, &valueForCommentsAreaColor)
+			if err != nil {
+				return err
+			}
+			this.CommentsAreaColor = valueForCommentsAreaColor
+		}
+	}
 	
-	if valShowCommentsByNoAuthor, ok := objMap["ShowCommentsByNoAuthor"]; ok {
+	if valShowCommentsByNoAuthor, ok := objMap["showCommentsByNoAuthor"]; ok {
 		if valShowCommentsByNoAuthor != nil {
 			var valueForShowCommentsByNoAuthor bool
 			err = json.Unmarshal(*valShowCommentsByNoAuthor, &valueForShowCommentsByNoAuthor)
+			if err != nil {
+				return err
+			}
+			this.ShowCommentsByNoAuthor = valueForShowCommentsByNoAuthor
+		}
+	}
+	if valShowCommentsByNoAuthorCap, ok := objMap["ShowCommentsByNoAuthor"]; ok {
+		if valShowCommentsByNoAuthorCap != nil {
+			var valueForShowCommentsByNoAuthor bool
+			err = json.Unmarshal(*valShowCommentsByNoAuthorCap, &valueForShowCommentsByNoAuthor)
 			if err != nil {
 				return err
 			}

@@ -200,7 +200,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Alignment = "Center"
-	if valAlignment, ok := objMap["Alignment"]; ok {
+	if valAlignment, ok := objMap["alignment"]; ok {
 		if valAlignment != nil {
 			var valueForAlignment string
 			err = json.Unmarshal(*valAlignment, &valueForAlignment)
@@ -210,8 +210,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			this.Alignment = valueForAlignment
 		}
 	}
+	if valAlignmentCap, ok := objMap["Alignment"]; ok {
+		if valAlignmentCap != nil {
+			var valueForAlignment string
+			err = json.Unmarshal(*valAlignmentCap, &valueForAlignment)
+			if err != nil {
+				return err
+			}
+			this.Alignment = valueForAlignment
+		}
+	}
 	this.CapStyle = "Round"
-	if valCapStyle, ok := objMap["CapStyle"]; ok {
+	if valCapStyle, ok := objMap["capStyle"]; ok {
 		if valCapStyle != nil {
 			var valueForCapStyle string
 			err = json.Unmarshal(*valCapStyle, &valueForCapStyle)
@@ -221,8 +231,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			this.CapStyle = valueForCapStyle
 		}
 	}
+	if valCapStyleCap, ok := objMap["CapStyle"]; ok {
+		if valCapStyleCap != nil {
+			var valueForCapStyle string
+			err = json.Unmarshal(*valCapStyleCap, &valueForCapStyle)
+			if err != nil {
+				return err
+			}
+			this.CapStyle = valueForCapStyle
+		}
+	}
 	this.DashStyle = "Solid"
-	if valDashStyle, ok := objMap["DashStyle"]; ok {
+	if valDashStyle, ok := objMap["dashStyle"]; ok {
 		if valDashStyle != nil {
 			var valueForDashStyle string
 			err = json.Unmarshal(*valDashStyle, &valueForDashStyle)
@@ -232,8 +252,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			this.DashStyle = valueForDashStyle
 		}
 	}
+	if valDashStyleCap, ok := objMap["DashStyle"]; ok {
+		if valDashStyleCap != nil {
+			var valueForDashStyle string
+			err = json.Unmarshal(*valDashStyleCap, &valueForDashStyle)
+			if err != nil {
+				return err
+			}
+			this.DashStyle = valueForDashStyle
+		}
+	}
 	this.JoinStyle = "Round"
-	if valJoinStyle, ok := objMap["JoinStyle"]; ok {
+	if valJoinStyle, ok := objMap["joinStyle"]; ok {
 		if valJoinStyle != nil {
 			var valueForJoinStyle string
 			err = json.Unmarshal(*valJoinStyle, &valueForJoinStyle)
@@ -243,8 +273,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			this.JoinStyle = valueForJoinStyle
 		}
 	}
+	if valJoinStyleCap, ok := objMap["JoinStyle"]; ok {
+		if valJoinStyleCap != nil {
+			var valueForJoinStyle string
+			err = json.Unmarshal(*valJoinStyleCap, &valueForJoinStyle)
+			if err != nil {
+				return err
+			}
+			this.JoinStyle = valueForJoinStyle
+		}
+	}
 	this.Style = "Single"
-	if valStyle, ok := objMap["Style"]; ok {
+	if valStyle, ok := objMap["style"]; ok {
 		if valStyle != nil {
 			var valueForStyle string
 			err = json.Unmarshal(*valStyle, &valueForStyle)
@@ -254,8 +294,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			this.Style = valueForStyle
 		}
 	}
+	if valStyleCap, ok := objMap["Style"]; ok {
+		if valStyleCap != nil {
+			var valueForStyle string
+			err = json.Unmarshal(*valStyleCap, &valueForStyle)
+			if err != nil {
+				return err
+			}
+			this.Style = valueForStyle
+		}
+	}
 	
-	if valBeginArrowHead, ok := objMap["BeginArrowHead"]; ok {
+	if valBeginArrowHead, ok := objMap["beginArrowHead"]; ok {
 		if valBeginArrowHead != nil {
 			var valueForBeginArrowHead ArrowHeadProperties
 			err = json.Unmarshal(*valBeginArrowHead, &valueForBeginArrowHead)
@@ -265,8 +315,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			this.BeginArrowHead = valueForBeginArrowHead
 		}
 	}
+	if valBeginArrowHeadCap, ok := objMap["BeginArrowHead"]; ok {
+		if valBeginArrowHeadCap != nil {
+			var valueForBeginArrowHead ArrowHeadProperties
+			err = json.Unmarshal(*valBeginArrowHeadCap, &valueForBeginArrowHead)
+			if err != nil {
+				return err
+			}
+			this.BeginArrowHead = valueForBeginArrowHead
+		}
+	}
 	
-	if valEndArrowHead, ok := objMap["EndArrowHead"]; ok {
+	if valEndArrowHead, ok := objMap["endArrowHead"]; ok {
 		if valEndArrowHead != nil {
 			var valueForEndArrowHead ArrowHeadProperties
 			err = json.Unmarshal(*valEndArrowHead, &valueForEndArrowHead)
@@ -276,8 +336,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			this.EndArrowHead = valueForEndArrowHead
 		}
 	}
+	if valEndArrowHeadCap, ok := objMap["EndArrowHead"]; ok {
+		if valEndArrowHeadCap != nil {
+			var valueForEndArrowHead ArrowHeadProperties
+			err = json.Unmarshal(*valEndArrowHeadCap, &valueForEndArrowHead)
+			if err != nil {
+				return err
+			}
+			this.EndArrowHead = valueForEndArrowHead
+		}
+	}
 	
-	if valCustomDashPattern, ok := objMap["CustomDashPattern"]; ok {
+	if valCustomDashPattern, ok := objMap["customDashPattern"]; ok {
 		if valCustomDashPattern != nil {
 			var valueForCustomDashPattern CustomDashPattern
 			err = json.Unmarshal(*valCustomDashPattern, &valueForCustomDashPattern)
@@ -287,8 +357,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			this.CustomDashPattern = valueForCustomDashPattern
 		}
 	}
+	if valCustomDashPatternCap, ok := objMap["CustomDashPattern"]; ok {
+		if valCustomDashPatternCap != nil {
+			var valueForCustomDashPattern CustomDashPattern
+			err = json.Unmarshal(*valCustomDashPatternCap, &valueForCustomDashPattern)
+			if err != nil {
+				return err
+			}
+			this.CustomDashPattern = valueForCustomDashPattern
+		}
+	}
 	
-	if valFillFormat, ok := objMap["FillFormat"]; ok {
+	if valFillFormat, ok := objMap["fillFormat"]; ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -298,8 +378,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			this.FillFormat = valueForFillFormat
 		}
 	}
+	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
+		if valFillFormatCap != nil {
+			var valueForFillFormat FillFormat
+			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
+			if err != nil {
+				return err
+			}
+			this.FillFormat = valueForFillFormat
+		}
+	}
 	
-	if valMiterLimit, ok := objMap["MiterLimit"]; ok {
+	if valMiterLimit, ok := objMap["miterLimit"]; ok {
 		if valMiterLimit != nil {
 			var valueForMiterLimit float64
 			err = json.Unmarshal(*valMiterLimit, &valueForMiterLimit)
@@ -309,11 +399,31 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			this.MiterLimit = valueForMiterLimit
 		}
 	}
+	if valMiterLimitCap, ok := objMap["MiterLimit"]; ok {
+		if valMiterLimitCap != nil {
+			var valueForMiterLimit float64
+			err = json.Unmarshal(*valMiterLimitCap, &valueForMiterLimit)
+			if err != nil {
+				return err
+			}
+			this.MiterLimit = valueForMiterLimit
+		}
+	}
 	
-	if valWidth, ok := objMap["Width"]; ok {
+	if valWidth, ok := objMap["width"]; ok {
 		if valWidth != nil {
 			var valueForWidth float64
 			err = json.Unmarshal(*valWidth, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth float64
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
 			if err != nil {
 				return err
 			}

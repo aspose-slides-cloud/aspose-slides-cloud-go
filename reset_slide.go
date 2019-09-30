@@ -73,8 +73,8 @@ func (this *ResetSlide) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "Save"
-	if valType, ok := objMap["Type"]; ok {
+	this.Type_ = "TYPE__RESET_SLIDE"
+	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -84,11 +84,31 @@ func (this *ResetSlide) UnmarshalJSON(b []byte) error {
 			this.Type_ = valueForType
 		}
 	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				return err
+			}
+			this.Type_ = valueForType
+		}
+	}
 	
-	if valPosition, ok := objMap["Position"]; ok {
+	if valPosition, ok := objMap["position"]; ok {
 		if valPosition != nil {
 			var valueForPosition int32
 			err = json.Unmarshal(*valPosition, &valueForPosition)
+			if err != nil {
+				return err
+			}
+			this.Position = valueForPosition
+		}
+	}
+	if valPositionCap, ok := objMap["Position"]; ok {
+		if valPositionCap != nil {
+			var valueForPosition int32
+			err = json.Unmarshal(*valPositionCap, &valueForPosition)
 			if err != nil {
 				return err
 			}

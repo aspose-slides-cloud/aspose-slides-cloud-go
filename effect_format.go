@@ -158,7 +158,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valBlur, ok := objMap["Blur"]; ok {
+	if valBlur, ok := objMap["blur"]; ok {
 		if valBlur != nil {
 			var valueForBlur BlurEffect
 			err = json.Unmarshal(*valBlur, &valueForBlur)
@@ -168,8 +168,18 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.Blur = valueForBlur
 		}
 	}
+	if valBlurCap, ok := objMap["Blur"]; ok {
+		if valBlurCap != nil {
+			var valueForBlur BlurEffect
+			err = json.Unmarshal(*valBlurCap, &valueForBlur)
+			if err != nil {
+				return err
+			}
+			this.Blur = valueForBlur
+		}
+	}
 	
-	if valGlow, ok := objMap["Glow"]; ok {
+	if valGlow, ok := objMap["glow"]; ok {
 		if valGlow != nil {
 			var valueForGlow GlowEffect
 			err = json.Unmarshal(*valGlow, &valueForGlow)
@@ -179,8 +189,18 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.Glow = valueForGlow
 		}
 	}
+	if valGlowCap, ok := objMap["Glow"]; ok {
+		if valGlowCap != nil {
+			var valueForGlow GlowEffect
+			err = json.Unmarshal(*valGlowCap, &valueForGlow)
+			if err != nil {
+				return err
+			}
+			this.Glow = valueForGlow
+		}
+	}
 	
-	if valInnerShadow, ok := objMap["InnerShadow"]; ok {
+	if valInnerShadow, ok := objMap["innerShadow"]; ok {
 		if valInnerShadow != nil {
 			var valueForInnerShadow InnerShadowEffect
 			err = json.Unmarshal(*valInnerShadow, &valueForInnerShadow)
@@ -190,8 +210,18 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.InnerShadow = valueForInnerShadow
 		}
 	}
+	if valInnerShadowCap, ok := objMap["InnerShadow"]; ok {
+		if valInnerShadowCap != nil {
+			var valueForInnerShadow InnerShadowEffect
+			err = json.Unmarshal(*valInnerShadowCap, &valueForInnerShadow)
+			if err != nil {
+				return err
+			}
+			this.InnerShadow = valueForInnerShadow
+		}
+	}
 	
-	if valOuterShadow, ok := objMap["OuterShadow"]; ok {
+	if valOuterShadow, ok := objMap["outerShadow"]; ok {
 		if valOuterShadow != nil {
 			var valueForOuterShadow OuterShadowEffect
 			err = json.Unmarshal(*valOuterShadow, &valueForOuterShadow)
@@ -201,8 +231,18 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.OuterShadow = valueForOuterShadow
 		}
 	}
+	if valOuterShadowCap, ok := objMap["OuterShadow"]; ok {
+		if valOuterShadowCap != nil {
+			var valueForOuterShadow OuterShadowEffect
+			err = json.Unmarshal(*valOuterShadowCap, &valueForOuterShadow)
+			if err != nil {
+				return err
+			}
+			this.OuterShadow = valueForOuterShadow
+		}
+	}
 	
-	if valPresetShadow, ok := objMap["PresetShadow"]; ok {
+	if valPresetShadow, ok := objMap["presetShadow"]; ok {
 		if valPresetShadow != nil {
 			var valueForPresetShadow PresetShadowEffect
 			err = json.Unmarshal(*valPresetShadow, &valueForPresetShadow)
@@ -212,8 +252,18 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.PresetShadow = valueForPresetShadow
 		}
 	}
+	if valPresetShadowCap, ok := objMap["PresetShadow"]; ok {
+		if valPresetShadowCap != nil {
+			var valueForPresetShadow PresetShadowEffect
+			err = json.Unmarshal(*valPresetShadowCap, &valueForPresetShadow)
+			if err != nil {
+				return err
+			}
+			this.PresetShadow = valueForPresetShadow
+		}
+	}
 	
-	if valSoftEdge, ok := objMap["SoftEdge"]; ok {
+	if valSoftEdge, ok := objMap["softEdge"]; ok {
 		if valSoftEdge != nil {
 			var valueForSoftEdge SoftEdgeEffect
 			err = json.Unmarshal(*valSoftEdge, &valueForSoftEdge)
@@ -223,8 +273,18 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.SoftEdge = valueForSoftEdge
 		}
 	}
+	if valSoftEdgeCap, ok := objMap["SoftEdge"]; ok {
+		if valSoftEdgeCap != nil {
+			var valueForSoftEdge SoftEdgeEffect
+			err = json.Unmarshal(*valSoftEdgeCap, &valueForSoftEdge)
+			if err != nil {
+				return err
+			}
+			this.SoftEdge = valueForSoftEdge
+		}
+	}
 	
-	if valReflection, ok := objMap["Reflection"]; ok {
+	if valReflection, ok := objMap["reflection"]; ok {
 		if valReflection != nil {
 			var valueForReflection ReflectionEffect
 			err = json.Unmarshal(*valReflection, &valueForReflection)
@@ -234,11 +294,31 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			this.Reflection = valueForReflection
 		}
 	}
+	if valReflectionCap, ok := objMap["Reflection"]; ok {
+		if valReflectionCap != nil {
+			var valueForReflection ReflectionEffect
+			err = json.Unmarshal(*valReflectionCap, &valueForReflection)
+			if err != nil {
+				return err
+			}
+			this.Reflection = valueForReflection
+		}
+	}
 	
-	if valFillOverlay, ok := objMap["FillOverlay"]; ok {
+	if valFillOverlay, ok := objMap["fillOverlay"]; ok {
 		if valFillOverlay != nil {
 			var valueForFillOverlay FillOverlayEffect
 			err = json.Unmarshal(*valFillOverlay, &valueForFillOverlay)
+			if err != nil {
+				return err
+			}
+			this.FillOverlay = valueForFillOverlay
+		}
+	}
+	if valFillOverlayCap, ok := objMap["FillOverlay"]; ok {
+		if valFillOverlayCap != nil {
+			var valueForFillOverlay FillOverlayEffect
+			err = json.Unmarshal(*valFillOverlayCap, &valueForFillOverlay)
 			if err != nil {
 				return err
 			}

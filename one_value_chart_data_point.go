@@ -60,10 +60,20 @@ func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valValue, ok := objMap["Value"]; ok {
+	if valValue, ok := objMap["value"]; ok {
 		if valValue != nil {
 			var valueForValue float64
 			err = json.Unmarshal(*valValue, &valueForValue)
+			if err != nil {
+				return err
+			}
+			this.Value = valueForValue
+		}
+	}
+	if valValueCap, ok := objMap["Value"]; ok {
+		if valValueCap != nil {
+			var valueForValue float64
+			err = json.Unmarshal(*valValueCap, &valueForValue)
 			if err != nil {
 				return err
 			}

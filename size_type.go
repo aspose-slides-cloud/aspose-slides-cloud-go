@@ -47,4 +47,5 @@ const (
 	SizeType_HAGAKI_CARD SizeType = "HagakiCard"
 	SizeType_ON_SCREEN16X9 SizeType = "OnScreen16x9"
 	SizeType_ON_SCREEN16X10 SizeType = "OnScreen16x10"
+	SizeType_WIDESCREEN SizeType = "Widescreen"
 )
