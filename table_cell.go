@@ -422,9 +422,15 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			var valueForTextAnchorType string
 			err = json.Unmarshal(*valTextAnchorType, &valueForTextAnchorType)
 			if err != nil {
-				return err
+				var valueForTextAnchorTypeInt int32
+				err = json.Unmarshal(*valTextAnchorType, &valueForTextAnchorTypeInt)
+				if err != nil {
+					return err
+				}
+				this.TextAnchorType = string(valueForTextAnchorTypeInt)
+			} else {
+				this.TextAnchorType = valueForTextAnchorType
 			}
-			this.TextAnchorType = valueForTextAnchorType
 		}
 	}
 	if valTextAnchorTypeCap, ok := objMap["TextAnchorType"]; ok {
@@ -432,9 +438,15 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			var valueForTextAnchorType string
 			err = json.Unmarshal(*valTextAnchorTypeCap, &valueForTextAnchorType)
 			if err != nil {
-				return err
+				var valueForTextAnchorTypeInt int32
+				err = json.Unmarshal(*valTextAnchorTypeCap, &valueForTextAnchorTypeInt)
+				if err != nil {
+					return err
+				}
+				this.TextAnchorType = string(valueForTextAnchorTypeInt)
+			} else {
+				this.TextAnchorType = valueForTextAnchorType
 			}
-			this.TextAnchorType = valueForTextAnchorType
 		}
 	}
 	this.TextVerticalType = "Horizontal"
@@ -443,9 +455,15 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			var valueForTextVerticalType string
 			err = json.Unmarshal(*valTextVerticalType, &valueForTextVerticalType)
 			if err != nil {
-				return err
+				var valueForTextVerticalTypeInt int32
+				err = json.Unmarshal(*valTextVerticalType, &valueForTextVerticalTypeInt)
+				if err != nil {
+					return err
+				}
+				this.TextVerticalType = string(valueForTextVerticalTypeInt)
+			} else {
+				this.TextVerticalType = valueForTextVerticalType
 			}
-			this.TextVerticalType = valueForTextVerticalType
 		}
 	}
 	if valTextVerticalTypeCap, ok := objMap["TextVerticalType"]; ok {
@@ -453,9 +471,15 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			var valueForTextVerticalType string
 			err = json.Unmarshal(*valTextVerticalTypeCap, &valueForTextVerticalType)
 			if err != nil {
-				return err
+				var valueForTextVerticalTypeInt int32
+				err = json.Unmarshal(*valTextVerticalTypeCap, &valueForTextVerticalTypeInt)
+				if err != nil {
+					return err
+				}
+				this.TextVerticalType = string(valueForTextVerticalTypeInt)
+			} else {
+				this.TextVerticalType = valueForTextVerticalType
 			}
-			this.TextVerticalType = valueForTextVerticalType
 		}
 	}
 	

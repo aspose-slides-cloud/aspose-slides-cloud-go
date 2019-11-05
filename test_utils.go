@@ -30,6 +30,7 @@ package asposeslidescloud
 import (
 	"encoding/json"
 	"io/ioutil"
+	"fmt"
 	"os"
 	"reflect"
 	"strings"
@@ -44,9 +45,52 @@ var (
 	changedTestFileName     = "changedtest.ppt"
 	testTemplateFileName    = "TemplateCV.pptx"
 	testFilePassword        = "password"
+	isInitialized		= false
+	expectedTestDataVersion	= "1"
 )
 
 func initializeTest(functionName string, invalidParamName string, invalidParamValue interface{}) error {
+	if !isInitialized {
+		c := getTestApiClient()
+		var request DownloadFileRequest
+		request.path = "TempTests/version.txt"
+		f, _, e := c.SlidesApi.DownloadFile(request)
+		if e != nil {
+			return e
+		}
+                data, e := ioutil.ReadFile(f.Name())
+		if e != nil {
+			return e
+		}
+                version := string(data)
+                if version != expectedTestDataVersion {
+			files, e := ioutil.ReadDir("TestData")
+			if e != nil {
+				return e
+			}
+			for _, file := range files {
+				var request UploadFileRequest
+				request.path = "TempTests/" + file.Name()
+				bytes, e := ioutil.ReadFile("TestData/" + file.Name())
+				if e != nil {
+					return e
+				}
+				request.file = bytes
+				_, _, e = c.SlidesApi.UploadFile(request)
+				if e != nil {
+					return e
+				}
+			}
+			var request UploadFileRequest
+			request.path = "TempTests/version.txt"
+			request.file = []byte(expectedTestDataVersion)
+			_, _, e = c.SlidesApi.UploadFile(request)
+			if e != nil {
+				return e
+			}
+		}
+		isInitialized = true
+	}
 	files := make(map[string]FileRule)
 	for _, rule := range getRules(getTestRules().Files, functionName, invalidParamName) {
 		fileRule := rule.(FileRule)
@@ -63,14 +107,10 @@ func initializeTest(functionName string, invalidParamName string, invalidParamVa
 	for path, rule := range files {
 		if rule.Action == "Put" {
 			c := getTestApiClient()
-			var request UploadFileRequest
-			request.path = path
-			bytes, e := ioutil.ReadFile("testData/" + rule.ActualName)
-			if e != nil {
-				return e
-			}
-			request.file = bytes
-			_, _, e = c.SlidesApi.UploadFile(request)
+			var request CopyFileRequest
+			request.srcPath = "TempTests/" + rule.ActualName
+			request.destPath = path
+			_, e := c.SlidesApi.CopyFile(request)
 			if e != nil {
 				return e
 			}
@@ -329,8 +369,13 @@ func assertBinaryResponse(file *os.File, t *testing.T) {
 }
 
 func untemplatize(template interface{}, value interface{}) interface{} {
-	if (template != nil && value != nil && reflect.TypeOf(template).Name() == "string" && reflect.TypeOf(value).Name() == "string") {
-		return strings.Replace(template.(string), "%v", value.(string), -1)
+	if (template != nil && value != nil && reflect.TypeOf(template).Name() == "string") {
+		if (reflect.TypeOf(value).Name() == "string") {
+			return strings.Replace(template.(string), "%v", value.(string), -1)
+		}
+		if (reflect.TypeOf(value).Name() == "int32") {
+			return strings.Replace(template.(string), "%v", fmt.Sprint(value), -1)
+		}
 	}
 	return template
 }

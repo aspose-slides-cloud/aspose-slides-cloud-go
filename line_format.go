@@ -205,9 +205,15 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			var valueForAlignment string
 			err = json.Unmarshal(*valAlignment, &valueForAlignment)
 			if err != nil {
-				return err
+				var valueForAlignmentInt int32
+				err = json.Unmarshal(*valAlignment, &valueForAlignmentInt)
+				if err != nil {
+					return err
+				}
+				this.Alignment = string(valueForAlignmentInt)
+			} else {
+				this.Alignment = valueForAlignment
 			}
-			this.Alignment = valueForAlignment
 		}
 	}
 	if valAlignmentCap, ok := objMap["Alignment"]; ok {
@@ -215,9 +221,15 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			var valueForAlignment string
 			err = json.Unmarshal(*valAlignmentCap, &valueForAlignment)
 			if err != nil {
-				return err
+				var valueForAlignmentInt int32
+				err = json.Unmarshal(*valAlignmentCap, &valueForAlignmentInt)
+				if err != nil {
+					return err
+				}
+				this.Alignment = string(valueForAlignmentInt)
+			} else {
+				this.Alignment = valueForAlignment
 			}
-			this.Alignment = valueForAlignment
 		}
 	}
 	this.CapStyle = "Round"
@@ -226,9 +238,15 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			var valueForCapStyle string
 			err = json.Unmarshal(*valCapStyle, &valueForCapStyle)
 			if err != nil {
-				return err
+				var valueForCapStyleInt int32
+				err = json.Unmarshal(*valCapStyle, &valueForCapStyleInt)
+				if err != nil {
+					return err
+				}
+				this.CapStyle = string(valueForCapStyleInt)
+			} else {
+				this.CapStyle = valueForCapStyle
 			}
-			this.CapStyle = valueForCapStyle
 		}
 	}
 	if valCapStyleCap, ok := objMap["CapStyle"]; ok {
@@ -236,9 +254,15 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			var valueForCapStyle string
 			err = json.Unmarshal(*valCapStyleCap, &valueForCapStyle)
 			if err != nil {
-				return err
+				var valueForCapStyleInt int32
+				err = json.Unmarshal(*valCapStyleCap, &valueForCapStyleInt)
+				if err != nil {
+					return err
+				}
+				this.CapStyle = string(valueForCapStyleInt)
+			} else {
+				this.CapStyle = valueForCapStyle
 			}
-			this.CapStyle = valueForCapStyle
 		}
 	}
 	this.DashStyle = "Solid"
@@ -247,9 +271,15 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			var valueForDashStyle string
 			err = json.Unmarshal(*valDashStyle, &valueForDashStyle)
 			if err != nil {
-				return err
+				var valueForDashStyleInt int32
+				err = json.Unmarshal(*valDashStyle, &valueForDashStyleInt)
+				if err != nil {
+					return err
+				}
+				this.DashStyle = string(valueForDashStyleInt)
+			} else {
+				this.DashStyle = valueForDashStyle
 			}
-			this.DashStyle = valueForDashStyle
 		}
 	}
 	if valDashStyleCap, ok := objMap["DashStyle"]; ok {
@@ -257,9 +287,15 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			var valueForDashStyle string
 			err = json.Unmarshal(*valDashStyleCap, &valueForDashStyle)
 			if err != nil {
-				return err
+				var valueForDashStyleInt int32
+				err = json.Unmarshal(*valDashStyleCap, &valueForDashStyleInt)
+				if err != nil {
+					return err
+				}
+				this.DashStyle = string(valueForDashStyleInt)
+			} else {
+				this.DashStyle = valueForDashStyle
 			}
-			this.DashStyle = valueForDashStyle
 		}
 	}
 	this.JoinStyle = "Round"
@@ -268,9 +304,15 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			var valueForJoinStyle string
 			err = json.Unmarshal(*valJoinStyle, &valueForJoinStyle)
 			if err != nil {
-				return err
+				var valueForJoinStyleInt int32
+				err = json.Unmarshal(*valJoinStyle, &valueForJoinStyleInt)
+				if err != nil {
+					return err
+				}
+				this.JoinStyle = string(valueForJoinStyleInt)
+			} else {
+				this.JoinStyle = valueForJoinStyle
 			}
-			this.JoinStyle = valueForJoinStyle
 		}
 	}
 	if valJoinStyleCap, ok := objMap["JoinStyle"]; ok {
@@ -278,9 +320,15 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			var valueForJoinStyle string
 			err = json.Unmarshal(*valJoinStyleCap, &valueForJoinStyle)
 			if err != nil {
-				return err
+				var valueForJoinStyleInt int32
+				err = json.Unmarshal(*valJoinStyleCap, &valueForJoinStyleInt)
+				if err != nil {
+					return err
+				}
+				this.JoinStyle = string(valueForJoinStyleInt)
+			} else {
+				this.JoinStyle = valueForJoinStyle
 			}
-			this.JoinStyle = valueForJoinStyle
 		}
 	}
 	this.Style = "Single"
@@ -289,9 +337,15 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			var valueForStyle string
 			err = json.Unmarshal(*valStyle, &valueForStyle)
 			if err != nil {
-				return err
+				var valueForStyleInt int32
+				err = json.Unmarshal(*valStyle, &valueForStyleInt)
+				if err != nil {
+					return err
+				}
+				this.Style = string(valueForStyleInt)
+			} else {
+				this.Style = valueForStyle
 			}
-			this.Style = valueForStyle
 		}
 	}
 	if valStyleCap, ok := objMap["Style"]; ok {
@@ -299,9 +353,15 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			var valueForStyle string
 			err = json.Unmarshal(*valStyleCap, &valueForStyle)
 			if err != nil {
-				return err
+				var valueForStyleInt int32
+				err = json.Unmarshal(*valStyleCap, &valueForStyleInt)
+				if err != nil {
+					return err
+				}
+				this.Style = string(valueForStyleInt)
+			} else {
+				this.Style = valueForStyle
 			}
-			this.Style = valueForStyle
 		}
 	}
 	

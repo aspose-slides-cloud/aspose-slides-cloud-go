@@ -247,9 +247,15 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	if valTypeCap, ok := objMap["Type"]; ok {
@@ -257,9 +263,15 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	this.Subtype = ""
@@ -268,9 +280,15 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			var valueForSubtype string
 			err = json.Unmarshal(*valSubtype, &valueForSubtype)
 			if err != nil {
-				return err
+				var valueForSubtypeInt int32
+				err = json.Unmarshal(*valSubtype, &valueForSubtypeInt)
+				if err != nil {
+					return err
+				}
+				this.Subtype = string(valueForSubtypeInt)
+			} else {
+				this.Subtype = valueForSubtype
 			}
-			this.Subtype = valueForSubtype
 		}
 	}
 	if valSubtypeCap, ok := objMap["Subtype"]; ok {
@@ -278,9 +296,15 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			var valueForSubtype string
 			err = json.Unmarshal(*valSubtypeCap, &valueForSubtype)
 			if err != nil {
-				return err
+				var valueForSubtypeInt int32
+				err = json.Unmarshal(*valSubtypeCap, &valueForSubtypeInt)
+				if err != nil {
+					return err
+				}
+				this.Subtype = string(valueForSubtypeInt)
+			} else {
+				this.Subtype = valueForSubtype
 			}
-			this.Subtype = valueForSubtype
 		}
 	}
 	this.PresetClassType = ""
@@ -289,9 +313,15 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			var valueForPresetClassType string
 			err = json.Unmarshal(*valPresetClassType, &valueForPresetClassType)
 			if err != nil {
-				return err
+				var valueForPresetClassTypeInt int32
+				err = json.Unmarshal(*valPresetClassType, &valueForPresetClassTypeInt)
+				if err != nil {
+					return err
+				}
+				this.PresetClassType = string(valueForPresetClassTypeInt)
+			} else {
+				this.PresetClassType = valueForPresetClassType
 			}
-			this.PresetClassType = valueForPresetClassType
 		}
 	}
 	if valPresetClassTypeCap, ok := objMap["PresetClassType"]; ok {
@@ -299,9 +329,15 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			var valueForPresetClassType string
 			err = json.Unmarshal(*valPresetClassTypeCap, &valueForPresetClassType)
 			if err != nil {
-				return err
+				var valueForPresetClassTypeInt int32
+				err = json.Unmarshal(*valPresetClassTypeCap, &valueForPresetClassTypeInt)
+				if err != nil {
+					return err
+				}
+				this.PresetClassType = string(valueForPresetClassTypeInt)
+			} else {
+				this.PresetClassType = valueForPresetClassType
 			}
-			this.PresetClassType = valueForPresetClassType
 		}
 	}
 	
@@ -331,9 +367,15 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			var valueForTriggerType string
 			err = json.Unmarshal(*valTriggerType, &valueForTriggerType)
 			if err != nil {
-				return err
+				var valueForTriggerTypeInt int32
+				err = json.Unmarshal(*valTriggerType, &valueForTriggerTypeInt)
+				if err != nil {
+					return err
+				}
+				this.TriggerType = string(valueForTriggerTypeInt)
+			} else {
+				this.TriggerType = valueForTriggerType
 			}
-			this.TriggerType = valueForTriggerType
 		}
 	}
 	if valTriggerTypeCap, ok := objMap["TriggerType"]; ok {
@@ -341,9 +383,15 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			var valueForTriggerType string
 			err = json.Unmarshal(*valTriggerTypeCap, &valueForTriggerType)
 			if err != nil {
-				return err
+				var valueForTriggerTypeInt int32
+				err = json.Unmarshal(*valTriggerTypeCap, &valueForTriggerTypeInt)
+				if err != nil {
+					return err
+				}
+				this.TriggerType = string(valueForTriggerTypeInt)
+			} else {
+				this.TriggerType = valueForTriggerType
 			}
-			this.TriggerType = valueForTriggerType
 		}
 	}
 	
@@ -478,9 +526,15 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			var valueForRestart string
 			err = json.Unmarshal(*valRestart, &valueForRestart)
 			if err != nil {
-				return err
+				var valueForRestartInt int32
+				err = json.Unmarshal(*valRestart, &valueForRestartInt)
+				if err != nil {
+					return err
+				}
+				this.Restart = string(valueForRestartInt)
+			} else {
+				this.Restart = valueForRestart
 			}
-			this.Restart = valueForRestart
 		}
 	}
 	if valRestartCap, ok := objMap["Restart"]; ok {
@@ -488,9 +542,15 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 			var valueForRestart string
 			err = json.Unmarshal(*valRestartCap, &valueForRestart)
 			if err != nil {
-				return err
+				var valueForRestartInt int32
+				err = json.Unmarshal(*valRestartCap, &valueForRestartInt)
+				if err != nil {
+					return err
+				}
+				this.Restart = string(valueForRestartInt)
+			} else {
+				this.Restart = valueForRestart
 			}
-			this.Restart = valueForRestart
 		}
 	}
 	

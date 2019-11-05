@@ -205,9 +205,15 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			var valueForOrgChartLayout string
 			err = json.Unmarshal(*valOrgChartLayout, &valueForOrgChartLayout)
 			if err != nil {
-				return err
+				var valueForOrgChartLayoutInt int32
+				err = json.Unmarshal(*valOrgChartLayout, &valueForOrgChartLayoutInt)
+				if err != nil {
+					return err
+				}
+				this.OrgChartLayout = string(valueForOrgChartLayoutInt)
+			} else {
+				this.OrgChartLayout = valueForOrgChartLayout
 			}
-			this.OrgChartLayout = valueForOrgChartLayout
 		}
 	}
 	if valOrgChartLayoutCap, ok := objMap["OrgChartLayout"]; ok {
@@ -215,9 +221,15 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			var valueForOrgChartLayout string
 			err = json.Unmarshal(*valOrgChartLayoutCap, &valueForOrgChartLayout)
 			if err != nil {
-				return err
+				var valueForOrgChartLayoutInt int32
+				err = json.Unmarshal(*valOrgChartLayoutCap, &valueForOrgChartLayoutInt)
+				if err != nil {
+					return err
+				}
+				this.OrgChartLayout = string(valueForOrgChartLayoutInt)
+			} else {
+				this.OrgChartLayout = valueForOrgChartLayout
 			}
-			this.OrgChartLayout = valueForOrgChartLayout
 		}
 	}
 

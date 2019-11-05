@@ -149,9 +149,15 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForThumbnailBounds string
 			err = json.Unmarshal(*valThumbnailBounds, &valueForThumbnailBounds)
 			if err != nil {
-				return err
+				var valueForThumbnailBoundsInt int32
+				err = json.Unmarshal(*valThumbnailBounds, &valueForThumbnailBoundsInt)
+				if err != nil {
+					return err
+				}
+				this.ThumbnailBounds = string(valueForThumbnailBoundsInt)
+			} else {
+				this.ThumbnailBounds = valueForThumbnailBounds
 			}
-			this.ThumbnailBounds = valueForThumbnailBounds
 		}
 	}
 	if valThumbnailBoundsCap, ok := objMap["ThumbnailBounds"]; ok {
@@ -159,9 +165,15 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForThumbnailBounds string
 			err = json.Unmarshal(*valThumbnailBoundsCap, &valueForThumbnailBounds)
 			if err != nil {
-				return err
+				var valueForThumbnailBoundsInt int32
+				err = json.Unmarshal(*valThumbnailBoundsCap, &valueForThumbnailBoundsInt)
+				if err != nil {
+					return err
+				}
+				this.ThumbnailBounds = string(valueForThumbnailBoundsInt)
+			} else {
+				this.ThumbnailBounds = valueForThumbnailBounds
 			}
-			this.ThumbnailBounds = valueForThumbnailBounds
 		}
 	}
 	

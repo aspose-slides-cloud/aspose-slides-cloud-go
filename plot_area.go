@@ -247,9 +247,15 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			var valueForLayoutTargetType string
 			err = json.Unmarshal(*valLayoutTargetType, &valueForLayoutTargetType)
 			if err != nil {
-				return err
+				var valueForLayoutTargetTypeInt int32
+				err = json.Unmarshal(*valLayoutTargetType, &valueForLayoutTargetTypeInt)
+				if err != nil {
+					return err
+				}
+				this.LayoutTargetType = string(valueForLayoutTargetTypeInt)
+			} else {
+				this.LayoutTargetType = valueForLayoutTargetType
 			}
-			this.LayoutTargetType = valueForLayoutTargetType
 		}
 	}
 	if valLayoutTargetTypeCap, ok := objMap["LayoutTargetType"]; ok {
@@ -257,9 +263,15 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			var valueForLayoutTargetType string
 			err = json.Unmarshal(*valLayoutTargetTypeCap, &valueForLayoutTargetType)
 			if err != nil {
-				return err
+				var valueForLayoutTargetTypeInt int32
+				err = json.Unmarshal(*valLayoutTargetTypeCap, &valueForLayoutTargetTypeInt)
+				if err != nil {
+					return err
+				}
+				this.LayoutTargetType = string(valueForLayoutTargetTypeInt)
+			} else {
+				this.LayoutTargetType = valueForLayoutTargetType
 			}
-			this.LayoutTargetType = valueForLayoutTargetType
 		}
 	}
 	

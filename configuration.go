@@ -58,6 +58,7 @@ type Configuration struct {
 	ApiVersion    string            	`json:"ApiVersion,omitempty"`
 	Debug         bool 	           	`json:"Debug,omitempty"`
 	Timeout       int 	           	`json:"Timeout,omitempty"`
+	CustomHeaders	map[string]string	`json:"CustomHeaders,omitempty"`
 	HTTPClient 	  *http.Client
 }
 
@@ -68,7 +69,8 @@ func NewConfiguration() *Configuration {
 		AppSid:        "https",
 		AppKey:        "https",
 		Version:       "v3.0",
-		ApiVersion:    "19.9.0",
+		ApiVersion:    "19.10.0",
+		CustomHeaders: make(map[string]string),
 	}
 	return cfg
 }

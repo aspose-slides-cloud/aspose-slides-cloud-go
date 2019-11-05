@@ -338,9 +338,15 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForTextCompression string
 			err = json.Unmarshal(*valTextCompression, &valueForTextCompression)
 			if err != nil {
-				return err
+				var valueForTextCompressionInt int32
+				err = json.Unmarshal(*valTextCompression, &valueForTextCompressionInt)
+				if err != nil {
+					return err
+				}
+				this.TextCompression = string(valueForTextCompressionInt)
+			} else {
+				this.TextCompression = valueForTextCompression
 			}
-			this.TextCompression = valueForTextCompression
 		}
 	}
 	if valTextCompressionCap, ok := objMap["TextCompression"]; ok {
@@ -348,9 +354,15 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForTextCompression string
 			err = json.Unmarshal(*valTextCompressionCap, &valueForTextCompression)
 			if err != nil {
-				return err
+				var valueForTextCompressionInt int32
+				err = json.Unmarshal(*valTextCompressionCap, &valueForTextCompressionInt)
+				if err != nil {
+					return err
+				}
+				this.TextCompression = string(valueForTextCompressionInt)
+			} else {
+				this.TextCompression = valueForTextCompression
 			}
-			this.TextCompression = valueForTextCompression
 		}
 	}
 	
@@ -380,9 +392,15 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForCompliance string
 			err = json.Unmarshal(*valCompliance, &valueForCompliance)
 			if err != nil {
-				return err
+				var valueForComplianceInt int32
+				err = json.Unmarshal(*valCompliance, &valueForComplianceInt)
+				if err != nil {
+					return err
+				}
+				this.Compliance = string(valueForComplianceInt)
+			} else {
+				this.Compliance = valueForCompliance
 			}
-			this.Compliance = valueForCompliance
 		}
 	}
 	if valComplianceCap, ok := objMap["Compliance"]; ok {
@@ -390,9 +408,15 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForCompliance string
 			err = json.Unmarshal(*valComplianceCap, &valueForCompliance)
 			if err != nil {
-				return err
+				var valueForComplianceInt int32
+				err = json.Unmarshal(*valComplianceCap, &valueForComplianceInt)
+				if err != nil {
+					return err
+				}
+				this.Compliance = string(valueForComplianceInt)
+			} else {
+				this.Compliance = valueForCompliance
 			}
-			this.Compliance = valueForCompliance
 		}
 	}
 	
@@ -569,9 +593,15 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
 			if err != nil {
-				return err
+				var valueForNotesPositionInt int32
+				err = json.Unmarshal(*valNotesPosition, &valueForNotesPositionInt)
+				if err != nil {
+					return err
+				}
+				this.NotesPosition = string(valueForNotesPositionInt)
+			} else {
+				this.NotesPosition = valueForNotesPosition
 			}
-			this.NotesPosition = valueForNotesPosition
 		}
 	}
 	if valNotesPositionCap, ok := objMap["NotesPosition"]; ok {
@@ -579,9 +609,15 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPosition)
 			if err != nil {
-				return err
+				var valueForNotesPositionInt int32
+				err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPositionInt)
+				if err != nil {
+					return err
+				}
+				this.NotesPosition = string(valueForNotesPositionInt)
+			} else {
+				this.NotesPosition = valueForNotesPosition
 			}
-			this.NotesPosition = valueForNotesPosition
 		}
 	}
 	this.CommentsPosition = "None"
@@ -590,9 +626,15 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
 			if err != nil {
-				return err
+				var valueForCommentsPositionInt int32
+				err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPositionInt)
+				if err != nil {
+					return err
+				}
+				this.CommentsPosition = string(valueForCommentsPositionInt)
+			} else {
+				this.CommentsPosition = valueForCommentsPosition
 			}
-			this.CommentsPosition = valueForCommentsPosition
 		}
 	}
 	if valCommentsPositionCap, ok := objMap["CommentsPosition"]; ok {
@@ -600,9 +642,15 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPosition)
 			if err != nil {
-				return err
+				var valueForCommentsPositionInt int32
+				err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPositionInt)
+				if err != nil {
+					return err
+				}
+				this.CommentsPosition = string(valueForCommentsPositionInt)
+			} else {
+				this.CommentsPosition = valueForCommentsPosition
 			}
-			this.CommentsPosition = valueForCommentsPosition
 		}
 	}
 	

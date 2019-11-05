@@ -102,21 +102,19 @@ func (this *ErrorDetails) UnmarshalJSON(b []byte) error {
 	if valDate, ok := objMap["date"]; ok {
 		if valDate != nil {
 			var valueForDate time.Time
-			err = json.Unmarshal(*valDate, &valueForDate)
-			if err != nil {
-				return err
+			valueForDate, err = time.Parse("2006-01-02T21:36:33", string(*valDate))
+			if err == nil {
+				this.Date = valueForDate
 			}
-			this.Date = valueForDate
 		}
 	}
 	if valDateCap, ok := objMap["Date"]; ok {
 		if valDateCap != nil {
 			var valueForDate time.Time
-			err = json.Unmarshal(*valDateCap, &valueForDate)
-			if err != nil {
-				return err
+			valueForDate, err = time.Parse("2006-01-02T21:36:33", string(*valDateCap))
+			if err == nil {
+				this.Date = valueForDate
 			}
-			this.Date = valueForDate
 		}
 	}
 

@@ -254,9 +254,15 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForCompression string
 			err = json.Unmarshal(*valCompression, &valueForCompression)
 			if err != nil {
-				return err
+				var valueForCompressionInt int32
+				err = json.Unmarshal(*valCompression, &valueForCompressionInt)
+				if err != nil {
+					return err
+				}
+				this.Compression = string(valueForCompressionInt)
+			} else {
+				this.Compression = valueForCompression
 			}
-			this.Compression = valueForCompression
 		}
 	}
 	if valCompressionCap, ok := objMap["Compression"]; ok {
@@ -264,9 +270,15 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForCompression string
 			err = json.Unmarshal(*valCompressionCap, &valueForCompression)
 			if err != nil {
-				return err
+				var valueForCompressionInt int32
+				err = json.Unmarshal(*valCompressionCap, &valueForCompressionInt)
+				if err != nil {
+					return err
+				}
+				this.Compression = string(valueForCompressionInt)
+			} else {
+				this.Compression = valueForCompression
 			}
-			this.Compression = valueForCompression
 		}
 	}
 	
@@ -380,9 +392,15 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForPixelFormat string
 			err = json.Unmarshal(*valPixelFormat, &valueForPixelFormat)
 			if err != nil {
-				return err
+				var valueForPixelFormatInt int32
+				err = json.Unmarshal(*valPixelFormat, &valueForPixelFormatInt)
+				if err != nil {
+					return err
+				}
+				this.PixelFormat = string(valueForPixelFormatInt)
+			} else {
+				this.PixelFormat = valueForPixelFormat
 			}
-			this.PixelFormat = valueForPixelFormat
 		}
 	}
 	if valPixelFormatCap, ok := objMap["PixelFormat"]; ok {
@@ -390,9 +408,15 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForPixelFormat string
 			err = json.Unmarshal(*valPixelFormatCap, &valueForPixelFormat)
 			if err != nil {
-				return err
+				var valueForPixelFormatInt int32
+				err = json.Unmarshal(*valPixelFormatCap, &valueForPixelFormatInt)
+				if err != nil {
+					return err
+				}
+				this.PixelFormat = string(valueForPixelFormatInt)
+			} else {
+				this.PixelFormat = valueForPixelFormat
 			}
-			this.PixelFormat = valueForPixelFormat
 		}
 	}
 	this.NotesPosition = "None"
@@ -401,9 +425,15 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
 			if err != nil {
-				return err
+				var valueForNotesPositionInt int32
+				err = json.Unmarshal(*valNotesPosition, &valueForNotesPositionInt)
+				if err != nil {
+					return err
+				}
+				this.NotesPosition = string(valueForNotesPositionInt)
+			} else {
+				this.NotesPosition = valueForNotesPosition
 			}
-			this.NotesPosition = valueForNotesPosition
 		}
 	}
 	if valNotesPositionCap, ok := objMap["NotesPosition"]; ok {
@@ -411,9 +441,15 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPosition)
 			if err != nil {
-				return err
+				var valueForNotesPositionInt int32
+				err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPositionInt)
+				if err != nil {
+					return err
+				}
+				this.NotesPosition = string(valueForNotesPositionInt)
+			} else {
+				this.NotesPosition = valueForNotesPosition
 			}
-			this.NotesPosition = valueForNotesPosition
 		}
 	}
 	this.CommentsPosition = "None"
@@ -422,9 +458,15 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
 			if err != nil {
-				return err
+				var valueForCommentsPositionInt int32
+				err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPositionInt)
+				if err != nil {
+					return err
+				}
+				this.CommentsPosition = string(valueForCommentsPositionInt)
+			} else {
+				this.CommentsPosition = valueForCommentsPosition
 			}
-			this.CommentsPosition = valueForCommentsPosition
 		}
 	}
 	if valCommentsPositionCap, ok := objMap["CommentsPosition"]; ok {
@@ -432,9 +474,15 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPosition)
 			if err != nil {
-				return err
+				var valueForCommentsPositionInt int32
+				err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPositionInt)
+				if err != nil {
+					return err
+				}
+				this.CommentsPosition = string(valueForCommentsPositionInt)
+			} else {
+				this.CommentsPosition = valueForCommentsPosition
 			}
-			this.CommentsPosition = valueForCommentsPosition
 		}
 	}
 	

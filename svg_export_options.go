@@ -338,9 +338,15 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForPicturesCompression string
 			err = json.Unmarshal(*valPicturesCompression, &valueForPicturesCompression)
 			if err != nil {
-				return err
+				var valueForPicturesCompressionInt int32
+				err = json.Unmarshal(*valPicturesCompression, &valueForPicturesCompressionInt)
+				if err != nil {
+					return err
+				}
+				this.PicturesCompression = string(valueForPicturesCompressionInt)
+			} else {
+				this.PicturesCompression = valueForPicturesCompression
 			}
-			this.PicturesCompression = valueForPicturesCompression
 		}
 	}
 	if valPicturesCompressionCap, ok := objMap["PicturesCompression"]; ok {
@@ -348,9 +354,15 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForPicturesCompression string
 			err = json.Unmarshal(*valPicturesCompressionCap, &valueForPicturesCompression)
 			if err != nil {
-				return err
+				var valueForPicturesCompressionInt int32
+				err = json.Unmarshal(*valPicturesCompressionCap, &valueForPicturesCompressionInt)
+				if err != nil {
+					return err
+				}
+				this.PicturesCompression = string(valueForPicturesCompressionInt)
+			} else {
+				this.PicturesCompression = valueForPicturesCompression
 			}
-			this.PicturesCompression = valueForPicturesCompression
 		}
 	}
 	
@@ -380,9 +392,15 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForExternalFontsHandling string
 			err = json.Unmarshal(*valExternalFontsHandling, &valueForExternalFontsHandling)
 			if err != nil {
-				return err
+				var valueForExternalFontsHandlingInt int32
+				err = json.Unmarshal(*valExternalFontsHandling, &valueForExternalFontsHandlingInt)
+				if err != nil {
+					return err
+				}
+				this.ExternalFontsHandling = string(valueForExternalFontsHandlingInt)
+			} else {
+				this.ExternalFontsHandling = valueForExternalFontsHandling
 			}
-			this.ExternalFontsHandling = valueForExternalFontsHandling
 		}
 	}
 	if valExternalFontsHandlingCap, ok := objMap["ExternalFontsHandling"]; ok {
@@ -390,9 +408,15 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForExternalFontsHandling string
 			err = json.Unmarshal(*valExternalFontsHandlingCap, &valueForExternalFontsHandling)
 			if err != nil {
-				return err
+				var valueForExternalFontsHandlingInt int32
+				err = json.Unmarshal(*valExternalFontsHandlingCap, &valueForExternalFontsHandlingInt)
+				if err != nil {
+					return err
+				}
+				this.ExternalFontsHandling = string(valueForExternalFontsHandlingInt)
+			} else {
+				this.ExternalFontsHandling = valueForExternalFontsHandling
 			}
-			this.ExternalFontsHandling = valueForExternalFontsHandling
 		}
 	}
 

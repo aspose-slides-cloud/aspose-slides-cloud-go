@@ -668,15 +668,21 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			this.LineFormat = valueForLineFormat
 		}
 	}
-	this.Type_ = "TYPE__SMART_ART"
+	this.Type_ = "SmartArt"
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	if valTypeCap, ok := objMap["Type"]; ok {
@@ -684,20 +690,32 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
-	this.ShapeType = "SHAPE_TYPE_DIAGRAM"
+	this.ShapeType = "Diagram"
 	if valShapeType, ok := objMap["shapeType"]; ok {
 		if valShapeType != nil {
 			var valueForShapeType string
 			err = json.Unmarshal(*valShapeType, &valueForShapeType)
 			if err != nil {
-				return err
+				var valueForShapeTypeInt int32
+				err = json.Unmarshal(*valShapeType, &valueForShapeTypeInt)
+				if err != nil {
+					return err
+				}
+				this.ShapeType = string(valueForShapeTypeInt)
+			} else {
+				this.ShapeType = valueForShapeType
 			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 	if valShapeTypeCap, ok := objMap["ShapeType"]; ok {
@@ -705,9 +723,15 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			var valueForShapeType string
 			err = json.Unmarshal(*valShapeTypeCap, &valueForShapeType)
 			if err != nil {
-				return err
+				var valueForShapeTypeInt int32
+				err = json.Unmarshal(*valShapeTypeCap, &valueForShapeTypeInt)
+				if err != nil {
+					return err
+				}
+				this.ShapeType = string(valueForShapeTypeInt)
+			} else {
+				this.ShapeType = valueForShapeType
 			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 	this.Layout = "AccentProcess"
@@ -716,9 +740,15 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			var valueForLayout string
 			err = json.Unmarshal(*valLayout, &valueForLayout)
 			if err != nil {
-				return err
+				var valueForLayoutInt int32
+				err = json.Unmarshal(*valLayout, &valueForLayoutInt)
+				if err != nil {
+					return err
+				}
+				this.Layout = string(valueForLayoutInt)
+			} else {
+				this.Layout = valueForLayout
 			}
-			this.Layout = valueForLayout
 		}
 	}
 	if valLayoutCap, ok := objMap["Layout"]; ok {
@@ -726,9 +756,15 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			var valueForLayout string
 			err = json.Unmarshal(*valLayoutCap, &valueForLayout)
 			if err != nil {
-				return err
+				var valueForLayoutInt int32
+				err = json.Unmarshal(*valLayoutCap, &valueForLayoutInt)
+				if err != nil {
+					return err
+				}
+				this.Layout = string(valueForLayoutInt)
+			} else {
+				this.Layout = valueForLayout
 			}
-			this.Layout = valueForLayout
 		}
 	}
 	this.QuickStyle = "SimpleFill"
@@ -737,9 +773,15 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			var valueForQuickStyle string
 			err = json.Unmarshal(*valQuickStyle, &valueForQuickStyle)
 			if err != nil {
-				return err
+				var valueForQuickStyleInt int32
+				err = json.Unmarshal(*valQuickStyle, &valueForQuickStyleInt)
+				if err != nil {
+					return err
+				}
+				this.QuickStyle = string(valueForQuickStyleInt)
+			} else {
+				this.QuickStyle = valueForQuickStyle
 			}
-			this.QuickStyle = valueForQuickStyle
 		}
 	}
 	if valQuickStyleCap, ok := objMap["QuickStyle"]; ok {
@@ -747,9 +789,15 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			var valueForQuickStyle string
 			err = json.Unmarshal(*valQuickStyleCap, &valueForQuickStyle)
 			if err != nil {
-				return err
+				var valueForQuickStyleInt int32
+				err = json.Unmarshal(*valQuickStyleCap, &valueForQuickStyleInt)
+				if err != nil {
+					return err
+				}
+				this.QuickStyle = string(valueForQuickStyleInt)
+			} else {
+				this.QuickStyle = valueForQuickStyle
 			}
-			this.QuickStyle = valueForQuickStyle
 		}
 	}
 	this.ColorStyle = "Dark1Outline"
@@ -758,9 +806,15 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			var valueForColorStyle string
 			err = json.Unmarshal(*valColorStyle, &valueForColorStyle)
 			if err != nil {
-				return err
+				var valueForColorStyleInt int32
+				err = json.Unmarshal(*valColorStyle, &valueForColorStyleInt)
+				if err != nil {
+					return err
+				}
+				this.ColorStyle = string(valueForColorStyleInt)
+			} else {
+				this.ColorStyle = valueForColorStyle
 			}
-			this.ColorStyle = valueForColorStyle
 		}
 	}
 	if valColorStyleCap, ok := objMap["ColorStyle"]; ok {
@@ -768,9 +822,15 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			var valueForColorStyle string
 			err = json.Unmarshal(*valColorStyleCap, &valueForColorStyle)
 			if err != nil {
-				return err
+				var valueForColorStyleInt int32
+				err = json.Unmarshal(*valColorStyleCap, &valueForColorStyleInt)
+				if err != nil {
+					return err
+				}
+				this.ColorStyle = string(valueForColorStyleInt)
+			} else {
+				this.ColorStyle = valueForColorStyle
 			}
-			this.ColorStyle = valueForColorStyle
 		}
 	}
 	

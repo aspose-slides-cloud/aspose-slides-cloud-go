@@ -31,9 +31,9 @@ type NotesSlideExportFormat string
 
 // List of NotesSlideExportFormat NotesSlideExportFormat
 const (
-	NotesSlideExportFormat_JPEG NotesSlideExportFormat = "Jpeg"
-	NotesSlideExportFormat_PNG NotesSlideExportFormat = "Png"
-	NotesSlideExportFormat_GIF NotesSlideExportFormat = "Gif"
-	NotesSlideExportFormat_BMP NotesSlideExportFormat = "Bmp"
-	NotesSlideExportFormat_TIFF NotesSlideExportFormat = "Tiff"
+	NotesSlideExportFormat_Jpeg NotesSlideExportFormat = "Jpeg"
+	NotesSlideExportFormat_Png NotesSlideExportFormat = "Png"
+	NotesSlideExportFormat_Gif NotesSlideExportFormat = "Gif"
+	NotesSlideExportFormat_Bmp NotesSlideExportFormat = "Bmp"
+	NotesSlideExportFormat_Tiff NotesSlideExportFormat = "Tiff"
 )

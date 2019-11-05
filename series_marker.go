@@ -142,9 +142,15 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			var valueForSymbol string
 			err = json.Unmarshal(*valSymbol, &valueForSymbol)
 			if err != nil {
-				return err
+				var valueForSymbolInt int32
+				err = json.Unmarshal(*valSymbol, &valueForSymbolInt)
+				if err != nil {
+					return err
+				}
+				this.Symbol = string(valueForSymbolInt)
+			} else {
+				this.Symbol = valueForSymbol
 			}
-			this.Symbol = valueForSymbol
 		}
 	}
 	if valSymbolCap, ok := objMap["Symbol"]; ok {
@@ -152,9 +158,15 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			var valueForSymbol string
 			err = json.Unmarshal(*valSymbolCap, &valueForSymbol)
 			if err != nil {
-				return err
+				var valueForSymbolInt int32
+				err = json.Unmarshal(*valSymbolCap, &valueForSymbolInt)
+				if err != nil {
+					return err
+				}
+				this.Symbol = string(valueForSymbolInt)
+			} else {
+				this.Symbol = valueForSymbol
 			}
-			this.Symbol = valueForSymbol
 		}
 	}
 	

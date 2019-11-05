@@ -31,10 +31,10 @@ type ShapeExportFormat string
 
 // List of ShapeExportFormat ShapeExportFormat
 const (
-	ShapeExportFormat_JPEG ShapeExportFormat = "Jpeg"
-	ShapeExportFormat_PNG ShapeExportFormat = "Png"
-	ShapeExportFormat_GIF ShapeExportFormat = "Gif"
-	ShapeExportFormat_BMP ShapeExportFormat = "Bmp"
-	ShapeExportFormat_TIFF ShapeExportFormat = "Tiff"
-	ShapeExportFormat_SVG ShapeExportFormat = "Svg"
+	ShapeExportFormat_Jpeg ShapeExportFormat = "Jpeg"
+	ShapeExportFormat_Png ShapeExportFormat = "Png"
+	ShapeExportFormat_Gif ShapeExportFormat = "Gif"
+	ShapeExportFormat_Bmp ShapeExportFormat = "Bmp"
+	ShapeExportFormat_Tiff ShapeExportFormat = "Tiff"
+	ShapeExportFormat_Svg ShapeExportFormat = "Svg"
 )

@@ -31,7 +31,7 @@ type ShapeThumbnailBounds string
 
 // List of ShapeThumbnailBounds ShapeThumbnailBounds
 const (
-	ShapeThumbnailBounds_SLIDE ShapeThumbnailBounds = "Slide"
-	ShapeThumbnailBounds_SHAPE ShapeThumbnailBounds = "Shape"
-	ShapeThumbnailBounds_APPEARANCE ShapeThumbnailBounds = "Appearance"
+	ShapeThumbnailBounds_Slide ShapeThumbnailBounds = "Slide"
+	ShapeThumbnailBounds_Shape ShapeThumbnailBounds = "Shape"
+	ShapeThumbnailBounds_Appearance ShapeThumbnailBounds = "Appearance"
 )

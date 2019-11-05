@@ -143,15 +143,21 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "TYPE__SAVE_SLIDE"
+	this.Type_ = "SaveSlide"
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	if valTypeCap, ok := objMap["Type"]; ok {
@@ -159,9 +165,15 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	
@@ -191,9 +203,15 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
 			if err != nil {
-				return err
+				var valueForFormatInt int32
+				err = json.Unmarshal(*valFormat, &valueForFormatInt)
+				if err != nil {
+					return err
+				}
+				this.Format = string(valueForFormatInt)
+			} else {
+				this.Format = valueForFormat
 			}
-			this.Format = valueForFormat
 		}
 	}
 	if valFormatCap, ok := objMap["Format"]; ok {
@@ -201,9 +219,15 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormatCap, &valueForFormat)
 			if err != nil {
-				return err
+				var valueForFormatInt int32
+				err = json.Unmarshal(*valFormatCap, &valueForFormatInt)
+				if err != nil {
+					return err
+				}
+				this.Format = string(valueForFormatInt)
+			} else {
+				this.Format = valueForFormat
 			}
-			this.Format = valueForFormat
 		}
 	}
 	

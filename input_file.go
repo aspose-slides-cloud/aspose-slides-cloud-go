@@ -98,9 +98,15 @@ func (this *InputFile) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	if valTypeCap, ok := objMap["Type"]; ok {
@@ -108,9 +114,15 @@ func (this *InputFile) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 

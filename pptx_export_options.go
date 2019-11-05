@@ -100,9 +100,15 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForConformance string
 			err = json.Unmarshal(*valConformance, &valueForConformance)
 			if err != nil {
-				return err
+				var valueForConformanceInt int32
+				err = json.Unmarshal(*valConformance, &valueForConformanceInt)
+				if err != nil {
+					return err
+				}
+				this.Conformance = string(valueForConformanceInt)
+			} else {
+				this.Conformance = valueForConformance
 			}
-			this.Conformance = valueForConformance
 		}
 	}
 	if valConformanceCap, ok := objMap["Conformance"]; ok {
@@ -110,9 +116,15 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForConformance string
 			err = json.Unmarshal(*valConformanceCap, &valueForConformance)
 			if err != nil {
-				return err
+				var valueForConformanceInt int32
+				err = json.Unmarshal(*valConformanceCap, &valueForConformanceInt)
+				if err != nil {
+					return err
+				}
+				this.Conformance = string(valueForConformanceInt)
+			} else {
+				this.Conformance = valueForConformance
 			}
-			this.Conformance = valueForConformance
 		}
 	}
 

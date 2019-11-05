@@ -185,15 +185,21 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "TYPE__PICTURE"
+	this.Type_ = "Picture"
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	if valTypeCap, ok := objMap["Type"]; ok {
@@ -201,9 +207,15 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	
@@ -380,9 +392,15 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			var valueForPictureFillMode string
 			err = json.Unmarshal(*valPictureFillMode, &valueForPictureFillMode)
 			if err != nil {
-				return err
+				var valueForPictureFillModeInt int32
+				err = json.Unmarshal(*valPictureFillMode, &valueForPictureFillModeInt)
+				if err != nil {
+					return err
+				}
+				this.PictureFillMode = string(valueForPictureFillModeInt)
+			} else {
+				this.PictureFillMode = valueForPictureFillMode
 			}
-			this.PictureFillMode = valueForPictureFillMode
 		}
 	}
 	if valPictureFillModeCap, ok := objMap["PictureFillMode"]; ok {
@@ -390,9 +408,15 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			var valueForPictureFillMode string
 			err = json.Unmarshal(*valPictureFillModeCap, &valueForPictureFillMode)
 			if err != nil {
-				return err
+				var valueForPictureFillModeInt int32
+				err = json.Unmarshal(*valPictureFillModeCap, &valueForPictureFillModeInt)
+				if err != nil {
+					return err
+				}
+				this.PictureFillMode = string(valueForPictureFillModeInt)
+			} else {
+				this.PictureFillMode = valueForPictureFillMode
 			}
-			this.PictureFillMode = valueForPictureFillMode
 		}
 	}
 

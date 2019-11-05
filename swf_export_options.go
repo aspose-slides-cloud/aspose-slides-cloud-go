@@ -681,9 +681,15 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
 			if err != nil {
-				return err
+				var valueForNotesPositionInt int32
+				err = json.Unmarshal(*valNotesPosition, &valueForNotesPositionInt)
+				if err != nil {
+					return err
+				}
+				this.NotesPosition = string(valueForNotesPositionInt)
+			} else {
+				this.NotesPosition = valueForNotesPosition
 			}
-			this.NotesPosition = valueForNotesPosition
 		}
 	}
 	if valNotesPositionCap, ok := objMap["NotesPosition"]; ok {
@@ -691,9 +697,15 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPosition)
 			if err != nil {
-				return err
+				var valueForNotesPositionInt int32
+				err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPositionInt)
+				if err != nil {
+					return err
+				}
+				this.NotesPosition = string(valueForNotesPositionInt)
+			} else {
+				this.NotesPosition = valueForNotesPosition
 			}
-			this.NotesPosition = valueForNotesPosition
 		}
 	}
 	this.CommentsPosition = "None"
@@ -702,9 +714,15 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
 			if err != nil {
-				return err
+				var valueForCommentsPositionInt int32
+				err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPositionInt)
+				if err != nil {
+					return err
+				}
+				this.CommentsPosition = string(valueForCommentsPositionInt)
+			} else {
+				this.CommentsPosition = valueForCommentsPosition
 			}
-			this.CommentsPosition = valueForCommentsPosition
 		}
 	}
 	if valCommentsPositionCap, ok := objMap["CommentsPosition"]; ok {
@@ -712,9 +730,15 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPosition)
 			if err != nil {
-				return err
+				var valueForCommentsPositionInt int32
+				err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPositionInt)
+				if err != nil {
+					return err
+				}
+				this.CommentsPosition = string(valueForCommentsPositionInt)
+			} else {
+				this.CommentsPosition = valueForCommentsPosition
 			}
-			this.CommentsPosition = valueForCommentsPosition
 		}
 	}
 	

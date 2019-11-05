@@ -177,9 +177,15 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			var valueForPosition string
 			err = json.Unmarshal(*valPosition, &valueForPosition)
 			if err != nil {
-				return err
+				var valueForPositionInt int32
+				err = json.Unmarshal(*valPosition, &valueForPositionInt)
+				if err != nil {
+					return err
+				}
+				this.Position = string(valueForPositionInt)
+			} else {
+				this.Position = valueForPosition
 			}
-			this.Position = valueForPosition
 		}
 	}
 	if valPositionCap, ok := objMap["Position"]; ok {
@@ -187,9 +193,15 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			var valueForPosition string
 			err = json.Unmarshal(*valPositionCap, &valueForPosition)
 			if err != nil {
-				return err
+				var valueForPositionInt int32
+				err = json.Unmarshal(*valPositionCap, &valueForPositionInt)
+				if err != nil {
+					return err
+				}
+				this.Position = string(valueForPositionInt)
+			} else {
+				this.Position = valueForPosition
 			}
-			this.Position = valueForPosition
 		}
 	}
 	

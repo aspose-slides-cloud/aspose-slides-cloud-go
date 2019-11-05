@@ -106,6 +106,10 @@ type IChart interface {
 	getChartType() string
 	setChartType(newValue string)
 
+	// True if data labels over the maximum of the chart shall be shown.
+	getShowDataLabelsOverMaximum() bool
+	setShowDataLabelsOverMaximum(newValue bool)
+
 	// Gets or sets the series of chart data values.
 	getSeries() []Series
 	setSeries(newValue []Series)
@@ -198,6 +202,9 @@ type Chart struct {
 
 	// Gets or sets the type of the chart.
 	ChartType string `json:"ChartType"`
+
+	// True if data labels over the maximum of the chart shall be shown.
+	ShowDataLabelsOverMaximum bool `json:"ShowDataLabelsOverMaximum,omitempty"`
 
 	// Gets or sets the series of chart data values.
 	Series []Series `json:"Series,omitempty"`
@@ -352,6 +359,13 @@ func (this Chart) getChartType() string {
 
 func (this Chart) setChartType(newValue string) {
 	this.ChartType = newValue
+}
+func (this Chart) getShowDataLabelsOverMaximum() bool {
+	return this.ShowDataLabelsOverMaximum
+}
+
+func (this Chart) setShowDataLabelsOverMaximum(newValue bool) {
+	this.ShowDataLabelsOverMaximum = newValue
 }
 func (this Chart) getSeries() []Series {
 	return this.Series
@@ -738,15 +752,21 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			this.LineFormat = valueForLineFormat
 		}
 	}
-	this.Type_ = "TYPE__CHART"
+	this.Type_ = "Chart"
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	if valTypeCap, ok := objMap["Type"]; ok {
@@ -754,20 +774,32 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
-	this.ShapeType = "SHAPE_TYPE_CHART"
+	this.ShapeType = "Chart"
 	if valShapeType, ok := objMap["shapeType"]; ok {
 		if valShapeType != nil {
 			var valueForShapeType string
 			err = json.Unmarshal(*valShapeType, &valueForShapeType)
 			if err != nil {
-				return err
+				var valueForShapeTypeInt int32
+				err = json.Unmarshal(*valShapeType, &valueForShapeTypeInt)
+				if err != nil {
+					return err
+				}
+				this.ShapeType = string(valueForShapeTypeInt)
+			} else {
+				this.ShapeType = valueForShapeType
 			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 	if valShapeTypeCap, ok := objMap["ShapeType"]; ok {
@@ -775,9 +807,15 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			var valueForShapeType string
 			err = json.Unmarshal(*valShapeTypeCap, &valueForShapeType)
 			if err != nil {
-				return err
+				var valueForShapeTypeInt int32
+				err = json.Unmarshal(*valShapeTypeCap, &valueForShapeTypeInt)
+				if err != nil {
+					return err
+				}
+				this.ShapeType = string(valueForShapeTypeInt)
+			} else {
+				this.ShapeType = valueForShapeType
 			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 	this.ChartType = "ClusteredColumn"
@@ -786,9 +824,15 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			var valueForChartType string
 			err = json.Unmarshal(*valChartType, &valueForChartType)
 			if err != nil {
-				return err
+				var valueForChartTypeInt int32
+				err = json.Unmarshal(*valChartType, &valueForChartTypeInt)
+				if err != nil {
+					return err
+				}
+				this.ChartType = string(valueForChartTypeInt)
+			} else {
+				this.ChartType = valueForChartType
 			}
-			this.ChartType = valueForChartType
 		}
 	}
 	if valChartTypeCap, ok := objMap["ChartType"]; ok {
@@ -796,9 +840,36 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			var valueForChartType string
 			err = json.Unmarshal(*valChartTypeCap, &valueForChartType)
 			if err != nil {
+				var valueForChartTypeInt int32
+				err = json.Unmarshal(*valChartTypeCap, &valueForChartTypeInt)
+				if err != nil {
+					return err
+				}
+				this.ChartType = string(valueForChartTypeInt)
+			} else {
+				this.ChartType = valueForChartType
+			}
+		}
+	}
+	
+	if valShowDataLabelsOverMaximum, ok := objMap["showDataLabelsOverMaximum"]; ok {
+		if valShowDataLabelsOverMaximum != nil {
+			var valueForShowDataLabelsOverMaximum bool
+			err = json.Unmarshal(*valShowDataLabelsOverMaximum, &valueForShowDataLabelsOverMaximum)
+			if err != nil {
 				return err
 			}
-			this.ChartType = valueForChartType
+			this.ShowDataLabelsOverMaximum = valueForShowDataLabelsOverMaximum
+		}
+	}
+	if valShowDataLabelsOverMaximumCap, ok := objMap["ShowDataLabelsOverMaximum"]; ok {
+		if valShowDataLabelsOverMaximumCap != nil {
+			var valueForShowDataLabelsOverMaximum bool
+			err = json.Unmarshal(*valShowDataLabelsOverMaximumCap, &valueForShowDataLabelsOverMaximum)
+			if err != nil {
+				return err
+			}
+			this.ShowDataLabelsOverMaximum = valueForShowDataLabelsOverMaximum
 		}
 	}
 	

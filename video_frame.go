@@ -710,15 +710,21 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			this.LineFormat = valueForLineFormat
 		}
 	}
-	this.Type_ = "TYPE__VIDEO_FRAME"
+	this.Type_ = "VideoFrame"
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	if valTypeCap, ok := objMap["Type"]; ok {
@@ -726,20 +732,32 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
-	this.ShapeType = "SHAPE_TYPE_VIDEO_FRAME"
+	this.ShapeType = "VideoFrame"
 	if valShapeType, ok := objMap["shapeType"]; ok {
 		if valShapeType != nil {
 			var valueForShapeType string
 			err = json.Unmarshal(*valShapeType, &valueForShapeType)
 			if err != nil {
-				return err
+				var valueForShapeTypeInt int32
+				err = json.Unmarshal(*valShapeType, &valueForShapeTypeInt)
+				if err != nil {
+					return err
+				}
+				this.ShapeType = string(valueForShapeTypeInt)
+			} else {
+				this.ShapeType = valueForShapeType
 			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 	if valShapeTypeCap, ok := objMap["ShapeType"]; ok {
@@ -747,9 +765,15 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			var valueForShapeType string
 			err = json.Unmarshal(*valShapeTypeCap, &valueForShapeType)
 			if err != nil {
-				return err
+				var valueForShapeTypeInt int32
+				err = json.Unmarshal(*valShapeTypeCap, &valueForShapeTypeInt)
+				if err != nil {
+					return err
+				}
+				this.ShapeType = string(valueForShapeTypeInt)
+			} else {
+				this.ShapeType = valueForShapeType
 			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 	this.GeometryShapeType = "Custom"
@@ -758,9 +782,15 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			var valueForGeometryShapeType string
 			err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeType)
 			if err != nil {
-				return err
+				var valueForGeometryShapeTypeInt int32
+				err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeTypeInt)
+				if err != nil {
+					return err
+				}
+				this.GeometryShapeType = string(valueForGeometryShapeTypeInt)
+			} else {
+				this.GeometryShapeType = valueForGeometryShapeType
 			}
-			this.GeometryShapeType = valueForGeometryShapeType
 		}
 	}
 	if valGeometryShapeTypeCap, ok := objMap["GeometryShapeType"]; ok {
@@ -768,9 +798,15 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			var valueForGeometryShapeType string
 			err = json.Unmarshal(*valGeometryShapeTypeCap, &valueForGeometryShapeType)
 			if err != nil {
-				return err
+				var valueForGeometryShapeTypeInt int32
+				err = json.Unmarshal(*valGeometryShapeTypeCap, &valueForGeometryShapeTypeInt)
+				if err != nil {
+					return err
+				}
+				this.GeometryShapeType = string(valueForGeometryShapeTypeInt)
+			} else {
+				this.GeometryShapeType = valueForGeometryShapeType
 			}
-			this.GeometryShapeType = valueForGeometryShapeType
 		}
 	}
 	
@@ -842,9 +878,15 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			var valueForPlayMode string
 			err = json.Unmarshal(*valPlayMode, &valueForPlayMode)
 			if err != nil {
-				return err
+				var valueForPlayModeInt int32
+				err = json.Unmarshal(*valPlayMode, &valueForPlayModeInt)
+				if err != nil {
+					return err
+				}
+				this.PlayMode = string(valueForPlayModeInt)
+			} else {
+				this.PlayMode = valueForPlayMode
 			}
-			this.PlayMode = valueForPlayMode
 		}
 	}
 	if valPlayModeCap, ok := objMap["PlayMode"]; ok {
@@ -852,9 +894,15 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			var valueForPlayMode string
 			err = json.Unmarshal(*valPlayModeCap, &valueForPlayMode)
 			if err != nil {
-				return err
+				var valueForPlayModeInt int32
+				err = json.Unmarshal(*valPlayModeCap, &valueForPlayModeInt)
+				if err != nil {
+					return err
+				}
+				this.PlayMode = string(valueForPlayModeInt)
+			} else {
+				this.PlayMode = valueForPlayMode
 			}
-			this.PlayMode = valueForPlayMode
 		}
 	}
 	
@@ -884,9 +932,15 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			var valueForVolume string
 			err = json.Unmarshal(*valVolume, &valueForVolume)
 			if err != nil {
-				return err
+				var valueForVolumeInt int32
+				err = json.Unmarshal(*valVolume, &valueForVolumeInt)
+				if err != nil {
+					return err
+				}
+				this.Volume = string(valueForVolumeInt)
+			} else {
+				this.Volume = valueForVolume
 			}
-			this.Volume = valueForVolume
 		}
 	}
 	if valVolumeCap, ok := objMap["Volume"]; ok {
@@ -894,9 +948,15 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			var valueForVolume string
 			err = json.Unmarshal(*valVolumeCap, &valueForVolume)
 			if err != nil {
-				return err
+				var valueForVolumeInt int32
+				err = json.Unmarshal(*valVolumeCap, &valueForVolumeInt)
+				if err != nil {
+					return err
+				}
+				this.Volume = string(valueForVolumeInt)
+			} else {
+				this.Volume = valueForVolume
 			}
-			this.Volume = valueForVolume
 		}
 	}
 	

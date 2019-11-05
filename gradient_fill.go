@@ -143,15 +143,21 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "TYPE__GRADIENT"
+	this.Type_ = "Gradient"
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	if valTypeCap, ok := objMap["Type"]; ok {
@@ -159,9 +165,15 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	this.Direction = "FromCorner1"
@@ -170,9 +182,15 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			var valueForDirection string
 			err = json.Unmarshal(*valDirection, &valueForDirection)
 			if err != nil {
-				return err
+				var valueForDirectionInt int32
+				err = json.Unmarshal(*valDirection, &valueForDirectionInt)
+				if err != nil {
+					return err
+				}
+				this.Direction = string(valueForDirectionInt)
+			} else {
+				this.Direction = valueForDirection
 			}
-			this.Direction = valueForDirection
 		}
 	}
 	if valDirectionCap, ok := objMap["Direction"]; ok {
@@ -180,9 +198,15 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			var valueForDirection string
 			err = json.Unmarshal(*valDirectionCap, &valueForDirection)
 			if err != nil {
-				return err
+				var valueForDirectionInt int32
+				err = json.Unmarshal(*valDirectionCap, &valueForDirectionInt)
+				if err != nil {
+					return err
+				}
+				this.Direction = string(valueForDirectionInt)
+			} else {
+				this.Direction = valueForDirection
 			}
-			this.Direction = valueForDirection
 		}
 	}
 	this.Shape = "Linear"
@@ -191,9 +215,15 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			var valueForShape string
 			err = json.Unmarshal(*valShape, &valueForShape)
 			if err != nil {
-				return err
+				var valueForShapeInt int32
+				err = json.Unmarshal(*valShape, &valueForShapeInt)
+				if err != nil {
+					return err
+				}
+				this.Shape = string(valueForShapeInt)
+			} else {
+				this.Shape = valueForShape
 			}
-			this.Shape = valueForShape
 		}
 	}
 	if valShapeCap, ok := objMap["Shape"]; ok {
@@ -201,9 +231,15 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			var valueForShape string
 			err = json.Unmarshal(*valShapeCap, &valueForShape)
 			if err != nil {
-				return err
+				var valueForShapeInt int32
+				err = json.Unmarshal(*valShapeCap, &valueForShapeInt)
+				if err != nil {
+					return err
+				}
+				this.Shape = string(valueForShapeInt)
+			} else {
+				this.Shape = valueForShape
 			}
-			this.Shape = valueForShape
 		}
 	}
 	
@@ -275,9 +311,15 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			var valueForTileFlip string
 			err = json.Unmarshal(*valTileFlip, &valueForTileFlip)
 			if err != nil {
-				return err
+				var valueForTileFlipInt int32
+				err = json.Unmarshal(*valTileFlip, &valueForTileFlipInt)
+				if err != nil {
+					return err
+				}
+				this.TileFlip = string(valueForTileFlipInt)
+			} else {
+				this.TileFlip = valueForTileFlip
 			}
-			this.TileFlip = valueForTileFlip
 		}
 	}
 	if valTileFlipCap, ok := objMap["TileFlip"]; ok {
@@ -285,9 +327,15 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			var valueForTileFlip string
 			err = json.Unmarshal(*valTileFlipCap, &valueForTileFlip)
 			if err != nil {
-				return err
+				var valueForTileFlipInt int32
+				err = json.Unmarshal(*valTileFlipCap, &valueForTileFlipInt)
+				if err != nil {
+					return err
+				}
+				this.TileFlip = string(valueForTileFlipInt)
+			} else {
+				this.TileFlip = valueForTileFlip
 			}
-			this.TileFlip = valueForTileFlip
 		}
 	}
 

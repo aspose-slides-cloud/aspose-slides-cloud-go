@@ -193,21 +193,19 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 	if valModifiedDate, ok := objMap["modifiedDate"]; ok {
 		if valModifiedDate != nil {
 			var valueForModifiedDate time.Time
-			err = json.Unmarshal(*valModifiedDate, &valueForModifiedDate)
-			if err != nil {
-				return err
+			valueForModifiedDate, err = time.Parse("2006-01-02T21:36:33", string(*valModifiedDate))
+			if err == nil {
+				this.ModifiedDate = valueForModifiedDate
 			}
-			this.ModifiedDate = valueForModifiedDate
 		}
 	}
 	if valModifiedDateCap, ok := objMap["ModifiedDate"]; ok {
 		if valModifiedDateCap != nil {
 			var valueForModifiedDate time.Time
-			err = json.Unmarshal(*valModifiedDateCap, &valueForModifiedDate)
-			if err != nil {
-				return err
+			valueForModifiedDate, err = time.Parse("2006-01-02T21:36:33", string(*valModifiedDateCap))
+			if err == nil {
+				this.ModifiedDate = valueForModifiedDate
 			}
-			this.ModifiedDate = valueForModifiedDate
 		}
 	}
 	

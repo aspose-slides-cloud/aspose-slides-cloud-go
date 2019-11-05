@@ -31,7 +31,7 @@ type ScaleType string
 
 // List of ScaleType ScaleType
 const (
-	ScaleType_DO_NOT_SCALE ScaleType = "DoNotScale"
-	ScaleType_ENSURE_FIT ScaleType = "EnsureFit"
-	ScaleType_MAXIMIZE ScaleType = "Maximize"
+	ScaleType_DoNotScale ScaleType = "DoNotScale"
+	ScaleType_EnsureFit ScaleType = "EnsureFit"
+	ScaleType_Maximize ScaleType = "Maximize"
 )

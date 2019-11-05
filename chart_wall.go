@@ -205,9 +205,15 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			var valueForPictureType string
 			err = json.Unmarshal(*valPictureType, &valueForPictureType)
 			if err != nil {
-				return err
+				var valueForPictureTypeInt int32
+				err = json.Unmarshal(*valPictureType, &valueForPictureTypeInt)
+				if err != nil {
+					return err
+				}
+				this.PictureType = string(valueForPictureTypeInt)
+			} else {
+				this.PictureType = valueForPictureType
 			}
-			this.PictureType = valueForPictureType
 		}
 	}
 	if valPictureTypeCap, ok := objMap["PictureType"]; ok {
@@ -215,9 +221,15 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			var valueForPictureType string
 			err = json.Unmarshal(*valPictureTypeCap, &valueForPictureType)
 			if err != nil {
-				return err
+				var valueForPictureTypeInt int32
+				err = json.Unmarshal(*valPictureTypeCap, &valueForPictureTypeInt)
+				if err != nil {
+					return err
+				}
+				this.PictureType = string(valueForPictureTypeInt)
+			} else {
+				this.PictureType = valueForPictureType
 			}
-			this.PictureType = valueForPictureType
 		}
 	}
 

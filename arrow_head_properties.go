@@ -93,9 +93,15 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 			var valueForLength string
 			err = json.Unmarshal(*valLength, &valueForLength)
 			if err != nil {
-				return err
+				var valueForLengthInt int32
+				err = json.Unmarshal(*valLength, &valueForLengthInt)
+				if err != nil {
+					return err
+				}
+				this.Length = string(valueForLengthInt)
+			} else {
+				this.Length = valueForLength
 			}
-			this.Length = valueForLength
 		}
 	}
 	if valLengthCap, ok := objMap["Length"]; ok {
@@ -103,9 +109,15 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 			var valueForLength string
 			err = json.Unmarshal(*valLengthCap, &valueForLength)
 			if err != nil {
-				return err
+				var valueForLengthInt int32
+				err = json.Unmarshal(*valLengthCap, &valueForLengthInt)
+				if err != nil {
+					return err
+				}
+				this.Length = string(valueForLengthInt)
+			} else {
+				this.Length = valueForLength
 			}
-			this.Length = valueForLength
 		}
 	}
 	this.Style = "None"
@@ -114,9 +126,15 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 			var valueForStyle string
 			err = json.Unmarshal(*valStyle, &valueForStyle)
 			if err != nil {
-				return err
+				var valueForStyleInt int32
+				err = json.Unmarshal(*valStyle, &valueForStyleInt)
+				if err != nil {
+					return err
+				}
+				this.Style = string(valueForStyleInt)
+			} else {
+				this.Style = valueForStyle
 			}
-			this.Style = valueForStyle
 		}
 	}
 	if valStyleCap, ok := objMap["Style"]; ok {
@@ -124,9 +142,15 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 			var valueForStyle string
 			err = json.Unmarshal(*valStyleCap, &valueForStyle)
 			if err != nil {
-				return err
+				var valueForStyleInt int32
+				err = json.Unmarshal(*valStyleCap, &valueForStyleInt)
+				if err != nil {
+					return err
+				}
+				this.Style = string(valueForStyleInt)
+			} else {
+				this.Style = valueForStyle
 			}
-			this.Style = valueForStyle
 		}
 	}
 	this.Width = "Narrow"
@@ -135,9 +159,15 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 			var valueForWidth string
 			err = json.Unmarshal(*valWidth, &valueForWidth)
 			if err != nil {
-				return err
+				var valueForWidthInt int32
+				err = json.Unmarshal(*valWidth, &valueForWidthInt)
+				if err != nil {
+					return err
+				}
+				this.Width = string(valueForWidthInt)
+			} else {
+				this.Width = valueForWidth
 			}
-			this.Width = valueForWidth
 		}
 	}
 	if valWidthCap, ok := objMap["Width"]; ok {
@@ -145,9 +175,15 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 			var valueForWidth string
 			err = json.Unmarshal(*valWidthCap, &valueForWidth)
 			if err != nil {
-				return err
+				var valueForWidthInt int32
+				err = json.Unmarshal(*valWidthCap, &valueForWidthInt)
+				if err != nil {
+					return err
+				}
+				this.Width = string(valueForWidthInt)
+			} else {
+				this.Width = valueForWidth
 			}
-			this.Width = valueForWidth
 		}
 	}
 

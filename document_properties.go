@@ -56,7 +56,7 @@ type DocumentProperties struct {
 	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Document property list.
-	List []DocumentProperty `json:"List,omitempty"`
+	List []DocumentProperty `json:"List"`
 }
 
 func (this DocumentProperties) getSelfUri() IResourceUri {

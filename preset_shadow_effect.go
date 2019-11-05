@@ -149,9 +149,15 @@ func (this *PresetShadowEffect) UnmarshalJSON(b []byte) error {
 			var valueForPreset string
 			err = json.Unmarshal(*valPreset, &valueForPreset)
 			if err != nil {
-				return err
+				var valueForPresetInt int32
+				err = json.Unmarshal(*valPreset, &valueForPresetInt)
+				if err != nil {
+					return err
+				}
+				this.Preset = string(valueForPresetInt)
+			} else {
+				this.Preset = valueForPreset
 			}
-			this.Preset = valueForPreset
 		}
 	}
 	if valPresetCap, ok := objMap["Preset"]; ok {
@@ -159,9 +165,15 @@ func (this *PresetShadowEffect) UnmarshalJSON(b []byte) error {
 			var valueForPreset string
 			err = json.Unmarshal(*valPresetCap, &valueForPreset)
 			if err != nil {
-				return err
+				var valueForPresetInt int32
+				err = json.Unmarshal(*valPresetCap, &valueForPresetInt)
+				if err != nil {
+					return err
+				}
+				this.Preset = string(valueForPresetInt)
+			} else {
+				this.Preset = valueForPreset
 			}
-			this.Preset = valueForPreset
 		}
 	}
 	

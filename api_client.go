@@ -190,10 +190,10 @@ func (c *APIClient) prepareRequest (
 		contentType := headerParams["Content-Type"]
 		if contentType == "" {
 			contentType = detectContentType(postBody)
-			headerParams["Content-Type"] = contentType
 		}
 
-		body, err = setBody(postBody, contentType)
+		body, contentType, err = setBody(postBody, contentType)
+		headerParams["Content-Type"] = contentType
 		if err != nil {
 			return nil, err
 		}
@@ -296,7 +296,9 @@ func (c *APIClient) prepareRequestHeader(localVarRequest *http.Request, headerPa
 	if c.cfg.Timeout > 0 {
 		localVarRequest.Header.Add("x-aspose-timeout", strconv.FormatInt(int64(c.cfg.Timeout), 10))
 	}
-
+	for headerKey, headerValue := range c.cfg.CustomHeaders {
+		localVarRequest.Header.Add(headerKey, headerValue)
+	}
 	if (len(c.cfg.OAuthToken) == 0) {
 		oauthRequest, err := http.NewRequest(
 			"POST",
@@ -348,12 +350,12 @@ func reportError(format string, a ...interface{}) (error) {
 }
 
 // Set request body from an interface{}
-func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err error) {
+func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, resultContentType string, err error) {
 	if bodyBuf == nil {
 		bodyBuf = &bytes.Buffer{}
 	}
         if reflect.ValueOf(body).Kind() == reflect.Ptr && reflect.ValueOf(body).Elem().IsNil() {
-		return bodyBuf, nil
+		return bodyBuf, contentType, nil
 	}
 
 	if reader, ok := body.(io.Reader); ok {
@@ -364,21 +366,20 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 		_, err = bodyBuf.Write(*b)
 	} else if s, ok := body.(string); ok {
 		_, err = bodyBuf.WriteString(s)
-	} else if jsonCheck.MatchString(contentType) {
-		err = json.NewEncoder(bodyBuf).Encode(body)
 	} else if xmlCheck.MatchString(contentType) {
 		xml.NewEncoder(bodyBuf).Encode(body)
+	} else {
+		err = json.NewEncoder(bodyBuf).Encode(body)
+		if err == nil {
+			contentType = "application/json"
+		}
 	}
 
 	if err != nil {
-		return nil, err
+		return nil, contentType, err
 	}
 
-	if bodyBuf.Len() == 0 {
-		err = fmt.Errorf("Invalid body type %s\n", contentType)
-		return nil, err
-	}
-	return bodyBuf, nil
+	return bodyBuf, contentType, nil
 }
 
 // detectContentType method is used to figure out `Request.Body` content type for request header

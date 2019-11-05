@@ -317,9 +317,15 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	if valTypeCap, ok := objMap["Type"]; ok {
@@ -327,9 +333,15 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	
@@ -674,9 +686,15 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			var valueForDataPointType string
 			err = json.Unmarshal(*valDataPointType, &valueForDataPointType)
 			if err != nil {
-				return err
+				var valueForDataPointTypeInt int32
+				err = json.Unmarshal(*valDataPointType, &valueForDataPointTypeInt)
+				if err != nil {
+					return err
+				}
+				this.DataPointType = string(valueForDataPointTypeInt)
+			} else {
+				this.DataPointType = valueForDataPointType
 			}
-			this.DataPointType = valueForDataPointType
 		}
 	}
 	if valDataPointTypeCap, ok := objMap["DataPointType"]; ok {
@@ -684,9 +702,15 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			var valueForDataPointType string
 			err = json.Unmarshal(*valDataPointTypeCap, &valueForDataPointType)
 			if err != nil {
-				return err
+				var valueForDataPointTypeInt int32
+				err = json.Unmarshal(*valDataPointTypeCap, &valueForDataPointTypeInt)
+				if err != nil {
+					return err
+				}
+				this.DataPointType = string(valueForDataPointTypeInt)
+			} else {
+				this.DataPointType = valueForDataPointType
 			}
-			this.DataPointType = valueForDataPointType
 		}
 	}
 	

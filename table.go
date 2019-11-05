@@ -738,15 +738,21 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			this.LineFormat = valueForLineFormat
 		}
 	}
-	this.Type_ = "TYPE__TABLE"
+	this.Type_ = "Table"
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	if valTypeCap, ok := objMap["Type"]; ok {
@@ -754,20 +760,32 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
-	this.ShapeType = "SHAPE_TYPE_TABLE"
+	this.ShapeType = "Table"
 	if valShapeType, ok := objMap["shapeType"]; ok {
 		if valShapeType != nil {
 			var valueForShapeType string
 			err = json.Unmarshal(*valShapeType, &valueForShapeType)
 			if err != nil {
-				return err
+				var valueForShapeTypeInt int32
+				err = json.Unmarshal(*valShapeType, &valueForShapeTypeInt)
+				if err != nil {
+					return err
+				}
+				this.ShapeType = string(valueForShapeTypeInt)
+			} else {
+				this.ShapeType = valueForShapeType
 			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 	if valShapeTypeCap, ok := objMap["ShapeType"]; ok {
@@ -775,9 +793,15 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			var valueForShapeType string
 			err = json.Unmarshal(*valShapeTypeCap, &valueForShapeType)
 			if err != nil {
-				return err
+				var valueForShapeTypeInt int32
+				err = json.Unmarshal(*valShapeTypeCap, &valueForShapeTypeInt)
+				if err != nil {
+					return err
+				}
+				this.ShapeType = string(valueForShapeTypeInt)
+			} else {
+				this.ShapeType = valueForShapeType
 			}
-			this.ShapeType = valueForShapeType
 		}
 	}
 	this.Style = "None"
@@ -786,9 +810,15 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			var valueForStyle string
 			err = json.Unmarshal(*valStyle, &valueForStyle)
 			if err != nil {
-				return err
+				var valueForStyleInt int32
+				err = json.Unmarshal(*valStyle, &valueForStyleInt)
+				if err != nil {
+					return err
+				}
+				this.Style = string(valueForStyleInt)
+			} else {
+				this.Style = valueForStyle
 			}
-			this.Style = valueForStyle
 		}
 	}
 	if valStyleCap, ok := objMap["Style"]; ok {
@@ -796,9 +826,15 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			var valueForStyle string
 			err = json.Unmarshal(*valStyleCap, &valueForStyle)
 			if err != nil {
-				return err
+				var valueForStyleInt int32
+				err = json.Unmarshal(*valStyleCap, &valueForStyleInt)
+				if err != nil {
+					return err
+				}
+				this.Style = string(valueForStyleInt)
+			} else {
+				this.Style = valueForStyle
 			}
-			this.Style = valueForStyle
 		}
 	}
 	

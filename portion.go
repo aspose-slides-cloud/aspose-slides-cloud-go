@@ -492,9 +492,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForFontBold string
 			err = json.Unmarshal(*valFontBold, &valueForFontBold)
 			if err != nil {
-				return err
+				var valueForFontBoldInt int32
+				err = json.Unmarshal(*valFontBold, &valueForFontBoldInt)
+				if err != nil {
+					return err
+				}
+				this.FontBold = string(valueForFontBoldInt)
+			} else {
+				this.FontBold = valueForFontBold
 			}
-			this.FontBold = valueForFontBold
 		}
 	}
 	if valFontBoldCap, ok := objMap["FontBold"]; ok {
@@ -502,9 +508,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForFontBold string
 			err = json.Unmarshal(*valFontBoldCap, &valueForFontBold)
 			if err != nil {
-				return err
+				var valueForFontBoldInt int32
+				err = json.Unmarshal(*valFontBoldCap, &valueForFontBoldInt)
+				if err != nil {
+					return err
+				}
+				this.FontBold = string(valueForFontBoldInt)
+			} else {
+				this.FontBold = valueForFontBold
 			}
-			this.FontBold = valueForFontBold
 		}
 	}
 	this.FontItalic = ""
@@ -513,9 +525,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForFontItalic string
 			err = json.Unmarshal(*valFontItalic, &valueForFontItalic)
 			if err != nil {
-				return err
+				var valueForFontItalicInt int32
+				err = json.Unmarshal(*valFontItalic, &valueForFontItalicInt)
+				if err != nil {
+					return err
+				}
+				this.FontItalic = string(valueForFontItalicInt)
+			} else {
+				this.FontItalic = valueForFontItalic
 			}
-			this.FontItalic = valueForFontItalic
 		}
 	}
 	if valFontItalicCap, ok := objMap["FontItalic"]; ok {
@@ -523,9 +541,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForFontItalic string
 			err = json.Unmarshal(*valFontItalicCap, &valueForFontItalic)
 			if err != nil {
-				return err
+				var valueForFontItalicInt int32
+				err = json.Unmarshal(*valFontItalicCap, &valueForFontItalicInt)
+				if err != nil {
+					return err
+				}
+				this.FontItalic = string(valueForFontItalicInt)
+			} else {
+				this.FontItalic = valueForFontItalic
 			}
-			this.FontItalic = valueForFontItalic
 		}
 	}
 	this.FontUnderline = ""
@@ -534,9 +558,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForFontUnderline string
 			err = json.Unmarshal(*valFontUnderline, &valueForFontUnderline)
 			if err != nil {
-				return err
+				var valueForFontUnderlineInt int32
+				err = json.Unmarshal(*valFontUnderline, &valueForFontUnderlineInt)
+				if err != nil {
+					return err
+				}
+				this.FontUnderline = string(valueForFontUnderlineInt)
+			} else {
+				this.FontUnderline = valueForFontUnderline
 			}
-			this.FontUnderline = valueForFontUnderline
 		}
 	}
 	if valFontUnderlineCap, ok := objMap["FontUnderline"]; ok {
@@ -544,9 +574,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForFontUnderline string
 			err = json.Unmarshal(*valFontUnderlineCap, &valueForFontUnderline)
 			if err != nil {
-				return err
+				var valueForFontUnderlineInt int32
+				err = json.Unmarshal(*valFontUnderlineCap, &valueForFontUnderlineInt)
+				if err != nil {
+					return err
+				}
+				this.FontUnderline = string(valueForFontUnderlineInt)
+			} else {
+				this.FontUnderline = valueForFontUnderline
 			}
-			this.FontUnderline = valueForFontUnderline
 		}
 	}
 	this.StrikethroughType = ""
@@ -555,9 +591,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForStrikethroughType string
 			err = json.Unmarshal(*valStrikethroughType, &valueForStrikethroughType)
 			if err != nil {
-				return err
+				var valueForStrikethroughTypeInt int32
+				err = json.Unmarshal(*valStrikethroughType, &valueForStrikethroughTypeInt)
+				if err != nil {
+					return err
+				}
+				this.StrikethroughType = string(valueForStrikethroughTypeInt)
+			} else {
+				this.StrikethroughType = valueForStrikethroughType
 			}
-			this.StrikethroughType = valueForStrikethroughType
 		}
 	}
 	if valStrikethroughTypeCap, ok := objMap["StrikethroughType"]; ok {
@@ -565,9 +607,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForStrikethroughType string
 			err = json.Unmarshal(*valStrikethroughTypeCap, &valueForStrikethroughType)
 			if err != nil {
-				return err
+				var valueForStrikethroughTypeInt int32
+				err = json.Unmarshal(*valStrikethroughTypeCap, &valueForStrikethroughTypeInt)
+				if err != nil {
+					return err
+				}
+				this.StrikethroughType = string(valueForStrikethroughTypeInt)
+			} else {
+				this.StrikethroughType = valueForStrikethroughType
 			}
-			this.StrikethroughType = valueForStrikethroughType
 		}
 	}
 	this.TextCapType = ""
@@ -576,9 +624,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForTextCapType string
 			err = json.Unmarshal(*valTextCapType, &valueForTextCapType)
 			if err != nil {
-				return err
+				var valueForTextCapTypeInt int32
+				err = json.Unmarshal(*valTextCapType, &valueForTextCapTypeInt)
+				if err != nil {
+					return err
+				}
+				this.TextCapType = string(valueForTextCapTypeInt)
+			} else {
+				this.TextCapType = valueForTextCapType
 			}
-			this.TextCapType = valueForTextCapType
 		}
 	}
 	if valTextCapTypeCap, ok := objMap["TextCapType"]; ok {
@@ -586,9 +640,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForTextCapType string
 			err = json.Unmarshal(*valTextCapTypeCap, &valueForTextCapType)
 			if err != nil {
-				return err
+				var valueForTextCapTypeInt int32
+				err = json.Unmarshal(*valTextCapTypeCap, &valueForTextCapTypeInt)
+				if err != nil {
+					return err
+				}
+				this.TextCapType = string(valueForTextCapTypeInt)
+			} else {
+				this.TextCapType = valueForTextCapType
 			}
-			this.TextCapType = valueForTextCapType
 		}
 	}
 	
@@ -702,9 +762,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForNormaliseHeight string
 			err = json.Unmarshal(*valNormaliseHeight, &valueForNormaliseHeight)
 			if err != nil {
-				return err
+				var valueForNormaliseHeightInt int32
+				err = json.Unmarshal(*valNormaliseHeight, &valueForNormaliseHeightInt)
+				if err != nil {
+					return err
+				}
+				this.NormaliseHeight = string(valueForNormaliseHeightInt)
+			} else {
+				this.NormaliseHeight = valueForNormaliseHeight
 			}
-			this.NormaliseHeight = valueForNormaliseHeight
 		}
 	}
 	if valNormaliseHeightCap, ok := objMap["NormaliseHeight"]; ok {
@@ -712,9 +778,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForNormaliseHeight string
 			err = json.Unmarshal(*valNormaliseHeightCap, &valueForNormaliseHeight)
 			if err != nil {
-				return err
+				var valueForNormaliseHeightInt int32
+				err = json.Unmarshal(*valNormaliseHeightCap, &valueForNormaliseHeightInt)
+				if err != nil {
+					return err
+				}
+				this.NormaliseHeight = string(valueForNormaliseHeightInt)
+			} else {
+				this.NormaliseHeight = valueForNormaliseHeight
 			}
-			this.NormaliseHeight = valueForNormaliseHeight
 		}
 	}
 	this.ProofDisabled = ""
@@ -723,9 +795,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForProofDisabled string
 			err = json.Unmarshal(*valProofDisabled, &valueForProofDisabled)
 			if err != nil {
-				return err
+				var valueForProofDisabledInt int32
+				err = json.Unmarshal(*valProofDisabled, &valueForProofDisabledInt)
+				if err != nil {
+					return err
+				}
+				this.ProofDisabled = string(valueForProofDisabledInt)
+			} else {
+				this.ProofDisabled = valueForProofDisabled
 			}
-			this.ProofDisabled = valueForProofDisabled
 		}
 	}
 	if valProofDisabledCap, ok := objMap["ProofDisabled"]; ok {
@@ -733,9 +811,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForProofDisabled string
 			err = json.Unmarshal(*valProofDisabledCap, &valueForProofDisabled)
 			if err != nil {
-				return err
+				var valueForProofDisabledInt int32
+				err = json.Unmarshal(*valProofDisabledCap, &valueForProofDisabledInt)
+				if err != nil {
+					return err
+				}
+				this.ProofDisabled = string(valueForProofDisabledInt)
+			} else {
+				this.ProofDisabled = valueForProofDisabled
 			}
-			this.ProofDisabled = valueForProofDisabled
 		}
 	}
 	
@@ -786,9 +870,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForKumimoji string
 			err = json.Unmarshal(*valKumimoji, &valueForKumimoji)
 			if err != nil {
-				return err
+				var valueForKumimojiInt int32
+				err = json.Unmarshal(*valKumimoji, &valueForKumimojiInt)
+				if err != nil {
+					return err
+				}
+				this.Kumimoji = string(valueForKumimojiInt)
+			} else {
+				this.Kumimoji = valueForKumimoji
 			}
-			this.Kumimoji = valueForKumimoji
 		}
 	}
 	if valKumimojiCap, ok := objMap["Kumimoji"]; ok {
@@ -796,9 +886,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForKumimoji string
 			err = json.Unmarshal(*valKumimojiCap, &valueForKumimoji)
 			if err != nil {
-				return err
+				var valueForKumimojiInt int32
+				err = json.Unmarshal(*valKumimojiCap, &valueForKumimojiInt)
+				if err != nil {
+					return err
+				}
+				this.Kumimoji = string(valueForKumimojiInt)
+			} else {
+				this.Kumimoji = valueForKumimoji
 			}
-			this.Kumimoji = valueForKumimoji
 		}
 	}
 	
@@ -849,9 +945,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForIsHardUnderlineFill string
 			err = json.Unmarshal(*valIsHardUnderlineFill, &valueForIsHardUnderlineFill)
 			if err != nil {
-				return err
+				var valueForIsHardUnderlineFillInt int32
+				err = json.Unmarshal(*valIsHardUnderlineFill, &valueForIsHardUnderlineFillInt)
+				if err != nil {
+					return err
+				}
+				this.IsHardUnderlineFill = string(valueForIsHardUnderlineFillInt)
+			} else {
+				this.IsHardUnderlineFill = valueForIsHardUnderlineFill
 			}
-			this.IsHardUnderlineFill = valueForIsHardUnderlineFill
 		}
 	}
 	if valIsHardUnderlineFillCap, ok := objMap["IsHardUnderlineFill"]; ok {
@@ -859,9 +961,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForIsHardUnderlineFill string
 			err = json.Unmarshal(*valIsHardUnderlineFillCap, &valueForIsHardUnderlineFill)
 			if err != nil {
-				return err
+				var valueForIsHardUnderlineFillInt int32
+				err = json.Unmarshal(*valIsHardUnderlineFillCap, &valueForIsHardUnderlineFillInt)
+				if err != nil {
+					return err
+				}
+				this.IsHardUnderlineFill = string(valueForIsHardUnderlineFillInt)
+			} else {
+				this.IsHardUnderlineFill = valueForIsHardUnderlineFill
 			}
-			this.IsHardUnderlineFill = valueForIsHardUnderlineFill
 		}
 	}
 	this.IsHardUnderlineLine = ""
@@ -870,9 +978,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForIsHardUnderlineLine string
 			err = json.Unmarshal(*valIsHardUnderlineLine, &valueForIsHardUnderlineLine)
 			if err != nil {
-				return err
+				var valueForIsHardUnderlineLineInt int32
+				err = json.Unmarshal(*valIsHardUnderlineLine, &valueForIsHardUnderlineLineInt)
+				if err != nil {
+					return err
+				}
+				this.IsHardUnderlineLine = string(valueForIsHardUnderlineLineInt)
+			} else {
+				this.IsHardUnderlineLine = valueForIsHardUnderlineLine
 			}
-			this.IsHardUnderlineLine = valueForIsHardUnderlineLine
 		}
 	}
 	if valIsHardUnderlineLineCap, ok := objMap["IsHardUnderlineLine"]; ok {
@@ -880,9 +994,15 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			var valueForIsHardUnderlineLine string
 			err = json.Unmarshal(*valIsHardUnderlineLineCap, &valueForIsHardUnderlineLine)
 			if err != nil {
-				return err
+				var valueForIsHardUnderlineLineInt int32
+				err = json.Unmarshal(*valIsHardUnderlineLineCap, &valueForIsHardUnderlineLineInt)
+				if err != nil {
+					return err
+				}
+				this.IsHardUnderlineLine = string(valueForIsHardUnderlineLineInt)
+			} else {
+				this.IsHardUnderlineLine = valueForIsHardUnderlineLine
 			}
-			this.IsHardUnderlineLine = valueForIsHardUnderlineLine
 		}
 	}
 	

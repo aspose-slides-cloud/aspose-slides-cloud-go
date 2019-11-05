@@ -31,9 +31,9 @@ type ImageExportFormat string
 
 // List of ImageExportFormat ImageExportFormat
 const (
-	ImageExportFormat_JPEG ImageExportFormat = "Jpeg"
-	ImageExportFormat_PNG ImageExportFormat = "Png"
-	ImageExportFormat_GIF ImageExportFormat = "Gif"
-	ImageExportFormat_BMP ImageExportFormat = "Bmp"
-	ImageExportFormat_TIFF ImageExportFormat = "Tiff"
+	ImageExportFormat_Jpeg ImageExportFormat = "Jpeg"
+	ImageExportFormat_Png ImageExportFormat = "Png"
+	ImageExportFormat_Gif ImageExportFormat = "Gif"
+	ImageExportFormat_Bmp ImageExportFormat = "Bmp"
+	ImageExportFormat_Tiff ImageExportFormat = "Tiff"
 )

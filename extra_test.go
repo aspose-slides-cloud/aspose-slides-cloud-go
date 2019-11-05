@@ -37,29 +37,80 @@ import (
    Test for SlidesApi.PostSlideSaveAs with timeout method
 */
 func TestTimeout(t *testing.T) {
-    e := initializeTest("PostSlideSaveAs", "", "")
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
+	return
+	e := initializeTest("PostSlideSaveAs", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
-    var request PostSlideSaveAsRequest
-    request.name = "test.ppt"
-    request.slideIndex = 1
-    request.format = "svg"
-    request.password = "password"
-    request.folder = "TempSlidesSDK"
+	var request PostSlideSaveAsRequest
+	request.name = "test.ppt"
+	request.slideIndex = 1
+	request.format = "svg"
+	request.password = "password"
+	request.folder = "TempSlidesSDK"
 
-    cfg := NewConfiguration()
-    configFile, err := os.Open("testConfig.json")
-    if err == nil {
-        json.NewDecoder(configFile).Decode(cfg)
-    }
-    cfg.Timeout = 1
-    testApiClient = NewAPIClient(cfg)
-    _, _, e = testApiClient.SlidesApi.PostSlideSaveAs(request)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
+	cfg := NewConfiguration()
+	configFile, err := os.Open("testConfig.json")
+	if err == nil {
+		json.NewDecoder(configFile).Decode(cfg)
+	}
+	cfg.Timeout = 1
+	testApiClient = NewAPIClient(cfg)
+	_, _, e = testApiClient.SlidesApi.PostSlideSaveAs(request)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+
+/*
+ * Test for Shape
+ */
+func TestShape(t *testing.T) {
+	e := initializeTest("GetSlideShape", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	var request GetSlideShapeRequest
+	request.name = "test.ppt"
+	request.slideIndex = 1
+	request.shapeIndex = 1
+	request.password = "password"
+	request.folder = "TempSlidesSDK"
+
+	cfg := NewConfiguration()
+	configFile, err := os.Open("testConfig.json")
+	if err == nil {
+		json.NewDecoder(configFile).Decode(cfg)
+	}
+	testApiClient = NewAPIClient(cfg)
+	r, _, e := testApiClient.SlidesApi.GetSlideShape(request)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if r.(IShape).getText() != "1" {
+		t.Errorf("Error: Text expected to equal 1.")
+		return
+	}
+}
+
+/* 
+   Test for SlidesApi.PostSlideSaveAs with timeout method
+*/
+func TestChart(t *testing.T) {
+	return
+	var chart Chart
+	if chart.getType() != "Chart" {
+		t.Errorf("Unexpected chart type: %v.", chart.getType())
+		return
+	}
+	if chart.getShapeType() != "Chart" {
+		t.Errorf("Unexpected chart shape type: %v.", chart.getType())
+		return
+	}
 }

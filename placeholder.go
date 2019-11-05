@@ -212,9 +212,15 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			var valueForOrientation string
 			err = json.Unmarshal(*valOrientation, &valueForOrientation)
 			if err != nil {
-				return err
+				var valueForOrientationInt int32
+				err = json.Unmarshal(*valOrientation, &valueForOrientationInt)
+				if err != nil {
+					return err
+				}
+				this.Orientation = string(valueForOrientationInt)
+			} else {
+				this.Orientation = valueForOrientation
 			}
-			this.Orientation = valueForOrientation
 		}
 	}
 	if valOrientationCap, ok := objMap["Orientation"]; ok {
@@ -222,9 +228,15 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			var valueForOrientation string
 			err = json.Unmarshal(*valOrientationCap, &valueForOrientation)
 			if err != nil {
-				return err
+				var valueForOrientationInt int32
+				err = json.Unmarshal(*valOrientationCap, &valueForOrientationInt)
+				if err != nil {
+					return err
+				}
+				this.Orientation = string(valueForOrientationInt)
+			} else {
+				this.Orientation = valueForOrientation
 			}
-			this.Orientation = valueForOrientation
 		}
 	}
 	this.Size = "Full"
@@ -233,9 +245,15 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			var valueForSize string
 			err = json.Unmarshal(*valSize, &valueForSize)
 			if err != nil {
-				return err
+				var valueForSizeInt int32
+				err = json.Unmarshal(*valSize, &valueForSizeInt)
+				if err != nil {
+					return err
+				}
+				this.Size = string(valueForSizeInt)
+			} else {
+				this.Size = valueForSize
 			}
-			this.Size = valueForSize
 		}
 	}
 	if valSizeCap, ok := objMap["Size"]; ok {
@@ -243,9 +261,15 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			var valueForSize string
 			err = json.Unmarshal(*valSizeCap, &valueForSize)
 			if err != nil {
-				return err
+				var valueForSizeInt int32
+				err = json.Unmarshal(*valSizeCap, &valueForSizeInt)
+				if err != nil {
+					return err
+				}
+				this.Size = string(valueForSizeInt)
+			} else {
+				this.Size = valueForSize
 			}
-			this.Size = valueForSize
 		}
 	}
 	this.Type_ = "Title"
@@ -254,9 +278,15 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	if valTypeCap, ok := objMap["Type"]; ok {
@@ -264,9 +294,15 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			var valueForType string
 			err = json.Unmarshal(*valTypeCap, &valueForType)
 			if err != nil {
-				return err
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
-			this.Type_ = valueForType
 		}
 	}
 	

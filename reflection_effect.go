@@ -499,9 +499,15 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			var valueForRectangleAlign string
 			err = json.Unmarshal(*valRectangleAlign, &valueForRectangleAlign)
 			if err != nil {
-				return err
+				var valueForRectangleAlignInt int32
+				err = json.Unmarshal(*valRectangleAlign, &valueForRectangleAlignInt)
+				if err != nil {
+					return err
+				}
+				this.RectangleAlign = string(valueForRectangleAlignInt)
+			} else {
+				this.RectangleAlign = valueForRectangleAlign
 			}
-			this.RectangleAlign = valueForRectangleAlign
 		}
 	}
 	if valRectangleAlignCap, ok := objMap["RectangleAlign"]; ok {
@@ -509,9 +515,15 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 			var valueForRectangleAlign string
 			err = json.Unmarshal(*valRectangleAlignCap, &valueForRectangleAlign)
 			if err != nil {
-				return err
+				var valueForRectangleAlignInt int32
+				err = json.Unmarshal(*valRectangleAlignCap, &valueForRectangleAlignInt)
+				if err != nil {
+					return err
+				}
+				this.RectangleAlign = string(valueForRectangleAlignInt)
+			} else {
+				this.RectangleAlign = valueForRectangleAlign
 			}
-			this.RectangleAlign = valueForRectangleAlign
 		}
 	}
 	

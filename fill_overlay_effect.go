@@ -65,9 +65,15 @@ func (this *FillOverlayEffect) UnmarshalJSON(b []byte) error {
 			var valueForBlend string
 			err = json.Unmarshal(*valBlend, &valueForBlend)
 			if err != nil {
-				return err
+				var valueForBlendInt int32
+				err = json.Unmarshal(*valBlend, &valueForBlendInt)
+				if err != nil {
+					return err
+				}
+				this.Blend = string(valueForBlendInt)
+			} else {
+				this.Blend = valueForBlend
 			}
-			this.Blend = valueForBlend
 		}
 	}
 	if valBlendCap, ok := objMap["Blend"]; ok {
@@ -75,9 +81,15 @@ func (this *FillOverlayEffect) UnmarshalJSON(b []byte) error {
 			var valueForBlend string
 			err = json.Unmarshal(*valBlendCap, &valueForBlend)
 			if err != nil {
-				return err
+				var valueForBlendInt int32
+				err = json.Unmarshal(*valBlendCap, &valueForBlendInt)
+				if err != nil {
+					return err
+				}
+				this.Blend = string(valueForBlendInt)
+			} else {
+				this.Blend = valueForBlend
 			}
-			this.Blend = valueForBlend
 		}
 	}
 
