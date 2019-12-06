@@ -41,8 +41,6 @@ The example code below converts a PowerPoint document to PDF format using aspose
 	fmt.Printf("My PDF was saved to %s", r.Name())
 ```
 
-You can check more [Examples](Examples) of using the SDK.
-
 ## Contact Us
 
 Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.aspose.cloud/c/slides).
