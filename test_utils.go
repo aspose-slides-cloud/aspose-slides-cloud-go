@@ -51,39 +51,38 @@ var (
 
 func initializeTest(functionName string, invalidParamName string, invalidParamValue interface{}) error {
 	if !isInitialized {
+		version := "0"
 		c := getTestApiClient()
 		var request DownloadFileRequest
-		request.path = "TempTests/version.txt"
+		request.Path = "TempTests/version.txt"
 		f, _, e := c.SlidesApi.DownloadFile(request)
-		if e != nil {
-			return e
+		if e == nil {
+			data, e := ioutil.ReadFile(f.Name())
+			if e == nil {
+				version = string(data)
+			}
 		}
-                data, e := ioutil.ReadFile(f.Name())
-		if e != nil {
-			return e
-		}
-                version := string(data)
-                if version != expectedTestDataVersion {
+		if version != expectedTestDataVersion {
 			files, e := ioutil.ReadDir("TestData")
 			if e != nil {
 				return e
 			}
 			for _, file := range files {
 				var request UploadFileRequest
-				request.path = "TempTests/" + file.Name()
+				request.Path = "TempTests/" + file.Name()
 				bytes, e := ioutil.ReadFile("TestData/" + file.Name())
 				if e != nil {
 					return e
 				}
-				request.file = bytes
+				request.File = bytes
 				_, _, e = c.SlidesApi.UploadFile(request)
 				if e != nil {
 					return e
 				}
 			}
 			var request UploadFileRequest
-			request.path = "TempTests/version.txt"
-			request.file = []byte(expectedTestDataVersion)
+			request.Path = "TempTests/version.txt"
+			request.File = []byte(expectedTestDataVersion)
 			_, _, e = c.SlidesApi.UploadFile(request)
 			if e != nil {
 				return e
@@ -108,8 +107,8 @@ func initializeTest(functionName string, invalidParamName string, invalidParamVa
 		if rule.Action == "Put" {
 			c := getTestApiClient()
 			var request CopyFileRequest
-			request.srcPath = "TempTests/" + rule.ActualName
-			request.destPath = path
+			request.SrcPath = "TempTests/" + rule.ActualName
+			request.DestPath = path
 			_, e := c.SlidesApi.CopyFile(request)
 			if e != nil {
 				return e
@@ -117,7 +116,7 @@ func initializeTest(functionName string, invalidParamName string, invalidParamVa
 		} else if rule.Action == "Delete" {
 			c := getTestApiClient()
 			var request DeleteFileRequest
-			request.path = path
+			request.Path = path
 			_, e := c.SlidesApi.DeleteFile(request)
 			if e != nil {
 				return e

@@ -34,9 +34,9 @@ The example code below converts a PowerPoint document to PDF format using aspose
 	cfg.AppKey = "MyAppKey"
        	apiClient := asposeslidescloud.NewAPIClient(cfg)
 	var request asposeslidescloud.PostSlidesConvertRequest
-	request.format = "pdf"
+	request.Format = "pdf"
         file, _ := ioutil.ReadFile("MyPresentation.pptx")
-	request.document = file
+	request.Document = file
 	r, _, _ := apiClient.SlidesApi.PostSlidesConvert(request)
 	fmt.Printf("My PDF was saved to %s", r.Name())
 ```

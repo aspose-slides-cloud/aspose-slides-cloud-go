@@ -45,11 +45,11 @@ func TestTimeout(t *testing.T) {
 	}
 
 	var request PostSlideSaveAsRequest
-	request.name = "test.ppt"
-	request.slideIndex = 1
-	request.format = "svg"
-	request.password = "password"
-	request.folder = "TempSlidesSDK"
+	request.Name = "test.ppt"
+	request.SlideIndex = 1
+	request.Format = "svg"
+	request.Password = "password"
+	request.Folder = "TempSlidesSDK"
 
 	cfg := NewConfiguration()
 	configFile, err := os.Open("testConfig.json")
@@ -76,11 +76,11 @@ func TestShape(t *testing.T) {
 	}
 
 	var request GetSlideShapeRequest
-	request.name = "test.ppt"
-	request.slideIndex = 1
-	request.shapeIndex = 1
-	request.password = "password"
-	request.folder = "TempSlidesSDK"
+	request.Name = "test.ppt"
+	request.SlideIndex = 1
+	request.ShapeIndex = 1
+	request.Password = "password"
+	request.Folder = "TempSlidesSDK"
 
 	cfg := NewConfiguration()
 	configFile, err := os.Open("testConfig.json")
