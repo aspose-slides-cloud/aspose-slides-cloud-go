@@ -39,8 +39,8 @@ type IPlaceholder interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Index.
 	getIndex() int32
@@ -69,7 +69,7 @@ type Placeholder struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Index.
 	Index int32 `json:"Index"`
@@ -87,53 +87,53 @@ type Placeholder struct {
 	Shape IResourceUriElement `json:"Shape,omitempty"`
 }
 
-func (this Placeholder) getSelfUri() IResourceUri {
+func (this *Placeholder) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Placeholder) setSelfUri(newValue IResourceUri) {
+func (this *Placeholder) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Placeholder) getAlternateLinks() []ResourceUri {
+func (this *Placeholder) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Placeholder) setAlternateLinks(newValue []ResourceUri) {
+func (this *Placeholder) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Placeholder) getIndex() int32 {
+func (this *Placeholder) getIndex() int32 {
 	return this.Index
 }
 
-func (this Placeholder) setIndex(newValue int32) {
+func (this *Placeholder) setIndex(newValue int32) {
 	this.Index = newValue
 }
-func (this Placeholder) getOrientation() string {
+func (this *Placeholder) getOrientation() string {
 	return this.Orientation
 }
 
-func (this Placeholder) setOrientation(newValue string) {
+func (this *Placeholder) setOrientation(newValue string) {
 	this.Orientation = newValue
 }
-func (this Placeholder) getSize() string {
+func (this *Placeholder) getSize() string {
 	return this.Size
 }
 
-func (this Placeholder) setSize(newValue string) {
+func (this *Placeholder) setSize(newValue string) {
 	this.Size = newValue
 }
-func (this Placeholder) getType() string {
+func (this *Placeholder) getType() string {
 	return this.Type_
 }
 
-func (this Placeholder) setType(newValue string) {
+func (this *Placeholder) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this Placeholder) getShape() IResourceUriElement {
+func (this *Placeholder) getShape() IResourceUriElement {
 	return this.Shape
 }
 
-func (this Placeholder) setShape(newValue IResourceUriElement) {
+func (this *Placeholder) setShape(newValue IResourceUriElement) {
 	this.Shape = newValue
 }
 
@@ -151,7 +151,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -161,7 +161,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -172,7 +172,11 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -182,7 +186,11 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -313,7 +321,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shape = valueForShape
+			this.Shape = &valueForShape
 		}
 	}
 	if valShapeCap, ok := objMap["Shape"]; ok {
@@ -323,7 +331,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shape = valueForShape
+			this.Shape = &valueForShape
 		}
 	}
 

@@ -35,21 +35,21 @@ import (
 type IOrderedMergeRequest interface {
 
 	// Gets or sets the presentation paths.
-	getPresentations() []PresentationToMerge
-	setPresentations(newValue []PresentationToMerge)
+	getPresentations() []IPresentationToMerge
+	setPresentations(newValue []IPresentationToMerge)
 }
 
 type OrderedMergeRequest struct {
 
 	// Gets or sets the presentation paths.
-	Presentations []PresentationToMerge `json:"Presentations,omitempty"`
+	Presentations []IPresentationToMerge `json:"Presentations,omitempty"`
 }
 
-func (this OrderedMergeRequest) getPresentations() []PresentationToMerge {
+func (this *OrderedMergeRequest) getPresentations() []IPresentationToMerge {
 	return this.Presentations
 }
 
-func (this OrderedMergeRequest) setPresentations(newValue []PresentationToMerge) {
+func (this *OrderedMergeRequest) setPresentations(newValue []IPresentationToMerge) {
 	this.Presentations = newValue
 }
 
@@ -67,7 +67,11 @@ func (this *OrderedMergeRequest) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Presentations = valueForPresentations
+			valueForIPresentations := make([]IPresentationToMerge, len(valueForPresentations))
+			for i, v := range valueForPresentations {
+				valueForIPresentations[i] = IPresentationToMerge(&v)
+			}
+			this.Presentations = valueForIPresentations
 		}
 	}
 	if valPresentationsCap, ok := objMap["Presentations"]; ok {
@@ -77,7 +81,11 @@ func (this *OrderedMergeRequest) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Presentations = valueForPresentations
+			valueForIPresentations := make([]IPresentationToMerge, len(valueForPresentations))
+			for i, v := range valueForPresentations {
+				valueForIPresentations[i] = IPresentationToMerge(&v)
+			}
+			this.Presentations = valueForIPresentations
 		}
 	}
 

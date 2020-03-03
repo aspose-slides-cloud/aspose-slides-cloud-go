@@ -47,8 +47,8 @@ type ISlideComment interface {
 	setCreatedTime(newValue string)
 
 	// Child comments.
-	getChildComments() []SlideComment
-	setChildComments(newValue []SlideComment)
+	getChildComments() []ISlideComment
+	setChildComments(newValue []ISlideComment)
 }
 
 type SlideComment struct {
@@ -63,35 +63,35 @@ type SlideComment struct {
 	CreatedTime string `json:"CreatedTime,omitempty"`
 
 	// Child comments.
-	ChildComments []SlideComment `json:"ChildComments,omitempty"`
+	ChildComments []ISlideComment `json:"ChildComments,omitempty"`
 }
 
-func (this SlideComment) getAuthor() string {
+func (this *SlideComment) getAuthor() string {
 	return this.Author
 }
 
-func (this SlideComment) setAuthor(newValue string) {
+func (this *SlideComment) setAuthor(newValue string) {
 	this.Author = newValue
 }
-func (this SlideComment) getText() string {
+func (this *SlideComment) getText() string {
 	return this.Text
 }
 
-func (this SlideComment) setText(newValue string) {
+func (this *SlideComment) setText(newValue string) {
 	this.Text = newValue
 }
-func (this SlideComment) getCreatedTime() string {
+func (this *SlideComment) getCreatedTime() string {
 	return this.CreatedTime
 }
 
-func (this SlideComment) setCreatedTime(newValue string) {
+func (this *SlideComment) setCreatedTime(newValue string) {
 	this.CreatedTime = newValue
 }
-func (this SlideComment) getChildComments() []SlideComment {
+func (this *SlideComment) getChildComments() []ISlideComment {
 	return this.ChildComments
 }
 
-func (this SlideComment) setChildComments(newValue []SlideComment) {
+func (this *SlideComment) setChildComments(newValue []ISlideComment) {
 	this.ChildComments = newValue
 }
 
@@ -172,7 +172,11 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ChildComments = valueForChildComments
+			valueForIChildComments := make([]ISlideComment, len(valueForChildComments))
+			for i, v := range valueForChildComments {
+				valueForIChildComments[i] = ISlideComment(&v)
+			}
+			this.ChildComments = valueForIChildComments
 		}
 	}
 	if valChildCommentsCap, ok := objMap["ChildComments"]; ok {
@@ -182,7 +186,11 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ChildComments = valueForChildComments
+			valueForIChildComments := make([]ISlideComment, len(valueForChildComments))
+			for i, v := range valueForChildComments {
+				valueForIChildComments[i] = ISlideComment(&v)
+			}
+			this.ChildComments = valueForIChildComments
 		}
 	}
 

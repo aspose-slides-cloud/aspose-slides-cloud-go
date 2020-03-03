@@ -39,8 +39,8 @@ type IAudioFrame interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -153,7 +153,7 @@ type AudioFrame struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -171,7 +171,7 @@ type AudioFrame struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -216,13 +216,13 @@ type AudioFrame struct {
 	AudioCdStartTrackTime int32 `json:"AudioCdStartTrackTime,omitempty"`
 
 	// Determines whether a sound is embedded to a presentation.
-	Embedded bool `json:"Embedded,omitempty"`
+	Embedded bool `json:"Embedded"`
 
 	// Determines whether an AudioFrame is hidden.
-	HideAtShowing bool `json:"HideAtShowing,omitempty"`
+	HideAtShowing bool `json:"HideAtShowing"`
 
 	// Determines whether an audio is looped. 
-	PlayLoopMode bool `json:"PlayLoopMode,omitempty"`
+	PlayLoopMode bool `json:"PlayLoopMode"`
 
 	// Returns or sets the audio play mode.
 	PlayMode string `json:"PlayMode,omitempty"`
@@ -234,200 +234,200 @@ type AudioFrame struct {
 	Base64Data string `json:"Base64Data,omitempty"`
 }
 
-func (this AudioFrame) getSelfUri() IResourceUri {
+func (this *AudioFrame) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this AudioFrame) setSelfUri(newValue IResourceUri) {
+func (this *AudioFrame) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this AudioFrame) getAlternateLinks() []ResourceUri {
+func (this *AudioFrame) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this AudioFrame) setAlternateLinks(newValue []ResourceUri) {
+func (this *AudioFrame) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this AudioFrame) getName() string {
+func (this *AudioFrame) getName() string {
 	return this.Name
 }
 
-func (this AudioFrame) setName(newValue string) {
+func (this *AudioFrame) setName(newValue string) {
 	this.Name = newValue
 }
-func (this AudioFrame) getWidth() float64 {
+func (this *AudioFrame) getWidth() float64 {
 	return this.Width
 }
 
-func (this AudioFrame) setWidth(newValue float64) {
+func (this *AudioFrame) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this AudioFrame) getHeight() float64 {
+func (this *AudioFrame) getHeight() float64 {
 	return this.Height
 }
 
-func (this AudioFrame) setHeight(newValue float64) {
+func (this *AudioFrame) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this AudioFrame) getAlternativeText() string {
+func (this *AudioFrame) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this AudioFrame) setAlternativeText(newValue string) {
+func (this *AudioFrame) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this AudioFrame) getAlternativeTextTitle() string {
+func (this *AudioFrame) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this AudioFrame) setAlternativeTextTitle(newValue string) {
+func (this *AudioFrame) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this AudioFrame) getHidden() bool {
+func (this *AudioFrame) getHidden() bool {
 	return this.Hidden
 }
 
-func (this AudioFrame) setHidden(newValue bool) {
+func (this *AudioFrame) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this AudioFrame) getX() float64 {
+func (this *AudioFrame) getX() float64 {
 	return this.X
 }
 
-func (this AudioFrame) setX(newValue float64) {
+func (this *AudioFrame) setX(newValue float64) {
 	this.X = newValue
 }
-func (this AudioFrame) getY() float64 {
+func (this *AudioFrame) getY() float64 {
 	return this.Y
 }
 
-func (this AudioFrame) setY(newValue float64) {
+func (this *AudioFrame) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this AudioFrame) getZOrderPosition() int32 {
+func (this *AudioFrame) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this AudioFrame) setZOrderPosition(newValue int32) {
+func (this *AudioFrame) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this AudioFrame) getShapes() IResourceUriElement {
+func (this *AudioFrame) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this AudioFrame) setShapes(newValue IResourceUriElement) {
+func (this *AudioFrame) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this AudioFrame) getFillFormat() IFillFormat {
+func (this *AudioFrame) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this AudioFrame) setFillFormat(newValue IFillFormat) {
+func (this *AudioFrame) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this AudioFrame) getEffectFormat() IEffectFormat {
+func (this *AudioFrame) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this AudioFrame) setEffectFormat(newValue IEffectFormat) {
+func (this *AudioFrame) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this AudioFrame) getLineFormat() ILineFormat {
+func (this *AudioFrame) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this AudioFrame) setLineFormat(newValue ILineFormat) {
+func (this *AudioFrame) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this AudioFrame) getType() string {
+func (this *AudioFrame) getType() string {
 	return this.Type_
 }
 
-func (this AudioFrame) setType(newValue string) {
+func (this *AudioFrame) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this AudioFrame) getShapeType() string {
+func (this *AudioFrame) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this AudioFrame) setShapeType(newValue string) {
+func (this *AudioFrame) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this AudioFrame) getGeometryShapeType() string {
+func (this *AudioFrame) getGeometryShapeType() string {
 	return this.GeometryShapeType
 }
 
-func (this AudioFrame) setGeometryShapeType(newValue string) {
+func (this *AudioFrame) setGeometryShapeType(newValue string) {
 	this.GeometryShapeType = newValue
 }
-func (this AudioFrame) getAudioCdEndTrack() int32 {
+func (this *AudioFrame) getAudioCdEndTrack() int32 {
 	return this.AudioCdEndTrack
 }
 
-func (this AudioFrame) setAudioCdEndTrack(newValue int32) {
+func (this *AudioFrame) setAudioCdEndTrack(newValue int32) {
 	this.AudioCdEndTrack = newValue
 }
-func (this AudioFrame) getAudioCdEndTrackTime() int32 {
+func (this *AudioFrame) getAudioCdEndTrackTime() int32 {
 	return this.AudioCdEndTrackTime
 }
 
-func (this AudioFrame) setAudioCdEndTrackTime(newValue int32) {
+func (this *AudioFrame) setAudioCdEndTrackTime(newValue int32) {
 	this.AudioCdEndTrackTime = newValue
 }
-func (this AudioFrame) getAudioCdStartTrack() int32 {
+func (this *AudioFrame) getAudioCdStartTrack() int32 {
 	return this.AudioCdStartTrack
 }
 
-func (this AudioFrame) setAudioCdStartTrack(newValue int32) {
+func (this *AudioFrame) setAudioCdStartTrack(newValue int32) {
 	this.AudioCdStartTrack = newValue
 }
-func (this AudioFrame) getAudioCdStartTrackTime() int32 {
+func (this *AudioFrame) getAudioCdStartTrackTime() int32 {
 	return this.AudioCdStartTrackTime
 }
 
-func (this AudioFrame) setAudioCdStartTrackTime(newValue int32) {
+func (this *AudioFrame) setAudioCdStartTrackTime(newValue int32) {
 	this.AudioCdStartTrackTime = newValue
 }
-func (this AudioFrame) getEmbedded() bool {
+func (this *AudioFrame) getEmbedded() bool {
 	return this.Embedded
 }
 
-func (this AudioFrame) setEmbedded(newValue bool) {
+func (this *AudioFrame) setEmbedded(newValue bool) {
 	this.Embedded = newValue
 }
-func (this AudioFrame) getHideAtShowing() bool {
+func (this *AudioFrame) getHideAtShowing() bool {
 	return this.HideAtShowing
 }
 
-func (this AudioFrame) setHideAtShowing(newValue bool) {
+func (this *AudioFrame) setHideAtShowing(newValue bool) {
 	this.HideAtShowing = newValue
 }
-func (this AudioFrame) getPlayLoopMode() bool {
+func (this *AudioFrame) getPlayLoopMode() bool {
 	return this.PlayLoopMode
 }
 
-func (this AudioFrame) setPlayLoopMode(newValue bool) {
+func (this *AudioFrame) setPlayLoopMode(newValue bool) {
 	this.PlayLoopMode = newValue
 }
-func (this AudioFrame) getPlayMode() string {
+func (this *AudioFrame) getPlayMode() string {
 	return this.PlayMode
 }
 
-func (this AudioFrame) setPlayMode(newValue string) {
+func (this *AudioFrame) setPlayMode(newValue string) {
 	this.PlayMode = newValue
 }
-func (this AudioFrame) getVolume() string {
+func (this *AudioFrame) getVolume() string {
 	return this.Volume
 }
 
-func (this AudioFrame) setVolume(newValue string) {
+func (this *AudioFrame) setVolume(newValue string) {
 	this.Volume = newValue
 }
-func (this AudioFrame) getBase64Data() string {
+func (this *AudioFrame) getBase64Data() string {
 	return this.Base64Data
 }
 
-func (this AudioFrame) setBase64Data(newValue string) {
+func (this *AudioFrame) setBase64Data(newValue string) {
 	this.Base64Data = newValue
 }
 
@@ -445,7 +445,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -455,7 +455,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -466,7 +466,11 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -476,7 +480,11 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -676,7 +684,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -686,7 +694,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -697,7 +705,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -707,7 +715,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -718,7 +726,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -728,7 +736,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -739,7 +747,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -749,7 +757,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = "AudioFrame"

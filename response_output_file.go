@@ -45,11 +45,11 @@ type ResponseOutputFile struct {
 	Type_ string `json:"Type"`
 }
 
-func (this ResponseOutputFile) getType() string {
+func (this *ResponseOutputFile) getType() string {
 	return this.Type_
 }
 
-func (this ResponseOutputFile) setType(newValue string) {
+func (this *ResponseOutputFile) setType(newValue string) {
 	this.Type_ = newValue
 }
 

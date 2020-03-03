@@ -66,32 +66,32 @@ type XpsExportOptions struct {
 	DrawSlidesFrame bool `json:"DrawSlidesFrame"`
 }
 
-func (this XpsExportOptions) getFormat() string {
+func (this *XpsExportOptions) getFormat() string {
 	return this.Format
 }
 
-func (this XpsExportOptions) setFormat(newValue string) {
+func (this *XpsExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this XpsExportOptions) getShowHiddenSlides() bool {
+func (this *XpsExportOptions) getShowHiddenSlides() bool {
 	return this.ShowHiddenSlides
 }
 
-func (this XpsExportOptions) setShowHiddenSlides(newValue bool) {
+func (this *XpsExportOptions) setShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this XpsExportOptions) getSaveMetafilesAsPng() bool {
+func (this *XpsExportOptions) getSaveMetafilesAsPng() bool {
 	return this.SaveMetafilesAsPng
 }
 
-func (this XpsExportOptions) setSaveMetafilesAsPng(newValue bool) {
+func (this *XpsExportOptions) setSaveMetafilesAsPng(newValue bool) {
 	this.SaveMetafilesAsPng = newValue
 }
-func (this XpsExportOptions) getDrawSlidesFrame() bool {
+func (this *XpsExportOptions) getDrawSlidesFrame() bool {
 	return this.DrawSlidesFrame
 }
 
-func (this XpsExportOptions) setDrawSlidesFrame(newValue bool) {
+func (this *XpsExportOptions) setDrawSlidesFrame(newValue bool) {
 	this.DrawSlidesFrame = newValue
 }
 

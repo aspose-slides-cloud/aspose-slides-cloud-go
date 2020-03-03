@@ -45,11 +45,11 @@ type FillOverlayEffect struct {
 	Blend string `json:"Blend"`
 }
 
-func (this FillOverlayEffect) getBlend() string {
+func (this *FillOverlayEffect) getBlend() string {
 	return this.Blend
 }
 
-func (this FillOverlayEffect) setBlend(newValue string) {
+func (this *FillOverlayEffect) setBlend(newValue string) {
 	this.Blend = newValue
 }
 

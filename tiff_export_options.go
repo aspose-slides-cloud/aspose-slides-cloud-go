@@ -129,95 +129,95 @@ type TiffExportOptions struct {
 	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
 }
 
-func (this TiffExportOptions) getFormat() string {
+func (this *TiffExportOptions) getFormat() string {
 	return this.Format
 }
 
-func (this TiffExportOptions) setFormat(newValue string) {
+func (this *TiffExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this TiffExportOptions) getCompression() string {
+func (this *TiffExportOptions) getCompression() string {
 	return this.Compression
 }
 
-func (this TiffExportOptions) setCompression(newValue string) {
+func (this *TiffExportOptions) setCompression(newValue string) {
 	this.Compression = newValue
 }
-func (this TiffExportOptions) getWidth() int32 {
+func (this *TiffExportOptions) getWidth() int32 {
 	return this.Width
 }
 
-func (this TiffExportOptions) setWidth(newValue int32) {
+func (this *TiffExportOptions) setWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this TiffExportOptions) getHeight() int32 {
+func (this *TiffExportOptions) getHeight() int32 {
 	return this.Height
 }
 
-func (this TiffExportOptions) setHeight(newValue int32) {
+func (this *TiffExportOptions) setHeight(newValue int32) {
 	this.Height = newValue
 }
-func (this TiffExportOptions) getDpiX() int32 {
+func (this *TiffExportOptions) getDpiX() int32 {
 	return this.DpiX
 }
 
-func (this TiffExportOptions) setDpiX(newValue int32) {
+func (this *TiffExportOptions) setDpiX(newValue int32) {
 	this.DpiX = newValue
 }
-func (this TiffExportOptions) getDpiY() int32 {
+func (this *TiffExportOptions) getDpiY() int32 {
 	return this.DpiY
 }
 
-func (this TiffExportOptions) setDpiY(newValue int32) {
+func (this *TiffExportOptions) setDpiY(newValue int32) {
 	this.DpiY = newValue
 }
-func (this TiffExportOptions) getShowHiddenSlides() bool {
+func (this *TiffExportOptions) getShowHiddenSlides() bool {
 	return this.ShowHiddenSlides
 }
 
-func (this TiffExportOptions) setShowHiddenSlides(newValue bool) {
+func (this *TiffExportOptions) setShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this TiffExportOptions) getPixelFormat() string {
+func (this *TiffExportOptions) getPixelFormat() string {
 	return this.PixelFormat
 }
 
-func (this TiffExportOptions) setPixelFormat(newValue string) {
+func (this *TiffExportOptions) setPixelFormat(newValue string) {
 	this.PixelFormat = newValue
 }
-func (this TiffExportOptions) getNotesPosition() string {
+func (this *TiffExportOptions) getNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this TiffExportOptions) setNotesPosition(newValue string) {
+func (this *TiffExportOptions) setNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this TiffExportOptions) getCommentsPosition() string {
+func (this *TiffExportOptions) getCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this TiffExportOptions) setCommentsPosition(newValue string) {
+func (this *TiffExportOptions) setCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
-func (this TiffExportOptions) getCommentsAreaWidth() int32 {
+func (this *TiffExportOptions) getCommentsAreaWidth() int32 {
 	return this.CommentsAreaWidth
 }
 
-func (this TiffExportOptions) setCommentsAreaWidth(newValue int32) {
+func (this *TiffExportOptions) setCommentsAreaWidth(newValue int32) {
 	this.CommentsAreaWidth = newValue
 }
-func (this TiffExportOptions) getCommentsAreaColor() string {
+func (this *TiffExportOptions) getCommentsAreaColor() string {
 	return this.CommentsAreaColor
 }
 
-func (this TiffExportOptions) setCommentsAreaColor(newValue string) {
+func (this *TiffExportOptions) setCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
-func (this TiffExportOptions) getShowCommentsByNoAuthor() bool {
+func (this *TiffExportOptions) getShowCommentsByNoAuthor() bool {
 	return this.ShowCommentsByNoAuthor
 }
 
-func (this TiffExportOptions) setShowCommentsByNoAuthor(newValue bool) {
+func (this *TiffExportOptions) setShowCommentsByNoAuthor(newValue bool) {
 	this.ShowCommentsByNoAuthor = newValue
 }
 

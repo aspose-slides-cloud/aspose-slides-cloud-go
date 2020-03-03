@@ -39,12 +39,12 @@ type IPlaceholders interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// List for placeholder links.
-	getPlaceholderLinks() []ResourceUri
-	setPlaceholderLinks(newValue []ResourceUri)
+	getPlaceholderLinks() []IResourceUri
+	setPlaceholderLinks(newValue []IResourceUri)
 }
 
 type Placeholders struct {
@@ -53,31 +53,31 @@ type Placeholders struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// List for placeholder links.
-	PlaceholderLinks []ResourceUri `json:"PlaceholderLinks,omitempty"`
+	PlaceholderLinks []IResourceUri `json:"PlaceholderLinks,omitempty"`
 }
 
-func (this Placeholders) getSelfUri() IResourceUri {
+func (this *Placeholders) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Placeholders) setSelfUri(newValue IResourceUri) {
+func (this *Placeholders) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Placeholders) getAlternateLinks() []ResourceUri {
+func (this *Placeholders) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Placeholders) setAlternateLinks(newValue []ResourceUri) {
+func (this *Placeholders) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Placeholders) getPlaceholderLinks() []ResourceUri {
+func (this *Placeholders) getPlaceholderLinks() []IResourceUri {
 	return this.PlaceholderLinks
 }
 
-func (this Placeholders) setPlaceholderLinks(newValue []ResourceUri) {
+func (this *Placeholders) setPlaceholderLinks(newValue []IResourceUri) {
 	this.PlaceholderLinks = newValue
 }
 
@@ -95,7 +95,7 @@ func (this *Placeholders) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -105,7 +105,7 @@ func (this *Placeholders) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -116,7 +116,11 @@ func (this *Placeholders) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -126,7 +130,11 @@ func (this *Placeholders) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -137,7 +145,11 @@ func (this *Placeholders) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PlaceholderLinks = valueForPlaceholderLinks
+			valueForIPlaceholderLinks := make([]IResourceUri, len(valueForPlaceholderLinks))
+			for i, v := range valueForPlaceholderLinks {
+				valueForIPlaceholderLinks[i] = IResourceUri(&v)
+			}
+			this.PlaceholderLinks = valueForIPlaceholderLinks
 		}
 	}
 	if valPlaceholderLinksCap, ok := objMap["PlaceholderLinks"]; ok {
@@ -147,7 +159,11 @@ func (this *Placeholders) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PlaceholderLinks = valueForPlaceholderLinks
+			valueForIPlaceholderLinks := make([]IResourceUri, len(valueForPlaceholderLinks))
+			for i, v := range valueForPlaceholderLinks {
+				valueForIPlaceholderLinks[i] = IResourceUri(&v)
+			}
+			this.PlaceholderLinks = valueForIPlaceholderLinks
 		}
 	}
 

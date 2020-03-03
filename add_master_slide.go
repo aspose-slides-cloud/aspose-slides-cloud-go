@@ -66,32 +66,32 @@ type AddMasterSlide struct {
 	ApplyToAll bool `json:"ApplyToAll"`
 }
 
-func (this AddMasterSlide) getType() string {
+func (this *AddMasterSlide) getType() string {
 	return this.Type_
 }
 
-func (this AddMasterSlide) setType(newValue string) {
+func (this *AddMasterSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this AddMasterSlide) getCloneFromFile() IInputFile {
+func (this *AddMasterSlide) getCloneFromFile() IInputFile {
 	return this.CloneFromFile
 }
 
-func (this AddMasterSlide) setCloneFromFile(newValue IInputFile) {
+func (this *AddMasterSlide) setCloneFromFile(newValue IInputFile) {
 	this.CloneFromFile = newValue
 }
-func (this AddMasterSlide) getCloneFromPosition() int32 {
+func (this *AddMasterSlide) getCloneFromPosition() int32 {
 	return this.CloneFromPosition
 }
 
-func (this AddMasterSlide) setCloneFromPosition(newValue int32) {
+func (this *AddMasterSlide) setCloneFromPosition(newValue int32) {
 	this.CloneFromPosition = newValue
 }
-func (this AddMasterSlide) getApplyToAll() bool {
+func (this *AddMasterSlide) getApplyToAll() bool {
 	return this.ApplyToAll
 }
 
-func (this AddMasterSlide) setApplyToAll(newValue bool) {
+func (this *AddMasterSlide) setApplyToAll(newValue bool) {
 	this.ApplyToAll = newValue
 }
 
@@ -142,7 +142,7 @@ func (this *AddMasterSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CloneFromFile = valueForCloneFromFile
+			this.CloneFromFile = &valueForCloneFromFile
 		}
 	}
 	if valCloneFromFileCap, ok := objMap["CloneFromFile"]; ok {
@@ -152,7 +152,7 @@ func (this *AddMasterSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CloneFromFile = valueForCloneFromFile
+			this.CloneFromFile = &valueForCloneFromFile
 		}
 	}
 	

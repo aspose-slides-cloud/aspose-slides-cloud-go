@@ -59,25 +59,25 @@ type Base64InputFile struct {
 	Data string `json:"Data,omitempty"`
 }
 
-func (this Base64InputFile) getPassword() string {
+func (this *Base64InputFile) getPassword() string {
 	return this.Password
 }
 
-func (this Base64InputFile) setPassword(newValue string) {
+func (this *Base64InputFile) setPassword(newValue string) {
 	this.Password = newValue
 }
-func (this Base64InputFile) getType() string {
+func (this *Base64InputFile) getType() string {
 	return this.Type_
 }
 
-func (this Base64InputFile) setType(newValue string) {
+func (this *Base64InputFile) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this Base64InputFile) getData() string {
+func (this *Base64InputFile) getData() string {
 	return this.Data
 }
 
-func (this Base64InputFile) setData(newValue string) {
+func (this *Base64InputFile) setData(newValue string) {
 	this.Data = newValue
 }
 

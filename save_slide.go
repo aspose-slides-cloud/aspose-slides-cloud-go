@@ -87,53 +87,53 @@ type SaveSlide struct {
 	Position int32 `json:"Position"`
 }
 
-func (this SaveSlide) getType() string {
+func (this *SaveSlide) getType() string {
 	return this.Type_
 }
 
-func (this SaveSlide) setType(newValue string) {
+func (this *SaveSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this SaveSlide) getOutput() IOutputFile {
+func (this *SaveSlide) getOutput() IOutputFile {
 	return this.Output
 }
 
-func (this SaveSlide) setOutput(newValue IOutputFile) {
+func (this *SaveSlide) setOutput(newValue IOutputFile) {
 	this.Output = newValue
 }
-func (this SaveSlide) getFormat() string {
+func (this *SaveSlide) getFormat() string {
 	return this.Format
 }
 
-func (this SaveSlide) setFormat(newValue string) {
+func (this *SaveSlide) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this SaveSlide) getOptions() IExportOptions {
+func (this *SaveSlide) getOptions() IExportOptions {
 	return this.Options
 }
 
-func (this SaveSlide) setOptions(newValue IExportOptions) {
+func (this *SaveSlide) setOptions(newValue IExportOptions) {
 	this.Options = newValue
 }
-func (this SaveSlide) getWidth() int32 {
+func (this *SaveSlide) getWidth() int32 {
 	return this.Width
 }
 
-func (this SaveSlide) setWidth(newValue int32) {
+func (this *SaveSlide) setWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this SaveSlide) getHeight() int32 {
+func (this *SaveSlide) getHeight() int32 {
 	return this.Height
 }
 
-func (this SaveSlide) setHeight(newValue int32) {
+func (this *SaveSlide) setHeight(newValue int32) {
 	this.Height = newValue
 }
-func (this SaveSlide) getPosition() int32 {
+func (this *SaveSlide) getPosition() int32 {
 	return this.Position
 }
 
-func (this SaveSlide) setPosition(newValue int32) {
+func (this *SaveSlide) setPosition(newValue int32) {
 	this.Position = newValue
 }
 
@@ -184,7 +184,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Output = valueForOutput
+			this.Output = &valueForOutput
 		}
 	}
 	if valOutputCap, ok := objMap["Output"]; ok {
@@ -194,7 +194,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Output = valueForOutput
+			this.Output = &valueForOutput
 		}
 	}
 	this.Format = "Jpeg"
@@ -238,7 +238,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Options = valueForOptions
+			this.Options = &valueForOptions
 		}
 	}
 	if valOptionsCap, ok := objMap["Options"]; ok {
@@ -248,7 +248,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Options = valueForOptions
+			this.Options = &valueForOptions
 		}
 	}
 	

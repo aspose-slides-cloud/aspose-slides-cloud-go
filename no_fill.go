@@ -45,11 +45,11 @@ type NoFill struct {
 	Type_ string `json:"Type"`
 }
 
-func (this NoFill) getType() string {
+func (this *NoFill) getType() string {
 	return this.Type_
 }
 
-func (this NoFill) setType(newValue string) {
+func (this *NoFill) setType(newValue string) {
 	this.Type_ = newValue
 }
 

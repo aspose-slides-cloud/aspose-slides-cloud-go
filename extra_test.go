@@ -114,3 +114,157 @@ func TestChart(t *testing.T) {
 		return
 	}
 }
+
+/*
+ * Test for nullable properties
+ */
+func TestNullableProperties(t *testing.T) {
+        var folderName = "TempSlidesSDK"
+        var fileName = "placeholders.pptx"
+        var password = "password"
+        var min1  = 44.3
+        var min2 = 12.0
+        var max1 = 104.3
+        var max2 = 87.0
+
+	e := initializeTest("NoFunction", "No method", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	c := getTestApiClient()
+	var request CopyFileRequest
+	request.SrcPath = "TempTests/" + fileName
+	request.DestPath = folderName + "/" + fileName
+	_, e = c.SlidesApi.CopyFile(request)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        var dto1 Chart
+        dto1.setType("Chart")
+        dto1.setShapeType("Chart")
+        dto1.setChartType("Line")
+        dto1.setWidth(400)
+        dto1.setHeight(300)
+        var title ChartTitle
+        title.setHasTitle(true)
+        title.setText("MyTitle")
+        dto1.setTitle(&title)
+        var series OneValueSeries
+        series.setType("ClusteredColumn")
+        series.setDataPointType("OneValue")
+        series.setName("Series1")
+        var point1 OneValueChartDataPoint
+        point1.setValue(40)
+        var point2 OneValueChartDataPoint
+        point2.setValue(50)
+        points := make([]IOneValueChartDataPoint, 2)
+        points[0] = &point1
+        points[1] = &point2
+        series.setDataPoints(points)
+        serieses := make([]ISeries, 1)
+        serieses[0] = &series
+        dto1.setSeries(serieses)
+        var axes Axes
+        var axis1 Axis
+        axis1.setIsAutomaticMinValue(false)
+        axis1.setMinValue(min1)
+        axis1.setIsAutomaticMaxValue(false)
+        axis1.setMaxValue(max1)
+        axes.setHorizontalAxis(&axis1)
+        dto1.setAxes(&axes)
+	var postRequest PostAddNewShapeRequest
+	postRequest.Name = fileName
+	postRequest.SlideIndex = 1
+	postRequest.Password = password
+	postRequest.Folder = folderName
+        dto1.setX(12)
+        dto1.setY(14)
+	postRequest.Dto = &dto1
+	_, _, e = c.SlidesApi.PostAddNewShape(postRequest)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	var getRequest GetSlideShapeRequest
+	getRequest.Name = fileName
+	getRequest.SlideIndex = 1
+	getRequest.ShapeIndex = 4
+	getRequest.Password = password
+	getRequest.Folder = folderName
+	r, _, e := c.SlidesApi.GetSlideShape(getRequest)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if r.(IChart).getAxes().getHorizontalAxis().getMinValue() != min1 {
+		t.Errorf("Error: Wrong MinValue.")
+		return
+	}
+	if r.(IChart).getAxes().getHorizontalAxis().getMaxValue() != max1 {
+		t.Errorf("Error: Wrong MaxValue.")
+		return
+	}
+
+        var dto2 Chart
+        dto2.setType("Chart")
+        dto2.setShapeType("Chart")
+        dto2.setChartType("Line")
+        var axis2 Axis
+        axis2.setMinValue(min2)
+        axes.setHorizontalAxis(&axis2)
+        dto2.setAxes(&axes)
+	var putRequest PutSlideShapeInfoRequest
+	putRequest.Name = fileName
+	putRequest.SlideIndex = 1
+	putRequest.ShapeIndex = 4
+	putRequest.Password = password
+	putRequest.Folder = folderName
+	putRequest.Dto = &dto2
+	_, _, e = c.SlidesApi.PutSlideShapeInfo(putRequest)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	r, _, e = c.SlidesApi.GetSlideShape(getRequest)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if r.(IChart).getAxes().getHorizontalAxis().getMinValue() != min2 {
+		t.Errorf("Error: Wrong MinValue.")
+		return
+	}
+	if r.(IChart).getAxes().getHorizontalAxis().getMaxValue() != max1 {
+		t.Errorf("Error: Wrong MaxValue.")
+		return
+	}
+
+        var axis3 Axis
+        axis3.setMaxValue(max2)
+        axes.setHorizontalAxis(&axis3)
+	_, _, e = c.SlidesApi.PutSlideShapeInfo(putRequest)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	r, _, e = c.SlidesApi.GetSlideShape(getRequest)
+	if e != nil {
+		t.Errorf("Error: Wrong MinValue.")
+		return
+	}
+	if r.(IChart).getAxes().getHorizontalAxis().getMinValue() != min2 {
+		t.Errorf("Error: Wrong MinValue.")
+		return
+	}
+	if r.(IChart).getAxes().getHorizontalAxis().getMaxValue() != max2 {
+		t.Errorf("Error: Wrong MaxValue.")
+		return
+	}
+}

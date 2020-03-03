@@ -39,8 +39,8 @@ type ISmartArt interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -115,8 +115,8 @@ type ISmartArt interface {
 	setColorStyle(newValue string)
 
 	// Collection of nodes in SmartArt object.             
-	getNodes() []SmartArtNode
-	setNodes(newValue []SmartArtNode)
+	getNodes() []ISmartArtNode
+	setNodes(newValue []ISmartArtNode)
 
 	// The state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
 	getIsReversed() bool
@@ -129,7 +129,7 @@ type SmartArt struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -147,7 +147,7 @@ type SmartArt struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -186,164 +186,164 @@ type SmartArt struct {
 	ColorStyle string `json:"ColorStyle"`
 
 	// Collection of nodes in SmartArt object.             
-	Nodes []SmartArtNode `json:"Nodes,omitempty"`
+	Nodes []ISmartArtNode `json:"Nodes,omitempty"`
 
 	// The state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
 	IsReversed bool `json:"IsReversed"`
 }
 
-func (this SmartArt) getSelfUri() IResourceUri {
+func (this *SmartArt) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this SmartArt) setSelfUri(newValue IResourceUri) {
+func (this *SmartArt) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this SmartArt) getAlternateLinks() []ResourceUri {
+func (this *SmartArt) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this SmartArt) setAlternateLinks(newValue []ResourceUri) {
+func (this *SmartArt) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this SmartArt) getName() string {
+func (this *SmartArt) getName() string {
 	return this.Name
 }
 
-func (this SmartArt) setName(newValue string) {
+func (this *SmartArt) setName(newValue string) {
 	this.Name = newValue
 }
-func (this SmartArt) getWidth() float64 {
+func (this *SmartArt) getWidth() float64 {
 	return this.Width
 }
 
-func (this SmartArt) setWidth(newValue float64) {
+func (this *SmartArt) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this SmartArt) getHeight() float64 {
+func (this *SmartArt) getHeight() float64 {
 	return this.Height
 }
 
-func (this SmartArt) setHeight(newValue float64) {
+func (this *SmartArt) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this SmartArt) getAlternativeText() string {
+func (this *SmartArt) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this SmartArt) setAlternativeText(newValue string) {
+func (this *SmartArt) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this SmartArt) getAlternativeTextTitle() string {
+func (this *SmartArt) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this SmartArt) setAlternativeTextTitle(newValue string) {
+func (this *SmartArt) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this SmartArt) getHidden() bool {
+func (this *SmartArt) getHidden() bool {
 	return this.Hidden
 }
 
-func (this SmartArt) setHidden(newValue bool) {
+func (this *SmartArt) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this SmartArt) getX() float64 {
+func (this *SmartArt) getX() float64 {
 	return this.X
 }
 
-func (this SmartArt) setX(newValue float64) {
+func (this *SmartArt) setX(newValue float64) {
 	this.X = newValue
 }
-func (this SmartArt) getY() float64 {
+func (this *SmartArt) getY() float64 {
 	return this.Y
 }
 
-func (this SmartArt) setY(newValue float64) {
+func (this *SmartArt) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this SmartArt) getZOrderPosition() int32 {
+func (this *SmartArt) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this SmartArt) setZOrderPosition(newValue int32) {
+func (this *SmartArt) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this SmartArt) getShapes() IResourceUriElement {
+func (this *SmartArt) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this SmartArt) setShapes(newValue IResourceUriElement) {
+func (this *SmartArt) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this SmartArt) getFillFormat() IFillFormat {
+func (this *SmartArt) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this SmartArt) setFillFormat(newValue IFillFormat) {
+func (this *SmartArt) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this SmartArt) getEffectFormat() IEffectFormat {
+func (this *SmartArt) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this SmartArt) setEffectFormat(newValue IEffectFormat) {
+func (this *SmartArt) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this SmartArt) getLineFormat() ILineFormat {
+func (this *SmartArt) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this SmartArt) setLineFormat(newValue ILineFormat) {
+func (this *SmartArt) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this SmartArt) getType() string {
+func (this *SmartArt) getType() string {
 	return this.Type_
 }
 
-func (this SmartArt) setType(newValue string) {
+func (this *SmartArt) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this SmartArt) getShapeType() string {
+func (this *SmartArt) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this SmartArt) setShapeType(newValue string) {
+func (this *SmartArt) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this SmartArt) getLayout() string {
+func (this *SmartArt) getLayout() string {
 	return this.Layout
 }
 
-func (this SmartArt) setLayout(newValue string) {
+func (this *SmartArt) setLayout(newValue string) {
 	this.Layout = newValue
 }
-func (this SmartArt) getQuickStyle() string {
+func (this *SmartArt) getQuickStyle() string {
 	return this.QuickStyle
 }
 
-func (this SmartArt) setQuickStyle(newValue string) {
+func (this *SmartArt) setQuickStyle(newValue string) {
 	this.QuickStyle = newValue
 }
-func (this SmartArt) getColorStyle() string {
+func (this *SmartArt) getColorStyle() string {
 	return this.ColorStyle
 }
 
-func (this SmartArt) setColorStyle(newValue string) {
+func (this *SmartArt) setColorStyle(newValue string) {
 	this.ColorStyle = newValue
 }
-func (this SmartArt) getNodes() []SmartArtNode {
+func (this *SmartArt) getNodes() []ISmartArtNode {
 	return this.Nodes
 }
 
-func (this SmartArt) setNodes(newValue []SmartArtNode) {
+func (this *SmartArt) setNodes(newValue []ISmartArtNode) {
 	this.Nodes = newValue
 }
-func (this SmartArt) getIsReversed() bool {
+func (this *SmartArt) getIsReversed() bool {
 	return this.IsReversed
 }
 
-func (this SmartArt) setIsReversed(newValue bool) {
+func (this *SmartArt) setIsReversed(newValue bool) {
 	this.IsReversed = newValue
 }
 
@@ -361,7 +361,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -371,7 +371,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -382,7 +382,11 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -392,7 +396,11 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -592,7 +600,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -602,7 +610,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -613,7 +621,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -623,7 +631,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -634,7 +642,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -644,7 +652,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -655,7 +663,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -665,7 +673,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = "SmartArt"
@@ -841,7 +849,11 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Nodes = valueForNodes
+			valueForINodes := make([]ISmartArtNode, len(valueForNodes))
+			for i, v := range valueForNodes {
+				valueForINodes[i] = ISmartArtNode(&v)
+			}
+			this.Nodes = valueForINodes
 		}
 	}
 	if valNodesCap, ok := objMap["Nodes"]; ok {
@@ -851,7 +863,11 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Nodes = valueForNodes
+			valueForINodes := make([]ISmartArtNode, len(valueForNodes))
+			for i, v := range valueForNodes {
+				valueForINodes[i] = ISmartArtNode(&v)
+			}
+			this.Nodes = valueForINodes
 		}
 	}
 	

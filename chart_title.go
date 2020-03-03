@@ -52,18 +52,18 @@ type ChartTitle struct {
 	HasTitle bool `json:"HasTitle"`
 }
 
-func (this ChartTitle) getText() string {
+func (this *ChartTitle) getText() string {
 	return this.Text
 }
 
-func (this ChartTitle) setText(newValue string) {
+func (this *ChartTitle) setText(newValue string) {
 	this.Text = newValue
 }
-func (this ChartTitle) getHasTitle() bool {
+func (this *ChartTitle) getHasTitle() bool {
 	return this.HasTitle
 }
 
-func (this ChartTitle) setHasTitle(newValue bool) {
+func (this *ChartTitle) setHasTitle(newValue bool) {
 	this.HasTitle = newValue
 }
 

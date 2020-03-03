@@ -39,8 +39,8 @@ type IPortion interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Text.
 	getText() string
@@ -149,7 +149,7 @@ type Portion struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Text.
 	Text string `json:"Text,omitempty"`
@@ -191,7 +191,7 @@ type Portion struct {
 	ProofDisabled string `json:"ProofDisabled,omitempty"`
 
 	// True if smart tag should be cleaned.
-	SmartTagClean bool `json:"SmartTagClean,omitempty"`
+	SmartTagClean bool `json:"SmartTagClean"`
 
 	// Minimal font size for kerning.
 	KerningMinimalSize float64 `json:"KerningMinimalSize,omitempty"`
@@ -227,193 +227,193 @@ type Portion struct {
 	UnderlineLineFormat ILineFormat `json:"UnderlineLineFormat,omitempty"`
 }
 
-func (this Portion) getSelfUri() IResourceUri {
+func (this *Portion) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Portion) setSelfUri(newValue IResourceUri) {
+func (this *Portion) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Portion) getAlternateLinks() []ResourceUri {
+func (this *Portion) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Portion) setAlternateLinks(newValue []ResourceUri) {
+func (this *Portion) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Portion) getText() string {
+func (this *Portion) getText() string {
 	return this.Text
 }
 
-func (this Portion) setText(newValue string) {
+func (this *Portion) setText(newValue string) {
 	this.Text = newValue
 }
-func (this Portion) getFontBold() string {
+func (this *Portion) getFontBold() string {
 	return this.FontBold
 }
 
-func (this Portion) setFontBold(newValue string) {
+func (this *Portion) setFontBold(newValue string) {
 	this.FontBold = newValue
 }
-func (this Portion) getFontItalic() string {
+func (this *Portion) getFontItalic() string {
 	return this.FontItalic
 }
 
-func (this Portion) setFontItalic(newValue string) {
+func (this *Portion) setFontItalic(newValue string) {
 	this.FontItalic = newValue
 }
-func (this Portion) getFontUnderline() string {
+func (this *Portion) getFontUnderline() string {
 	return this.FontUnderline
 }
 
-func (this Portion) setFontUnderline(newValue string) {
+func (this *Portion) setFontUnderline(newValue string) {
 	this.FontUnderline = newValue
 }
-func (this Portion) getStrikethroughType() string {
+func (this *Portion) getStrikethroughType() string {
 	return this.StrikethroughType
 }
 
-func (this Portion) setStrikethroughType(newValue string) {
+func (this *Portion) setStrikethroughType(newValue string) {
 	this.StrikethroughType = newValue
 }
-func (this Portion) getTextCapType() string {
+func (this *Portion) getTextCapType() string {
 	return this.TextCapType
 }
 
-func (this Portion) setTextCapType(newValue string) {
+func (this *Portion) setTextCapType(newValue string) {
 	this.TextCapType = newValue
 }
-func (this Portion) getEscapement() float64 {
+func (this *Portion) getEscapement() float64 {
 	return this.Escapement
 }
 
-func (this Portion) setEscapement(newValue float64) {
+func (this *Portion) setEscapement(newValue float64) {
 	this.Escapement = newValue
 }
-func (this Portion) getSpacing() float64 {
+func (this *Portion) getSpacing() float64 {
 	return this.Spacing
 }
 
-func (this Portion) setSpacing(newValue float64) {
+func (this *Portion) setSpacing(newValue float64) {
 	this.Spacing = newValue
 }
-func (this Portion) getFontColor() string {
+func (this *Portion) getFontColor() string {
 	return this.FontColor
 }
 
-func (this Portion) setFontColor(newValue string) {
+func (this *Portion) setFontColor(newValue string) {
 	this.FontColor = newValue
 }
-func (this Portion) getHighlightColor() string {
+func (this *Portion) getHighlightColor() string {
 	return this.HighlightColor
 }
 
-func (this Portion) setHighlightColor(newValue string) {
+func (this *Portion) setHighlightColor(newValue string) {
 	this.HighlightColor = newValue
 }
-func (this Portion) getFontHeight() float64 {
+func (this *Portion) getFontHeight() float64 {
 	return this.FontHeight
 }
 
-func (this Portion) setFontHeight(newValue float64) {
+func (this *Portion) setFontHeight(newValue float64) {
 	this.FontHeight = newValue
 }
-func (this Portion) getNormaliseHeight() string {
+func (this *Portion) getNormaliseHeight() string {
 	return this.NormaliseHeight
 }
 
-func (this Portion) setNormaliseHeight(newValue string) {
+func (this *Portion) setNormaliseHeight(newValue string) {
 	this.NormaliseHeight = newValue
 }
-func (this Portion) getProofDisabled() string {
+func (this *Portion) getProofDisabled() string {
 	return this.ProofDisabled
 }
 
-func (this Portion) setProofDisabled(newValue string) {
+func (this *Portion) setProofDisabled(newValue string) {
 	this.ProofDisabled = newValue
 }
-func (this Portion) getSmartTagClean() bool {
+func (this *Portion) getSmartTagClean() bool {
 	return this.SmartTagClean
 }
 
-func (this Portion) setSmartTagClean(newValue bool) {
+func (this *Portion) setSmartTagClean(newValue bool) {
 	this.SmartTagClean = newValue
 }
-func (this Portion) getKerningMinimalSize() float64 {
+func (this *Portion) getKerningMinimalSize() float64 {
 	return this.KerningMinimalSize
 }
 
-func (this Portion) setKerningMinimalSize(newValue float64) {
+func (this *Portion) setKerningMinimalSize(newValue float64) {
 	this.KerningMinimalSize = newValue
 }
-func (this Portion) getKumimoji() string {
+func (this *Portion) getKumimoji() string {
 	return this.Kumimoji
 }
 
-func (this Portion) setKumimoji(newValue string) {
+func (this *Portion) setKumimoji(newValue string) {
 	this.Kumimoji = newValue
 }
-func (this Portion) getLanguageId() string {
+func (this *Portion) getLanguageId() string {
 	return this.LanguageId
 }
 
-func (this Portion) setLanguageId(newValue string) {
+func (this *Portion) setLanguageId(newValue string) {
 	this.LanguageId = newValue
 }
-func (this Portion) getAlternativeLanguageId() string {
+func (this *Portion) getAlternativeLanguageId() string {
 	return this.AlternativeLanguageId
 }
 
-func (this Portion) setAlternativeLanguageId(newValue string) {
+func (this *Portion) setAlternativeLanguageId(newValue string) {
 	this.AlternativeLanguageId = newValue
 }
-func (this Portion) getIsHardUnderlineFill() string {
+func (this *Portion) getIsHardUnderlineFill() string {
 	return this.IsHardUnderlineFill
 }
 
-func (this Portion) setIsHardUnderlineFill(newValue string) {
+func (this *Portion) setIsHardUnderlineFill(newValue string) {
 	this.IsHardUnderlineFill = newValue
 }
-func (this Portion) getIsHardUnderlineLine() string {
+func (this *Portion) getIsHardUnderlineLine() string {
 	return this.IsHardUnderlineLine
 }
 
-func (this Portion) setIsHardUnderlineLine(newValue string) {
+func (this *Portion) setIsHardUnderlineLine(newValue string) {
 	this.IsHardUnderlineLine = newValue
 }
-func (this Portion) getFillFormat() IFillFormat {
+func (this *Portion) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this Portion) setFillFormat(newValue IFillFormat) {
+func (this *Portion) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this Portion) getEffectFormat() IEffectFormat {
+func (this *Portion) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this Portion) setEffectFormat(newValue IEffectFormat) {
+func (this *Portion) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this Portion) getLineFormat() ILineFormat {
+func (this *Portion) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this Portion) setLineFormat(newValue ILineFormat) {
+func (this *Portion) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this Portion) getUnderlineFillFormat() IFillFormat {
+func (this *Portion) getUnderlineFillFormat() IFillFormat {
 	return this.UnderlineFillFormat
 }
 
-func (this Portion) setUnderlineFillFormat(newValue IFillFormat) {
+func (this *Portion) setUnderlineFillFormat(newValue IFillFormat) {
 	this.UnderlineFillFormat = newValue
 }
-func (this Portion) getUnderlineLineFormat() ILineFormat {
+func (this *Portion) getUnderlineLineFormat() ILineFormat {
 	return this.UnderlineLineFormat
 }
 
-func (this Portion) setUnderlineLineFormat(newValue ILineFormat) {
+func (this *Portion) setUnderlineLineFormat(newValue ILineFormat) {
 	this.UnderlineLineFormat = newValue
 }
 
@@ -431,7 +431,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -441,7 +441,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -452,7 +452,11 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -462,7 +466,11 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -1013,7 +1021,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -1023,7 +1031,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -1034,7 +1042,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -1044,7 +1052,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -1055,7 +1063,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -1065,7 +1073,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	
@@ -1076,7 +1084,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.UnderlineFillFormat = valueForUnderlineFillFormat
+			this.UnderlineFillFormat = &valueForUnderlineFillFormat
 		}
 	}
 	if valUnderlineFillFormatCap, ok := objMap["UnderlineFillFormat"]; ok {
@@ -1086,7 +1094,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.UnderlineFillFormat = valueForUnderlineFillFormat
+			this.UnderlineFillFormat = &valueForUnderlineFillFormat
 		}
 	}
 	
@@ -1097,7 +1105,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.UnderlineLineFormat = valueForUnderlineLineFormat
+			this.UnderlineLineFormat = &valueForUnderlineLineFormat
 		}
 	}
 	if valUnderlineLineFormatCap, ok := objMap["UnderlineLineFormat"]; ok {
@@ -1107,7 +1115,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.UnderlineLineFormat = valueForUnderlineLineFormat
+			this.UnderlineLineFormat = &valueForUnderlineLineFormat
 		}
 	}
 

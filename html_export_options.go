@@ -129,95 +129,95 @@ type HtmlExportOptions struct {
 	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
 }
 
-func (this HtmlExportOptions) getFormat() string {
+func (this *HtmlExportOptions) getFormat() string {
 	return this.Format
 }
 
-func (this HtmlExportOptions) setFormat(newValue string) {
+func (this *HtmlExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this HtmlExportOptions) getSaveAsZip() bool {
+func (this *HtmlExportOptions) getSaveAsZip() bool {
 	return this.SaveAsZip
 }
 
-func (this HtmlExportOptions) setSaveAsZip(newValue bool) {
+func (this *HtmlExportOptions) setSaveAsZip(newValue bool) {
 	this.SaveAsZip = newValue
 }
-func (this HtmlExportOptions) getSubDirectoryName() string {
+func (this *HtmlExportOptions) getSubDirectoryName() string {
 	return this.SubDirectoryName
 }
 
-func (this HtmlExportOptions) setSubDirectoryName(newValue string) {
+func (this *HtmlExportOptions) setSubDirectoryName(newValue string) {
 	this.SubDirectoryName = newValue
 }
-func (this HtmlExportOptions) getShowHiddenSlides() bool {
+func (this *HtmlExportOptions) getShowHiddenSlides() bool {
 	return this.ShowHiddenSlides
 }
 
-func (this HtmlExportOptions) setShowHiddenSlides(newValue bool) {
+func (this *HtmlExportOptions) setShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this HtmlExportOptions) getSvgResponsiveLayout() bool {
+func (this *HtmlExportOptions) getSvgResponsiveLayout() bool {
 	return this.SvgResponsiveLayout
 }
 
-func (this HtmlExportOptions) setSvgResponsiveLayout(newValue bool) {
+func (this *HtmlExportOptions) setSvgResponsiveLayout(newValue bool) {
 	this.SvgResponsiveLayout = newValue
 }
-func (this HtmlExportOptions) getJpegQuality() int32 {
+func (this *HtmlExportOptions) getJpegQuality() int32 {
 	return this.JpegQuality
 }
 
-func (this HtmlExportOptions) setJpegQuality(newValue int32) {
+func (this *HtmlExportOptions) setJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this HtmlExportOptions) getPicturesCompression() string {
+func (this *HtmlExportOptions) getPicturesCompression() string {
 	return this.PicturesCompression
 }
 
-func (this HtmlExportOptions) setPicturesCompression(newValue string) {
+func (this *HtmlExportOptions) setPicturesCompression(newValue string) {
 	this.PicturesCompression = newValue
 }
-func (this HtmlExportOptions) getDeletePicturesCroppedAreas() bool {
+func (this *HtmlExportOptions) getDeletePicturesCroppedAreas() bool {
 	return this.DeletePicturesCroppedAreas
 }
 
-func (this HtmlExportOptions) setDeletePicturesCroppedAreas(newValue bool) {
+func (this *HtmlExportOptions) setDeletePicturesCroppedAreas(newValue bool) {
 	this.DeletePicturesCroppedAreas = newValue
 }
-func (this HtmlExportOptions) getNotesPosition() string {
+func (this *HtmlExportOptions) getNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this HtmlExportOptions) setNotesPosition(newValue string) {
+func (this *HtmlExportOptions) setNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this HtmlExportOptions) getCommentsPosition() string {
+func (this *HtmlExportOptions) getCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this HtmlExportOptions) setCommentsPosition(newValue string) {
+func (this *HtmlExportOptions) setCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
-func (this HtmlExportOptions) getCommentsAreaWidth() int32 {
+func (this *HtmlExportOptions) getCommentsAreaWidth() int32 {
 	return this.CommentsAreaWidth
 }
 
-func (this HtmlExportOptions) setCommentsAreaWidth(newValue int32) {
+func (this *HtmlExportOptions) setCommentsAreaWidth(newValue int32) {
 	this.CommentsAreaWidth = newValue
 }
-func (this HtmlExportOptions) getCommentsAreaColor() string {
+func (this *HtmlExportOptions) getCommentsAreaColor() string {
 	return this.CommentsAreaColor
 }
 
-func (this HtmlExportOptions) setCommentsAreaColor(newValue string) {
+func (this *HtmlExportOptions) setCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
-func (this HtmlExportOptions) getShowCommentsByNoAuthor() bool {
+func (this *HtmlExportOptions) getShowCommentsByNoAuthor() bool {
 	return this.ShowCommentsByNoAuthor
 }
 
-func (this HtmlExportOptions) setShowCommentsByNoAuthor(newValue bool) {
+func (this *HtmlExportOptions) setShowCommentsByNoAuthor(newValue bool) {
 	this.ShowCommentsByNoAuthor = newValue
 }
 

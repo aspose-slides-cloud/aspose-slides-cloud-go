@@ -56,18 +56,18 @@ type ErrorDetails struct {
 	Date time.Time `json:"Date"`
 }
 
-func (this ErrorDetails) getRequestId() string {
+func (this *ErrorDetails) getRequestId() string {
 	return this.RequestId
 }
 
-func (this ErrorDetails) setRequestId(newValue string) {
+func (this *ErrorDetails) setRequestId(newValue string) {
 	this.RequestId = newValue
 }
-func (this ErrorDetails) getDate() time.Time {
+func (this *ErrorDetails) getDate() time.Time {
 	return this.Date
 }
 
-func (this ErrorDetails) setDate(newValue time.Time) {
+func (this *ErrorDetails) setDate(newValue time.Time) {
 	this.Date = newValue
 }
 

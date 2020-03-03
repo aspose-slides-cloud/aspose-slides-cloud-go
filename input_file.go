@@ -50,18 +50,18 @@ type InputFile struct {
 	Type_ string `json:"Type,omitempty"`
 }
 
-func (this InputFile) getPassword() string {
+func (this *InputFile) getPassword() string {
 	return this.Password
 }
 
-func (this InputFile) setPassword(newValue string) {
+func (this *InputFile) setPassword(newValue string) {
 	this.Password = newValue
 }
-func (this InputFile) getType() string {
+func (this *InputFile) getType() string {
 	return this.Type_
 }
 
-func (this InputFile) setType(newValue string) {
+func (this *InputFile) setType(newValue string) {
 	this.Type_ = newValue
 }
 

@@ -59,25 +59,25 @@ type AddLayoutSlide struct {
 	CloneFromPosition int32 `json:"CloneFromPosition"`
 }
 
-func (this AddLayoutSlide) getType() string {
+func (this *AddLayoutSlide) getType() string {
 	return this.Type_
 }
 
-func (this AddLayoutSlide) setType(newValue string) {
+func (this *AddLayoutSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this AddLayoutSlide) getCloneFromFile() IInputFile {
+func (this *AddLayoutSlide) getCloneFromFile() IInputFile {
 	return this.CloneFromFile
 }
 
-func (this AddLayoutSlide) setCloneFromFile(newValue IInputFile) {
+func (this *AddLayoutSlide) setCloneFromFile(newValue IInputFile) {
 	this.CloneFromFile = newValue
 }
-func (this AddLayoutSlide) getCloneFromPosition() int32 {
+func (this *AddLayoutSlide) getCloneFromPosition() int32 {
 	return this.CloneFromPosition
 }
 
-func (this AddLayoutSlide) setCloneFromPosition(newValue int32) {
+func (this *AddLayoutSlide) setCloneFromPosition(newValue int32) {
 	this.CloneFromPosition = newValue
 }
 
@@ -128,7 +128,7 @@ func (this *AddLayoutSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CloneFromFile = valueForCloneFromFile
+			this.CloneFromFile = &valueForCloneFromFile
 		}
 	}
 	if valCloneFromFileCap, ok := objMap["CloneFromFile"]; ok {
@@ -138,7 +138,7 @@ func (this *AddLayoutSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CloneFromFile = valueForCloneFromFile
+			this.CloneFromFile = &valueForCloneFromFile
 		}
 	}
 	

@@ -39,8 +39,8 @@ type IDocument interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Link to Document properties.
 	getDocumentProperties() IResourceUriElement
@@ -69,7 +69,7 @@ type Document struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Link to Document properties.
 	DocumentProperties IResourceUriElement `json:"DocumentProperties,omitempty"`
@@ -87,53 +87,53 @@ type Document struct {
 	MasterSlides IResourceUriElement `json:"MasterSlides,omitempty"`
 }
 
-func (this Document) getSelfUri() IResourceUri {
+func (this *Document) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Document) setSelfUri(newValue IResourceUri) {
+func (this *Document) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Document) getAlternateLinks() []ResourceUri {
+func (this *Document) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Document) setAlternateLinks(newValue []ResourceUri) {
+func (this *Document) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Document) getDocumentProperties() IResourceUriElement {
+func (this *Document) getDocumentProperties() IResourceUriElement {
 	return this.DocumentProperties
 }
 
-func (this Document) setDocumentProperties(newValue IResourceUriElement) {
+func (this *Document) setDocumentProperties(newValue IResourceUriElement) {
 	this.DocumentProperties = newValue
 }
-func (this Document) getSlides() IResourceUriElement {
+func (this *Document) getSlides() IResourceUriElement {
 	return this.Slides
 }
 
-func (this Document) setSlides(newValue IResourceUriElement) {
+func (this *Document) setSlides(newValue IResourceUriElement) {
 	this.Slides = newValue
 }
-func (this Document) getImages() IResourceUriElement {
+func (this *Document) getImages() IResourceUriElement {
 	return this.Images
 }
 
-func (this Document) setImages(newValue IResourceUriElement) {
+func (this *Document) setImages(newValue IResourceUriElement) {
 	this.Images = newValue
 }
-func (this Document) getLayoutSlides() IResourceUriElement {
+func (this *Document) getLayoutSlides() IResourceUriElement {
 	return this.LayoutSlides
 }
 
-func (this Document) setLayoutSlides(newValue IResourceUriElement) {
+func (this *Document) setLayoutSlides(newValue IResourceUriElement) {
 	this.LayoutSlides = newValue
 }
-func (this Document) getMasterSlides() IResourceUriElement {
+func (this *Document) getMasterSlides() IResourceUriElement {
 	return this.MasterSlides
 }
 
-func (this Document) setMasterSlides(newValue IResourceUriElement) {
+func (this *Document) setMasterSlides(newValue IResourceUriElement) {
 	this.MasterSlides = newValue
 }
 
@@ -151,7 +151,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -161,7 +161,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -172,7 +172,11 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -182,7 +186,11 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -193,7 +201,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.DocumentProperties = valueForDocumentProperties
+			this.DocumentProperties = &valueForDocumentProperties
 		}
 	}
 	if valDocumentPropertiesCap, ok := objMap["DocumentProperties"]; ok {
@@ -203,7 +211,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.DocumentProperties = valueForDocumentProperties
+			this.DocumentProperties = &valueForDocumentProperties
 		}
 	}
 	
@@ -214,7 +222,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Slides = valueForSlides
+			this.Slides = &valueForSlides
 		}
 	}
 	if valSlidesCap, ok := objMap["Slides"]; ok {
@@ -224,7 +232,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Slides = valueForSlides
+			this.Slides = &valueForSlides
 		}
 	}
 	
@@ -235,7 +243,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Images = valueForImages
+			this.Images = &valueForImages
 		}
 	}
 	if valImagesCap, ok := objMap["Images"]; ok {
@@ -245,7 +253,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Images = valueForImages
+			this.Images = &valueForImages
 		}
 	}
 	
@@ -256,7 +264,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LayoutSlides = valueForLayoutSlides
+			this.LayoutSlides = &valueForLayoutSlides
 		}
 	}
 	if valLayoutSlidesCap, ok := objMap["LayoutSlides"]; ok {
@@ -266,7 +274,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LayoutSlides = valueForLayoutSlides
+			this.LayoutSlides = &valueForLayoutSlides
 		}
 	}
 	
@@ -277,7 +285,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.MasterSlides = valueForMasterSlides
+			this.MasterSlides = &valueForMasterSlides
 		}
 	}
 	if valMasterSlidesCap, ok := objMap["MasterSlides"]; ok {
@@ -287,7 +295,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.MasterSlides = valueForMasterSlides
+			this.MasterSlides = &valueForMasterSlides
 		}
 	}
 

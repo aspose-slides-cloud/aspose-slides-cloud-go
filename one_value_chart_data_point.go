@@ -45,11 +45,11 @@ type OneValueChartDataPoint struct {
 	Value float64 `json:"Value"`
 }
 
-func (this OneValueChartDataPoint) getValue() float64 {
+func (this *OneValueChartDataPoint) getValue() float64 {
 	return this.Value
 }
 
-func (this OneValueChartDataPoint) setValue(newValue float64) {
+func (this *OneValueChartDataPoint) setValue(newValue float64) {
 	this.Value = newValue
 }
 

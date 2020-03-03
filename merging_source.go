@@ -52,18 +52,18 @@ type MergingSource struct {
 	Slides []int32 `json:"Slides,omitempty"`
 }
 
-func (this MergingSource) getInput() IInputFile {
+func (this *MergingSource) getInput() IInputFile {
 	return this.Input
 }
 
-func (this MergingSource) setInput(newValue IInputFile) {
+func (this *MergingSource) setInput(newValue IInputFile) {
 	this.Input = newValue
 }
-func (this MergingSource) getSlides() []int32 {
+func (this *MergingSource) getSlides() []int32 {
 	return this.Slides
 }
 
-func (this MergingSource) setSlides(newValue []int32) {
+func (this *MergingSource) setSlides(newValue []int32) {
 	this.Slides = newValue
 }
 
@@ -81,7 +81,7 @@ func (this *MergingSource) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Input = valueForInput
+			this.Input = &valueForInput
 		}
 	}
 	if valInputCap, ok := objMap["Input"]; ok {
@@ -91,7 +91,7 @@ func (this *MergingSource) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Input = valueForInput
+			this.Input = &valueForInput
 		}
 	}
 	

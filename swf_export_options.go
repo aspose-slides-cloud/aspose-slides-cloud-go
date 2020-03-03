@@ -185,151 +185,151 @@ type SwfExportOptions struct {
 	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
 }
 
-func (this SwfExportOptions) getFormat() string {
+func (this *SwfExportOptions) getFormat() string {
 	return this.Format
 }
 
-func (this SwfExportOptions) setFormat(newValue string) {
+func (this *SwfExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this SwfExportOptions) getShowHiddenSlides() bool {
+func (this *SwfExportOptions) getShowHiddenSlides() bool {
 	return this.ShowHiddenSlides
 }
 
-func (this SwfExportOptions) setShowHiddenSlides(newValue bool) {
+func (this *SwfExportOptions) setShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this SwfExportOptions) getCompressed() bool {
+func (this *SwfExportOptions) getCompressed() bool {
 	return this.Compressed
 }
 
-func (this SwfExportOptions) setCompressed(newValue bool) {
+func (this *SwfExportOptions) setCompressed(newValue bool) {
 	this.Compressed = newValue
 }
-func (this SwfExportOptions) getViewerIncluded() bool {
+func (this *SwfExportOptions) getViewerIncluded() bool {
 	return this.ViewerIncluded
 }
 
-func (this SwfExportOptions) setViewerIncluded(newValue bool) {
+func (this *SwfExportOptions) setViewerIncluded(newValue bool) {
 	this.ViewerIncluded = newValue
 }
-func (this SwfExportOptions) getShowPageBorder() bool {
+func (this *SwfExportOptions) getShowPageBorder() bool {
 	return this.ShowPageBorder
 }
 
-func (this SwfExportOptions) setShowPageBorder(newValue bool) {
+func (this *SwfExportOptions) setShowPageBorder(newValue bool) {
 	this.ShowPageBorder = newValue
 }
-func (this SwfExportOptions) getShowFullScreen() bool {
+func (this *SwfExportOptions) getShowFullScreen() bool {
 	return this.ShowFullScreen
 }
 
-func (this SwfExportOptions) setShowFullScreen(newValue bool) {
+func (this *SwfExportOptions) setShowFullScreen(newValue bool) {
 	this.ShowFullScreen = newValue
 }
-func (this SwfExportOptions) getShowPageStepper() bool {
+func (this *SwfExportOptions) getShowPageStepper() bool {
 	return this.ShowPageStepper
 }
 
-func (this SwfExportOptions) setShowPageStepper(newValue bool) {
+func (this *SwfExportOptions) setShowPageStepper(newValue bool) {
 	this.ShowPageStepper = newValue
 }
-func (this SwfExportOptions) getShowSearch() bool {
+func (this *SwfExportOptions) getShowSearch() bool {
 	return this.ShowSearch
 }
 
-func (this SwfExportOptions) setShowSearch(newValue bool) {
+func (this *SwfExportOptions) setShowSearch(newValue bool) {
 	this.ShowSearch = newValue
 }
-func (this SwfExportOptions) getShowTopPane() bool {
+func (this *SwfExportOptions) getShowTopPane() bool {
 	return this.ShowTopPane
 }
 
-func (this SwfExportOptions) setShowTopPane(newValue bool) {
+func (this *SwfExportOptions) setShowTopPane(newValue bool) {
 	this.ShowTopPane = newValue
 }
-func (this SwfExportOptions) getShowBottomPane() bool {
+func (this *SwfExportOptions) getShowBottomPane() bool {
 	return this.ShowBottomPane
 }
 
-func (this SwfExportOptions) setShowBottomPane(newValue bool) {
+func (this *SwfExportOptions) setShowBottomPane(newValue bool) {
 	this.ShowBottomPane = newValue
 }
-func (this SwfExportOptions) getShowLeftPane() bool {
+func (this *SwfExportOptions) getShowLeftPane() bool {
 	return this.ShowLeftPane
 }
 
-func (this SwfExportOptions) setShowLeftPane(newValue bool) {
+func (this *SwfExportOptions) setShowLeftPane(newValue bool) {
 	this.ShowLeftPane = newValue
 }
-func (this SwfExportOptions) getStartOpenLeftPane() bool {
+func (this *SwfExportOptions) getStartOpenLeftPane() bool {
 	return this.StartOpenLeftPane
 }
 
-func (this SwfExportOptions) setStartOpenLeftPane(newValue bool) {
+func (this *SwfExportOptions) setStartOpenLeftPane(newValue bool) {
 	this.StartOpenLeftPane = newValue
 }
-func (this SwfExportOptions) getEnableContextMenu() bool {
+func (this *SwfExportOptions) getEnableContextMenu() bool {
 	return this.EnableContextMenu
 }
 
-func (this SwfExportOptions) setEnableContextMenu(newValue bool) {
+func (this *SwfExportOptions) setEnableContextMenu(newValue bool) {
 	this.EnableContextMenu = newValue
 }
-func (this SwfExportOptions) getLogoImage() string {
+func (this *SwfExportOptions) getLogoImage() string {
 	return this.LogoImage
 }
 
-func (this SwfExportOptions) setLogoImage(newValue string) {
+func (this *SwfExportOptions) setLogoImage(newValue string) {
 	this.LogoImage = newValue
 }
-func (this SwfExportOptions) getLogoLink() string {
+func (this *SwfExportOptions) getLogoLink() string {
 	return this.LogoLink
 }
 
-func (this SwfExportOptions) setLogoLink(newValue string) {
+func (this *SwfExportOptions) setLogoLink(newValue string) {
 	this.LogoLink = newValue
 }
-func (this SwfExportOptions) getJpegQuality() int32 {
+func (this *SwfExportOptions) getJpegQuality() int32 {
 	return this.JpegQuality
 }
 
-func (this SwfExportOptions) setJpegQuality(newValue int32) {
+func (this *SwfExportOptions) setJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this SwfExportOptions) getNotesPosition() string {
+func (this *SwfExportOptions) getNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this SwfExportOptions) setNotesPosition(newValue string) {
+func (this *SwfExportOptions) setNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this SwfExportOptions) getCommentsPosition() string {
+func (this *SwfExportOptions) getCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this SwfExportOptions) setCommentsPosition(newValue string) {
+func (this *SwfExportOptions) setCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
-func (this SwfExportOptions) getCommentsAreaWidth() int32 {
+func (this *SwfExportOptions) getCommentsAreaWidth() int32 {
 	return this.CommentsAreaWidth
 }
 
-func (this SwfExportOptions) setCommentsAreaWidth(newValue int32) {
+func (this *SwfExportOptions) setCommentsAreaWidth(newValue int32) {
 	this.CommentsAreaWidth = newValue
 }
-func (this SwfExportOptions) getCommentsAreaColor() string {
+func (this *SwfExportOptions) getCommentsAreaColor() string {
 	return this.CommentsAreaColor
 }
 
-func (this SwfExportOptions) setCommentsAreaColor(newValue string) {
+func (this *SwfExportOptions) setCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
-func (this SwfExportOptions) getShowCommentsByNoAuthor() bool {
+func (this *SwfExportOptions) getShowCommentsByNoAuthor() bool {
 	return this.ShowCommentsByNoAuthor
 }
 
-func (this SwfExportOptions) setShowCommentsByNoAuthor(newValue bool) {
+func (this *SwfExportOptions) setShowCommentsByNoAuthor(newValue bool) {
 	this.ShowCommentsByNoAuthor = newValue
 }
 

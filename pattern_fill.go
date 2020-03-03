@@ -66,32 +66,32 @@ type PatternFill struct {
 	Style string `json:"Style"`
 }
 
-func (this PatternFill) getType() string {
+func (this *PatternFill) getType() string {
 	return this.Type_
 }
 
-func (this PatternFill) setType(newValue string) {
+func (this *PatternFill) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this PatternFill) getBackColor() string {
+func (this *PatternFill) getBackColor() string {
 	return this.BackColor
 }
 
-func (this PatternFill) setBackColor(newValue string) {
+func (this *PatternFill) setBackColor(newValue string) {
 	this.BackColor = newValue
 }
-func (this PatternFill) getForeColor() string {
+func (this *PatternFill) getForeColor() string {
 	return this.ForeColor
 }
 
-func (this PatternFill) setForeColor(newValue string) {
+func (this *PatternFill) setForeColor(newValue string) {
 	this.ForeColor = newValue
 }
-func (this PatternFill) getStyle() string {
+func (this *PatternFill) getStyle() string {
 	return this.Style
 }
 
-func (this PatternFill) setStyle(newValue string) {
+func (this *PatternFill) setStyle(newValue string) {
 	this.Style = newValue
 }
 

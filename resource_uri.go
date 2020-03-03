@@ -66,32 +66,32 @@ type ResourceUri struct {
 	Title string `json:"Title,omitempty"`
 }
 
-func (this ResourceUri) getHref() string {
+func (this *ResourceUri) getHref() string {
 	return this.Href
 }
 
-func (this ResourceUri) setHref(newValue string) {
+func (this *ResourceUri) setHref(newValue string) {
 	this.Href = newValue
 }
-func (this ResourceUri) getRelation() string {
+func (this *ResourceUri) getRelation() string {
 	return this.Relation
 }
 
-func (this ResourceUri) setRelation(newValue string) {
+func (this *ResourceUri) setRelation(newValue string) {
 	this.Relation = newValue
 }
-func (this ResourceUri) getLinkType() string {
+func (this *ResourceUri) getLinkType() string {
 	return this.LinkType
 }
 
-func (this ResourceUri) setLinkType(newValue string) {
+func (this *ResourceUri) setLinkType(newValue string) {
 	this.LinkType = newValue
 }
-func (this ResourceUri) getTitle() string {
+func (this *ResourceUri) getTitle() string {
 	return this.Title
 }
 
-func (this ResourceUri) setTitle(newValue string) {
+func (this *ResourceUri) setTitle(newValue string) {
 	this.Title = newValue
 }
 

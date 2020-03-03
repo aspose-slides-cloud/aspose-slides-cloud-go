@@ -52,18 +52,18 @@ type GradientFillStop struct {
 	Position float64 `json:"Position"`
 }
 
-func (this GradientFillStop) getColor() string {
+func (this *GradientFillStop) getColor() string {
 	return this.Color
 }
 
-func (this GradientFillStop) setColor(newValue string) {
+func (this *GradientFillStop) setColor(newValue string) {
 	this.Color = newValue
 }
-func (this GradientFillStop) getPosition() float64 {
+func (this *GradientFillStop) getPosition() float64 {
 	return this.Position
 }
 
-func (this GradientFillStop) setPosition(newValue float64) {
+func (this *GradientFillStop) setPosition(newValue float64) {
 	this.Position = newValue
 }
 

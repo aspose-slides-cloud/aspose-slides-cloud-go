@@ -59,25 +59,25 @@ type RequestInputFile struct {
 	Index int32 `json:"Index"`
 }
 
-func (this RequestInputFile) getPassword() string {
+func (this *RequestInputFile) getPassword() string {
 	return this.Password
 }
 
-func (this RequestInputFile) setPassword(newValue string) {
+func (this *RequestInputFile) setPassword(newValue string) {
 	this.Password = newValue
 }
-func (this RequestInputFile) getType() string {
+func (this *RequestInputFile) getType() string {
 	return this.Type_
 }
 
-func (this RequestInputFile) setType(newValue string) {
+func (this *RequestInputFile) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this RequestInputFile) getIndex() int32 {
+func (this *RequestInputFile) getIndex() int32 {
 	return this.Index
 }
 
-func (this RequestInputFile) setIndex(newValue int32) {
+func (this *RequestInputFile) setIndex(newValue int32) {
 	this.Index = newValue
 }
 

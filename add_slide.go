@@ -73,39 +73,39 @@ type AddSlide struct {
 	LayoutAlias string `json:"LayoutAlias,omitempty"`
 }
 
-func (this AddSlide) getType() string {
+func (this *AddSlide) getType() string {
 	return this.Type_
 }
 
-func (this AddSlide) setType(newValue string) {
+func (this *AddSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this AddSlide) getCloneFromFile() IInputFile {
+func (this *AddSlide) getCloneFromFile() IInputFile {
 	return this.CloneFromFile
 }
 
-func (this AddSlide) setCloneFromFile(newValue IInputFile) {
+func (this *AddSlide) setCloneFromFile(newValue IInputFile) {
 	this.CloneFromFile = newValue
 }
-func (this AddSlide) getCloneFromPosition() int32 {
+func (this *AddSlide) getCloneFromPosition() int32 {
 	return this.CloneFromPosition
 }
 
-func (this AddSlide) setCloneFromPosition(newValue int32) {
+func (this *AddSlide) setCloneFromPosition(newValue int32) {
 	this.CloneFromPosition = newValue
 }
-func (this AddSlide) getPosition() int32 {
+func (this *AddSlide) getPosition() int32 {
 	return this.Position
 }
 
-func (this AddSlide) setPosition(newValue int32) {
+func (this *AddSlide) setPosition(newValue int32) {
 	this.Position = newValue
 }
-func (this AddSlide) getLayoutAlias() string {
+func (this *AddSlide) getLayoutAlias() string {
 	return this.LayoutAlias
 }
 
-func (this AddSlide) setLayoutAlias(newValue string) {
+func (this *AddSlide) setLayoutAlias(newValue string) {
 	this.LayoutAlias = newValue
 }
 
@@ -156,7 +156,7 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CloneFromFile = valueForCloneFromFile
+			this.CloneFromFile = &valueForCloneFromFile
 		}
 	}
 	if valCloneFromFileCap, ok := objMap["CloneFromFile"]; ok {
@@ -166,7 +166,7 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CloneFromFile = valueForCloneFromFile
+			this.CloneFromFile = &valueForCloneFromFile
 		}
 	}
 	

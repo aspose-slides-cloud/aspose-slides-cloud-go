@@ -73,39 +73,39 @@ type ReplaceText struct {
 	SlidePosition int32 `json:"SlidePosition"`
 }
 
-func (this ReplaceText) getType() string {
+func (this *ReplaceText) getType() string {
 	return this.Type_
 }
 
-func (this ReplaceText) setType(newValue string) {
+func (this *ReplaceText) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this ReplaceText) getOldText() string {
+func (this *ReplaceText) getOldText() string {
 	return this.OldText
 }
 
-func (this ReplaceText) setOldText(newValue string) {
+func (this *ReplaceText) setOldText(newValue string) {
 	this.OldText = newValue
 }
-func (this ReplaceText) getNewText() string {
+func (this *ReplaceText) getNewText() string {
 	return this.NewText
 }
 
-func (this ReplaceText) setNewText(newValue string) {
+func (this *ReplaceText) setNewText(newValue string) {
 	this.NewText = newValue
 }
-func (this ReplaceText) getIgnoreCase() bool {
+func (this *ReplaceText) getIgnoreCase() bool {
 	return this.IgnoreCase
 }
 
-func (this ReplaceText) setIgnoreCase(newValue bool) {
+func (this *ReplaceText) setIgnoreCase(newValue bool) {
 	this.IgnoreCase = newValue
 }
-func (this ReplaceText) getSlidePosition() int32 {
+func (this *ReplaceText) getSlidePosition() int32 {
 	return this.SlidePosition
 }
 
-func (this ReplaceText) setSlidePosition(newValue int32) {
+func (this *ReplaceText) setSlidePosition(newValue int32) {
 	this.SlidePosition = newValue
 }
 

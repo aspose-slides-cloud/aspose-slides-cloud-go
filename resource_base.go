@@ -39,8 +39,8 @@ type IResourceBase interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 }
 
 type ResourceBase struct {
@@ -49,21 +49,21 @@ type ResourceBase struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 }
 
-func (this ResourceBase) getSelfUri() IResourceUri {
+func (this *ResourceBase) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this ResourceBase) setSelfUri(newValue IResourceUri) {
+func (this *ResourceBase) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this ResourceBase) getAlternateLinks() []ResourceUri {
+func (this *ResourceBase) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this ResourceBase) setAlternateLinks(newValue []ResourceUri) {
+func (this *ResourceBase) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
 
@@ -81,7 +81,7 @@ func (this *ResourceBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -91,7 +91,7 @@ func (this *ResourceBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -102,7 +102,11 @@ func (this *ResourceBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -112,7 +116,11 @@ func (this *ResourceBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 

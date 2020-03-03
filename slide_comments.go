@@ -39,12 +39,12 @@ type ISlideComments interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Slide comment list.
-	getList() []SlideComment
-	setList(newValue []SlideComment)
+	getList() []ISlideComment
+	setList(newValue []ISlideComment)
 }
 
 type SlideComments struct {
@@ -53,31 +53,31 @@ type SlideComments struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Slide comment list.
-	List []SlideComment `json:"List,omitempty"`
+	List []ISlideComment `json:"List,omitempty"`
 }
 
-func (this SlideComments) getSelfUri() IResourceUri {
+func (this *SlideComments) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this SlideComments) setSelfUri(newValue IResourceUri) {
+func (this *SlideComments) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this SlideComments) getAlternateLinks() []ResourceUri {
+func (this *SlideComments) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this SlideComments) setAlternateLinks(newValue []ResourceUri) {
+func (this *SlideComments) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this SlideComments) getList() []SlideComment {
+func (this *SlideComments) getList() []ISlideComment {
 	return this.List
 }
 
-func (this SlideComments) setList(newValue []SlideComment) {
+func (this *SlideComments) setList(newValue []ISlideComment) {
 	this.List = newValue
 }
 
@@ -95,7 +95,7 @@ func (this *SlideComments) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -105,7 +105,7 @@ func (this *SlideComments) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -116,7 +116,11 @@ func (this *SlideComments) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -126,7 +130,11 @@ func (this *SlideComments) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -137,7 +145,11 @@ func (this *SlideComments) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.List = valueForList
+			valueForIList := make([]ISlideComment, len(valueForList))
+			for i, v := range valueForList {
+				valueForIList[i] = ISlideComment(&v)
+			}
+			this.List = valueForIList
 		}
 	}
 	if valListCap, ok := objMap["List"]; ok {
@@ -147,7 +159,11 @@ func (this *SlideComments) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.List = valueForList
+			valueForIList := make([]ISlideComment, len(valueForList))
+			for i, v := range valueForList {
+				valueForIList[i] = ISlideComment(&v)
+			}
+			this.List = valueForIList
 		}
 	}
 

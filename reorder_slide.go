@@ -59,25 +59,25 @@ type ReorderSlide struct {
 	NewPosition int32 `json:"NewPosition"`
 }
 
-func (this ReorderSlide) getType() string {
+func (this *ReorderSlide) getType() string {
 	return this.Type_
 }
 
-func (this ReorderSlide) setType(newValue string) {
+func (this *ReorderSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this ReorderSlide) getOldPosition() int32 {
+func (this *ReorderSlide) getOldPosition() int32 {
 	return this.OldPosition
 }
 
-func (this ReorderSlide) setOldPosition(newValue int32) {
+func (this *ReorderSlide) setOldPosition(newValue int32) {
 	this.OldPosition = newValue
 }
-func (this ReorderSlide) getNewPosition() int32 {
+func (this *ReorderSlide) getNewPosition() int32 {
 	return this.NewPosition
 }
 
-func (this ReorderSlide) setNewPosition(newValue int32) {
+func (this *ReorderSlide) setNewPosition(newValue int32) {
 	this.NewPosition = newValue
 }
 

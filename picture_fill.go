@@ -108,74 +108,74 @@ type PictureFill struct {
 	PictureFillMode string `json:"PictureFillMode"`
 }
 
-func (this PictureFill) getType() string {
+func (this *PictureFill) getType() string {
 	return this.Type_
 }
 
-func (this PictureFill) setType(newValue string) {
+func (this *PictureFill) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this PictureFill) getCropBottom() float64 {
+func (this *PictureFill) getCropBottom() float64 {
 	return this.CropBottom
 }
 
-func (this PictureFill) setCropBottom(newValue float64) {
+func (this *PictureFill) setCropBottom(newValue float64) {
 	this.CropBottom = newValue
 }
-func (this PictureFill) getCropLeft() float64 {
+func (this *PictureFill) getCropLeft() float64 {
 	return this.CropLeft
 }
 
-func (this PictureFill) setCropLeft(newValue float64) {
+func (this *PictureFill) setCropLeft(newValue float64) {
 	this.CropLeft = newValue
 }
-func (this PictureFill) getCropRight() float64 {
+func (this *PictureFill) getCropRight() float64 {
 	return this.CropRight
 }
 
-func (this PictureFill) setCropRight(newValue float64) {
+func (this *PictureFill) setCropRight(newValue float64) {
 	this.CropRight = newValue
 }
-func (this PictureFill) getCropTop() float64 {
+func (this *PictureFill) getCropTop() float64 {
 	return this.CropTop
 }
 
-func (this PictureFill) setCropTop(newValue float64) {
+func (this *PictureFill) setCropTop(newValue float64) {
 	this.CropTop = newValue
 }
-func (this PictureFill) getDpi() int32 {
+func (this *PictureFill) getDpi() int32 {
 	return this.Dpi
 }
 
-func (this PictureFill) setDpi(newValue int32) {
+func (this *PictureFill) setDpi(newValue int32) {
 	this.Dpi = newValue
 }
-func (this PictureFill) getImage() IResourceUriElement {
+func (this *PictureFill) getImage() IResourceUriElement {
 	return this.Image
 }
 
-func (this PictureFill) setImage(newValue IResourceUriElement) {
+func (this *PictureFill) setImage(newValue IResourceUriElement) {
 	this.Image = newValue
 }
-func (this PictureFill) getBase64Data() string {
+func (this *PictureFill) getBase64Data() string {
 	return this.Base64Data
 }
 
-func (this PictureFill) setBase64Data(newValue string) {
+func (this *PictureFill) setBase64Data(newValue string) {
 	this.Base64Data = newValue
 }
-func (this PictureFill) getSvgData() string {
+func (this *PictureFill) getSvgData() string {
 	return this.SvgData
 }
 
-func (this PictureFill) setSvgData(newValue string) {
+func (this *PictureFill) setSvgData(newValue string) {
 	this.SvgData = newValue
 }
-func (this PictureFill) getPictureFillMode() string {
+func (this *PictureFill) getPictureFillMode() string {
 	return this.PictureFillMode
 }
 
-func (this PictureFill) setPictureFillMode(newValue string) {
+func (this *PictureFill) setPictureFillMode(newValue string) {
 	this.PictureFillMode = newValue
 }
 
@@ -331,7 +331,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Image = valueForImage
+			this.Image = &valueForImage
 		}
 	}
 	if valImageCap, ok := objMap["Image"]; ok {
@@ -341,7 +341,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Image = valueForImage
+			this.Image = &valueForImage
 		}
 	}
 	

@@ -59,25 +59,25 @@ type UpdateShape struct {
 	ShapePath string `json:"ShapePath,omitempty"`
 }
 
-func (this UpdateShape) getType() string {
+func (this *UpdateShape) getType() string {
 	return this.Type_
 }
 
-func (this UpdateShape) setType(newValue string) {
+func (this *UpdateShape) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this UpdateShape) getShape() IShapeBase {
+func (this *UpdateShape) getShape() IShapeBase {
 	return this.Shape
 }
 
-func (this UpdateShape) setShape(newValue IShapeBase) {
+func (this *UpdateShape) setShape(newValue IShapeBase) {
 	this.Shape = newValue
 }
-func (this UpdateShape) getShapePath() string {
+func (this *UpdateShape) getShapePath() string {
 	return this.ShapePath
 }
 
-func (this UpdateShape) setShapePath(newValue string) {
+func (this *UpdateShape) setShapePath(newValue string) {
 	this.ShapePath = newValue
 }
 
@@ -128,7 +128,7 @@ func (this *UpdateShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shape = valueForShape
+			this.Shape = &valueForShape
 		}
 	}
 	if valShapeCap, ok := objMap["Shape"]; ok {
@@ -138,7 +138,7 @@ func (this *UpdateShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shape = valueForShape
+			this.Shape = &valueForShape
 		}
 	}
 	

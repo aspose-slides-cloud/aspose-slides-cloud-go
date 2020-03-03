@@ -45,11 +45,11 @@ type TableColumn struct {
 	Width float64 `json:"Width"`
 }
 
-func (this TableColumn) getWidth() float64 {
+func (this *TableColumn) getWidth() float64 {
 	return this.Width
 }
 
-func (this TableColumn) setWidth(newValue float64) {
+func (this *TableColumn) setWidth(newValue float64) {
 	this.Width = newValue
 }
 

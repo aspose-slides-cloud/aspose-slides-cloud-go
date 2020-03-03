@@ -77,39 +77,39 @@ type StorageFile struct {
 	Path string `json:"Path,omitempty"`
 }
 
-func (this StorageFile) getName() string {
+func (this *StorageFile) getName() string {
 	return this.Name
 }
 
-func (this StorageFile) setName(newValue string) {
+func (this *StorageFile) setName(newValue string) {
 	this.Name = newValue
 }
-func (this StorageFile) getIsFolder() bool {
+func (this *StorageFile) getIsFolder() bool {
 	return this.IsFolder
 }
 
-func (this StorageFile) setIsFolder(newValue bool) {
+func (this *StorageFile) setIsFolder(newValue bool) {
 	this.IsFolder = newValue
 }
-func (this StorageFile) getModifiedDate() time.Time {
+func (this *StorageFile) getModifiedDate() time.Time {
 	return this.ModifiedDate
 }
 
-func (this StorageFile) setModifiedDate(newValue time.Time) {
+func (this *StorageFile) setModifiedDate(newValue time.Time) {
 	this.ModifiedDate = newValue
 }
-func (this StorageFile) getSize() int64 {
+func (this *StorageFile) getSize() int64 {
 	return this.Size
 }
 
-func (this StorageFile) setSize(newValue int64) {
+func (this *StorageFile) setSize(newValue int64) {
 	this.Size = newValue
 }
-func (this StorageFile) getPath() string {
+func (this *StorageFile) getPath() string {
 	return this.Path
 }
 
-func (this StorageFile) setPath(newValue string) {
+func (this *StorageFile) setPath(newValue string) {
 	this.Path = newValue
 }
 

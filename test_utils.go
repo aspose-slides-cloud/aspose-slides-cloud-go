@@ -175,11 +175,11 @@ func undefaultize(value interface{}, paramType string) interface{} {
         }
         if paramType == "IShapeExportOptions" {
             var options IShapeExportOptions
-            return options
+            return &options
         }
         if paramType == "ExportOptions" {
             var options ExportOptions
-            return options
+            return &options
         }
         return nil
     }
@@ -199,98 +199,98 @@ func undefaultize(value interface{}, paramType string) interface{} {
         var para Paragraph
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &para)
-        return para
+        return &para
     }
     if paramType == "Portion" {
         var portion Portion
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &portion)
-        return portion
+        return &portion
     }
     if paramType == "ShapeBase" {
         var shape Shape
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &shape)
-        return shape
+        return &shape
     }
     if paramType == "NotesSlide" {
         var slide NotesSlide
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
-        return slide
+        return &slide
     }
     if paramType == "Slide" {
         var slide Slide
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
-        return slide
+        return &slide
     }
     if paramType == "LayoutSlide" {
         var slide LayoutSlide
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
-        return slide
+        return &slide
     }
     if paramType == "MasterSlide" {
         var slide MasterSlide
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
-        return slide
+        return &slide
     }
     if paramType == "Pipeline" {
         var slide Pipeline
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
-        return slide
+        return &slide
     }
     if paramType == "PresentationsMergeRequest" {
         var slide PresentationsMergeRequest
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
-        return slide
+        return &slide
     }
     if paramType == "OrderedMergeRequest" {
         var slide OrderedMergeRequest
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
-        return slide
+        return &slide
     }
     if paramType == "SlideBackground" {
         var slide SlideBackground
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
-        return slide
+        return &slide
     }
     if paramType == "SlideAnimation" {
         var slide SlideAnimation
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
-        return slide
+        return &slide
     }
     if paramType == "InteractiveSequence" {
         var slide InteractiveSequence
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
-        return slide
+        return &slide
     }
     if paramType == "Effect" {
         var slide Effect
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
         slide.Type_ = value.(map[string]interface{})["Type"].(string)
-        return slide
+        return &slide
     }
     if paramType == "DocumentProperties" {
         var para DocumentProperties
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &para)
-        return para
+        return &para
     }
     if paramType == "DocumentProperty" {
         var para DocumentProperty
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &para)
-        return para
+        return &para
     }
     return value
 }

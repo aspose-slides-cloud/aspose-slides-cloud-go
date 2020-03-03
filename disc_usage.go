@@ -52,18 +52,18 @@ type DiscUsage struct {
 	TotalSize int64 `json:"TotalSize"`
 }
 
-func (this DiscUsage) getUsedSize() int64 {
+func (this *DiscUsage) getUsedSize() int64 {
 	return this.UsedSize
 }
 
-func (this DiscUsage) setUsedSize(newValue int64) {
+func (this *DiscUsage) setUsedSize(newValue int64) {
 	this.UsedSize = newValue
 }
-func (this DiscUsage) getTotalSize() int64 {
+func (this *DiscUsage) getTotalSize() int64 {
 	return this.TotalSize
 }
 
-func (this DiscUsage) setTotalSize(newValue int64) {
+func (this *DiscUsage) setTotalSize(newValue int64) {
 	this.TotalSize = newValue
 }
 

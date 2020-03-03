@@ -52,18 +52,18 @@ type RemoveShape struct {
 	ShapePath string `json:"ShapePath,omitempty"`
 }
 
-func (this RemoveShape) getType() string {
+func (this *RemoveShape) getType() string {
 	return this.Type_
 }
 
-func (this RemoveShape) setType(newValue string) {
+func (this *RemoveShape) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this RemoveShape) getShapePath() string {
+func (this *RemoveShape) getShapePath() string {
 	return this.ShapePath
 }
 
-func (this RemoveShape) setShapePath(newValue string) {
+func (this *RemoveShape) setShapePath(newValue string) {
 	this.ShapePath = newValue
 }
 

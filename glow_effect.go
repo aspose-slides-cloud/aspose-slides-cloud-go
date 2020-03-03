@@ -52,18 +52,18 @@ type GlowEffect struct {
 	Color string `json:"Color,omitempty"`
 }
 
-func (this GlowEffect) getRadius() float64 {
+func (this *GlowEffect) getRadius() float64 {
 	return this.Radius
 }
 
-func (this GlowEffect) setRadius(newValue float64) {
+func (this *GlowEffect) setRadius(newValue float64) {
 	this.Radius = newValue
 }
-func (this GlowEffect) getColor() string {
+func (this *GlowEffect) getColor() string {
 	return this.Color
 }
 
-func (this GlowEffect) setColor(newValue string) {
+func (this *GlowEffect) setColor(newValue string) {
 	this.Color = newValue
 }
 

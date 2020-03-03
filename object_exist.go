@@ -52,18 +52,18 @@ type ObjectExist struct {
 	IsFolder bool `json:"IsFolder"`
 }
 
-func (this ObjectExist) getExists() bool {
+func (this *ObjectExist) getExists() bool {
 	return this.Exists
 }
 
-func (this ObjectExist) setExists(newValue bool) {
+func (this *ObjectExist) setExists(newValue bool) {
 	this.Exists = newValue
 }
-func (this ObjectExist) getIsFolder() bool {
+func (this *ObjectExist) getIsFolder() bool {
 	return this.IsFolder
 }
 
-func (this ObjectExist) setIsFolder(newValue bool) {
+func (this *ObjectExist) setIsFolder(newValue bool) {
 	this.IsFolder = newValue
 }
 

@@ -66,32 +66,32 @@ type PresetShadowEffect struct {
 	ShadowColor string `json:"ShadowColor,omitempty"`
 }
 
-func (this PresetShadowEffect) getDirection() float64 {
+func (this *PresetShadowEffect) getDirection() float64 {
 	return this.Direction
 }
 
-func (this PresetShadowEffect) setDirection(newValue float64) {
+func (this *PresetShadowEffect) setDirection(newValue float64) {
 	this.Direction = newValue
 }
-func (this PresetShadowEffect) getDistance() float64 {
+func (this *PresetShadowEffect) getDistance() float64 {
 	return this.Distance
 }
 
-func (this PresetShadowEffect) setDistance(newValue float64) {
+func (this *PresetShadowEffect) setDistance(newValue float64) {
 	this.Distance = newValue
 }
-func (this PresetShadowEffect) getPreset() string {
+func (this *PresetShadowEffect) getPreset() string {
 	return this.Preset
 }
 
-func (this PresetShadowEffect) setPreset(newValue string) {
+func (this *PresetShadowEffect) setPreset(newValue string) {
 	this.Preset = newValue
 }
-func (this PresetShadowEffect) getShadowColor() string {
+func (this *PresetShadowEffect) getShadowColor() string {
 	return this.ShadowColor
 }
 
-func (this PresetShadowEffect) setShadowColor(newValue string) {
+func (this *PresetShadowEffect) setShadowColor(newValue string) {
 	this.ShadowColor = newValue
 }
 

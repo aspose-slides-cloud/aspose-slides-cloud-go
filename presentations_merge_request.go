@@ -52,18 +52,18 @@ type PresentationsMergeRequest struct {
 	PresentationPasswords []string `json:"PresentationPasswords,omitempty"`
 }
 
-func (this PresentationsMergeRequest) getPresentationPaths() []string {
+func (this *PresentationsMergeRequest) getPresentationPaths() []string {
 	return this.PresentationPaths
 }
 
-func (this PresentationsMergeRequest) setPresentationPaths(newValue []string) {
+func (this *PresentationsMergeRequest) setPresentationPaths(newValue []string) {
 	this.PresentationPaths = newValue
 }
-func (this PresentationsMergeRequest) getPresentationPasswords() []string {
+func (this *PresentationsMergeRequest) getPresentationPasswords() []string {
 	return this.PresentationPasswords
 }
 
-func (this PresentationsMergeRequest) setPresentationPasswords(newValue []string) {
+func (this *PresentationsMergeRequest) setPresentationPasswords(newValue []string) {
 	this.PresentationPasswords = newValue
 }
 

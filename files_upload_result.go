@@ -52,18 +52,18 @@ type FilesUploadResult struct {
 	Errors []ModelError `json:"Errors,omitempty"`
 }
 
-func (this FilesUploadResult) getUploaded() []string {
+func (this *FilesUploadResult) getUploaded() []string {
 	return this.Uploaded
 }
 
-func (this FilesUploadResult) setUploaded(newValue []string) {
+func (this *FilesUploadResult) setUploaded(newValue []string) {
 	this.Uploaded = newValue
 }
-func (this FilesUploadResult) getErrors() []ModelError {
+func (this *FilesUploadResult) getErrors() []ModelError {
 	return this.Errors
 }
 
-func (this FilesUploadResult) setErrors(newValue []ModelError) {
+func (this *FilesUploadResult) setErrors(newValue []ModelError) {
 	this.Errors = newValue
 }
 

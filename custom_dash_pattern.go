@@ -45,11 +45,11 @@ type CustomDashPattern struct {
 	Items []float64 `json:"Items,omitempty"`
 }
 
-func (this CustomDashPattern) getItems() []float64 {
+func (this *CustomDashPattern) getItems() []float64 {
 	return this.Items
 }
 
-func (this CustomDashPattern) setItems(newValue []float64) {
+func (this *CustomDashPattern) setItems(newValue []float64) {
 	this.Items = newValue
 }
 

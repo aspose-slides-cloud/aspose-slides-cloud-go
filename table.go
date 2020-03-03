@@ -39,8 +39,8 @@ type ITable interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -107,12 +107,12 @@ type ITable interface {
 	setStyle(newValue string)
 
 	// Rows.
-	getRows() []TableRow
-	setRows(newValue []TableRow)
+	getRows() []ITableRow
+	setRows(newValue []ITableRow)
 
 	// Columns.
-	getColumns() []TableColumn
-	setColumns(newValue []TableColumn)
+	getColumns() []ITableColumn
+	setColumns(newValue []ITableColumn)
 
 	// Determines whether the first column of a table has to be drawn with a special formatting.
 	getFirstCol() bool
@@ -149,7 +149,7 @@ type Table struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -167,7 +167,7 @@ type Table struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -197,13 +197,13 @@ type Table struct {
 	ShapeType string `json:"ShapeType"`
 
 	// Builtin table style.
-	Style string `json:"Style"`
+	Style string `json:"Style,omitempty"`
 
 	// Rows.
-	Rows []TableRow `json:"Rows,omitempty"`
+	Rows []ITableRow `json:"Rows,omitempty"`
 
 	// Columns.
-	Columns []TableColumn `json:"Columns,omitempty"`
+	Columns []ITableColumn `json:"Columns,omitempty"`
 
 	// Determines whether the first column of a table has to be drawn with a special formatting.
 	FirstCol bool `json:"FirstCol"`
@@ -227,193 +227,193 @@ type Table struct {
 	VerticalBanding bool `json:"VerticalBanding"`
 }
 
-func (this Table) getSelfUri() IResourceUri {
+func (this *Table) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Table) setSelfUri(newValue IResourceUri) {
+func (this *Table) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Table) getAlternateLinks() []ResourceUri {
+func (this *Table) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Table) setAlternateLinks(newValue []ResourceUri) {
+func (this *Table) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Table) getName() string {
+func (this *Table) getName() string {
 	return this.Name
 }
 
-func (this Table) setName(newValue string) {
+func (this *Table) setName(newValue string) {
 	this.Name = newValue
 }
-func (this Table) getWidth() float64 {
+func (this *Table) getWidth() float64 {
 	return this.Width
 }
 
-func (this Table) setWidth(newValue float64) {
+func (this *Table) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this Table) getHeight() float64 {
+func (this *Table) getHeight() float64 {
 	return this.Height
 }
 
-func (this Table) setHeight(newValue float64) {
+func (this *Table) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this Table) getAlternativeText() string {
+func (this *Table) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this Table) setAlternativeText(newValue string) {
+func (this *Table) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this Table) getAlternativeTextTitle() string {
+func (this *Table) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this Table) setAlternativeTextTitle(newValue string) {
+func (this *Table) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this Table) getHidden() bool {
+func (this *Table) getHidden() bool {
 	return this.Hidden
 }
 
-func (this Table) setHidden(newValue bool) {
+func (this *Table) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this Table) getX() float64 {
+func (this *Table) getX() float64 {
 	return this.X
 }
 
-func (this Table) setX(newValue float64) {
+func (this *Table) setX(newValue float64) {
 	this.X = newValue
 }
-func (this Table) getY() float64 {
+func (this *Table) getY() float64 {
 	return this.Y
 }
 
-func (this Table) setY(newValue float64) {
+func (this *Table) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this Table) getZOrderPosition() int32 {
+func (this *Table) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this Table) setZOrderPosition(newValue int32) {
+func (this *Table) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this Table) getShapes() IResourceUriElement {
+func (this *Table) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this Table) setShapes(newValue IResourceUriElement) {
+func (this *Table) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this Table) getFillFormat() IFillFormat {
+func (this *Table) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this Table) setFillFormat(newValue IFillFormat) {
+func (this *Table) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this Table) getEffectFormat() IEffectFormat {
+func (this *Table) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this Table) setEffectFormat(newValue IEffectFormat) {
+func (this *Table) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this Table) getLineFormat() ILineFormat {
+func (this *Table) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this Table) setLineFormat(newValue ILineFormat) {
+func (this *Table) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this Table) getType() string {
+func (this *Table) getType() string {
 	return this.Type_
 }
 
-func (this Table) setType(newValue string) {
+func (this *Table) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this Table) getShapeType() string {
+func (this *Table) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this Table) setShapeType(newValue string) {
+func (this *Table) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this Table) getStyle() string {
+func (this *Table) getStyle() string {
 	return this.Style
 }
 
-func (this Table) setStyle(newValue string) {
+func (this *Table) setStyle(newValue string) {
 	this.Style = newValue
 }
-func (this Table) getRows() []TableRow {
+func (this *Table) getRows() []ITableRow {
 	return this.Rows
 }
 
-func (this Table) setRows(newValue []TableRow) {
+func (this *Table) setRows(newValue []ITableRow) {
 	this.Rows = newValue
 }
-func (this Table) getColumns() []TableColumn {
+func (this *Table) getColumns() []ITableColumn {
 	return this.Columns
 }
 
-func (this Table) setColumns(newValue []TableColumn) {
+func (this *Table) setColumns(newValue []ITableColumn) {
 	this.Columns = newValue
 }
-func (this Table) getFirstCol() bool {
+func (this *Table) getFirstCol() bool {
 	return this.FirstCol
 }
 
-func (this Table) setFirstCol(newValue bool) {
+func (this *Table) setFirstCol(newValue bool) {
 	this.FirstCol = newValue
 }
-func (this Table) getFirstRow() bool {
+func (this *Table) getFirstRow() bool {
 	return this.FirstRow
 }
 
-func (this Table) setFirstRow(newValue bool) {
+func (this *Table) setFirstRow(newValue bool) {
 	this.FirstRow = newValue
 }
-func (this Table) getHorizontalBanding() bool {
+func (this *Table) getHorizontalBanding() bool {
 	return this.HorizontalBanding
 }
 
-func (this Table) setHorizontalBanding(newValue bool) {
+func (this *Table) setHorizontalBanding(newValue bool) {
 	this.HorizontalBanding = newValue
 }
-func (this Table) getLastCol() bool {
+func (this *Table) getLastCol() bool {
 	return this.LastCol
 }
 
-func (this Table) setLastCol(newValue bool) {
+func (this *Table) setLastCol(newValue bool) {
 	this.LastCol = newValue
 }
-func (this Table) getLastRow() bool {
+func (this *Table) getLastRow() bool {
 	return this.LastRow
 }
 
-func (this Table) setLastRow(newValue bool) {
+func (this *Table) setLastRow(newValue bool) {
 	this.LastRow = newValue
 }
-func (this Table) getRightToLeft() bool {
+func (this *Table) getRightToLeft() bool {
 	return this.RightToLeft
 }
 
-func (this Table) setRightToLeft(newValue bool) {
+func (this *Table) setRightToLeft(newValue bool) {
 	this.RightToLeft = newValue
 }
-func (this Table) getVerticalBanding() bool {
+func (this *Table) getVerticalBanding() bool {
 	return this.VerticalBanding
 }
 
-func (this Table) setVerticalBanding(newValue bool) {
+func (this *Table) setVerticalBanding(newValue bool) {
 	this.VerticalBanding = newValue
 }
 
@@ -431,7 +431,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -441,7 +441,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -452,7 +452,11 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -462,7 +466,11 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -662,7 +670,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -672,7 +680,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -683,7 +691,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -693,7 +701,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -704,7 +712,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -714,7 +722,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -725,7 +733,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -735,7 +743,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = "Table"
@@ -804,7 +812,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.Style = "None"
+	this.Style = ""
 	if valStyle, ok := objMap["style"]; ok {
 		if valStyle != nil {
 			var valueForStyle string
@@ -845,7 +853,11 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Rows = valueForRows
+			valueForIRows := make([]ITableRow, len(valueForRows))
+			for i, v := range valueForRows {
+				valueForIRows[i] = ITableRow(&v)
+			}
+			this.Rows = valueForIRows
 		}
 	}
 	if valRowsCap, ok := objMap["Rows"]; ok {
@@ -855,7 +867,11 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Rows = valueForRows
+			valueForIRows := make([]ITableRow, len(valueForRows))
+			for i, v := range valueForRows {
+				valueForIRows[i] = ITableRow(&v)
+			}
+			this.Rows = valueForIRows
 		}
 	}
 	
@@ -866,7 +882,11 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Columns = valueForColumns
+			valueForIColumns := make([]ITableColumn, len(valueForColumns))
+			for i, v := range valueForColumns {
+				valueForIColumns[i] = ITableColumn(&v)
+			}
+			this.Columns = valueForIColumns
 		}
 	}
 	if valColumnsCap, ok := objMap["Columns"]; ok {
@@ -876,7 +896,11 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Columns = valueForColumns
+			valueForIColumns := make([]ITableColumn, len(valueForColumns))
+			for i, v := range valueForColumns {
+				valueForIColumns[i] = ITableColumn(&v)
+			}
+			this.Columns = valueForIColumns
 		}
 	}
 	

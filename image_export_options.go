@@ -73,39 +73,39 @@ type ImageExportOptions struct {
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
 }
 
-func (this ImageExportOptions) getFormat() string {
+func (this *ImageExportOptions) getFormat() string {
 	return this.Format
 }
 
-func (this ImageExportOptions) setFormat(newValue string) {
+func (this *ImageExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this ImageExportOptions) getNotesPosition() string {
+func (this *ImageExportOptions) getNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this ImageExportOptions) setNotesPosition(newValue string) {
+func (this *ImageExportOptions) setNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this ImageExportOptions) getCommentsPosition() string {
+func (this *ImageExportOptions) getCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this ImageExportOptions) setCommentsPosition(newValue string) {
+func (this *ImageExportOptions) setCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
-func (this ImageExportOptions) getCommentsAreaWidth() int32 {
+func (this *ImageExportOptions) getCommentsAreaWidth() int32 {
 	return this.CommentsAreaWidth
 }
 
-func (this ImageExportOptions) setCommentsAreaWidth(newValue int32) {
+func (this *ImageExportOptions) setCommentsAreaWidth(newValue int32) {
 	this.CommentsAreaWidth = newValue
 }
-func (this ImageExportOptions) getCommentsAreaColor() string {
+func (this *ImageExportOptions) getCommentsAreaColor() string {
 	return this.CommentsAreaColor
 }
 
-func (this ImageExportOptions) setCommentsAreaColor(newValue string) {
+func (this *ImageExportOptions) setCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
 

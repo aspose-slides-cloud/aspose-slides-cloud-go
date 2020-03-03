@@ -39,8 +39,8 @@ type IMerge interface {
 	setType(newValue string)
 
 	// Information about documents and slides being merging sources.
-	getPresentations() []MergingSource
-	setPresentations(newValue []MergingSource)
+	getPresentations() []IMergingSource
+	setPresentations(newValue []IMergingSource)
 }
 
 type Merge struct {
@@ -49,21 +49,21 @@ type Merge struct {
 	Type_ string `json:"Type"`
 
 	// Information about documents and slides being merging sources.
-	Presentations []MergingSource `json:"Presentations,omitempty"`
+	Presentations []IMergingSource `json:"Presentations,omitempty"`
 }
 
-func (this Merge) getType() string {
+func (this *Merge) getType() string {
 	return this.Type_
 }
 
-func (this Merge) setType(newValue string) {
+func (this *Merge) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this Merge) getPresentations() []MergingSource {
+func (this *Merge) getPresentations() []IMergingSource {
 	return this.Presentations
 }
 
-func (this Merge) setPresentations(newValue []MergingSource) {
+func (this *Merge) setPresentations(newValue []IMergingSource) {
 	this.Presentations = newValue
 }
 
@@ -114,7 +114,11 @@ func (this *Merge) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Presentations = valueForPresentations
+			valueForIPresentations := make([]IMergingSource, len(valueForPresentations))
+			for i, v := range valueForPresentations {
+				valueForIPresentations[i] = IMergingSource(&v)
+			}
+			this.Presentations = valueForIPresentations
 		}
 	}
 	if valPresentationsCap, ok := objMap["Presentations"]; ok {
@@ -124,7 +128,11 @@ func (this *Merge) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Presentations = valueForPresentations
+			valueForIPresentations := make([]IMergingSource, len(valueForPresentations))
+			for i, v := range valueForPresentations {
+				valueForIPresentations[i] = IMergingSource(&v)
+			}
+			this.Presentations = valueForIPresentations
 		}
 	}
 

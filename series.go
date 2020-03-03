@@ -106,7 +106,7 @@ type ISeries interface {
 type Series struct {
 
 	// Series type.
-	Type_ string `json:"Type"`
+	Type_ string `json:"Type,omitempty"`
 
 	// Series name.
 	Name string `json:"Name,omitempty"`
@@ -124,7 +124,7 @@ type Series struct {
 	PlotOnSecondAxis bool `json:"PlotOnSecondAxis"`
 
 	// Series order.
-	Order int32 `json:"Order"`
+	Order int32 `json:"Order,omitempty"`
 
 	// The number format for the series y values.
 	NumberFormatOfYValues string `json:"NumberFormatOfYValues,omitempty"`
@@ -142,7 +142,7 @@ type Series struct {
 	InvertIfNegative bool `json:"InvertIfNegative"`
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
-	Explosion int32 `json:"Explosion"`
+	Explosion int32 `json:"Explosion,omitempty"`
 
 	// Series marker.
 	Marker ISeriesMarker `json:"Marker,omitempty"`
@@ -157,123 +157,123 @@ type Series struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
-func (this Series) getType() string {
+func (this *Series) getType() string {
 	return this.Type_
 }
 
-func (this Series) setType(newValue string) {
+func (this *Series) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this Series) getName() string {
+func (this *Series) getName() string {
 	return this.Name
 }
 
-func (this Series) setName(newValue string) {
+func (this *Series) setName(newValue string) {
 	this.Name = newValue
 }
-func (this Series) getIsColorVaried() bool {
+func (this *Series) getIsColorVaried() bool {
 	return this.IsColorVaried
 }
 
-func (this Series) setIsColorVaried(newValue bool) {
+func (this *Series) setIsColorVaried(newValue bool) {
 	this.IsColorVaried = newValue
 }
-func (this Series) getInvertedSolidFillColor() string {
+func (this *Series) getInvertedSolidFillColor() string {
 	return this.InvertedSolidFillColor
 }
 
-func (this Series) setInvertedSolidFillColor(newValue string) {
+func (this *Series) setInvertedSolidFillColor(newValue string) {
 	this.InvertedSolidFillColor = newValue
 }
-func (this Series) getSmooth() bool {
+func (this *Series) getSmooth() bool {
 	return this.Smooth
 }
 
-func (this Series) setSmooth(newValue bool) {
+func (this *Series) setSmooth(newValue bool) {
 	this.Smooth = newValue
 }
-func (this Series) getPlotOnSecondAxis() bool {
+func (this *Series) getPlotOnSecondAxis() bool {
 	return this.PlotOnSecondAxis
 }
 
-func (this Series) setPlotOnSecondAxis(newValue bool) {
+func (this *Series) setPlotOnSecondAxis(newValue bool) {
 	this.PlotOnSecondAxis = newValue
 }
-func (this Series) getOrder() int32 {
+func (this *Series) getOrder() int32 {
 	return this.Order
 }
 
-func (this Series) setOrder(newValue int32) {
+func (this *Series) setOrder(newValue int32) {
 	this.Order = newValue
 }
-func (this Series) getNumberFormatOfYValues() string {
+func (this *Series) getNumberFormatOfYValues() string {
 	return this.NumberFormatOfYValues
 }
 
-func (this Series) setNumberFormatOfYValues(newValue string) {
+func (this *Series) setNumberFormatOfYValues(newValue string) {
 	this.NumberFormatOfYValues = newValue
 }
-func (this Series) getNumberFormatOfXValues() string {
+func (this *Series) getNumberFormatOfXValues() string {
 	return this.NumberFormatOfXValues
 }
 
-func (this Series) setNumberFormatOfXValues(newValue string) {
+func (this *Series) setNumberFormatOfXValues(newValue string) {
 	this.NumberFormatOfXValues = newValue
 }
-func (this Series) getNumberFormatOfValues() string {
+func (this *Series) getNumberFormatOfValues() string {
 	return this.NumberFormatOfValues
 }
 
-func (this Series) setNumberFormatOfValues(newValue string) {
+func (this *Series) setNumberFormatOfValues(newValue string) {
 	this.NumberFormatOfValues = newValue
 }
-func (this Series) getNumberFormatOfBubbleSizes() string {
+func (this *Series) getNumberFormatOfBubbleSizes() string {
 	return this.NumberFormatOfBubbleSizes
 }
 
-func (this Series) setNumberFormatOfBubbleSizes(newValue string) {
+func (this *Series) setNumberFormatOfBubbleSizes(newValue string) {
 	this.NumberFormatOfBubbleSizes = newValue
 }
-func (this Series) getInvertIfNegative() bool {
+func (this *Series) getInvertIfNegative() bool {
 	return this.InvertIfNegative
 }
 
-func (this Series) setInvertIfNegative(newValue bool) {
+func (this *Series) setInvertIfNegative(newValue bool) {
 	this.InvertIfNegative = newValue
 }
-func (this Series) getExplosion() int32 {
+func (this *Series) getExplosion() int32 {
 	return this.Explosion
 }
 
-func (this Series) setExplosion(newValue int32) {
+func (this *Series) setExplosion(newValue int32) {
 	this.Explosion = newValue
 }
-func (this Series) getMarker() ISeriesMarker {
+func (this *Series) getMarker() ISeriesMarker {
 	return this.Marker
 }
 
-func (this Series) setMarker(newValue ISeriesMarker) {
+func (this *Series) setMarker(newValue ISeriesMarker) {
 	this.Marker = newValue
 }
-func (this Series) getFillFormat() IFillFormat {
+func (this *Series) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this Series) setFillFormat(newValue IFillFormat) {
+func (this *Series) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this Series) getEffectFormat() IEffectFormat {
+func (this *Series) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this Series) setEffectFormat(newValue IEffectFormat) {
+func (this *Series) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this Series) getLineFormat() ILineFormat {
+func (this *Series) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this Series) setLineFormat(newValue ILineFormat) {
+func (this *Series) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
 
@@ -283,7 +283,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "ClusteredColumn"
+	this.Type_ = ""
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -576,7 +576,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Marker = valueForMarker
+			this.Marker = &valueForMarker
 		}
 	}
 	if valMarkerCap, ok := objMap["Marker"]; ok {
@@ -586,7 +586,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Marker = valueForMarker
+			this.Marker = &valueForMarker
 		}
 	}
 	
@@ -597,7 +597,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -607,7 +607,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -618,7 +618,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -628,7 +628,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -639,7 +639,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -649,7 +649,7 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 

@@ -39,16 +39,16 @@ type ISlideAnimation interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Main sequence.
-	getMainSequence() []Effect
-	setMainSequence(newValue []Effect)
+	getMainSequence() []IEffect
+	setMainSequence(newValue []IEffect)
 
 	// Interactive sequence list.
-	getInteractiveSequences() []InteractiveSequence
-	setInteractiveSequences(newValue []InteractiveSequence)
+	getInteractiveSequences() []IInteractiveSequence
+	setInteractiveSequences(newValue []IInteractiveSequence)
 }
 
 type SlideAnimation struct {
@@ -57,41 +57,41 @@ type SlideAnimation struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Main sequence.
-	MainSequence []Effect `json:"MainSequence,omitempty"`
+	MainSequence []IEffect `json:"MainSequence,omitempty"`
 
 	// Interactive sequence list.
-	InteractiveSequences []InteractiveSequence `json:"InteractiveSequences,omitempty"`
+	InteractiveSequences []IInteractiveSequence `json:"InteractiveSequences,omitempty"`
 }
 
-func (this SlideAnimation) getSelfUri() IResourceUri {
+func (this *SlideAnimation) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this SlideAnimation) setSelfUri(newValue IResourceUri) {
+func (this *SlideAnimation) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this SlideAnimation) getAlternateLinks() []ResourceUri {
+func (this *SlideAnimation) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this SlideAnimation) setAlternateLinks(newValue []ResourceUri) {
+func (this *SlideAnimation) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this SlideAnimation) getMainSequence() []Effect {
+func (this *SlideAnimation) getMainSequence() []IEffect {
 	return this.MainSequence
 }
 
-func (this SlideAnimation) setMainSequence(newValue []Effect) {
+func (this *SlideAnimation) setMainSequence(newValue []IEffect) {
 	this.MainSequence = newValue
 }
-func (this SlideAnimation) getInteractiveSequences() []InteractiveSequence {
+func (this *SlideAnimation) getInteractiveSequences() []IInteractiveSequence {
 	return this.InteractiveSequences
 }
 
-func (this SlideAnimation) setInteractiveSequences(newValue []InteractiveSequence) {
+func (this *SlideAnimation) setInteractiveSequences(newValue []IInteractiveSequence) {
 	this.InteractiveSequences = newValue
 }
 
@@ -109,7 +109,7 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -119,7 +119,7 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -130,7 +130,11 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -140,7 +144,11 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -151,7 +159,11 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.MainSequence = valueForMainSequence
+			valueForIMainSequence := make([]IEffect, len(valueForMainSequence))
+			for i, v := range valueForMainSequence {
+				valueForIMainSequence[i] = IEffect(&v)
+			}
+			this.MainSequence = valueForIMainSequence
 		}
 	}
 	if valMainSequenceCap, ok := objMap["MainSequence"]; ok {
@@ -161,7 +173,11 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.MainSequence = valueForMainSequence
+			valueForIMainSequence := make([]IEffect, len(valueForMainSequence))
+			for i, v := range valueForMainSequence {
+				valueForIMainSequence[i] = IEffect(&v)
+			}
+			this.MainSequence = valueForIMainSequence
 		}
 	}
 	
@@ -172,7 +188,11 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.InteractiveSequences = valueForInteractiveSequences
+			valueForIInteractiveSequences := make([]IInteractiveSequence, len(valueForInteractiveSequences))
+			for i, v := range valueForInteractiveSequences {
+				valueForIInteractiveSequences[i] = IInteractiveSequence(&v)
+			}
+			this.InteractiveSequences = valueForIInteractiveSequences
 		}
 	}
 	if valInteractiveSequencesCap, ok := objMap["InteractiveSequences"]; ok {
@@ -182,7 +202,11 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.InteractiveSequences = valueForInteractiveSequences
+			valueForIInteractiveSequences := make([]IInteractiveSequence, len(valueForInteractiveSequences))
+			for i, v := range valueForInteractiveSequences {
+				valueForIInteractiveSequences[i] = IInteractiveSequence(&v)
+			}
+			this.InteractiveSequences = valueForIInteractiveSequences
 		}
 	}
 

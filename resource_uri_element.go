@@ -45,11 +45,11 @@ type ResourceUriElement struct {
 	Uri IResourceUri `json:"Uri,omitempty"`
 }
 
-func (this ResourceUriElement) getUri() IResourceUri {
+func (this *ResourceUriElement) getUri() IResourceUri {
 	return this.Uri
 }
 
-func (this ResourceUriElement) setUri(newValue IResourceUri) {
+func (this *ResourceUriElement) setUri(newValue IResourceUri) {
 	this.Uri = newValue
 }
 
@@ -67,7 +67,7 @@ func (this *ResourceUriElement) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Uri = valueForUri
+			this.Uri = &valueForUri
 		}
 	}
 	if valUriCap, ok := objMap["Uri"]; ok {
@@ -77,7 +77,7 @@ func (this *ResourceUriElement) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Uri = valueForUri
+			this.Uri = &valueForUri
 		}
 	}
 

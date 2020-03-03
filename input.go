@@ -59,25 +59,25 @@ type Input struct {
 	TemplateData IInputFile `json:"TemplateData,omitempty"`
 }
 
-func (this Input) getTemplate() IInputFile {
+func (this *Input) getTemplate() IInputFile {
 	return this.Template
 }
 
-func (this Input) setTemplate(newValue IInputFile) {
+func (this *Input) setTemplate(newValue IInputFile) {
 	this.Template = newValue
 }
-func (this Input) getHtmlData() IInputFile {
+func (this *Input) getHtmlData() IInputFile {
 	return this.HtmlData
 }
 
-func (this Input) setHtmlData(newValue IInputFile) {
+func (this *Input) setHtmlData(newValue IInputFile) {
 	this.HtmlData = newValue
 }
-func (this Input) getTemplateData() IInputFile {
+func (this *Input) getTemplateData() IInputFile {
 	return this.TemplateData
 }
 
-func (this Input) setTemplateData(newValue IInputFile) {
+func (this *Input) setTemplateData(newValue IInputFile) {
 	this.TemplateData = newValue
 }
 
@@ -95,7 +95,7 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Template = valueForTemplate
+			this.Template = &valueForTemplate
 		}
 	}
 	if valTemplateCap, ok := objMap["Template"]; ok {
@@ -105,7 +105,7 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Template = valueForTemplate
+			this.Template = &valueForTemplate
 		}
 	}
 	
@@ -116,7 +116,7 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.HtmlData = valueForHtmlData
+			this.HtmlData = &valueForHtmlData
 		}
 	}
 	if valHtmlDataCap, ok := objMap["HtmlData"]; ok {
@@ -126,7 +126,7 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.HtmlData = valueForHtmlData
+			this.HtmlData = &valueForHtmlData
 		}
 	}
 	
@@ -137,7 +137,7 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.TemplateData = valueForTemplateData
+			this.TemplateData = &valueForTemplateData
 		}
 	}
 	if valTemplateDataCap, ok := objMap["TemplateData"]; ok {
@@ -147,7 +147,7 @@ func (this *Input) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.TemplateData = valueForTemplateData
+			this.TemplateData = &valueForTemplateData
 		}
 	}
 

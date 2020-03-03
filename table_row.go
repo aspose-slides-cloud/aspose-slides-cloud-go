@@ -35,8 +35,8 @@ import (
 type ITableRow interface {
 
 	// Cells for the row.
-	getCells() []TableCell
-	setCells(newValue []TableCell)
+	getCells() []ITableCell
+	setCells(newValue []ITableCell)
 
 	// Minimal height of the row.
 	getMinimalHeight() float64
@@ -50,7 +50,7 @@ type ITableRow interface {
 type TableRow struct {
 
 	// Cells for the row.
-	Cells []TableCell `json:"Cells,omitempty"`
+	Cells []ITableCell `json:"Cells,omitempty"`
 
 	// Minimal height of the row.
 	MinimalHeight float64 `json:"MinimalHeight"`
@@ -59,25 +59,25 @@ type TableRow struct {
 	Height float64 `json:"Height"`
 }
 
-func (this TableRow) getCells() []TableCell {
+func (this *TableRow) getCells() []ITableCell {
 	return this.Cells
 }
 
-func (this TableRow) setCells(newValue []TableCell) {
+func (this *TableRow) setCells(newValue []ITableCell) {
 	this.Cells = newValue
 }
-func (this TableRow) getMinimalHeight() float64 {
+func (this *TableRow) getMinimalHeight() float64 {
 	return this.MinimalHeight
 }
 
-func (this TableRow) setMinimalHeight(newValue float64) {
+func (this *TableRow) setMinimalHeight(newValue float64) {
 	this.MinimalHeight = newValue
 }
-func (this TableRow) getHeight() float64 {
+func (this *TableRow) getHeight() float64 {
 	return this.Height
 }
 
-func (this TableRow) setHeight(newValue float64) {
+func (this *TableRow) setHeight(newValue float64) {
 	this.Height = newValue
 }
 
@@ -95,7 +95,11 @@ func (this *TableRow) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Cells = valueForCells
+			valueForICells := make([]ITableCell, len(valueForCells))
+			for i, v := range valueForCells {
+				valueForICells[i] = ITableCell(&v)
+			}
+			this.Cells = valueForICells
 		}
 	}
 	if valCellsCap, ok := objMap["Cells"]; ok {
@@ -105,7 +109,11 @@ func (this *TableRow) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Cells = valueForCells
+			valueForICells := make([]ITableCell, len(valueForCells))
+			for i, v := range valueForCells {
+				valueForICells[i] = ITableCell(&v)
+			}
+			this.Cells = valueForICells
 		}
 	}
 	

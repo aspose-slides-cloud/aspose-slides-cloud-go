@@ -39,12 +39,12 @@ type IParagraphs interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// List of paragraph links.
-	getParagraphLinks() []ResourceUriElement
-	setParagraphLinks(newValue []ResourceUriElement)
+	getParagraphLinks() []IResourceUriElement
+	setParagraphLinks(newValue []IResourceUriElement)
 }
 
 type Paragraphs struct {
@@ -53,31 +53,31 @@ type Paragraphs struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// List of paragraph links.
-	ParagraphLinks []ResourceUriElement `json:"ParagraphLinks,omitempty"`
+	ParagraphLinks []IResourceUriElement `json:"ParagraphLinks,omitempty"`
 }
 
-func (this Paragraphs) getSelfUri() IResourceUri {
+func (this *Paragraphs) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Paragraphs) setSelfUri(newValue IResourceUri) {
+func (this *Paragraphs) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Paragraphs) getAlternateLinks() []ResourceUri {
+func (this *Paragraphs) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Paragraphs) setAlternateLinks(newValue []ResourceUri) {
+func (this *Paragraphs) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Paragraphs) getParagraphLinks() []ResourceUriElement {
+func (this *Paragraphs) getParagraphLinks() []IResourceUriElement {
 	return this.ParagraphLinks
 }
 
-func (this Paragraphs) setParagraphLinks(newValue []ResourceUriElement) {
+func (this *Paragraphs) setParagraphLinks(newValue []IResourceUriElement) {
 	this.ParagraphLinks = newValue
 }
 
@@ -95,7 +95,7 @@ func (this *Paragraphs) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -105,7 +105,7 @@ func (this *Paragraphs) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -116,7 +116,11 @@ func (this *Paragraphs) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -126,7 +130,11 @@ func (this *Paragraphs) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -137,7 +145,11 @@ func (this *Paragraphs) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ParagraphLinks = valueForParagraphLinks
+			valueForIParagraphLinks := make([]IResourceUriElement, len(valueForParagraphLinks))
+			for i, v := range valueForParagraphLinks {
+				valueForIParagraphLinks[i] = IResourceUriElement(&v)
+			}
+			this.ParagraphLinks = valueForIParagraphLinks
 		}
 	}
 	if valParagraphLinksCap, ok := objMap["ParagraphLinks"]; ok {
@@ -147,7 +159,11 @@ func (this *Paragraphs) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ParagraphLinks = valueForParagraphLinks
+			valueForIParagraphLinks := make([]IResourceUriElement, len(valueForParagraphLinks))
+			for i, v := range valueForParagraphLinks {
+				valueForIParagraphLinks[i] = IResourceUriElement(&v)
+			}
+			this.ParagraphLinks = valueForIParagraphLinks
 		}
 	}
 

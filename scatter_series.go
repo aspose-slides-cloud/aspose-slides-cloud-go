@@ -107,14 +107,14 @@ type IScatterSeries interface {
 	setDataPointType(newValue string)
 
 	// Gets or sets the values.
-	getDataPoints() []ScatterChartDataPoint
-	setDataPoints(newValue []ScatterChartDataPoint)
+	getDataPoints() []IScatterChartDataPoint
+	setDataPoints(newValue []IScatterChartDataPoint)
 }
 
 type ScatterSeries struct {
 
 	// Series type.
-	Type_ string `json:"Type"`
+	Type_ string `json:"Type,omitempty"`
 
 	// Series name.
 	Name string `json:"Name,omitempty"`
@@ -132,7 +132,7 @@ type ScatterSeries struct {
 	PlotOnSecondAxis bool `json:"PlotOnSecondAxis"`
 
 	// Series order.
-	Order int32 `json:"Order"`
+	Order int32 `json:"Order,omitempty"`
 
 	// The number format for the series y values.
 	NumberFormatOfYValues string `json:"NumberFormatOfYValues,omitempty"`
@@ -150,7 +150,7 @@ type ScatterSeries struct {
 	InvertIfNegative bool `json:"InvertIfNegative"`
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
-	Explosion int32 `json:"Explosion"`
+	Explosion int32 `json:"Explosion,omitempty"`
 
 	// Series marker.
 	Marker ISeriesMarker `json:"Marker,omitempty"`
@@ -168,140 +168,140 @@ type ScatterSeries struct {
 	DataPointType string `json:"DataPointType"`
 
 	// Gets or sets the values.
-	DataPoints []ScatterChartDataPoint `json:"DataPoints,omitempty"`
+	DataPoints []IScatterChartDataPoint `json:"DataPoints,omitempty"`
 }
 
-func (this ScatterSeries) getType() string {
+func (this *ScatterSeries) getType() string {
 	return this.Type_
 }
 
-func (this ScatterSeries) setType(newValue string) {
+func (this *ScatterSeries) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this ScatterSeries) getName() string {
+func (this *ScatterSeries) getName() string {
 	return this.Name
 }
 
-func (this ScatterSeries) setName(newValue string) {
+func (this *ScatterSeries) setName(newValue string) {
 	this.Name = newValue
 }
-func (this ScatterSeries) getIsColorVaried() bool {
+func (this *ScatterSeries) getIsColorVaried() bool {
 	return this.IsColorVaried
 }
 
-func (this ScatterSeries) setIsColorVaried(newValue bool) {
+func (this *ScatterSeries) setIsColorVaried(newValue bool) {
 	this.IsColorVaried = newValue
 }
-func (this ScatterSeries) getInvertedSolidFillColor() string {
+func (this *ScatterSeries) getInvertedSolidFillColor() string {
 	return this.InvertedSolidFillColor
 }
 
-func (this ScatterSeries) setInvertedSolidFillColor(newValue string) {
+func (this *ScatterSeries) setInvertedSolidFillColor(newValue string) {
 	this.InvertedSolidFillColor = newValue
 }
-func (this ScatterSeries) getSmooth() bool {
+func (this *ScatterSeries) getSmooth() bool {
 	return this.Smooth
 }
 
-func (this ScatterSeries) setSmooth(newValue bool) {
+func (this *ScatterSeries) setSmooth(newValue bool) {
 	this.Smooth = newValue
 }
-func (this ScatterSeries) getPlotOnSecondAxis() bool {
+func (this *ScatterSeries) getPlotOnSecondAxis() bool {
 	return this.PlotOnSecondAxis
 }
 
-func (this ScatterSeries) setPlotOnSecondAxis(newValue bool) {
+func (this *ScatterSeries) setPlotOnSecondAxis(newValue bool) {
 	this.PlotOnSecondAxis = newValue
 }
-func (this ScatterSeries) getOrder() int32 {
+func (this *ScatterSeries) getOrder() int32 {
 	return this.Order
 }
 
-func (this ScatterSeries) setOrder(newValue int32) {
+func (this *ScatterSeries) setOrder(newValue int32) {
 	this.Order = newValue
 }
-func (this ScatterSeries) getNumberFormatOfYValues() string {
+func (this *ScatterSeries) getNumberFormatOfYValues() string {
 	return this.NumberFormatOfYValues
 }
 
-func (this ScatterSeries) setNumberFormatOfYValues(newValue string) {
+func (this *ScatterSeries) setNumberFormatOfYValues(newValue string) {
 	this.NumberFormatOfYValues = newValue
 }
-func (this ScatterSeries) getNumberFormatOfXValues() string {
+func (this *ScatterSeries) getNumberFormatOfXValues() string {
 	return this.NumberFormatOfXValues
 }
 
-func (this ScatterSeries) setNumberFormatOfXValues(newValue string) {
+func (this *ScatterSeries) setNumberFormatOfXValues(newValue string) {
 	this.NumberFormatOfXValues = newValue
 }
-func (this ScatterSeries) getNumberFormatOfValues() string {
+func (this *ScatterSeries) getNumberFormatOfValues() string {
 	return this.NumberFormatOfValues
 }
 
-func (this ScatterSeries) setNumberFormatOfValues(newValue string) {
+func (this *ScatterSeries) setNumberFormatOfValues(newValue string) {
 	this.NumberFormatOfValues = newValue
 }
-func (this ScatterSeries) getNumberFormatOfBubbleSizes() string {
+func (this *ScatterSeries) getNumberFormatOfBubbleSizes() string {
 	return this.NumberFormatOfBubbleSizes
 }
 
-func (this ScatterSeries) setNumberFormatOfBubbleSizes(newValue string) {
+func (this *ScatterSeries) setNumberFormatOfBubbleSizes(newValue string) {
 	this.NumberFormatOfBubbleSizes = newValue
 }
-func (this ScatterSeries) getInvertIfNegative() bool {
+func (this *ScatterSeries) getInvertIfNegative() bool {
 	return this.InvertIfNegative
 }
 
-func (this ScatterSeries) setInvertIfNegative(newValue bool) {
+func (this *ScatterSeries) setInvertIfNegative(newValue bool) {
 	this.InvertIfNegative = newValue
 }
-func (this ScatterSeries) getExplosion() int32 {
+func (this *ScatterSeries) getExplosion() int32 {
 	return this.Explosion
 }
 
-func (this ScatterSeries) setExplosion(newValue int32) {
+func (this *ScatterSeries) setExplosion(newValue int32) {
 	this.Explosion = newValue
 }
-func (this ScatterSeries) getMarker() ISeriesMarker {
+func (this *ScatterSeries) getMarker() ISeriesMarker {
 	return this.Marker
 }
 
-func (this ScatterSeries) setMarker(newValue ISeriesMarker) {
+func (this *ScatterSeries) setMarker(newValue ISeriesMarker) {
 	this.Marker = newValue
 }
-func (this ScatterSeries) getFillFormat() IFillFormat {
+func (this *ScatterSeries) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this ScatterSeries) setFillFormat(newValue IFillFormat) {
+func (this *ScatterSeries) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this ScatterSeries) getEffectFormat() IEffectFormat {
+func (this *ScatterSeries) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this ScatterSeries) setEffectFormat(newValue IEffectFormat) {
+func (this *ScatterSeries) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this ScatterSeries) getLineFormat() ILineFormat {
+func (this *ScatterSeries) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this ScatterSeries) setLineFormat(newValue ILineFormat) {
+func (this *ScatterSeries) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this ScatterSeries) getDataPointType() string {
+func (this *ScatterSeries) getDataPointType() string {
 	return this.DataPointType
 }
 
-func (this ScatterSeries) setDataPointType(newValue string) {
+func (this *ScatterSeries) setDataPointType(newValue string) {
 	this.DataPointType = newValue
 }
-func (this ScatterSeries) getDataPoints() []ScatterChartDataPoint {
+func (this *ScatterSeries) getDataPoints() []IScatterChartDataPoint {
 	return this.DataPoints
 }
 
-func (this ScatterSeries) setDataPoints(newValue []ScatterChartDataPoint) {
+func (this *ScatterSeries) setDataPoints(newValue []IScatterChartDataPoint) {
 	this.DataPoints = newValue
 }
 
@@ -311,7 +311,7 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "ClusteredColumn"
+	this.Type_ = ""
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -604,7 +604,7 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Marker = valueForMarker
+			this.Marker = &valueForMarker
 		}
 	}
 	if valMarkerCap, ok := objMap["Marker"]; ok {
@@ -614,7 +614,7 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Marker = valueForMarker
+			this.Marker = &valueForMarker
 		}
 	}
 	
@@ -625,7 +625,7 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -635,7 +635,7 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -646,7 +646,7 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -656,7 +656,7 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -667,7 +667,7 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -677,7 +677,7 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.DataPointType = "OneValue"
@@ -721,7 +721,11 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.DataPoints = valueForDataPoints
+			valueForIDataPoints := make([]IScatterChartDataPoint, len(valueForDataPoints))
+			for i, v := range valueForDataPoints {
+				valueForIDataPoints[i] = IScatterChartDataPoint(&v)
+			}
+			this.DataPoints = valueForIDataPoints
 		}
 	}
 	if valDataPointsCap, ok := objMap["DataPoints"]; ok {
@@ -731,7 +735,11 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.DataPoints = valueForDataPoints
+			valueForIDataPoints := make([]IScatterChartDataPoint, len(valueForDataPoints))
+			for i, v := range valueForDataPoints {
+				valueForIDataPoints[i] = IScatterChartDataPoint(&v)
+			}
+			this.DataPoints = valueForIDataPoints
 		}
 	}
 

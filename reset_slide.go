@@ -52,18 +52,18 @@ type ResetSlide struct {
 	Position int32 `json:"Position"`
 }
 
-func (this ResetSlide) getType() string {
+func (this *ResetSlide) getType() string {
 	return this.Type_
 }
 
-func (this ResetSlide) setType(newValue string) {
+func (this *ResetSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this ResetSlide) getPosition() int32 {
+func (this *ResetSlide) getPosition() int32 {
 	return this.Position
 }
 
-func (this ResetSlide) setPosition(newValue int32) {
+func (this *ResetSlide) setPosition(newValue int32) {
 	this.Position = newValue
 }
 

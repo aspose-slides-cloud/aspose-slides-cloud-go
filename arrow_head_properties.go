@@ -50,34 +50,34 @@ type IArrowHeadProperties interface {
 type ArrowHeadProperties struct {
 
 	// Length.
-	Length string `json:"Length"`
+	Length string `json:"Length,omitempty"`
 
 	// Style.
-	Style string `json:"Style"`
+	Style string `json:"Style,omitempty"`
 
 	// Width.
-	Width string `json:"Width"`
+	Width string `json:"Width,omitempty"`
 }
 
-func (this ArrowHeadProperties) getLength() string {
+func (this *ArrowHeadProperties) getLength() string {
 	return this.Length
 }
 
-func (this ArrowHeadProperties) setLength(newValue string) {
+func (this *ArrowHeadProperties) setLength(newValue string) {
 	this.Length = newValue
 }
-func (this ArrowHeadProperties) getStyle() string {
+func (this *ArrowHeadProperties) getStyle() string {
 	return this.Style
 }
 
-func (this ArrowHeadProperties) setStyle(newValue string) {
+func (this *ArrowHeadProperties) setStyle(newValue string) {
 	this.Style = newValue
 }
-func (this ArrowHeadProperties) getWidth() string {
+func (this *ArrowHeadProperties) getWidth() string {
 	return this.Width
 }
 
-func (this ArrowHeadProperties) setWidth(newValue string) {
+func (this *ArrowHeadProperties) setWidth(newValue string) {
 	this.Width = newValue
 }
 
@@ -87,7 +87,7 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Length = "Short"
+	this.Length = ""
 	if valLength, ok := objMap["length"]; ok {
 		if valLength != nil {
 			var valueForLength string
@@ -120,7 +120,7 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.Style = "None"
+	this.Style = ""
 	if valStyle, ok := objMap["style"]; ok {
 		if valStyle != nil {
 			var valueForStyle string
@@ -153,7 +153,7 @@ func (this *ArrowHeadProperties) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.Width = "Narrow"
+	this.Width = ""
 	if valWidth, ok := objMap["width"]; ok {
 		if valWidth != nil {
 			var valueForWidth string

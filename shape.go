@@ -39,8 +39,8 @@ type IShape interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -121,7 +121,7 @@ type Shape struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -139,7 +139,7 @@ type Shape struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -178,144 +178,144 @@ type Shape struct {
 	Paragraphs IResourceUriElement `json:"Paragraphs,omitempty"`
 }
 
-func (this Shape) getSelfUri() IResourceUri {
+func (this *Shape) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Shape) setSelfUri(newValue IResourceUri) {
+func (this *Shape) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Shape) getAlternateLinks() []ResourceUri {
+func (this *Shape) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Shape) setAlternateLinks(newValue []ResourceUri) {
+func (this *Shape) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Shape) getName() string {
+func (this *Shape) getName() string {
 	return this.Name
 }
 
-func (this Shape) setName(newValue string) {
+func (this *Shape) setName(newValue string) {
 	this.Name = newValue
 }
-func (this Shape) getWidth() float64 {
+func (this *Shape) getWidth() float64 {
 	return this.Width
 }
 
-func (this Shape) setWidth(newValue float64) {
+func (this *Shape) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this Shape) getHeight() float64 {
+func (this *Shape) getHeight() float64 {
 	return this.Height
 }
 
-func (this Shape) setHeight(newValue float64) {
+func (this *Shape) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this Shape) getAlternativeText() string {
+func (this *Shape) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this Shape) setAlternativeText(newValue string) {
+func (this *Shape) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this Shape) getAlternativeTextTitle() string {
+func (this *Shape) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this Shape) setAlternativeTextTitle(newValue string) {
+func (this *Shape) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this Shape) getHidden() bool {
+func (this *Shape) getHidden() bool {
 	return this.Hidden
 }
 
-func (this Shape) setHidden(newValue bool) {
+func (this *Shape) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this Shape) getX() float64 {
+func (this *Shape) getX() float64 {
 	return this.X
 }
 
-func (this Shape) setX(newValue float64) {
+func (this *Shape) setX(newValue float64) {
 	this.X = newValue
 }
-func (this Shape) getY() float64 {
+func (this *Shape) getY() float64 {
 	return this.Y
 }
 
-func (this Shape) setY(newValue float64) {
+func (this *Shape) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this Shape) getZOrderPosition() int32 {
+func (this *Shape) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this Shape) setZOrderPosition(newValue int32) {
+func (this *Shape) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this Shape) getShapes() IResourceUriElement {
+func (this *Shape) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this Shape) setShapes(newValue IResourceUriElement) {
+func (this *Shape) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this Shape) getFillFormat() IFillFormat {
+func (this *Shape) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this Shape) setFillFormat(newValue IFillFormat) {
+func (this *Shape) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this Shape) getEffectFormat() IEffectFormat {
+func (this *Shape) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this Shape) setEffectFormat(newValue IEffectFormat) {
+func (this *Shape) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this Shape) getLineFormat() ILineFormat {
+func (this *Shape) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this Shape) setLineFormat(newValue ILineFormat) {
+func (this *Shape) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this Shape) getType() string {
+func (this *Shape) getType() string {
 	return this.Type_
 }
 
-func (this Shape) setType(newValue string) {
+func (this *Shape) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this Shape) getShapeType() string {
+func (this *Shape) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this Shape) setShapeType(newValue string) {
+func (this *Shape) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this Shape) getGeometryShapeType() string {
+func (this *Shape) getGeometryShapeType() string {
 	return this.GeometryShapeType
 }
 
-func (this Shape) setGeometryShapeType(newValue string) {
+func (this *Shape) setGeometryShapeType(newValue string) {
 	this.GeometryShapeType = newValue
 }
-func (this Shape) getText() string {
+func (this *Shape) getText() string {
 	return this.Text
 }
 
-func (this Shape) setText(newValue string) {
+func (this *Shape) setText(newValue string) {
 	this.Text = newValue
 }
-func (this Shape) getParagraphs() IResourceUriElement {
+func (this *Shape) getParagraphs() IResourceUriElement {
 	return this.Paragraphs
 }
 
-func (this Shape) setParagraphs(newValue IResourceUriElement) {
+func (this *Shape) setParagraphs(newValue IResourceUriElement) {
 	this.Paragraphs = newValue
 }
 
@@ -333,7 +333,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -343,7 +343,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -354,7 +354,11 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -364,7 +368,11 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -564,7 +572,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -574,7 +582,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -585,7 +593,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -595,7 +603,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -606,7 +614,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -616,7 +624,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -627,7 +635,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -637,7 +645,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = "Shape"
@@ -768,7 +776,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Paragraphs = valueForParagraphs
+			this.Paragraphs = &valueForParagraphs
 		}
 	}
 	if valParagraphsCap, ok := objMap["Paragraphs"]; ok {
@@ -778,7 +786,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Paragraphs = valueForParagraphs
+			this.Paragraphs = &valueForParagraphs
 		}
 	}
 

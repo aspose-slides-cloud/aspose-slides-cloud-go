@@ -35,21 +35,21 @@ import (
 type IFileVersions interface {
 
 	// File versions FileVersion.
-	getValue() []FileVersion
-	setValue(newValue []FileVersion)
+	getValue() []IFileVersion
+	setValue(newValue []IFileVersion)
 }
 
 type FileVersions struct {
 
 	// File versions FileVersion.
-	Value []FileVersion `json:"Value,omitempty"`
+	Value []IFileVersion `json:"Value,omitempty"`
 }
 
-func (this FileVersions) getValue() []FileVersion {
+func (this *FileVersions) getValue() []IFileVersion {
 	return this.Value
 }
 
-func (this FileVersions) setValue(newValue []FileVersion) {
+func (this *FileVersions) setValue(newValue []IFileVersion) {
 	this.Value = newValue
 }
 
@@ -67,7 +67,11 @@ func (this *FileVersions) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Value = valueForValue
+			valueForIValue := make([]IFileVersion, len(valueForValue))
+			for i, v := range valueForValue {
+				valueForIValue[i] = IFileVersion(&v)
+			}
+			this.Value = valueForIValue
 		}
 	}
 	if valValueCap, ok := objMap["Value"]; ok {
@@ -77,7 +81,11 @@ func (this *FileVersions) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Value = valueForValue
+			valueForIValue := make([]IFileVersion, len(valueForValue))
+			for i, v := range valueForValue {
+				valueForIValue[i] = IFileVersion(&v)
+			}
+			this.Value = valueForIValue
 		}
 	}
 

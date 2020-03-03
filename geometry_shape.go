@@ -39,8 +39,8 @@ type IGeometryShape interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -112,7 +112,7 @@ type GeometryShape struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -130,7 +130,7 @@ type GeometryShape struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -162,130 +162,130 @@ type GeometryShape struct {
 	GeometryShapeType string `json:"GeometryShapeType"`
 }
 
-func (this GeometryShape) getSelfUri() IResourceUri {
+func (this *GeometryShape) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this GeometryShape) setSelfUri(newValue IResourceUri) {
+func (this *GeometryShape) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this GeometryShape) getAlternateLinks() []ResourceUri {
+func (this *GeometryShape) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this GeometryShape) setAlternateLinks(newValue []ResourceUri) {
+func (this *GeometryShape) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this GeometryShape) getName() string {
+func (this *GeometryShape) getName() string {
 	return this.Name
 }
 
-func (this GeometryShape) setName(newValue string) {
+func (this *GeometryShape) setName(newValue string) {
 	this.Name = newValue
 }
-func (this GeometryShape) getWidth() float64 {
+func (this *GeometryShape) getWidth() float64 {
 	return this.Width
 }
 
-func (this GeometryShape) setWidth(newValue float64) {
+func (this *GeometryShape) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this GeometryShape) getHeight() float64 {
+func (this *GeometryShape) getHeight() float64 {
 	return this.Height
 }
 
-func (this GeometryShape) setHeight(newValue float64) {
+func (this *GeometryShape) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this GeometryShape) getAlternativeText() string {
+func (this *GeometryShape) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this GeometryShape) setAlternativeText(newValue string) {
+func (this *GeometryShape) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this GeometryShape) getAlternativeTextTitle() string {
+func (this *GeometryShape) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this GeometryShape) setAlternativeTextTitle(newValue string) {
+func (this *GeometryShape) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this GeometryShape) getHidden() bool {
+func (this *GeometryShape) getHidden() bool {
 	return this.Hidden
 }
 
-func (this GeometryShape) setHidden(newValue bool) {
+func (this *GeometryShape) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this GeometryShape) getX() float64 {
+func (this *GeometryShape) getX() float64 {
 	return this.X
 }
 
-func (this GeometryShape) setX(newValue float64) {
+func (this *GeometryShape) setX(newValue float64) {
 	this.X = newValue
 }
-func (this GeometryShape) getY() float64 {
+func (this *GeometryShape) getY() float64 {
 	return this.Y
 }
 
-func (this GeometryShape) setY(newValue float64) {
+func (this *GeometryShape) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this GeometryShape) getZOrderPosition() int32 {
+func (this *GeometryShape) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this GeometryShape) setZOrderPosition(newValue int32) {
+func (this *GeometryShape) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this GeometryShape) getShapes() IResourceUriElement {
+func (this *GeometryShape) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this GeometryShape) setShapes(newValue IResourceUriElement) {
+func (this *GeometryShape) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this GeometryShape) getFillFormat() IFillFormat {
+func (this *GeometryShape) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this GeometryShape) setFillFormat(newValue IFillFormat) {
+func (this *GeometryShape) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this GeometryShape) getEffectFormat() IEffectFormat {
+func (this *GeometryShape) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this GeometryShape) setEffectFormat(newValue IEffectFormat) {
+func (this *GeometryShape) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this GeometryShape) getLineFormat() ILineFormat {
+func (this *GeometryShape) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this GeometryShape) setLineFormat(newValue ILineFormat) {
+func (this *GeometryShape) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this GeometryShape) getType() string {
+func (this *GeometryShape) getType() string {
 	return this.Type_
 }
 
-func (this GeometryShape) setType(newValue string) {
+func (this *GeometryShape) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this GeometryShape) getShapeType() string {
+func (this *GeometryShape) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this GeometryShape) setShapeType(newValue string) {
+func (this *GeometryShape) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this GeometryShape) getGeometryShapeType() string {
+func (this *GeometryShape) getGeometryShapeType() string {
 	return this.GeometryShapeType
 }
 
-func (this GeometryShape) setGeometryShapeType(newValue string) {
+func (this *GeometryShape) setGeometryShapeType(newValue string) {
 	this.GeometryShapeType = newValue
 }
 
@@ -303,7 +303,7 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -313,7 +313,7 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -324,7 +324,11 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -334,7 +338,11 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -534,7 +542,7 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -544,7 +552,7 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -555,7 +563,7 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -565,7 +573,7 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -576,7 +584,7 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -586,7 +594,7 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -597,7 +605,7 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -607,7 +615,7 @@ func (this *GeometryShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = ""

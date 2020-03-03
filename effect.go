@@ -112,7 +112,7 @@ type Effect struct {
 	Accelerate float64 `json:"Accelerate,omitempty"`
 
 	// True to automatically play the animation in reverse after playing it in the forward direction.
-	AutoReverse bool `json:"AutoReverse,omitempty"`
+	AutoReverse bool `json:"AutoReverse"`
 
 	// The percentage of duration decelerate behavior effect.
 	Decelerate float64 `json:"Decelerate,omitempty"`
@@ -136,102 +136,102 @@ type Effect struct {
 	TriggerDelayTime float64 `json:"TriggerDelayTime,omitempty"`
 }
 
-func (this Effect) getType() string {
+func (this *Effect) getType() string {
 	return this.Type_
 }
 
-func (this Effect) setType(newValue string) {
+func (this *Effect) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this Effect) getSubtype() string {
+func (this *Effect) getSubtype() string {
 	return this.Subtype
 }
 
-func (this Effect) setSubtype(newValue string) {
+func (this *Effect) setSubtype(newValue string) {
 	this.Subtype = newValue
 }
-func (this Effect) getPresetClassType() string {
+func (this *Effect) getPresetClassType() string {
 	return this.PresetClassType
 }
 
-func (this Effect) setPresetClassType(newValue string) {
+func (this *Effect) setPresetClassType(newValue string) {
 	this.PresetClassType = newValue
 }
-func (this Effect) getShapeIndex() int32 {
+func (this *Effect) getShapeIndex() int32 {
 	return this.ShapeIndex
 }
 
-func (this Effect) setShapeIndex(newValue int32) {
+func (this *Effect) setShapeIndex(newValue int32) {
 	this.ShapeIndex = newValue
 }
-func (this Effect) getTriggerType() string {
+func (this *Effect) getTriggerType() string {
 	return this.TriggerType
 }
 
-func (this Effect) setTriggerType(newValue string) {
+func (this *Effect) setTriggerType(newValue string) {
 	this.TriggerType = newValue
 }
-func (this Effect) getAccelerate() float64 {
+func (this *Effect) getAccelerate() float64 {
 	return this.Accelerate
 }
 
-func (this Effect) setAccelerate(newValue float64) {
+func (this *Effect) setAccelerate(newValue float64) {
 	this.Accelerate = newValue
 }
-func (this Effect) getAutoReverse() bool {
+func (this *Effect) getAutoReverse() bool {
 	return this.AutoReverse
 }
 
-func (this Effect) setAutoReverse(newValue bool) {
+func (this *Effect) setAutoReverse(newValue bool) {
 	this.AutoReverse = newValue
 }
-func (this Effect) getDecelerate() float64 {
+func (this *Effect) getDecelerate() float64 {
 	return this.Decelerate
 }
 
-func (this Effect) setDecelerate(newValue float64) {
+func (this *Effect) setDecelerate(newValue float64) {
 	this.Decelerate = newValue
 }
-func (this Effect) getDuration() float64 {
+func (this *Effect) getDuration() float64 {
 	return this.Duration
 }
 
-func (this Effect) setDuration(newValue float64) {
+func (this *Effect) setDuration(newValue float64) {
 	this.Duration = newValue
 }
-func (this Effect) getRepeatCount() float64 {
+func (this *Effect) getRepeatCount() float64 {
 	return this.RepeatCount
 }
 
-func (this Effect) setRepeatCount(newValue float64) {
+func (this *Effect) setRepeatCount(newValue float64) {
 	this.RepeatCount = newValue
 }
-func (this Effect) getRepeatDuration() float64 {
+func (this *Effect) getRepeatDuration() float64 {
 	return this.RepeatDuration
 }
 
-func (this Effect) setRepeatDuration(newValue float64) {
+func (this *Effect) setRepeatDuration(newValue float64) {
 	this.RepeatDuration = newValue
 }
-func (this Effect) getRestart() string {
+func (this *Effect) getRestart() string {
 	return this.Restart
 }
 
-func (this Effect) setRestart(newValue string) {
+func (this *Effect) setRestart(newValue string) {
 	this.Restart = newValue
 }
-func (this Effect) getSpeed() float64 {
+func (this *Effect) getSpeed() float64 {
 	return this.Speed
 }
 
-func (this Effect) setSpeed(newValue float64) {
+func (this *Effect) setSpeed(newValue float64) {
 	this.Speed = newValue
 }
-func (this Effect) getTriggerDelayTime() float64 {
+func (this *Effect) getTriggerDelayTime() float64 {
 	return this.TriggerDelayTime
 }
 
-func (this Effect) setTriggerDelayTime(newValue float64) {
+func (this *Effect) setTriggerDelayTime(newValue float64) {
 	this.TriggerDelayTime = newValue
 }
 

@@ -91,53 +91,53 @@ type FileVersion struct {
 	IsLatest bool `json:"IsLatest"`
 }
 
-func (this FileVersion) getName() string {
+func (this *FileVersion) getName() string {
 	return this.Name
 }
 
-func (this FileVersion) setName(newValue string) {
+func (this *FileVersion) setName(newValue string) {
 	this.Name = newValue
 }
-func (this FileVersion) getIsFolder() bool {
+func (this *FileVersion) getIsFolder() bool {
 	return this.IsFolder
 }
 
-func (this FileVersion) setIsFolder(newValue bool) {
+func (this *FileVersion) setIsFolder(newValue bool) {
 	this.IsFolder = newValue
 }
-func (this FileVersion) getModifiedDate() time.Time {
+func (this *FileVersion) getModifiedDate() time.Time {
 	return this.ModifiedDate
 }
 
-func (this FileVersion) setModifiedDate(newValue time.Time) {
+func (this *FileVersion) setModifiedDate(newValue time.Time) {
 	this.ModifiedDate = newValue
 }
-func (this FileVersion) getSize() int64 {
+func (this *FileVersion) getSize() int64 {
 	return this.Size
 }
 
-func (this FileVersion) setSize(newValue int64) {
+func (this *FileVersion) setSize(newValue int64) {
 	this.Size = newValue
 }
-func (this FileVersion) getPath() string {
+func (this *FileVersion) getPath() string {
 	return this.Path
 }
 
-func (this FileVersion) setPath(newValue string) {
+func (this *FileVersion) setPath(newValue string) {
 	this.Path = newValue
 }
-func (this FileVersion) getVersionId() string {
+func (this *FileVersion) getVersionId() string {
 	return this.VersionId
 }
 
-func (this FileVersion) setVersionId(newValue string) {
+func (this *FileVersion) setVersionId(newValue string) {
 	this.VersionId = newValue
 }
-func (this FileVersion) getIsLatest() bool {
+func (this *FileVersion) getIsLatest() bool {
 	return this.IsLatest
 }
 
-func (this FileVersion) setIsLatest(newValue bool) {
+func (this *FileVersion) setIsLatest(newValue bool) {
 	this.IsLatest = newValue
 }
 

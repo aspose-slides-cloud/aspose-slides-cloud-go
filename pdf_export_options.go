@@ -171,137 +171,137 @@ type PdfExportOptions struct {
 	ApplyImageTransparent bool `json:"ApplyImageTransparent"`
 }
 
-func (this PdfExportOptions) getFormat() string {
+func (this *PdfExportOptions) getFormat() string {
 	return this.Format
 }
 
-func (this PdfExportOptions) setFormat(newValue string) {
+func (this *PdfExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this PdfExportOptions) getTextCompression() string {
+func (this *PdfExportOptions) getTextCompression() string {
 	return this.TextCompression
 }
 
-func (this PdfExportOptions) setTextCompression(newValue string) {
+func (this *PdfExportOptions) setTextCompression(newValue string) {
 	this.TextCompression = newValue
 }
-func (this PdfExportOptions) getEmbedFullFonts() bool {
+func (this *PdfExportOptions) getEmbedFullFonts() bool {
 	return this.EmbedFullFonts
 }
 
-func (this PdfExportOptions) setEmbedFullFonts(newValue bool) {
+func (this *PdfExportOptions) setEmbedFullFonts(newValue bool) {
 	this.EmbedFullFonts = newValue
 }
-func (this PdfExportOptions) getCompliance() string {
+func (this *PdfExportOptions) getCompliance() string {
 	return this.Compliance
 }
 
-func (this PdfExportOptions) setCompliance(newValue string) {
+func (this *PdfExportOptions) setCompliance(newValue string) {
 	this.Compliance = newValue
 }
-func (this PdfExportOptions) getSufficientResolution() float64 {
+func (this *PdfExportOptions) getSufficientResolution() float64 {
 	return this.SufficientResolution
 }
 
-func (this PdfExportOptions) setSufficientResolution(newValue float64) {
+func (this *PdfExportOptions) setSufficientResolution(newValue float64) {
 	this.SufficientResolution = newValue
 }
-func (this PdfExportOptions) getJpegQuality() int32 {
+func (this *PdfExportOptions) getJpegQuality() int32 {
 	return this.JpegQuality
 }
 
-func (this PdfExportOptions) setJpegQuality(newValue int32) {
+func (this *PdfExportOptions) setJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this PdfExportOptions) getDrawSlidesFrame() bool {
+func (this *PdfExportOptions) getDrawSlidesFrame() bool {
 	return this.DrawSlidesFrame
 }
 
-func (this PdfExportOptions) setDrawSlidesFrame(newValue bool) {
+func (this *PdfExportOptions) setDrawSlidesFrame(newValue bool) {
 	this.DrawSlidesFrame = newValue
 }
-func (this PdfExportOptions) getShowHiddenSlides() bool {
+func (this *PdfExportOptions) getShowHiddenSlides() bool {
 	return this.ShowHiddenSlides
 }
 
-func (this PdfExportOptions) setShowHiddenSlides(newValue bool) {
+func (this *PdfExportOptions) setShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this PdfExportOptions) getSaveMetafilesAsPng() bool {
+func (this *PdfExportOptions) getSaveMetafilesAsPng() bool {
 	return this.SaveMetafilesAsPng
 }
 
-func (this PdfExportOptions) setSaveMetafilesAsPng(newValue bool) {
+func (this *PdfExportOptions) setSaveMetafilesAsPng(newValue bool) {
 	this.SaveMetafilesAsPng = newValue
 }
-func (this PdfExportOptions) getPassword() string {
+func (this *PdfExportOptions) getPassword() string {
 	return this.Password
 }
 
-func (this PdfExportOptions) setPassword(newValue string) {
+func (this *PdfExportOptions) setPassword(newValue string) {
 	this.Password = newValue
 }
-func (this PdfExportOptions) getEmbedTrueTypeFontsForASCII() bool {
+func (this *PdfExportOptions) getEmbedTrueTypeFontsForASCII() bool {
 	return this.EmbedTrueTypeFontsForASCII
 }
 
-func (this PdfExportOptions) setEmbedTrueTypeFontsForASCII(newValue bool) {
+func (this *PdfExportOptions) setEmbedTrueTypeFontsForASCII(newValue bool) {
 	this.EmbedTrueTypeFontsForASCII = newValue
 }
-func (this PdfExportOptions) getAdditionalCommonFontFamilies() []string {
+func (this *PdfExportOptions) getAdditionalCommonFontFamilies() []string {
 	return this.AdditionalCommonFontFamilies
 }
 
-func (this PdfExportOptions) setAdditionalCommonFontFamilies(newValue []string) {
+func (this *PdfExportOptions) setAdditionalCommonFontFamilies(newValue []string) {
 	this.AdditionalCommonFontFamilies = newValue
 }
-func (this PdfExportOptions) getNotesPosition() string {
+func (this *PdfExportOptions) getNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this PdfExportOptions) setNotesPosition(newValue string) {
+func (this *PdfExportOptions) setNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this PdfExportOptions) getCommentsPosition() string {
+func (this *PdfExportOptions) getCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this PdfExportOptions) setCommentsPosition(newValue string) {
+func (this *PdfExportOptions) setCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
-func (this PdfExportOptions) getCommentsAreaWidth() int32 {
+func (this *PdfExportOptions) getCommentsAreaWidth() int32 {
 	return this.CommentsAreaWidth
 }
 
-func (this PdfExportOptions) setCommentsAreaWidth(newValue int32) {
+func (this *PdfExportOptions) setCommentsAreaWidth(newValue int32) {
 	this.CommentsAreaWidth = newValue
 }
-func (this PdfExportOptions) getCommentsAreaColor() string {
+func (this *PdfExportOptions) getCommentsAreaColor() string {
 	return this.CommentsAreaColor
 }
 
-func (this PdfExportOptions) setCommentsAreaColor(newValue string) {
+func (this *PdfExportOptions) setCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
-func (this PdfExportOptions) getShowCommentsByNoAuthor() bool {
+func (this *PdfExportOptions) getShowCommentsByNoAuthor() bool {
 	return this.ShowCommentsByNoAuthor
 }
 
-func (this PdfExportOptions) setShowCommentsByNoAuthor(newValue bool) {
+func (this *PdfExportOptions) setShowCommentsByNoAuthor(newValue bool) {
 	this.ShowCommentsByNoAuthor = newValue
 }
-func (this PdfExportOptions) getImageTransparentColor() string {
+func (this *PdfExportOptions) getImageTransparentColor() string {
 	return this.ImageTransparentColor
 }
 
-func (this PdfExportOptions) setImageTransparentColor(newValue string) {
+func (this *PdfExportOptions) setImageTransparentColor(newValue string) {
 	this.ImageTransparentColor = newValue
 }
-func (this PdfExportOptions) getApplyImageTransparent() bool {
+func (this *PdfExportOptions) getApplyImageTransparent() bool {
 	return this.ApplyImageTransparent
 }
 
-func (this PdfExportOptions) setApplyImageTransparent(newValue bool) {
+func (this *PdfExportOptions) setApplyImageTransparent(newValue bool) {
 	this.ApplyImageTransparent = newValue
 }
 

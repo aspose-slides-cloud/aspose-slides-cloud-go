@@ -52,18 +52,18 @@ type PptxExportOptions struct {
 	Conformance string `json:"Conformance"`
 }
 
-func (this PptxExportOptions) getFormat() string {
+func (this *PptxExportOptions) getFormat() string {
 	return this.Format
 }
 
-func (this PptxExportOptions) setFormat(newValue string) {
+func (this *PptxExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this PptxExportOptions) getConformance() string {
+func (this *PptxExportOptions) getConformance() string {
 	return this.Conformance
 }
 
-func (this PptxExportOptions) setConformance(newValue string) {
+func (this *PptxExportOptions) setConformance(newValue string) {
 	this.Conformance = newValue
 }
 

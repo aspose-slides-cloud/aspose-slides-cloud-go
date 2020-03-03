@@ -39,8 +39,8 @@ type INotesSlide interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Get or sets text of notes slide.
 	getText() string
@@ -57,7 +57,7 @@ type NotesSlide struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Get or sets text of notes slide.
 	Text string `json:"Text,omitempty"`
@@ -66,32 +66,32 @@ type NotesSlide struct {
 	Shapes IResourceUriElement `json:"Shapes,omitempty"`
 }
 
-func (this NotesSlide) getSelfUri() IResourceUri {
+func (this *NotesSlide) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this NotesSlide) setSelfUri(newValue IResourceUri) {
+func (this *NotesSlide) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this NotesSlide) getAlternateLinks() []ResourceUri {
+func (this *NotesSlide) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this NotesSlide) setAlternateLinks(newValue []ResourceUri) {
+func (this *NotesSlide) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this NotesSlide) getText() string {
+func (this *NotesSlide) getText() string {
 	return this.Text
 }
 
-func (this NotesSlide) setText(newValue string) {
+func (this *NotesSlide) setText(newValue string) {
 	this.Text = newValue
 }
-func (this NotesSlide) getShapes() IResourceUriElement {
+func (this *NotesSlide) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this NotesSlide) setShapes(newValue IResourceUriElement) {
+func (this *NotesSlide) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
 
@@ -109,7 +109,7 @@ func (this *NotesSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -119,7 +119,7 @@ func (this *NotesSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -130,7 +130,11 @@ func (this *NotesSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -140,7 +144,11 @@ func (this *NotesSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -172,7 +180,7 @@ func (this *NotesSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -182,7 +190,7 @@ func (this *NotesSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 

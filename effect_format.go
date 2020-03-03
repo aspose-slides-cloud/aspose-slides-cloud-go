@@ -94,60 +94,60 @@ type EffectFormat struct {
 	FillOverlay IFillOverlayEffect `json:"FillOverlay,omitempty"`
 }
 
-func (this EffectFormat) getBlur() IBlurEffect {
+func (this *EffectFormat) getBlur() IBlurEffect {
 	return this.Blur
 }
 
-func (this EffectFormat) setBlur(newValue IBlurEffect) {
+func (this *EffectFormat) setBlur(newValue IBlurEffect) {
 	this.Blur = newValue
 }
-func (this EffectFormat) getGlow() IGlowEffect {
+func (this *EffectFormat) getGlow() IGlowEffect {
 	return this.Glow
 }
 
-func (this EffectFormat) setGlow(newValue IGlowEffect) {
+func (this *EffectFormat) setGlow(newValue IGlowEffect) {
 	this.Glow = newValue
 }
-func (this EffectFormat) getInnerShadow() IInnerShadowEffect {
+func (this *EffectFormat) getInnerShadow() IInnerShadowEffect {
 	return this.InnerShadow
 }
 
-func (this EffectFormat) setInnerShadow(newValue IInnerShadowEffect) {
+func (this *EffectFormat) setInnerShadow(newValue IInnerShadowEffect) {
 	this.InnerShadow = newValue
 }
-func (this EffectFormat) getOuterShadow() IOuterShadowEffect {
+func (this *EffectFormat) getOuterShadow() IOuterShadowEffect {
 	return this.OuterShadow
 }
 
-func (this EffectFormat) setOuterShadow(newValue IOuterShadowEffect) {
+func (this *EffectFormat) setOuterShadow(newValue IOuterShadowEffect) {
 	this.OuterShadow = newValue
 }
-func (this EffectFormat) getPresetShadow() IPresetShadowEffect {
+func (this *EffectFormat) getPresetShadow() IPresetShadowEffect {
 	return this.PresetShadow
 }
 
-func (this EffectFormat) setPresetShadow(newValue IPresetShadowEffect) {
+func (this *EffectFormat) setPresetShadow(newValue IPresetShadowEffect) {
 	this.PresetShadow = newValue
 }
-func (this EffectFormat) getSoftEdge() ISoftEdgeEffect {
+func (this *EffectFormat) getSoftEdge() ISoftEdgeEffect {
 	return this.SoftEdge
 }
 
-func (this EffectFormat) setSoftEdge(newValue ISoftEdgeEffect) {
+func (this *EffectFormat) setSoftEdge(newValue ISoftEdgeEffect) {
 	this.SoftEdge = newValue
 }
-func (this EffectFormat) getReflection() IReflectionEffect {
+func (this *EffectFormat) getReflection() IReflectionEffect {
 	return this.Reflection
 }
 
-func (this EffectFormat) setReflection(newValue IReflectionEffect) {
+func (this *EffectFormat) setReflection(newValue IReflectionEffect) {
 	this.Reflection = newValue
 }
-func (this EffectFormat) getFillOverlay() IFillOverlayEffect {
+func (this *EffectFormat) getFillOverlay() IFillOverlayEffect {
 	return this.FillOverlay
 }
 
-func (this EffectFormat) setFillOverlay(newValue IFillOverlayEffect) {
+func (this *EffectFormat) setFillOverlay(newValue IFillOverlayEffect) {
 	this.FillOverlay = newValue
 }
 
@@ -165,7 +165,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Blur = valueForBlur
+			this.Blur = &valueForBlur
 		}
 	}
 	if valBlurCap, ok := objMap["Blur"]; ok {
@@ -175,7 +175,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Blur = valueForBlur
+			this.Blur = &valueForBlur
 		}
 	}
 	
@@ -186,7 +186,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Glow = valueForGlow
+			this.Glow = &valueForGlow
 		}
 	}
 	if valGlowCap, ok := objMap["Glow"]; ok {
@@ -196,7 +196,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Glow = valueForGlow
+			this.Glow = &valueForGlow
 		}
 	}
 	
@@ -207,7 +207,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.InnerShadow = valueForInnerShadow
+			this.InnerShadow = &valueForInnerShadow
 		}
 	}
 	if valInnerShadowCap, ok := objMap["InnerShadow"]; ok {
@@ -217,7 +217,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.InnerShadow = valueForInnerShadow
+			this.InnerShadow = &valueForInnerShadow
 		}
 	}
 	
@@ -228,7 +228,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.OuterShadow = valueForOuterShadow
+			this.OuterShadow = &valueForOuterShadow
 		}
 	}
 	if valOuterShadowCap, ok := objMap["OuterShadow"]; ok {
@@ -238,7 +238,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.OuterShadow = valueForOuterShadow
+			this.OuterShadow = &valueForOuterShadow
 		}
 	}
 	
@@ -249,7 +249,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PresetShadow = valueForPresetShadow
+			this.PresetShadow = &valueForPresetShadow
 		}
 	}
 	if valPresetShadowCap, ok := objMap["PresetShadow"]; ok {
@@ -259,7 +259,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PresetShadow = valueForPresetShadow
+			this.PresetShadow = &valueForPresetShadow
 		}
 	}
 	
@@ -270,7 +270,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SoftEdge = valueForSoftEdge
+			this.SoftEdge = &valueForSoftEdge
 		}
 	}
 	if valSoftEdgeCap, ok := objMap["SoftEdge"]; ok {
@@ -280,7 +280,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SoftEdge = valueForSoftEdge
+			this.SoftEdge = &valueForSoftEdge
 		}
 	}
 	
@@ -291,7 +291,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Reflection = valueForReflection
+			this.Reflection = &valueForReflection
 		}
 	}
 	if valReflectionCap, ok := objMap["Reflection"]; ok {
@@ -301,7 +301,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Reflection = valueForReflection
+			this.Reflection = &valueForReflection
 		}
 	}
 	
@@ -312,7 +312,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillOverlay = valueForFillOverlay
+			this.FillOverlay = &valueForFillOverlay
 		}
 	}
 	if valFillOverlayCap, ok := objMap["FillOverlay"]; ok {
@@ -322,7 +322,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillOverlay = valueForFillOverlay
+			this.FillOverlay = &valueForFillOverlay
 		}
 	}
 

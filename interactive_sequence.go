@@ -35,8 +35,8 @@ import (
 type IInteractiveSequence interface {
 
 	// Effect list.
-	getEffects() []Effect
-	setEffects(newValue []Effect)
+	getEffects() []IEffect
+	setEffects(newValue []IEffect)
 
 	// Index of the shape that triggers the sequence.
 	getTriggerShapeIndex() int32
@@ -46,24 +46,24 @@ type IInteractiveSequence interface {
 type InteractiveSequence struct {
 
 	// Effect list.
-	Effects []Effect `json:"Effects,omitempty"`
+	Effects []IEffect `json:"Effects,omitempty"`
 
 	// Index of the shape that triggers the sequence.
 	TriggerShapeIndex int32 `json:"TriggerShapeIndex"`
 }
 
-func (this InteractiveSequence) getEffects() []Effect {
+func (this *InteractiveSequence) getEffects() []IEffect {
 	return this.Effects
 }
 
-func (this InteractiveSequence) setEffects(newValue []Effect) {
+func (this *InteractiveSequence) setEffects(newValue []IEffect) {
 	this.Effects = newValue
 }
-func (this InteractiveSequence) getTriggerShapeIndex() int32 {
+func (this *InteractiveSequence) getTriggerShapeIndex() int32 {
 	return this.TriggerShapeIndex
 }
 
-func (this InteractiveSequence) setTriggerShapeIndex(newValue int32) {
+func (this *InteractiveSequence) setTriggerShapeIndex(newValue int32) {
 	this.TriggerShapeIndex = newValue
 }
 
@@ -81,7 +81,11 @@ func (this *InteractiveSequence) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Effects = valueForEffects
+			valueForIEffects := make([]IEffect, len(valueForEffects))
+			for i, v := range valueForEffects {
+				valueForIEffects[i] = IEffect(&v)
+			}
+			this.Effects = valueForIEffects
 		}
 	}
 	if valEffectsCap, ok := objMap["Effects"]; ok {
@@ -91,7 +95,11 @@ func (this *InteractiveSequence) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Effects = valueForEffects
+			valueForIEffects := make([]IEffect, len(valueForEffects))
+			for i, v := range valueForEffects {
+				valueForIEffects[i] = IEffect(&v)
+			}
+			this.Effects = valueForIEffects
 		}
 	}
 	

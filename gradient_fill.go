@@ -47,8 +47,8 @@ type IGradientFill interface {
 	setShape(newValue string)
 
 	// Gradient stops.
-	getStops() []GradientFillStop
-	setStops(newValue []GradientFillStop)
+	getStops() []IGradientFillStop
+	setStops(newValue []IGradientFillStop)
 
 	// Gradient angle.
 	getLinearAngle() float64
@@ -75,7 +75,7 @@ type GradientFill struct {
 	Shape string `json:"Shape"`
 
 	// Gradient stops.
-	Stops []GradientFillStop `json:"Stops,omitempty"`
+	Stops []IGradientFillStop `json:"Stops,omitempty"`
 
 	// Gradient angle.
 	LinearAngle float64 `json:"LinearAngle"`
@@ -87,53 +87,53 @@ type GradientFill struct {
 	TileFlip string `json:"TileFlip"`
 }
 
-func (this GradientFill) getType() string {
+func (this *GradientFill) getType() string {
 	return this.Type_
 }
 
-func (this GradientFill) setType(newValue string) {
+func (this *GradientFill) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this GradientFill) getDirection() string {
+func (this *GradientFill) getDirection() string {
 	return this.Direction
 }
 
-func (this GradientFill) setDirection(newValue string) {
+func (this *GradientFill) setDirection(newValue string) {
 	this.Direction = newValue
 }
-func (this GradientFill) getShape() string {
+func (this *GradientFill) getShape() string {
 	return this.Shape
 }
 
-func (this GradientFill) setShape(newValue string) {
+func (this *GradientFill) setShape(newValue string) {
 	this.Shape = newValue
 }
-func (this GradientFill) getStops() []GradientFillStop {
+func (this *GradientFill) getStops() []IGradientFillStop {
 	return this.Stops
 }
 
-func (this GradientFill) setStops(newValue []GradientFillStop) {
+func (this *GradientFill) setStops(newValue []IGradientFillStop) {
 	this.Stops = newValue
 }
-func (this GradientFill) getLinearAngle() float64 {
+func (this *GradientFill) getLinearAngle() float64 {
 	return this.LinearAngle
 }
 
-func (this GradientFill) setLinearAngle(newValue float64) {
+func (this *GradientFill) setLinearAngle(newValue float64) {
 	this.LinearAngle = newValue
 }
-func (this GradientFill) getIsScaled() bool {
+func (this *GradientFill) getIsScaled() bool {
 	return this.IsScaled
 }
 
-func (this GradientFill) setIsScaled(newValue bool) {
+func (this *GradientFill) setIsScaled(newValue bool) {
 	this.IsScaled = newValue
 }
-func (this GradientFill) getTileFlip() string {
+func (this *GradientFill) getTileFlip() string {
 	return this.TileFlip
 }
 
-func (this GradientFill) setTileFlip(newValue string) {
+func (this *GradientFill) setTileFlip(newValue string) {
 	this.TileFlip = newValue
 }
 
@@ -250,7 +250,11 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Stops = valueForStops
+			valueForIStops := make([]IGradientFillStop, len(valueForStops))
+			for i, v := range valueForStops {
+				valueForIStops[i] = IGradientFillStop(&v)
+			}
+			this.Stops = valueForIStops
 		}
 	}
 	if valStopsCap, ok := objMap["Stops"]; ok {
@@ -260,7 +264,11 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Stops = valueForStops
+			valueForIStops := make([]IGradientFillStop, len(valueForStops))
+			for i, v := range valueForStops {
+				valueForIStops[i] = IGradientFillStop(&v)
+			}
+			this.Stops = valueForIStops
 		}
 	}
 	

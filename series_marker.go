@@ -58,10 +58,10 @@ type ISeriesMarker interface {
 type SeriesMarker struct {
 
 	// size
-	Size int32 `json:"Size"`
+	Size int32 `json:"Size,omitempty"`
 
 	// symbol
-	Symbol string `json:"Symbol"`
+	Symbol string `json:"Symbol,omitempty"`
 
 	// Get or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -73,39 +73,39 @@ type SeriesMarker struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
-func (this SeriesMarker) getSize() int32 {
+func (this *SeriesMarker) getSize() int32 {
 	return this.Size
 }
 
-func (this SeriesMarker) setSize(newValue int32) {
+func (this *SeriesMarker) setSize(newValue int32) {
 	this.Size = newValue
 }
-func (this SeriesMarker) getSymbol() string {
+func (this *SeriesMarker) getSymbol() string {
 	return this.Symbol
 }
 
-func (this SeriesMarker) setSymbol(newValue string) {
+func (this *SeriesMarker) setSymbol(newValue string) {
 	this.Symbol = newValue
 }
-func (this SeriesMarker) getFillFormat() IFillFormat {
+func (this *SeriesMarker) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this SeriesMarker) setFillFormat(newValue IFillFormat) {
+func (this *SeriesMarker) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this SeriesMarker) getEffectFormat() IEffectFormat {
+func (this *SeriesMarker) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this SeriesMarker) setEffectFormat(newValue IEffectFormat) {
+func (this *SeriesMarker) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this SeriesMarker) getLineFormat() ILineFormat {
+func (this *SeriesMarker) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this SeriesMarker) setLineFormat(newValue ILineFormat) {
+func (this *SeriesMarker) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
 
@@ -136,7 +136,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			this.Size = valueForSize
 		}
 	}
-	this.Symbol = "Circle"
+	this.Symbol = ""
 	if valSymbol, ok := objMap["symbol"]; ok {
 		if valSymbol != nil {
 			var valueForSymbol string
@@ -177,7 +177,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -187,7 +187,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -198,7 +198,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -208,7 +208,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -219,7 +219,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -229,7 +229,7 @@ func (this *SeriesMarker) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 

@@ -52,18 +52,18 @@ type BlurEffect struct {
 	Grow bool `json:"Grow"`
 }
 
-func (this BlurEffect) getRadius() float64 {
+func (this *BlurEffect) getRadius() float64 {
 	return this.Radius
 }
 
-func (this BlurEffect) setRadius(newValue float64) {
+func (this *BlurEffect) setRadius(newValue float64) {
 	this.Radius = newValue
 }
-func (this BlurEffect) getGrow() bool {
+func (this *BlurEffect) getGrow() bool {
 	return this.Grow
 }
 
-func (this BlurEffect) setGrow(newValue bool) {
+func (this *BlurEffect) setGrow(newValue bool) {
 	this.Grow = newValue
 }
 

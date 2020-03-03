@@ -39,12 +39,12 @@ type IDocumentProperties interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Document property list.
-	getList() []DocumentProperty
-	setList(newValue []DocumentProperty)
+	getList() []IDocumentProperty
+	setList(newValue []IDocumentProperty)
 }
 
 type DocumentProperties struct {
@@ -53,31 +53,31 @@ type DocumentProperties struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Document property list.
-	List []DocumentProperty `json:"List"`
+	List []IDocumentProperty `json:"List"`
 }
 
-func (this DocumentProperties) getSelfUri() IResourceUri {
+func (this *DocumentProperties) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this DocumentProperties) setSelfUri(newValue IResourceUri) {
+func (this *DocumentProperties) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this DocumentProperties) getAlternateLinks() []ResourceUri {
+func (this *DocumentProperties) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this DocumentProperties) setAlternateLinks(newValue []ResourceUri) {
+func (this *DocumentProperties) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this DocumentProperties) getList() []DocumentProperty {
+func (this *DocumentProperties) getList() []IDocumentProperty {
 	return this.List
 }
 
-func (this DocumentProperties) setList(newValue []DocumentProperty) {
+func (this *DocumentProperties) setList(newValue []IDocumentProperty) {
 	this.List = newValue
 }
 
@@ -95,7 +95,7 @@ func (this *DocumentProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -105,7 +105,7 @@ func (this *DocumentProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -116,7 +116,11 @@ func (this *DocumentProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -126,7 +130,11 @@ func (this *DocumentProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -137,7 +145,11 @@ func (this *DocumentProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.List = valueForList
+			valueForIList := make([]IDocumentProperty, len(valueForList))
+			for i, v := range valueForList {
+				valueForIList[i] = IDocumentProperty(&v)
+			}
+			this.List = valueForIList
 		}
 	}
 	if valListCap, ok := objMap["List"]; ok {
@@ -147,7 +159,11 @@ func (this *DocumentProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.List = valueForList
+			valueForIList := make([]IDocumentProperty, len(valueForList))
+			for i, v := range valueForList {
+				valueForIList[i] = IDocumentProperty(&v)
+			}
+			this.List = valueForIList
 		}
 	}
 

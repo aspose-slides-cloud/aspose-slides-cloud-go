@@ -66,32 +66,32 @@ type InnerShadowEffect struct {
 	ShadowColor string `json:"ShadowColor,omitempty"`
 }
 
-func (this InnerShadowEffect) getDirection() float64 {
+func (this *InnerShadowEffect) getDirection() float64 {
 	return this.Direction
 }
 
-func (this InnerShadowEffect) setDirection(newValue float64) {
+func (this *InnerShadowEffect) setDirection(newValue float64) {
 	this.Direction = newValue
 }
-func (this InnerShadowEffect) getDistance() float64 {
+func (this *InnerShadowEffect) getDistance() float64 {
 	return this.Distance
 }
 
-func (this InnerShadowEffect) setDistance(newValue float64) {
+func (this *InnerShadowEffect) setDistance(newValue float64) {
 	this.Distance = newValue
 }
-func (this InnerShadowEffect) getBlurRadius() float64 {
+func (this *InnerShadowEffect) getBlurRadius() float64 {
 	return this.BlurRadius
 }
 
-func (this InnerShadowEffect) setBlurRadius(newValue float64) {
+func (this *InnerShadowEffect) setBlurRadius(newValue float64) {
 	this.BlurRadius = newValue
 }
-func (this InnerShadowEffect) getShadowColor() string {
+func (this *InnerShadowEffect) getShadowColor() string {
 	return this.ShadowColor
 }
 
-func (this InnerShadowEffect) setShadowColor(newValue string) {
+func (this *InnerShadowEffect) setShadowColor(newValue string) {
 	this.ShadowColor = newValue
 }
 

@@ -39,8 +39,8 @@ type IParagraph interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Left margin.
 	getMarginLeft() float64
@@ -119,8 +119,8 @@ type IParagraph interface {
 	setRightToLeft(newValue string)
 
 	// List of portion links.
-	getPortionList() []ResourceUriElement
-	setPortionList(newValue []ResourceUriElement)
+	getPortionList() []IResourceUriElement
+	setPortionList(newValue []IResourceUriElement)
 }
 
 type Paragraph struct {
@@ -129,7 +129,7 @@ type Paragraph struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Left margin.
 	MarginLeft float64 `json:"MarginLeft,omitempty"`
@@ -189,161 +189,161 @@ type Paragraph struct {
 	RightToLeft string `json:"RightToLeft,omitempty"`
 
 	// List of portion links.
-	PortionList []ResourceUriElement `json:"PortionList,omitempty"`
+	PortionList []IResourceUriElement `json:"PortionList,omitempty"`
 }
 
-func (this Paragraph) getSelfUri() IResourceUri {
+func (this *Paragraph) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Paragraph) setSelfUri(newValue IResourceUri) {
+func (this *Paragraph) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Paragraph) getAlternateLinks() []ResourceUri {
+func (this *Paragraph) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Paragraph) setAlternateLinks(newValue []ResourceUri) {
+func (this *Paragraph) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Paragraph) getMarginLeft() float64 {
+func (this *Paragraph) getMarginLeft() float64 {
 	return this.MarginLeft
 }
 
-func (this Paragraph) setMarginLeft(newValue float64) {
+func (this *Paragraph) setMarginLeft(newValue float64) {
 	this.MarginLeft = newValue
 }
-func (this Paragraph) getMarginRight() float64 {
+func (this *Paragraph) getMarginRight() float64 {
 	return this.MarginRight
 }
 
-func (this Paragraph) setMarginRight(newValue float64) {
+func (this *Paragraph) setMarginRight(newValue float64) {
 	this.MarginRight = newValue
 }
-func (this Paragraph) getSpaceBefore() float64 {
+func (this *Paragraph) getSpaceBefore() float64 {
 	return this.SpaceBefore
 }
 
-func (this Paragraph) setSpaceBefore(newValue float64) {
+func (this *Paragraph) setSpaceBefore(newValue float64) {
 	this.SpaceBefore = newValue
 }
-func (this Paragraph) getSpaceAfter() float64 {
+func (this *Paragraph) getSpaceAfter() float64 {
 	return this.SpaceAfter
 }
 
-func (this Paragraph) setSpaceAfter(newValue float64) {
+func (this *Paragraph) setSpaceAfter(newValue float64) {
 	this.SpaceAfter = newValue
 }
-func (this Paragraph) getSpaceWithin() float64 {
+func (this *Paragraph) getSpaceWithin() float64 {
 	return this.SpaceWithin
 }
 
-func (this Paragraph) setSpaceWithin(newValue float64) {
+func (this *Paragraph) setSpaceWithin(newValue float64) {
 	this.SpaceWithin = newValue
 }
-func (this Paragraph) getIndent() float64 {
+func (this *Paragraph) getIndent() float64 {
 	return this.Indent
 }
 
-func (this Paragraph) setIndent(newValue float64) {
+func (this *Paragraph) setIndent(newValue float64) {
 	this.Indent = newValue
 }
-func (this Paragraph) getAlignment() string {
+func (this *Paragraph) getAlignment() string {
 	return this.Alignment
 }
 
-func (this Paragraph) setAlignment(newValue string) {
+func (this *Paragraph) setAlignment(newValue string) {
 	this.Alignment = newValue
 }
-func (this Paragraph) getFontAlignment() string {
+func (this *Paragraph) getFontAlignment() string {
 	return this.FontAlignment
 }
 
-func (this Paragraph) setFontAlignment(newValue string) {
+func (this *Paragraph) setFontAlignment(newValue string) {
 	this.FontAlignment = newValue
 }
-func (this Paragraph) getDefaultTabSize() float64 {
+func (this *Paragraph) getDefaultTabSize() float64 {
 	return this.DefaultTabSize
 }
 
-func (this Paragraph) setDefaultTabSize(newValue float64) {
+func (this *Paragraph) setDefaultTabSize(newValue float64) {
 	this.DefaultTabSize = newValue
 }
-func (this Paragraph) getDepth() int32 {
+func (this *Paragraph) getDepth() int32 {
 	return this.Depth
 }
 
-func (this Paragraph) setDepth(newValue int32) {
+func (this *Paragraph) setDepth(newValue int32) {
 	this.Depth = newValue
 }
-func (this Paragraph) getBulletChar() string {
+func (this *Paragraph) getBulletChar() string {
 	return this.BulletChar
 }
 
-func (this Paragraph) setBulletChar(newValue string) {
+func (this *Paragraph) setBulletChar(newValue string) {
 	this.BulletChar = newValue
 }
-func (this Paragraph) getBulletHeight() float64 {
+func (this *Paragraph) getBulletHeight() float64 {
 	return this.BulletHeight
 }
 
-func (this Paragraph) setBulletHeight(newValue float64) {
+func (this *Paragraph) setBulletHeight(newValue float64) {
 	this.BulletHeight = newValue
 }
-func (this Paragraph) getBulletType() string {
+func (this *Paragraph) getBulletType() string {
 	return this.BulletType
 }
 
-func (this Paragraph) setBulletType(newValue string) {
+func (this *Paragraph) setBulletType(newValue string) {
 	this.BulletType = newValue
 }
-func (this Paragraph) getNumberedBulletStartWith() int32 {
+func (this *Paragraph) getNumberedBulletStartWith() int32 {
 	return this.NumberedBulletStartWith
 }
 
-func (this Paragraph) setNumberedBulletStartWith(newValue int32) {
+func (this *Paragraph) setNumberedBulletStartWith(newValue int32) {
 	this.NumberedBulletStartWith = newValue
 }
-func (this Paragraph) getNumberedBulletStyle() string {
+func (this *Paragraph) getNumberedBulletStyle() string {
 	return this.NumberedBulletStyle
 }
 
-func (this Paragraph) setNumberedBulletStyle(newValue string) {
+func (this *Paragraph) setNumberedBulletStyle(newValue string) {
 	this.NumberedBulletStyle = newValue
 }
-func (this Paragraph) getHangingPunctuation() string {
+func (this *Paragraph) getHangingPunctuation() string {
 	return this.HangingPunctuation
 }
 
-func (this Paragraph) setHangingPunctuation(newValue string) {
+func (this *Paragraph) setHangingPunctuation(newValue string) {
 	this.HangingPunctuation = newValue
 }
-func (this Paragraph) getEastAsianLineBreak() string {
+func (this *Paragraph) getEastAsianLineBreak() string {
 	return this.EastAsianLineBreak
 }
 
-func (this Paragraph) setEastAsianLineBreak(newValue string) {
+func (this *Paragraph) setEastAsianLineBreak(newValue string) {
 	this.EastAsianLineBreak = newValue
 }
-func (this Paragraph) getLatinLineBreak() string {
+func (this *Paragraph) getLatinLineBreak() string {
 	return this.LatinLineBreak
 }
 
-func (this Paragraph) setLatinLineBreak(newValue string) {
+func (this *Paragraph) setLatinLineBreak(newValue string) {
 	this.LatinLineBreak = newValue
 }
-func (this Paragraph) getRightToLeft() string {
+func (this *Paragraph) getRightToLeft() string {
 	return this.RightToLeft
 }
 
-func (this Paragraph) setRightToLeft(newValue string) {
+func (this *Paragraph) setRightToLeft(newValue string) {
 	this.RightToLeft = newValue
 }
-func (this Paragraph) getPortionList() []ResourceUriElement {
+func (this *Paragraph) getPortionList() []IResourceUriElement {
 	return this.PortionList
 }
 
-func (this Paragraph) setPortionList(newValue []ResourceUriElement) {
+func (this *Paragraph) setPortionList(newValue []IResourceUriElement) {
 	this.PortionList = newValue
 }
 
@@ -361,7 +361,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -371,7 +371,7 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -382,7 +382,11 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -392,7 +396,11 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -898,7 +906,11 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PortionList = valueForPortionList
+			valueForIPortionList := make([]IResourceUriElement, len(valueForPortionList))
+			for i, v := range valueForPortionList {
+				valueForIPortionList[i] = IResourceUriElement(&v)
+			}
+			this.PortionList = valueForIPortionList
 		}
 	}
 	if valPortionListCap, ok := objMap["PortionList"]; ok {
@@ -908,7 +920,11 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PortionList = valueForPortionList
+			valueForIPortionList := make([]IResourceUriElement, len(valueForPortionList))
+			for i, v := range valueForPortionList {
+				valueForIPortionList[i] = IResourceUriElement(&v)
+			}
+			this.PortionList = valueForIPortionList
 		}
 	}
 

@@ -66,32 +66,32 @@ type PathInputFile struct {
 	Storage string `json:"Storage,omitempty"`
 }
 
-func (this PathInputFile) getPassword() string {
+func (this *PathInputFile) getPassword() string {
 	return this.Password
 }
 
-func (this PathInputFile) setPassword(newValue string) {
+func (this *PathInputFile) setPassword(newValue string) {
 	this.Password = newValue
 }
-func (this PathInputFile) getType() string {
+func (this *PathInputFile) getType() string {
 	return this.Type_
 }
 
-func (this PathInputFile) setType(newValue string) {
+func (this *PathInputFile) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this PathInputFile) getPath() string {
+func (this *PathInputFile) getPath() string {
 	return this.Path
 }
 
-func (this PathInputFile) setPath(newValue string) {
+func (this *PathInputFile) setPath(newValue string) {
 	this.Path = newValue
 }
-func (this PathInputFile) getStorage() string {
+func (this *PathInputFile) getStorage() string {
 	return this.Storage
 }
 
-func (this PathInputFile) setStorage(newValue string) {
+func (this *PathInputFile) setStorage(newValue string) {
 	this.Storage = newValue
 }
 

@@ -59,25 +59,25 @@ type FontSet struct {
 	Latin string `json:"Latin,omitempty"`
 }
 
-func (this FontSet) getComplexScript() string {
+func (this *FontSet) getComplexScript() string {
 	return this.ComplexScript
 }
 
-func (this FontSet) setComplexScript(newValue string) {
+func (this *FontSet) setComplexScript(newValue string) {
 	this.ComplexScript = newValue
 }
-func (this FontSet) getEastAsian() string {
+func (this *FontSet) getEastAsian() string {
 	return this.EastAsian
 }
 
-func (this FontSet) setEastAsian(newValue string) {
+func (this *FontSet) setEastAsian(newValue string) {
 	this.EastAsian = newValue
 }
-func (this FontSet) getLatin() string {
+func (this *FontSet) getLatin() string {
 	return this.Latin
 }
 
-func (this FontSet) setLatin(newValue string) {
+func (this *FontSet) setLatin(newValue string) {
 	this.Latin = newValue
 }
 

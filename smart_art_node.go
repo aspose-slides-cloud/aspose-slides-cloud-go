@@ -35,8 +35,8 @@ import (
 type ISmartArtNode interface {
 
 	// Node list.
-	getNodes() []SmartArtNode
-	setNodes(newValue []SmartArtNode)
+	getNodes() []ISmartArtNode
+	setNodes(newValue []ISmartArtNode)
 
 	// Gets or sets the link to shapes.
 	getShapes() IResourceUriElement
@@ -58,7 +58,7 @@ type ISmartArtNode interface {
 type SmartArtNode struct {
 
 	// Node list.
-	Nodes []SmartArtNode `json:"Nodes,omitempty"`
+	Nodes []ISmartArtNode `json:"Nodes,omitempty"`
 
 	// Gets or sets the link to shapes.
 	Shapes IResourceUriElement `json:"Shapes,omitempty"`
@@ -73,39 +73,39 @@ type SmartArtNode struct {
 	OrgChartLayout string `json:"OrgChartLayout"`
 }
 
-func (this SmartArtNode) getNodes() []SmartArtNode {
+func (this *SmartArtNode) getNodes() []ISmartArtNode {
 	return this.Nodes
 }
 
-func (this SmartArtNode) setNodes(newValue []SmartArtNode) {
+func (this *SmartArtNode) setNodes(newValue []ISmartArtNode) {
 	this.Nodes = newValue
 }
-func (this SmartArtNode) getShapes() IResourceUriElement {
+func (this *SmartArtNode) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this SmartArtNode) setShapes(newValue IResourceUriElement) {
+func (this *SmartArtNode) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this SmartArtNode) getIsAssistant() bool {
+func (this *SmartArtNode) getIsAssistant() bool {
 	return this.IsAssistant
 }
 
-func (this SmartArtNode) setIsAssistant(newValue bool) {
+func (this *SmartArtNode) setIsAssistant(newValue bool) {
 	this.IsAssistant = newValue
 }
-func (this SmartArtNode) getText() string {
+func (this *SmartArtNode) getText() string {
 	return this.Text
 }
 
-func (this SmartArtNode) setText(newValue string) {
+func (this *SmartArtNode) setText(newValue string) {
 	this.Text = newValue
 }
-func (this SmartArtNode) getOrgChartLayout() string {
+func (this *SmartArtNode) getOrgChartLayout() string {
 	return this.OrgChartLayout
 }
 
-func (this SmartArtNode) setOrgChartLayout(newValue string) {
+func (this *SmartArtNode) setOrgChartLayout(newValue string) {
 	this.OrgChartLayout = newValue
 }
 
@@ -123,7 +123,11 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Nodes = valueForNodes
+			valueForINodes := make([]ISmartArtNode, len(valueForNodes))
+			for i, v := range valueForNodes {
+				valueForINodes[i] = ISmartArtNode(&v)
+			}
+			this.Nodes = valueForINodes
 		}
 	}
 	if valNodesCap, ok := objMap["Nodes"]; ok {
@@ -133,7 +137,11 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Nodes = valueForNodes
+			valueForINodes := make([]ISmartArtNode, len(valueForNodes))
+			for i, v := range valueForNodes {
+				valueForINodes[i] = ISmartArtNode(&v)
+			}
+			this.Nodes = valueForINodes
 		}
 	}
 	
@@ -144,7 +152,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -154,7 +162,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	

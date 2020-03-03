@@ -39,8 +39,8 @@ type IColorScheme interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// First accent color.
 	getAccent1() string
@@ -97,7 +97,7 @@ type ColorScheme struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// First accent color.
 	Accent1 string `json:"Accent1,omitempty"`
@@ -136,102 +136,102 @@ type ColorScheme struct {
 	Light2 string `json:"Light2,omitempty"`
 }
 
-func (this ColorScheme) getSelfUri() IResourceUri {
+func (this *ColorScheme) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this ColorScheme) setSelfUri(newValue IResourceUri) {
+func (this *ColorScheme) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this ColorScheme) getAlternateLinks() []ResourceUri {
+func (this *ColorScheme) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this ColorScheme) setAlternateLinks(newValue []ResourceUri) {
+func (this *ColorScheme) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this ColorScheme) getAccent1() string {
+func (this *ColorScheme) getAccent1() string {
 	return this.Accent1
 }
 
-func (this ColorScheme) setAccent1(newValue string) {
+func (this *ColorScheme) setAccent1(newValue string) {
 	this.Accent1 = newValue
 }
-func (this ColorScheme) getAccent2() string {
+func (this *ColorScheme) getAccent2() string {
 	return this.Accent2
 }
 
-func (this ColorScheme) setAccent2(newValue string) {
+func (this *ColorScheme) setAccent2(newValue string) {
 	this.Accent2 = newValue
 }
-func (this ColorScheme) getAccent3() string {
+func (this *ColorScheme) getAccent3() string {
 	return this.Accent3
 }
 
-func (this ColorScheme) setAccent3(newValue string) {
+func (this *ColorScheme) setAccent3(newValue string) {
 	this.Accent3 = newValue
 }
-func (this ColorScheme) getAccent4() string {
+func (this *ColorScheme) getAccent4() string {
 	return this.Accent4
 }
 
-func (this ColorScheme) setAccent4(newValue string) {
+func (this *ColorScheme) setAccent4(newValue string) {
 	this.Accent4 = newValue
 }
-func (this ColorScheme) getAccent5() string {
+func (this *ColorScheme) getAccent5() string {
 	return this.Accent5
 }
 
-func (this ColorScheme) setAccent5(newValue string) {
+func (this *ColorScheme) setAccent5(newValue string) {
 	this.Accent5 = newValue
 }
-func (this ColorScheme) getAccent6() string {
+func (this *ColorScheme) getAccent6() string {
 	return this.Accent6
 }
 
-func (this ColorScheme) setAccent6(newValue string) {
+func (this *ColorScheme) setAccent6(newValue string) {
 	this.Accent6 = newValue
 }
-func (this ColorScheme) getDark1() string {
+func (this *ColorScheme) getDark1() string {
 	return this.Dark1
 }
 
-func (this ColorScheme) setDark1(newValue string) {
+func (this *ColorScheme) setDark1(newValue string) {
 	this.Dark1 = newValue
 }
-func (this ColorScheme) getDark2() string {
+func (this *ColorScheme) getDark2() string {
 	return this.Dark2
 }
 
-func (this ColorScheme) setDark2(newValue string) {
+func (this *ColorScheme) setDark2(newValue string) {
 	this.Dark2 = newValue
 }
-func (this ColorScheme) getFollowedHyperlink() string {
+func (this *ColorScheme) getFollowedHyperlink() string {
 	return this.FollowedHyperlink
 }
 
-func (this ColorScheme) setFollowedHyperlink(newValue string) {
+func (this *ColorScheme) setFollowedHyperlink(newValue string) {
 	this.FollowedHyperlink = newValue
 }
-func (this ColorScheme) getHyperlink() string {
+func (this *ColorScheme) getHyperlink() string {
 	return this.Hyperlink
 }
 
-func (this ColorScheme) setHyperlink(newValue string) {
+func (this *ColorScheme) setHyperlink(newValue string) {
 	this.Hyperlink = newValue
 }
-func (this ColorScheme) getLight1() string {
+func (this *ColorScheme) getLight1() string {
 	return this.Light1
 }
 
-func (this ColorScheme) setLight1(newValue string) {
+func (this *ColorScheme) setLight1(newValue string) {
 	this.Light1 = newValue
 }
-func (this ColorScheme) getLight2() string {
+func (this *ColorScheme) getLight2() string {
 	return this.Light2
 }
 
-func (this ColorScheme) setLight2(newValue string) {
+func (this *ColorScheme) setLight2(newValue string) {
 	this.Light2 = newValue
 }
 
@@ -249,7 +249,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -259,7 +259,7 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -270,7 +270,11 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -280,7 +284,11 @@ func (this *ColorScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	

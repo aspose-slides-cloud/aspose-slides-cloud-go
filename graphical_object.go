@@ -39,8 +39,8 @@ type IGraphicalObject interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -109,7 +109,7 @@ type GraphicalObject struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -127,7 +127,7 @@ type GraphicalObject struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -157,123 +157,123 @@ type GraphicalObject struct {
 	ShapeType string `json:"ShapeType"`
 }
 
-func (this GraphicalObject) getSelfUri() IResourceUri {
+func (this *GraphicalObject) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this GraphicalObject) setSelfUri(newValue IResourceUri) {
+func (this *GraphicalObject) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this GraphicalObject) getAlternateLinks() []ResourceUri {
+func (this *GraphicalObject) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this GraphicalObject) setAlternateLinks(newValue []ResourceUri) {
+func (this *GraphicalObject) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this GraphicalObject) getName() string {
+func (this *GraphicalObject) getName() string {
 	return this.Name
 }
 
-func (this GraphicalObject) setName(newValue string) {
+func (this *GraphicalObject) setName(newValue string) {
 	this.Name = newValue
 }
-func (this GraphicalObject) getWidth() float64 {
+func (this *GraphicalObject) getWidth() float64 {
 	return this.Width
 }
 
-func (this GraphicalObject) setWidth(newValue float64) {
+func (this *GraphicalObject) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this GraphicalObject) getHeight() float64 {
+func (this *GraphicalObject) getHeight() float64 {
 	return this.Height
 }
 
-func (this GraphicalObject) setHeight(newValue float64) {
+func (this *GraphicalObject) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this GraphicalObject) getAlternativeText() string {
+func (this *GraphicalObject) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this GraphicalObject) setAlternativeText(newValue string) {
+func (this *GraphicalObject) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this GraphicalObject) getAlternativeTextTitle() string {
+func (this *GraphicalObject) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this GraphicalObject) setAlternativeTextTitle(newValue string) {
+func (this *GraphicalObject) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this GraphicalObject) getHidden() bool {
+func (this *GraphicalObject) getHidden() bool {
 	return this.Hidden
 }
 
-func (this GraphicalObject) setHidden(newValue bool) {
+func (this *GraphicalObject) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this GraphicalObject) getX() float64 {
+func (this *GraphicalObject) getX() float64 {
 	return this.X
 }
 
-func (this GraphicalObject) setX(newValue float64) {
+func (this *GraphicalObject) setX(newValue float64) {
 	this.X = newValue
 }
-func (this GraphicalObject) getY() float64 {
+func (this *GraphicalObject) getY() float64 {
 	return this.Y
 }
 
-func (this GraphicalObject) setY(newValue float64) {
+func (this *GraphicalObject) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this GraphicalObject) getZOrderPosition() int32 {
+func (this *GraphicalObject) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this GraphicalObject) setZOrderPosition(newValue int32) {
+func (this *GraphicalObject) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this GraphicalObject) getShapes() IResourceUriElement {
+func (this *GraphicalObject) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this GraphicalObject) setShapes(newValue IResourceUriElement) {
+func (this *GraphicalObject) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this GraphicalObject) getFillFormat() IFillFormat {
+func (this *GraphicalObject) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this GraphicalObject) setFillFormat(newValue IFillFormat) {
+func (this *GraphicalObject) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this GraphicalObject) getEffectFormat() IEffectFormat {
+func (this *GraphicalObject) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this GraphicalObject) setEffectFormat(newValue IEffectFormat) {
+func (this *GraphicalObject) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this GraphicalObject) getLineFormat() ILineFormat {
+func (this *GraphicalObject) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this GraphicalObject) setLineFormat(newValue ILineFormat) {
+func (this *GraphicalObject) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this GraphicalObject) getType() string {
+func (this *GraphicalObject) getType() string {
 	return this.Type_
 }
 
-func (this GraphicalObject) setType(newValue string) {
+func (this *GraphicalObject) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this GraphicalObject) getShapeType() string {
+func (this *GraphicalObject) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this GraphicalObject) setShapeType(newValue string) {
+func (this *GraphicalObject) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
 
@@ -291,7 +291,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -301,7 +301,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -312,7 +312,11 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -322,7 +326,11 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -522,7 +530,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -532,7 +540,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -543,7 +551,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -553,7 +561,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -564,7 +572,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -574,7 +582,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -585,7 +593,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -595,7 +603,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = "GraphicalObject"

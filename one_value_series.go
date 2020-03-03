@@ -107,14 +107,14 @@ type IOneValueSeries interface {
 	setDataPointType(newValue string)
 
 	// Gets or sets the values.
-	getDataPoints() []OneValueChartDataPoint
-	setDataPoints(newValue []OneValueChartDataPoint)
+	getDataPoints() []IOneValueChartDataPoint
+	setDataPoints(newValue []IOneValueChartDataPoint)
 }
 
 type OneValueSeries struct {
 
 	// Series type.
-	Type_ string `json:"Type"`
+	Type_ string `json:"Type,omitempty"`
 
 	// Series name.
 	Name string `json:"Name,omitempty"`
@@ -132,7 +132,7 @@ type OneValueSeries struct {
 	PlotOnSecondAxis bool `json:"PlotOnSecondAxis"`
 
 	// Series order.
-	Order int32 `json:"Order"`
+	Order int32 `json:"Order,omitempty"`
 
 	// The number format for the series y values.
 	NumberFormatOfYValues string `json:"NumberFormatOfYValues,omitempty"`
@@ -150,7 +150,7 @@ type OneValueSeries struct {
 	InvertIfNegative bool `json:"InvertIfNegative"`
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
-	Explosion int32 `json:"Explosion"`
+	Explosion int32 `json:"Explosion,omitempty"`
 
 	// Series marker.
 	Marker ISeriesMarker `json:"Marker,omitempty"`
@@ -168,140 +168,140 @@ type OneValueSeries struct {
 	DataPointType string `json:"DataPointType"`
 
 	// Gets or sets the values.
-	DataPoints []OneValueChartDataPoint `json:"DataPoints,omitempty"`
+	DataPoints []IOneValueChartDataPoint `json:"DataPoints,omitempty"`
 }
 
-func (this OneValueSeries) getType() string {
+func (this *OneValueSeries) getType() string {
 	return this.Type_
 }
 
-func (this OneValueSeries) setType(newValue string) {
+func (this *OneValueSeries) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this OneValueSeries) getName() string {
+func (this *OneValueSeries) getName() string {
 	return this.Name
 }
 
-func (this OneValueSeries) setName(newValue string) {
+func (this *OneValueSeries) setName(newValue string) {
 	this.Name = newValue
 }
-func (this OneValueSeries) getIsColorVaried() bool {
+func (this *OneValueSeries) getIsColorVaried() bool {
 	return this.IsColorVaried
 }
 
-func (this OneValueSeries) setIsColorVaried(newValue bool) {
+func (this *OneValueSeries) setIsColorVaried(newValue bool) {
 	this.IsColorVaried = newValue
 }
-func (this OneValueSeries) getInvertedSolidFillColor() string {
+func (this *OneValueSeries) getInvertedSolidFillColor() string {
 	return this.InvertedSolidFillColor
 }
 
-func (this OneValueSeries) setInvertedSolidFillColor(newValue string) {
+func (this *OneValueSeries) setInvertedSolidFillColor(newValue string) {
 	this.InvertedSolidFillColor = newValue
 }
-func (this OneValueSeries) getSmooth() bool {
+func (this *OneValueSeries) getSmooth() bool {
 	return this.Smooth
 }
 
-func (this OneValueSeries) setSmooth(newValue bool) {
+func (this *OneValueSeries) setSmooth(newValue bool) {
 	this.Smooth = newValue
 }
-func (this OneValueSeries) getPlotOnSecondAxis() bool {
+func (this *OneValueSeries) getPlotOnSecondAxis() bool {
 	return this.PlotOnSecondAxis
 }
 
-func (this OneValueSeries) setPlotOnSecondAxis(newValue bool) {
+func (this *OneValueSeries) setPlotOnSecondAxis(newValue bool) {
 	this.PlotOnSecondAxis = newValue
 }
-func (this OneValueSeries) getOrder() int32 {
+func (this *OneValueSeries) getOrder() int32 {
 	return this.Order
 }
 
-func (this OneValueSeries) setOrder(newValue int32) {
+func (this *OneValueSeries) setOrder(newValue int32) {
 	this.Order = newValue
 }
-func (this OneValueSeries) getNumberFormatOfYValues() string {
+func (this *OneValueSeries) getNumberFormatOfYValues() string {
 	return this.NumberFormatOfYValues
 }
 
-func (this OneValueSeries) setNumberFormatOfYValues(newValue string) {
+func (this *OneValueSeries) setNumberFormatOfYValues(newValue string) {
 	this.NumberFormatOfYValues = newValue
 }
-func (this OneValueSeries) getNumberFormatOfXValues() string {
+func (this *OneValueSeries) getNumberFormatOfXValues() string {
 	return this.NumberFormatOfXValues
 }
 
-func (this OneValueSeries) setNumberFormatOfXValues(newValue string) {
+func (this *OneValueSeries) setNumberFormatOfXValues(newValue string) {
 	this.NumberFormatOfXValues = newValue
 }
-func (this OneValueSeries) getNumberFormatOfValues() string {
+func (this *OneValueSeries) getNumberFormatOfValues() string {
 	return this.NumberFormatOfValues
 }
 
-func (this OneValueSeries) setNumberFormatOfValues(newValue string) {
+func (this *OneValueSeries) setNumberFormatOfValues(newValue string) {
 	this.NumberFormatOfValues = newValue
 }
-func (this OneValueSeries) getNumberFormatOfBubbleSizes() string {
+func (this *OneValueSeries) getNumberFormatOfBubbleSizes() string {
 	return this.NumberFormatOfBubbleSizes
 }
 
-func (this OneValueSeries) setNumberFormatOfBubbleSizes(newValue string) {
+func (this *OneValueSeries) setNumberFormatOfBubbleSizes(newValue string) {
 	this.NumberFormatOfBubbleSizes = newValue
 }
-func (this OneValueSeries) getInvertIfNegative() bool {
+func (this *OneValueSeries) getInvertIfNegative() bool {
 	return this.InvertIfNegative
 }
 
-func (this OneValueSeries) setInvertIfNegative(newValue bool) {
+func (this *OneValueSeries) setInvertIfNegative(newValue bool) {
 	this.InvertIfNegative = newValue
 }
-func (this OneValueSeries) getExplosion() int32 {
+func (this *OneValueSeries) getExplosion() int32 {
 	return this.Explosion
 }
 
-func (this OneValueSeries) setExplosion(newValue int32) {
+func (this *OneValueSeries) setExplosion(newValue int32) {
 	this.Explosion = newValue
 }
-func (this OneValueSeries) getMarker() ISeriesMarker {
+func (this *OneValueSeries) getMarker() ISeriesMarker {
 	return this.Marker
 }
 
-func (this OneValueSeries) setMarker(newValue ISeriesMarker) {
+func (this *OneValueSeries) setMarker(newValue ISeriesMarker) {
 	this.Marker = newValue
 }
-func (this OneValueSeries) getFillFormat() IFillFormat {
+func (this *OneValueSeries) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this OneValueSeries) setFillFormat(newValue IFillFormat) {
+func (this *OneValueSeries) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this OneValueSeries) getEffectFormat() IEffectFormat {
+func (this *OneValueSeries) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this OneValueSeries) setEffectFormat(newValue IEffectFormat) {
+func (this *OneValueSeries) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this OneValueSeries) getLineFormat() ILineFormat {
+func (this *OneValueSeries) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this OneValueSeries) setLineFormat(newValue ILineFormat) {
+func (this *OneValueSeries) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this OneValueSeries) getDataPointType() string {
+func (this *OneValueSeries) getDataPointType() string {
 	return this.DataPointType
 }
 
-func (this OneValueSeries) setDataPointType(newValue string) {
+func (this *OneValueSeries) setDataPointType(newValue string) {
 	this.DataPointType = newValue
 }
-func (this OneValueSeries) getDataPoints() []OneValueChartDataPoint {
+func (this *OneValueSeries) getDataPoints() []IOneValueChartDataPoint {
 	return this.DataPoints
 }
 
-func (this OneValueSeries) setDataPoints(newValue []OneValueChartDataPoint) {
+func (this *OneValueSeries) setDataPoints(newValue []IOneValueChartDataPoint) {
 	this.DataPoints = newValue
 }
 
@@ -311,7 +311,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Type_ = "ClusteredColumn"
+	this.Type_ = ""
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -604,7 +604,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Marker = valueForMarker
+			this.Marker = &valueForMarker
 		}
 	}
 	if valMarkerCap, ok := objMap["Marker"]; ok {
@@ -614,7 +614,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Marker = valueForMarker
+			this.Marker = &valueForMarker
 		}
 	}
 	
@@ -625,7 +625,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -635,7 +635,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -646,7 +646,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -656,7 +656,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -667,7 +667,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -677,7 +677,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.DataPointType = "OneValue"
@@ -721,7 +721,11 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.DataPoints = valueForDataPoints
+			valueForIDataPoints := make([]IOneValueChartDataPoint, len(valueForDataPoints))
+			for i, v := range valueForDataPoints {
+				valueForIDataPoints[i] = IOneValueChartDataPoint(&v)
+			}
+			this.DataPoints = valueForIDataPoints
 		}
 	}
 	if valDataPointsCap, ok := objMap["DataPoints"]; ok {
@@ -731,7 +735,11 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.DataPoints = valueForDataPoints
+			valueForIDataPoints := make([]IOneValueChartDataPoint, len(valueForDataPoints))
+			for i, v := range valueForDataPoints {
+				valueForIDataPoints[i] = IOneValueChartDataPoint(&v)
+			}
+			this.DataPoints = valueForIDataPoints
 		}
 	}
 

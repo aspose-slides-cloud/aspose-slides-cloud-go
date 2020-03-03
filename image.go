@@ -39,8 +39,8 @@ type IImage interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Get or sets the width of an image.
 	getWidth() int32
@@ -61,7 +61,7 @@ type Image struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Get or sets the width of an image.
 	Width int32 `json:"Width"`
@@ -73,39 +73,39 @@ type Image struct {
 	ContentType string `json:"ContentType,omitempty"`
 }
 
-func (this Image) getSelfUri() IResourceUri {
+func (this *Image) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Image) setSelfUri(newValue IResourceUri) {
+func (this *Image) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Image) getAlternateLinks() []ResourceUri {
+func (this *Image) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Image) setAlternateLinks(newValue []ResourceUri) {
+func (this *Image) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Image) getWidth() int32 {
+func (this *Image) getWidth() int32 {
 	return this.Width
 }
 
-func (this Image) setWidth(newValue int32) {
+func (this *Image) setWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this Image) getHeight() int32 {
+func (this *Image) getHeight() int32 {
 	return this.Height
 }
 
-func (this Image) setHeight(newValue int32) {
+func (this *Image) setHeight(newValue int32) {
 	this.Height = newValue
 }
-func (this Image) getContentType() string {
+func (this *Image) getContentType() string {
 	return this.ContentType
 }
 
-func (this Image) setContentType(newValue string) {
+func (this *Image) setContentType(newValue string) {
 	this.ContentType = newValue
 }
 
@@ -123,7 +123,7 @@ func (this *Image) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -133,7 +133,7 @@ func (this *Image) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -144,7 +144,11 @@ func (this *Image) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -154,7 +158,11 @@ func (this *Image) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	

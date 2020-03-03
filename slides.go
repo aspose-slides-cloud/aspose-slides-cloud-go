@@ -39,12 +39,12 @@ type ISlides interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// List of slide links.
-	getSlideList() []ResourceUriElement
-	setSlideList(newValue []ResourceUriElement)
+	getSlideList() []IResourceUriElement
+	setSlideList(newValue []IResourceUriElement)
 }
 
 type Slides struct {
@@ -53,31 +53,31 @@ type Slides struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// List of slide links.
-	SlideList []ResourceUriElement `json:"SlideList,omitempty"`
+	SlideList []IResourceUriElement `json:"SlideList,omitempty"`
 }
 
-func (this Slides) getSelfUri() IResourceUri {
+func (this *Slides) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Slides) setSelfUri(newValue IResourceUri) {
+func (this *Slides) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Slides) getAlternateLinks() []ResourceUri {
+func (this *Slides) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Slides) setAlternateLinks(newValue []ResourceUri) {
+func (this *Slides) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Slides) getSlideList() []ResourceUriElement {
+func (this *Slides) getSlideList() []IResourceUriElement {
 	return this.SlideList
 }
 
-func (this Slides) setSlideList(newValue []ResourceUriElement) {
+func (this *Slides) setSlideList(newValue []IResourceUriElement) {
 	this.SlideList = newValue
 }
 
@@ -95,7 +95,7 @@ func (this *Slides) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -105,7 +105,7 @@ func (this *Slides) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -116,7 +116,11 @@ func (this *Slides) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -126,7 +130,11 @@ func (this *Slides) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -137,7 +145,11 @@ func (this *Slides) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SlideList = valueForSlideList
+			valueForISlideList := make([]IResourceUriElement, len(valueForSlideList))
+			for i, v := range valueForSlideList {
+				valueForISlideList[i] = IResourceUriElement(&v)
+			}
+			this.SlideList = valueForISlideList
 		}
 	}
 	if valSlideListCap, ok := objMap["SlideList"]; ok {
@@ -147,7 +159,11 @@ func (this *Slides) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SlideList = valueForSlideList
+			valueForISlideList := make([]IResourceUriElement, len(valueForSlideList))
+			for i, v := range valueForSlideList {
+				valueForISlideList[i] = IResourceUriElement(&v)
+			}
+			this.SlideList = valueForISlideList
 		}
 	}
 

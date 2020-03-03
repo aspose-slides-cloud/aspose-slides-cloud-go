@@ -43,11 +43,11 @@ type ExportOptions struct {
 	Format string `json:"Format,omitempty"`
 }
 
-func (this ExportOptions) getFormat() string {
+func (this *ExportOptions) getFormat() string {
 	return this.Format
 }
 
-func (this ExportOptions) setFormat(newValue string) {
+func (this *ExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
 

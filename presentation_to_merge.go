@@ -59,25 +59,25 @@ type PresentationToMerge struct {
 	Slides []int32 `json:"Slides,omitempty"`
 }
 
-func (this PresentationToMerge) getPath() string {
+func (this *PresentationToMerge) getPath() string {
 	return this.Path
 }
 
-func (this PresentationToMerge) setPath(newValue string) {
+func (this *PresentationToMerge) setPath(newValue string) {
 	this.Path = newValue
 }
-func (this PresentationToMerge) getPassword() string {
+func (this *PresentationToMerge) getPassword() string {
 	return this.Password
 }
 
-func (this PresentationToMerge) setPassword(newValue string) {
+func (this *PresentationToMerge) setPassword(newValue string) {
 	this.Password = newValue
 }
-func (this PresentationToMerge) getSlides() []int32 {
+func (this *PresentationToMerge) getSlides() []int32 {
 	return this.Slides
 }
 
-func (this PresentationToMerge) setSlides(newValue []int32) {
+func (this *PresentationToMerge) setSlides(newValue []int32) {
 	this.Slides = newValue
 }
 

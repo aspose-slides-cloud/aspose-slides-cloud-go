@@ -43,11 +43,11 @@ type FillFormat struct {
 	Type_ string `json:"Type,omitempty"`
 }
 
-func (this FillFormat) getType() string {
+func (this *FillFormat) getType() string {
 	return this.Type_
 }
 
-func (this FillFormat) setType(newValue string) {
+func (this *FillFormat) setType(newValue string) {
 	this.Type_ = newValue
 }
 

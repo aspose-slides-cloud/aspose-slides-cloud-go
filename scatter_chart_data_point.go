@@ -52,18 +52,18 @@ type ScatterChartDataPoint struct {
 	YValue float64 `json:"YValue"`
 }
 
-func (this ScatterChartDataPoint) getXValue() float64 {
+func (this *ScatterChartDataPoint) getXValue() float64 {
 	return this.XValue
 }
 
-func (this ScatterChartDataPoint) setXValue(newValue float64) {
+func (this *ScatterChartDataPoint) setXValue(newValue float64) {
 	this.XValue = newValue
 }
-func (this ScatterChartDataPoint) getYValue() float64 {
+func (this *ScatterChartDataPoint) getYValue() float64 {
 	return this.YValue
 }
 
-func (this ScatterChartDataPoint) setYValue(newValue float64) {
+func (this *ScatterChartDataPoint) setYValue(newValue float64) {
 	this.YValue = newValue
 }
 

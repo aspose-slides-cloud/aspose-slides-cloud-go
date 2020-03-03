@@ -43,11 +43,11 @@ type Task struct {
 	Type_ string `json:"Type,omitempty"`
 }
 
-func (this Task) getType() string {
+func (this *Task) getType() string {
 	return this.Type_
 }
 
-func (this Task) setType(newValue string) {
+func (this *Task) setType(newValue string) {
 	this.Type_ = newValue
 }
 

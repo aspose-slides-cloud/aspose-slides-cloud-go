@@ -39,12 +39,12 @@ type IShapes interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// List of shape links.
-	getShapesLinks() []ResourceUriElement
-	setShapesLinks(newValue []ResourceUriElement)
+	getShapesLinks() []IResourceUriElement
+	setShapesLinks(newValue []IResourceUriElement)
 }
 
 type Shapes struct {
@@ -53,31 +53,31 @@ type Shapes struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// List of shape links.
-	ShapesLinks []ResourceUriElement `json:"ShapesLinks,omitempty"`
+	ShapesLinks []IResourceUriElement `json:"ShapesLinks,omitempty"`
 }
 
-func (this Shapes) getSelfUri() IResourceUri {
+func (this *Shapes) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Shapes) setSelfUri(newValue IResourceUri) {
+func (this *Shapes) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Shapes) getAlternateLinks() []ResourceUri {
+func (this *Shapes) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Shapes) setAlternateLinks(newValue []ResourceUri) {
+func (this *Shapes) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Shapes) getShapesLinks() []ResourceUriElement {
+func (this *Shapes) getShapesLinks() []IResourceUriElement {
 	return this.ShapesLinks
 }
 
-func (this Shapes) setShapesLinks(newValue []ResourceUriElement) {
+func (this *Shapes) setShapesLinks(newValue []IResourceUriElement) {
 	this.ShapesLinks = newValue
 }
 
@@ -95,7 +95,7 @@ func (this *Shapes) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -105,7 +105,7 @@ func (this *Shapes) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -116,7 +116,11 @@ func (this *Shapes) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -126,7 +130,11 @@ func (this *Shapes) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -137,7 +145,11 @@ func (this *Shapes) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ShapesLinks = valueForShapesLinks
+			valueForIShapesLinks := make([]IResourceUriElement, len(valueForShapesLinks))
+			for i, v := range valueForShapesLinks {
+				valueForIShapesLinks[i] = IResourceUriElement(&v)
+			}
+			this.ShapesLinks = valueForIShapesLinks
 		}
 	}
 	if valShapesLinksCap, ok := objMap["ShapesLinks"]; ok {
@@ -147,7 +159,11 @@ func (this *Shapes) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ShapesLinks = valueForShapesLinks
+			valueForIShapesLinks := make([]IResourceUriElement, len(valueForShapesLinks))
+			for i, v := range valueForShapesLinks {
+				valueForIShapesLinks[i] = IResourceUriElement(&v)
+			}
+			this.ShapesLinks = valueForIShapesLinks
 		}
 	}
 

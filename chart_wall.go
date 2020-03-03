@@ -67,45 +67,45 @@ type ChartWall struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
 	// Get or sets wall thickness as a percentage of the largest dimension of the plot volume.
-	Thickness int32 `json:"Thickness"`
+	Thickness int32 `json:"Thickness,omitempty"`
 
 	// Get or sets mode of bar picture filling.
-	PictureType string `json:"PictureType"`
+	PictureType string `json:"PictureType,omitempty"`
 }
 
-func (this ChartWall) getFillFormat() IFillFormat {
+func (this *ChartWall) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this ChartWall) setFillFormat(newValue IFillFormat) {
+func (this *ChartWall) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this ChartWall) getEffectFormat() IEffectFormat {
+func (this *ChartWall) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this ChartWall) setEffectFormat(newValue IEffectFormat) {
+func (this *ChartWall) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this ChartWall) getLineFormat() ILineFormat {
+func (this *ChartWall) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this ChartWall) setLineFormat(newValue ILineFormat) {
+func (this *ChartWall) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this ChartWall) getThickness() int32 {
+func (this *ChartWall) getThickness() int32 {
 	return this.Thickness
 }
 
-func (this ChartWall) setThickness(newValue int32) {
+func (this *ChartWall) setThickness(newValue int32) {
 	this.Thickness = newValue
 }
-func (this ChartWall) getPictureType() string {
+func (this *ChartWall) getPictureType() string {
 	return this.PictureType
 }
 
-func (this ChartWall) setPictureType(newValue string) {
+func (this *ChartWall) setPictureType(newValue string) {
 	this.PictureType = newValue
 }
 
@@ -123,7 +123,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -133,7 +133,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -144,7 +144,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -154,7 +154,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -165,7 +165,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -175,7 +175,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	
@@ -199,7 +199,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			this.Thickness = valueForThickness
 		}
 	}
-	this.PictureType = "Stack"
+	this.PictureType = ""
 	if valPictureType, ok := objMap["pictureType"]; ok {
 		if valPictureType != nil {
 			var valueForPictureType string

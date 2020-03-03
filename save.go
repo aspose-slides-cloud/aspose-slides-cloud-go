@@ -66,32 +66,32 @@ type Save struct {
 	Options IExportOptions `json:"Options,omitempty"`
 }
 
-func (this Save) getType() string {
+func (this *Save) getType() string {
 	return this.Type_
 }
 
-func (this Save) setType(newValue string) {
+func (this *Save) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this Save) getFormat() string {
+func (this *Save) getFormat() string {
 	return this.Format
 }
 
-func (this Save) setFormat(newValue string) {
+func (this *Save) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this Save) getOutput() IOutputFile {
+func (this *Save) getOutput() IOutputFile {
 	return this.Output
 }
 
-func (this Save) setOutput(newValue IOutputFile) {
+func (this *Save) setOutput(newValue IOutputFile) {
 	this.Output = newValue
 }
-func (this Save) getOptions() IExportOptions {
+func (this *Save) getOptions() IExportOptions {
 	return this.Options
 }
 
-func (this Save) setOptions(newValue IExportOptions) {
+func (this *Save) setOptions(newValue IExportOptions) {
 	this.Options = newValue
 }
 
@@ -175,7 +175,7 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Output = valueForOutput
+			this.Output = &valueForOutput
 		}
 	}
 	if valOutputCap, ok := objMap["Output"]; ok {
@@ -185,7 +185,7 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Output = valueForOutput
+			this.Output = &valueForOutput
 		}
 	}
 	
@@ -196,7 +196,7 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Options = valueForOptions
+			this.Options = &valueForOptions
 		}
 	}
 	if valOptionsCap, ok := objMap["Options"]; ok {
@@ -206,7 +206,7 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Options = valueForOptions
+			this.Options = &valueForOptions
 		}
 	}
 

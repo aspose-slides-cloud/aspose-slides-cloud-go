@@ -105,28 +105,28 @@ type TableCell struct {
 	Text string `json:"Text,omitempty"`
 
 	// The number of rows spanned by a merged cell.
-	RowSpan int32 `json:"RowSpan"`
+	RowSpan int32 `json:"RowSpan,omitempty"`
 
 	// The number of columns spanned by a merged cell.
-	ColSpan int32 `json:"ColSpan"`
+	ColSpan int32 `json:"ColSpan,omitempty"`
 
 	// The top margin of the cell.
-	MarginTop float64 `json:"MarginTop"`
+	MarginTop float64 `json:"MarginTop,omitempty"`
 
 	// The right margin of the cell.
-	MarginRight float64 `json:"MarginRight"`
+	MarginRight float64 `json:"MarginRight,omitempty"`
 
 	// The left margin of the cell.
-	MarginLeft float64 `json:"MarginLeft"`
+	MarginLeft float64 `json:"MarginLeft,omitempty"`
 
 	// The bottom margin of the cell.
-	MarginBottom float64 `json:"MarginBottom"`
+	MarginBottom float64 `json:"MarginBottom,omitempty"`
 
 	// Text anchor type.
-	TextAnchorType string `json:"TextAnchorType"`
+	TextAnchorType string `json:"TextAnchorType,omitempty"`
 
 	// The type of vertical text.
-	TextVerticalType string `json:"TextVerticalType"`
+	TextVerticalType string `json:"TextVerticalType,omitempty"`
 
 	// Fill properties set of the cell.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -150,116 +150,116 @@ type TableCell struct {
 	BorderDiagonalDown ILineFormat `json:"BorderDiagonalDown,omitempty"`
 }
 
-func (this TableCell) getText() string {
+func (this *TableCell) getText() string {
 	return this.Text
 }
 
-func (this TableCell) setText(newValue string) {
+func (this *TableCell) setText(newValue string) {
 	this.Text = newValue
 }
-func (this TableCell) getRowSpan() int32 {
+func (this *TableCell) getRowSpan() int32 {
 	return this.RowSpan
 }
 
-func (this TableCell) setRowSpan(newValue int32) {
+func (this *TableCell) setRowSpan(newValue int32) {
 	this.RowSpan = newValue
 }
-func (this TableCell) getColSpan() int32 {
+func (this *TableCell) getColSpan() int32 {
 	return this.ColSpan
 }
 
-func (this TableCell) setColSpan(newValue int32) {
+func (this *TableCell) setColSpan(newValue int32) {
 	this.ColSpan = newValue
 }
-func (this TableCell) getMarginTop() float64 {
+func (this *TableCell) getMarginTop() float64 {
 	return this.MarginTop
 }
 
-func (this TableCell) setMarginTop(newValue float64) {
+func (this *TableCell) setMarginTop(newValue float64) {
 	this.MarginTop = newValue
 }
-func (this TableCell) getMarginRight() float64 {
+func (this *TableCell) getMarginRight() float64 {
 	return this.MarginRight
 }
 
-func (this TableCell) setMarginRight(newValue float64) {
+func (this *TableCell) setMarginRight(newValue float64) {
 	this.MarginRight = newValue
 }
-func (this TableCell) getMarginLeft() float64 {
+func (this *TableCell) getMarginLeft() float64 {
 	return this.MarginLeft
 }
 
-func (this TableCell) setMarginLeft(newValue float64) {
+func (this *TableCell) setMarginLeft(newValue float64) {
 	this.MarginLeft = newValue
 }
-func (this TableCell) getMarginBottom() float64 {
+func (this *TableCell) getMarginBottom() float64 {
 	return this.MarginBottom
 }
 
-func (this TableCell) setMarginBottom(newValue float64) {
+func (this *TableCell) setMarginBottom(newValue float64) {
 	this.MarginBottom = newValue
 }
-func (this TableCell) getTextAnchorType() string {
+func (this *TableCell) getTextAnchorType() string {
 	return this.TextAnchorType
 }
 
-func (this TableCell) setTextAnchorType(newValue string) {
+func (this *TableCell) setTextAnchorType(newValue string) {
 	this.TextAnchorType = newValue
 }
-func (this TableCell) getTextVerticalType() string {
+func (this *TableCell) getTextVerticalType() string {
 	return this.TextVerticalType
 }
 
-func (this TableCell) setTextVerticalType(newValue string) {
+func (this *TableCell) setTextVerticalType(newValue string) {
 	this.TextVerticalType = newValue
 }
-func (this TableCell) getFillFormat() IFillFormat {
+func (this *TableCell) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this TableCell) setFillFormat(newValue IFillFormat) {
+func (this *TableCell) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this TableCell) getBorderTop() ILineFormat {
+func (this *TableCell) getBorderTop() ILineFormat {
 	return this.BorderTop
 }
 
-func (this TableCell) setBorderTop(newValue ILineFormat) {
+func (this *TableCell) setBorderTop(newValue ILineFormat) {
 	this.BorderTop = newValue
 }
-func (this TableCell) getBorderRight() ILineFormat {
+func (this *TableCell) getBorderRight() ILineFormat {
 	return this.BorderRight
 }
 
-func (this TableCell) setBorderRight(newValue ILineFormat) {
+func (this *TableCell) setBorderRight(newValue ILineFormat) {
 	this.BorderRight = newValue
 }
-func (this TableCell) getBorderLeft() ILineFormat {
+func (this *TableCell) getBorderLeft() ILineFormat {
 	return this.BorderLeft
 }
 
-func (this TableCell) setBorderLeft(newValue ILineFormat) {
+func (this *TableCell) setBorderLeft(newValue ILineFormat) {
 	this.BorderLeft = newValue
 }
-func (this TableCell) getBorderBottom() ILineFormat {
+func (this *TableCell) getBorderBottom() ILineFormat {
 	return this.BorderBottom
 }
 
-func (this TableCell) setBorderBottom(newValue ILineFormat) {
+func (this *TableCell) setBorderBottom(newValue ILineFormat) {
 	this.BorderBottom = newValue
 }
-func (this TableCell) getBorderDiagonalUp() ILineFormat {
+func (this *TableCell) getBorderDiagonalUp() ILineFormat {
 	return this.BorderDiagonalUp
 }
 
-func (this TableCell) setBorderDiagonalUp(newValue ILineFormat) {
+func (this *TableCell) setBorderDiagonalUp(newValue ILineFormat) {
 	this.BorderDiagonalUp = newValue
 }
-func (this TableCell) getBorderDiagonalDown() ILineFormat {
+func (this *TableCell) getBorderDiagonalDown() ILineFormat {
 	return this.BorderDiagonalDown
 }
 
-func (this TableCell) setBorderDiagonalDown(newValue ILineFormat) {
+func (this *TableCell) setBorderDiagonalDown(newValue ILineFormat) {
 	this.BorderDiagonalDown = newValue
 }
 
@@ -416,7 +416,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginBottom = valueForMarginBottom
 		}
 	}
-	this.TextAnchorType = "Top"
+	this.TextAnchorType = ""
 	if valTextAnchorType, ok := objMap["textAnchorType"]; ok {
 		if valTextAnchorType != nil {
 			var valueForTextAnchorType string
@@ -449,7 +449,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.TextVerticalType = "Horizontal"
+	this.TextVerticalType = ""
 	if valTextVerticalType, ok := objMap["textVerticalType"]; ok {
 		if valTextVerticalType != nil {
 			var valueForTextVerticalType string
@@ -490,7 +490,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -500,7 +500,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -511,7 +511,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderTop = valueForBorderTop
+			this.BorderTop = &valueForBorderTop
 		}
 	}
 	if valBorderTopCap, ok := objMap["BorderTop"]; ok {
@@ -521,7 +521,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderTop = valueForBorderTop
+			this.BorderTop = &valueForBorderTop
 		}
 	}
 	
@@ -532,7 +532,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderRight = valueForBorderRight
+			this.BorderRight = &valueForBorderRight
 		}
 	}
 	if valBorderRightCap, ok := objMap["BorderRight"]; ok {
@@ -542,7 +542,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderRight = valueForBorderRight
+			this.BorderRight = &valueForBorderRight
 		}
 	}
 	
@@ -553,7 +553,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderLeft = valueForBorderLeft
+			this.BorderLeft = &valueForBorderLeft
 		}
 	}
 	if valBorderLeftCap, ok := objMap["BorderLeft"]; ok {
@@ -563,7 +563,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderLeft = valueForBorderLeft
+			this.BorderLeft = &valueForBorderLeft
 		}
 	}
 	
@@ -574,7 +574,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderBottom = valueForBorderBottom
+			this.BorderBottom = &valueForBorderBottom
 		}
 	}
 	if valBorderBottomCap, ok := objMap["BorderBottom"]; ok {
@@ -584,7 +584,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderBottom = valueForBorderBottom
+			this.BorderBottom = &valueForBorderBottom
 		}
 	}
 	
@@ -595,7 +595,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderDiagonalUp = valueForBorderDiagonalUp
+			this.BorderDiagonalUp = &valueForBorderDiagonalUp
 		}
 	}
 	if valBorderDiagonalUpCap, ok := objMap["BorderDiagonalUp"]; ok {
@@ -605,7 +605,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderDiagonalUp = valueForBorderDiagonalUp
+			this.BorderDiagonalUp = &valueForBorderDiagonalUp
 		}
 	}
 	
@@ -616,7 +616,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderDiagonalDown = valueForBorderDiagonalDown
+			this.BorderDiagonalDown = &valueForBorderDiagonalDown
 		}
 	}
 	if valBorderDiagonalDownCap, ok := objMap["BorderDiagonalDown"]; ok {
@@ -626,7 +626,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BorderDiagonalDown = valueForBorderDiagonalDown
+			this.BorderDiagonalDown = &valueForBorderDiagonalDown
 		}
 	}
 

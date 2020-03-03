@@ -39,8 +39,8 @@ type IGroupShape interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -109,7 +109,7 @@ type GroupShape struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -127,7 +127,7 @@ type GroupShape struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -157,123 +157,123 @@ type GroupShape struct {
 	ShapeType string `json:"ShapeType"`
 }
 
-func (this GroupShape) getSelfUri() IResourceUri {
+func (this *GroupShape) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this GroupShape) setSelfUri(newValue IResourceUri) {
+func (this *GroupShape) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this GroupShape) getAlternateLinks() []ResourceUri {
+func (this *GroupShape) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this GroupShape) setAlternateLinks(newValue []ResourceUri) {
+func (this *GroupShape) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this GroupShape) getName() string {
+func (this *GroupShape) getName() string {
 	return this.Name
 }
 
-func (this GroupShape) setName(newValue string) {
+func (this *GroupShape) setName(newValue string) {
 	this.Name = newValue
 }
-func (this GroupShape) getWidth() float64 {
+func (this *GroupShape) getWidth() float64 {
 	return this.Width
 }
 
-func (this GroupShape) setWidth(newValue float64) {
+func (this *GroupShape) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this GroupShape) getHeight() float64 {
+func (this *GroupShape) getHeight() float64 {
 	return this.Height
 }
 
-func (this GroupShape) setHeight(newValue float64) {
+func (this *GroupShape) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this GroupShape) getAlternativeText() string {
+func (this *GroupShape) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this GroupShape) setAlternativeText(newValue string) {
+func (this *GroupShape) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this GroupShape) getAlternativeTextTitle() string {
+func (this *GroupShape) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this GroupShape) setAlternativeTextTitle(newValue string) {
+func (this *GroupShape) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this GroupShape) getHidden() bool {
+func (this *GroupShape) getHidden() bool {
 	return this.Hidden
 }
 
-func (this GroupShape) setHidden(newValue bool) {
+func (this *GroupShape) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this GroupShape) getX() float64 {
+func (this *GroupShape) getX() float64 {
 	return this.X
 }
 
-func (this GroupShape) setX(newValue float64) {
+func (this *GroupShape) setX(newValue float64) {
 	this.X = newValue
 }
-func (this GroupShape) getY() float64 {
+func (this *GroupShape) getY() float64 {
 	return this.Y
 }
 
-func (this GroupShape) setY(newValue float64) {
+func (this *GroupShape) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this GroupShape) getZOrderPosition() int32 {
+func (this *GroupShape) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this GroupShape) setZOrderPosition(newValue int32) {
+func (this *GroupShape) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this GroupShape) getShapes() IResourceUriElement {
+func (this *GroupShape) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this GroupShape) setShapes(newValue IResourceUriElement) {
+func (this *GroupShape) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this GroupShape) getFillFormat() IFillFormat {
+func (this *GroupShape) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this GroupShape) setFillFormat(newValue IFillFormat) {
+func (this *GroupShape) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this GroupShape) getEffectFormat() IEffectFormat {
+func (this *GroupShape) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this GroupShape) setEffectFormat(newValue IEffectFormat) {
+func (this *GroupShape) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this GroupShape) getLineFormat() ILineFormat {
+func (this *GroupShape) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this GroupShape) setLineFormat(newValue ILineFormat) {
+func (this *GroupShape) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this GroupShape) getType() string {
+func (this *GroupShape) getType() string {
 	return this.Type_
 }
 
-func (this GroupShape) setType(newValue string) {
+func (this *GroupShape) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this GroupShape) getShapeType() string {
+func (this *GroupShape) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this GroupShape) setShapeType(newValue string) {
+func (this *GroupShape) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
 
@@ -291,7 +291,7 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -301,7 +301,7 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -312,7 +312,11 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -322,7 +326,11 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -522,7 +530,7 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -532,7 +540,7 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -543,7 +551,7 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -553,7 +561,7 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -564,7 +572,7 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -574,7 +582,7 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -585,7 +593,7 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -595,7 +603,7 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = "GroupShape"

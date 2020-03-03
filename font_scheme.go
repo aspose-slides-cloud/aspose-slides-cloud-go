@@ -39,8 +39,8 @@ type IFontScheme interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets fonts collection for a \"heading\" part of the slide.
 	getMajor() IFontSet
@@ -61,7 +61,7 @@ type FontScheme struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets fonts collection for a \"heading\" part of the slide.
 	Major IFontSet `json:"Major,omitempty"`
@@ -73,39 +73,39 @@ type FontScheme struct {
 	Name string `json:"Name,omitempty"`
 }
 
-func (this FontScheme) getSelfUri() IResourceUri {
+func (this *FontScheme) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this FontScheme) setSelfUri(newValue IResourceUri) {
+func (this *FontScheme) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this FontScheme) getAlternateLinks() []ResourceUri {
+func (this *FontScheme) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this FontScheme) setAlternateLinks(newValue []ResourceUri) {
+func (this *FontScheme) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this FontScheme) getMajor() IFontSet {
+func (this *FontScheme) getMajor() IFontSet {
 	return this.Major
 }
 
-func (this FontScheme) setMajor(newValue IFontSet) {
+func (this *FontScheme) setMajor(newValue IFontSet) {
 	this.Major = newValue
 }
-func (this FontScheme) getMinor() IFontSet {
+func (this *FontScheme) getMinor() IFontSet {
 	return this.Minor
 }
 
-func (this FontScheme) setMinor(newValue IFontSet) {
+func (this *FontScheme) setMinor(newValue IFontSet) {
 	this.Minor = newValue
 }
-func (this FontScheme) getName() string {
+func (this *FontScheme) getName() string {
 	return this.Name
 }
 
-func (this FontScheme) setName(newValue string) {
+func (this *FontScheme) setName(newValue string) {
 	this.Name = newValue
 }
 
@@ -123,7 +123,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -133,7 +133,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -144,7 +144,11 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -154,7 +158,11 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -165,7 +173,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Major = valueForMajor
+			this.Major = &valueForMajor
 		}
 	}
 	if valMajorCap, ok := objMap["Major"]; ok {
@@ -175,7 +183,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Major = valueForMajor
+			this.Major = &valueForMajor
 		}
 	}
 	
@@ -186,7 +194,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Minor = valueForMinor
+			this.Minor = &valueForMinor
 		}
 	}
 	if valMinorCap, ok := objMap["Minor"]; ok {
@@ -196,7 +204,7 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Minor = valueForMinor
+			this.Minor = &valueForMinor
 		}
 	}
 	

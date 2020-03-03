@@ -35,21 +35,21 @@ import (
 type IFilesList interface {
 
 	// Files and folders contained by folder StorageFile.
-	getValue() []StorageFile
-	setValue(newValue []StorageFile)
+	getValue() []IStorageFile
+	setValue(newValue []IStorageFile)
 }
 
 type FilesList struct {
 
 	// Files and folders contained by folder StorageFile.
-	Value []StorageFile `json:"Value,omitempty"`
+	Value []IStorageFile `json:"Value,omitempty"`
 }
 
-func (this FilesList) getValue() []StorageFile {
+func (this *FilesList) getValue() []IStorageFile {
 	return this.Value
 }
 
-func (this FilesList) setValue(newValue []StorageFile) {
+func (this *FilesList) setValue(newValue []IStorageFile) {
 	this.Value = newValue
 }
 
@@ -67,7 +67,11 @@ func (this *FilesList) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Value = valueForValue
+			valueForIValue := make([]IStorageFile, len(valueForValue))
+			for i, v := range valueForValue {
+				valueForIValue[i] = IStorageFile(&v)
+			}
+			this.Value = valueForIValue
 		}
 	}
 	if valValueCap, ok := objMap["Value"]; ok {
@@ -77,7 +81,11 @@ func (this *FilesList) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Value = valueForValue
+			valueForIValue := make([]IStorageFile, len(valueForValue))
+			for i, v := range valueForValue {
+				valueForIValue[i] = IStorageFile(&v)
+			}
+			this.Value = valueForIValue
 		}
 	}
 

@@ -43,11 +43,11 @@ type OutputFile struct {
 	Type_ string `json:"Type,omitempty"`
 }
 
-func (this OutputFile) getType() string {
+func (this *OutputFile) getType() string {
 	return this.Type_
 }
 
-func (this OutputFile) setType(newValue string) {
+func (this *OutputFile) setType(newValue string) {
 	this.Type_ = newValue
 }
 

@@ -59,25 +59,25 @@ type UpdateBackground struct {
 	Background ISlideBackground `json:"Background,omitempty"`
 }
 
-func (this UpdateBackground) getType() string {
+func (this *UpdateBackground) getType() string {
 	return this.Type_
 }
 
-func (this UpdateBackground) setType(newValue string) {
+func (this *UpdateBackground) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this UpdateBackground) getSlides() []int32 {
+func (this *UpdateBackground) getSlides() []int32 {
 	return this.Slides
 }
 
-func (this UpdateBackground) setSlides(newValue []int32) {
+func (this *UpdateBackground) setSlides(newValue []int32) {
 	this.Slides = newValue
 }
-func (this UpdateBackground) getBackground() ISlideBackground {
+func (this *UpdateBackground) getBackground() ISlideBackground {
 	return this.Background
 }
 
-func (this UpdateBackground) setBackground(newValue ISlideBackground) {
+func (this *UpdateBackground) setBackground(newValue ISlideBackground) {
 	this.Background = newValue
 }
 
@@ -149,7 +149,7 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Background = valueForBackground
+			this.Background = &valueForBackground
 		}
 	}
 	if valBackgroundCap, ok := objMap["Background"]; ok {
@@ -159,7 +159,7 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Background = valueForBackground
+			this.Background = &valueForBackground
 		}
 	}
 

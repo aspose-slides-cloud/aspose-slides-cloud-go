@@ -59,25 +59,25 @@ type BubbleChartDataPoint struct {
 	BubbleSize float64 `json:"BubbleSize"`
 }
 
-func (this BubbleChartDataPoint) getXValue() float64 {
+func (this *BubbleChartDataPoint) getXValue() float64 {
 	return this.XValue
 }
 
-func (this BubbleChartDataPoint) setXValue(newValue float64) {
+func (this *BubbleChartDataPoint) setXValue(newValue float64) {
 	this.XValue = newValue
 }
-func (this BubbleChartDataPoint) getYValue() float64 {
+func (this *BubbleChartDataPoint) getYValue() float64 {
 	return this.YValue
 }
 
-func (this BubbleChartDataPoint) setYValue(newValue float64) {
+func (this *BubbleChartDataPoint) setYValue(newValue float64) {
 	this.YValue = newValue
 }
-func (this BubbleChartDataPoint) getBubbleSize() float64 {
+func (this *BubbleChartDataPoint) getBubbleSize() float64 {
 	return this.BubbleSize
 }
 
-func (this BubbleChartDataPoint) setBubbleSize(newValue float64) {
+func (this *BubbleChartDataPoint) setBubbleSize(newValue float64) {
 	this.BubbleSize = newValue
 }
 

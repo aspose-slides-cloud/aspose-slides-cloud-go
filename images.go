@@ -39,12 +39,12 @@ type IImages interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Image list.
-	getList() []Image
-	setList(newValue []Image)
+	getList() []IImage
+	setList(newValue []IImage)
 }
 
 type Images struct {
@@ -53,31 +53,31 @@ type Images struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Image list.
-	List []Image `json:"List,omitempty"`
+	List []IImage `json:"List,omitempty"`
 }
 
-func (this Images) getSelfUri() IResourceUri {
+func (this *Images) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Images) setSelfUri(newValue IResourceUri) {
+func (this *Images) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Images) getAlternateLinks() []ResourceUri {
+func (this *Images) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Images) setAlternateLinks(newValue []ResourceUri) {
+func (this *Images) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Images) getList() []Image {
+func (this *Images) getList() []IImage {
 	return this.List
 }
 
-func (this Images) setList(newValue []Image) {
+func (this *Images) setList(newValue []IImage) {
 	this.List = newValue
 }
 
@@ -95,7 +95,7 @@ func (this *Images) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -105,7 +105,7 @@ func (this *Images) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -116,7 +116,11 @@ func (this *Images) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -126,7 +130,11 @@ func (this *Images) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -137,7 +145,11 @@ func (this *Images) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.List = valueForList
+			valueForIList := make([]IImage, len(valueForList))
+			for i, v := range valueForList {
+				valueForIList[i] = IImage(&v)
+			}
+			this.List = valueForIList
 		}
 	}
 	if valListCap, ok := objMap["List"]; ok {
@@ -147,7 +159,11 @@ func (this *Images) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.List = valueForList
+			valueForIList := make([]IImage, len(valueForList))
+			for i, v := range valueForList {
+				valueForIList[i] = IImage(&v)
+			}
+			this.List = valueForIList
 		}
 	}
 

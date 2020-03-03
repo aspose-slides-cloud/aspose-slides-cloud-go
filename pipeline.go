@@ -39,8 +39,8 @@ type IPipeline interface {
 	setInput(newValue IInput)
 
 	// Get or sets list of tasks representing pipeline.
-	getTasks() []Task
-	setTasks(newValue []Task)
+	getTasks() []ITask
+	setTasks(newValue []ITask)
 }
 
 type Pipeline struct {
@@ -49,21 +49,21 @@ type Pipeline struct {
 	Input IInput `json:"Input,omitempty"`
 
 	// Get or sets list of tasks representing pipeline.
-	Tasks []Task `json:"Tasks,omitempty"`
+	Tasks []ITask `json:"Tasks,omitempty"`
 }
 
-func (this Pipeline) getInput() IInput {
+func (this *Pipeline) getInput() IInput {
 	return this.Input
 }
 
-func (this Pipeline) setInput(newValue IInput) {
+func (this *Pipeline) setInput(newValue IInput) {
 	this.Input = newValue
 }
-func (this Pipeline) getTasks() []Task {
+func (this *Pipeline) getTasks() []ITask {
 	return this.Tasks
 }
 
-func (this Pipeline) setTasks(newValue []Task) {
+func (this *Pipeline) setTasks(newValue []ITask) {
 	this.Tasks = newValue
 }
 
@@ -81,7 +81,7 @@ func (this *Pipeline) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Input = valueForInput
+			this.Input = &valueForInput
 		}
 	}
 	if valInputCap, ok := objMap["Input"]; ok {
@@ -91,7 +91,7 @@ func (this *Pipeline) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Input = valueForInput
+			this.Input = &valueForInput
 		}
 	}
 	
@@ -102,7 +102,11 @@ func (this *Pipeline) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Tasks = valueForTasks
+			valueForITasks := make([]ITask, len(valueForTasks))
+			for i, v := range valueForTasks {
+				valueForITasks[i] = ITask(&v)
+			}
+			this.Tasks = valueForITasks
 		}
 	}
 	if valTasksCap, ok := objMap["Tasks"]; ok {
@@ -112,7 +116,11 @@ func (this *Pipeline) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Tasks = valueForTasks
+			valueForITasks := make([]ITask, len(valueForTasks))
+			for i, v := range valueForTasks {
+				valueForITasks[i] = ITask(&v)
+			}
+			this.Tasks = valueForITasks
 		}
 	}
 

@@ -108,74 +108,74 @@ type SvgExportOptions struct {
 	ExternalFontsHandling string `json:"ExternalFontsHandling"`
 }
 
-func (this SvgExportOptions) getFormat() string {
+func (this *SvgExportOptions) getFormat() string {
 	return this.Format
 }
 
-func (this SvgExportOptions) setFormat(newValue string) {
+func (this *SvgExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this SvgExportOptions) getVectorizeText() bool {
+func (this *SvgExportOptions) getVectorizeText() bool {
 	return this.VectorizeText
 }
 
-func (this SvgExportOptions) setVectorizeText(newValue bool) {
+func (this *SvgExportOptions) setVectorizeText(newValue bool) {
 	this.VectorizeText = newValue
 }
-func (this SvgExportOptions) getMetafileRasterizationDpi() int32 {
+func (this *SvgExportOptions) getMetafileRasterizationDpi() int32 {
 	return this.MetafileRasterizationDpi
 }
 
-func (this SvgExportOptions) setMetafileRasterizationDpi(newValue int32) {
+func (this *SvgExportOptions) setMetafileRasterizationDpi(newValue int32) {
 	this.MetafileRasterizationDpi = newValue
 }
-func (this SvgExportOptions) getDisable3DText() bool {
+func (this *SvgExportOptions) getDisable3DText() bool {
 	return this.Disable3DText
 }
 
-func (this SvgExportOptions) setDisable3DText(newValue bool) {
+func (this *SvgExportOptions) setDisable3DText(newValue bool) {
 	this.Disable3DText = newValue
 }
-func (this SvgExportOptions) getDisableGradientSplit() bool {
+func (this *SvgExportOptions) getDisableGradientSplit() bool {
 	return this.DisableGradientSplit
 }
 
-func (this SvgExportOptions) setDisableGradientSplit(newValue bool) {
+func (this *SvgExportOptions) setDisableGradientSplit(newValue bool) {
 	this.DisableGradientSplit = newValue
 }
-func (this SvgExportOptions) getDisableLineEndCropping() bool {
+func (this *SvgExportOptions) getDisableLineEndCropping() bool {
 	return this.DisableLineEndCropping
 }
 
-func (this SvgExportOptions) setDisableLineEndCropping(newValue bool) {
+func (this *SvgExportOptions) setDisableLineEndCropping(newValue bool) {
 	this.DisableLineEndCropping = newValue
 }
-func (this SvgExportOptions) getJpegQuality() int32 {
+func (this *SvgExportOptions) getJpegQuality() int32 {
 	return this.JpegQuality
 }
 
-func (this SvgExportOptions) setJpegQuality(newValue int32) {
+func (this *SvgExportOptions) setJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this SvgExportOptions) getPicturesCompression() string {
+func (this *SvgExportOptions) getPicturesCompression() string {
 	return this.PicturesCompression
 }
 
-func (this SvgExportOptions) setPicturesCompression(newValue string) {
+func (this *SvgExportOptions) setPicturesCompression(newValue string) {
 	this.PicturesCompression = newValue
 }
-func (this SvgExportOptions) getDeletePicturesCroppedAreas() bool {
+func (this *SvgExportOptions) getDeletePicturesCroppedAreas() bool {
 	return this.DeletePicturesCroppedAreas
 }
 
-func (this SvgExportOptions) setDeletePicturesCroppedAreas(newValue bool) {
+func (this *SvgExportOptions) setDeletePicturesCroppedAreas(newValue bool) {
 	this.DeletePicturesCroppedAreas = newValue
 }
-func (this SvgExportOptions) getExternalFontsHandling() string {
+func (this *SvgExportOptions) getExternalFontsHandling() string {
 	return this.ExternalFontsHandling
 }
 
-func (this SvgExportOptions) setExternalFontsHandling(newValue string) {
+func (this *SvgExportOptions) setExternalFontsHandling(newValue string) {
 	this.ExternalFontsHandling = newValue
 }
 

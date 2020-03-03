@@ -39,12 +39,12 @@ type IPortions interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// List of portion links.
-	getPortionLinks() []ResourceUriElement
-	setPortionLinks(newValue []ResourceUriElement)
+	getPortionLinks() []IResourceUriElement
+	setPortionLinks(newValue []IResourceUriElement)
 }
 
 type Portions struct {
@@ -53,31 +53,31 @@ type Portions struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// List of portion links.
-	PortionLinks []ResourceUriElement `json:"PortionLinks,omitempty"`
+	PortionLinks []IResourceUriElement `json:"PortionLinks,omitempty"`
 }
 
-func (this Portions) getSelfUri() IResourceUri {
+func (this *Portions) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Portions) setSelfUri(newValue IResourceUri) {
+func (this *Portions) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Portions) getAlternateLinks() []ResourceUri {
+func (this *Portions) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Portions) setAlternateLinks(newValue []ResourceUri) {
+func (this *Portions) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Portions) getPortionLinks() []ResourceUriElement {
+func (this *Portions) getPortionLinks() []IResourceUriElement {
 	return this.PortionLinks
 }
 
-func (this Portions) setPortionLinks(newValue []ResourceUriElement) {
+func (this *Portions) setPortionLinks(newValue []IResourceUriElement) {
 	this.PortionLinks = newValue
 }
 
@@ -95,7 +95,7 @@ func (this *Portions) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -105,7 +105,7 @@ func (this *Portions) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -116,7 +116,11 @@ func (this *Portions) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -126,7 +130,11 @@ func (this *Portions) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -137,7 +145,11 @@ func (this *Portions) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PortionLinks = valueForPortionLinks
+			valueForIPortionLinks := make([]IResourceUriElement, len(valueForPortionLinks))
+			for i, v := range valueForPortionLinks {
+				valueForIPortionLinks[i] = IResourceUriElement(&v)
+			}
+			this.PortionLinks = valueForIPortionLinks
 		}
 	}
 	if valPortionLinksCap, ok := objMap["PortionLinks"]; ok {
@@ -147,7 +159,11 @@ func (this *Portions) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PortionLinks = valueForPortionLinks
+			valueForIPortionLinks := make([]IResourceUriElement, len(valueForPortionLinks))
+			for i, v := range valueForPortionLinks {
+				valueForIPortionLinks[i] = IResourceUriElement(&v)
+			}
+			this.PortionLinks = valueForIPortionLinks
 		}
 	}
 

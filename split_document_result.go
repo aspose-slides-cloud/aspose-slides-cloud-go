@@ -39,12 +39,12 @@ type ISplitDocumentResult interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// List of slide links.
-	getSlides() []ResourceUri
-	setSlides(newValue []ResourceUri)
+	getSlides() []IResourceUri
+	setSlides(newValue []IResourceUri)
 }
 
 type SplitDocumentResult struct {
@@ -53,31 +53,31 @@ type SplitDocumentResult struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// List of slide links.
-	Slides []ResourceUri `json:"Slides,omitempty"`
+	Slides []IResourceUri `json:"Slides,omitempty"`
 }
 
-func (this SplitDocumentResult) getSelfUri() IResourceUri {
+func (this *SplitDocumentResult) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this SplitDocumentResult) setSelfUri(newValue IResourceUri) {
+func (this *SplitDocumentResult) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this SplitDocumentResult) getAlternateLinks() []ResourceUri {
+func (this *SplitDocumentResult) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this SplitDocumentResult) setAlternateLinks(newValue []ResourceUri) {
+func (this *SplitDocumentResult) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this SplitDocumentResult) getSlides() []ResourceUri {
+func (this *SplitDocumentResult) getSlides() []IResourceUri {
 	return this.Slides
 }
 
-func (this SplitDocumentResult) setSlides(newValue []ResourceUri) {
+func (this *SplitDocumentResult) setSlides(newValue []IResourceUri) {
 	this.Slides = newValue
 }
 
@@ -95,7 +95,7 @@ func (this *SplitDocumentResult) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -105,7 +105,7 @@ func (this *SplitDocumentResult) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -116,7 +116,11 @@ func (this *SplitDocumentResult) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -126,7 +130,11 @@ func (this *SplitDocumentResult) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -137,7 +145,11 @@ func (this *SplitDocumentResult) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Slides = valueForSlides
+			valueForISlides := make([]IResourceUri, len(valueForSlides))
+			for i, v := range valueForSlides {
+				valueForISlides[i] = IResourceUri(&v)
+			}
+			this.Slides = valueForISlides
 		}
 	}
 	if valSlidesCap, ok := objMap["Slides"]; ok {
@@ -147,7 +159,11 @@ func (this *SplitDocumentResult) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Slides = valueForSlides
+			valueForISlides := make([]IResourceUri, len(valueForSlides))
+			for i, v := range valueForSlides {
+				valueForISlides[i] = IResourceUri(&v)
+			}
+			this.Slides = valueForISlides
 		}
 	}
 

@@ -52,18 +52,18 @@ type ApiInfo struct {
 	Version string `json:"Version,omitempty"`
 }
 
-func (this ApiInfo) getName() string {
+func (this *ApiInfo) getName() string {
 	return this.Name
 }
 
-func (this ApiInfo) setName(newValue string) {
+func (this *ApiInfo) setName(newValue string) {
 	this.Name = newValue
 }
-func (this ApiInfo) getVersion() string {
+func (this *ApiInfo) getVersion() string {
 	return this.Version
 }
 
-func (this ApiInfo) setVersion(newValue string) {
+func (this *ApiInfo) setVersion(newValue string) {
 	this.Version = newValue
 }
 

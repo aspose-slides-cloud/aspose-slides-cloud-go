@@ -39,8 +39,8 @@ type IDocumentProperty interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Name.
 	getName() string
@@ -61,7 +61,7 @@ type DocumentProperty struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Name.
 	Name string `json:"Name,omitempty"`
@@ -73,39 +73,39 @@ type DocumentProperty struct {
 	BuiltIn bool `json:"BuiltIn"`
 }
 
-func (this DocumentProperty) getSelfUri() IResourceUri {
+func (this *DocumentProperty) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this DocumentProperty) setSelfUri(newValue IResourceUri) {
+func (this *DocumentProperty) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this DocumentProperty) getAlternateLinks() []ResourceUri {
+func (this *DocumentProperty) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this DocumentProperty) setAlternateLinks(newValue []ResourceUri) {
+func (this *DocumentProperty) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this DocumentProperty) getName() string {
+func (this *DocumentProperty) getName() string {
 	return this.Name
 }
 
-func (this DocumentProperty) setName(newValue string) {
+func (this *DocumentProperty) setName(newValue string) {
 	this.Name = newValue
 }
-func (this DocumentProperty) getValue() string {
+func (this *DocumentProperty) getValue() string {
 	return this.Value
 }
 
-func (this DocumentProperty) setValue(newValue string) {
+func (this *DocumentProperty) setValue(newValue string) {
 	this.Value = newValue
 }
-func (this DocumentProperty) getBuiltIn() bool {
+func (this *DocumentProperty) getBuiltIn() bool {
 	return this.BuiltIn
 }
 
-func (this DocumentProperty) setBuiltIn(newValue bool) {
+func (this *DocumentProperty) setBuiltIn(newValue bool) {
 	this.BuiltIn = newValue
 }
 
@@ -123,7 +123,7 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -133,7 +133,7 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -144,7 +144,11 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -154,7 +158,11 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	

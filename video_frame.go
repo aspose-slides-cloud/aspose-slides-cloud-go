@@ -39,8 +39,8 @@ type IVideoFrame interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -141,7 +141,7 @@ type VideoFrame struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -159,7 +159,7 @@ type VideoFrame struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -192,19 +192,19 @@ type VideoFrame struct {
 	GeometryShapeType string `json:"GeometryShapeType"`
 
 	// Determines whether a video is shown in full screen mode.
-	FullScreenMode bool `json:"FullScreenMode,omitempty"`
+	FullScreenMode bool `json:"FullScreenMode"`
 
 	// Determines whether a VideoFrame is hidden. 
-	HideAtShowing bool `json:"HideAtShowing,omitempty"`
+	HideAtShowing bool `json:"HideAtShowing"`
 
 	// Determines whether a video is looped.
-	PlayLoopMode bool `json:"PlayLoopMode,omitempty"`
+	PlayLoopMode bool `json:"PlayLoopMode"`
 
 	// Returns or sets the video play mode.  
 	PlayMode string `json:"PlayMode,omitempty"`
 
 	// Determines whether a video is automatically rewinded to start as soon as the movie has finished playing
-	RewindVideo bool `json:"RewindVideo,omitempty"`
+	RewindVideo bool `json:"RewindVideo"`
 
 	// Returns or sets the audio volume.
 	Volume string `json:"Volume,omitempty"`
@@ -213,179 +213,179 @@ type VideoFrame struct {
 	Base64Data string `json:"Base64Data,omitempty"`
 }
 
-func (this VideoFrame) getSelfUri() IResourceUri {
+func (this *VideoFrame) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this VideoFrame) setSelfUri(newValue IResourceUri) {
+func (this *VideoFrame) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this VideoFrame) getAlternateLinks() []ResourceUri {
+func (this *VideoFrame) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this VideoFrame) setAlternateLinks(newValue []ResourceUri) {
+func (this *VideoFrame) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this VideoFrame) getName() string {
+func (this *VideoFrame) getName() string {
 	return this.Name
 }
 
-func (this VideoFrame) setName(newValue string) {
+func (this *VideoFrame) setName(newValue string) {
 	this.Name = newValue
 }
-func (this VideoFrame) getWidth() float64 {
+func (this *VideoFrame) getWidth() float64 {
 	return this.Width
 }
 
-func (this VideoFrame) setWidth(newValue float64) {
+func (this *VideoFrame) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this VideoFrame) getHeight() float64 {
+func (this *VideoFrame) getHeight() float64 {
 	return this.Height
 }
 
-func (this VideoFrame) setHeight(newValue float64) {
+func (this *VideoFrame) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this VideoFrame) getAlternativeText() string {
+func (this *VideoFrame) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this VideoFrame) setAlternativeText(newValue string) {
+func (this *VideoFrame) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this VideoFrame) getAlternativeTextTitle() string {
+func (this *VideoFrame) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this VideoFrame) setAlternativeTextTitle(newValue string) {
+func (this *VideoFrame) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this VideoFrame) getHidden() bool {
+func (this *VideoFrame) getHidden() bool {
 	return this.Hidden
 }
 
-func (this VideoFrame) setHidden(newValue bool) {
+func (this *VideoFrame) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this VideoFrame) getX() float64 {
+func (this *VideoFrame) getX() float64 {
 	return this.X
 }
 
-func (this VideoFrame) setX(newValue float64) {
+func (this *VideoFrame) setX(newValue float64) {
 	this.X = newValue
 }
-func (this VideoFrame) getY() float64 {
+func (this *VideoFrame) getY() float64 {
 	return this.Y
 }
 
-func (this VideoFrame) setY(newValue float64) {
+func (this *VideoFrame) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this VideoFrame) getZOrderPosition() int32 {
+func (this *VideoFrame) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this VideoFrame) setZOrderPosition(newValue int32) {
+func (this *VideoFrame) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this VideoFrame) getShapes() IResourceUriElement {
+func (this *VideoFrame) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this VideoFrame) setShapes(newValue IResourceUriElement) {
+func (this *VideoFrame) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this VideoFrame) getFillFormat() IFillFormat {
+func (this *VideoFrame) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this VideoFrame) setFillFormat(newValue IFillFormat) {
+func (this *VideoFrame) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this VideoFrame) getEffectFormat() IEffectFormat {
+func (this *VideoFrame) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this VideoFrame) setEffectFormat(newValue IEffectFormat) {
+func (this *VideoFrame) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this VideoFrame) getLineFormat() ILineFormat {
+func (this *VideoFrame) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this VideoFrame) setLineFormat(newValue ILineFormat) {
+func (this *VideoFrame) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this VideoFrame) getType() string {
+func (this *VideoFrame) getType() string {
 	return this.Type_
 }
 
-func (this VideoFrame) setType(newValue string) {
+func (this *VideoFrame) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this VideoFrame) getShapeType() string {
+func (this *VideoFrame) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this VideoFrame) setShapeType(newValue string) {
+func (this *VideoFrame) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this VideoFrame) getGeometryShapeType() string {
+func (this *VideoFrame) getGeometryShapeType() string {
 	return this.GeometryShapeType
 }
 
-func (this VideoFrame) setGeometryShapeType(newValue string) {
+func (this *VideoFrame) setGeometryShapeType(newValue string) {
 	this.GeometryShapeType = newValue
 }
-func (this VideoFrame) getFullScreenMode() bool {
+func (this *VideoFrame) getFullScreenMode() bool {
 	return this.FullScreenMode
 }
 
-func (this VideoFrame) setFullScreenMode(newValue bool) {
+func (this *VideoFrame) setFullScreenMode(newValue bool) {
 	this.FullScreenMode = newValue
 }
-func (this VideoFrame) getHideAtShowing() bool {
+func (this *VideoFrame) getHideAtShowing() bool {
 	return this.HideAtShowing
 }
 
-func (this VideoFrame) setHideAtShowing(newValue bool) {
+func (this *VideoFrame) setHideAtShowing(newValue bool) {
 	this.HideAtShowing = newValue
 }
-func (this VideoFrame) getPlayLoopMode() bool {
+func (this *VideoFrame) getPlayLoopMode() bool {
 	return this.PlayLoopMode
 }
 
-func (this VideoFrame) setPlayLoopMode(newValue bool) {
+func (this *VideoFrame) setPlayLoopMode(newValue bool) {
 	this.PlayLoopMode = newValue
 }
-func (this VideoFrame) getPlayMode() string {
+func (this *VideoFrame) getPlayMode() string {
 	return this.PlayMode
 }
 
-func (this VideoFrame) setPlayMode(newValue string) {
+func (this *VideoFrame) setPlayMode(newValue string) {
 	this.PlayMode = newValue
 }
-func (this VideoFrame) getRewindVideo() bool {
+func (this *VideoFrame) getRewindVideo() bool {
 	return this.RewindVideo
 }
 
-func (this VideoFrame) setRewindVideo(newValue bool) {
+func (this *VideoFrame) setRewindVideo(newValue bool) {
 	this.RewindVideo = newValue
 }
-func (this VideoFrame) getVolume() string {
+func (this *VideoFrame) getVolume() string {
 	return this.Volume
 }
 
-func (this VideoFrame) setVolume(newValue string) {
+func (this *VideoFrame) setVolume(newValue string) {
 	this.Volume = newValue
 }
-func (this VideoFrame) getBase64Data() string {
+func (this *VideoFrame) getBase64Data() string {
 	return this.Base64Data
 }
 
-func (this VideoFrame) setBase64Data(newValue string) {
+func (this *VideoFrame) setBase64Data(newValue string) {
 	this.Base64Data = newValue
 }
 
@@ -403,7 +403,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -413,7 +413,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -424,7 +424,11 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -434,7 +438,11 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -634,7 +642,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -644,7 +652,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -655,7 +663,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -665,7 +673,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -676,7 +684,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -686,7 +694,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -697,7 +705,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -707,7 +715,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = "VideoFrame"

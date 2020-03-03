@@ -188,64 +188,64 @@ type Axis struct {
 	HasTitle bool `json:"HasTitle"`
 
 	// Axis position
-	Position string `json:"Position"`
+	Position string `json:"Position,omitempty"`
 
 	// The scaling value of the display units for the value axis
-	DisplayUnit string `json:"DisplayUnit"`
+	DisplayUnit string `json:"DisplayUnit,omitempty"`
 
 	// The smallest time unit that is represented on the date axis
-	BaseUnitScale string `json:"BaseUnitScale"`
+	BaseUnitScale string `json:"BaseUnitScale,omitempty"`
 
 	// True the major unit of the axis is automatically assigned
 	IsAutomaticMajorUnit bool `json:"IsAutomaticMajorUnit"`
 
 	// The major units for the date or value axis
-	MajorUnit float64 `json:"MajorUnit"`
+	MajorUnit float64 `json:"MajorUnit,omitempty"`
 
 	// The major unit scale for the date axis
-	MajorUnitScale string `json:"MajorUnitScale"`
+	MajorUnitScale string `json:"MajorUnitScale,omitempty"`
 
 	// The type of major tick mark for the specified axis
-	MajorTickMark string `json:"MajorTickMark"`
+	MajorTickMark string `json:"MajorTickMark,omitempty"`
 
 	// True the minor unit of the axis is automatically assigned
 	IsAutomaticMinorUnit bool `json:"IsAutomaticMinorUnit"`
 
 	// The minor units for the date or value axis
-	MinorUnit float64 `json:"MinorUnit"`
+	MinorUnit float64 `json:"MinorUnit,omitempty"`
 
 	// The minor unit scale for the date axis
-	MinorUnitScale string `json:"MinorUnitScale"`
+	MinorUnitScale string `json:"MinorUnitScale,omitempty"`
 
 	// The type of minor tick mark for the specified axis
-	MinorTickMark string `json:"MinorTickMark"`
+	MinorTickMark string `json:"MinorTickMark,omitempty"`
 
 	// True if the max value is automatically assigned
 	IsAutomaticMaxValue bool `json:"IsAutomaticMaxValue"`
 
 	// The maximum value on the value axis
-	MaxValue float64 `json:"MaxValue"`
+	MaxValue float64 `json:"MaxValue,omitempty"`
 
 	// True if the min value is automatically assigned
 	IsAutomaticMinValue bool `json:"IsAutomaticMinValue"`
 
 	// The minimum value on the value axis
-	MinValue float64 `json:"MinValue"`
+	MinValue float64 `json:"MinValue,omitempty"`
 
 	// True if the value axis scale type is logarithmic
 	IsLogarithmic bool `json:"IsLogarithmic"`
 
 	// The logarithmic base. Default value is 10
-	LogBase float64 `json:"LogBase"`
+	LogBase float64 `json:"LogBase,omitempty"`
 
 	// The type of the category axis
-	CategoryAxisType string `json:"CategoryAxisType"`
+	CategoryAxisType string `json:"CategoryAxisType,omitempty"`
 
 	// True if the value axis crosses the category axis between categories. This property applies only to category axes, and it doesn't apply to 3-D charts
 	AxisBetweenCategories bool `json:"AxisBetweenCategories"`
 
 	// The distance of labels from the axis. Applied to category or date axis. Value must be between 0% and 1000%.             
-	LabelOffset int32 `json:"LabelOffset"`
+	LabelOffset int32 `json:"LabelOffset,omitempty"`
 
 	// True if MS PowerPoint plots data points from last to first
 	IsPlotOrderReversed bool `json:"IsPlotOrderReversed"`
@@ -257,28 +257,28 @@ type Axis struct {
 	NumberFormat string `json:"NumberFormat,omitempty"`
 
 	// The CrossType on the specified axis where the other axis crosses
-	CrossType string `json:"CrossType"`
+	CrossType string `json:"CrossType,omitempty"`
 
 	// The point on the axis where the perpendicular axis crosses it
-	CrossAt float64 `json:"CrossAt"`
+	CrossAt float64 `json:"CrossAt,omitempty"`
 
 	// True for automatic tick marks spacing value
 	IsAutomaticTickMarksSpacing bool `json:"IsAutomaticTickMarksSpacing"`
 
 	// Specifies how many tick marks shall be skipped before the next one shall be drawn. Applied to category or series axis.
-	TickMarksSpacing int32 `json:"TickMarksSpacing"`
+	TickMarksSpacing int32 `json:"TickMarksSpacing,omitempty"`
 
 	// True for automatic tick label spacing value
 	IsAutomaticTickLabelSpacing bool `json:"IsAutomaticTickLabelSpacing"`
 
 	// Specifies how many tick labels to skip between label that is drawn.
-	TickLabelSpacing int32 `json:"TickLabelSpacing"`
+	TickLabelSpacing int32 `json:"TickLabelSpacing,omitempty"`
 
 	// The position of tick-mark labels on the specified axis.
-	TickLabelPosition string `json:"TickLabelPosition"`
+	TickLabelPosition string `json:"TickLabelPosition,omitempty"`
 
 	// Represents the rotation angle of tick labels.
-	TickLabelRotationAngle float64 `json:"TickLabelRotationAngle"`
+	TickLabelRotationAngle float64 `json:"TickLabelRotationAngle,omitempty"`
 
 	// Get or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -290,256 +290,256 @@ type Axis struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
-func (this Axis) getIsVisible() bool {
+func (this *Axis) getIsVisible() bool {
 	return this.IsVisible
 }
 
-func (this Axis) setIsVisible(newValue bool) {
+func (this *Axis) setIsVisible(newValue bool) {
 	this.IsVisible = newValue
 }
-func (this Axis) getHasTitle() bool {
+func (this *Axis) getHasTitle() bool {
 	return this.HasTitle
 }
 
-func (this Axis) setHasTitle(newValue bool) {
+func (this *Axis) setHasTitle(newValue bool) {
 	this.HasTitle = newValue
 }
-func (this Axis) getPosition() string {
+func (this *Axis) getPosition() string {
 	return this.Position
 }
 
-func (this Axis) setPosition(newValue string) {
+func (this *Axis) setPosition(newValue string) {
 	this.Position = newValue
 }
-func (this Axis) getDisplayUnit() string {
+func (this *Axis) getDisplayUnit() string {
 	return this.DisplayUnit
 }
 
-func (this Axis) setDisplayUnit(newValue string) {
+func (this *Axis) setDisplayUnit(newValue string) {
 	this.DisplayUnit = newValue
 }
-func (this Axis) getBaseUnitScale() string {
+func (this *Axis) getBaseUnitScale() string {
 	return this.BaseUnitScale
 }
 
-func (this Axis) setBaseUnitScale(newValue string) {
+func (this *Axis) setBaseUnitScale(newValue string) {
 	this.BaseUnitScale = newValue
 }
-func (this Axis) getIsAutomaticMajorUnit() bool {
+func (this *Axis) getIsAutomaticMajorUnit() bool {
 	return this.IsAutomaticMajorUnit
 }
 
-func (this Axis) setIsAutomaticMajorUnit(newValue bool) {
+func (this *Axis) setIsAutomaticMajorUnit(newValue bool) {
 	this.IsAutomaticMajorUnit = newValue
 }
-func (this Axis) getMajorUnit() float64 {
+func (this *Axis) getMajorUnit() float64 {
 	return this.MajorUnit
 }
 
-func (this Axis) setMajorUnit(newValue float64) {
+func (this *Axis) setMajorUnit(newValue float64) {
 	this.MajorUnit = newValue
 }
-func (this Axis) getMajorUnitScale() string {
+func (this *Axis) getMajorUnitScale() string {
 	return this.MajorUnitScale
 }
 
-func (this Axis) setMajorUnitScale(newValue string) {
+func (this *Axis) setMajorUnitScale(newValue string) {
 	this.MajorUnitScale = newValue
 }
-func (this Axis) getMajorTickMark() string {
+func (this *Axis) getMajorTickMark() string {
 	return this.MajorTickMark
 }
 
-func (this Axis) setMajorTickMark(newValue string) {
+func (this *Axis) setMajorTickMark(newValue string) {
 	this.MajorTickMark = newValue
 }
-func (this Axis) getIsAutomaticMinorUnit() bool {
+func (this *Axis) getIsAutomaticMinorUnit() bool {
 	return this.IsAutomaticMinorUnit
 }
 
-func (this Axis) setIsAutomaticMinorUnit(newValue bool) {
+func (this *Axis) setIsAutomaticMinorUnit(newValue bool) {
 	this.IsAutomaticMinorUnit = newValue
 }
-func (this Axis) getMinorUnit() float64 {
+func (this *Axis) getMinorUnit() float64 {
 	return this.MinorUnit
 }
 
-func (this Axis) setMinorUnit(newValue float64) {
+func (this *Axis) setMinorUnit(newValue float64) {
 	this.MinorUnit = newValue
 }
-func (this Axis) getMinorUnitScale() string {
+func (this *Axis) getMinorUnitScale() string {
 	return this.MinorUnitScale
 }
 
-func (this Axis) setMinorUnitScale(newValue string) {
+func (this *Axis) setMinorUnitScale(newValue string) {
 	this.MinorUnitScale = newValue
 }
-func (this Axis) getMinorTickMark() string {
+func (this *Axis) getMinorTickMark() string {
 	return this.MinorTickMark
 }
 
-func (this Axis) setMinorTickMark(newValue string) {
+func (this *Axis) setMinorTickMark(newValue string) {
 	this.MinorTickMark = newValue
 }
-func (this Axis) getIsAutomaticMaxValue() bool {
+func (this *Axis) getIsAutomaticMaxValue() bool {
 	return this.IsAutomaticMaxValue
 }
 
-func (this Axis) setIsAutomaticMaxValue(newValue bool) {
+func (this *Axis) setIsAutomaticMaxValue(newValue bool) {
 	this.IsAutomaticMaxValue = newValue
 }
-func (this Axis) getMaxValue() float64 {
+func (this *Axis) getMaxValue() float64 {
 	return this.MaxValue
 }
 
-func (this Axis) setMaxValue(newValue float64) {
+func (this *Axis) setMaxValue(newValue float64) {
 	this.MaxValue = newValue
 }
-func (this Axis) getIsAutomaticMinValue() bool {
+func (this *Axis) getIsAutomaticMinValue() bool {
 	return this.IsAutomaticMinValue
 }
 
-func (this Axis) setIsAutomaticMinValue(newValue bool) {
+func (this *Axis) setIsAutomaticMinValue(newValue bool) {
 	this.IsAutomaticMinValue = newValue
 }
-func (this Axis) getMinValue() float64 {
+func (this *Axis) getMinValue() float64 {
 	return this.MinValue
 }
 
-func (this Axis) setMinValue(newValue float64) {
+func (this *Axis) setMinValue(newValue float64) {
 	this.MinValue = newValue
 }
-func (this Axis) getIsLogarithmic() bool {
+func (this *Axis) getIsLogarithmic() bool {
 	return this.IsLogarithmic
 }
 
-func (this Axis) setIsLogarithmic(newValue bool) {
+func (this *Axis) setIsLogarithmic(newValue bool) {
 	this.IsLogarithmic = newValue
 }
-func (this Axis) getLogBase() float64 {
+func (this *Axis) getLogBase() float64 {
 	return this.LogBase
 }
 
-func (this Axis) setLogBase(newValue float64) {
+func (this *Axis) setLogBase(newValue float64) {
 	this.LogBase = newValue
 }
-func (this Axis) getCategoryAxisType() string {
+func (this *Axis) getCategoryAxisType() string {
 	return this.CategoryAxisType
 }
 
-func (this Axis) setCategoryAxisType(newValue string) {
+func (this *Axis) setCategoryAxisType(newValue string) {
 	this.CategoryAxisType = newValue
 }
-func (this Axis) getAxisBetweenCategories() bool {
+func (this *Axis) getAxisBetweenCategories() bool {
 	return this.AxisBetweenCategories
 }
 
-func (this Axis) setAxisBetweenCategories(newValue bool) {
+func (this *Axis) setAxisBetweenCategories(newValue bool) {
 	this.AxisBetweenCategories = newValue
 }
-func (this Axis) getLabelOffset() int32 {
+func (this *Axis) getLabelOffset() int32 {
 	return this.LabelOffset
 }
 
-func (this Axis) setLabelOffset(newValue int32) {
+func (this *Axis) setLabelOffset(newValue int32) {
 	this.LabelOffset = newValue
 }
-func (this Axis) getIsPlotOrderReversed() bool {
+func (this *Axis) getIsPlotOrderReversed() bool {
 	return this.IsPlotOrderReversed
 }
 
-func (this Axis) setIsPlotOrderReversed(newValue bool) {
+func (this *Axis) setIsPlotOrderReversed(newValue bool) {
 	this.IsPlotOrderReversed = newValue
 }
-func (this Axis) getIsNumberFormatLinkedToSource() bool {
+func (this *Axis) getIsNumberFormatLinkedToSource() bool {
 	return this.IsNumberFormatLinkedToSource
 }
 
-func (this Axis) setIsNumberFormatLinkedToSource(newValue bool) {
+func (this *Axis) setIsNumberFormatLinkedToSource(newValue bool) {
 	this.IsNumberFormatLinkedToSource = newValue
 }
-func (this Axis) getNumberFormat() string {
+func (this *Axis) getNumberFormat() string {
 	return this.NumberFormat
 }
 
-func (this Axis) setNumberFormat(newValue string) {
+func (this *Axis) setNumberFormat(newValue string) {
 	this.NumberFormat = newValue
 }
-func (this Axis) getCrossType() string {
+func (this *Axis) getCrossType() string {
 	return this.CrossType
 }
 
-func (this Axis) setCrossType(newValue string) {
+func (this *Axis) setCrossType(newValue string) {
 	this.CrossType = newValue
 }
-func (this Axis) getCrossAt() float64 {
+func (this *Axis) getCrossAt() float64 {
 	return this.CrossAt
 }
 
-func (this Axis) setCrossAt(newValue float64) {
+func (this *Axis) setCrossAt(newValue float64) {
 	this.CrossAt = newValue
 }
-func (this Axis) getIsAutomaticTickMarksSpacing() bool {
+func (this *Axis) getIsAutomaticTickMarksSpacing() bool {
 	return this.IsAutomaticTickMarksSpacing
 }
 
-func (this Axis) setIsAutomaticTickMarksSpacing(newValue bool) {
+func (this *Axis) setIsAutomaticTickMarksSpacing(newValue bool) {
 	this.IsAutomaticTickMarksSpacing = newValue
 }
-func (this Axis) getTickMarksSpacing() int32 {
+func (this *Axis) getTickMarksSpacing() int32 {
 	return this.TickMarksSpacing
 }
 
-func (this Axis) setTickMarksSpacing(newValue int32) {
+func (this *Axis) setTickMarksSpacing(newValue int32) {
 	this.TickMarksSpacing = newValue
 }
-func (this Axis) getIsAutomaticTickLabelSpacing() bool {
+func (this *Axis) getIsAutomaticTickLabelSpacing() bool {
 	return this.IsAutomaticTickLabelSpacing
 }
 
-func (this Axis) setIsAutomaticTickLabelSpacing(newValue bool) {
+func (this *Axis) setIsAutomaticTickLabelSpacing(newValue bool) {
 	this.IsAutomaticTickLabelSpacing = newValue
 }
-func (this Axis) getTickLabelSpacing() int32 {
+func (this *Axis) getTickLabelSpacing() int32 {
 	return this.TickLabelSpacing
 }
 
-func (this Axis) setTickLabelSpacing(newValue int32) {
+func (this *Axis) setTickLabelSpacing(newValue int32) {
 	this.TickLabelSpacing = newValue
 }
-func (this Axis) getTickLabelPosition() string {
+func (this *Axis) getTickLabelPosition() string {
 	return this.TickLabelPosition
 }
 
-func (this Axis) setTickLabelPosition(newValue string) {
+func (this *Axis) setTickLabelPosition(newValue string) {
 	this.TickLabelPosition = newValue
 }
-func (this Axis) getTickLabelRotationAngle() float64 {
+func (this *Axis) getTickLabelRotationAngle() float64 {
 	return this.TickLabelRotationAngle
 }
 
-func (this Axis) setTickLabelRotationAngle(newValue float64) {
+func (this *Axis) setTickLabelRotationAngle(newValue float64) {
 	this.TickLabelRotationAngle = newValue
 }
-func (this Axis) getFillFormat() IFillFormat {
+func (this *Axis) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this Axis) setFillFormat(newValue IFillFormat) {
+func (this *Axis) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this Axis) getEffectFormat() IEffectFormat {
+func (this *Axis) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this Axis) setEffectFormat(newValue IEffectFormat) {
+func (this *Axis) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this Axis) getLineFormat() ILineFormat {
+func (this *Axis) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this Axis) setLineFormat(newValue ILineFormat) {
+func (this *Axis) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
 
@@ -591,7 +591,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.HasTitle = valueForHasTitle
 		}
 	}
-	this.Position = "Bottom"
+	this.Position = ""
 	if valPosition, ok := objMap["position"]; ok {
 		if valPosition != nil {
 			var valueForPosition string
@@ -624,7 +624,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.DisplayUnit = "None"
+	this.DisplayUnit = ""
 	if valDisplayUnit, ok := objMap["displayUnit"]; ok {
 		if valDisplayUnit != nil {
 			var valueForDisplayUnit string
@@ -657,7 +657,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.BaseUnitScale = "Days"
+	this.BaseUnitScale = ""
 	if valBaseUnitScale, ok := objMap["baseUnitScale"]; ok {
 		if valBaseUnitScale != nil {
 			var valueForBaseUnitScale string
@@ -732,7 +732,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MajorUnit = valueForMajorUnit
 		}
 	}
-	this.MajorUnitScale = "Days"
+	this.MajorUnitScale = ""
 	if valMajorUnitScale, ok := objMap["majorUnitScale"]; ok {
 		if valMajorUnitScale != nil {
 			var valueForMajorUnitScale string
@@ -765,7 +765,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.MajorTickMark = "Cross"
+	this.MajorTickMark = ""
 	if valMajorTickMark, ok := objMap["majorTickMark"]; ok {
 		if valMajorTickMark != nil {
 			var valueForMajorTickMark string
@@ -840,7 +840,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MinorUnit = valueForMinorUnit
 		}
 	}
-	this.MinorUnitScale = "Days"
+	this.MinorUnitScale = ""
 	if valMinorUnitScale, ok := objMap["minorUnitScale"]; ok {
 		if valMinorUnitScale != nil {
 			var valueForMinorUnitScale string
@@ -873,7 +873,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.MinorTickMark = "Cross"
+	this.MinorTickMark = ""
 	if valMinorTickMark, ok := objMap["minorTickMark"]; ok {
 		if valMinorTickMark != nil {
 			var valueForMinorTickMark string
@@ -1032,7 +1032,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.LogBase = valueForLogBase
 		}
 	}
-	this.CategoryAxisType = "Text"
+	this.CategoryAxisType = ""
 	if valCategoryAxisType, ok := objMap["categoryAxisType"]; ok {
 		if valCategoryAxisType != nil {
 			var valueForCategoryAxisType string
@@ -1170,7 +1170,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.NumberFormat = valueForNumberFormat
 		}
 	}
-	this.CrossType = "AxisCrossesAtZero"
+	this.CrossType = ""
 	if valCrossType, ok := objMap["crossType"]; ok {
 		if valCrossType != nil {
 			var valueForCrossType string
@@ -1308,7 +1308,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.TickLabelSpacing = valueForTickLabelSpacing
 		}
 	}
-	this.TickLabelPosition = "High"
+	this.TickLabelPosition = ""
 	if valTickLabelPosition, ok := objMap["tickLabelPosition"]; ok {
 		if valTickLabelPosition != nil {
 			var valueForTickLabelPosition string
@@ -1370,7 +1370,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -1380,7 +1380,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -1391,7 +1391,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -1401,7 +1401,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -1412,7 +1412,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -1422,7 +1422,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 

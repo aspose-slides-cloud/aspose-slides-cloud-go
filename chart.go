@@ -39,8 +39,8 @@ type IChart interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -111,8 +111,8 @@ type IChart interface {
 	setShowDataLabelsOverMaximum(newValue bool)
 
 	// Gets or sets the series of chart data values.
-	getSeries() []Series
-	setSeries(newValue []Series)
+	getSeries() []ISeries
+	setSeries(newValue []ISeries)
 
 	// Gets or sets the categories for chart data
 	getCategories() []string
@@ -153,7 +153,7 @@ type Chart struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -171,7 +171,7 @@ type Chart struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -204,10 +204,10 @@ type Chart struct {
 	ChartType string `json:"ChartType"`
 
 	// True if data labels over the maximum of the chart shall be shown.
-	ShowDataLabelsOverMaximum bool `json:"ShowDataLabelsOverMaximum,omitempty"`
+	ShowDataLabelsOverMaximum bool `json:"ShowDataLabelsOverMaximum"`
 
 	// Gets or sets the series of chart data values.
-	Series []Series `json:"Series,omitempty"`
+	Series []ISeries `json:"Series,omitempty"`
 
 	// Gets or sets the categories for chart data
 	Categories []string `json:"Categories,omitempty"`
@@ -234,200 +234,200 @@ type Chart struct {
 	PlotArea IPlotArea `json:"PlotArea,omitempty"`
 }
 
-func (this Chart) getSelfUri() IResourceUri {
+func (this *Chart) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Chart) setSelfUri(newValue IResourceUri) {
+func (this *Chart) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Chart) getAlternateLinks() []ResourceUri {
+func (this *Chart) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Chart) setAlternateLinks(newValue []ResourceUri) {
+func (this *Chart) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Chart) getName() string {
+func (this *Chart) getName() string {
 	return this.Name
 }
 
-func (this Chart) setName(newValue string) {
+func (this *Chart) setName(newValue string) {
 	this.Name = newValue
 }
-func (this Chart) getWidth() float64 {
+func (this *Chart) getWidth() float64 {
 	return this.Width
 }
 
-func (this Chart) setWidth(newValue float64) {
+func (this *Chart) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this Chart) getHeight() float64 {
+func (this *Chart) getHeight() float64 {
 	return this.Height
 }
 
-func (this Chart) setHeight(newValue float64) {
+func (this *Chart) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this Chart) getAlternativeText() string {
+func (this *Chart) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this Chart) setAlternativeText(newValue string) {
+func (this *Chart) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this Chart) getAlternativeTextTitle() string {
+func (this *Chart) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this Chart) setAlternativeTextTitle(newValue string) {
+func (this *Chart) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this Chart) getHidden() bool {
+func (this *Chart) getHidden() bool {
 	return this.Hidden
 }
 
-func (this Chart) setHidden(newValue bool) {
+func (this *Chart) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this Chart) getX() float64 {
+func (this *Chart) getX() float64 {
 	return this.X
 }
 
-func (this Chart) setX(newValue float64) {
+func (this *Chart) setX(newValue float64) {
 	this.X = newValue
 }
-func (this Chart) getY() float64 {
+func (this *Chart) getY() float64 {
 	return this.Y
 }
 
-func (this Chart) setY(newValue float64) {
+func (this *Chart) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this Chart) getZOrderPosition() int32 {
+func (this *Chart) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this Chart) setZOrderPosition(newValue int32) {
+func (this *Chart) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this Chart) getShapes() IResourceUriElement {
+func (this *Chart) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this Chart) setShapes(newValue IResourceUriElement) {
+func (this *Chart) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this Chart) getFillFormat() IFillFormat {
+func (this *Chart) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this Chart) setFillFormat(newValue IFillFormat) {
+func (this *Chart) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this Chart) getEffectFormat() IEffectFormat {
+func (this *Chart) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this Chart) setEffectFormat(newValue IEffectFormat) {
+func (this *Chart) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this Chart) getLineFormat() ILineFormat {
+func (this *Chart) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this Chart) setLineFormat(newValue ILineFormat) {
+func (this *Chart) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this Chart) getType() string {
+func (this *Chart) getType() string {
 	return this.Type_
 }
 
-func (this Chart) setType(newValue string) {
+func (this *Chart) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this Chart) getShapeType() string {
+func (this *Chart) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this Chart) setShapeType(newValue string) {
+func (this *Chart) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this Chart) getChartType() string {
+func (this *Chart) getChartType() string {
 	return this.ChartType
 }
 
-func (this Chart) setChartType(newValue string) {
+func (this *Chart) setChartType(newValue string) {
 	this.ChartType = newValue
 }
-func (this Chart) getShowDataLabelsOverMaximum() bool {
+func (this *Chart) getShowDataLabelsOverMaximum() bool {
 	return this.ShowDataLabelsOverMaximum
 }
 
-func (this Chart) setShowDataLabelsOverMaximum(newValue bool) {
+func (this *Chart) setShowDataLabelsOverMaximum(newValue bool) {
 	this.ShowDataLabelsOverMaximum = newValue
 }
-func (this Chart) getSeries() []Series {
+func (this *Chart) getSeries() []ISeries {
 	return this.Series
 }
 
-func (this Chart) setSeries(newValue []Series) {
+func (this *Chart) setSeries(newValue []ISeries) {
 	this.Series = newValue
 }
-func (this Chart) getCategories() []string {
+func (this *Chart) getCategories() []string {
 	return this.Categories
 }
 
-func (this Chart) setCategories(newValue []string) {
+func (this *Chart) setCategories(newValue []string) {
 	this.Categories = newValue
 }
-func (this Chart) getTitle() IChartTitle {
+func (this *Chart) getTitle() IChartTitle {
 	return this.Title
 }
 
-func (this Chart) setTitle(newValue IChartTitle) {
+func (this *Chart) setTitle(newValue IChartTitle) {
 	this.Title = newValue
 }
-func (this Chart) getBackWall() IChartWall {
+func (this *Chart) getBackWall() IChartWall {
 	return this.BackWall
 }
 
-func (this Chart) setBackWall(newValue IChartWall) {
+func (this *Chart) setBackWall(newValue IChartWall) {
 	this.BackWall = newValue
 }
-func (this Chart) getSideWall() IChartWall {
+func (this *Chart) getSideWall() IChartWall {
 	return this.SideWall
 }
 
-func (this Chart) setSideWall(newValue IChartWall) {
+func (this *Chart) setSideWall(newValue IChartWall) {
 	this.SideWall = newValue
 }
-func (this Chart) getFloor() IChartWall {
+func (this *Chart) getFloor() IChartWall {
 	return this.Floor
 }
 
-func (this Chart) setFloor(newValue IChartWall) {
+func (this *Chart) setFloor(newValue IChartWall) {
 	this.Floor = newValue
 }
-func (this Chart) getLegend() ILegend {
+func (this *Chart) getLegend() ILegend {
 	return this.Legend
 }
 
-func (this Chart) setLegend(newValue ILegend) {
+func (this *Chart) setLegend(newValue ILegend) {
 	this.Legend = newValue
 }
-func (this Chart) getAxes() IAxes {
+func (this *Chart) getAxes() IAxes {
 	return this.Axes
 }
 
-func (this Chart) setAxes(newValue IAxes) {
+func (this *Chart) setAxes(newValue IAxes) {
 	this.Axes = newValue
 }
-func (this Chart) getPlotArea() IPlotArea {
+func (this *Chart) getPlotArea() IPlotArea {
 	return this.PlotArea
 }
 
-func (this Chart) setPlotArea(newValue IPlotArea) {
+func (this *Chart) setPlotArea(newValue IPlotArea) {
 	this.PlotArea = newValue
 }
 
@@ -445,7 +445,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -455,7 +455,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -466,7 +466,11 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -476,7 +480,11 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -676,7 +684,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -686,7 +694,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -697,7 +705,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -707,7 +715,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -718,7 +726,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -728,7 +736,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -739,7 +747,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -749,7 +757,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = "Chart"
@@ -880,7 +888,11 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Series = valueForSeries
+			valueForISeries := make([]ISeries, len(valueForSeries))
+			for i, v := range valueForSeries {
+				valueForISeries[i] = ISeries(&v)
+			}
+			this.Series = valueForISeries
 		}
 	}
 	if valSeriesCap, ok := objMap["Series"]; ok {
@@ -890,7 +902,11 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Series = valueForSeries
+			valueForISeries := make([]ISeries, len(valueForSeries))
+			for i, v := range valueForSeries {
+				valueForISeries[i] = ISeries(&v)
+			}
+			this.Series = valueForISeries
 		}
 	}
 	
@@ -922,7 +938,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Title = valueForTitle
+			this.Title = &valueForTitle
 		}
 	}
 	if valTitleCap, ok := objMap["Title"]; ok {
@@ -932,7 +948,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Title = valueForTitle
+			this.Title = &valueForTitle
 		}
 	}
 	
@@ -943,7 +959,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BackWall = valueForBackWall
+			this.BackWall = &valueForBackWall
 		}
 	}
 	if valBackWallCap, ok := objMap["BackWall"]; ok {
@@ -953,7 +969,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BackWall = valueForBackWall
+			this.BackWall = &valueForBackWall
 		}
 	}
 	
@@ -964,7 +980,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SideWall = valueForSideWall
+			this.SideWall = &valueForSideWall
 		}
 	}
 	if valSideWallCap, ok := objMap["SideWall"]; ok {
@@ -974,7 +990,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SideWall = valueForSideWall
+			this.SideWall = &valueForSideWall
 		}
 	}
 	
@@ -985,7 +1001,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Floor = valueForFloor
+			this.Floor = &valueForFloor
 		}
 	}
 	if valFloorCap, ok := objMap["Floor"]; ok {
@@ -995,7 +1011,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Floor = valueForFloor
+			this.Floor = &valueForFloor
 		}
 	}
 	
@@ -1006,7 +1022,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Legend = valueForLegend
+			this.Legend = &valueForLegend
 		}
 	}
 	if valLegendCap, ok := objMap["Legend"]; ok {
@@ -1016,7 +1032,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Legend = valueForLegend
+			this.Legend = &valueForLegend
 		}
 	}
 	
@@ -1027,7 +1043,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Axes = valueForAxes
+			this.Axes = &valueForAxes
 		}
 	}
 	if valAxesCap, ok := objMap["Axes"]; ok {
@@ -1037,7 +1053,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Axes = valueForAxes
+			this.Axes = &valueForAxes
 		}
 	}
 	
@@ -1048,7 +1064,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PlotArea = valueForPlotArea
+			this.PlotArea = &valueForPlotArea
 		}
 	}
 	if valPlotAreaCap, ok := objMap["PlotArea"]; ok {
@@ -1058,7 +1074,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PlotArea = valueForPlotArea
+			this.PlotArea = &valueForPlotArea
 		}
 	}
 

@@ -74,19 +74,19 @@ type ILegend interface {
 type Legend struct {
 
 	// position
-	Position string `json:"Position"`
+	Position string `json:"Position,omitempty"`
 
 	// the X location
-	X float64 `json:"X"`
+	X float64 `json:"X,omitempty"`
 
 	// the Y location
-	Y float64 `json:"Y"`
+	Y float64 `json:"Y,omitempty"`
 
 	// Width
-	Width float64 `json:"Width"`
+	Width float64 `json:"Width,omitempty"`
 
 	// Height
-	Height float64 `json:"Height"`
+	Height float64 `json:"Height,omitempty"`
 
 	// true if other elements are allowed to overlay the legend
 	Overlay bool `json:"Overlay"`
@@ -101,67 +101,67 @@ type Legend struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
-func (this Legend) getPosition() string {
+func (this *Legend) getPosition() string {
 	return this.Position
 }
 
-func (this Legend) setPosition(newValue string) {
+func (this *Legend) setPosition(newValue string) {
 	this.Position = newValue
 }
-func (this Legend) getX() float64 {
+func (this *Legend) getX() float64 {
 	return this.X
 }
 
-func (this Legend) setX(newValue float64) {
+func (this *Legend) setX(newValue float64) {
 	this.X = newValue
 }
-func (this Legend) getY() float64 {
+func (this *Legend) getY() float64 {
 	return this.Y
 }
 
-func (this Legend) setY(newValue float64) {
+func (this *Legend) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this Legend) getWidth() float64 {
+func (this *Legend) getWidth() float64 {
 	return this.Width
 }
 
-func (this Legend) setWidth(newValue float64) {
+func (this *Legend) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this Legend) getHeight() float64 {
+func (this *Legend) getHeight() float64 {
 	return this.Height
 }
 
-func (this Legend) setHeight(newValue float64) {
+func (this *Legend) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this Legend) getOverlay() bool {
+func (this *Legend) getOverlay() bool {
 	return this.Overlay
 }
 
-func (this Legend) setOverlay(newValue bool) {
+func (this *Legend) setOverlay(newValue bool) {
 	this.Overlay = newValue
 }
-func (this Legend) getFillFormat() IFillFormat {
+func (this *Legend) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this Legend) setFillFormat(newValue IFillFormat) {
+func (this *Legend) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this Legend) getEffectFormat() IEffectFormat {
+func (this *Legend) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this Legend) setEffectFormat(newValue IEffectFormat) {
+func (this *Legend) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this Legend) getLineFormat() ILineFormat {
+func (this *Legend) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this Legend) setLineFormat(newValue ILineFormat) {
+func (this *Legend) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
 
@@ -171,7 +171,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Position = "Bottom"
+	this.Position = ""
 	if valPosition, ok := objMap["position"]; ok {
 		if valPosition != nil {
 			var valueForPosition string
@@ -317,7 +317,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -327,7 +327,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -338,7 +338,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -348,7 +348,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -359,7 +359,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -369,7 +369,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 

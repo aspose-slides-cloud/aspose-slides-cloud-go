@@ -39,8 +39,8 @@ type IPictureFrame interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -117,7 +117,7 @@ type PictureFrame struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -135,7 +135,7 @@ type PictureFrame struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -171,137 +171,137 @@ type PictureFrame struct {
 	PictureFillFormat IPictureFill `json:"PictureFillFormat,omitempty"`
 }
 
-func (this PictureFrame) getSelfUri() IResourceUri {
+func (this *PictureFrame) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this PictureFrame) setSelfUri(newValue IResourceUri) {
+func (this *PictureFrame) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this PictureFrame) getAlternateLinks() []ResourceUri {
+func (this *PictureFrame) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this PictureFrame) setAlternateLinks(newValue []ResourceUri) {
+func (this *PictureFrame) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this PictureFrame) getName() string {
+func (this *PictureFrame) getName() string {
 	return this.Name
 }
 
-func (this PictureFrame) setName(newValue string) {
+func (this *PictureFrame) setName(newValue string) {
 	this.Name = newValue
 }
-func (this PictureFrame) getWidth() float64 {
+func (this *PictureFrame) getWidth() float64 {
 	return this.Width
 }
 
-func (this PictureFrame) setWidth(newValue float64) {
+func (this *PictureFrame) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this PictureFrame) getHeight() float64 {
+func (this *PictureFrame) getHeight() float64 {
 	return this.Height
 }
 
-func (this PictureFrame) setHeight(newValue float64) {
+func (this *PictureFrame) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this PictureFrame) getAlternativeText() string {
+func (this *PictureFrame) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this PictureFrame) setAlternativeText(newValue string) {
+func (this *PictureFrame) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this PictureFrame) getAlternativeTextTitle() string {
+func (this *PictureFrame) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this PictureFrame) setAlternativeTextTitle(newValue string) {
+func (this *PictureFrame) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this PictureFrame) getHidden() bool {
+func (this *PictureFrame) getHidden() bool {
 	return this.Hidden
 }
 
-func (this PictureFrame) setHidden(newValue bool) {
+func (this *PictureFrame) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this PictureFrame) getX() float64 {
+func (this *PictureFrame) getX() float64 {
 	return this.X
 }
 
-func (this PictureFrame) setX(newValue float64) {
+func (this *PictureFrame) setX(newValue float64) {
 	this.X = newValue
 }
-func (this PictureFrame) getY() float64 {
+func (this *PictureFrame) getY() float64 {
 	return this.Y
 }
 
-func (this PictureFrame) setY(newValue float64) {
+func (this *PictureFrame) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this PictureFrame) getZOrderPosition() int32 {
+func (this *PictureFrame) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this PictureFrame) setZOrderPosition(newValue int32) {
+func (this *PictureFrame) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this PictureFrame) getShapes() IResourceUriElement {
+func (this *PictureFrame) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this PictureFrame) setShapes(newValue IResourceUriElement) {
+func (this *PictureFrame) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this PictureFrame) getFillFormat() IFillFormat {
+func (this *PictureFrame) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this PictureFrame) setFillFormat(newValue IFillFormat) {
+func (this *PictureFrame) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this PictureFrame) getEffectFormat() IEffectFormat {
+func (this *PictureFrame) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this PictureFrame) setEffectFormat(newValue IEffectFormat) {
+func (this *PictureFrame) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this PictureFrame) getLineFormat() ILineFormat {
+func (this *PictureFrame) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this PictureFrame) setLineFormat(newValue ILineFormat) {
+func (this *PictureFrame) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this PictureFrame) getType() string {
+func (this *PictureFrame) getType() string {
 	return this.Type_
 }
 
-func (this PictureFrame) setType(newValue string) {
+func (this *PictureFrame) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this PictureFrame) getShapeType() string {
+func (this *PictureFrame) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this PictureFrame) setShapeType(newValue string) {
+func (this *PictureFrame) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this PictureFrame) getGeometryShapeType() string {
+func (this *PictureFrame) getGeometryShapeType() string {
 	return this.GeometryShapeType
 }
 
-func (this PictureFrame) setGeometryShapeType(newValue string) {
+func (this *PictureFrame) setGeometryShapeType(newValue string) {
 	this.GeometryShapeType = newValue
 }
-func (this PictureFrame) getPictureFillFormat() IPictureFill {
+func (this *PictureFrame) getPictureFillFormat() IPictureFill {
 	return this.PictureFillFormat
 }
 
-func (this PictureFrame) setPictureFillFormat(newValue IPictureFill) {
+func (this *PictureFrame) setPictureFillFormat(newValue IPictureFill) {
 	this.PictureFillFormat = newValue
 }
 
@@ -319,7 +319,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -329,7 +329,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -340,7 +340,11 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -350,7 +354,11 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -550,7 +558,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -560,7 +568,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -571,7 +579,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -581,7 +589,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -592,7 +600,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -602,7 +610,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -613,7 +621,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -623,7 +631,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = "PictureFrame"
@@ -733,7 +741,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PictureFillFormat = valueForPictureFillFormat
+			this.PictureFillFormat = &valueForPictureFillFormat
 		}
 	}
 	if valPictureFillFormatCap, ok := objMap["PictureFillFormat"]; ok {
@@ -743,7 +751,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.PictureFillFormat = valueForPictureFillFormat
+			this.PictureFillFormat = &valueForPictureFillFormat
 		}
 	}
 

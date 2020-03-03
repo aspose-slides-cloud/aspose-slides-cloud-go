@@ -73,39 +73,39 @@ type SaveShape struct {
 	Options IIShapeExportOptions `json:"Options,omitempty"`
 }
 
-func (this SaveShape) getType() string {
+func (this *SaveShape) getType() string {
 	return this.Type_
 }
 
-func (this SaveShape) setType(newValue string) {
+func (this *SaveShape) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this SaveShape) getFormat() string {
+func (this *SaveShape) getFormat() string {
 	return this.Format
 }
 
-func (this SaveShape) setFormat(newValue string) {
+func (this *SaveShape) setFormat(newValue string) {
 	this.Format = newValue
 }
-func (this SaveShape) getShapePath() string {
+func (this *SaveShape) getShapePath() string {
 	return this.ShapePath
 }
 
-func (this SaveShape) setShapePath(newValue string) {
+func (this *SaveShape) setShapePath(newValue string) {
 	this.ShapePath = newValue
 }
-func (this SaveShape) getOutput() IOutputFile {
+func (this *SaveShape) getOutput() IOutputFile {
 	return this.Output
 }
 
-func (this SaveShape) setOutput(newValue IOutputFile) {
+func (this *SaveShape) setOutput(newValue IOutputFile) {
 	this.Output = newValue
 }
-func (this SaveShape) getOptions() IIShapeExportOptions {
+func (this *SaveShape) getOptions() IIShapeExportOptions {
 	return this.Options
 }
 
-func (this SaveShape) setOptions(newValue IIShapeExportOptions) {
+func (this *SaveShape) setOptions(newValue IIShapeExportOptions) {
 	this.Options = newValue
 }
 
@@ -210,7 +210,7 @@ func (this *SaveShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Output = valueForOutput
+			this.Output = &valueForOutput
 		}
 	}
 	if valOutputCap, ok := objMap["Output"]; ok {
@@ -220,7 +220,7 @@ func (this *SaveShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Output = valueForOutput
+			this.Output = &valueForOutput
 		}
 	}
 	
@@ -231,7 +231,7 @@ func (this *SaveShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Options = valueForOptions
+			this.Options = &valueForOptions
 		}
 	}
 	if valOptionsCap, ok := objMap["Options"]; ok {
@@ -241,7 +241,7 @@ func (this *SaveShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Options = valueForOptions
+			this.Options = &valueForOptions
 		}
 	}
 

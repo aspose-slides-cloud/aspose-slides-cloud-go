@@ -52,18 +52,18 @@ type SolidFill struct {
 	Color string `json:"Color,omitempty"`
 }
 
-func (this SolidFill) getType() string {
+func (this *SolidFill) getType() string {
 	return this.Type_
 }
 
-func (this SolidFill) setType(newValue string) {
+func (this *SolidFill) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this SolidFill) getColor() string {
+func (this *SolidFill) getColor() string {
 	return this.Color
 }
 
-func (this SolidFill) setColor(newValue string) {
+func (this *SolidFill) setColor(newValue string) {
 	this.Color = newValue
 }
 

@@ -82,19 +82,19 @@ type ILineFormat interface {
 type LineFormat struct {
 
 	// Alignment.
-	Alignment string `json:"Alignment"`
+	Alignment string `json:"Alignment,omitempty"`
 
 	// Cap style.
-	CapStyle string `json:"CapStyle"`
+	CapStyle string `json:"CapStyle,omitempty"`
 
 	// Dash style.
-	DashStyle string `json:"DashStyle"`
+	DashStyle string `json:"DashStyle,omitempty"`
 
 	// Join style.
-	JoinStyle string `json:"JoinStyle"`
+	JoinStyle string `json:"JoinStyle,omitempty"`
 
 	// Style.
-	Style string `json:"Style"`
+	Style string `json:"Style,omitempty"`
 
 	// Begin arrowhead.
 	BeginArrowHead IArrowHeadProperties `json:"BeginArrowHead,omitempty"`
@@ -109,87 +109,87 @@ type LineFormat struct {
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
 
 	// Miter limit.
-	MiterLimit float64 `json:"MiterLimit"`
+	MiterLimit float64 `json:"MiterLimit,omitempty"`
 
 	// Width.
-	Width float64 `json:"Width"`
+	Width float64 `json:"Width,omitempty"`
 }
 
-func (this LineFormat) getAlignment() string {
+func (this *LineFormat) getAlignment() string {
 	return this.Alignment
 }
 
-func (this LineFormat) setAlignment(newValue string) {
+func (this *LineFormat) setAlignment(newValue string) {
 	this.Alignment = newValue
 }
-func (this LineFormat) getCapStyle() string {
+func (this *LineFormat) getCapStyle() string {
 	return this.CapStyle
 }
 
-func (this LineFormat) setCapStyle(newValue string) {
+func (this *LineFormat) setCapStyle(newValue string) {
 	this.CapStyle = newValue
 }
-func (this LineFormat) getDashStyle() string {
+func (this *LineFormat) getDashStyle() string {
 	return this.DashStyle
 }
 
-func (this LineFormat) setDashStyle(newValue string) {
+func (this *LineFormat) setDashStyle(newValue string) {
 	this.DashStyle = newValue
 }
-func (this LineFormat) getJoinStyle() string {
+func (this *LineFormat) getJoinStyle() string {
 	return this.JoinStyle
 }
 
-func (this LineFormat) setJoinStyle(newValue string) {
+func (this *LineFormat) setJoinStyle(newValue string) {
 	this.JoinStyle = newValue
 }
-func (this LineFormat) getStyle() string {
+func (this *LineFormat) getStyle() string {
 	return this.Style
 }
 
-func (this LineFormat) setStyle(newValue string) {
+func (this *LineFormat) setStyle(newValue string) {
 	this.Style = newValue
 }
-func (this LineFormat) getBeginArrowHead() IArrowHeadProperties {
+func (this *LineFormat) getBeginArrowHead() IArrowHeadProperties {
 	return this.BeginArrowHead
 }
 
-func (this LineFormat) setBeginArrowHead(newValue IArrowHeadProperties) {
+func (this *LineFormat) setBeginArrowHead(newValue IArrowHeadProperties) {
 	this.BeginArrowHead = newValue
 }
-func (this LineFormat) getEndArrowHead() IArrowHeadProperties {
+func (this *LineFormat) getEndArrowHead() IArrowHeadProperties {
 	return this.EndArrowHead
 }
 
-func (this LineFormat) setEndArrowHead(newValue IArrowHeadProperties) {
+func (this *LineFormat) setEndArrowHead(newValue IArrowHeadProperties) {
 	this.EndArrowHead = newValue
 }
-func (this LineFormat) getCustomDashPattern() ICustomDashPattern {
+func (this *LineFormat) getCustomDashPattern() ICustomDashPattern {
 	return this.CustomDashPattern
 }
 
-func (this LineFormat) setCustomDashPattern(newValue ICustomDashPattern) {
+func (this *LineFormat) setCustomDashPattern(newValue ICustomDashPattern) {
 	this.CustomDashPattern = newValue
 }
-func (this LineFormat) getFillFormat() IFillFormat {
+func (this *LineFormat) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this LineFormat) setFillFormat(newValue IFillFormat) {
+func (this *LineFormat) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this LineFormat) getMiterLimit() float64 {
+func (this *LineFormat) getMiterLimit() float64 {
 	return this.MiterLimit
 }
 
-func (this LineFormat) setMiterLimit(newValue float64) {
+func (this *LineFormat) setMiterLimit(newValue float64) {
 	this.MiterLimit = newValue
 }
-func (this LineFormat) getWidth() float64 {
+func (this *LineFormat) getWidth() float64 {
 	return this.Width
 }
 
-func (this LineFormat) setWidth(newValue float64) {
+func (this *LineFormat) setWidth(newValue float64) {
 	this.Width = newValue
 }
 
@@ -199,7 +199,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 	if err != nil {
 		return err
 	}
-	this.Alignment = "Center"
+	this.Alignment = ""
 	if valAlignment, ok := objMap["alignment"]; ok {
 		if valAlignment != nil {
 			var valueForAlignment string
@@ -232,7 +232,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.CapStyle = "Round"
+	this.CapStyle = ""
 	if valCapStyle, ok := objMap["capStyle"]; ok {
 		if valCapStyle != nil {
 			var valueForCapStyle string
@@ -265,7 +265,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.DashStyle = "Solid"
+	this.DashStyle = ""
 	if valDashStyle, ok := objMap["dashStyle"]; ok {
 		if valDashStyle != nil {
 			var valueForDashStyle string
@@ -298,7 +298,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.JoinStyle = "Round"
+	this.JoinStyle = ""
 	if valJoinStyle, ok := objMap["joinStyle"]; ok {
 		if valJoinStyle != nil {
 			var valueForJoinStyle string
@@ -331,7 +331,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.Style = "Single"
+	this.Style = ""
 	if valStyle, ok := objMap["style"]; ok {
 		if valStyle != nil {
 			var valueForStyle string
@@ -372,7 +372,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BeginArrowHead = valueForBeginArrowHead
+			this.BeginArrowHead = &valueForBeginArrowHead
 		}
 	}
 	if valBeginArrowHeadCap, ok := objMap["BeginArrowHead"]; ok {
@@ -382,7 +382,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BeginArrowHead = valueForBeginArrowHead
+			this.BeginArrowHead = &valueForBeginArrowHead
 		}
 	}
 	
@@ -393,7 +393,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EndArrowHead = valueForEndArrowHead
+			this.EndArrowHead = &valueForEndArrowHead
 		}
 	}
 	if valEndArrowHeadCap, ok := objMap["EndArrowHead"]; ok {
@@ -403,7 +403,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EndArrowHead = valueForEndArrowHead
+			this.EndArrowHead = &valueForEndArrowHead
 		}
 	}
 	
@@ -414,7 +414,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CustomDashPattern = valueForCustomDashPattern
+			this.CustomDashPattern = &valueForCustomDashPattern
 		}
 	}
 	if valCustomDashPatternCap, ok := objMap["CustomDashPattern"]; ok {
@@ -424,7 +424,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CustomDashPattern = valueForCustomDashPattern
+			this.CustomDashPattern = &valueForCustomDashPattern
 		}
 	}
 	
@@ -435,7 +435,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -445,7 +445,7 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	

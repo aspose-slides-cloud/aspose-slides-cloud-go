@@ -66,32 +66,32 @@ type ShapeImageExportOptions struct {
 	Format string `json:"Format,omitempty"`
 }
 
-func (this ShapeImageExportOptions) getScaleX() float64 {
+func (this *ShapeImageExportOptions) getScaleX() float64 {
 	return this.ScaleX
 }
 
-func (this ShapeImageExportOptions) setScaleX(newValue float64) {
+func (this *ShapeImageExportOptions) setScaleX(newValue float64) {
 	this.ScaleX = newValue
 }
-func (this ShapeImageExportOptions) getScaleY() float64 {
+func (this *ShapeImageExportOptions) getScaleY() float64 {
 	return this.ScaleY
 }
 
-func (this ShapeImageExportOptions) setScaleY(newValue float64) {
+func (this *ShapeImageExportOptions) setScaleY(newValue float64) {
 	this.ScaleY = newValue
 }
-func (this ShapeImageExportOptions) getThumbnailBounds() string {
+func (this *ShapeImageExportOptions) getThumbnailBounds() string {
 	return this.ThumbnailBounds
 }
 
-func (this ShapeImageExportOptions) setThumbnailBounds(newValue string) {
+func (this *ShapeImageExportOptions) setThumbnailBounds(newValue string) {
 	this.ThumbnailBounds = newValue
 }
-func (this ShapeImageExportOptions) getFormat() string {
+func (this *ShapeImageExportOptions) getFormat() string {
 	return this.Format
 }
 
-func (this ShapeImageExportOptions) setFormat(newValue string) {
+func (this *ShapeImageExportOptions) setFormat(newValue string) {
 	this.Format = newValue
 }
 

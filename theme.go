@@ -39,8 +39,8 @@ type ITheme interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Name.
 	getName() string
@@ -65,7 +65,7 @@ type Theme struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Name.
 	Name string `json:"Name,omitempty"`
@@ -80,46 +80,46 @@ type Theme struct {
 	FormatScheme IResourceUriElement `json:"FormatScheme,omitempty"`
 }
 
-func (this Theme) getSelfUri() IResourceUri {
+func (this *Theme) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this Theme) setSelfUri(newValue IResourceUri) {
+func (this *Theme) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this Theme) getAlternateLinks() []ResourceUri {
+func (this *Theme) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this Theme) setAlternateLinks(newValue []ResourceUri) {
+func (this *Theme) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this Theme) getName() string {
+func (this *Theme) getName() string {
 	return this.Name
 }
 
-func (this Theme) setName(newValue string) {
+func (this *Theme) setName(newValue string) {
 	this.Name = newValue
 }
-func (this Theme) getColorScheme() IResourceUriElement {
+func (this *Theme) getColorScheme() IResourceUriElement {
 	return this.ColorScheme
 }
 
-func (this Theme) setColorScheme(newValue IResourceUriElement) {
+func (this *Theme) setColorScheme(newValue IResourceUriElement) {
 	this.ColorScheme = newValue
 }
-func (this Theme) getFontScheme() IResourceUriElement {
+func (this *Theme) getFontScheme() IResourceUriElement {
 	return this.FontScheme
 }
 
-func (this Theme) setFontScheme(newValue IResourceUriElement) {
+func (this *Theme) setFontScheme(newValue IResourceUriElement) {
 	this.FontScheme = newValue
 }
-func (this Theme) getFormatScheme() IResourceUriElement {
+func (this *Theme) getFormatScheme() IResourceUriElement {
 	return this.FormatScheme
 }
 
-func (this Theme) setFormatScheme(newValue IResourceUriElement) {
+func (this *Theme) setFormatScheme(newValue IResourceUriElement) {
 	this.FormatScheme = newValue
 }
 
@@ -137,7 +137,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -147,7 +147,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -158,7 +158,11 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -168,7 +172,11 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -200,7 +208,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ColorScheme = valueForColorScheme
+			this.ColorScheme = &valueForColorScheme
 		}
 	}
 	if valColorSchemeCap, ok := objMap["ColorScheme"]; ok {
@@ -210,7 +218,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ColorScheme = valueForColorScheme
+			this.ColorScheme = &valueForColorScheme
 		}
 	}
 	
@@ -221,7 +229,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FontScheme = valueForFontScheme
+			this.FontScheme = &valueForFontScheme
 		}
 	}
 	if valFontSchemeCap, ok := objMap["FontScheme"]; ok {
@@ -231,7 +239,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FontScheme = valueForFontScheme
+			this.FontScheme = &valueForFontScheme
 		}
 	}
 	
@@ -242,7 +250,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FormatScheme = valueForFormatScheme
+			this.FormatScheme = &valueForFormatScheme
 		}
 	}
 	if valFormatSchemeCap, ok := objMap["FormatScheme"]; ok {
@@ -252,7 +260,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FormatScheme = valueForFormatScheme
+			this.FormatScheme = &valueForFormatScheme
 		}
 	}
 

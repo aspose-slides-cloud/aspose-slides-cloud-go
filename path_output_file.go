@@ -59,25 +59,25 @@ type PathOutputFile struct {
 	Storage string `json:"Storage,omitempty"`
 }
 
-func (this PathOutputFile) getType() string {
+func (this *PathOutputFile) getType() string {
 	return this.Type_
 }
 
-func (this PathOutputFile) setType(newValue string) {
+func (this *PathOutputFile) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this PathOutputFile) getPath() string {
+func (this *PathOutputFile) getPath() string {
 	return this.Path
 }
 
-func (this PathOutputFile) setPath(newValue string) {
+func (this *PathOutputFile) setPath(newValue string) {
 	this.Path = newValue
 }
-func (this PathOutputFile) getStorage() string {
+func (this *PathOutputFile) getStorage() string {
 	return this.Storage
 }
 
-func (this PathOutputFile) setStorage(newValue string) {
+func (this *PathOutputFile) setStorage(newValue string) {
 	this.Storage = newValue
 }
 

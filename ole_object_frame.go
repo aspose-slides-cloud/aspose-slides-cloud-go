@@ -39,8 +39,8 @@ type IOleObjectFrame interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -117,7 +117,7 @@ type OleObjectFrame struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -135,7 +135,7 @@ type OleObjectFrame struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -171,137 +171,137 @@ type OleObjectFrame struct {
 	SubstitutePictureTitle string `json:"SubstitutePictureTitle,omitempty"`
 }
 
-func (this OleObjectFrame) getSelfUri() IResourceUri {
+func (this *OleObjectFrame) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this OleObjectFrame) setSelfUri(newValue IResourceUri) {
+func (this *OleObjectFrame) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this OleObjectFrame) getAlternateLinks() []ResourceUri {
+func (this *OleObjectFrame) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this OleObjectFrame) setAlternateLinks(newValue []ResourceUri) {
+func (this *OleObjectFrame) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this OleObjectFrame) getName() string {
+func (this *OleObjectFrame) getName() string {
 	return this.Name
 }
 
-func (this OleObjectFrame) setName(newValue string) {
+func (this *OleObjectFrame) setName(newValue string) {
 	this.Name = newValue
 }
-func (this OleObjectFrame) getWidth() float64 {
+func (this *OleObjectFrame) getWidth() float64 {
 	return this.Width
 }
 
-func (this OleObjectFrame) setWidth(newValue float64) {
+func (this *OleObjectFrame) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this OleObjectFrame) getHeight() float64 {
+func (this *OleObjectFrame) getHeight() float64 {
 	return this.Height
 }
 
-func (this OleObjectFrame) setHeight(newValue float64) {
+func (this *OleObjectFrame) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this OleObjectFrame) getAlternativeText() string {
+func (this *OleObjectFrame) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this OleObjectFrame) setAlternativeText(newValue string) {
+func (this *OleObjectFrame) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this OleObjectFrame) getAlternativeTextTitle() string {
+func (this *OleObjectFrame) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this OleObjectFrame) setAlternativeTextTitle(newValue string) {
+func (this *OleObjectFrame) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this OleObjectFrame) getHidden() bool {
+func (this *OleObjectFrame) getHidden() bool {
 	return this.Hidden
 }
 
-func (this OleObjectFrame) setHidden(newValue bool) {
+func (this *OleObjectFrame) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this OleObjectFrame) getX() float64 {
+func (this *OleObjectFrame) getX() float64 {
 	return this.X
 }
 
-func (this OleObjectFrame) setX(newValue float64) {
+func (this *OleObjectFrame) setX(newValue float64) {
 	this.X = newValue
 }
-func (this OleObjectFrame) getY() float64 {
+func (this *OleObjectFrame) getY() float64 {
 	return this.Y
 }
 
-func (this OleObjectFrame) setY(newValue float64) {
+func (this *OleObjectFrame) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this OleObjectFrame) getZOrderPosition() int32 {
+func (this *OleObjectFrame) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this OleObjectFrame) setZOrderPosition(newValue int32) {
+func (this *OleObjectFrame) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this OleObjectFrame) getShapes() IResourceUriElement {
+func (this *OleObjectFrame) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this OleObjectFrame) setShapes(newValue IResourceUriElement) {
+func (this *OleObjectFrame) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this OleObjectFrame) getFillFormat() IFillFormat {
+func (this *OleObjectFrame) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this OleObjectFrame) setFillFormat(newValue IFillFormat) {
+func (this *OleObjectFrame) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this OleObjectFrame) getEffectFormat() IEffectFormat {
+func (this *OleObjectFrame) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this OleObjectFrame) setEffectFormat(newValue IEffectFormat) {
+func (this *OleObjectFrame) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this OleObjectFrame) getLineFormat() ILineFormat {
+func (this *OleObjectFrame) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this OleObjectFrame) setLineFormat(newValue ILineFormat) {
+func (this *OleObjectFrame) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this OleObjectFrame) getType() string {
+func (this *OleObjectFrame) getType() string {
 	return this.Type_
 }
 
-func (this OleObjectFrame) setType(newValue string) {
+func (this *OleObjectFrame) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this OleObjectFrame) getShapeType() string {
+func (this *OleObjectFrame) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this OleObjectFrame) setShapeType(newValue string) {
+func (this *OleObjectFrame) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this OleObjectFrame) getIsObjectIcon() bool {
+func (this *OleObjectFrame) getIsObjectIcon() bool {
 	return this.IsObjectIcon
 }
 
-func (this OleObjectFrame) setIsObjectIcon(newValue bool) {
+func (this *OleObjectFrame) setIsObjectIcon(newValue bool) {
 	this.IsObjectIcon = newValue
 }
-func (this OleObjectFrame) getSubstitutePictureTitle() string {
+func (this *OleObjectFrame) getSubstitutePictureTitle() string {
 	return this.SubstitutePictureTitle
 }
 
-func (this OleObjectFrame) setSubstitutePictureTitle(newValue string) {
+func (this *OleObjectFrame) setSubstitutePictureTitle(newValue string) {
 	this.SubstitutePictureTitle = newValue
 }
 
@@ -319,7 +319,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -329,7 +329,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -340,7 +340,11 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -350,7 +354,11 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -550,7 +558,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -560,7 +568,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -571,7 +579,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -581,7 +589,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -592,7 +600,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -602,7 +610,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -613,7 +621,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -623,7 +631,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = "OleObjectFrame"

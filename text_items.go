@@ -39,12 +39,12 @@ type ITextItems interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the text items.
-	getItems() []TextItem
-	setItems(newValue []TextItem)
+	getItems() []ITextItem
+	setItems(newValue []ITextItem)
 }
 
 type TextItems struct {
@@ -53,31 +53,31 @@ type TextItems struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the text items.
-	Items []TextItem `json:"Items,omitempty"`
+	Items []ITextItem `json:"Items,omitempty"`
 }
 
-func (this TextItems) getSelfUri() IResourceUri {
+func (this *TextItems) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this TextItems) setSelfUri(newValue IResourceUri) {
+func (this *TextItems) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this TextItems) getAlternateLinks() []ResourceUri {
+func (this *TextItems) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this TextItems) setAlternateLinks(newValue []ResourceUri) {
+func (this *TextItems) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this TextItems) getItems() []TextItem {
+func (this *TextItems) getItems() []ITextItem {
 	return this.Items
 }
 
-func (this TextItems) setItems(newValue []TextItem) {
+func (this *TextItems) setItems(newValue []ITextItem) {
 	this.Items = newValue
 }
 
@@ -95,7 +95,7 @@ func (this *TextItems) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -105,7 +105,7 @@ func (this *TextItems) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -116,7 +116,11 @@ func (this *TextItems) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -126,7 +130,11 @@ func (this *TextItems) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -137,7 +145,11 @@ func (this *TextItems) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Items = valueForItems
+			valueForIItems := make([]ITextItem, len(valueForItems))
+			for i, v := range valueForItems {
+				valueForIItems[i] = ITextItem(&v)
+			}
+			this.Items = valueForIItems
 		}
 	}
 	if valItemsCap, ok := objMap["Items"]; ok {
@@ -147,7 +159,11 @@ func (this *TextItems) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Items = valueForItems
+			valueForIItems := make([]ITextItem, len(valueForItems))
+			for i, v := range valueForItems {
+				valueForIItems[i] = ITextItem(&v)
+			}
+			this.Items = valueForIItems
 		}
 	}
 

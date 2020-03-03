@@ -45,11 +45,11 @@ type StorageExist struct {
 	Exists bool `json:"Exists"`
 }
 
-func (this StorageExist) getExists() bool {
+func (this *StorageExist) getExists() bool {
 	return this.Exists
 }
 
-func (this StorageExist) setExists(newValue bool) {
+func (this *StorageExist) setExists(newValue bool) {
 	this.Exists = newValue
 }
 

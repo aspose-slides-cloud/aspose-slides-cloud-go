@@ -39,8 +39,8 @@ type ISlideBackground interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Fill type.
 	getType() string
@@ -61,7 +61,7 @@ type SlideBackground struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Fill type.
 	Type_ string `json:"Type"`
@@ -73,39 +73,39 @@ type SlideBackground struct {
 	EffectFormat IEffectFormat `json:"EffectFormat,omitempty"`
 }
 
-func (this SlideBackground) getSelfUri() IResourceUri {
+func (this *SlideBackground) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this SlideBackground) setSelfUri(newValue IResourceUri) {
+func (this *SlideBackground) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this SlideBackground) getAlternateLinks() []ResourceUri {
+func (this *SlideBackground) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this SlideBackground) setAlternateLinks(newValue []ResourceUri) {
+func (this *SlideBackground) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this SlideBackground) getType() string {
+func (this *SlideBackground) getType() string {
 	return this.Type_
 }
 
-func (this SlideBackground) setType(newValue string) {
+func (this *SlideBackground) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this SlideBackground) getFillFormat() IFillFormat {
+func (this *SlideBackground) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this SlideBackground) setFillFormat(newValue IFillFormat) {
+func (this *SlideBackground) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this SlideBackground) getEffectFormat() IEffectFormat {
+func (this *SlideBackground) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this SlideBackground) setEffectFormat(newValue IEffectFormat) {
+func (this *SlideBackground) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
 
@@ -123,7 +123,7 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -133,7 +133,7 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -144,7 +144,11 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -154,7 +158,11 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	this.Type_ = "NoFill"
@@ -198,7 +206,7 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -208,7 +216,7 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -219,7 +227,7 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -229,7 +237,7 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 

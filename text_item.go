@@ -52,18 +52,18 @@ type TextItem struct {
 	Text string `json:"Text,omitempty"`
 }
 
-func (this TextItem) getUri() IResourceUri {
+func (this *TextItem) getUri() IResourceUri {
 	return this.Uri
 }
 
-func (this TextItem) setUri(newValue IResourceUri) {
+func (this *TextItem) setUri(newValue IResourceUri) {
 	this.Uri = newValue
 }
-func (this TextItem) getText() string {
+func (this *TextItem) getText() string {
 	return this.Text
 }
 
-func (this TextItem) setText(newValue string) {
+func (this *TextItem) setText(newValue string) {
 	this.Text = newValue
 }
 
@@ -81,7 +81,7 @@ func (this *TextItem) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Uri = valueForUri
+			this.Uri = &valueForUri
 		}
 	}
 	if valUriCap, ok := objMap["Uri"]; ok {
@@ -91,7 +91,7 @@ func (this *TextItem) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Uri = valueForUri
+			this.Uri = &valueForUri
 		}
 	}
 	

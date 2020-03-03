@@ -39,8 +39,8 @@ type IShapeBase interface {
 	setSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []ResourceUri
-	setAlternateLinks(newValue []ResourceUri)
+	getAlternateLinks() []IResourceUri
+	setAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
 	getName() string
@@ -107,7 +107,7 @@ type ShapeBase struct {
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
 
 	// List of alternate links.
-	AlternateLinks []ResourceUri `json:"AlternateLinks,omitempty"`
+	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Gets or sets the name.
 	Name string `json:"Name,omitempty"`
@@ -125,7 +125,7 @@ type ShapeBase struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden,omitempty"`
+	Hidden bool `json:"Hidden"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -153,123 +153,123 @@ type ShapeBase struct {
 	ShapeType string `json:"ShapeType,omitempty"`
 }
 
-func (this ShapeBase) getSelfUri() IResourceUri {
+func (this *ShapeBase) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this ShapeBase) setSelfUri(newValue IResourceUri) {
+func (this *ShapeBase) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this ShapeBase) getAlternateLinks() []ResourceUri {
+func (this *ShapeBase) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this ShapeBase) setAlternateLinks(newValue []ResourceUri) {
+func (this *ShapeBase) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this ShapeBase) getName() string {
+func (this *ShapeBase) getName() string {
 	return this.Name
 }
 
-func (this ShapeBase) setName(newValue string) {
+func (this *ShapeBase) setName(newValue string) {
 	this.Name = newValue
 }
-func (this ShapeBase) getWidth() float64 {
+func (this *ShapeBase) getWidth() float64 {
 	return this.Width
 }
 
-func (this ShapeBase) setWidth(newValue float64) {
+func (this *ShapeBase) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this ShapeBase) getHeight() float64 {
+func (this *ShapeBase) getHeight() float64 {
 	return this.Height
 }
 
-func (this ShapeBase) setHeight(newValue float64) {
+func (this *ShapeBase) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this ShapeBase) getAlternativeText() string {
+func (this *ShapeBase) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this ShapeBase) setAlternativeText(newValue string) {
+func (this *ShapeBase) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this ShapeBase) getAlternativeTextTitle() string {
+func (this *ShapeBase) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this ShapeBase) setAlternativeTextTitle(newValue string) {
+func (this *ShapeBase) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this ShapeBase) getHidden() bool {
+func (this *ShapeBase) getHidden() bool {
 	return this.Hidden
 }
 
-func (this ShapeBase) setHidden(newValue bool) {
+func (this *ShapeBase) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this ShapeBase) getX() float64 {
+func (this *ShapeBase) getX() float64 {
 	return this.X
 }
 
-func (this ShapeBase) setX(newValue float64) {
+func (this *ShapeBase) setX(newValue float64) {
 	this.X = newValue
 }
-func (this ShapeBase) getY() float64 {
+func (this *ShapeBase) getY() float64 {
 	return this.Y
 }
 
-func (this ShapeBase) setY(newValue float64) {
+func (this *ShapeBase) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this ShapeBase) getZOrderPosition() int32 {
+func (this *ShapeBase) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this ShapeBase) setZOrderPosition(newValue int32) {
+func (this *ShapeBase) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this ShapeBase) getShapes() IResourceUriElement {
+func (this *ShapeBase) getShapes() IResourceUriElement {
 	return this.Shapes
 }
 
-func (this ShapeBase) setShapes(newValue IResourceUriElement) {
+func (this *ShapeBase) setShapes(newValue IResourceUriElement) {
 	this.Shapes = newValue
 }
-func (this ShapeBase) getFillFormat() IFillFormat {
+func (this *ShapeBase) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this ShapeBase) setFillFormat(newValue IFillFormat) {
+func (this *ShapeBase) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this ShapeBase) getEffectFormat() IEffectFormat {
+func (this *ShapeBase) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this ShapeBase) setEffectFormat(newValue IEffectFormat) {
+func (this *ShapeBase) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this ShapeBase) getLineFormat() ILineFormat {
+func (this *ShapeBase) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this ShapeBase) setLineFormat(newValue ILineFormat) {
+func (this *ShapeBase) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this ShapeBase) getType() string {
+func (this *ShapeBase) getType() string {
 	return this.Type_
 }
 
-func (this ShapeBase) setType(newValue string) {
+func (this *ShapeBase) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this ShapeBase) getShapeType() string {
+func (this *ShapeBase) getShapeType() string {
 	return this.ShapeType
 }
 
-func (this ShapeBase) setShapeType(newValue string) {
+func (this *ShapeBase) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
 
@@ -287,7 +287,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -297,7 +297,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = valueForSelfUri
+			this.SelfUri = &valueForSelfUri
 		}
 	}
 	
@@ -308,7 +308,11 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
@@ -318,7 +322,11 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.AlternateLinks = valueForAlternateLinks
+			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
+			for i, v := range valueForAlternateLinks {
+				valueForIAlternateLinks[i] = IResourceUri(&v)
+			}
+			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -518,7 +526,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -528,7 +536,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = valueForShapes
+			this.Shapes = &valueForShapes
 		}
 	}
 	
@@ -539,7 +547,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -549,7 +557,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = valueForFillFormat
+			this.FillFormat = &valueForFillFormat
 		}
 	}
 	
@@ -560,7 +568,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -570,7 +578,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = valueForEffectFormat
+			this.EffectFormat = &valueForEffectFormat
 		}
 	}
 	
@@ -581,7 +589,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -591,7 +599,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = valueForLineFormat
+			this.LineFormat = &valueForLineFormat
 		}
 	}
 	this.Type_ = ""

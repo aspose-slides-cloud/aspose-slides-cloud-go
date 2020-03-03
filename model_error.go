@@ -66,32 +66,32 @@ type ModelError struct {
 	InnerError IErrorDetails `json:"InnerError,omitempty"`
 }
 
-func (this ModelError) getCode() string {
+func (this *ModelError) getCode() string {
 	return this.Code
 }
 
-func (this ModelError) setCode(newValue string) {
+func (this *ModelError) setCode(newValue string) {
 	this.Code = newValue
 }
-func (this ModelError) getMessage() string {
+func (this *ModelError) getMessage() string {
 	return this.Message
 }
 
-func (this ModelError) setMessage(newValue string) {
+func (this *ModelError) setMessage(newValue string) {
 	this.Message = newValue
 }
-func (this ModelError) getDescription() string {
+func (this *ModelError) getDescription() string {
 	return this.Description
 }
 
-func (this ModelError) setDescription(newValue string) {
+func (this *ModelError) setDescription(newValue string) {
 	this.Description = newValue
 }
-func (this ModelError) getInnerError() IErrorDetails {
+func (this *ModelError) getInnerError() IErrorDetails {
 	return this.InnerError
 }
 
-func (this ModelError) setInnerError(newValue IErrorDetails) {
+func (this *ModelError) setInnerError(newValue IErrorDetails) {
 	this.InnerError = newValue
 }
 
@@ -172,7 +172,7 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.InnerError = valueForInnerError
+			this.InnerError = &valueForInnerError
 		}
 	}
 	if valInnerErrorCap, ok := objMap["InnerError"]; ok {
@@ -182,7 +182,7 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.InnerError = valueForInnerError
+			this.InnerError = &valueForInnerError
 		}
 	}
 
