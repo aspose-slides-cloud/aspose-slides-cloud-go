@@ -115,8 +115,8 @@ type IChart interface {
 	setSeries(newValue []ISeries)
 
 	// Gets or sets the categories for chart data
-	getCategories() []string
-	setCategories(newValue []string)
+	getCategories() []IChartCategory
+	setCategories(newValue []IChartCategory)
 
 	// Gets or sets the title.
 	getTitle() IChartTitle
@@ -210,7 +210,7 @@ type Chart struct {
 	Series []ISeries `json:"Series,omitempty"`
 
 	// Gets or sets the categories for chart data
-	Categories []string `json:"Categories,omitempty"`
+	Categories []IChartCategory `json:"Categories,omitempty"`
 
 	// Gets or sets the title.
 	Title IChartTitle `json:"Title,omitempty"`
@@ -374,11 +374,11 @@ func (this *Chart) getSeries() []ISeries {
 func (this *Chart) setSeries(newValue []ISeries) {
 	this.Series = newValue
 }
-func (this *Chart) getCategories() []string {
+func (this *Chart) getCategories() []IChartCategory {
 	return this.Categories
 }
 
-func (this *Chart) setCategories(newValue []string) {
+func (this *Chart) setCategories(newValue []IChartCategory) {
 	this.Categories = newValue
 }
 func (this *Chart) getTitle() IChartTitle {
@@ -912,22 +912,30 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	
 	if valCategories, ok := objMap["categories"]; ok {
 		if valCategories != nil {
-			var valueForCategories []string
+			var valueForCategories []ChartCategory
 			err = json.Unmarshal(*valCategories, &valueForCategories)
 			if err != nil {
 				return err
 			}
-			this.Categories = valueForCategories
+			valueForICategories := make([]IChartCategory, len(valueForCategories))
+			for i, v := range valueForCategories {
+				valueForICategories[i] = IChartCategory(&v)
+			}
+			this.Categories = valueForICategories
 		}
 	}
 	if valCategoriesCap, ok := objMap["Categories"]; ok {
 		if valCategoriesCap != nil {
-			var valueForCategories []string
+			var valueForCategories []ChartCategory
 			err = json.Unmarshal(*valCategoriesCap, &valueForCategories)
 			if err != nil {
 				return err
 			}
-			this.Categories = valueForCategories
+			valueForICategories := make([]IChartCategory, len(valueForCategories))
+			for i, v := range valueForCategories {
+				valueForICategories[i] = IChartCategory(&v)
+			}
+			this.Categories = valueForICategories
 		}
 	}
 	

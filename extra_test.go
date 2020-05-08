@@ -82,13 +82,7 @@ func TestShape(t *testing.T) {
 	request.Password = "password"
 	request.Folder = "TempSlidesSDK"
 
-	cfg := NewConfiguration()
-	configFile, err := os.Open("testConfig.json")
-	if err == nil {
-		json.NewDecoder(configFile).Decode(cfg)
-	}
-	testApiClient = NewAPIClient(cfg)
-	r, _, e := testApiClient.SlidesApi.GetSlideShape(request)
+	r, _, e := getTestApiClient().SlidesApi.GetSlideShape(request)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

@@ -51,12 +51,18 @@ func init() {
 	typeRegistry["BlurEffect"] = reflect.TypeOf(BlurEffect{})
 	
 	typeDeterminers["BlurEffect"] = make(map[string]string)
+	typeRegistry["ChartCategory"] = reflect.TypeOf(ChartCategory{})
+	
+	typeDeterminers["ChartCategory"] = make(map[string]string)
 	typeRegistry["ChartTitle"] = reflect.TypeOf(ChartTitle{})
 	
 	typeDeterminers["ChartTitle"] = make(map[string]string)
 	typeRegistry["ChartWall"] = reflect.TypeOf(ChartWall{})
 	
 	typeDeterminers["ChartWall"] = make(map[string]string)
+	typeRegistry["CommonSlideViewProperties"] = reflect.TypeOf(CommonSlideViewProperties{})
+	
+	typeDeterminers["CommonSlideViewProperties"] = make(map[string]string)
 	typeRegistry["CustomDashPattern"] = reflect.TypeOf(CustomDashPattern{})
 	
 	typeDeterminers["CustomDashPattern"] = make(map[string]string)
@@ -126,6 +132,9 @@ func init() {
 	typeRegistry["ModelError"] = reflect.TypeOf(ModelError{})
 	
 	typeDeterminers["ModelError"] = make(map[string]string)
+	typeRegistry["NormalViewRestoredProperties"] = reflect.TypeOf(NormalViewRestoredProperties{})
+	
+	typeDeterminers["NormalViewRestoredProperties"] = make(map[string]string)
 	typeRegistry["ObjectExist"] = reflect.TypeOf(ObjectExist{})
 	
 	typeDeterminers["ObjectExist"] = make(map[string]string)
@@ -433,9 +442,15 @@ func init() {
 	derivedTypes["UpdateShape"] = "Task"
 	typeDeterminers["UpdateShape"] = make(map[string]string)
 	typeDeterminers["UpdateShape"]["Type"] = "UpdateShape"
+	typeRegistry["ViewProperties"] = reflect.TypeOf(ViewProperties{})
+	derivedTypes["ViewProperties"] = "ResourceBase"
+	typeDeterminers["ViewProperties"] = make(map[string]string)
 	typeRegistry["XpsExportOptions"] = reflect.TypeOf(XpsExportOptions{})
 	derivedTypes["XpsExportOptions"] = "ExportOptions"
 	typeDeterminers["XpsExportOptions"] = make(map[string]string)
+	typeRegistry["BoxAndWhiskerSeries"] = reflect.TypeOf(BoxAndWhiskerSeries{})
+	derivedTypes["BoxAndWhiskerSeries"] = "OneValueSeries"
+	typeDeterminers["BoxAndWhiskerSeries"] = make(map[string]string)
 	typeRegistry["Chart"] = reflect.TypeOf(Chart{})
 	derivedTypes["Chart"] = "ShapeBase"
 	typeDeterminers["Chart"] = make(map[string]string)
@@ -480,6 +495,9 @@ func init() {
 	typeDeterminers["Table"] = make(map[string]string)
 	typeDeterminers["Table"]["Type"] = "Table"
 	typeDeterminers["Table"]["ShapeType"] = "Table"
+	typeRegistry["WaterfallSeries"] = reflect.TypeOf(WaterfallSeries{})
+	derivedTypes["WaterfallSeries"] = "OneValueSeries"
+	typeDeterminers["WaterfallSeries"] = make(map[string]string)
 	typeRegistry["AudioFrame"] = reflect.TypeOf(AudioFrame{})
 	derivedTypes["AudioFrame"] = "GeometryShape"
 	typeDeterminers["AudioFrame"] = make(map[string]string)

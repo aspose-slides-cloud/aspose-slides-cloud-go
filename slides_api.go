@@ -9816,6 +9816,130 @@ type GetSlidesThemeFormatSchemeRequest struct {
     Storage string
 }
 
+/* SlidesApiService Read presentation document properties.
+ @param name Document name.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return ViewProperties*/
+func (a *SlidesApiService) GetSlidesViewProperties(request GetSlidesViewPropertiesRequest) (IViewProperties, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload IViewProperties
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/viewProperties"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("-->: %v\n", r)
+	}
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--: %v\n", localVarHttpResponse)
+	}
+	defer localVarHttpResponse.Body.Close()
+	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--BODY: %v\n", string(responseBytes))
+	}
+	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("ViewProperties", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IViewProperties); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IViewProperties); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.GetSlidesViewProperties
+*/
+type GetSlidesViewPropertiesRequest struct {
+    Name string
+    Password string
+    Folder string
+    Storage string
+}
+
 /* SlidesApiService Move file
  @param srcPath Source file path e.g. &#39;/src.ext&#39;
  @param destPath Destination file path e.g. &#39;/dest.ext&#39;
@@ -17555,6 +17679,134 @@ type PutSlidesSlideSizeRequest struct {
     Height *int32
     SizeType string
     ScaleType string
+}
+
+/* SlidesApiService Update presentation document properties.
+ @param name Document name.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "dto" (ViewProperties) The view properties data.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return DocumentProperty*/
+func (a *SlidesApiService) PutSlidesViewProperties(request PutSlidesViewPropertiesRequest) (IDocumentProperty, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload IDocumentProperty
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/viewProperties"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &request.Dto
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("-->: %v\n", r)
+	}
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--: %v\n", localVarHttpResponse)
+	}
+	defer localVarHttpResponse.Body.Close()
+	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--BODY: %v\n", string(responseBytes))
+	}
+	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("DocumentProperty", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocumentProperty); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocumentProperty); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PutSlidesViewProperties
+*/
+type PutSlidesViewPropertiesRequest struct {
+    Name string
+    Dto IViewProperties
+    Password string
+    Folder string
+    Storage string
 }
 
 /* SlidesApiService Update notes slide properties.

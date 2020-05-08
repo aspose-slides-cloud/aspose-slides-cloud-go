@@ -46,6 +46,10 @@ type IDocumentReplaceResult interface {
 	getDocumentProperties() IResourceUriElement
 	setDocumentProperties(newValue IResourceUriElement)
 
+	// Link to Document properties.
+	getViewProperties() IResourceUriElement
+	setViewProperties(newValue IResourceUriElement)
+
 	// Link to slides collection.
 	getSlides() IResourceUriElement
 	setSlides(newValue IResourceUriElement)
@@ -77,6 +81,9 @@ type DocumentReplaceResult struct {
 
 	// Link to Document properties.
 	DocumentProperties IResourceUriElement `json:"DocumentProperties,omitempty"`
+
+	// Link to Document properties.
+	ViewProperties IResourceUriElement `json:"ViewProperties,omitempty"`
 
 	// Link to slides collection.
 	Slides IResourceUriElement `json:"Slides,omitempty"`
@@ -114,6 +121,13 @@ func (this *DocumentReplaceResult) getDocumentProperties() IResourceUriElement {
 
 func (this *DocumentReplaceResult) setDocumentProperties(newValue IResourceUriElement) {
 	this.DocumentProperties = newValue
+}
+func (this *DocumentReplaceResult) getViewProperties() IResourceUriElement {
+	return this.ViewProperties
+}
+
+func (this *DocumentReplaceResult) setViewProperties(newValue IResourceUriElement) {
+	this.ViewProperties = newValue
 }
 func (this *DocumentReplaceResult) getSlides() IResourceUriElement {
 	return this.Slides
@@ -226,6 +240,27 @@ func (this *DocumentReplaceResult) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.DocumentProperties = &valueForDocumentProperties
+		}
+	}
+	
+	if valViewProperties, ok := objMap["viewProperties"]; ok {
+		if valViewProperties != nil {
+			var valueForViewProperties ResourceUriElement
+			err = json.Unmarshal(*valViewProperties, &valueForViewProperties)
+			if err != nil {
+				return err
+			}
+			this.ViewProperties = &valueForViewProperties
+		}
+	}
+	if valViewPropertiesCap, ok := objMap["ViewProperties"]; ok {
+		if valViewPropertiesCap != nil {
+			var valueForViewProperties ResourceUriElement
+			err = json.Unmarshal(*valViewPropertiesCap, &valueForViewProperties)
+			if err != nil {
+				return err
+			}
+			this.ViewProperties = &valueForViewProperties
 		}
 	}
 	

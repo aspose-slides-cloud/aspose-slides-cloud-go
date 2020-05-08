@@ -140,12 +140,14 @@ func getTestRules() *TestRules {
 }
 
 func getTestApiClient() *APIClient {
-	cfg := NewConfiguration()
-	configFile, err := os.Open("testConfig.json")
-	if err == nil {
-		json.NewDecoder(configFile).Decode(cfg)
+	if testApiClient == nil {
+		cfg := NewConfiguration()
+		configFile, err := os.Open("testConfig.json")
+		if err == nil {
+			json.NewDecoder(configFile).Decode(cfg)
+		}
+		testApiClient = NewAPIClient(cfg)
 	}
-	testApiClient = NewAPIClient(cfg)
 	return testApiClient
 }
 
@@ -291,6 +293,12 @@ func undefaultize(value interface{}, paramType string) interface{} {
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &para)
         return &para
+    }
+    if paramType == "ViewProperties" {
+        var vp ViewProperties
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &vp)
+        return &vp
     }
     return value
 }
