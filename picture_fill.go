@@ -108,6 +108,13 @@ type PictureFill struct {
 	PictureFillMode string `json:"PictureFillMode"`
 }
 
+func NewPictureFill() *PictureFill {
+	instance := new(PictureFill)
+	instance.Type_ = "Picture"
+	instance.PictureFillMode = "Tile"
+	return instance
+}
+
 func (this *PictureFill) getType() string {
 	return this.Type_
 }

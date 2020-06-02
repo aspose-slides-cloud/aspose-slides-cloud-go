@@ -157,6 +157,13 @@ type GroupShape struct {
 	ShapeType string `json:"ShapeType"`
 }
 
+func NewGroupShape() *GroupShape {
+	instance := new(GroupShape)
+	instance.Type_ = "GroupShape"
+	instance.ShapeType = "GroupShape"
+	return instance
+}
+
 func (this *GroupShape) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

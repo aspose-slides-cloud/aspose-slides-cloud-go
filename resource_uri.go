@@ -66,6 +66,11 @@ type ResourceUri struct {
 	Title string `json:"Title,omitempty"`
 }
 
+func NewResourceUri() *ResourceUri {
+	instance := new(ResourceUri)
+	return instance
+}
+
 func (this *ResourceUri) getHref() string {
 	return this.Href
 }

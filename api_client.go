@@ -41,7 +41,6 @@ import (
 	"net/url"
 	"time"
 	"os"
-	"path/filepath"
 	"reflect"
 	"regexp"
 	"strings"
@@ -180,63 +179,43 @@ func (c *APIClient) prepareRequest (
 	headerParams map[string]string,
 	queryParams url.Values,
 	formParams url.Values,
-	fileName string,
-	fileBytes []byte) (localVarRequest *http.Request, err error) {
+	files [][]byte) (localVarRequest *http.Request, err error) {
 
 	var body *bytes.Buffer
 
 	// Detect postBody type and post.
 	if postBody != nil {
 		contentType := headerParams["Content-Type"]
-		if contentType == "" {
-			contentType = detectContentType(postBody)
-		}
-
-		body, contentType, err = setBody(postBody, contentType)
-		headerParams["Content-Type"] = contentType
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	// add form paramters and file if available.
-	if len(formParams) > 0 || (len(fileBytes) > 0 && fileName != "") {
-		if body != nil {
-			return nil, errors.New("Cannot specify postBody and multipart form at the same time.")
-		}
-		body = &bytes.Buffer{}
-		w := multipart.NewWriter(body)
-
-		for k, v := range formParams {
-			for _, iv := range v {
-				if strings.HasPrefix(k, "@") { // file
-					err = addFile(w, k[1:], iv)
-					if err != nil {
-						return nil, err
-					}
-				} else { // form value
-					w.WriteField(k, iv)
+		if len(files) > 0 {
+			body = &bytes.Buffer{}
+			w := multipart.NewWriter(body)
+			bodyBuf, _, err := setBody(postBody, contentType)
+			if err != nil {
+				return nil, err
+			}
+			w.WriteField("pipeline", string(bodyBuf.Bytes()))
+			for i, file := range files {
+				part, err := w.CreateFormFile(fmt.Sprintf("file%d", i), fmt.Sprintf("file%d", i))
+				if err != nil {
+					return nil, err
+				}
+				_, err = part.Write(file)
+				if err != nil {
+					return nil, err
 				}
 			}
-		}
-		if len(fileBytes) > 0 && fileName != "" {
-			w.Boundary()
-			//_, fileNm := filepath.Split(fileName)
-			part, err := w.CreateFormFile("file", filepath.Base(fileName))
+			w.Close()
+	                contentType = w.FormDataContentType()
+		} else {
+			if contentType == "" {
+				contentType = detectContentType(postBody)
+			}
+			body, contentType, err = setBody(postBody, contentType)
 			if err != nil {
 				return nil, err
 			}
-			_, err = part.Write(fileBytes)
-			if err != nil {
-				return nil, err
-			}
-			// Set the Boundary in the Content-Type
-			headerParams["Content-Type"] = w.FormDataContentType()
 		}
-		
-		// Set Content-Length
-		headerParams["Content-Length"] = fmt.Sprintf("%d", body.Len())
-		w.Close()
+		headerParams["Content-Type"] = contentType
 	}
 
 	// Setup path and query paramters
@@ -325,23 +304,6 @@ func (c *APIClient) prepareRequestHeader(localVarRequest *http.Request, headerPa
 	localVarRequest.Header.Add("Authorization", "Bearer " + c.cfg.OAuthToken)
 	
 	return nil
-}
-
-// Add a file to the multipart request
-func addFile(w *multipart.Writer, fieldName, path string) error {
-	file, err := os.Open(path)
-	if err != nil {
-		return err
-	}
-	defer file.Close()
-
-	part, err := w.CreateFormFile(fieldName, filepath.Base(path))
-	if err != nil {
-		return err
-	}
-	_, err = io.Copy(part, file)
-
-	return err
 }
 
 // Prevent trying to import "fmt"

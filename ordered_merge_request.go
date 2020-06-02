@@ -45,6 +45,11 @@ type OrderedMergeRequest struct {
 	Presentations []IPresentationToMerge `json:"Presentations,omitempty"`
 }
 
+func NewOrderedMergeRequest() *OrderedMergeRequest {
+	instance := new(OrderedMergeRequest)
+	return instance
+}
+
 func (this *OrderedMergeRequest) getPresentations() []IPresentationToMerge {
 	return this.Presentations
 }

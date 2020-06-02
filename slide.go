@@ -129,6 +129,11 @@ type Slide struct {
 	NotesSlide IResourceUriElement `json:"NotesSlide,omitempty"`
 }
 
+func NewSlide() *Slide {
+	instance := new(Slide)
+	return instance
+}
+
 func (this *Slide) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

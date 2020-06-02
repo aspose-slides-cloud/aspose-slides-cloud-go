@@ -77,6 +77,11 @@ type StorageFile struct {
 	Path string `json:"Path,omitempty"`
 }
 
+func NewStorageFile() *StorageFile {
+	instance := new(StorageFile)
+	return instance
+}
+
 func (this *StorageFile) getName() string {
 	return this.Name
 }

@@ -73,6 +73,12 @@ type SeriesMarker struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
+func NewSeriesMarker() *SeriesMarker {
+	instance := new(SeriesMarker)
+	instance.Symbol = ""
+	return instance
+}
+
 func (this *SeriesMarker) getSize() int32 {
 	return this.Size
 }

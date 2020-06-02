@@ -52,6 +52,12 @@ type PptxExportOptions struct {
 	Conformance string `json:"Conformance"`
 }
 
+func NewPptxExportOptions() *PptxExportOptions {
+	instance := new(PptxExportOptions)
+	instance.Conformance = "Ecma376_2006"
+	return instance
+}
+
 func (this *PptxExportOptions) getFormat() string {
 	return this.Format
 }

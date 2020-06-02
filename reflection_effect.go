@@ -136,6 +136,12 @@ type ReflectionEffect struct {
 	RotateShadowWithShape bool `json:"RotateShadowWithShape"`
 }
 
+func NewReflectionEffect() *ReflectionEffect {
+	instance := new(ReflectionEffect)
+	instance.RectangleAlign = "TopLeft"
+	return instance
+}
+
 func (this *ReflectionEffect) getDirection() float64 {
 	return this.Direction
 }

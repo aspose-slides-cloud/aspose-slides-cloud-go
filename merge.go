@@ -52,6 +52,12 @@ type Merge struct {
 	Presentations []IMergingSource `json:"Presentations,omitempty"`
 }
 
+func NewMerge() *Merge {
+	instance := new(Merge)
+	instance.Type_ = "Merge"
+	return instance
+}
+
 func (this *Merge) getType() string {
 	return this.Type_
 }

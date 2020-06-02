@@ -73,6 +73,11 @@ type ChartCategory struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
+func NewChartCategory() *ChartCategory {
+	instance := new(ChartCategory)
+	return instance
+}
+
 func (this *ChartCategory) getCategories() []IChartCategory {
 	return this.Categories
 }

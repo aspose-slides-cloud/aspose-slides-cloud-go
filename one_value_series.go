@@ -171,6 +171,13 @@ type OneValueSeries struct {
 	DataPoints []IOneValueChartDataPoint `json:"DataPoints,omitempty"`
 }
 
+func NewOneValueSeries() *OneValueSeries {
+	instance := new(OneValueSeries)
+	instance.Type_ = ""
+	instance.DataPointType = "OneValue"
+	return instance
+}
+
 func (this *OneValueSeries) getType() string {
 	return this.Type_
 }

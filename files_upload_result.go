@@ -52,6 +52,11 @@ type FilesUploadResult struct {
 	Errors []ModelError `json:"Errors,omitempty"`
 }
 
+func NewFilesUploadResult() *FilesUploadResult {
+	instance := new(FilesUploadResult)
+	return instance
+}
+
 func (this *FilesUploadResult) getUploaded() []string {
 	return this.Uploaded
 }

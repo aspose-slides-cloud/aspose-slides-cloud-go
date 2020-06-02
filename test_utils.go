@@ -152,25 +152,28 @@ func getTestApiClient() *APIClient {
 }
 
 func createTestParamValue(functionName string, paramName string, paramType string) interface{} {
-    if paramType == "[]byte" {
-        data, _ := ioutil.ReadFile("testData/" + testFileName)
-        return data
-    }
-    var value interface{}
-    value = "test" + paramName
-    for _, rule := range getRules(getTestRules().Values, functionName, paramName) {
-        valueRule := rule.(ValueRule)
-        if valueRule.ValueSet {
-            value = valueRule.Value
-        }
-    }
-    return undefaultize(value, paramType)
+	if paramType == "[]byte" {
+		data, _ := ioutil.ReadFile("testData/" + testFileName)
+		return data
+	}
+	var value interface{}
+	value = "test" + paramName
+	for _, rule := range getRules(getTestRules().Values, functionName, paramName) {
+		valueRule := rule.(ValueRule)
+		if valueRule.ValueSet {
+			value = valueRule.Value
+		}
+	}
+	return undefaultize(value, paramType)
 }
 
 func undefaultize(value interface{}, paramType string) interface{} {
     if value == nil {
         if paramType == "[]int32" {
             return []int32{}
+        }
+        if paramType == "[][]byte" {
+            return [][]byte{}
         }
         if paramType == "string" {
             return ""
@@ -304,34 +307,34 @@ func undefaultize(value interface{}, paramType string) interface{} {
 }
 
 func getRules(rules interface{}, functionName string, paramName string) []ITestRule {
-    filteredRules := []ITestRule{}
-    ruleArray := reflect.ValueOf(rules)
-    for i := 0; i < ruleArray.Len(); i++ {
-        rule := ruleArray.Index(i).Interface().(ITestRule)
-        if ruleApplies(rule, functionName, paramName) {
-            filteredRules = append(filteredRules, rule)
-        }
-    }
-    return filteredRules
+	filteredRules := []ITestRule{}
+	ruleArray := reflect.ValueOf(rules)
+	for i := 0; i < ruleArray.Len(); i++ {
+		rule := ruleArray.Index(i).Interface().(ITestRule)
+		if ruleApplies(rule, functionName, paramName) {
+			filteredRules = append(filteredRules, rule)
+		}
+	}
+	return filteredRules
 }
 
 func ruleApplies(rule ITestRule, functionName string, paramName string) bool {
-    return (rule.getMethod() == "" || (functionName != "" && strings.ToLower(rule.getMethod()) == strings.ToLower(functionName))) &&
-        (rule.getInvalid() == nil || (*(rule.getInvalid()) && (paramName != ""))) &&
-        (rule.getParameter() == "" || (paramName != "" && strings.ToLower(rule.getParameter()) == strings.ToLower(paramName))) &&
-        (rule.getLanguage() == "" || strings.ToLower(rule.getLanguage()) == "go")
+	return (rule.getMethod() == "" || (functionName != "" && strings.ToLower(rule.getMethod()) == strings.ToLower(functionName))) &&
+		(rule.getInvalid() == nil || (*(rule.getInvalid()) && (paramName != ""))) &&
+		(rule.getParameter() == "" || (paramName != "" && strings.ToLower(rule.getParameter()) == strings.ToLower(paramName))) &&
+		(rule.getLanguage() == "" || strings.ToLower(rule.getLanguage()) == "go")
 }
 
 func invalidizeTestParamValue(value interface{}, functionName string, paramName string, paramType string) interface{} {
-    var invalidValue interface{}
-    for _, rule := range getRules(getTestRules().Values, functionName, paramName) {
-        valueRule := rule.(ValueRule)
-        if valueRule.InvalidValueSet {
-            invalidValue = valueRule.InvalidValue
-        }
-    }
-    invalidValue = undefaultize(invalidValue, paramType)
-    return untemplatize(invalidValue, value)
+	var invalidValue interface{}
+	for _, rule := range getRules(getTestRules().Values, functionName, paramName) {
+		valueRule := rule.(ValueRule)
+		if valueRule.InvalidValueSet {
+			invalidValue = valueRule.InvalidValue
+		}
+	}
+	invalidValue = undefaultize(invalidValue, paramType)
+	return untemplatize(invalidValue, value)
 }
 
 func assertError(t *testing.T, functionName string, paramName string, paramValue interface{}, errorCode int32, e error) {

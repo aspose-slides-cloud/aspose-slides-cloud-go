@@ -59,6 +59,11 @@ type FontSet struct {
 	Latin string `json:"Latin,omitempty"`
 }
 
+func NewFontSet() *FontSet {
+	instance := new(FontSet)
+	return instance
+}
+
 func (this *FontSet) getComplexScript() string {
 	return this.ComplexScript
 }

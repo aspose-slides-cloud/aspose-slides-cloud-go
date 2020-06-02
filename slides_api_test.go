@@ -15215,6 +15215,343 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidStorage(t *testing.T) {
     assertError(t, "PostCopyMasterSlideFromSourcePresentation", "storage", request.Storage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Read notes slide info.
+   Test for SlidesApi.PostGetNotesSlide method
+*/
+func TestPostGetNotesSlide(t *testing.T) {
+    request := createPostGetNotesSlideRequest()
+    e := initializeTest("PostGetNotesSlide", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PostGetNotesSlide(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPostGetNotesSlideRequest() PostGetNotesSlideRequest {
+    var request PostGetNotesSlideRequest
+    request.SlideIndex = createTestParamValue("PostGetNotesSlide", "slideIndex", "int32").(int32)
+    request.Document = createTestParamValue("PostGetNotesSlide", "document", "[]byte").([]byte)
+    request.Password = createTestParamValue("PostGetNotesSlide", "password", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Read notes slide info.
+   Test for SlidesApi.PostGetNotesSlide method with invalid slideIndex
+*/
+func TestPostGetNotesSlideInvalidSlideIndex(t *testing.T) {
+    request := createPostGetNotesSlideRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PostGetNotesSlide", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostGetNotesSlide", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlide(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlide", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read notes slide info.
+   Test for SlidesApi.PostGetNotesSlide method with invalid document
+*/
+func TestPostGetNotesSlideInvalidDocument(t *testing.T) {
+    request := createPostGetNotesSlideRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Document, "PostGetNotesSlide", "document", "[]byte")
+    if (invalidValue == nil) {
+        request.Document = nil
+    } else {
+        request.Document = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostGetNotesSlide", "document", request.Document)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlide(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlide", "document", request.Document, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read notes slide info.
+   Test for SlidesApi.PostGetNotesSlide method with invalid password
+*/
+func TestPostGetNotesSlideInvalidPassword(t *testing.T) {
+    request := createPostGetNotesSlideRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostGetNotesSlide", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostGetNotesSlide", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlide(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlide", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert notes slide to the specified image format.
+   Test for SlidesApi.PostGetNotesSlideWithFormat method
+*/
+func TestPostGetNotesSlideWithFormat(t *testing.T) {
+    request := createPostGetNotesSlideWithFormatRequest()
+    e := initializeTest("PostGetNotesSlideWithFormat", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    r, _, e := c.SlidesApi.PostGetNotesSlideWithFormat(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+func createPostGetNotesSlideWithFormatRequest() PostGetNotesSlideWithFormatRequest {
+    var request PostGetNotesSlideWithFormatRequest
+    request.SlideIndex = createTestParamValue("PostGetNotesSlideWithFormat", "slideIndex", "int32").(int32)
+    request.Format = createTestParamValue("PostGetNotesSlideWithFormat", "format", "string").(string)
+    request.Document = createTestParamValue("PostGetNotesSlideWithFormat", "document", "[]byte").([]byte)
+    testwidth := createTestParamValue("PostGetNotesSlideWithFormat", "width", "int32")
+    switch v := testwidth.(type) { 
+    case int32:
+        request.Width = new(int32)
+        *request.Width = v
+    }
+    testheight := createTestParamValue("PostGetNotesSlideWithFormat", "height", "int32")
+    switch v := testheight.(type) { 
+    case int32:
+        request.Height = new(int32)
+        *request.Height = v
+    }
+    request.Password = createTestParamValue("PostGetNotesSlideWithFormat", "password", "string").(string)
+    request.FontsFolder = createTestParamValue("PostGetNotesSlideWithFormat", "fontsFolder", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Convert notes slide to the specified image format.
+   Test for SlidesApi.PostGetNotesSlideWithFormat method with invalid slideIndex
+*/
+func TestPostGetNotesSlideWithFormatInvalidSlideIndex(t *testing.T) {
+    request := createPostGetNotesSlideWithFormatRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PostGetNotesSlideWithFormat", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostGetNotesSlideWithFormat", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideWithFormat", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert notes slide to the specified image format.
+   Test for SlidesApi.PostGetNotesSlideWithFormat method with invalid format
+*/
+func TestPostGetNotesSlideWithFormatInvalidFormat(t *testing.T) {
+    request := createPostGetNotesSlideWithFormatRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Format, "PostGetNotesSlideWithFormat", "format", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Format = nullValue
+    } else {
+        request.Format = invalidValue.(string)
+    }
+
+    e := initializeTest("PostGetNotesSlideWithFormat", "format", request.Format)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideWithFormat", "format", request.Format, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert notes slide to the specified image format.
+   Test for SlidesApi.PostGetNotesSlideWithFormat method with invalid document
+*/
+func TestPostGetNotesSlideWithFormatInvalidDocument(t *testing.T) {
+    request := createPostGetNotesSlideWithFormatRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Document, "PostGetNotesSlideWithFormat", "document", "[]byte")
+    if (invalidValue == nil) {
+        request.Document = nil
+    } else {
+        request.Document = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostGetNotesSlideWithFormat", "document", request.Document)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideWithFormat", "document", request.Document, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert notes slide to the specified image format.
+   Test for SlidesApi.PostGetNotesSlideWithFormat method with invalid width
+*/
+func TestPostGetNotesSlideWithFormatInvalidWidth(t *testing.T) {
+    request := createPostGetNotesSlideWithFormatRequest()
+    request.Width = new(int32)
+
+    invalidValue := invalidizeTestParamValue(request.Width, "PostGetNotesSlideWithFormat", "width", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        request.Width = nullValue
+    } else {
+        *request.Width = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostGetNotesSlideWithFormat", "width", request.Width)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideWithFormat", "width", request.Width, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert notes slide to the specified image format.
+   Test for SlidesApi.PostGetNotesSlideWithFormat method with invalid height
+*/
+func TestPostGetNotesSlideWithFormatInvalidHeight(t *testing.T) {
+    request := createPostGetNotesSlideWithFormatRequest()
+    request.Height = new(int32)
+
+    invalidValue := invalidizeTestParamValue(request.Height, "PostGetNotesSlideWithFormat", "height", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        request.Height = nullValue
+    } else {
+        *request.Height = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostGetNotesSlideWithFormat", "height", request.Height)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideWithFormat", "height", request.Height, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert notes slide to the specified image format.
+   Test for SlidesApi.PostGetNotesSlideWithFormat method with invalid password
+*/
+func TestPostGetNotesSlideWithFormatInvalidPassword(t *testing.T) {
+    request := createPostGetNotesSlideWithFormatRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostGetNotesSlideWithFormat", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostGetNotesSlideWithFormat", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideWithFormat", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert notes slide to the specified image format.
+   Test for SlidesApi.PostGetNotesSlideWithFormat method with invalid fontsFolder
+*/
+func TestPostGetNotesSlideWithFormatInvalidFontsFolder(t *testing.T) {
+    request := createPostGetNotesSlideWithFormatRequest()
+
+    invalidValue := invalidizeTestParamValue(request.FontsFolder, "PostGetNotesSlideWithFormat", "fontsFolder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.FontsFolder = nullValue
+    } else {
+        request.FontsFolder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostGetNotesSlideWithFormat", "fontsFolder", request.FontsFolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideWithFormat", "fontsFolder", request.FontsFolder, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Creates new paragraph.
    Test for SlidesApi.PostNotesSlideAddNewParagraph method
 */
@@ -19450,6 +19787,7 @@ func TestPostSlidesPipeline(t *testing.T) {
 func createPostSlidesPipelineRequest() PostSlidesPipelineRequest {
     var request PostSlidesPipelineRequest
     request.Pipeline = createTestParamValue("PostSlidesPipeline", "pipeline", "Pipeline").(IPipeline)
+    request.Files = createTestParamValue("PostSlidesPipeline", "files", "[][]byte").([][]byte)
     return request
 }
 
@@ -19477,6 +19815,32 @@ func TestPostSlidesPipelineInvalidPipeline(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostSlidesPipeline", "pipeline", request.Pipeline, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Performs slides pipeline.
+   Test for SlidesApi.PostSlidesPipeline method with invalid files
+*/
+func TestPostSlidesPipelineInvalidFiles(t *testing.T) {
+    request := createPostSlidesPipelineRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Files, "PostSlidesPipeline", "files", "[][]byte")
+    if (invalidValue == nil) {
+        request.Files = nil
+    } else {
+        request.Files = invalidValue.([][]byte)
+    }
+
+    e := initializeTest("PostSlidesPipeline", "files", request.Files)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSlidesPipeline(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSlidesPipeline", "files", request.Files, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Replace text with a new value.

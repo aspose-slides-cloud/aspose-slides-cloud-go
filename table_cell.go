@@ -150,6 +150,13 @@ type TableCell struct {
 	BorderDiagonalDown ILineFormat `json:"BorderDiagonalDown,omitempty"`
 }
 
+func NewTableCell() *TableCell {
+	instance := new(TableCell)
+	instance.TextAnchorType = ""
+	instance.TextVerticalType = ""
+	return instance
+}
+
 func (this *TableCell) getText() string {
 	return this.Text
 }

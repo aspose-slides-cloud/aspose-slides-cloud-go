@@ -59,6 +59,12 @@ type UpdateBackground struct {
 	Background ISlideBackground `json:"Background,omitempty"`
 }
 
+func NewUpdateBackground() *UpdateBackground {
+	instance := new(UpdateBackground)
+	instance.Type_ = "UpdateBackground"
+	return instance
+}
+
 func (this *UpdateBackground) getType() string {
 	return this.Type_
 }

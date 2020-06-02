@@ -59,6 +59,12 @@ type UpdateShape struct {
 	ShapePath string `json:"ShapePath,omitempty"`
 }
 
+func NewUpdateShape() *UpdateShape {
+	instance := new(UpdateShape)
+	instance.Type_ = "UpdateShape"
+	return instance
+}
+
 func (this *UpdateShape) getType() string {
 	return this.Type_
 }

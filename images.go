@@ -59,6 +59,11 @@ type Images struct {
 	List []IImage `json:"List,omitempty"`
 }
 
+func NewImages() *Images {
+	instance := new(Images)
+	return instance
+}
+
 func (this *Images) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

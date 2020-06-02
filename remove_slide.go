@@ -52,6 +52,12 @@ type RemoveSlide struct {
 	Position int32 `json:"Position"`
 }
 
+func NewRemoveSlide() *RemoveSlide {
+	instance := new(RemoveSlide)
+	instance.Type_ = "RemoveSlide"
+	return instance
+}
+
 func (this *RemoveSlide) getType() string {
 	return this.Type_
 }

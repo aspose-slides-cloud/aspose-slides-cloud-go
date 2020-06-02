@@ -94,6 +94,11 @@ type EffectFormat struct {
 	FillOverlay IFillOverlayEffect `json:"FillOverlay,omitempty"`
 }
 
+func NewEffectFormat() *EffectFormat {
+	instance := new(EffectFormat)
+	return instance
+}
+
 func (this *EffectFormat) getBlur() IBlurEffect {
 	return this.Blur
 }

@@ -101,6 +101,12 @@ type Legend struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
+func NewLegend() *Legend {
+	instance := new(Legend)
+	instance.Position = ""
+	return instance
+}
+
 func (this *Legend) getPosition() string {
 	return this.Position
 }

@@ -66,6 +66,12 @@ type AddMasterSlide struct {
 	ApplyToAll bool `json:"ApplyToAll"`
 }
 
+func NewAddMasterSlide() *AddMasterSlide {
+	instance := new(AddMasterSlide)
+	instance.Type_ = "AddMasterSlide"
+	return instance
+}
+
 func (this *AddMasterSlide) getType() string {
 	return this.Type_
 }

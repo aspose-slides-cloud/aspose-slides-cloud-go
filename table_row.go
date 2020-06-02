@@ -59,6 +59,11 @@ type TableRow struct {
 	Height float64 `json:"Height"`
 }
 
+func NewTableRow() *TableRow {
+	instance := new(TableRow)
+	return instance
+}
+
 func (this *TableRow) getCells() []ITableCell {
 	return this.Cells
 }

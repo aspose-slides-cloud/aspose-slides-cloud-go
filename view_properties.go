@@ -115,6 +115,15 @@ type ViewProperties struct {
 	ShowComments string `json:"ShowComments,omitempty"`
 }
 
+func NewViewProperties() *ViewProperties {
+	instance := new(ViewProperties)
+	instance.LastView = ""
+	instance.HorizontalBarState = ""
+	instance.VerticalBarState = ""
+	instance.ShowComments = ""
+	return instance
+}
+
 func (this *ViewProperties) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

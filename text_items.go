@@ -59,6 +59,11 @@ type TextItems struct {
 	Items []ITextItem `json:"Items,omitempty"`
 }
 
+func NewTextItems() *TextItems {
+	instance := new(TextItems)
+	return instance
+}
+
 func (this *TextItems) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

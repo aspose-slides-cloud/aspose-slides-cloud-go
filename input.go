@@ -59,6 +59,11 @@ type Input struct {
 	TemplateData IInputFile `json:"TemplateData,omitempty"`
 }
 
+func NewInput() *Input {
+	instance := new(Input)
+	return instance
+}
+
 func (this *Input) getTemplate() IInputFile {
 	return this.Template
 }

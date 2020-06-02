@@ -80,6 +80,11 @@ type FormatScheme struct {
 	LineStyles []IResourceUri `json:"LineStyles,omitempty"`
 }
 
+func NewFormatScheme() *FormatScheme {
+	instance := new(FormatScheme)
+	return instance
+}
+
 func (this *FormatScheme) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

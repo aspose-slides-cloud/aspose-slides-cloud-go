@@ -52,6 +52,11 @@ type TextItem struct {
 	Text string `json:"Text,omitempty"`
 }
 
+func NewTextItem() *TextItem {
+	instance := new(TextItem)
+	return instance
+}
+
 func (this *TextItem) getUri() IResourceUri {
 	return this.Uri
 }

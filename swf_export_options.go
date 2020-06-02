@@ -185,6 +185,13 @@ type SwfExportOptions struct {
 	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
 }
 
+func NewSwfExportOptions() *SwfExportOptions {
+	instance := new(SwfExportOptions)
+	instance.NotesPosition = "None"
+	instance.CommentsPosition = "None"
+	return instance
+}
+
 func (this *SwfExportOptions) getFormat() string {
 	return this.Format
 }

@@ -66,6 +66,13 @@ type Save struct {
 	Options IExportOptions `json:"Options,omitempty"`
 }
 
+func NewSave() *Save {
+	instance := new(Save)
+	instance.Type_ = "Save"
+	instance.Format = "Pdf"
+	return instance
+}
+
 func (this *Save) getType() string {
 	return this.Type_
 }

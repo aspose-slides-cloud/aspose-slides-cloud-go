@@ -227,6 +227,14 @@ type Table struct {
 	VerticalBanding bool `json:"VerticalBanding"`
 }
 
+func NewTable() *Table {
+	instance := new(Table)
+	instance.Type_ = "Table"
+	instance.ShapeType = "Table"
+	instance.Style = ""
+	return instance
+}
+
 func (this *Table) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

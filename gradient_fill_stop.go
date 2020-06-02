@@ -52,6 +52,11 @@ type GradientFillStop struct {
 	Position float64 `json:"Position"`
 }
 
+func NewGradientFillStop() *GradientFillStop {
+	instance := new(GradientFillStop)
+	return instance
+}
+
 func (this *GradientFillStop) getColor() string {
 	return this.Color
 }

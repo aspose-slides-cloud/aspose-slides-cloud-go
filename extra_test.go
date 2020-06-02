@@ -29,9 +29,57 @@ package asposeslidescloud
 
 import (
 	"encoding/json"
+	"io/ioutil"
 	"os"
 	"testing"
 )
+
+/* 
+   Test for SlidesApi.PostSlideSaveAs with timeout method
+*/
+func TestPipeline(t *testing.T) {
+        file1 := NewRequestInputFile()
+        file1.Index = 0
+
+        file2 := NewRequestInputFile()
+        file2.Index = 1
+
+        input := NewInput()
+        input.TemplateData = file1
+        input.Template = file2
+
+        output := NewOutputFile()
+
+        task := NewSave()
+        task.Format = "pptx"
+        task.Output = output
+
+        pipeline := NewPipeline()
+        pipeline.Input = input
+        pipeline.Tasks = []ITask { task }
+
+	data1, e := ioutil.ReadFile("TestData/TemplatingCVDataWithBase64.xml")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	data2, e := ioutil.ReadFile("TestData/TemplateCV.pptx")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+        files := [][]byte { data1, data2 }
+
+        var request PostSlidesPipelineRequest
+        request.Pipeline = pipeline
+        request.Files = files
+
+	_, _, e = getTestApiClient().SlidesApi.PostSlidesPipeline(request)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
 
 /* 
    Test for SlidesApi.PostSlideSaveAs with timeout method
@@ -97,8 +145,7 @@ func TestShape(t *testing.T) {
    Test for SlidesApi.PostSlideSaveAs with timeout method
 */
 func TestChart(t *testing.T) {
-	return
-	var chart Chart
+	chart := NewChart()
 	if chart.getType() != "Chart" {
 		t.Errorf("Unexpected chart type: %v.", chart.getType())
 		return

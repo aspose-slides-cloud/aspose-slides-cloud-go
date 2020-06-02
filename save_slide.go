@@ -87,6 +87,13 @@ type SaveSlide struct {
 	Position int32 `json:"Position"`
 }
 
+func NewSaveSlide() *SaveSlide {
+	instance := new(SaveSlide)
+	instance.Type_ = "SaveSlide"
+	instance.Format = "Jpeg"
+	return instance
+}
+
 func (this *SaveSlide) getType() string {
 	return this.Type_
 }

@@ -66,6 +66,11 @@ type XpsExportOptions struct {
 	DrawSlidesFrame bool `json:"DrawSlidesFrame"`
 }
 
+func NewXpsExportOptions() *XpsExportOptions {
+	instance := new(XpsExportOptions)
+	return instance
+}
+
 func (this *XpsExportOptions) getFormat() string {
 	return this.Format
 }

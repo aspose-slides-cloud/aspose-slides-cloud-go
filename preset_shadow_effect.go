@@ -66,6 +66,12 @@ type PresetShadowEffect struct {
 	ShadowColor string `json:"ShadowColor,omitempty"`
 }
 
+func NewPresetShadowEffect() *PresetShadowEffect {
+	instance := new(PresetShadowEffect)
+	instance.Preset = "TopLeftDropShadow"
+	return instance
+}
+
 func (this *PresetShadowEffect) getDirection() float64 {
 	return this.Direction
 }

@@ -59,8 +59,7 @@ func (a *SlidesApiService) CopyFile(request CopyFileRequest) (*http.Response, er
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -115,7 +114,7 @@ func (a *SlidesApiService) CopyFile(request CopyFileRequest) (*http.Response, er
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -172,8 +171,7 @@ func (a *SlidesApiService) CopyFolder(request CopyFolderRequest) (*http.Response
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -222,7 +220,7 @@ func (a *SlidesApiService) CopyFolder(request CopyFolderRequest) (*http.Response
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -276,8 +274,7 @@ func (a *SlidesApiService) CreateFolder(request CreateFolderRequest) (*http.Resp
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -319,7 +316,7 @@ func (a *SlidesApiService) CreateFolder(request CreateFolderRequest) (*http.Resp
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -372,8 +369,7 @@ func (a *SlidesApiService) DeleteFile(request DeleteFileRequest) (*http.Response
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -421,7 +417,7 @@ func (a *SlidesApiService) DeleteFile(request DeleteFileRequest) (*http.Response
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -475,8 +471,7 @@ func (a *SlidesApiService) DeleteFolder(request DeleteFolderRequest) (*http.Resp
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -526,7 +521,7 @@ func (a *SlidesApiService) DeleteFolder(request DeleteFolderRequest) (*http.Resp
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -582,8 +577,7 @@ func (a *SlidesApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (IS
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlide
 	)
 
@@ -644,7 +638,7 @@ func (a *SlidesApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (IS
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -717,8 +711,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraph(request DeleteNotesSlidePar
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraphs
 	)
 
@@ -797,7 +790,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraph(request DeleteNotesSlidePar
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -873,8 +866,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraphs(request DeleteNotesSlidePa
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraphs
 	)
 
@@ -953,7 +945,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraphs(request DeleteNotesSlidePa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1030,8 +1022,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortion(request DeleteNotesSlidePorti
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortions
 	)
 
@@ -1116,7 +1107,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortion(request DeleteNotesSlidePorti
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1194,8 +1185,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortions(request DeleteNotesSlidePort
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortions
 	)
 
@@ -1280,7 +1270,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortions(request DeleteNotesSlidePort
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1356,8 +1346,7 @@ func (a *SlidesApiService) DeleteNotesSlideShape(request DeleteNotesSlideShapeRe
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapes
 	)
 
@@ -1430,7 +1419,7 @@ func (a *SlidesApiService) DeleteNotesSlideShape(request DeleteNotesSlideShapeRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1504,8 +1493,7 @@ func (a *SlidesApiService) DeleteNotesSlideShapes(request DeleteNotesSlideShapes
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapes
 	)
 
@@ -1578,7 +1566,7 @@ func (a *SlidesApiService) DeleteNotesSlideShapes(request DeleteNotesSlideShapes
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1653,8 +1641,7 @@ func (a *SlidesApiService) DeleteParagraph(request DeleteParagraphRequest) (IPar
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraphs
 	)
 
@@ -1733,7 +1720,7 @@ func (a *SlidesApiService) DeleteParagraph(request DeleteParagraphRequest) (IPar
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1809,8 +1796,7 @@ func (a *SlidesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (IP
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraphs
 	)
 
@@ -1889,7 +1875,7 @@ func (a *SlidesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (IP
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -1966,8 +1952,7 @@ func (a *SlidesApiService) DeletePortion(request DeletePortionRequest) (IPortion
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortions
 	)
 
@@ -2052,7 +2037,7 @@ func (a *SlidesApiService) DeletePortion(request DeletePortionRequest) (IPortion
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2130,8 +2115,7 @@ func (a *SlidesApiService) DeletePortions(request DeletePortionsRequest) (IPorti
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortions
 	)
 
@@ -2216,7 +2200,7 @@ func (a *SlidesApiService) DeletePortions(request DeletePortionsRequest) (IPorti
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2290,8 +2274,7 @@ func (a *SlidesApiService) DeleteSlideAnimation(request DeleteSlideAnimationRequ
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -2352,7 +2335,7 @@ func (a *SlidesApiService) DeleteSlideAnimation(request DeleteSlideAnimationRequ
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2423,8 +2406,7 @@ func (a *SlidesApiService) DeleteSlideAnimationEffect(request DeleteSlideAnimati
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -2491,7 +2473,7 @@ func (a *SlidesApiService) DeleteSlideAnimationEffect(request DeleteSlideAnimati
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2563,8 +2545,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequence(request Delet
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -2631,7 +2612,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequence(request Delet
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2704,8 +2685,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequenceEffect(request
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -2778,7 +2758,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequenceEffect(request
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2850,8 +2830,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequences(request Dele
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -2912,7 +2891,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequences(request Dele
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -2982,8 +2961,7 @@ func (a *SlidesApiService) DeleteSlideAnimationMainSequence(request DeleteSlideA
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -3044,7 +3022,7 @@ func (a *SlidesApiService) DeleteSlideAnimationMainSequence(request DeleteSlideA
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3114,8 +3092,7 @@ func (a *SlidesApiService) DeleteSlideByIndex(request DeleteSlideByIndexRequest)
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlides
 	)
 
@@ -3176,7 +3153,7 @@ func (a *SlidesApiService) DeleteSlideByIndex(request DeleteSlideByIndexRequest)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3248,8 +3225,7 @@ func (a *SlidesApiService) DeleteSlideShape(request DeleteSlideShapeRequest) (IS
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapes
 	)
 
@@ -3322,7 +3298,7 @@ func (a *SlidesApiService) DeleteSlideShape(request DeleteSlideShapeRequest) (IS
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3396,8 +3372,7 @@ func (a *SlidesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapes
 	)
 
@@ -3470,7 +3445,7 @@ func (a *SlidesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3542,8 +3517,7 @@ func (a *SlidesApiService) DeleteSlidesCleanSlidesList(request DeleteSlidesClean
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlides
 	)
 
@@ -3604,7 +3578,7 @@ func (a *SlidesApiService) DeleteSlidesCleanSlidesList(request DeleteSlidesClean
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3673,8 +3647,7 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperties(request DeleteSlidesDo
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocumentProperties
 	)
 
@@ -3729,7 +3702,7 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperties(request DeleteSlidesDo
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3798,8 +3771,7 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperty(request DeleteSlidesDocu
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocumentProperties
 	)
 
@@ -3860,7 +3832,7 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperty(request DeleteSlidesDocu
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -3930,8 +3902,7 @@ func (a *SlidesApiService) DeleteSlidesSlideBackground(request DeleteSlidesSlide
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideBackground
 	)
 
@@ -3992,7 +3963,7 @@ func (a *SlidesApiService) DeleteSlidesSlideBackground(request DeleteSlidesSlide
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4060,8 +4031,7 @@ func (a *SlidesApiService) DownloadFile(request DownloadFileRequest) (*os.File, 
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload *os.File
 	)
 
@@ -4110,7 +4080,7 @@ func (a *SlidesApiService) DownloadFile(request DownloadFileRequest) (*os.File, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4167,8 +4137,7 @@ func (a *SlidesApiService) GetDiscUsage(request GetDiscUsageRequest) (IDiscUsage
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDiscUsage
 	)
 
@@ -4205,7 +4174,7 @@ func (a *SlidesApiService) GetDiscUsage(request GetDiscUsageRequest) (IDiscUsage
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4268,8 +4237,7 @@ func (a *SlidesApiService) GetFileVersions(request GetFileVersionsRequest) (IFil
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IFileVersions
 	)
 
@@ -4312,7 +4280,7 @@ func (a *SlidesApiService) GetFileVersions(request GetFileVersionsRequest) (IFil
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4376,8 +4344,7 @@ func (a *SlidesApiService) GetFilesList(request GetFilesListRequest) (IFilesList
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IFilesList
 	)
 
@@ -4420,7 +4387,7 @@ func (a *SlidesApiService) GetFilesList(request GetFilesListRequest) (IFilesList
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4487,8 +4454,7 @@ func (a *SlidesApiService) GetLayoutSlide(request GetLayoutSlideRequest) (ILayou
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ILayoutSlide
 	)
 
@@ -4549,7 +4515,7 @@ func (a *SlidesApiService) GetLayoutSlide(request GetLayoutSlideRequest) (ILayou
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4618,8 +4584,7 @@ func (a *SlidesApiService) GetLayoutSlidesList(request GetLayoutSlidesListReques
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ILayoutSlides
 	)
 
@@ -4674,7 +4639,7 @@ func (a *SlidesApiService) GetLayoutSlidesList(request GetLayoutSlidesListReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4743,8 +4708,7 @@ func (a *SlidesApiService) GetMasterSlide(request GetMasterSlideRequest) (IMaste
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IMasterSlide
 	)
 
@@ -4805,7 +4769,7 @@ func (a *SlidesApiService) GetMasterSlide(request GetMasterSlideRequest) (IMaste
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4874,8 +4838,7 @@ func (a *SlidesApiService) GetMasterSlidesList(request GetMasterSlidesListReques
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IMasterSlides
 	)
 
@@ -4930,7 +4893,7 @@ func (a *SlidesApiService) GetMasterSlidesList(request GetMasterSlidesListReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -4999,8 +4962,7 @@ func (a *SlidesApiService) GetNotesSlide(request GetNotesSlideRequest) (INotesSl
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload INotesSlide
 	)
 
@@ -5061,7 +5023,7 @@ func (a *SlidesApiService) GetNotesSlide(request GetNotesSlideRequest) (INotesSl
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5133,8 +5095,7 @@ func (a *SlidesApiService) GetNotesSlideShape(request GetNotesSlideShapeRequest)
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapeBase
 	)
 
@@ -5207,7 +5168,7 @@ func (a *SlidesApiService) GetNotesSlideShape(request GetNotesSlideShapeRequest)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5282,8 +5243,7 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraph(request GetNotesSlideShap
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraph
 	)
 
@@ -5362,7 +5322,7 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraph(request GetNotesSlideShap
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5437,8 +5397,7 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraphs(request GetNotesSlideSha
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraphs
 	)
 
@@ -5511,7 +5470,7 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraphs(request GetNotesSlideSha
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5587,8 +5546,7 @@ func (a *SlidesApiService) GetNotesSlideShapePortion(request GetNotesSlideShapeP
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortion
 	)
 
@@ -5673,7 +5631,7 @@ func (a *SlidesApiService) GetNotesSlideShapePortion(request GetNotesSlideShapeP
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5750,8 +5708,7 @@ func (a *SlidesApiService) GetNotesSlideShapePortions(request GetNotesSlideShape
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortions
 	)
 
@@ -5830,7 +5787,7 @@ func (a *SlidesApiService) GetNotesSlideShapePortions(request GetNotesSlideShape
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -5904,8 +5861,7 @@ func (a *SlidesApiService) GetNotesSlideShapes(request GetNotesSlideShapesReques
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapes
 	)
 
@@ -5972,7 +5928,7 @@ func (a *SlidesApiService) GetNotesSlideShapes(request GetNotesSlideShapesReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6047,8 +6003,7 @@ func (a *SlidesApiService) GetNotesSlideWithFormat(request GetNotesSlideWithForm
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload *os.File
 	)
 
@@ -6137,7 +6092,7 @@ func (a *SlidesApiService) GetNotesSlideWithFormat(request GetNotesSlideWithForm
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6208,8 +6163,7 @@ func (a *SlidesApiService) GetParagraphPortion(request GetParagraphPortionReques
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortion
 	)
 
@@ -6294,7 +6248,7 @@ func (a *SlidesApiService) GetParagraphPortion(request GetParagraphPortionReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6371,8 +6325,7 @@ func (a *SlidesApiService) GetParagraphPortions(request GetParagraphPortionsRequ
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortions
 	)
 
@@ -6451,7 +6404,7 @@ func (a *SlidesApiService) GetParagraphPortions(request GetParagraphPortionsRequ
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6525,8 +6478,7 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -6588,7 +6540,7 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6661,8 +6613,7 @@ func (a *SlidesApiService) GetSlideShape(request GetSlideShapeRequest) (IShapeBa
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapeBase
 	)
 
@@ -6735,7 +6686,7 @@ func (a *SlidesApiService) GetSlideShape(request GetSlideShapeRequest) (IShapeBa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6810,8 +6761,7 @@ func (a *SlidesApiService) GetSlideShapeParagraph(request GetSlideShapeParagraph
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraph
 	)
 
@@ -6890,7 +6840,7 @@ func (a *SlidesApiService) GetSlideShapeParagraph(request GetSlideShapeParagraph
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -6965,8 +6915,7 @@ func (a *SlidesApiService) GetSlideShapeParagraphs(request GetSlideShapeParagrap
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraphs
 	)
 
@@ -7039,7 +6988,7 @@ func (a *SlidesApiService) GetSlideShapeParagraphs(request GetSlideShapeParagrap
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7112,8 +7061,7 @@ func (a *SlidesApiService) GetSlideShapes(request GetSlideShapesRequest) (IShape
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapes
 	)
 
@@ -7180,7 +7128,7 @@ func (a *SlidesApiService) GetSlideShapes(request GetSlideShapesRequest) (IShape
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7245,8 +7193,7 @@ func (a *SlidesApiService) GetSlidesApiInfo() (IApiInfo, *http.Response, error) 
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IApiInfo
 	)
 
@@ -7277,7 +7224,7 @@ func (a *SlidesApiService) GetSlidesApiInfo() (IApiInfo, *http.Response, error) 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7337,8 +7284,7 @@ func (a *SlidesApiService) GetSlidesDocument(request GetSlidesDocumentRequest) (
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocument
 	)
 
@@ -7393,7 +7339,7 @@ func (a *SlidesApiService) GetSlidesDocument(request GetSlidesDocumentRequest) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7461,8 +7407,7 @@ func (a *SlidesApiService) GetSlidesDocumentProperties(request GetSlidesDocument
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocumentProperties
 	)
 
@@ -7517,7 +7462,7 @@ func (a *SlidesApiService) GetSlidesDocumentProperties(request GetSlidesDocument
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7586,8 +7531,7 @@ func (a *SlidesApiService) GetSlidesDocumentProperty(request GetSlidesDocumentPr
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocumentProperty
 	)
 
@@ -7648,7 +7592,7 @@ func (a *SlidesApiService) GetSlidesDocumentProperty(request GetSlidesDocumentPr
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7718,8 +7662,7 @@ func (a *SlidesApiService) GetSlidesImageWithDefaultFormat(request GetSlidesImag
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload *os.File
 	)
 
@@ -7780,7 +7723,7 @@ func (a *SlidesApiService) GetSlidesImageWithDefaultFormat(request GetSlidesImag
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7844,8 +7787,7 @@ func (a *SlidesApiService) GetSlidesImageWithFormat(request GetSlidesImageWithFo
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload *os.File
 	)
 
@@ -7912,7 +7854,7 @@ func (a *SlidesApiService) GetSlidesImageWithFormat(request GetSlidesImageWithFo
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -7975,8 +7917,7 @@ func (a *SlidesApiService) GetSlidesImages(request GetSlidesImagesRequest) (IIma
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IImages
 	)
 
@@ -8031,7 +7972,7 @@ func (a *SlidesApiService) GetSlidesImages(request GetSlidesImagesRequest) (IIma
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8101,8 +8042,7 @@ func (a *SlidesApiService) GetSlidesPlaceholder(request GetSlidesPlaceholderRequ
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPlaceholder
 	)
 
@@ -8169,7 +8109,7 @@ func (a *SlidesApiService) GetSlidesPlaceholder(request GetSlidesPlaceholderRequ
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8240,8 +8180,7 @@ func (a *SlidesApiService) GetSlidesPlaceholders(request GetSlidesPlaceholdersRe
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPlaceholders
 	)
 
@@ -8302,7 +8241,7 @@ func (a *SlidesApiService) GetSlidesPlaceholders(request GetSlidesPlaceholdersRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8372,8 +8311,7 @@ func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPrese
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ITextItems
 	)
 
@@ -8436,7 +8374,7 @@ func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPrese
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8506,8 +8444,7 @@ func (a *SlidesApiService) GetSlidesSlide(request GetSlidesSlideRequest) (ISlide
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlide
 	)
 
@@ -8568,7 +8505,7 @@ func (a *SlidesApiService) GetSlidesSlide(request GetSlidesSlideRequest) (ISlide
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8638,8 +8575,7 @@ func (a *SlidesApiService) GetSlidesSlideBackground(request GetSlidesSlideBackgr
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideBackground
 	)
 
@@ -8700,7 +8636,7 @@ func (a *SlidesApiService) GetSlidesSlideBackground(request GetSlidesSlideBackgr
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8770,8 +8706,7 @@ func (a *SlidesApiService) GetSlidesSlideComments(request GetSlidesSlideComments
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideComments
 	)
 
@@ -8832,7 +8767,7 @@ func (a *SlidesApiService) GetSlidesSlideComments(request GetSlidesSlideComments
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -8902,8 +8837,7 @@ func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequ
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IImages
 	)
 
@@ -8964,7 +8898,7 @@ func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequ
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9035,8 +8969,7 @@ func (a *SlidesApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextIte
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ITextItems
 	)
 
@@ -9105,7 +9038,7 @@ func (a *SlidesApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextIte
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9175,8 +9108,7 @@ func (a *SlidesApiService) GetSlidesSlidesList(request GetSlidesSlidesListReques
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlides
 	)
 
@@ -9231,7 +9163,7 @@ func (a *SlidesApiService) GetSlidesSlidesList(request GetSlidesSlidesListReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9300,8 +9232,7 @@ func (a *SlidesApiService) GetSlidesTheme(request GetSlidesThemeRequest) (ITheme
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ITheme
 	)
 
@@ -9362,7 +9293,7 @@ func (a *SlidesApiService) GetSlidesTheme(request GetSlidesThemeRequest) (ITheme
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9432,8 +9363,7 @@ func (a *SlidesApiService) GetSlidesThemeColorScheme(request GetSlidesThemeColor
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IColorScheme
 	)
 
@@ -9494,7 +9424,7 @@ func (a *SlidesApiService) GetSlidesThemeColorScheme(request GetSlidesThemeColor
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9564,8 +9494,7 @@ func (a *SlidesApiService) GetSlidesThemeFontScheme(request GetSlidesThemeFontSc
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IFontScheme
 	)
 
@@ -9626,7 +9555,7 @@ func (a *SlidesApiService) GetSlidesThemeFontScheme(request GetSlidesThemeFontSc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9696,8 +9625,7 @@ func (a *SlidesApiService) GetSlidesThemeFormatScheme(request GetSlidesThemeForm
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IFormatScheme
 	)
 
@@ -9758,7 +9686,7 @@ func (a *SlidesApiService) GetSlidesThemeFormatScheme(request GetSlidesThemeForm
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9827,8 +9755,7 @@ func (a *SlidesApiService) GetSlidesViewProperties(request GetSlidesViewProperti
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IViewProperties
 	)
 
@@ -9883,7 +9810,7 @@ func (a *SlidesApiService) GetSlidesViewProperties(request GetSlidesViewProperti
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -9952,8 +9879,7 @@ func (a *SlidesApiService) MoveFile(request MoveFileRequest) (*http.Response, er
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -10008,7 +9934,7 @@ func (a *SlidesApiService) MoveFile(request MoveFileRequest) (*http.Response, er
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -10065,8 +9991,7 @@ func (a *SlidesApiService) MoveFolder(request MoveFolderRequest) (*http.Response
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -10115,7 +10040,7 @@ func (a *SlidesApiService) MoveFolder(request MoveFolderRequest) (*http.Response
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -10170,8 +10095,7 @@ func (a *SlidesApiService) ObjectExists(request ObjectExistsRequest) (IObjectExi
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IObjectExist
 	)
 
@@ -10220,7 +10144,7 @@ func (a *SlidesApiService) ObjectExists(request ObjectExistsRequest) (IObjectExi
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10292,8 +10216,7 @@ func (a *SlidesApiService) PostAddNewParagraph(request PostAddNewParagraphReques
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraph
 	)
 
@@ -10376,7 +10299,7 @@ func (a *SlidesApiService) PostAddNewParagraph(request PostAddNewParagraphReques
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10455,8 +10378,7 @@ func (a *SlidesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortion
 	)
 
@@ -10545,7 +10467,7 @@ func (a *SlidesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10624,8 +10546,7 @@ func (a *SlidesApiService) PostAddNewShape(request PostAddNewShapeRequest) (ISha
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapeBase
 	)
 
@@ -10710,7 +10631,7 @@ func (a *SlidesApiService) PostAddNewShape(request PostAddNewShapeRequest) (ISha
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10785,8 +10706,7 @@ func (a *SlidesApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload INotesSlide
 	)
 
@@ -10849,7 +10769,7 @@ func (a *SlidesApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -10923,8 +10843,7 @@ func (a *SlidesApiService) PostCopyLayoutSlideFromSourcePresentation(request Pos
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ILayoutSlide
 	)
 
@@ -10993,7 +10912,7 @@ func (a *SlidesApiService) PostCopyLayoutSlideFromSourcePresentation(request Pos
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11070,8 +10989,7 @@ func (a *SlidesApiService) PostCopyMasterSlideFromSourcePresentation(request Pos
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IMasterSlide
 	)
 
@@ -11148,7 +11066,7 @@ func (a *SlidesApiService) PostCopyMasterSlideFromSourcePresentation(request Pos
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11210,6 +11128,257 @@ type PostCopyMasterSlideFromSourcePresentationRequest struct {
     Storage string
 }
 
+/* SlidesApiService Read notes slide info.
+ @param slideIndex Slide index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "document" ([]byte) Document data.
+     @param "password" (string) Document password.
+ @return NotesSlide*/
+func (a *SlidesApiService) PostGetNotesSlide(request PostGetNotesSlideRequest) (INotesSlide, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload INotesSlide
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/slides/{slideIndex}/notesSlide"
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/octet-stream", "multipart/form-data",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = request.Document
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if err != nil {
+		return successPayload, nil, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("-->: %v\n", r)
+	}
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--: %v\n", localVarHttpResponse)
+	}
+	defer localVarHttpResponse.Body.Close()
+	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--BODY: %v\n", string(responseBytes))
+	}
+	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("NotesSlide", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(INotesSlide); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(INotesSlide); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PostGetNotesSlide
+*/
+type PostGetNotesSlideRequest struct {
+    SlideIndex int32
+    Document []byte
+    Password string
+}
+
+/* SlidesApiService Convert notes slide to the specified image format.
+ @param slideIndex Slide index.
+ @param format Output file format.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "document" ([]byte) Document data.
+     @param "width" (int32) Output file width.
+     @param "height" (int32) Output file height.
+     @param "password" (string) Document password.
+     @param "fontsFolder" (string) Storage folder containing custom fonts to be used with the document.
+ @return *os.File*/
+func (a *SlidesApiService) PostGetNotesSlideWithFormat(request PostGetNotesSlideWithFormatRequest) (*os.File, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload *os.File
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/slides/{slideIndex}/notesSlide/{format}"
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+	formatPathStringValue := fmt.Sprintf("%v", request.Format)
+	if len(formatPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"format"+"}", formatPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"format"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if request.Width != nil {
+		if err := typeCheckParameter(*request.Width, "int32", "width"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if request.Height != nil {
+		if err := typeCheckParameter(*request.Height, "int32", "height"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.FontsFolder, "string", "fontsFolder"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if request.Width != nil {
+		localVarQueryParams.Add("Width", parameterToString(*request.Width, ""))
+	}
+	if request.Height != nil {
+		localVarQueryParams.Add("Height", parameterToString(*request.Height, ""))
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.FontsFolder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/octet-stream", "multipart/form-data",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"multipart/form-data",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = request.Document
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if err != nil {
+		return successPayload, nil, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("-->: %v\n", r)
+	}
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--: %v\n", localVarHttpResponse)
+	}
+	defer localVarHttpResponse.Body.Close()
+	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--BODY: %v\n", string(responseBytes))
+	}
+	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	defer successPayload.Close()
+        successPayload, err = processFileResponse(responseBody)
+        if err != nil {
+		return successPayload, localVarHttpResponse, err
+        }
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PostGetNotesSlideWithFormat
+*/
+type PostGetNotesSlideWithFormatRequest struct {
+    SlideIndex int32
+    Format string
+    Document []byte
+    Width *int32
+    Height *int32
+    Password string
+    FontsFolder string
+}
+
 /* SlidesApiService Creates new paragraph.
  @param name Document name.
  @param slideIndex Slide index.
@@ -11226,8 +11395,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewParagraph(request PostNotesSlideA
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraph
 	)
 
@@ -11310,7 +11478,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewParagraph(request PostNotesSlideA
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11389,8 +11557,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewPortion(request PostNotesSlideAdd
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortion
 	)
 
@@ -11479,7 +11646,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewPortion(request PostNotesSlideAdd
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11558,8 +11725,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewShape(request PostNotesSlideAddNe
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapeBase
 	)
 
@@ -11644,7 +11810,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewShape(request PostNotesSlideAddNe
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11726,8 +11892,7 @@ func (a *SlidesApiService) PostNotesSlideShapeSaveAs(request PostNotesSlideShape
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload *os.File
 	)
 
@@ -11836,7 +12001,7 @@ func (a *SlidesApiService) PostNotesSlideShapeSaveAs(request PostNotesSlideShape
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -11907,8 +12072,7 @@ func (a *SlidesApiService) PostPresentationMerge(request PostPresentationMergeRe
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocument
 	)
 
@@ -11965,7 +12129,7 @@ func (a *SlidesApiService) PostPresentationMerge(request PostPresentationMergeRe
 	}
 	// body params
 	localVarPostBody = &request.Request
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12043,8 +12207,7 @@ func (a *SlidesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload *os.File
 	)
 
@@ -12153,7 +12316,7 @@ func (a *SlidesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12225,8 +12388,7 @@ func (a *SlidesApiService) PostSlideAnimationEffect(request PostSlideAnimationEf
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -12289,7 +12451,7 @@ func (a *SlidesApiService) PostSlideAnimationEffect(request PostSlideAnimationEf
 	}
 	// body params
 	localVarPostBody = &request.Effect
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12361,8 +12523,7 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequence(request PostSli
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -12425,7 +12586,7 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequence(request PostSli
 	}
 	// body params
 	localVarPostBody = &request.Sequence
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12498,8 +12659,7 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequenceEffect(request P
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -12568,7 +12728,7 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequenceEffect(request P
 	}
 	// body params
 	localVarPostBody = &request.Effect
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12645,8 +12805,7 @@ func (a *SlidesApiService) PostSlideSaveAs(request PostSlideSaveAsRequest) (*os.
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload *os.File
 	)
 
@@ -12737,7 +12896,7 @@ func (a *SlidesApiService) PostSlideSaveAs(request PostSlideSaveAsRequest) (*os.
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12806,8 +12965,7 @@ func (a *SlidesApiService) PostSlidesAdd(request PostSlidesAddRequest) (ISlides,
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlides
 	)
 
@@ -12876,7 +13034,7 @@ func (a *SlidesApiService) PostSlidesAdd(request PostSlidesAddRequest) (ISlides,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -12946,8 +13104,7 @@ func (a *SlidesApiService) PostSlidesConvert(request PostSlidesConvertRequest) (
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload *os.File
 	)
 
@@ -12998,7 +13155,7 @@ func (a *SlidesApiService) PostSlidesConvert(request PostSlidesConvertRequest) (
 	}
 	// body params
 	localVarPostBody = request.Document
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13064,8 +13221,7 @@ func (a *SlidesApiService) PostSlidesCopy(request PostSlidesCopyRequest) (ISlide
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlides
 	)
 
@@ -13147,7 +13303,7 @@ func (a *SlidesApiService) PostSlidesCopy(request PostSlidesCopyRequest) (ISlide
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13222,8 +13378,7 @@ func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest)
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocument
 	)
 
@@ -13286,7 +13441,7 @@ func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest)
 	}
 	// body params
 	localVarPostBody = request.Data
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13357,8 +13512,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocument
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocument
 	)
 
@@ -13418,7 +13572,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocument
 	}
 	// body params
 	localVarPostBody = request.Html
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13490,8 +13644,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromSource(request PostSlidesDocume
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocument
 	)
 
@@ -13564,7 +13717,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromSource(request PostSlidesDocume
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13640,8 +13793,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromTemplate(request PostSlidesDocu
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocument
 	)
 
@@ -13722,7 +13874,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromTemplate(request PostSlidesDocu
 	}
 	// body params
 	localVarPostBody = request.Data
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13787,13 +13939,13 @@ type PostSlidesDocumentFromTemplateRequest struct {
 /* SlidesApiService Performs slides pipeline.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "pipeline" (Pipeline) A Pipeline object.
+     @param "files" ([][]byte) files to upload with the pipeline
  @return *os.File*/
 func (a *SlidesApiService) PostSlidesPipeline(request PostSlidesPipelineRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload *os.File
 	)
 
@@ -13826,7 +13978,8 @@ func (a *SlidesApiService) PostSlidesPipeline(request PostSlidesPipelineRequest)
 	}
 	// body params
 	localVarPostBody = &request.Pipeline
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	localVarFiles = request.Files
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -13871,6 +14024,7 @@ func (a *SlidesApiService) PostSlidesPipeline(request PostSlidesPipelineRequest)
 */
 type PostSlidesPipelineRequest struct {
     Pipeline IPipeline
+    Files [][]byte
 }
 
 /* SlidesApiService Replace text with a new value.
@@ -13887,8 +14041,7 @@ func (a *SlidesApiService) PostSlidesPresentationReplaceText(request PostSlidesP
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocumentReplaceResult
 	)
 
@@ -13953,7 +14106,7 @@ func (a *SlidesApiService) PostSlidesPresentationReplaceText(request PostSlidesP
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14026,8 +14179,7 @@ func (a *SlidesApiService) PostSlidesReorder(request PostSlidesReorderRequest) (
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlides
 	)
 
@@ -14089,7 +14241,7 @@ func (a *SlidesApiService) PostSlidesReorder(request PostSlidesReorderRequest) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14161,8 +14313,7 @@ func (a *SlidesApiService) PostSlidesReorderMany(request PostSlidesReorderManyRe
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlides
 	)
 
@@ -14229,7 +14380,7 @@ func (a *SlidesApiService) PostSlidesReorderMany(request PostSlidesReorderManyRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14302,8 +14453,7 @@ func (a *SlidesApiService) PostSlidesSaveAs(request PostSlidesSaveAsRequest) (*o
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload *os.File
 	)
 
@@ -14372,7 +14522,7 @@ func (a *SlidesApiService) PostSlidesSaveAs(request PostSlidesSaveAsRequest) (*o
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14437,8 +14587,7 @@ func (a *SlidesApiService) PostSlidesSetDocumentProperties(request PostSlidesSet
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocumentProperties
 	)
 
@@ -14495,7 +14644,7 @@ func (a *SlidesApiService) PostSlidesSetDocumentProperties(request PostSlidesSet
 	}
 	// body params
 	localVarPostBody = &request.Properties
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14568,8 +14717,7 @@ func (a *SlidesApiService) PostSlidesSlideReplaceText(request PostSlidesSlideRep
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideReplaceResult
 	)
 
@@ -14640,7 +14788,7 @@ func (a *SlidesApiService) PostSlidesSlideReplaceText(request PostSlidesSlideRep
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14720,8 +14868,7 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (ISpl
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISplitDocumentResult
 	)
 
@@ -14828,7 +14975,7 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (ISpl
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -14906,8 +15053,7 @@ func (a *SlidesApiService) PutLayoutSlide(request PutLayoutSlideRequest) (ILayou
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ILayoutSlide
 	)
 
@@ -14970,7 +15116,7 @@ func (a *SlidesApiService) PutLayoutSlide(request PutLayoutSlideRequest) (ILayou
 	}
 	// body params
 	localVarPostBody = &request.SlideDto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15050,8 +15196,7 @@ func (a *SlidesApiService) PutNotesSlideShapeSaveAs(request PutNotesSlideShapeSa
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -15160,7 +15305,7 @@ func (a *SlidesApiService) PutNotesSlideShapeSaveAs(request PutNotesSlideShapeSa
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -15227,8 +15372,7 @@ func (a *SlidesApiService) PutPresentationMerge(request PutPresentationMergeRequ
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocument
 	)
 
@@ -15285,7 +15429,7 @@ func (a *SlidesApiService) PutPresentationMerge(request PutPresentationMergeRequ
 	}
 	// body params
 	localVarPostBody = &request.Request
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15360,8 +15504,7 @@ func (a *SlidesApiService) PutSetParagraphPortionProperties(request PutSetParagr
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortion
 	)
 
@@ -15448,7 +15591,7 @@ func (a *SlidesApiService) PutSetParagraphPortionProperties(request PutSetParagr
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15527,8 +15670,7 @@ func (a *SlidesApiService) PutSetParagraphProperties(request PutSetParagraphProp
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraph
 	)
 
@@ -15609,7 +15751,7 @@ func (a *SlidesApiService) PutSetParagraphProperties(request PutSetParagraphProp
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -15692,8 +15834,7 @@ func (a *SlidesApiService) PutShapeSaveAs(request PutShapeSaveAsRequest) (*http.
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -15802,7 +15943,7 @@ func (a *SlidesApiService) PutShapeSaveAs(request PutShapeSaveAsRequest) (*http.
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -15870,8 +16011,7 @@ func (a *SlidesApiService) PutSlideAnimation(request PutSlideAnimationRequest) (
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -15934,7 +16074,7 @@ func (a *SlidesApiService) PutSlideAnimation(request PutSlideAnimationRequest) (
 	}
 	// body params
 	localVarPostBody = &request.Animation
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16007,8 +16147,7 @@ func (a *SlidesApiService) PutSlideAnimationEffect(request PutSlideAnimationEffe
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -16077,7 +16216,7 @@ func (a *SlidesApiService) PutSlideAnimationEffect(request PutSlideAnimationEffe
 	}
 	// body params
 	localVarPostBody = &request.Effect
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16152,8 +16291,7 @@ func (a *SlidesApiService) PutSlideAnimationInteractiveSequenceEffect(request Pu
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideAnimation
 	)
 
@@ -16228,7 +16366,7 @@ func (a *SlidesApiService) PutSlideAnimationInteractiveSequenceEffect(request Pu
 	}
 	// body params
 	localVarPostBody = &request.Effect
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16307,8 +16445,7 @@ func (a *SlidesApiService) PutSlideSaveAs(request PutSlideSaveAsRequest) (*http.
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -16399,7 +16536,7 @@ func (a *SlidesApiService) PutSlideSaveAs(request PutSlideSaveAsRequest) (*http.
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -16466,8 +16603,7 @@ func (a *SlidesApiService) PutSlideShapeInfo(request PutSlideShapeInfoRequest) (
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapeBase
 	)
 
@@ -16542,7 +16678,7 @@ func (a *SlidesApiService) PutSlideShapeInfo(request PutSlideShapeInfoRequest) (
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16615,8 +16751,7 @@ func (a *SlidesApiService) PutSlidesConvert(request PutSlidesConvertRequest) (*h
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -16667,7 +16802,7 @@ func (a *SlidesApiService) PutSlidesConvert(request PutSlidesConvertRequest) (*h
 	}
 	// body params
 	localVarPostBody = request.Document
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -16725,8 +16860,7 @@ func (a *SlidesApiService) PutSlidesDocumentFromHtml(request PutSlidesDocumentFr
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocument
 	)
 
@@ -16786,7 +16920,7 @@ func (a *SlidesApiService) PutSlidesDocumentFromHtml(request PutSlidesDocumentFr
 	}
 	// body params
 	localVarPostBody = request.Html
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -16859,8 +16993,7 @@ func (a *SlidesApiService) PutSlidesSaveAs(request PutSlidesSaveAsRequest) (*htt
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	)
 
 	// create path and map variables
@@ -16929,7 +17062,7 @@ func (a *SlidesApiService) PutSlidesSaveAs(request PutSlidesSaveAsRequest) (*htt
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -16991,8 +17124,7 @@ func (a *SlidesApiService) PutSlidesSetDocumentProperty(request PutSlidesSetDocu
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocumentProperty
 	)
 
@@ -17055,7 +17187,7 @@ func (a *SlidesApiService) PutSlidesSetDocumentProperty(request PutSlidesSetDocu
 	}
 	// body params
 	localVarPostBody = &request.Property
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -17127,8 +17259,7 @@ func (a *SlidesApiService) PutSlidesSlide(request PutSlidesSlideRequest) (ISlide
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlide
 	)
 
@@ -17191,7 +17322,7 @@ func (a *SlidesApiService) PutSlidesSlide(request PutSlidesSlideRequest) (ISlide
 	}
 	// body params
 	localVarPostBody = &request.SlideDto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -17263,8 +17394,7 @@ func (a *SlidesApiService) PutSlidesSlideBackground(request PutSlidesSlideBackgr
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideBackground
 	)
 
@@ -17327,7 +17457,7 @@ func (a *SlidesApiService) PutSlidesSlideBackground(request PutSlidesSlideBackgr
 	}
 	// body params
 	localVarPostBody = &request.Background
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -17399,8 +17529,7 @@ func (a *SlidesApiService) PutSlidesSlideBackgroundColor(request PutSlidesSlideB
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload ISlideBackground
 	)
 
@@ -17462,7 +17591,7 @@ func (a *SlidesApiService) PutSlidesSlideBackgroundColor(request PutSlidesSlideB
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -17536,8 +17665,7 @@ func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest)
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IDocument
 	)
 
@@ -17620,7 +17748,7 @@ func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -17688,14 +17816,13 @@ type PutSlidesSlideSizeRequest struct {
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
- @return DocumentProperty*/
-func (a *SlidesApiService) PutSlidesViewProperties(request PutSlidesViewPropertiesRequest) (IDocumentProperty, *http.Response, error) {
+ @return ViewProperties*/
+func (a *SlidesApiService) PutSlidesViewProperties(request PutSlidesViewPropertiesRequest) (IViewProperties, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload IDocumentProperty
+		localVarFiles [][]byte
+	 	successPayload IViewProperties
 	)
 
 	// create path and map variables
@@ -17751,7 +17878,7 @@ func (a *SlidesApiService) PutSlidesViewProperties(request PutSlidesViewProperti
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -17783,17 +17910,17 @@ func (a *SlidesApiService) PutSlidesViewProperties(request PutSlidesViewProperti
 		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
 	}
 
-	successPayloadObject, err := createObjectForType("DocumentProperty", responseBytes)
+	successPayloadObject, err := createObjectForType("ViewProperties", responseBytes)
 	if err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
 	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
-		if sp, ok := successPayloadObject.(IDocumentProperty); ok {
+		if sp, ok := successPayloadObject.(IViewProperties); ok {
 			return sp, localVarHttpResponse, err
 		}
 		return successPayload, localVarHttpResponse, err
 	}
-	if successPayload, _ = successPayloadObject.(IDocumentProperty); true {
+	if successPayload, _ = successPayloadObject.(IViewProperties); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
@@ -17822,8 +17949,7 @@ func (a *SlidesApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideReques
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload INotesSlide
 	)
 
@@ -17886,7 +18012,7 @@ func (a *SlidesApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideReques
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -17960,8 +18086,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShape(request PutUpdateNotesSlideS
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IShapeBase
 	)
 
@@ -18036,7 +18161,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShape(request PutUpdateNotesSlideS
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -18113,8 +18238,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapeParagraph(request PutUpdateNo
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IParagraph
 	)
 
@@ -18195,7 +18319,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapeParagraph(request PutUpdateNo
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -18274,8 +18398,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapePortion(request PutUpdateNote
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IPortion
 	)
 
@@ -18362,7 +18485,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapePortion(request PutUpdateNote
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -18432,8 +18555,7 @@ func (a *SlidesApiService) StorageExists(request StorageExistsRequest) (IStorage
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IStorageExist
 	)
 
@@ -18470,7 +18592,7 @@ func (a *SlidesApiService) StorageExists(request StorageExistsRequest) (IStorage
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}
@@ -18534,8 +18656,7 @@ func (a *SlidesApiService) UploadFile(request UploadFileRequest) (IFilesUploadRe
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarFiles [][]byte
 	 	successPayload IFilesUploadResult
 	)
 
@@ -18579,7 +18700,7 @@ func (a *SlidesApiService) UploadFile(request UploadFileRequest) (IFilesUploadRe
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	localVarPostBody = &request.File
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	if err != nil {
 		return successPayload, nil, err
 	}

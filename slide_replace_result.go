@@ -136,6 +136,11 @@ type SlideReplaceResult struct {
 	Matches int32 `json:"Matches"`
 }
 
+func NewSlideReplaceResult() *SlideReplaceResult {
+	instance := new(SlideReplaceResult)
+	return instance
+}
+
 func (this *SlideReplaceResult) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

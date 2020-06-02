@@ -52,6 +52,11 @@ type MergingSource struct {
 	Slides []int32 `json:"Slides,omitempty"`
 }
 
+func NewMergingSource() *MergingSource {
+	instance := new(MergingSource)
+	return instance
+}
+
 func (this *MergingSource) getInput() IInputFile {
 	return this.Input
 }

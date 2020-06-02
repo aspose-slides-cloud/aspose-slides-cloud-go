@@ -45,6 +45,11 @@ type FilesList struct {
 	Value []IStorageFile `json:"Value,omitempty"`
 }
 
+func NewFilesList() *FilesList {
+	instance := new(FilesList)
+	return instance
+}
+
 func (this *FilesList) getValue() []IStorageFile {
 	return this.Value
 }

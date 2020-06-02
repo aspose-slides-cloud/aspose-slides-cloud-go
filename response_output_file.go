@@ -45,6 +45,12 @@ type ResponseOutputFile struct {
 	Type_ string `json:"Type"`
 }
 
+func NewResponseOutputFile() *ResponseOutputFile {
+	instance := new(ResponseOutputFile)
+	instance.Type_ = "Response"
+	return instance
+}
+
 func (this *ResponseOutputFile) getType() string {
 	return this.Type_
 }

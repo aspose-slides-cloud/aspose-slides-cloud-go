@@ -59,6 +59,11 @@ type SplitDocumentResult struct {
 	Slides []IResourceUri `json:"Slides,omitempty"`
 }
 
+func NewSplitDocumentResult() *SplitDocumentResult {
+	instance := new(SplitDocumentResult)
+	return instance
+}
+
 func (this *SplitDocumentResult) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

@@ -66,6 +66,12 @@ type ShapeImageExportOptions struct {
 	Format string `json:"Format,omitempty"`
 }
 
+func NewShapeImageExportOptions() *ShapeImageExportOptions {
+	instance := new(ShapeImageExportOptions)
+	instance.ThumbnailBounds = "Slide"
+	return instance
+}
+
 func (this *ShapeImageExportOptions) getScaleX() float64 {
 	return this.ScaleX
 }

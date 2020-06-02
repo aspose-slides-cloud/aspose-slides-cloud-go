@@ -136,6 +136,11 @@ type ColorScheme struct {
 	Light2 string `json:"Light2,omitempty"`
 }
 
+func NewColorScheme() *ColorScheme {
+	instance := new(ColorScheme)
+	return instance
+}
+
 func (this *ColorScheme) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

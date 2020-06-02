@@ -192,6 +192,16 @@ type SmartArt struct {
 	IsReversed bool `json:"IsReversed"`
 }
 
+func NewSmartArt() *SmartArt {
+	instance := new(SmartArt)
+	instance.Type_ = "SmartArt"
+	instance.ShapeType = "Diagram"
+	instance.Layout = "AccentProcess"
+	instance.QuickStyle = "SimpleFill"
+	instance.ColorStyle = "Dark1Outline"
+	return instance
+}
+
 func (this *SmartArt) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

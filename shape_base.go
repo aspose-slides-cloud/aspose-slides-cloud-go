@@ -153,6 +153,13 @@ type ShapeBase struct {
 	ShapeType string `json:"ShapeType,omitempty"`
 }
 
+func NewShapeBase() *ShapeBase {
+	instance := new(ShapeBase)
+	instance.Type_ = ""
+	instance.ShapeType = ""
+	return instance
+}
+
 func (this *ShapeBase) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

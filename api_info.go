@@ -52,6 +52,11 @@ type ApiInfo struct {
 	Version string `json:"Version,omitempty"`
 }
 
+func NewApiInfo() *ApiInfo {
+	instance := new(ApiInfo)
+	return instance
+}
+
 func (this *ApiInfo) getName() string {
 	return this.Name
 }

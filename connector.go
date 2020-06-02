@@ -192,6 +192,14 @@ type Connector struct {
 	EndShapeConnectedToIndex int32 `json:"EndShapeConnectedToIndex,omitempty"`
 }
 
+func NewConnector() *Connector {
+	instance := new(Connector)
+	instance.Type_ = "Connector"
+	instance.ShapeType = "Custom"
+	instance.GeometryShapeType = "Custom"
+	return instance
+}
+
 func (this *Connector) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

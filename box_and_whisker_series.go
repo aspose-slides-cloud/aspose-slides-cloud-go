@@ -206,6 +206,14 @@ type BoxAndWhiskerSeries struct {
 	ShowOutlierPoints bool `json:"ShowOutlierPoints"`
 }
 
+func NewBoxAndWhiskerSeries() *BoxAndWhiskerSeries {
+	instance := new(BoxAndWhiskerSeries)
+	instance.Type_ = ""
+	instance.DataPointType = "OneValue"
+	instance.QuartileMethod = ""
+	return instance
+}
+
 func (this *BoxAndWhiskerSeries) getType() string {
 	return this.Type_
 }

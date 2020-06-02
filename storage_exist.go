@@ -45,6 +45,11 @@ type StorageExist struct {
 	Exists bool `json:"Exists"`
 }
 
+func NewStorageExist() *StorageExist {
+	instance := new(StorageExist)
+	return instance
+}
+
 func (this *StorageExist) getExists() bool {
 	return this.Exists
 }

@@ -80,6 +80,11 @@ type Theme struct {
 	FormatScheme IResourceUriElement `json:"FormatScheme,omitempty"`
 }
 
+func NewTheme() *Theme {
+	instance := new(Theme)
+	return instance
+}
+
 func (this *Theme) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

@@ -52,6 +52,11 @@ type CommonSlideViewProperties struct {
 	VariableScale bool `json:"VariableScale"`
 }
 
+func NewCommonSlideViewProperties() *CommonSlideViewProperties {
+	instance := new(CommonSlideViewProperties)
+	return instance
+}
+
 func (this *CommonSlideViewProperties) getScale() int32 {
 	return this.Scale
 }

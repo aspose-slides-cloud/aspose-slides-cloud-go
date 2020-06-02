@@ -52,6 +52,11 @@ type ObjectExist struct {
 	IsFolder bool `json:"IsFolder"`
 }
 
+func NewObjectExist() *ObjectExist {
+	instance := new(ObjectExist)
+	return instance
+}
+
 func (this *ObjectExist) getExists() bool {
 	return this.Exists
 }

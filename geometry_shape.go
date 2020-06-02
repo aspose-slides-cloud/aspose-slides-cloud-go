@@ -162,6 +162,14 @@ type GeometryShape struct {
 	GeometryShapeType string `json:"GeometryShapeType"`
 }
 
+func NewGeometryShape() *GeometryShape {
+	instance := new(GeometryShape)
+	instance.Type_ = ""
+	instance.ShapeType = "Custom"
+	instance.GeometryShapeType = "Custom"
+	return instance
+}
+
 func (this *GeometryShape) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

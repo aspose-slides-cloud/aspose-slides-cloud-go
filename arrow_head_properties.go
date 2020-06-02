@@ -59,6 +59,14 @@ type ArrowHeadProperties struct {
 	Width string `json:"Width,omitempty"`
 }
 
+func NewArrowHeadProperties() *ArrowHeadProperties {
+	instance := new(ArrowHeadProperties)
+	instance.Length = ""
+	instance.Style = ""
+	instance.Width = ""
+	return instance
+}
+
 func (this *ArrowHeadProperties) getLength() string {
 	return this.Length
 }

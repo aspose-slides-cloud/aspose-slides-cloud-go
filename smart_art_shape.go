@@ -157,6 +157,13 @@ type SmartArtShape struct {
 	ShapeType string `json:"ShapeType"`
 }
 
+func NewSmartArtShape() *SmartArtShape {
+	instance := new(SmartArtShape)
+	instance.Type_ = "SmartArtShape"
+	instance.ShapeType = "Custom"
+	return instance
+}
+
 func (this *SmartArtShape) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

@@ -59,6 +59,11 @@ type BubbleChartDataPoint struct {
 	BubbleSize float64 `json:"BubbleSize"`
 }
 
+func NewBubbleChartDataPoint() *BubbleChartDataPoint {
+	instance := new(BubbleChartDataPoint)
+	return instance
+}
+
 func (this *BubbleChartDataPoint) getXValue() float64 {
 	return this.XValue
 }

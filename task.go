@@ -43,6 +43,12 @@ type Task struct {
 	Type_ string `json:"Type,omitempty"`
 }
 
+func NewTask() *Task {
+	instance := new(Task)
+	instance.Type_ = ""
+	return instance
+}
+
 func (this *Task) getType() string {
 	return this.Type_
 }

@@ -73,6 +73,12 @@ type SlideBackground struct {
 	EffectFormat IEffectFormat `json:"EffectFormat,omitempty"`
 }
 
+func NewSlideBackground() *SlideBackground {
+	instance := new(SlideBackground)
+	instance.Type_ = "NoFill"
+	return instance
+}
+
 func (this *SlideBackground) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

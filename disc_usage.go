@@ -52,6 +52,11 @@ type DiscUsage struct {
 	TotalSize int64 `json:"TotalSize"`
 }
 
+func NewDiscUsage() *DiscUsage {
+	instance := new(DiscUsage)
+	return instance
+}
+
 func (this *DiscUsage) getUsedSize() int64 {
 	return this.UsedSize
 }

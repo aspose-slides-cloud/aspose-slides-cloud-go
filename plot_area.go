@@ -94,6 +94,12 @@ type PlotArea struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
+func NewPlotArea() *PlotArea {
+	instance := new(PlotArea)
+	instance.LayoutTargetType = ""
+	return instance
+}
+
 func (this *PlotArea) getX() float64 {
 	return this.X
 }

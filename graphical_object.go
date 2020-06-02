@@ -157,6 +157,13 @@ type GraphicalObject struct {
 	ShapeType string `json:"ShapeType"`
 }
 
+func NewGraphicalObject() *GraphicalObject {
+	instance := new(GraphicalObject)
+	instance.Type_ = "GraphicalObject"
+	instance.ShapeType = "GraphicalObject"
+	return instance
+}
+
 func (this *GraphicalObject) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

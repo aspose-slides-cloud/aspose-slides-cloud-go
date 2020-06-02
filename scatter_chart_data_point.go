@@ -52,6 +52,11 @@ type ScatterChartDataPoint struct {
 	YValue float64 `json:"YValue"`
 }
 
+func NewScatterChartDataPoint() *ScatterChartDataPoint {
+	instance := new(ScatterChartDataPoint)
+	return instance
+}
+
 func (this *ScatterChartDataPoint) getXValue() float64 {
 	return this.XValue
 }

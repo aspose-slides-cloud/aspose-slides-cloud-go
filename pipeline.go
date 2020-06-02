@@ -52,6 +52,11 @@ type Pipeline struct {
 	Tasks []ITask `json:"Tasks,omitempty"`
 }
 
+func NewPipeline() *Pipeline {
+	instance := new(Pipeline)
+	return instance
+}
+
 func (this *Pipeline) getInput() IInput {
 	return this.Input
 }

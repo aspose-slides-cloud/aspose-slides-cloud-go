@@ -45,6 +45,11 @@ type OneValueChartDataPoint struct {
 	Value float64 `json:"Value"`
 }
 
+func NewOneValueChartDataPoint() *OneValueChartDataPoint {
+	instance := new(OneValueChartDataPoint)
+	return instance
+}
+
 func (this *OneValueChartDataPoint) getValue() float64 {
 	return this.Value
 }

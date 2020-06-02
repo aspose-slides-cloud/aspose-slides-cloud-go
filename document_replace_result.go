@@ -101,6 +101,11 @@ type DocumentReplaceResult struct {
 	Matches int32 `json:"Matches"`
 }
 
+func NewDocumentReplaceResult() *DocumentReplaceResult {
+	instance := new(DocumentReplaceResult)
+	return instance
+}
+
 func (this *DocumentReplaceResult) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

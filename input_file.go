@@ -50,6 +50,12 @@ type InputFile struct {
 	Type_ string `json:"Type,omitempty"`
 }
 
+func NewInputFile() *InputFile {
+	instance := new(InputFile)
+	instance.Type_ = ""
+	return instance
+}
+
 func (this *InputFile) getPassword() string {
 	return this.Password
 }

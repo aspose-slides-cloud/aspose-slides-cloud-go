@@ -59,6 +59,11 @@ type Placeholders struct {
 	PlaceholderLinks []IResourceUri `json:"PlaceholderLinks,omitempty"`
 }
 
+func NewPlaceholders() *Placeholders {
+	instance := new(Placeholders)
+	return instance
+}
+
 func (this *Placeholders) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

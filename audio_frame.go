@@ -234,6 +234,16 @@ type AudioFrame struct {
 	Base64Data string `json:"Base64Data,omitempty"`
 }
 
+func NewAudioFrame() *AudioFrame {
+	instance := new(AudioFrame)
+	instance.Type_ = "AudioFrame"
+	instance.ShapeType = "AudioFrame"
+	instance.GeometryShapeType = "Custom"
+	instance.PlayMode = ""
+	instance.Volume = ""
+	return instance
+}
+
 func (this *AudioFrame) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

@@ -171,6 +171,14 @@ type PictureFrame struct {
 	PictureFillFormat IPictureFill `json:"PictureFillFormat,omitempty"`
 }
 
+func NewPictureFrame() *PictureFrame {
+	instance := new(PictureFrame)
+	instance.Type_ = "PictureFrame"
+	instance.ShapeType = "PictureFrame"
+	instance.GeometryShapeType = "Custom"
+	return instance
+}
+
 func (this *PictureFrame) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

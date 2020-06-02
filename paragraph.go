@@ -192,6 +192,19 @@ type Paragraph struct {
 	PortionList []IResourceUriElement `json:"PortionList,omitempty"`
 }
 
+func NewParagraph() *Paragraph {
+	instance := new(Paragraph)
+	instance.Alignment = ""
+	instance.FontAlignment = ""
+	instance.BulletType = ""
+	instance.NumberedBulletStyle = ""
+	instance.HangingPunctuation = ""
+	instance.EastAsianLineBreak = ""
+	instance.LatinLineBreak = ""
+	instance.RightToLeft = ""
+	return instance
+}
+
 func (this *Paragraph) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

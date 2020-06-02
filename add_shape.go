@@ -59,6 +59,12 @@ type AddShape struct {
 	ShapePath string `json:"ShapePath,omitempty"`
 }
 
+func NewAddShape() *AddShape {
+	instance := new(AddShape)
+	instance.Type_ = "AddShape"
+	return instance
+}
+
 func (this *AddShape) getType() string {
 	return this.Type_
 }

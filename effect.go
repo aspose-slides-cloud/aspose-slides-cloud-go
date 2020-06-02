@@ -136,6 +136,16 @@ type Effect struct {
 	TriggerDelayTime float64 `json:"TriggerDelayTime,omitempty"`
 }
 
+func NewEffect() *Effect {
+	instance := new(Effect)
+	instance.Type_ = ""
+	instance.Subtype = ""
+	instance.PresetClassType = ""
+	instance.TriggerType = ""
+	instance.Restart = ""
+	return instance
+}
+
 func (this *Effect) getType() string {
 	return this.Type_
 }

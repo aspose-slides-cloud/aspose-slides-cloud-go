@@ -73,6 +73,11 @@ type Image struct {
 	ContentType string `json:"ContentType,omitempty"`
 }
 
+func NewImage() *Image {
+	instance := new(Image)
+	return instance
+}
+
 func (this *Image) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

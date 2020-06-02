@@ -59,6 +59,12 @@ type Base64InputFile struct {
 	Data string `json:"Data,omitempty"`
 }
 
+func NewBase64InputFile() *Base64InputFile {
+	instance := new(Base64InputFile)
+	instance.Type_ = "Base64"
+	return instance
+}
+
 func (this *Base64InputFile) getPassword() string {
 	return this.Password
 }

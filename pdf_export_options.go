@@ -171,6 +171,15 @@ type PdfExportOptions struct {
 	ApplyImageTransparent bool `json:"ApplyImageTransparent"`
 }
 
+func NewPdfExportOptions() *PdfExportOptions {
+	instance := new(PdfExportOptions)
+	instance.TextCompression = "None"
+	instance.Compliance = "Pdf15"
+	instance.NotesPosition = "None"
+	instance.CommentsPosition = "None"
+	return instance
+}
+
 func (this *PdfExportOptions) getFormat() string {
 	return this.Format
 }

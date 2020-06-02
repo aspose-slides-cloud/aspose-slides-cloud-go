@@ -87,6 +87,15 @@ type GradientFill struct {
 	TileFlip string `json:"TileFlip"`
 }
 
+func NewGradientFill() *GradientFill {
+	instance := new(GradientFill)
+	instance.Type_ = "Gradient"
+	instance.Direction = "FromCorner1"
+	instance.Shape = "Linear"
+	instance.TileFlip = "NoFlip"
+	return instance
+}
+
 func (this *GradientFill) getType() string {
 	return this.Type_
 }

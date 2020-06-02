@@ -52,6 +52,11 @@ type NormalViewRestoredProperties struct {
 	DimensionSize float64 `json:"DimensionSize,omitempty"`
 }
 
+func NewNormalViewRestoredProperties() *NormalViewRestoredProperties {
+	instance := new(NormalViewRestoredProperties)
+	return instance
+}
+
 func (this *NormalViewRestoredProperties) getAutoAdjust() bool {
 	return this.AutoAdjust
 }

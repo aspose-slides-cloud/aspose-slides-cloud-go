@@ -157,6 +157,12 @@ type Series struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
+func NewSeries() *Series {
+	instance := new(Series)
+	instance.Type_ = ""
+	return instance
+}
+
 func (this *Series) getType() string {
 	return this.Type_
 }

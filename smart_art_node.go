@@ -73,6 +73,12 @@ type SmartArtNode struct {
 	OrgChartLayout string `json:"OrgChartLayout"`
 }
 
+func NewSmartArtNode() *SmartArtNode {
+	instance := new(SmartArtNode)
+	instance.OrgChartLayout = "Initial"
+	return instance
+}
+
 func (this *SmartArtNode) getNodes() []ISmartArtNode {
 	return this.Nodes
 }

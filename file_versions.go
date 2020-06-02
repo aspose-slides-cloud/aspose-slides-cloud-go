@@ -45,6 +45,11 @@ type FileVersions struct {
 	Value []IFileVersion `json:"Value,omitempty"`
 }
 
+func NewFileVersions() *FileVersions {
+	instance := new(FileVersions)
+	return instance
+}
+
 func (this *FileVersions) getValue() []IFileVersion {
 	return this.Value
 }

@@ -59,6 +59,12 @@ type ReorderSlide struct {
 	NewPosition int32 `json:"NewPosition"`
 }
 
+func NewReorderSlide() *ReorderSlide {
+	instance := new(ReorderSlide)
+	instance.Type_ = "ReoderSlide"
+	return instance
+}
+
 func (this *ReorderSlide) getType() string {
 	return this.Type_
 }

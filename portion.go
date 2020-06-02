@@ -227,6 +227,21 @@ type Portion struct {
 	UnderlineLineFormat ILineFormat `json:"UnderlineLineFormat,omitempty"`
 }
 
+func NewPortion() *Portion {
+	instance := new(Portion)
+	instance.FontBold = ""
+	instance.FontItalic = ""
+	instance.FontUnderline = ""
+	instance.StrikethroughType = ""
+	instance.TextCapType = ""
+	instance.NormaliseHeight = ""
+	instance.ProofDisabled = ""
+	instance.Kumimoji = ""
+	instance.IsHardUnderlineFill = ""
+	instance.IsHardUnderlineLine = ""
+	return instance
+}
+
 func (this *Portion) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

@@ -171,6 +171,13 @@ type ScatterSeries struct {
 	DataPoints []IScatterChartDataPoint `json:"DataPoints,omitempty"`
 }
 
+func NewScatterSeries() *ScatterSeries {
+	instance := new(ScatterSeries)
+	instance.Type_ = ""
+	instance.DataPointType = "OneValue"
+	return instance
+}
+
 func (this *ScatterSeries) getType() string {
 	return this.Type_
 }

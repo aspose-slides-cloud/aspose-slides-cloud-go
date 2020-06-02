@@ -45,6 +45,11 @@ type SoftEdgeEffect struct {
 	Radius float64 `json:"Radius"`
 }
 
+func NewSoftEdgeEffect() *SoftEdgeEffect {
+	instance := new(SoftEdgeEffect)
+	return instance
+}
+
 func (this *SoftEdgeEffect) getRadius() float64 {
 	return this.Radius
 }

@@ -52,6 +52,11 @@ type ResourceBase struct {
 	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 }
 
+func NewResourceBase() *ResourceBase {
+	instance := new(ResourceBase)
+	return instance
+}
+
 func (this *ResourceBase) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

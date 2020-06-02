@@ -129,6 +129,14 @@ type HtmlExportOptions struct {
 	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
 }
 
+func NewHtmlExportOptions() *HtmlExportOptions {
+	instance := new(HtmlExportOptions)
+	instance.PicturesCompression = ""
+	instance.NotesPosition = "None"
+	instance.CommentsPosition = "None"
+	return instance
+}
+
 func (this *HtmlExportOptions) getFormat() string {
 	return this.Format
 }

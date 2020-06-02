@@ -52,6 +52,12 @@ type ResetSlide struct {
 	Position int32 `json:"Position"`
 }
 
+func NewResetSlide() *ResetSlide {
+	instance := new(ResetSlide)
+	instance.Type_ = "ResetSlide"
+	return instance
+}
+
 func (this *ResetSlide) getType() string {
 	return this.Type_
 }

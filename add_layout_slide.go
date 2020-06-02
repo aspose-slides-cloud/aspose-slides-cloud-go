@@ -59,6 +59,12 @@ type AddLayoutSlide struct {
 	CloneFromPosition int32 `json:"CloneFromPosition"`
 }
 
+func NewAddLayoutSlide() *AddLayoutSlide {
+	instance := new(AddLayoutSlide)
+	instance.Type_ = "AddLayoutSlide"
+	return instance
+}
+
 func (this *AddLayoutSlide) getType() string {
 	return this.Type_
 }

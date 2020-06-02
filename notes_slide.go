@@ -66,6 +66,11 @@ type NotesSlide struct {
 	Shapes IResourceUriElement `json:"Shapes,omitempty"`
 }
 
+func NewNotesSlide() *NotesSlide {
+	instance := new(NotesSlide)
+	return instance
+}
+
 func (this *NotesSlide) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

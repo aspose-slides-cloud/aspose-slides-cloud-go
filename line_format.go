@@ -115,6 +115,16 @@ type LineFormat struct {
 	Width float64 `json:"Width,omitempty"`
 }
 
+func NewLineFormat() *LineFormat {
+	instance := new(LineFormat)
+	instance.Alignment = ""
+	instance.CapStyle = ""
+	instance.DashStyle = ""
+	instance.JoinStyle = ""
+	instance.Style = ""
+	return instance
+}
+
 func (this *LineFormat) getAlignment() string {
 	return this.Alignment
 }

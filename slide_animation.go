@@ -66,6 +66,11 @@ type SlideAnimation struct {
 	InteractiveSequences []IInteractiveSequence `json:"InteractiveSequences,omitempty"`
 }
 
+func NewSlideAnimation() *SlideAnimation {
+	instance := new(SlideAnimation)
+	return instance
+}
+
 func (this *SlideAnimation) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

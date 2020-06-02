@@ -73,6 +73,13 @@ type ImageExportOptions struct {
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
 }
 
+func NewImageExportOptions() *ImageExportOptions {
+	instance := new(ImageExportOptions)
+	instance.NotesPosition = "None"
+	instance.CommentsPosition = "None"
+	return instance
+}
+
 func (this *ImageExportOptions) getFormat() string {
 	return this.Format
 }

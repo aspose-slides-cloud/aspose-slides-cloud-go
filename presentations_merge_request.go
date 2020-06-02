@@ -52,6 +52,11 @@ type PresentationsMergeRequest struct {
 	PresentationPasswords []string `json:"PresentationPasswords,omitempty"`
 }
 
+func NewPresentationsMergeRequest() *PresentationsMergeRequest {
+	instance := new(PresentationsMergeRequest)
+	return instance
+}
+
 func (this *PresentationsMergeRequest) getPresentationPaths() []string {
 	return this.PresentationPaths
 }

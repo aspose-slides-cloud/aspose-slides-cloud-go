@@ -171,6 +171,13 @@ type OleObjectFrame struct {
 	SubstitutePictureTitle string `json:"SubstitutePictureTitle,omitempty"`
 }
 
+func NewOleObjectFrame() *OleObjectFrame {
+	instance := new(OleObjectFrame)
+	instance.Type_ = "OleObjectFrame"
+	instance.ShapeType = "OleObjectFrame"
+	return instance
+}
+
 func (this *OleObjectFrame) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

@@ -66,6 +66,11 @@ type SlideComment struct {
 	ChildComments []ISlideComment `json:"ChildComments,omitempty"`
 }
 
+func NewSlideComment() *SlideComment {
+	instance := new(SlideComment)
+	return instance
+}
+
 func (this *SlideComment) getAuthor() string {
 	return this.Author
 }

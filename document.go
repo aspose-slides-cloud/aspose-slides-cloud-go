@@ -94,6 +94,11 @@ type Document struct {
 	MasterSlides IResourceUriElement `json:"MasterSlides,omitempty"`
 }
 
+func NewDocument() *Document {
+	instance := new(Document)
+	return instance
+}
+
 func (this *Document) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

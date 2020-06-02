@@ -66,6 +66,12 @@ type PathInputFile struct {
 	Storage string `json:"Storage,omitempty"`
 }
 
+func NewPathInputFile() *PathInputFile {
+	instance := new(PathInputFile)
+	instance.Type_ = "Path"
+	return instance
+}
+
 func (this *PathInputFile) getPassword() string {
 	return this.Password
 }

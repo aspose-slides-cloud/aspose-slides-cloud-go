@@ -52,6 +52,12 @@ type SolidFill struct {
 	Color string `json:"Color,omitempty"`
 }
 
+func NewSolidFill() *SolidFill {
+	instance := new(SolidFill)
+	instance.Type_ = "Solid"
+	return instance
+}
+
 func (this *SolidFill) getType() string {
 	return this.Type_
 }

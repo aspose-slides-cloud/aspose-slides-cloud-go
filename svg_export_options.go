@@ -108,6 +108,13 @@ type SvgExportOptions struct {
 	ExternalFontsHandling string `json:"ExternalFontsHandling"`
 }
 
+func NewSvgExportOptions() *SvgExportOptions {
+	instance := new(SvgExportOptions)
+	instance.PicturesCompression = "Dpi330"
+	instance.ExternalFontsHandling = "AddLinksToFontFiles"
+	return instance
+}
+
 func (this *SvgExportOptions) getFormat() string {
 	return this.Format
 }

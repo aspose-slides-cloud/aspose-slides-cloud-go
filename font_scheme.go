@@ -73,6 +73,11 @@ type FontScheme struct {
 	Name string `json:"Name,omitempty"`
 }
 
+func NewFontScheme() *FontScheme {
+	instance := new(FontScheme)
+	return instance
+}
+
 func (this *FontScheme) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

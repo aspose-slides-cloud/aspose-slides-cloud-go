@@ -178,6 +178,14 @@ type Shape struct {
 	Paragraphs IResourceUriElement `json:"Paragraphs,omitempty"`
 }
 
+func NewShape() *Shape {
+	instance := new(Shape)
+	instance.Type_ = "Shape"
+	instance.ShapeType = "Custom"
+	instance.GeometryShapeType = "Custom"
+	return instance
+}
+
 func (this *Shape) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

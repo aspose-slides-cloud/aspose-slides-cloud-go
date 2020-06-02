@@ -59,6 +59,11 @@ type DocumentProperties struct {
 	List []IDocumentProperty `json:"List"`
 }
 
+func NewDocumentProperties() *DocumentProperties {
+	instance := new(DocumentProperties)
+	return instance
+}
+
 func (this *DocumentProperties) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

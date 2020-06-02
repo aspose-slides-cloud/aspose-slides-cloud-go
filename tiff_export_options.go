@@ -129,6 +129,15 @@ type TiffExportOptions struct {
 	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
 }
 
+func NewTiffExportOptions() *TiffExportOptions {
+	instance := new(TiffExportOptions)
+	instance.Compression = "Default"
+	instance.PixelFormat = "Format1bppIndexed"
+	instance.NotesPosition = "None"
+	instance.CommentsPosition = "None"
+	return instance
+}
+
 func (this *TiffExportOptions) getFormat() string {
 	return this.Format
 }

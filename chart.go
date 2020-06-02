@@ -234,6 +234,14 @@ type Chart struct {
 	PlotArea IPlotArea `json:"PlotArea,omitempty"`
 }
 
+func NewChart() *Chart {
+	instance := new(Chart)
+	instance.Type_ = "Chart"
+	instance.ShapeType = "Chart"
+	instance.ChartType = "ClusteredColumn"
+	return instance
+}
+
 func (this *Chart) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

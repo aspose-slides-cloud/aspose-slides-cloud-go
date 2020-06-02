@@ -66,6 +66,11 @@ type ModelError struct {
 	InnerError IErrorDetails `json:"InnerError,omitempty"`
 }
 
+func NewModelError() *ModelError {
+	instance := new(ModelError)
+	return instance
+}
+
 func (this *ModelError) getCode() string {
 	return this.Code
 }

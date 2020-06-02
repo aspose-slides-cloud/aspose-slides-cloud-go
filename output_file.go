@@ -43,6 +43,12 @@ type OutputFile struct {
 	Type_ string `json:"Type,omitempty"`
 }
 
+func NewOutputFile() *OutputFile {
+	instance := new(OutputFile)
+	instance.Type_ = ""
+	return instance
+}
+
 func (this *OutputFile) getType() string {
 	return this.Type_
 }

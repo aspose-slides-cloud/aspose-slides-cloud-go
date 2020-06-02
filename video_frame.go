@@ -213,6 +213,16 @@ type VideoFrame struct {
 	Base64Data string `json:"Base64Data,omitempty"`
 }
 
+func NewVideoFrame() *VideoFrame {
+	instance := new(VideoFrame)
+	instance.Type_ = "VideoFrame"
+	instance.ShapeType = "VideoFrame"
+	instance.GeometryShapeType = "Custom"
+	instance.PlayMode = ""
+	instance.Volume = ""
+	return instance
+}
+
 func (this *VideoFrame) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

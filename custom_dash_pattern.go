@@ -45,6 +45,11 @@ type CustomDashPattern struct {
 	Items []float64 `json:"Items,omitempty"`
 }
 
+func NewCustomDashPattern() *CustomDashPattern {
+	instance := new(CustomDashPattern)
+	return instance
+}
+
 func (this *CustomDashPattern) getItems() []float64 {
 	return this.Items
 }

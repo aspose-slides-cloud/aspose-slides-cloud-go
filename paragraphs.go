@@ -59,6 +59,11 @@ type Paragraphs struct {
 	ParagraphLinks []IResourceUriElement `json:"ParagraphLinks,omitempty"`
 }
 
+func NewParagraphs() *Paragraphs {
+	instance := new(Paragraphs)
+	return instance
+}
+
 func (this *Paragraphs) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

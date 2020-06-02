@@ -45,6 +45,12 @@ type NoFill struct {
 	Type_ string `json:"Type"`
 }
 
+func NewNoFill() *NoFill {
+	instance := new(NoFill)
+	instance.Type_ = "NoFill"
+	return instance
+}
+
 func (this *NoFill) getType() string {
 	return this.Type_
 }

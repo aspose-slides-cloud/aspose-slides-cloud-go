@@ -59,6 +59,11 @@ type PresentationToMerge struct {
 	Slides []int32 `json:"Slides,omitempty"`
 }
 
+func NewPresentationToMerge() *PresentationToMerge {
+	instance := new(PresentationToMerge)
+	return instance
+}
+
 func (this *PresentationToMerge) getPath() string {
 	return this.Path
 }

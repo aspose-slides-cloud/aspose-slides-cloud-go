@@ -178,6 +178,13 @@ type WaterfallSeries struct {
 	ShowConnectorLines bool `json:"ShowConnectorLines"`
 }
 
+func NewWaterfallSeries() *WaterfallSeries {
+	instance := new(WaterfallSeries)
+	instance.Type_ = ""
+	instance.DataPointType = "OneValue"
+	return instance
+}
+
 func (this *WaterfallSeries) getType() string {
 	return this.Type_
 }

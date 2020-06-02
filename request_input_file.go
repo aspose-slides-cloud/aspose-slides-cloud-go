@@ -59,6 +59,12 @@ type RequestInputFile struct {
 	Index int32 `json:"Index"`
 }
 
+func NewRequestInputFile() *RequestInputFile {
+	instance := new(RequestInputFile)
+	instance.Type_ = "Request"
+	return instance
+}
+
 func (this *RequestInputFile) getPassword() string {
 	return this.Password
 }

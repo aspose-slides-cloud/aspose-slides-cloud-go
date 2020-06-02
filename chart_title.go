@@ -52,6 +52,11 @@ type ChartTitle struct {
 	HasTitle bool `json:"HasTitle"`
 }
 
+func NewChartTitle() *ChartTitle {
+	instance := new(ChartTitle)
+	return instance
+}
+
 func (this *ChartTitle) getText() string {
 	return this.Text
 }

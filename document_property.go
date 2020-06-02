@@ -73,6 +73,11 @@ type DocumentProperty struct {
 	BuiltIn bool `json:"BuiltIn"`
 }
 
+func NewDocumentProperty() *DocumentProperty {
+	instance := new(DocumentProperty)
+	return instance
+}
+
 func (this *DocumentProperty) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

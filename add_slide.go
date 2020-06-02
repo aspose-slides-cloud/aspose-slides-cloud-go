@@ -73,6 +73,12 @@ type AddSlide struct {
 	LayoutAlias string `json:"LayoutAlias,omitempty"`
 }
 
+func NewAddSlide() *AddSlide {
+	instance := new(AddSlide)
+	instance.Type_ = "AddSlide"
+	return instance
+}
+
 func (this *AddSlide) getType() string {
 	return this.Type_
 }

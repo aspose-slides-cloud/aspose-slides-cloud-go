@@ -56,6 +56,11 @@ type ErrorDetails struct {
 	Date time.Time `json:"Date"`
 }
 
+func NewErrorDetails() *ErrorDetails {
+	instance := new(ErrorDetails)
+	return instance
+}
+
 func (this *ErrorDetails) getRequestId() string {
 	return this.RequestId
 }

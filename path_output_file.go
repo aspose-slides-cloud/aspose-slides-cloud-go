@@ -59,6 +59,12 @@ type PathOutputFile struct {
 	Storage string `json:"Storage,omitempty"`
 }
 
+func NewPathOutputFile() *PathOutputFile {
+	instance := new(PathOutputFile)
+	instance.Type_ = "Path"
+	return instance
+}
+
 func (this *PathOutputFile) getType() string {
 	return this.Type_
 }

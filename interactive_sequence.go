@@ -52,6 +52,11 @@ type InteractiveSequence struct {
 	TriggerShapeIndex int32 `json:"TriggerShapeIndex"`
 }
 
+func NewInteractiveSequence() *InteractiveSequence {
+	instance := new(InteractiveSequence)
+	return instance
+}
+
 func (this *InteractiveSequence) getEffects() []IEffect {
 	return this.Effects
 }

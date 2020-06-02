@@ -52,6 +52,12 @@ type RemoveShape struct {
 	ShapePath string `json:"ShapePath,omitempty"`
 }
 
+func NewRemoveShape() *RemoveShape {
+	instance := new(RemoveShape)
+	instance.Type_ = "RemoveShape"
+	return instance
+}
+
 func (this *RemoveShape) getType() string {
 	return this.Type_
 }

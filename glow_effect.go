@@ -52,6 +52,11 @@ type GlowEffect struct {
 	Color string `json:"Color,omitempty"`
 }
 
+func NewGlowEffect() *GlowEffect {
+	instance := new(GlowEffect)
+	return instance
+}
+
 func (this *GlowEffect) getRadius() float64 {
 	return this.Radius
 }

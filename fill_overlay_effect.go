@@ -45,6 +45,12 @@ type FillOverlayEffect struct {
 	Blend string `json:"Blend"`
 }
 
+func NewFillOverlayEffect() *FillOverlayEffect {
+	instance := new(FillOverlayEffect)
+	instance.Blend = "Darken"
+	return instance
+}
+
 func (this *FillOverlayEffect) getBlend() string {
 	return this.Blend
 }

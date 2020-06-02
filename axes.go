@@ -66,6 +66,11 @@ type Axes struct {
 	SecondaryVerticalAxis IAxis `json:"SecondaryVerticalAxis,omitempty"`
 }
 
+func NewAxes() *Axes {
+	instance := new(Axes)
+	return instance
+}
+
 func (this *Axes) getHorizontalAxis() IAxis {
 	return this.HorizontalAxis
 }

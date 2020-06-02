@@ -91,6 +91,11 @@ type FileVersion struct {
 	IsLatest bool `json:"IsLatest"`
 }
 
+func NewFileVersion() *FileVersion {
+	instance := new(FileVersion)
+	return instance
+}
+
 func (this *FileVersion) getName() string {
 	return this.Name
 }

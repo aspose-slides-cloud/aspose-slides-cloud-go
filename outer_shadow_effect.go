@@ -66,6 +66,11 @@ type OuterShadowEffect struct {
 	ShadowColor string `json:"ShadowColor,omitempty"`
 }
 
+func NewOuterShadowEffect() *OuterShadowEffect {
+	instance := new(OuterShadowEffect)
+	return instance
+}
+
 func (this *OuterShadowEffect) getDirection() float64 {
 	return this.Direction
 }

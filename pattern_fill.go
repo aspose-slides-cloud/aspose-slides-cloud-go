@@ -66,6 +66,13 @@ type PatternFill struct {
 	Style string `json:"Style"`
 }
 
+func NewPatternFill() *PatternFill {
+	instance := new(PatternFill)
+	instance.Type_ = "Pattern"
+	instance.Style = "Unknown"
+	return instance
+}
+
 func (this *PatternFill) getType() string {
 	return this.Type_
 }

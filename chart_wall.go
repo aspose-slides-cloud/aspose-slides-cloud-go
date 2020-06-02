@@ -73,6 +73,12 @@ type ChartWall struct {
 	PictureType string `json:"PictureType,omitempty"`
 }
 
+func NewChartWall() *ChartWall {
+	instance := new(ChartWall)
+	instance.PictureType = ""
+	return instance
+}
+
 func (this *ChartWall) getFillFormat() IFillFormat {
 	return this.FillFormat
 }

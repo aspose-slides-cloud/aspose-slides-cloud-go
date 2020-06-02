@@ -59,6 +59,11 @@ type Portions struct {
 	PortionLinks []IResourceUriElement `json:"PortionLinks,omitempty"`
 }
 
+func NewPortions() *Portions {
+	instance := new(Portions)
+	return instance
+}
+
 func (this *Portions) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

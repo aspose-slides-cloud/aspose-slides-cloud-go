@@ -87,6 +87,14 @@ type Placeholder struct {
 	Shape IResourceUriElement `json:"Shape,omitempty"`
 }
 
+func NewPlaceholder() *Placeholder {
+	instance := new(Placeholder)
+	instance.Orientation = "Horizontal"
+	instance.Size = "Full"
+	instance.Type_ = "Title"
+	return instance
+}
+
 func (this *Placeholder) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

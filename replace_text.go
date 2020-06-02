@@ -73,6 +73,12 @@ type ReplaceText struct {
 	SlidePosition int32 `json:"SlidePosition"`
 }
 
+func NewReplaceText() *ReplaceText {
+	instance := new(ReplaceText)
+	instance.Type_ = "ReplaceText"
+	return instance
+}
+
 func (this *ReplaceText) getType() string {
 	return this.Type_
 }

@@ -59,6 +59,11 @@ type Shapes struct {
 	ShapesLinks []IResourceUriElement `json:"ShapesLinks,omitempty"`
 }
 
+func NewShapes() *Shapes {
+	instance := new(Shapes)
+	return instance
+}
+
 func (this *Shapes) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

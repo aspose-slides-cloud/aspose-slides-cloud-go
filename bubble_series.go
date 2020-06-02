@@ -171,6 +171,13 @@ type BubbleSeries struct {
 	DataPoints []IBubbleChartDataPoint `json:"DataPoints,omitempty"`
 }
 
+func NewBubbleSeries() *BubbleSeries {
+	instance := new(BubbleSeries)
+	instance.Type_ = ""
+	instance.DataPointType = "OneValue"
+	return instance
+}
+
 func (this *BubbleSeries) getType() string {
 	return this.Type_
 }

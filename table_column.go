@@ -45,6 +45,11 @@ type TableColumn struct {
 	Width float64 `json:"Width"`
 }
 
+func NewTableColumn() *TableColumn {
+	instance := new(TableColumn)
+	return instance
+}
+
 func (this *TableColumn) getWidth() float64 {
 	return this.Width
 }

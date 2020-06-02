@@ -59,6 +59,11 @@ type SlideComments struct {
 	List []ISlideComment `json:"List,omitempty"`
 }
 
+func NewSlideComments() *SlideComments {
+	instance := new(SlideComments)
+	return instance
+}
+
 func (this *SlideComments) getSelfUri() IResourceUri {
 	return this.SelfUri
 }

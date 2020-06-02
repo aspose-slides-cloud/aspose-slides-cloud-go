@@ -73,6 +73,13 @@ type SaveShape struct {
 	Options IIShapeExportOptions `json:"Options,omitempty"`
 }
 
+func NewSaveShape() *SaveShape {
+	instance := new(SaveShape)
+	instance.Type_ = "SaveShape"
+	instance.Format = "Jpeg"
+	return instance
+}
+
 func (this *SaveShape) getType() string {
 	return this.Type_
 }

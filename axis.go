@@ -290,6 +290,21 @@ type Axis struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 }
 
+func NewAxis() *Axis {
+	instance := new(Axis)
+	instance.Position = ""
+	instance.DisplayUnit = ""
+	instance.BaseUnitScale = ""
+	instance.MajorUnitScale = ""
+	instance.MajorTickMark = ""
+	instance.MinorUnitScale = ""
+	instance.MinorTickMark = ""
+	instance.CategoryAxisType = ""
+	instance.CrossType = ""
+	instance.TickLabelPosition = ""
+	return instance
+}
+
 func (this *Axis) getIsVisible() bool {
 	return this.IsVisible
 }

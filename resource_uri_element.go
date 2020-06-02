@@ -45,6 +45,11 @@ type ResourceUriElement struct {
 	Uri IResourceUri `json:"Uri,omitempty"`
 }
 
+func NewResourceUriElement() *ResourceUriElement {
+	instance := new(ResourceUriElement)
+	return instance
+}
+
 func (this *ResourceUriElement) getUri() IResourceUri {
 	return this.Uri
 }

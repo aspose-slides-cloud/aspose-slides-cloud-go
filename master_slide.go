@@ -73,6 +73,11 @@ type MasterSlide struct {
 	DependingSlides []IResourceUriElement `json:"DependingSlides,omitempty"`
 }
 
+func NewMasterSlide() *MasterSlide {
+	instance := new(MasterSlide)
+	return instance
+}
+
 func (this *MasterSlide) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
