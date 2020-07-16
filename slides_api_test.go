@@ -813,7 +813,6 @@ func createDeleteNotesSlideParagraphRequest() DeleteNotesSlideParagraphRequest {
     var request DeleteNotesSlideParagraphRequest
     request.Name = createTestParamValue("DeleteNotesSlideParagraph", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeleteNotesSlideParagraph", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeleteNotesSlideParagraph", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("DeleteNotesSlideParagraph", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("DeleteNotesSlideParagraph", "paragraphIndex", "int32").(int32)
     request.Password = createTestParamValue("DeleteNotesSlideParagraph", "password", "string").(string)
@@ -874,33 +873,6 @@ func TestDeleteNotesSlideParagraphInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteNotesSlideParagraph", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a paragraph.
-   Test for SlidesApi.DeleteNotesSlideParagraph method with invalid path
-*/
-func TestDeleteNotesSlideParagraphInvalidPath(t *testing.T) {
-    request := createDeleteNotesSlideParagraphRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeleteNotesSlideParagraph", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeleteNotesSlideParagraph", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraph(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeleteNotesSlideParagraph", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a paragraph.
@@ -1060,7 +1032,6 @@ func createDeleteNotesSlideParagraphsRequest() DeleteNotesSlideParagraphsRequest
     var request DeleteNotesSlideParagraphsRequest
     request.Name = createTestParamValue("DeleteNotesSlideParagraphs", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeleteNotesSlideParagraphs", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeleteNotesSlideParagraphs", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("DeleteNotesSlideParagraphs", "shapeIndex", "int32").(int32)
     request.Paragraphs = createTestParamValue("DeleteNotesSlideParagraphs", "paragraphs", "[]int32").([]int32)
     request.Password = createTestParamValue("DeleteNotesSlideParagraphs", "password", "string").(string)
@@ -1121,33 +1092,6 @@ func TestDeleteNotesSlideParagraphsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteNotesSlideParagraphs", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a range of paragraphs.
-   Test for SlidesApi.DeleteNotesSlideParagraphs method with invalid path
-*/
-func TestDeleteNotesSlideParagraphsInvalidPath(t *testing.T) {
-    request := createDeleteNotesSlideParagraphsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeleteNotesSlideParagraphs", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeleteNotesSlideParagraphs", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraphs(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeleteNotesSlideParagraphs", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a range of paragraphs.
@@ -1307,7 +1251,6 @@ func createDeleteNotesSlidePortionRequest() DeleteNotesSlidePortionRequest {
     var request DeleteNotesSlidePortionRequest
     request.Name = createTestParamValue("DeleteNotesSlidePortion", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeleteNotesSlidePortion", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeleteNotesSlidePortion", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("DeleteNotesSlidePortion", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("DeleteNotesSlidePortion", "paragraphIndex", "int32").(int32)
     request.PortionIndex = createTestParamValue("DeleteNotesSlidePortion", "portionIndex", "int32").(int32)
@@ -1369,33 +1312,6 @@ func TestDeleteNotesSlidePortionInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteNotesSlidePortion", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a portion.
-   Test for SlidesApi.DeleteNotesSlidePortion method with invalid path
-*/
-func TestDeleteNotesSlidePortionInvalidPath(t *testing.T) {
-    request := createDeleteNotesSlidePortionRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeleteNotesSlidePortion", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeleteNotesSlidePortion", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortion(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeleteNotesSlidePortion", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a portion.
@@ -1582,7 +1498,6 @@ func createDeleteNotesSlidePortionsRequest() DeleteNotesSlidePortionsRequest {
     var request DeleteNotesSlidePortionsRequest
     request.Name = createTestParamValue("DeleteNotesSlidePortions", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeleteNotesSlidePortions", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeleteNotesSlidePortions", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("DeleteNotesSlidePortions", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("DeleteNotesSlidePortions", "paragraphIndex", "int32").(int32)
     request.Portions = createTestParamValue("DeleteNotesSlidePortions", "portions", "[]int32").([]int32)
@@ -1644,33 +1559,6 @@ func TestDeleteNotesSlidePortionsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteNotesSlidePortions", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a range of portions.
-   Test for SlidesApi.DeleteNotesSlidePortions method with invalid path
-*/
-func TestDeleteNotesSlidePortionsInvalidPath(t *testing.T) {
-    request := createDeleteNotesSlidePortionsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeleteNotesSlidePortions", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeleteNotesSlidePortions", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortions(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeleteNotesSlidePortions", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a range of portions.
@@ -1857,7 +1745,6 @@ func createDeleteNotesSlideShapeRequest() DeleteNotesSlideShapeRequest {
     var request DeleteNotesSlideShapeRequest
     request.Name = createTestParamValue("DeleteNotesSlideShape", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeleteNotesSlideShape", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeleteNotesSlideShape", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("DeleteNotesSlideShape", "shapeIndex", "int32").(int32)
     request.Password = createTestParamValue("DeleteNotesSlideShape", "password", "string").(string)
     request.Folder = createTestParamValue("DeleteNotesSlideShape", "folder", "string").(string)
@@ -1917,33 +1804,6 @@ func TestDeleteNotesSlideShapeInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteNotesSlideShape", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a shape.
-   Test for SlidesApi.DeleteNotesSlideShape method with invalid path
-*/
-func TestDeleteNotesSlideShapeInvalidPath(t *testing.T) {
-    request := createDeleteNotesSlideShapeRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeleteNotesSlideShape", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeleteNotesSlideShape", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShape(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeleteNotesSlideShape", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a shape.
@@ -2076,7 +1936,6 @@ func createDeleteNotesSlideShapesRequest() DeleteNotesSlideShapesRequest {
     var request DeleteNotesSlideShapesRequest
     request.Name = createTestParamValue("DeleteNotesSlideShapes", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeleteNotesSlideShapes", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeleteNotesSlideShapes", "path", "string").(string)
     request.Shapes = createTestParamValue("DeleteNotesSlideShapes", "shapes", "[]int32").([]int32)
     request.Password = createTestParamValue("DeleteNotesSlideShapes", "password", "string").(string)
     request.Folder = createTestParamValue("DeleteNotesSlideShapes", "folder", "string").(string)
@@ -2136,33 +1995,6 @@ func TestDeleteNotesSlideShapesInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteNotesSlideShapes", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a range of shapes.
-   Test for SlidesApi.DeleteNotesSlideShapes method with invalid path
-*/
-func TestDeleteNotesSlideShapesInvalidPath(t *testing.T) {
-    request := createDeleteNotesSlideShapesRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeleteNotesSlideShapes", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeleteNotesSlideShapes", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShapes(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeleteNotesSlideShapes", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a range of shapes.
@@ -2295,7 +2127,6 @@ func createDeleteParagraphRequest() DeleteParagraphRequest {
     var request DeleteParagraphRequest
     request.Name = createTestParamValue("DeleteParagraph", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeleteParagraph", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeleteParagraph", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("DeleteParagraph", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("DeleteParagraph", "paragraphIndex", "int32").(int32)
     request.Password = createTestParamValue("DeleteParagraph", "password", "string").(string)
@@ -2356,33 +2187,6 @@ func TestDeleteParagraphInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteParagraph", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a paragraph.
-   Test for SlidesApi.DeleteParagraph method with invalid path
-*/
-func TestDeleteParagraphInvalidPath(t *testing.T) {
-    request := createDeleteParagraphRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeleteParagraph", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeleteParagraph", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeleteParagraph(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeleteParagraph", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a paragraph.
@@ -2542,7 +2346,6 @@ func createDeleteParagraphsRequest() DeleteParagraphsRequest {
     var request DeleteParagraphsRequest
     request.Name = createTestParamValue("DeleteParagraphs", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeleteParagraphs", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeleteParagraphs", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("DeleteParagraphs", "shapeIndex", "int32").(int32)
     request.Paragraphs = createTestParamValue("DeleteParagraphs", "paragraphs", "[]int32").([]int32)
     request.Password = createTestParamValue("DeleteParagraphs", "password", "string").(string)
@@ -2603,33 +2406,6 @@ func TestDeleteParagraphsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteParagraphs", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a range of paragraphs.
-   Test for SlidesApi.DeleteParagraphs method with invalid path
-*/
-func TestDeleteParagraphsInvalidPath(t *testing.T) {
-    request := createDeleteParagraphsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeleteParagraphs", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeleteParagraphs", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeleteParagraphs(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeleteParagraphs", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a range of paragraphs.
@@ -2789,7 +2565,6 @@ func createDeletePortionRequest() DeletePortionRequest {
     var request DeletePortionRequest
     request.Name = createTestParamValue("DeletePortion", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeletePortion", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeletePortion", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("DeletePortion", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("DeletePortion", "paragraphIndex", "int32").(int32)
     request.PortionIndex = createTestParamValue("DeletePortion", "portionIndex", "int32").(int32)
@@ -2851,33 +2626,6 @@ func TestDeletePortionInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeletePortion", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a portion.
-   Test for SlidesApi.DeletePortion method with invalid path
-*/
-func TestDeletePortionInvalidPath(t *testing.T) {
-    request := createDeletePortionRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeletePortion", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeletePortion", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeletePortion(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeletePortion", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a portion.
@@ -3064,7 +2812,6 @@ func createDeletePortionsRequest() DeletePortionsRequest {
     var request DeletePortionsRequest
     request.Name = createTestParamValue("DeletePortions", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeletePortions", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeletePortions", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("DeletePortions", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("DeletePortions", "paragraphIndex", "int32").(int32)
     request.Portions = createTestParamValue("DeletePortions", "portions", "[]int32").([]int32)
@@ -3126,33 +2873,6 @@ func TestDeletePortionsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeletePortions", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a range of portions.
-   Test for SlidesApi.DeletePortions method with invalid path
-*/
-func TestDeletePortionsInvalidPath(t *testing.T) {
-    request := createDeletePortionsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeletePortions", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeletePortions", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeletePortions(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeletePortions", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a range of portions.
@@ -4592,7 +4312,6 @@ func createDeleteSlideShapeRequest() DeleteSlideShapeRequest {
     var request DeleteSlideShapeRequest
     request.Name = createTestParamValue("DeleteSlideShape", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeleteSlideShape", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeleteSlideShape", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("DeleteSlideShape", "shapeIndex", "int32").(int32)
     request.Password = createTestParamValue("DeleteSlideShape", "password", "string").(string)
     request.Folder = createTestParamValue("DeleteSlideShape", "folder", "string").(string)
@@ -4652,33 +4371,6 @@ func TestDeleteSlideShapeInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteSlideShape", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a shape.
-   Test for SlidesApi.DeleteSlideShape method with invalid path
-*/
-func TestDeleteSlideShapeInvalidPath(t *testing.T) {
-    request := createDeleteSlideShapeRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeleteSlideShape", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeleteSlideShape", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeleteSlideShape(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeleteSlideShape", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a shape.
@@ -4811,7 +4503,6 @@ func createDeleteSlideShapesRequest() DeleteSlideShapesRequest {
     var request DeleteSlideShapesRequest
     request.Name = createTestParamValue("DeleteSlideShapes", "name", "string").(string)
     request.SlideIndex = createTestParamValue("DeleteSlideShapes", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("DeleteSlideShapes", "path", "string").(string)
     request.Shapes = createTestParamValue("DeleteSlideShapes", "shapes", "[]int32").([]int32)
     request.Password = createTestParamValue("DeleteSlideShapes", "password", "string").(string)
     request.Folder = createTestParamValue("DeleteSlideShapes", "folder", "string").(string)
@@ -4871,33 +4562,6 @@ func TestDeleteSlideShapesInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteSlideShapes", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Remove a range of shapes.
-   Test for SlidesApi.DeleteSlideShapes method with invalid path
-*/
-func TestDeleteSlideShapesInvalidPath(t *testing.T) {
-    request := createDeleteSlideShapesRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "DeleteSlideShapes", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("DeleteSlideShapes", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DeleteSlideShapes(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DeleteSlideShapes", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove a range of shapes.
@@ -5006,6 +4670,444 @@ func TestDeleteSlideShapesInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteSlideShapes", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a shape (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshape method
+*/
+func TestDeleteSlideSubshape(t *testing.T) {
+    request := createDeleteSlideSubshapeRequest()
+    e := initializeTest("DeleteSlideSubshape", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteSlideSubshape(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createDeleteSlideSubshapeRequest() DeleteSlideSubshapeRequest {
+    var request DeleteSlideSubshapeRequest
+    request.Name = createTestParamValue("DeleteSlideSubshape", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("DeleteSlideSubshape", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("DeleteSlideSubshape", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("DeleteSlideSubshape", "shapeIndex", "int32").(int32)
+    request.Password = createTestParamValue("DeleteSlideSubshape", "password", "string").(string)
+    request.Folder = createTestParamValue("DeleteSlideSubshape", "folder", "string").(string)
+    request.Storage = createTestParamValue("DeleteSlideSubshape", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Remove a shape (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshape method with invalid name
+*/
+func TestDeleteSlideSubshapeInvalidName(t *testing.T) {
+    request := createDeleteSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "DeleteSlideSubshape", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlideSubshape", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshape", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a shape (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshape method with invalid slideIndex
+*/
+func TestDeleteSlideSubshapeInvalidSlideIndex(t *testing.T) {
+    request := createDeleteSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "DeleteSlideSubshape", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSlideSubshape", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshape", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a shape (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshape method with invalid path
+*/
+func TestDeleteSlideSubshapeInvalidPath(t *testing.T) {
+    request := createDeleteSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "DeleteSlideSubshape", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlideSubshape", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshape", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a shape (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshape method with invalid shapeIndex
+*/
+func TestDeleteSlideSubshapeInvalidShapeIndex(t *testing.T) {
+    request := createDeleteSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "DeleteSlideSubshape", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSlideSubshape", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshape", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a shape (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshape method with invalid password
+*/
+func TestDeleteSlideSubshapeInvalidPassword(t *testing.T) {
+    request := createDeleteSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "DeleteSlideSubshape", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlideSubshape", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshape", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a shape (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshape method with invalid folder
+*/
+func TestDeleteSlideSubshapeInvalidFolder(t *testing.T) {
+    request := createDeleteSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "DeleteSlideSubshape", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlideSubshape", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshape", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a shape (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshape method with invalid storage
+*/
+func TestDeleteSlideSubshapeInvalidStorage(t *testing.T) {
+    request := createDeleteSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "DeleteSlideSubshape", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlideSubshape", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshape", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of shapes (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshapes method
+*/
+func TestDeleteSlideSubshapes(t *testing.T) {
+    request := createDeleteSlideSubshapesRequest()
+    e := initializeTest("DeleteSlideSubshapes", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteSlideSubshapes(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createDeleteSlideSubshapesRequest() DeleteSlideSubshapesRequest {
+    var request DeleteSlideSubshapesRequest
+    request.Name = createTestParamValue("DeleteSlideSubshapes", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("DeleteSlideSubshapes", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("DeleteSlideSubshapes", "path", "string").(string)
+    request.Shapes = createTestParamValue("DeleteSlideSubshapes", "shapes", "[]int32").([]int32)
+    request.Password = createTestParamValue("DeleteSlideSubshapes", "password", "string").(string)
+    request.Folder = createTestParamValue("DeleteSlideSubshapes", "folder", "string").(string)
+    request.Storage = createTestParamValue("DeleteSlideSubshapes", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Remove a range of shapes (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshapes method with invalid name
+*/
+func TestDeleteSlideSubshapesInvalidName(t *testing.T) {
+    request := createDeleteSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "DeleteSlideSubshapes", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlideSubshapes", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshapes", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of shapes (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshapes method with invalid slideIndex
+*/
+func TestDeleteSlideSubshapesInvalidSlideIndex(t *testing.T) {
+    request := createDeleteSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "DeleteSlideSubshapes", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSlideSubshapes", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshapes", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of shapes (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshapes method with invalid path
+*/
+func TestDeleteSlideSubshapesInvalidPath(t *testing.T) {
+    request := createDeleteSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "DeleteSlideSubshapes", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlideSubshapes", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshapes", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of shapes (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshapes method with invalid shapes
+*/
+func TestDeleteSlideSubshapesInvalidShapes(t *testing.T) {
+    request := createDeleteSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Shapes, "DeleteSlideSubshapes", "shapes", "[]int32")
+    if (invalidValue == nil) {
+        var nullValue []int32
+        request.Shapes = nullValue
+    } else {
+        request.Shapes = invalidValue.([]int32)
+    }
+
+    e := initializeTest("DeleteSlideSubshapes", "shapes", request.Shapes)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshapes", "shapes", request.Shapes, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of shapes (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshapes method with invalid password
+*/
+func TestDeleteSlideSubshapesInvalidPassword(t *testing.T) {
+    request := createDeleteSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "DeleteSlideSubshapes", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlideSubshapes", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshapes", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of shapes (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshapes method with invalid folder
+*/
+func TestDeleteSlideSubshapesInvalidFolder(t *testing.T) {
+    request := createDeleteSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "DeleteSlideSubshapes", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlideSubshapes", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshapes", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of shapes (for smart art and group shapes).
+   Test for SlidesApi.DeleteSlideSubshapes method with invalid storage
+*/
+func TestDeleteSlideSubshapesInvalidStorage(t *testing.T) {
+    request := createDeleteSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "DeleteSlideSubshapes", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlideSubshapes", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlideSubshapes", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Delete presentation slides.
@@ -5630,6 +5732,1050 @@ func TestDeleteSlidesSlideBackgroundInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteSlidesSlideBackground", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a paragraph (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraph method
+*/
+func TestDeleteSubshapeParagraph(t *testing.T) {
+    request := createDeleteSubshapeParagraphRequest()
+    e := initializeTest("DeleteSubshapeParagraph", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteSubshapeParagraph(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createDeleteSubshapeParagraphRequest() DeleteSubshapeParagraphRequest {
+    var request DeleteSubshapeParagraphRequest
+    request.Name = createTestParamValue("DeleteSubshapeParagraph", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("DeleteSubshapeParagraph", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("DeleteSubshapeParagraph", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("DeleteSubshapeParagraph", "shapeIndex", "int32").(int32)
+    request.ParagraphIndex = createTestParamValue("DeleteSubshapeParagraph", "paragraphIndex", "int32").(int32)
+    request.Password = createTestParamValue("DeleteSubshapeParagraph", "password", "string").(string)
+    request.Folder = createTestParamValue("DeleteSubshapeParagraph", "folder", "string").(string)
+    request.Storage = createTestParamValue("DeleteSubshapeParagraph", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Remove a paragraph (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraph method with invalid name
+*/
+func TestDeleteSubshapeParagraphInvalidName(t *testing.T) {
+    request := createDeleteSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "DeleteSubshapeParagraph", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraph", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraph", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a paragraph (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraph method with invalid slideIndex
+*/
+func TestDeleteSubshapeParagraphInvalidSlideIndex(t *testing.T) {
+    request := createDeleteSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "DeleteSubshapeParagraph", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraph", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraph", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a paragraph (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraph method with invalid path
+*/
+func TestDeleteSubshapeParagraphInvalidPath(t *testing.T) {
+    request := createDeleteSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "DeleteSubshapeParagraph", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraph", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraph", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a paragraph (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraph method with invalid shapeIndex
+*/
+func TestDeleteSubshapeParagraphInvalidShapeIndex(t *testing.T) {
+    request := createDeleteSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "DeleteSubshapeParagraph", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraph", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraph", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a paragraph (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraph method with invalid paragraphIndex
+*/
+func TestDeleteSubshapeParagraphInvalidParagraphIndex(t *testing.T) {
+    request := createDeleteSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ParagraphIndex, "DeleteSubshapeParagraph", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ParagraphIndex = nullValue
+    } else {
+        request.ParagraphIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraph", "paragraphIndex", request.ParagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraph", "paragraphIndex", request.ParagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a paragraph (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraph method with invalid password
+*/
+func TestDeleteSubshapeParagraphInvalidPassword(t *testing.T) {
+    request := createDeleteSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "DeleteSubshapeParagraph", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraph", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraph", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a paragraph (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraph method with invalid folder
+*/
+func TestDeleteSubshapeParagraphInvalidFolder(t *testing.T) {
+    request := createDeleteSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "DeleteSubshapeParagraph", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraph", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraph", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a paragraph (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraph method with invalid storage
+*/
+func TestDeleteSubshapeParagraphInvalidStorage(t *testing.T) {
+    request := createDeleteSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "DeleteSubshapeParagraph", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraph", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraph", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of paragraphs (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraphs method
+*/
+func TestDeleteSubshapeParagraphs(t *testing.T) {
+    request := createDeleteSubshapeParagraphsRequest()
+    e := initializeTest("DeleteSubshapeParagraphs", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteSubshapeParagraphs(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createDeleteSubshapeParagraphsRequest() DeleteSubshapeParagraphsRequest {
+    var request DeleteSubshapeParagraphsRequest
+    request.Name = createTestParamValue("DeleteSubshapeParagraphs", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("DeleteSubshapeParagraphs", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("DeleteSubshapeParagraphs", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("DeleteSubshapeParagraphs", "shapeIndex", "int32").(int32)
+    request.Paragraphs = createTestParamValue("DeleteSubshapeParagraphs", "paragraphs", "[]int32").([]int32)
+    request.Password = createTestParamValue("DeleteSubshapeParagraphs", "password", "string").(string)
+    request.Folder = createTestParamValue("DeleteSubshapeParagraphs", "folder", "string").(string)
+    request.Storage = createTestParamValue("DeleteSubshapeParagraphs", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Remove a range of paragraphs (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraphs method with invalid name
+*/
+func TestDeleteSubshapeParagraphsInvalidName(t *testing.T) {
+    request := createDeleteSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "DeleteSubshapeParagraphs", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraphs", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraphs", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of paragraphs (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraphs method with invalid slideIndex
+*/
+func TestDeleteSubshapeParagraphsInvalidSlideIndex(t *testing.T) {
+    request := createDeleteSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "DeleteSubshapeParagraphs", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraphs", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraphs", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of paragraphs (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraphs method with invalid path
+*/
+func TestDeleteSubshapeParagraphsInvalidPath(t *testing.T) {
+    request := createDeleteSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "DeleteSubshapeParagraphs", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraphs", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraphs", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of paragraphs (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraphs method with invalid shapeIndex
+*/
+func TestDeleteSubshapeParagraphsInvalidShapeIndex(t *testing.T) {
+    request := createDeleteSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "DeleteSubshapeParagraphs", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraphs", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraphs", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of paragraphs (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraphs method with invalid paragraphs
+*/
+func TestDeleteSubshapeParagraphsInvalidParagraphs(t *testing.T) {
+    request := createDeleteSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Paragraphs, "DeleteSubshapeParagraphs", "paragraphs", "[]int32")
+    if (invalidValue == nil) {
+        var nullValue []int32
+        request.Paragraphs = nullValue
+    } else {
+        request.Paragraphs = invalidValue.([]int32)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraphs", "paragraphs", request.Paragraphs)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraphs", "paragraphs", request.Paragraphs, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of paragraphs (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraphs method with invalid password
+*/
+func TestDeleteSubshapeParagraphsInvalidPassword(t *testing.T) {
+    request := createDeleteSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "DeleteSubshapeParagraphs", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraphs", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraphs", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of paragraphs (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraphs method with invalid folder
+*/
+func TestDeleteSubshapeParagraphsInvalidFolder(t *testing.T) {
+    request := createDeleteSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "DeleteSubshapeParagraphs", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraphs", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraphs", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of paragraphs (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapeParagraphs method with invalid storage
+*/
+func TestDeleteSubshapeParagraphsInvalidStorage(t *testing.T) {
+    request := createDeleteSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "DeleteSubshapeParagraphs", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapeParagraphs", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapeParagraphs", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a portion (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortion method
+*/
+func TestDeleteSubshapePortion(t *testing.T) {
+    request := createDeleteSubshapePortionRequest()
+    e := initializeTest("DeleteSubshapePortion", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteSubshapePortion(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createDeleteSubshapePortionRequest() DeleteSubshapePortionRequest {
+    var request DeleteSubshapePortionRequest
+    request.Name = createTestParamValue("DeleteSubshapePortion", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("DeleteSubshapePortion", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("DeleteSubshapePortion", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("DeleteSubshapePortion", "shapeIndex", "int32").(int32)
+    request.ParagraphIndex = createTestParamValue("DeleteSubshapePortion", "paragraphIndex", "int32").(int32)
+    request.PortionIndex = createTestParamValue("DeleteSubshapePortion", "portionIndex", "int32").(int32)
+    request.Password = createTestParamValue("DeleteSubshapePortion", "password", "string").(string)
+    request.Folder = createTestParamValue("DeleteSubshapePortion", "folder", "string").(string)
+    request.Storage = createTestParamValue("DeleteSubshapePortion", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Remove a portion (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortion method with invalid name
+*/
+func TestDeleteSubshapePortionInvalidName(t *testing.T) {
+    request := createDeleteSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "DeleteSubshapePortion", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapePortion", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortion", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a portion (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortion method with invalid slideIndex
+*/
+func TestDeleteSubshapePortionInvalidSlideIndex(t *testing.T) {
+    request := createDeleteSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "DeleteSubshapePortion", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapePortion", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortion", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a portion (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortion method with invalid path
+*/
+func TestDeleteSubshapePortionInvalidPath(t *testing.T) {
+    request := createDeleteSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "DeleteSubshapePortion", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapePortion", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortion", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a portion (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortion method with invalid shapeIndex
+*/
+func TestDeleteSubshapePortionInvalidShapeIndex(t *testing.T) {
+    request := createDeleteSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "DeleteSubshapePortion", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapePortion", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortion", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a portion (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortion method with invalid paragraphIndex
+*/
+func TestDeleteSubshapePortionInvalidParagraphIndex(t *testing.T) {
+    request := createDeleteSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ParagraphIndex, "DeleteSubshapePortion", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ParagraphIndex = nullValue
+    } else {
+        request.ParagraphIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapePortion", "paragraphIndex", request.ParagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortion", "paragraphIndex", request.ParagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a portion (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortion method with invalid portionIndex
+*/
+func TestDeleteSubshapePortionInvalidPortionIndex(t *testing.T) {
+    request := createDeleteSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.PortionIndex, "DeleteSubshapePortion", "portionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.PortionIndex = nullValue
+    } else {
+        request.PortionIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapePortion", "portionIndex", request.PortionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortion", "portionIndex", request.PortionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a portion (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortion method with invalid password
+*/
+func TestDeleteSubshapePortionInvalidPassword(t *testing.T) {
+    request := createDeleteSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "DeleteSubshapePortion", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapePortion", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortion", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a portion (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortion method with invalid folder
+*/
+func TestDeleteSubshapePortionInvalidFolder(t *testing.T) {
+    request := createDeleteSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "DeleteSubshapePortion", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapePortion", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortion", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a portion (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortion method with invalid storage
+*/
+func TestDeleteSubshapePortionInvalidStorage(t *testing.T) {
+    request := createDeleteSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "DeleteSubshapePortion", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapePortion", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortion", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of portions (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortions method
+*/
+func TestDeleteSubshapePortions(t *testing.T) {
+    request := createDeleteSubshapePortionsRequest()
+    e := initializeTest("DeleteSubshapePortions", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteSubshapePortions(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createDeleteSubshapePortionsRequest() DeleteSubshapePortionsRequest {
+    var request DeleteSubshapePortionsRequest
+    request.Name = createTestParamValue("DeleteSubshapePortions", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("DeleteSubshapePortions", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("DeleteSubshapePortions", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("DeleteSubshapePortions", "shapeIndex", "int32").(int32)
+    request.ParagraphIndex = createTestParamValue("DeleteSubshapePortions", "paragraphIndex", "int32").(int32)
+    request.Portions = createTestParamValue("DeleteSubshapePortions", "portions", "[]int32").([]int32)
+    request.Password = createTestParamValue("DeleteSubshapePortions", "password", "string").(string)
+    request.Folder = createTestParamValue("DeleteSubshapePortions", "folder", "string").(string)
+    request.Storage = createTestParamValue("DeleteSubshapePortions", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Remove a range of portions (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortions method with invalid name
+*/
+func TestDeleteSubshapePortionsInvalidName(t *testing.T) {
+    request := createDeleteSubshapePortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "DeleteSubshapePortions", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapePortions", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortions", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of portions (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortions method with invalid slideIndex
+*/
+func TestDeleteSubshapePortionsInvalidSlideIndex(t *testing.T) {
+    request := createDeleteSubshapePortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "DeleteSubshapePortions", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapePortions", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortions", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of portions (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortions method with invalid path
+*/
+func TestDeleteSubshapePortionsInvalidPath(t *testing.T) {
+    request := createDeleteSubshapePortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "DeleteSubshapePortions", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapePortions", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortions", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of portions (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortions method with invalid shapeIndex
+*/
+func TestDeleteSubshapePortionsInvalidShapeIndex(t *testing.T) {
+    request := createDeleteSubshapePortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "DeleteSubshapePortions", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapePortions", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortions", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of portions (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortions method with invalid paragraphIndex
+*/
+func TestDeleteSubshapePortionsInvalidParagraphIndex(t *testing.T) {
+    request := createDeleteSubshapePortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ParagraphIndex, "DeleteSubshapePortions", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ParagraphIndex = nullValue
+    } else {
+        request.ParagraphIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSubshapePortions", "paragraphIndex", request.ParagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortions", "paragraphIndex", request.ParagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of portions (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortions method with invalid portions
+*/
+func TestDeleteSubshapePortionsInvalidPortions(t *testing.T) {
+    request := createDeleteSubshapePortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Portions, "DeleteSubshapePortions", "portions", "[]int32")
+    if (invalidValue == nil) {
+        var nullValue []int32
+        request.Portions = nullValue
+    } else {
+        request.Portions = invalidValue.([]int32)
+    }
+
+    e := initializeTest("DeleteSubshapePortions", "portions", request.Portions)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortions", "portions", request.Portions, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of portions (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortions method with invalid password
+*/
+func TestDeleteSubshapePortionsInvalidPassword(t *testing.T) {
+    request := createDeleteSubshapePortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "DeleteSubshapePortions", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapePortions", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortions", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of portions (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortions method with invalid folder
+*/
+func TestDeleteSubshapePortionsInvalidFolder(t *testing.T) {
+    request := createDeleteSubshapePortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "DeleteSubshapePortions", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapePortions", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortions", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Remove a range of portions (for smart art and group shapes).
+   Test for SlidesApi.DeleteSubshapePortions method with invalid storage
+*/
+func TestDeleteSubshapePortionsInvalidStorage(t *testing.T) {
+    request := createDeleteSubshapePortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "DeleteSubshapePortions", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSubshapePortions", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSubshapePortions", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Download file
@@ -6708,6 +7854,169 @@ func TestGetNotesSlideInvalidStorage(t *testing.T) {
     assertError(t, "GetNotesSlide", "storage", request.Storage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Get info whether a notes slide exists.
+   Test for SlidesApi.GetNotesSlideExists method
+*/
+func TestGetNotesSlideExists(t *testing.T) {
+    request := createGetNotesSlideExistsRequest()
+    e := initializeTest("GetNotesSlideExists", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetNotesSlideExists(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetNotesSlideExistsRequest() GetNotesSlideExistsRequest {
+    var request GetNotesSlideExistsRequest
+    request.Name = createTestParamValue("GetNotesSlideExists", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("GetNotesSlideExists", "slideIndex", "int32").(int32)
+    request.Password = createTestParamValue("GetNotesSlideExists", "password", "string").(string)
+    request.Folder = createTestParamValue("GetNotesSlideExists", "folder", "string").(string)
+    request.Storage = createTestParamValue("GetNotesSlideExists", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Get info whether a notes slide exists.
+   Test for SlidesApi.GetNotesSlideExists method with invalid name
+*/
+func TestGetNotesSlideExistsInvalidName(t *testing.T) {
+    request := createGetNotesSlideExistsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetNotesSlideExists", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetNotesSlideExists", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideExists(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetNotesSlideExists", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get info whether a notes slide exists.
+   Test for SlidesApi.GetNotesSlideExists method with invalid slideIndex
+*/
+func TestGetNotesSlideExistsInvalidSlideIndex(t *testing.T) {
+    request := createGetNotesSlideExistsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "GetNotesSlideExists", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetNotesSlideExists", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideExists(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetNotesSlideExists", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get info whether a notes slide exists.
+   Test for SlidesApi.GetNotesSlideExists method with invalid password
+*/
+func TestGetNotesSlideExistsInvalidPassword(t *testing.T) {
+    request := createGetNotesSlideExistsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetNotesSlideExists", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetNotesSlideExists", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideExists(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetNotesSlideExists", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get info whether a notes slide exists.
+   Test for SlidesApi.GetNotesSlideExists method with invalid folder
+*/
+func TestGetNotesSlideExistsInvalidFolder(t *testing.T) {
+    request := createGetNotesSlideExistsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetNotesSlideExists", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetNotesSlideExists", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideExists(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetNotesSlideExists", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get info whether a notes slide exists.
+   Test for SlidesApi.GetNotesSlideExists method with invalid storage
+*/
+func TestGetNotesSlideExistsInvalidStorage(t *testing.T) {
+    request := createGetNotesSlideExistsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetNotesSlideExists", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetNotesSlideExists", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideExists(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetNotesSlideExists", "storage", request.Storage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Read slide shape info.
    Test for SlidesApi.GetNotesSlideShape method
 */
@@ -6730,7 +8039,6 @@ func createGetNotesSlideShapeRequest() GetNotesSlideShapeRequest {
     var request GetNotesSlideShapeRequest
     request.Name = createTestParamValue("GetNotesSlideShape", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetNotesSlideShape", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetNotesSlideShape", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("GetNotesSlideShape", "shapeIndex", "int32").(int32)
     request.Password = createTestParamValue("GetNotesSlideShape", "password", "string").(string)
     request.Folder = createTestParamValue("GetNotesSlideShape", "folder", "string").(string)
@@ -6790,33 +8098,6 @@ func TestGetNotesSlideShapeInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetNotesSlideShape", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read slide shape info.
-   Test for SlidesApi.GetNotesSlideShape method with invalid path
-*/
-func TestGetNotesSlideShapeInvalidPath(t *testing.T) {
-    request := createGetNotesSlideShapeRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetNotesSlideShape", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetNotesSlideShape", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShape(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetNotesSlideShape", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read slide shape info.
@@ -6949,7 +8230,6 @@ func createGetNotesSlideShapeParagraphRequest() GetNotesSlideShapeParagraphReque
     var request GetNotesSlideShapeParagraphRequest
     request.Name = createTestParamValue("GetNotesSlideShapeParagraph", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetNotesSlideShapeParagraph", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetNotesSlideShapeParagraph", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("GetNotesSlideShapeParagraph", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("GetNotesSlideShapeParagraph", "paragraphIndex", "int32").(int32)
     request.Password = createTestParamValue("GetNotesSlideShapeParagraph", "password", "string").(string)
@@ -7010,33 +8290,6 @@ func TestGetNotesSlideShapeParagraphInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetNotesSlideShapeParagraph", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read shape paragraph info.
-   Test for SlidesApi.GetNotesSlideShapeParagraph method with invalid path
-*/
-func TestGetNotesSlideShapeParagraphInvalidPath(t *testing.T) {
-    request := createGetNotesSlideShapeParagraphRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetNotesSlideShapeParagraph", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetNotesSlideShapeParagraph", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraph(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetNotesSlideShapeParagraph", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read shape paragraph info.
@@ -7196,7 +8449,6 @@ func createGetNotesSlideShapeParagraphsRequest() GetNotesSlideShapeParagraphsReq
     var request GetNotesSlideShapeParagraphsRequest
     request.Name = createTestParamValue("GetNotesSlideShapeParagraphs", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetNotesSlideShapeParagraphs", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetNotesSlideShapeParagraphs", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("GetNotesSlideShapeParagraphs", "shapeIndex", "int32").(int32)
     request.Password = createTestParamValue("GetNotesSlideShapeParagraphs", "password", "string").(string)
     request.Folder = createTestParamValue("GetNotesSlideShapeParagraphs", "folder", "string").(string)
@@ -7256,33 +8508,6 @@ func TestGetNotesSlideShapeParagraphsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetNotesSlideShapeParagraphs", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read shape paragraphs info.
-   Test for SlidesApi.GetNotesSlideShapeParagraphs method with invalid path
-*/
-func TestGetNotesSlideShapeParagraphsInvalidPath(t *testing.T) {
-    request := createGetNotesSlideShapeParagraphsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetNotesSlideShapeParagraphs", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetNotesSlideShapeParagraphs", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraphs(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetNotesSlideShapeParagraphs", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read shape paragraphs info.
@@ -7415,7 +8640,6 @@ func createGetNotesSlideShapePortionRequest() GetNotesSlideShapePortionRequest {
     var request GetNotesSlideShapePortionRequest
     request.Name = createTestParamValue("GetNotesSlideShapePortion", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetNotesSlideShapePortion", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetNotesSlideShapePortion", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("GetNotesSlideShapePortion", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("GetNotesSlideShapePortion", "paragraphIndex", "int32").(int32)
     request.PortionIndex = createTestParamValue("GetNotesSlideShapePortion", "portionIndex", "int32").(int32)
@@ -7477,33 +8701,6 @@ func TestGetNotesSlideShapePortionInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetNotesSlideShapePortion", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read paragraph portion info.
-   Test for SlidesApi.GetNotesSlideShapePortion method with invalid path
-*/
-func TestGetNotesSlideShapePortionInvalidPath(t *testing.T) {
-    request := createGetNotesSlideShapePortionRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetNotesSlideShapePortion", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetNotesSlideShapePortion", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortion(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetNotesSlideShapePortion", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read paragraph portion info.
@@ -7690,7 +8887,6 @@ func createGetNotesSlideShapePortionsRequest() GetNotesSlideShapePortionsRequest
     var request GetNotesSlideShapePortionsRequest
     request.Name = createTestParamValue("GetNotesSlideShapePortions", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetNotesSlideShapePortions", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetNotesSlideShapePortions", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("GetNotesSlideShapePortions", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("GetNotesSlideShapePortions", "paragraphIndex", "int32").(int32)
     request.Password = createTestParamValue("GetNotesSlideShapePortions", "password", "string").(string)
@@ -7751,33 +8947,6 @@ func TestGetNotesSlideShapePortionsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetNotesSlideShapePortions", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read paragraph portions info.
-   Test for SlidesApi.GetNotesSlideShapePortions method with invalid path
-*/
-func TestGetNotesSlideShapePortionsInvalidPath(t *testing.T) {
-    request := createGetNotesSlideShapePortionsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetNotesSlideShapePortions", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetNotesSlideShapePortions", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortions(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetNotesSlideShapePortions", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read paragraph portions info.
@@ -7937,7 +9106,6 @@ func createGetNotesSlideShapesRequest() GetNotesSlideShapesRequest {
     var request GetNotesSlideShapesRequest
     request.Name = createTestParamValue("GetNotesSlideShapes", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetNotesSlideShapes", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetNotesSlideShapes", "path", "string").(string)
     request.Password = createTestParamValue("GetNotesSlideShapes", "password", "string").(string)
     request.Folder = createTestParamValue("GetNotesSlideShapes", "folder", "string").(string)
     request.Storage = createTestParamValue("GetNotesSlideShapes", "storage", "string").(string)
@@ -7996,33 +9164,6 @@ func TestGetNotesSlideShapesInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetNotesSlideShapes", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read slide shapes info.
-   Test for SlidesApi.GetNotesSlideShapes method with invalid path
-*/
-func TestGetNotesSlideShapesInvalidPath(t *testing.T) {
-    request := createGetNotesSlideShapesRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetNotesSlideShapes", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetNotesSlideShapes", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapes(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetNotesSlideShapes", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read slide shapes info.
@@ -8416,7 +9557,6 @@ func createGetParagraphPortionRequest() GetParagraphPortionRequest {
     var request GetParagraphPortionRequest
     request.Name = createTestParamValue("GetParagraphPortion", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetParagraphPortion", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetParagraphPortion", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("GetParagraphPortion", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("GetParagraphPortion", "paragraphIndex", "int32").(int32)
     request.PortionIndex = createTestParamValue("GetParagraphPortion", "portionIndex", "int32").(int32)
@@ -8478,33 +9618,6 @@ func TestGetParagraphPortionInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetParagraphPortion", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read paragraph portion info.
-   Test for SlidesApi.GetParagraphPortion method with invalid path
-*/
-func TestGetParagraphPortionInvalidPath(t *testing.T) {
-    request := createGetParagraphPortionRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetParagraphPortion", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetParagraphPortion", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetParagraphPortion(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetParagraphPortion", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read paragraph portion info.
@@ -8691,7 +9804,6 @@ func createGetParagraphPortionsRequest() GetParagraphPortionsRequest {
     var request GetParagraphPortionsRequest
     request.Name = createTestParamValue("GetParagraphPortions", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetParagraphPortions", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetParagraphPortions", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("GetParagraphPortions", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("GetParagraphPortions", "paragraphIndex", "int32").(int32)
     request.Password = createTestParamValue("GetParagraphPortions", "password", "string").(string)
@@ -8752,33 +9864,6 @@ func TestGetParagraphPortionsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetParagraphPortions", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read paragraph portions info.
-   Test for SlidesApi.GetParagraphPortions method with invalid path
-*/
-func TestGetParagraphPortionsInvalidPath(t *testing.T) {
-    request := createGetParagraphPortionsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetParagraphPortions", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetParagraphPortions", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetParagraphPortions(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetParagraphPortions", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read paragraph portions info.
@@ -9129,7 +10214,6 @@ func createGetSlideShapeRequest() GetSlideShapeRequest {
     var request GetSlideShapeRequest
     request.Name = createTestParamValue("GetSlideShape", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetSlideShape", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetSlideShape", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("GetSlideShape", "shapeIndex", "int32").(int32)
     request.Password = createTestParamValue("GetSlideShape", "password", "string").(string)
     request.Folder = createTestParamValue("GetSlideShape", "folder", "string").(string)
@@ -9189,33 +10273,6 @@ func TestGetSlideShapeInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetSlideShape", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read slide shape info.
-   Test for SlidesApi.GetSlideShape method with invalid path
-*/
-func TestGetSlideShapeInvalidPath(t *testing.T) {
-    request := createGetSlideShapeRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetSlideShape", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetSlideShape", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetSlideShape(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetSlideShape", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read slide shape info.
@@ -9348,7 +10405,6 @@ func createGetSlideShapeParagraphRequest() GetSlideShapeParagraphRequest {
     var request GetSlideShapeParagraphRequest
     request.Name = createTestParamValue("GetSlideShapeParagraph", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetSlideShapeParagraph", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetSlideShapeParagraph", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("GetSlideShapeParagraph", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("GetSlideShapeParagraph", "paragraphIndex", "int32").(int32)
     request.Password = createTestParamValue("GetSlideShapeParagraph", "password", "string").(string)
@@ -9409,33 +10465,6 @@ func TestGetSlideShapeParagraphInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetSlideShapeParagraph", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read shape paragraph info.
-   Test for SlidesApi.GetSlideShapeParagraph method with invalid path
-*/
-func TestGetSlideShapeParagraphInvalidPath(t *testing.T) {
-    request := createGetSlideShapeParagraphRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetSlideShapeParagraph", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetSlideShapeParagraph", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraph(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetSlideShapeParagraph", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read shape paragraph info.
@@ -9595,7 +10624,6 @@ func createGetSlideShapeParagraphsRequest() GetSlideShapeParagraphsRequest {
     var request GetSlideShapeParagraphsRequest
     request.Name = createTestParamValue("GetSlideShapeParagraphs", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetSlideShapeParagraphs", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetSlideShapeParagraphs", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("GetSlideShapeParagraphs", "shapeIndex", "int32").(int32)
     request.Password = createTestParamValue("GetSlideShapeParagraphs", "password", "string").(string)
     request.Folder = createTestParamValue("GetSlideShapeParagraphs", "folder", "string").(string)
@@ -9655,33 +10683,6 @@ func TestGetSlideShapeParagraphsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetSlideShapeParagraphs", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read shape paragraphs info.
-   Test for SlidesApi.GetSlideShapeParagraphs method with invalid path
-*/
-func TestGetSlideShapeParagraphsInvalidPath(t *testing.T) {
-    request := createGetSlideShapeParagraphsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetSlideShapeParagraphs", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetSlideShapeParagraphs", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraphs(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetSlideShapeParagraphs", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read shape paragraphs info.
@@ -9814,7 +10815,6 @@ func createGetSlideShapesRequest() GetSlideShapesRequest {
     var request GetSlideShapesRequest
     request.Name = createTestParamValue("GetSlideShapes", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetSlideShapes", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("GetSlideShapes", "path", "string").(string)
     request.Password = createTestParamValue("GetSlideShapes", "password", "string").(string)
     request.Folder = createTestParamValue("GetSlideShapes", "folder", "string").(string)
     request.Storage = createTestParamValue("GetSlideShapes", "storage", "string").(string)
@@ -9873,33 +10873,6 @@ func TestGetSlideShapesInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetSlideShapes", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read slide shapes info.
-   Test for SlidesApi.GetSlideShapes method with invalid path
-*/
-func TestGetSlideShapesInvalidPath(t *testing.T) {
-    request := createGetSlideShapesRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "GetSlideShapes", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("GetSlideShapes", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.GetSlideShapes(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "GetSlideShapes", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read slide shapes info.
@@ -9981,6 +10954,882 @@ func TestGetSlideShapesInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetSlideShapes", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shape info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshape method
+*/
+func TestGetSlideSubshape(t *testing.T) {
+    request := createGetSlideSubshapeRequest()
+    e := initializeTest("GetSlideSubshape", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSlideSubshape(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetSlideSubshapeRequest() GetSlideSubshapeRequest {
+    var request GetSlideSubshapeRequest
+    request.Name = createTestParamValue("GetSlideSubshape", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("GetSlideSubshape", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("GetSlideSubshape", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("GetSlideSubshape", "shapeIndex", "int32").(int32)
+    request.Password = createTestParamValue("GetSlideSubshape", "password", "string").(string)
+    request.Folder = createTestParamValue("GetSlideSubshape", "folder", "string").(string)
+    request.Storage = createTestParamValue("GetSlideSubshape", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Read slide shape info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshape method with invalid name
+*/
+func TestGetSlideSubshapeInvalidName(t *testing.T) {
+    request := createGetSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetSlideSubshape", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshape", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshape", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shape info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshape method with invalid slideIndex
+*/
+func TestGetSlideSubshapeInvalidSlideIndex(t *testing.T) {
+    request := createGetSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "GetSlideSubshape", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSlideSubshape", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshape", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shape info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshape method with invalid path
+*/
+func TestGetSlideSubshapeInvalidPath(t *testing.T) {
+    request := createGetSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "GetSlideSubshape", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshape", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshape", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shape info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshape method with invalid shapeIndex
+*/
+func TestGetSlideSubshapeInvalidShapeIndex(t *testing.T) {
+    request := createGetSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "GetSlideSubshape", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSlideSubshape", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshape", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shape info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshape method with invalid password
+*/
+func TestGetSlideSubshapeInvalidPassword(t *testing.T) {
+    request := createGetSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetSlideSubshape", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshape", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshape", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shape info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshape method with invalid folder
+*/
+func TestGetSlideSubshapeInvalidFolder(t *testing.T) {
+    request := createGetSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetSlideSubshape", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshape", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshape", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shape info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshape method with invalid storage
+*/
+func TestGetSlideSubshapeInvalidStorage(t *testing.T) {
+    request := createGetSlideSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetSlideSubshape", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshape", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshape", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraph method
+*/
+func TestGetSlideSubshapeParagraph(t *testing.T) {
+    request := createGetSlideSubshapeParagraphRequest()
+    e := initializeTest("GetSlideSubshapeParagraph", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSlideSubshapeParagraph(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetSlideSubshapeParagraphRequest() GetSlideSubshapeParagraphRequest {
+    var request GetSlideSubshapeParagraphRequest
+    request.Name = createTestParamValue("GetSlideSubshapeParagraph", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("GetSlideSubshapeParagraph", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("GetSlideSubshapeParagraph", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("GetSlideSubshapeParagraph", "shapeIndex", "int32").(int32)
+    request.ParagraphIndex = createTestParamValue("GetSlideSubshapeParagraph", "paragraphIndex", "int32").(int32)
+    request.Password = createTestParamValue("GetSlideSubshapeParagraph", "password", "string").(string)
+    request.Folder = createTestParamValue("GetSlideSubshapeParagraph", "folder", "string").(string)
+    request.Storage = createTestParamValue("GetSlideSubshapeParagraph", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Read shape paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraph method with invalid name
+*/
+func TestGetSlideSubshapeParagraphInvalidName(t *testing.T) {
+    request := createGetSlideSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetSlideSubshapeParagraph", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraph", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraph", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraph method with invalid slideIndex
+*/
+func TestGetSlideSubshapeParagraphInvalidSlideIndex(t *testing.T) {
+    request := createGetSlideSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "GetSlideSubshapeParagraph", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraph", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraph", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraph method with invalid path
+*/
+func TestGetSlideSubshapeParagraphInvalidPath(t *testing.T) {
+    request := createGetSlideSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "GetSlideSubshapeParagraph", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraph", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraph", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraph method with invalid shapeIndex
+*/
+func TestGetSlideSubshapeParagraphInvalidShapeIndex(t *testing.T) {
+    request := createGetSlideSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "GetSlideSubshapeParagraph", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraph", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraph", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraph method with invalid paragraphIndex
+*/
+func TestGetSlideSubshapeParagraphInvalidParagraphIndex(t *testing.T) {
+    request := createGetSlideSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ParagraphIndex, "GetSlideSubshapeParagraph", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ParagraphIndex = nullValue
+    } else {
+        request.ParagraphIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraph", "paragraphIndex", request.ParagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraph", "paragraphIndex", request.ParagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraph method with invalid password
+*/
+func TestGetSlideSubshapeParagraphInvalidPassword(t *testing.T) {
+    request := createGetSlideSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetSlideSubshapeParagraph", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraph", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraph", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraph method with invalid folder
+*/
+func TestGetSlideSubshapeParagraphInvalidFolder(t *testing.T) {
+    request := createGetSlideSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetSlideSubshapeParagraph", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraph", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraph", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraph method with invalid storage
+*/
+func TestGetSlideSubshapeParagraphInvalidStorage(t *testing.T) {
+    request := createGetSlideSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetSlideSubshapeParagraph", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraph", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraph", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraphs info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraphs method
+*/
+func TestGetSlideSubshapeParagraphs(t *testing.T) {
+    request := createGetSlideSubshapeParagraphsRequest()
+    e := initializeTest("GetSlideSubshapeParagraphs", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSlideSubshapeParagraphs(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetSlideSubshapeParagraphsRequest() GetSlideSubshapeParagraphsRequest {
+    var request GetSlideSubshapeParagraphsRequest
+    request.Name = createTestParamValue("GetSlideSubshapeParagraphs", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("GetSlideSubshapeParagraphs", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("GetSlideSubshapeParagraphs", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("GetSlideSubshapeParagraphs", "shapeIndex", "int32").(int32)
+    request.Password = createTestParamValue("GetSlideSubshapeParagraphs", "password", "string").(string)
+    request.Folder = createTestParamValue("GetSlideSubshapeParagraphs", "folder", "string").(string)
+    request.Storage = createTestParamValue("GetSlideSubshapeParagraphs", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Read shape paragraphs info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraphs method with invalid name
+*/
+func TestGetSlideSubshapeParagraphsInvalidName(t *testing.T) {
+    request := createGetSlideSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetSlideSubshapeParagraphs", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraphs", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraphs", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraphs info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraphs method with invalid slideIndex
+*/
+func TestGetSlideSubshapeParagraphsInvalidSlideIndex(t *testing.T) {
+    request := createGetSlideSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "GetSlideSubshapeParagraphs", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraphs", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraphs", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraphs info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraphs method with invalid path
+*/
+func TestGetSlideSubshapeParagraphsInvalidPath(t *testing.T) {
+    request := createGetSlideSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "GetSlideSubshapeParagraphs", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraphs", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraphs", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraphs info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraphs method with invalid shapeIndex
+*/
+func TestGetSlideSubshapeParagraphsInvalidShapeIndex(t *testing.T) {
+    request := createGetSlideSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "GetSlideSubshapeParagraphs", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraphs", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraphs", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraphs info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraphs method with invalid password
+*/
+func TestGetSlideSubshapeParagraphsInvalidPassword(t *testing.T) {
+    request := createGetSlideSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetSlideSubshapeParagraphs", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraphs", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraphs", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraphs info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraphs method with invalid folder
+*/
+func TestGetSlideSubshapeParagraphsInvalidFolder(t *testing.T) {
+    request := createGetSlideSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetSlideSubshapeParagraphs", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraphs", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraphs", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read shape paragraphs info (for smart art and group shapes).
+   Test for SlidesApi.GetSlideSubshapeParagraphs method with invalid storage
+*/
+func TestGetSlideSubshapeParagraphsInvalidStorage(t *testing.T) {
+    request := createGetSlideSubshapeParagraphsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetSlideSubshapeParagraphs", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapeParagraphs", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapeParagraphs", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shapes info.
+   Test for SlidesApi.GetSlideSubshapes method
+*/
+func TestGetSlideSubshapes(t *testing.T) {
+    request := createGetSlideSubshapesRequest()
+    e := initializeTest("GetSlideSubshapes", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSlideSubshapes(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetSlideSubshapesRequest() GetSlideSubshapesRequest {
+    var request GetSlideSubshapesRequest
+    request.Name = createTestParamValue("GetSlideSubshapes", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("GetSlideSubshapes", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("GetSlideSubshapes", "path", "string").(string)
+    request.Password = createTestParamValue("GetSlideSubshapes", "password", "string").(string)
+    request.Folder = createTestParamValue("GetSlideSubshapes", "folder", "string").(string)
+    request.Storage = createTestParamValue("GetSlideSubshapes", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Read slide shapes info.
+   Test for SlidesApi.GetSlideSubshapes method with invalid name
+*/
+func TestGetSlideSubshapesInvalidName(t *testing.T) {
+    request := createGetSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetSlideSubshapes", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapes", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapes", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shapes info.
+   Test for SlidesApi.GetSlideSubshapes method with invalid slideIndex
+*/
+func TestGetSlideSubshapesInvalidSlideIndex(t *testing.T) {
+    request := createGetSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "GetSlideSubshapes", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSlideSubshapes", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapes", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shapes info.
+   Test for SlidesApi.GetSlideSubshapes method with invalid path
+*/
+func TestGetSlideSubshapesInvalidPath(t *testing.T) {
+    request := createGetSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "GetSlideSubshapes", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapes", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapes", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shapes info.
+   Test for SlidesApi.GetSlideSubshapes method with invalid password
+*/
+func TestGetSlideSubshapesInvalidPassword(t *testing.T) {
+    request := createGetSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetSlideSubshapes", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapes", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapes", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shapes info.
+   Test for SlidesApi.GetSlideSubshapes method with invalid folder
+*/
+func TestGetSlideSubshapesInvalidFolder(t *testing.T) {
+    request := createGetSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetSlideSubshapes", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapes", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapes", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shapes info.
+   Test for SlidesApi.GetSlideSubshapes method with invalid storage
+*/
+func TestGetSlideSubshapesInvalidStorage(t *testing.T) {
+    request := createGetSlideSubshapesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetSlideSubshapes", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideSubshapes", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideSubshapes", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Get API info.
@@ -13218,6 +15067,528 @@ func TestGetSlidesViewPropertiesInvalidStorage(t *testing.T) {
     assertError(t, "GetSlidesViewProperties", "storage", request.Storage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Read paragraph portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortion method
+*/
+func TestGetSubshapeParagraphPortion(t *testing.T) {
+    request := createGetSubshapeParagraphPortionRequest()
+    e := initializeTest("GetSubshapeParagraphPortion", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSubshapeParagraphPortion(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetSubshapeParagraphPortionRequest() GetSubshapeParagraphPortionRequest {
+    var request GetSubshapeParagraphPortionRequest
+    request.Name = createTestParamValue("GetSubshapeParagraphPortion", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("GetSubshapeParagraphPortion", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("GetSubshapeParagraphPortion", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("GetSubshapeParagraphPortion", "shapeIndex", "int32").(int32)
+    request.ParagraphIndex = createTestParamValue("GetSubshapeParagraphPortion", "paragraphIndex", "int32").(int32)
+    request.PortionIndex = createTestParamValue("GetSubshapeParagraphPortion", "portionIndex", "int32").(int32)
+    request.Password = createTestParamValue("GetSubshapeParagraphPortion", "password", "string").(string)
+    request.Folder = createTestParamValue("GetSubshapeParagraphPortion", "folder", "string").(string)
+    request.Storage = createTestParamValue("GetSubshapeParagraphPortion", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Read paragraph portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortion method with invalid name
+*/
+func TestGetSubshapeParagraphPortionInvalidName(t *testing.T) {
+    request := createGetSubshapeParagraphPortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetSubshapeParagraphPortion", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortion", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortion", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortion method with invalid slideIndex
+*/
+func TestGetSubshapeParagraphPortionInvalidSlideIndex(t *testing.T) {
+    request := createGetSubshapeParagraphPortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "GetSubshapeParagraphPortion", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortion", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortion", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortion method with invalid path
+*/
+func TestGetSubshapeParagraphPortionInvalidPath(t *testing.T) {
+    request := createGetSubshapeParagraphPortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "GetSubshapeParagraphPortion", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortion", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortion", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortion method with invalid shapeIndex
+*/
+func TestGetSubshapeParagraphPortionInvalidShapeIndex(t *testing.T) {
+    request := createGetSubshapeParagraphPortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "GetSubshapeParagraphPortion", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortion", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortion", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortion method with invalid paragraphIndex
+*/
+func TestGetSubshapeParagraphPortionInvalidParagraphIndex(t *testing.T) {
+    request := createGetSubshapeParagraphPortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ParagraphIndex, "GetSubshapeParagraphPortion", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ParagraphIndex = nullValue
+    } else {
+        request.ParagraphIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortion", "paragraphIndex", request.ParagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortion", "paragraphIndex", request.ParagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortion method with invalid portionIndex
+*/
+func TestGetSubshapeParagraphPortionInvalidPortionIndex(t *testing.T) {
+    request := createGetSubshapeParagraphPortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.PortionIndex, "GetSubshapeParagraphPortion", "portionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.PortionIndex = nullValue
+    } else {
+        request.PortionIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortion", "portionIndex", request.PortionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortion", "portionIndex", request.PortionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortion method with invalid password
+*/
+func TestGetSubshapeParagraphPortionInvalidPassword(t *testing.T) {
+    request := createGetSubshapeParagraphPortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetSubshapeParagraphPortion", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortion", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortion", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortion method with invalid folder
+*/
+func TestGetSubshapeParagraphPortionInvalidFolder(t *testing.T) {
+    request := createGetSubshapeParagraphPortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetSubshapeParagraphPortion", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortion", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortion", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortion method with invalid storage
+*/
+func TestGetSubshapeParagraphPortionInvalidStorage(t *testing.T) {
+    request := createGetSubshapeParagraphPortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetSubshapeParagraphPortion", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortion", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortion", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portions info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortions method
+*/
+func TestGetSubshapeParagraphPortions(t *testing.T) {
+    request := createGetSubshapeParagraphPortionsRequest()
+    e := initializeTest("GetSubshapeParagraphPortions", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSubshapeParagraphPortions(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetSubshapeParagraphPortionsRequest() GetSubshapeParagraphPortionsRequest {
+    var request GetSubshapeParagraphPortionsRequest
+    request.Name = createTestParamValue("GetSubshapeParagraphPortions", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("GetSubshapeParagraphPortions", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("GetSubshapeParagraphPortions", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("GetSubshapeParagraphPortions", "shapeIndex", "int32").(int32)
+    request.ParagraphIndex = createTestParamValue("GetSubshapeParagraphPortions", "paragraphIndex", "int32").(int32)
+    request.Password = createTestParamValue("GetSubshapeParagraphPortions", "password", "string").(string)
+    request.Folder = createTestParamValue("GetSubshapeParagraphPortions", "folder", "string").(string)
+    request.Storage = createTestParamValue("GetSubshapeParagraphPortions", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Read paragraph portions info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortions method with invalid name
+*/
+func TestGetSubshapeParagraphPortionsInvalidName(t *testing.T) {
+    request := createGetSubshapeParagraphPortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetSubshapeParagraphPortions", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortions", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortions", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portions info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortions method with invalid slideIndex
+*/
+func TestGetSubshapeParagraphPortionsInvalidSlideIndex(t *testing.T) {
+    request := createGetSubshapeParagraphPortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "GetSubshapeParagraphPortions", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortions", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortions", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portions info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortions method with invalid path
+*/
+func TestGetSubshapeParagraphPortionsInvalidPath(t *testing.T) {
+    request := createGetSubshapeParagraphPortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "GetSubshapeParagraphPortions", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortions", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortions", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portions info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortions method with invalid shapeIndex
+*/
+func TestGetSubshapeParagraphPortionsInvalidShapeIndex(t *testing.T) {
+    request := createGetSubshapeParagraphPortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "GetSubshapeParagraphPortions", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortions", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortions", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portions info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortions method with invalid paragraphIndex
+*/
+func TestGetSubshapeParagraphPortionsInvalidParagraphIndex(t *testing.T) {
+    request := createGetSubshapeParagraphPortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ParagraphIndex, "GetSubshapeParagraphPortions", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ParagraphIndex = nullValue
+    } else {
+        request.ParagraphIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortions", "paragraphIndex", request.ParagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortions", "paragraphIndex", request.ParagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portions info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortions method with invalid password
+*/
+func TestGetSubshapeParagraphPortionsInvalidPassword(t *testing.T) {
+    request := createGetSubshapeParagraphPortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetSubshapeParagraphPortions", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortions", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortions", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portions info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortions method with invalid folder
+*/
+func TestGetSubshapeParagraphPortionsInvalidFolder(t *testing.T) {
+    request := createGetSubshapeParagraphPortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetSubshapeParagraphPortions", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortions", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortions", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read paragraph portions info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphPortions method with invalid storage
+*/
+func TestGetSubshapeParagraphPortionsInvalidStorage(t *testing.T) {
+    request := createGetSubshapeParagraphPortionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetSubshapeParagraphPortions", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphPortions", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphPortions", "storage", request.Storage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Move file
    Test for SlidesApi.MoveFile method
 */
@@ -13645,7 +16016,6 @@ func createPostAddNewParagraphRequest() PostAddNewParagraphRequest {
     var request PostAddNewParagraphRequest
     request.Name = createTestParamValue("PostAddNewParagraph", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PostAddNewParagraph", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PostAddNewParagraph", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PostAddNewParagraph", "shapeIndex", "int32").(int32)
     request.Dto = createTestParamValue("PostAddNewParagraph", "dto", "Paragraph").(IParagraph)
     request.Password = createTestParamValue("PostAddNewParagraph", "password", "string").(string)
@@ -13712,33 +16082,6 @@ func TestPostAddNewParagraphInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostAddNewParagraph", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Creates new paragraph.
-   Test for SlidesApi.PostAddNewParagraph method with invalid path
-*/
-func TestPostAddNewParagraphInvalidPath(t *testing.T) {
-    request := createPostAddNewParagraphRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PostAddNewParagraph", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PostAddNewParagraph", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostAddNewParagraph(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostAddNewParagraph", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Creates new paragraph.
@@ -13925,7 +16268,6 @@ func createPostAddNewPortionRequest() PostAddNewPortionRequest {
     var request PostAddNewPortionRequest
     request.Name = createTestParamValue("PostAddNewPortion", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PostAddNewPortion", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PostAddNewPortion", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PostAddNewPortion", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("PostAddNewPortion", "paragraphIndex", "int32").(int32)
     request.Dto = createTestParamValue("PostAddNewPortion", "dto", "Portion").(IPortion)
@@ -13993,33 +16335,6 @@ func TestPostAddNewPortionInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostAddNewPortion", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Creates new portion.
-   Test for SlidesApi.PostAddNewPortion method with invalid path
-*/
-func TestPostAddNewPortionInvalidPath(t *testing.T) {
-    request := createPostAddNewPortionRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PostAddNewPortion", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PostAddNewPortion", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostAddNewPortion(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostAddNewPortion", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Creates new portion.
@@ -14233,7 +16548,6 @@ func createPostAddNewShapeRequest() PostAddNewShapeRequest {
     var request PostAddNewShapeRequest
     request.Name = createTestParamValue("PostAddNewShape", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PostAddNewShape", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PostAddNewShape", "path", "string").(string)
     request.Dto = createTestParamValue("PostAddNewShape", "dto", "ShapeBase").(IShapeBase)
     request.Password = createTestParamValue("PostAddNewShape", "password", "string").(string)
     request.Folder = createTestParamValue("PostAddNewShape", "folder", "string").(string)
@@ -14305,33 +16619,6 @@ func TestPostAddNewShapeInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostAddNewShape", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Create new shape.
-   Test for SlidesApi.PostAddNewShape method with invalid path
-*/
-func TestPostAddNewShapeInvalidPath(t *testing.T) {
-    request := createPostAddNewShapeRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PostAddNewShape", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PostAddNewShape", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostAddNewShape(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostAddNewShape", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Create new shape.
@@ -14495,6 +16782,880 @@ func TestPostAddNewShapeInvalidPosition(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostAddNewShape", "position", request.Position, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create new shape (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshape method
+*/
+func TestPostAddNewSubshape(t *testing.T) {
+    request := createPostAddNewSubshapeRequest()
+    e := initializeTest("PostAddNewSubshape", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PostAddNewSubshape(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPostAddNewSubshapeRequest() PostAddNewSubshapeRequest {
+    var request PostAddNewSubshapeRequest
+    request.Name = createTestParamValue("PostAddNewSubshape", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PostAddNewSubshape", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("PostAddNewSubshape", "path", "string").(string)
+    request.Dto = createTestParamValue("PostAddNewSubshape", "dto", "ShapeBase").(IShapeBase)
+    request.Password = createTestParamValue("PostAddNewSubshape", "password", "string").(string)
+    request.Folder = createTestParamValue("PostAddNewSubshape", "folder", "string").(string)
+    request.Storage = createTestParamValue("PostAddNewSubshape", "storage", "string").(string)
+    testshapeToClone := createTestParamValue("PostAddNewSubshape", "shapeToClone", "int32")
+    switch v := testshapeToClone.(type) { 
+    case int32:
+        request.ShapeToClone = new(int32)
+        *request.ShapeToClone = v
+    }
+    testposition := createTestParamValue("PostAddNewSubshape", "position", "int32")
+    switch v := testposition.(type) { 
+    case int32:
+        request.Position = new(int32)
+        *request.Position = v
+    }
+    return request
+}
+
+/* SlidesApiServiceTests Create new shape (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshape method with invalid name
+*/
+func TestPostAddNewSubshapeInvalidName(t *testing.T) {
+    request := createPostAddNewSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PostAddNewSubshape", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshape", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshape", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create new shape (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshape method with invalid slideIndex
+*/
+func TestPostAddNewSubshapeInvalidSlideIndex(t *testing.T) {
+    request := createPostAddNewSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PostAddNewSubshape", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostAddNewSubshape", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshape", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create new shape (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshape method with invalid path
+*/
+func TestPostAddNewSubshapeInvalidPath(t *testing.T) {
+    request := createPostAddNewSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "PostAddNewSubshape", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshape", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshape", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create new shape (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshape method with invalid dto
+*/
+func TestPostAddNewSubshapeInvalidDto(t *testing.T) {
+    request := createPostAddNewSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Dto, "PostAddNewSubshape", "dto", "ShapeBase")
+    if (invalidValue == nil) {
+        request.Dto = nil
+    } else {
+        request.Dto = invalidValue.(IShapeBase)
+    }
+
+    e := initializeTest("PostAddNewSubshape", "dto", request.Dto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshape", "dto", request.Dto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create new shape (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshape method with invalid password
+*/
+func TestPostAddNewSubshapeInvalidPassword(t *testing.T) {
+    request := createPostAddNewSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostAddNewSubshape", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshape", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshape", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create new shape (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshape method with invalid folder
+*/
+func TestPostAddNewSubshapeInvalidFolder(t *testing.T) {
+    request := createPostAddNewSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PostAddNewSubshape", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshape", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshape", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create new shape (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshape method with invalid storage
+*/
+func TestPostAddNewSubshapeInvalidStorage(t *testing.T) {
+    request := createPostAddNewSubshapeRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PostAddNewSubshape", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshape", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshape", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create new shape (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshape method with invalid shapeToClone
+*/
+func TestPostAddNewSubshapeInvalidShapeToClone(t *testing.T) {
+    request := createPostAddNewSubshapeRequest()
+    request.ShapeToClone = new(int32)
+
+    invalidValue := invalidizeTestParamValue(request.ShapeToClone, "PostAddNewSubshape", "shapeToClone", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        request.ShapeToClone = nullValue
+    } else {
+        *request.ShapeToClone = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostAddNewSubshape", "shapeToClone", request.ShapeToClone)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshape", "shapeToClone", request.ShapeToClone, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create new shape (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshape method with invalid position
+*/
+func TestPostAddNewSubshapeInvalidPosition(t *testing.T) {
+    request := createPostAddNewSubshapeRequest()
+    request.Position = new(int32)
+
+    invalidValue := invalidizeTestParamValue(request.Position, "PostAddNewSubshape", "position", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        request.Position = nullValue
+    } else {
+        *request.Position = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostAddNewSubshape", "position", request.Position)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshape", "position", request.Position, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new paragraph (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapeParagraph method
+*/
+func TestPostAddNewSubshapeParagraph(t *testing.T) {
+    request := createPostAddNewSubshapeParagraphRequest()
+    e := initializeTest("PostAddNewSubshapeParagraph", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PostAddNewSubshapeParagraph(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPostAddNewSubshapeParagraphRequest() PostAddNewSubshapeParagraphRequest {
+    var request PostAddNewSubshapeParagraphRequest
+    request.Name = createTestParamValue("PostAddNewSubshapeParagraph", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PostAddNewSubshapeParagraph", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("PostAddNewSubshapeParagraph", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("PostAddNewSubshapeParagraph", "shapeIndex", "int32").(int32)
+    request.Dto = createTestParamValue("PostAddNewSubshapeParagraph", "dto", "Paragraph").(IParagraph)
+    request.Password = createTestParamValue("PostAddNewSubshapeParagraph", "password", "string").(string)
+    request.Folder = createTestParamValue("PostAddNewSubshapeParagraph", "folder", "string").(string)
+    request.Storage = createTestParamValue("PostAddNewSubshapeParagraph", "storage", "string").(string)
+    testposition := createTestParamValue("PostAddNewSubshapeParagraph", "position", "int32")
+    switch v := testposition.(type) { 
+    case int32:
+        request.Position = new(int32)
+        *request.Position = v
+    }
+    return request
+}
+
+/* SlidesApiServiceTests Creates new paragraph (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapeParagraph method with invalid name
+*/
+func TestPostAddNewSubshapeParagraphInvalidName(t *testing.T) {
+    request := createPostAddNewSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PostAddNewSubshapeParagraph", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshapeParagraph", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapeParagraph", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new paragraph (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapeParagraph method with invalid slideIndex
+*/
+func TestPostAddNewSubshapeParagraphInvalidSlideIndex(t *testing.T) {
+    request := createPostAddNewSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PostAddNewSubshapeParagraph", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostAddNewSubshapeParagraph", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapeParagraph", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new paragraph (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapeParagraph method with invalid path
+*/
+func TestPostAddNewSubshapeParagraphInvalidPath(t *testing.T) {
+    request := createPostAddNewSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "PostAddNewSubshapeParagraph", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshapeParagraph", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapeParagraph", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new paragraph (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapeParagraph method with invalid shapeIndex
+*/
+func TestPostAddNewSubshapeParagraphInvalidShapeIndex(t *testing.T) {
+    request := createPostAddNewSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PostAddNewSubshapeParagraph", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostAddNewSubshapeParagraph", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapeParagraph", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new paragraph (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapeParagraph method with invalid dto
+*/
+func TestPostAddNewSubshapeParagraphInvalidDto(t *testing.T) {
+    request := createPostAddNewSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Dto, "PostAddNewSubshapeParagraph", "dto", "Paragraph")
+    if (invalidValue == nil) {
+        request.Dto = nil
+    } else {
+        request.Dto = invalidValue.(IParagraph)
+    }
+
+    e := initializeTest("PostAddNewSubshapeParagraph", "dto", request.Dto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapeParagraph", "dto", request.Dto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new paragraph (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapeParagraph method with invalid password
+*/
+func TestPostAddNewSubshapeParagraphInvalidPassword(t *testing.T) {
+    request := createPostAddNewSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostAddNewSubshapeParagraph", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshapeParagraph", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapeParagraph", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new paragraph (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapeParagraph method with invalid folder
+*/
+func TestPostAddNewSubshapeParagraphInvalidFolder(t *testing.T) {
+    request := createPostAddNewSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PostAddNewSubshapeParagraph", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshapeParagraph", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapeParagraph", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new paragraph (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapeParagraph method with invalid storage
+*/
+func TestPostAddNewSubshapeParagraphInvalidStorage(t *testing.T) {
+    request := createPostAddNewSubshapeParagraphRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PostAddNewSubshapeParagraph", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshapeParagraph", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapeParagraph", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new paragraph (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapeParagraph method with invalid position
+*/
+func TestPostAddNewSubshapeParagraphInvalidPosition(t *testing.T) {
+    request := createPostAddNewSubshapeParagraphRequest()
+    request.Position = new(int32)
+
+    invalidValue := invalidizeTestParamValue(request.Position, "PostAddNewSubshapeParagraph", "position", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        request.Position = nullValue
+    } else {
+        *request.Position = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostAddNewSubshapeParagraph", "position", request.Position)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapeParagraph", "position", request.Position, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new portion (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapePortion method
+*/
+func TestPostAddNewSubshapePortion(t *testing.T) {
+    request := createPostAddNewSubshapePortionRequest()
+    e := initializeTest("PostAddNewSubshapePortion", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PostAddNewSubshapePortion(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPostAddNewSubshapePortionRequest() PostAddNewSubshapePortionRequest {
+    var request PostAddNewSubshapePortionRequest
+    request.Name = createTestParamValue("PostAddNewSubshapePortion", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PostAddNewSubshapePortion", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("PostAddNewSubshapePortion", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("PostAddNewSubshapePortion", "shapeIndex", "int32").(int32)
+    request.ParagraphIndex = createTestParamValue("PostAddNewSubshapePortion", "paragraphIndex", "int32").(int32)
+    request.Dto = createTestParamValue("PostAddNewSubshapePortion", "dto", "Portion").(IPortion)
+    request.Password = createTestParamValue("PostAddNewSubshapePortion", "password", "string").(string)
+    request.Folder = createTestParamValue("PostAddNewSubshapePortion", "folder", "string").(string)
+    request.Storage = createTestParamValue("PostAddNewSubshapePortion", "storage", "string").(string)
+    testposition := createTestParamValue("PostAddNewSubshapePortion", "position", "int32")
+    switch v := testposition.(type) { 
+    case int32:
+        request.Position = new(int32)
+        *request.Position = v
+    }
+    return request
+}
+
+/* SlidesApiServiceTests Creates new portion (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapePortion method with invalid name
+*/
+func TestPostAddNewSubshapePortionInvalidName(t *testing.T) {
+    request := createPostAddNewSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PostAddNewSubshapePortion", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshapePortion", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapePortion", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new portion (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapePortion method with invalid slideIndex
+*/
+func TestPostAddNewSubshapePortionInvalidSlideIndex(t *testing.T) {
+    request := createPostAddNewSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PostAddNewSubshapePortion", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostAddNewSubshapePortion", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapePortion", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new portion (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapePortion method with invalid path
+*/
+func TestPostAddNewSubshapePortionInvalidPath(t *testing.T) {
+    request := createPostAddNewSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "PostAddNewSubshapePortion", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshapePortion", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapePortion", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new portion (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapePortion method with invalid shapeIndex
+*/
+func TestPostAddNewSubshapePortionInvalidShapeIndex(t *testing.T) {
+    request := createPostAddNewSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PostAddNewSubshapePortion", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostAddNewSubshapePortion", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapePortion", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new portion (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapePortion method with invalid paragraphIndex
+*/
+func TestPostAddNewSubshapePortionInvalidParagraphIndex(t *testing.T) {
+    request := createPostAddNewSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ParagraphIndex, "PostAddNewSubshapePortion", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ParagraphIndex = nullValue
+    } else {
+        request.ParagraphIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostAddNewSubshapePortion", "paragraphIndex", request.ParagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapePortion", "paragraphIndex", request.ParagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new portion (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapePortion method with invalid dto
+*/
+func TestPostAddNewSubshapePortionInvalidDto(t *testing.T) {
+    request := createPostAddNewSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Dto, "PostAddNewSubshapePortion", "dto", "Portion")
+    if (invalidValue == nil) {
+        request.Dto = nil
+    } else {
+        request.Dto = invalidValue.(IPortion)
+    }
+
+    e := initializeTest("PostAddNewSubshapePortion", "dto", request.Dto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapePortion", "dto", request.Dto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new portion (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapePortion method with invalid password
+*/
+func TestPostAddNewSubshapePortionInvalidPassword(t *testing.T) {
+    request := createPostAddNewSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostAddNewSubshapePortion", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshapePortion", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapePortion", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new portion (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapePortion method with invalid folder
+*/
+func TestPostAddNewSubshapePortionInvalidFolder(t *testing.T) {
+    request := createPostAddNewSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PostAddNewSubshapePortion", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshapePortion", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapePortion", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new portion (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapePortion method with invalid storage
+*/
+func TestPostAddNewSubshapePortionInvalidStorage(t *testing.T) {
+    request := createPostAddNewSubshapePortionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PostAddNewSubshapePortion", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PostAddNewSubshapePortion", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapePortion", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates new portion (for smart art and group shapes).
+   Test for SlidesApi.PostAddNewSubshapePortion method with invalid position
+*/
+func TestPostAddNewSubshapePortionInvalidPosition(t *testing.T) {
+    request := createPostAddNewSubshapePortionRequest()
+    request.Position = new(int32)
+
+    invalidValue := invalidizeTestParamValue(request.Position, "PostAddNewSubshapePortion", "position", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        request.Position = nullValue
+    } else {
+        *request.Position = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostAddNewSubshapePortion", "position", request.Position)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostAddNewSubshapePortion", "position", request.Position, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Add new notes slide.
@@ -15321,6 +18482,112 @@ func TestPostGetNotesSlideInvalidPassword(t *testing.T) {
     assertError(t, "PostGetNotesSlide", "password", request.Password, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Get info whether a notes slide exists.
+   Test for SlidesApi.PostGetNotesSlideExists method
+*/
+func TestPostGetNotesSlideExists(t *testing.T) {
+    request := createPostGetNotesSlideExistsRequest()
+    e := initializeTest("PostGetNotesSlideExists", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PostGetNotesSlideExists(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPostGetNotesSlideExistsRequest() PostGetNotesSlideExistsRequest {
+    var request PostGetNotesSlideExistsRequest
+    request.SlideIndex = createTestParamValue("PostGetNotesSlideExists", "slideIndex", "int32").(int32)
+    request.Document = createTestParamValue("PostGetNotesSlideExists", "document", "[]byte").([]byte)
+    request.Password = createTestParamValue("PostGetNotesSlideExists", "password", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Get info whether a notes slide exists.
+   Test for SlidesApi.PostGetNotesSlideExists method with invalid slideIndex
+*/
+func TestPostGetNotesSlideExistsInvalidSlideIndex(t *testing.T) {
+    request := createPostGetNotesSlideExistsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PostGetNotesSlideExists", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostGetNotesSlideExists", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideExists(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideExists", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get info whether a notes slide exists.
+   Test for SlidesApi.PostGetNotesSlideExists method with invalid document
+*/
+func TestPostGetNotesSlideExistsInvalidDocument(t *testing.T) {
+    request := createPostGetNotesSlideExistsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Document, "PostGetNotesSlideExists", "document", "[]byte")
+    if (invalidValue == nil) {
+        request.Document = nil
+    } else {
+        request.Document = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostGetNotesSlideExists", "document", request.Document)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideExists(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideExists", "document", request.Document, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get info whether a notes slide exists.
+   Test for SlidesApi.PostGetNotesSlideExists method with invalid password
+*/
+func TestPostGetNotesSlideExistsInvalidPassword(t *testing.T) {
+    request := createPostGetNotesSlideExistsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostGetNotesSlideExists", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostGetNotesSlideExists", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideExists(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideExists", "password", request.Password, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Convert notes slide to the specified image format.
    Test for SlidesApi.PostGetNotesSlideWithFormat method
 */
@@ -15574,7 +18841,6 @@ func createPostNotesSlideAddNewParagraphRequest() PostNotesSlideAddNewParagraphR
     var request PostNotesSlideAddNewParagraphRequest
     request.Name = createTestParamValue("PostNotesSlideAddNewParagraph", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PostNotesSlideAddNewParagraph", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PostNotesSlideAddNewParagraph", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PostNotesSlideAddNewParagraph", "shapeIndex", "int32").(int32)
     request.Dto = createTestParamValue("PostNotesSlideAddNewParagraph", "dto", "Paragraph").(IParagraph)
     request.Password = createTestParamValue("PostNotesSlideAddNewParagraph", "password", "string").(string)
@@ -15641,33 +18907,6 @@ func TestPostNotesSlideAddNewParagraphInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostNotesSlideAddNewParagraph", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Creates new paragraph.
-   Test for SlidesApi.PostNotesSlideAddNewParagraph method with invalid path
-*/
-func TestPostNotesSlideAddNewParagraphInvalidPath(t *testing.T) {
-    request := createPostNotesSlideAddNewParagraphRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PostNotesSlideAddNewParagraph", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PostNotesSlideAddNewParagraph", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewParagraph(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostNotesSlideAddNewParagraph", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Creates new paragraph.
@@ -15854,7 +19093,6 @@ func createPostNotesSlideAddNewPortionRequest() PostNotesSlideAddNewPortionReque
     var request PostNotesSlideAddNewPortionRequest
     request.Name = createTestParamValue("PostNotesSlideAddNewPortion", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PostNotesSlideAddNewPortion", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PostNotesSlideAddNewPortion", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PostNotesSlideAddNewPortion", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("PostNotesSlideAddNewPortion", "paragraphIndex", "int32").(int32)
     request.Dto = createTestParamValue("PostNotesSlideAddNewPortion", "dto", "Portion").(IPortion)
@@ -15922,33 +19160,6 @@ func TestPostNotesSlideAddNewPortionInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostNotesSlideAddNewPortion", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Creates new portion.
-   Test for SlidesApi.PostNotesSlideAddNewPortion method with invalid path
-*/
-func TestPostNotesSlideAddNewPortionInvalidPath(t *testing.T) {
-    request := createPostNotesSlideAddNewPortionRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PostNotesSlideAddNewPortion", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PostNotesSlideAddNewPortion", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewPortion(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostNotesSlideAddNewPortion", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Creates new portion.
@@ -16162,7 +19373,6 @@ func createPostNotesSlideAddNewShapeRequest() PostNotesSlideAddNewShapeRequest {
     var request PostNotesSlideAddNewShapeRequest
     request.Name = createTestParamValue("PostNotesSlideAddNewShape", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PostNotesSlideAddNewShape", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PostNotesSlideAddNewShape", "path", "string").(string)
     request.Dto = createTestParamValue("PostNotesSlideAddNewShape", "dto", "ShapeBase").(IShapeBase)
     request.Password = createTestParamValue("PostNotesSlideAddNewShape", "password", "string").(string)
     request.Folder = createTestParamValue("PostNotesSlideAddNewShape", "folder", "string").(string)
@@ -16234,33 +19444,6 @@ func TestPostNotesSlideAddNewShapeInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostNotesSlideAddNewShape", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Create new shape.
-   Test for SlidesApi.PostNotesSlideAddNewShape method with invalid path
-*/
-func TestPostNotesSlideAddNewShapeInvalidPath(t *testing.T) {
-    request := createPostNotesSlideAddNewShapeRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PostNotesSlideAddNewShape", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PostNotesSlideAddNewShape", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewShape(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostNotesSlideAddNewShape", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Create new shape.
@@ -16449,7 +19632,6 @@ func createPostNotesSlideShapeSaveAsRequest() PostNotesSlideShapeSaveAsRequest {
     var request PostNotesSlideShapeSaveAsRequest
     request.Name = createTestParamValue("PostNotesSlideShapeSaveAs", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PostNotesSlideShapeSaveAs", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PostNotesSlideShapeSaveAs", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PostNotesSlideShapeSaveAs", "shapeIndex", "int32").(int32)
     request.Format = createTestParamValue("PostNotesSlideShapeSaveAs", "format", "string").(string)
     request.Options = createTestParamValue("PostNotesSlideShapeSaveAs", "options", "IShapeExportOptions").(IIShapeExportOptions)
@@ -16525,33 +19707,6 @@ func TestPostNotesSlideShapeSaveAsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostNotesSlideShapeSaveAs", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Render shape to specified picture format.
-   Test for SlidesApi.PostNotesSlideShapeSaveAs method with invalid path
-*/
-func TestPostNotesSlideShapeSaveAsInvalidPath(t *testing.T) {
-    request := createPostNotesSlideShapeSaveAsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PostNotesSlideShapeSaveAs", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PostNotesSlideShapeSaveAs", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostNotesSlideShapeSaveAs", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.
@@ -17010,7 +20165,6 @@ func createPostShapeSaveAsRequest() PostShapeSaveAsRequest {
     var request PostShapeSaveAsRequest
     request.Name = createTestParamValue("PostShapeSaveAs", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PostShapeSaveAs", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PostShapeSaveAs", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PostShapeSaveAs", "shapeIndex", "int32").(int32)
     request.Format = createTestParamValue("PostShapeSaveAs", "format", "string").(string)
     request.Options = createTestParamValue("PostShapeSaveAs", "options", "IShapeExportOptions").(IIShapeExportOptions)
@@ -17086,33 +20240,6 @@ func TestPostShapeSaveAsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostShapeSaveAs", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Render shape to specified picture format.
-   Test for SlidesApi.PostShapeSaveAs method with invalid path
-*/
-func TestPostShapeSaveAsInvalidPath(t *testing.T) {
-    request := createPostShapeSaveAsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PostShapeSaveAs", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PostShapeSaveAs", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostShapeSaveAs", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.
@@ -21466,6 +24593,405 @@ func TestPostSlidesSplitInvalidFontsFolder(t *testing.T) {
     assertError(t, "PostSlidesSplit", "fontsFolder", request.FontsFolder, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method
+*/
+func TestPostSubshapeSaveAs(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+    e := initializeTest("PostSubshapeSaveAs", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    r, _, e := c.SlidesApi.PostSubshapeSaveAs(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+func createPostSubshapeSaveAsRequest() PostSubshapeSaveAsRequest {
+    var request PostSubshapeSaveAsRequest
+    request.Name = createTestParamValue("PostSubshapeSaveAs", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PostSubshapeSaveAs", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("PostSubshapeSaveAs", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("PostSubshapeSaveAs", "shapeIndex", "int32").(int32)
+    request.Format = createTestParamValue("PostSubshapeSaveAs", "format", "string").(string)
+    request.Options = createTestParamValue("PostSubshapeSaveAs", "options", "IShapeExportOptions").(IIShapeExportOptions)
+    request.Password = createTestParamValue("PostSubshapeSaveAs", "password", "string").(string)
+    request.Folder = createTestParamValue("PostSubshapeSaveAs", "folder", "string").(string)
+    request.Storage = createTestParamValue("PostSubshapeSaveAs", "storage", "string").(string)
+    testscaleX := createTestParamValue("PostSubshapeSaveAs", "scaleX", "float64")
+    switch v := testscaleX.(type) { 
+    case float64:
+        request.ScaleX = new(float64)
+        *request.ScaleX = v
+    }
+    testscaleY := createTestParamValue("PostSubshapeSaveAs", "scaleY", "float64")
+    switch v := testscaleY.(type) { 
+    case float64:
+        request.ScaleY = new(float64)
+        *request.ScaleY = v
+    }
+    request.Bounds = createTestParamValue("PostSubshapeSaveAs", "bounds", "string").(string)
+    request.FontsFolder = createTestParamValue("PostSubshapeSaveAs", "fontsFolder", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid name
+*/
+func TestPostSubshapeSaveAsInvalidName(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PostSubshapeSaveAs", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid slideIndex
+*/
+func TestPostSubshapeSaveAsInvalidSlideIndex(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PostSubshapeSaveAs", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid path
+*/
+func TestPostSubshapeSaveAsInvalidPath(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "PostSubshapeSaveAs", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid shapeIndex
+*/
+func TestPostSubshapeSaveAsInvalidShapeIndex(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PostSubshapeSaveAs", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid format
+*/
+func TestPostSubshapeSaveAsInvalidFormat(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Format, "PostSubshapeSaveAs", "format", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Format = nullValue
+    } else {
+        request.Format = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "format", request.Format)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "format", request.Format, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid options
+*/
+func TestPostSubshapeSaveAsInvalidOptions(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Options, "PostSubshapeSaveAs", "options", "IShapeExportOptions")
+    if (invalidValue == nil) {
+        request.Options = nil
+    } else {
+        request.Options = invalidValue.(IIShapeExportOptions)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "options", request.Options)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "options", request.Options, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid password
+*/
+func TestPostSubshapeSaveAsInvalidPassword(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostSubshapeSaveAs", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid folder
+*/
+func TestPostSubshapeSaveAsInvalidFolder(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PostSubshapeSaveAs", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid storage
+*/
+func TestPostSubshapeSaveAsInvalidStorage(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PostSubshapeSaveAs", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid scaleX
+*/
+func TestPostSubshapeSaveAsInvalidScaleX(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+    request.ScaleX = new(float64)
+
+    invalidValue := invalidizeTestParamValue(request.ScaleX, "PostSubshapeSaveAs", "scaleX", "float64")
+    if (invalidValue == nil) {
+        var nullValue *float64
+        request.ScaleX = nullValue
+    } else {
+        *request.ScaleX = invalidValue.(float64)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "scaleX", request.ScaleX)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "scaleX", request.ScaleX, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid scaleY
+*/
+func TestPostSubshapeSaveAsInvalidScaleY(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+    request.ScaleY = new(float64)
+
+    invalidValue := invalidizeTestParamValue(request.ScaleY, "PostSubshapeSaveAs", "scaleY", "float64")
+    if (invalidValue == nil) {
+        var nullValue *float64
+        request.ScaleY = nullValue
+    } else {
+        *request.ScaleY = invalidValue.(float64)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "scaleY", request.ScaleY)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "scaleY", request.ScaleY, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid bounds
+*/
+func TestPostSubshapeSaveAsInvalidBounds(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Bounds, "PostSubshapeSaveAs", "bounds", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Bounds = nullValue
+    } else {
+        request.Bounds = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "bounds", request.Bounds)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "bounds", request.Bounds, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format (for smart art and group shapes).
+   Test for SlidesApi.PostSubshapeSaveAs method with invalid fontsFolder
+*/
+func TestPostSubshapeSaveAsInvalidFontsFolder(t *testing.T) {
+    request := createPostSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.FontsFolder, "PostSubshapeSaveAs", "fontsFolder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.FontsFolder = nullValue
+    } else {
+        request.FontsFolder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSubshapeSaveAs", "fontsFolder", request.FontsFolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSubshapeSaveAs", "fontsFolder", request.FontsFolder, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Update a layoutSlide.
    Test for SlidesApi.PutLayoutSlide method
 */
@@ -21678,7 +25204,6 @@ func createPutNotesSlideShapeSaveAsRequest() PutNotesSlideShapeSaveAsRequest {
     var request PutNotesSlideShapeSaveAsRequest
     request.Name = createTestParamValue("PutNotesSlideShapeSaveAs", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PutNotesSlideShapeSaveAs", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PutNotesSlideShapeSaveAs", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PutNotesSlideShapeSaveAs", "shapeIndex", "int32").(int32)
     request.Format = createTestParamValue("PutNotesSlideShapeSaveAs", "format", "string").(string)
     request.OutPath = createTestParamValue("PutNotesSlideShapeSaveAs", "outPath", "string").(string)
@@ -21755,33 +25280,6 @@ func TestPutNotesSlideShapeSaveAsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PutNotesSlideShapeSaveAs", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Render shape to specified picture format.
-   Test for SlidesApi.PutNotesSlideShapeSaveAs method with invalid path
-*/
-func TestPutNotesSlideShapeSaveAsInvalidPath(t *testing.T) {
-    request := createPutNotesSlideShapeSaveAsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PutNotesSlideShapeSaveAs", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PutNotesSlideShapeSaveAs", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutNotesSlideShapeSaveAs", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.
@@ -22266,7 +25764,6 @@ func createPutSetParagraphPortionPropertiesRequest() PutSetParagraphPortionPrope
     var request PutSetParagraphPortionPropertiesRequest
     request.Name = createTestParamValue("PutSetParagraphPortionProperties", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PutSetParagraphPortionProperties", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PutSetParagraphPortionProperties", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PutSetParagraphPortionProperties", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("PutSetParagraphPortionProperties", "paragraphIndex", "int32").(int32)
     request.PortionIndex = createTestParamValue("PutSetParagraphPortionProperties", "portionIndex", "int32").(int32)
@@ -22329,33 +25826,6 @@ func TestPutSetParagraphPortionPropertiesInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PutSetParagraphPortionProperties", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Update portion properties.
-   Test for SlidesApi.PutSetParagraphPortionProperties method with invalid path
-*/
-func TestPutSetParagraphPortionPropertiesInvalidPath(t *testing.T) {
-    request := createPutSetParagraphPortionPropertiesRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PutSetParagraphPortionProperties", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSetParagraphPortionProperties", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSetParagraphPortionProperties(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSetParagraphPortionProperties", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Update portion properties.
@@ -22568,7 +26038,6 @@ func createPutSetParagraphPropertiesRequest() PutSetParagraphPropertiesRequest {
     var request PutSetParagraphPropertiesRequest
     request.Name = createTestParamValue("PutSetParagraphProperties", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PutSetParagraphProperties", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PutSetParagraphProperties", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PutSetParagraphProperties", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("PutSetParagraphProperties", "paragraphIndex", "int32").(int32)
     request.Dto = createTestParamValue("PutSetParagraphProperties", "dto", "Paragraph").(IParagraph)
@@ -22630,33 +26099,6 @@ func TestPutSetParagraphPropertiesInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PutSetParagraphProperties", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Update paragraph properties.
-   Test for SlidesApi.PutSetParagraphProperties method with invalid path
-*/
-func TestPutSetParagraphPropertiesInvalidPath(t *testing.T) {
-    request := createPutSetParagraphPropertiesRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PutSetParagraphProperties", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSetParagraphProperties", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSetParagraphProperties(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSetParagraphProperties", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Update paragraph properties.
@@ -22820,6 +26262,582 @@ func TestPutSetParagraphPropertiesInvalidStorage(t *testing.T) {
     assertError(t, "PutSetParagraphProperties", "storage", request.Storage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Update portion properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphPortionProperties method
+*/
+func TestPutSetSubshapeParagraphPortionProperties(t *testing.T) {
+    request := createPutSetSubshapeParagraphPortionPropertiesRequest()
+    e := initializeTest("PutSetSubshapeParagraphPortionProperties", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutSetSubshapeParagraphPortionPropertiesRequest() PutSetSubshapeParagraphPortionPropertiesRequest {
+    var request PutSetSubshapeParagraphPortionPropertiesRequest
+    request.Name = createTestParamValue("PutSetSubshapeParagraphPortionProperties", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PutSetSubshapeParagraphPortionProperties", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("PutSetSubshapeParagraphPortionProperties", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("PutSetSubshapeParagraphPortionProperties", "shapeIndex", "int32").(int32)
+    request.ParagraphIndex = createTestParamValue("PutSetSubshapeParagraphPortionProperties", "paragraphIndex", "int32").(int32)
+    request.PortionIndex = createTestParamValue("PutSetSubshapeParagraphPortionProperties", "portionIndex", "int32").(int32)
+    request.Dto = createTestParamValue("PutSetSubshapeParagraphPortionProperties", "dto", "Portion").(IPortion)
+    request.Password = createTestParamValue("PutSetSubshapeParagraphPortionProperties", "password", "string").(string)
+    request.Folder = createTestParamValue("PutSetSubshapeParagraphPortionProperties", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutSetSubshapeParagraphPortionProperties", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Update portion properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphPortionProperties method with invalid name
+*/
+func TestPutSetSubshapeParagraphPortionPropertiesInvalidName(t *testing.T) {
+    request := createPutSetSubshapeParagraphPortionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutSetSubshapeParagraphPortionProperties", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphPortionProperties", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphPortionProperties", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update portion properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphPortionProperties method with invalid slideIndex
+*/
+func TestPutSetSubshapeParagraphPortionPropertiesInvalidSlideIndex(t *testing.T) {
+    request := createPutSetSubshapeParagraphPortionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PutSetSubshapeParagraphPortionProperties", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphPortionProperties", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphPortionProperties", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update portion properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphPortionProperties method with invalid path
+*/
+func TestPutSetSubshapeParagraphPortionPropertiesInvalidPath(t *testing.T) {
+    request := createPutSetSubshapeParagraphPortionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "PutSetSubshapeParagraphPortionProperties", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphPortionProperties", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphPortionProperties", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update portion properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphPortionProperties method with invalid shapeIndex
+*/
+func TestPutSetSubshapeParagraphPortionPropertiesInvalidShapeIndex(t *testing.T) {
+    request := createPutSetSubshapeParagraphPortionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PutSetSubshapeParagraphPortionProperties", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphPortionProperties", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphPortionProperties", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update portion properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphPortionProperties method with invalid paragraphIndex
+*/
+func TestPutSetSubshapeParagraphPortionPropertiesInvalidParagraphIndex(t *testing.T) {
+    request := createPutSetSubshapeParagraphPortionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ParagraphIndex, "PutSetSubshapeParagraphPortionProperties", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ParagraphIndex = nullValue
+    } else {
+        request.ParagraphIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphPortionProperties", "paragraphIndex", request.ParagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphPortionProperties", "paragraphIndex", request.ParagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update portion properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphPortionProperties method with invalid portionIndex
+*/
+func TestPutSetSubshapeParagraphPortionPropertiesInvalidPortionIndex(t *testing.T) {
+    request := createPutSetSubshapeParagraphPortionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.PortionIndex, "PutSetSubshapeParagraphPortionProperties", "portionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.PortionIndex = nullValue
+    } else {
+        request.PortionIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphPortionProperties", "portionIndex", request.PortionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphPortionProperties", "portionIndex", request.PortionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update portion properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphPortionProperties method with invalid dto
+*/
+func TestPutSetSubshapeParagraphPortionPropertiesInvalidDto(t *testing.T) {
+    request := createPutSetSubshapeParagraphPortionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Dto, "PutSetSubshapeParagraphPortionProperties", "dto", "Portion")
+    if (invalidValue == nil) {
+        request.Dto = nil
+    } else {
+        request.Dto = invalidValue.(IPortion)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphPortionProperties", "dto", request.Dto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphPortionProperties", "dto", request.Dto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update portion properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphPortionProperties method with invalid password
+*/
+func TestPutSetSubshapeParagraphPortionPropertiesInvalidPassword(t *testing.T) {
+    request := createPutSetSubshapeParagraphPortionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutSetSubshapeParagraphPortionProperties", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphPortionProperties", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphPortionProperties", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update portion properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphPortionProperties method with invalid folder
+*/
+func TestPutSetSubshapeParagraphPortionPropertiesInvalidFolder(t *testing.T) {
+    request := createPutSetSubshapeParagraphPortionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutSetSubshapeParagraphPortionProperties", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphPortionProperties", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphPortionProperties", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update portion properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphPortionProperties method with invalid storage
+*/
+func TestPutSetSubshapeParagraphPortionPropertiesInvalidStorage(t *testing.T) {
+    request := createPutSetSubshapeParagraphPortionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutSetSubshapeParagraphPortionProperties", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphPortionProperties", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphPortionProperties", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update paragraph properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphProperties method
+*/
+func TestPutSetSubshapeParagraphProperties(t *testing.T) {
+    request := createPutSetSubshapeParagraphPropertiesRequest()
+    e := initializeTest("PutSetSubshapeParagraphProperties", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutSetSubshapeParagraphProperties(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutSetSubshapeParagraphPropertiesRequest() PutSetSubshapeParagraphPropertiesRequest {
+    var request PutSetSubshapeParagraphPropertiesRequest
+    request.Name = createTestParamValue("PutSetSubshapeParagraphProperties", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PutSetSubshapeParagraphProperties", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("PutSetSubshapeParagraphProperties", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("PutSetSubshapeParagraphProperties", "shapeIndex", "int32").(int32)
+    request.ParagraphIndex = createTestParamValue("PutSetSubshapeParagraphProperties", "paragraphIndex", "int32").(int32)
+    request.Dto = createTestParamValue("PutSetSubshapeParagraphProperties", "dto", "Paragraph").(IParagraph)
+    request.Password = createTestParamValue("PutSetSubshapeParagraphProperties", "password", "string").(string)
+    request.Folder = createTestParamValue("PutSetSubshapeParagraphProperties", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutSetSubshapeParagraphProperties", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Update paragraph properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphProperties method with invalid name
+*/
+func TestPutSetSubshapeParagraphPropertiesInvalidName(t *testing.T) {
+    request := createPutSetSubshapeParagraphPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutSetSubshapeParagraphProperties", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphProperties", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphProperties", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update paragraph properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphProperties method with invalid slideIndex
+*/
+func TestPutSetSubshapeParagraphPropertiesInvalidSlideIndex(t *testing.T) {
+    request := createPutSetSubshapeParagraphPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PutSetSubshapeParagraphProperties", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphProperties", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphProperties", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update paragraph properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphProperties method with invalid path
+*/
+func TestPutSetSubshapeParagraphPropertiesInvalidPath(t *testing.T) {
+    request := createPutSetSubshapeParagraphPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "PutSetSubshapeParagraphProperties", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphProperties", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphProperties", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update paragraph properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphProperties method with invalid shapeIndex
+*/
+func TestPutSetSubshapeParagraphPropertiesInvalidShapeIndex(t *testing.T) {
+    request := createPutSetSubshapeParagraphPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PutSetSubshapeParagraphProperties", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphProperties", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphProperties", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update paragraph properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphProperties method with invalid paragraphIndex
+*/
+func TestPutSetSubshapeParagraphPropertiesInvalidParagraphIndex(t *testing.T) {
+    request := createPutSetSubshapeParagraphPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ParagraphIndex, "PutSetSubshapeParagraphProperties", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ParagraphIndex = nullValue
+    } else {
+        request.ParagraphIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphProperties", "paragraphIndex", request.ParagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphProperties", "paragraphIndex", request.ParagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update paragraph properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphProperties method with invalid dto
+*/
+func TestPutSetSubshapeParagraphPropertiesInvalidDto(t *testing.T) {
+    request := createPutSetSubshapeParagraphPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Dto, "PutSetSubshapeParagraphProperties", "dto", "Paragraph")
+    if (invalidValue == nil) {
+        request.Dto = nil
+    } else {
+        request.Dto = invalidValue.(IParagraph)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphProperties", "dto", request.Dto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphProperties", "dto", request.Dto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update paragraph properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphProperties method with invalid password
+*/
+func TestPutSetSubshapeParagraphPropertiesInvalidPassword(t *testing.T) {
+    request := createPutSetSubshapeParagraphPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutSetSubshapeParagraphProperties", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphProperties", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphProperties", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update paragraph properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphProperties method with invalid folder
+*/
+func TestPutSetSubshapeParagraphPropertiesInvalidFolder(t *testing.T) {
+    request := createPutSetSubshapeParagraphPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutSetSubshapeParagraphProperties", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphProperties", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphProperties", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update paragraph properties (for smart art and group shapes).
+   Test for SlidesApi.PutSetSubshapeParagraphProperties method with invalid storage
+*/
+func TestPutSetSubshapeParagraphPropertiesInvalidStorage(t *testing.T) {
+    request := createPutSetSubshapeParagraphPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutSetSubshapeParagraphProperties", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSetSubshapeParagraphProperties", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSetSubshapeParagraphProperties", "storage", request.Storage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Render shape to specified picture format.
    Test for SlidesApi.PutShapeSaveAs method
 */
@@ -22842,7 +26860,6 @@ func createPutShapeSaveAsRequest() PutShapeSaveAsRequest {
     var request PutShapeSaveAsRequest
     request.Name = createTestParamValue("PutShapeSaveAs", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PutShapeSaveAs", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PutShapeSaveAs", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PutShapeSaveAs", "shapeIndex", "int32").(int32)
     request.Format = createTestParamValue("PutShapeSaveAs", "format", "string").(string)
     request.OutPath = createTestParamValue("PutShapeSaveAs", "outPath", "string").(string)
@@ -22919,33 +26936,6 @@ func TestPutShapeSaveAsInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PutShapeSaveAs", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Render shape to specified picture format.
-   Test for SlidesApi.PutShapeSaveAs method with invalid path
-*/
-func TestPutShapeSaveAsInvalidPath(t *testing.T) {
-    request := createPutShapeSaveAsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PutShapeSaveAs", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PutShapeSaveAs", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutShapeSaveAs", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.
@@ -24264,7 +28254,6 @@ func createPutSlideShapeInfoRequest() PutSlideShapeInfoRequest {
     var request PutSlideShapeInfoRequest
     request.Name = createTestParamValue("PutSlideShapeInfo", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PutSlideShapeInfo", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PutSlideShapeInfo", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PutSlideShapeInfo", "shapeIndex", "int32").(int32)
     request.Dto = createTestParamValue("PutSlideShapeInfo", "dto", "ShapeBase").(IShapeBase)
     request.Password = createTestParamValue("PutSlideShapeInfo", "password", "string").(string)
@@ -24325,33 +28314,6 @@ func TestPutSlideShapeInfoInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PutSlideShapeInfo", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Update shape properties.
-   Test for SlidesApi.PutSlideShapeInfo method with invalid path
-*/
-func TestPutSlideShapeInfoInvalidPath(t *testing.T) {
-    request := createPutSlideShapeInfoRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PutSlideShapeInfo", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlideShapeInfo", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlideShapeInfo(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlideShapeInfo", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Update shape properties.
@@ -24486,6 +28448,252 @@ func TestPutSlideShapeInfoInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PutSlideShapeInfo", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update shape properties (for smart art and group shapes).
+   Test for SlidesApi.PutSlideSubshapeInfo method
+*/
+func TestPutSlideSubshapeInfo(t *testing.T) {
+    request := createPutSlideSubshapeInfoRequest()
+    e := initializeTest("PutSlideSubshapeInfo", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutSlideSubshapeInfo(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutSlideSubshapeInfoRequest() PutSlideSubshapeInfoRequest {
+    var request PutSlideSubshapeInfoRequest
+    request.Name = createTestParamValue("PutSlideSubshapeInfo", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PutSlideSubshapeInfo", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("PutSlideSubshapeInfo", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("PutSlideSubshapeInfo", "shapeIndex", "int32").(int32)
+    request.Dto = createTestParamValue("PutSlideSubshapeInfo", "dto", "ShapeBase").(IShapeBase)
+    request.Password = createTestParamValue("PutSlideSubshapeInfo", "password", "string").(string)
+    request.Folder = createTestParamValue("PutSlideSubshapeInfo", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutSlideSubshapeInfo", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Update shape properties (for smart art and group shapes).
+   Test for SlidesApi.PutSlideSubshapeInfo method with invalid name
+*/
+func TestPutSlideSubshapeInfoInvalidName(t *testing.T) {
+    request := createPutSlideSubshapeInfoRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutSlideSubshapeInfo", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlideSubshapeInfo", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideSubshapeInfo", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update shape properties (for smart art and group shapes).
+   Test for SlidesApi.PutSlideSubshapeInfo method with invalid slideIndex
+*/
+func TestPutSlideSubshapeInfoInvalidSlideIndex(t *testing.T) {
+    request := createPutSlideSubshapeInfoRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PutSlideSubshapeInfo", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSlideSubshapeInfo", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideSubshapeInfo", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update shape properties (for smart art and group shapes).
+   Test for SlidesApi.PutSlideSubshapeInfo method with invalid path
+*/
+func TestPutSlideSubshapeInfoInvalidPath(t *testing.T) {
+    request := createPutSlideSubshapeInfoRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "PutSlideSubshapeInfo", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlideSubshapeInfo", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideSubshapeInfo", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update shape properties (for smart art and group shapes).
+   Test for SlidesApi.PutSlideSubshapeInfo method with invalid shapeIndex
+*/
+func TestPutSlideSubshapeInfoInvalidShapeIndex(t *testing.T) {
+    request := createPutSlideSubshapeInfoRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PutSlideSubshapeInfo", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSlideSubshapeInfo", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideSubshapeInfo", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update shape properties (for smart art and group shapes).
+   Test for SlidesApi.PutSlideSubshapeInfo method with invalid dto
+*/
+func TestPutSlideSubshapeInfoInvalidDto(t *testing.T) {
+    request := createPutSlideSubshapeInfoRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Dto, "PutSlideSubshapeInfo", "dto", "ShapeBase")
+    if (invalidValue == nil) {
+        request.Dto = nil
+    } else {
+        request.Dto = invalidValue.(IShapeBase)
+    }
+
+    e := initializeTest("PutSlideSubshapeInfo", "dto", request.Dto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideSubshapeInfo", "dto", request.Dto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update shape properties (for smart art and group shapes).
+   Test for SlidesApi.PutSlideSubshapeInfo method with invalid password
+*/
+func TestPutSlideSubshapeInfoInvalidPassword(t *testing.T) {
+    request := createPutSlideSubshapeInfoRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutSlideSubshapeInfo", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlideSubshapeInfo", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideSubshapeInfo", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update shape properties (for smart art and group shapes).
+   Test for SlidesApi.PutSlideSubshapeInfo method with invalid folder
+*/
+func TestPutSlideSubshapeInfoInvalidFolder(t *testing.T) {
+    request := createPutSlideSubshapeInfoRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutSlideSubshapeInfo", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlideSubshapeInfo", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideSubshapeInfo", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update shape properties (for smart art and group shapes).
+   Test for SlidesApi.PutSlideSubshapeInfo method with invalid storage
+*/
+func TestPutSlideSubshapeInfoInvalidStorage(t *testing.T) {
+    request := createPutSlideSubshapeInfoRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutSlideSubshapeInfo", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlideSubshapeInfo", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideSubshapeInfo", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Convert presentation from request content to format specified.
@@ -26241,6 +30449,432 @@ func TestPutSlidesViewPropertiesInvalidStorage(t *testing.T) {
     assertError(t, "PutSlidesViewProperties", "storage", request.Storage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method
+*/
+func TestPutSubshapeSaveAs(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+    e := initializeTest("PutSubshapeSaveAs", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, e = c.SlidesApi.PutSubshapeSaveAs(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutSubshapeSaveAsRequest() PutSubshapeSaveAsRequest {
+    var request PutSubshapeSaveAsRequest
+    request.Name = createTestParamValue("PutSubshapeSaveAs", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PutSubshapeSaveAs", "slideIndex", "int32").(int32)
+    request.Path = createTestParamValue("PutSubshapeSaveAs", "path", "string").(string)
+    request.ShapeIndex = createTestParamValue("PutSubshapeSaveAs", "shapeIndex", "int32").(int32)
+    request.Format = createTestParamValue("PutSubshapeSaveAs", "format", "string").(string)
+    request.OutPath = createTestParamValue("PutSubshapeSaveAs", "outPath", "string").(string)
+    request.Options = createTestParamValue("PutSubshapeSaveAs", "options", "IShapeExportOptions").(IIShapeExportOptions)
+    request.Password = createTestParamValue("PutSubshapeSaveAs", "password", "string").(string)
+    request.Folder = createTestParamValue("PutSubshapeSaveAs", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutSubshapeSaveAs", "storage", "string").(string)
+    testscaleX := createTestParamValue("PutSubshapeSaveAs", "scaleX", "float64")
+    switch v := testscaleX.(type) { 
+    case float64:
+        request.ScaleX = new(float64)
+        *request.ScaleX = v
+    }
+    testscaleY := createTestParamValue("PutSubshapeSaveAs", "scaleY", "float64")
+    switch v := testscaleY.(type) { 
+    case float64:
+        request.ScaleY = new(float64)
+        *request.ScaleY = v
+    }
+    request.Bounds = createTestParamValue("PutSubshapeSaveAs", "bounds", "string").(string)
+    request.FontsFolder = createTestParamValue("PutSubshapeSaveAs", "fontsFolder", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid name
+*/
+func TestPutSubshapeSaveAsInvalidName(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutSubshapeSaveAs", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid slideIndex
+*/
+func TestPutSubshapeSaveAsInvalidSlideIndex(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PutSubshapeSaveAs", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid path
+*/
+func TestPutSubshapeSaveAsInvalidPath(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Path, "PutSubshapeSaveAs", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Path = nullValue
+    } else {
+        request.Path = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "path", request.Path)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "path", request.Path, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid shapeIndex
+*/
+func TestPutSubshapeSaveAsInvalidShapeIndex(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PutSubshapeSaveAs", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid format
+*/
+func TestPutSubshapeSaveAsInvalidFormat(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Format, "PutSubshapeSaveAs", "format", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Format = nullValue
+    } else {
+        request.Format = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "format", request.Format)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "format", request.Format, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid outPath
+*/
+func TestPutSubshapeSaveAsInvalidOutPath(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.OutPath, "PutSubshapeSaveAs", "outPath", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.OutPath = nullValue
+    } else {
+        request.OutPath = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "outPath", request.OutPath)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "outPath", request.OutPath, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid options
+*/
+func TestPutSubshapeSaveAsInvalidOptions(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Options, "PutSubshapeSaveAs", "options", "IShapeExportOptions")
+    if (invalidValue == nil) {
+        request.Options = nil
+    } else {
+        request.Options = invalidValue.(IIShapeExportOptions)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "options", request.Options)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "options", request.Options, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid password
+*/
+func TestPutSubshapeSaveAsInvalidPassword(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutSubshapeSaveAs", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid folder
+*/
+func TestPutSubshapeSaveAsInvalidFolder(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutSubshapeSaveAs", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid storage
+*/
+func TestPutSubshapeSaveAsInvalidStorage(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutSubshapeSaveAs", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid scaleX
+*/
+func TestPutSubshapeSaveAsInvalidScaleX(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+    request.ScaleX = new(float64)
+
+    invalidValue := invalidizeTestParamValue(request.ScaleX, "PutSubshapeSaveAs", "scaleX", "float64")
+    if (invalidValue == nil) {
+        var nullValue *float64
+        request.ScaleX = nullValue
+    } else {
+        *request.ScaleX = invalidValue.(float64)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "scaleX", request.ScaleX)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "scaleX", request.ScaleX, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid scaleY
+*/
+func TestPutSubshapeSaveAsInvalidScaleY(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+    request.ScaleY = new(float64)
+
+    invalidValue := invalidizeTestParamValue(request.ScaleY, "PutSubshapeSaveAs", "scaleY", "float64")
+    if (invalidValue == nil) {
+        var nullValue *float64
+        request.ScaleY = nullValue
+    } else {
+        *request.ScaleY = invalidValue.(float64)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "scaleY", request.ScaleY)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "scaleY", request.ScaleY, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid bounds
+*/
+func TestPutSubshapeSaveAsInvalidBounds(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Bounds, "PutSubshapeSaveAs", "bounds", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Bounds = nullValue
+    } else {
+        request.Bounds = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "bounds", request.Bounds)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "bounds", request.Bounds, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutSubshapeSaveAs method with invalid fontsFolder
+*/
+func TestPutSubshapeSaveAsInvalidFontsFolder(t *testing.T) {
+    request := createPutSubshapeSaveAsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.FontsFolder, "PutSubshapeSaveAs", "fontsFolder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.FontsFolder = nullValue
+    } else {
+        request.FontsFolder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSubshapeSaveAs", "fontsFolder", request.FontsFolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSubshapeSaveAs", "fontsFolder", request.FontsFolder, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Update notes slide properties.
    Test for SlidesApi.PutUpdateNotesSlide method
 */
@@ -26453,7 +31087,6 @@ func createPutUpdateNotesSlideShapeRequest() PutUpdateNotesSlideShapeRequest {
     var request PutUpdateNotesSlideShapeRequest
     request.Name = createTestParamValue("PutUpdateNotesSlideShape", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PutUpdateNotesSlideShape", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PutUpdateNotesSlideShape", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PutUpdateNotesSlideShape", "shapeIndex", "int32").(int32)
     request.Dto = createTestParamValue("PutUpdateNotesSlideShape", "dto", "ShapeBase").(IShapeBase)
     request.Password = createTestParamValue("PutUpdateNotesSlideShape", "password", "string").(string)
@@ -26514,33 +31147,6 @@ func TestPutUpdateNotesSlideShapeInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PutUpdateNotesSlideShape", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Update shape properties.
-   Test for SlidesApi.PutUpdateNotesSlideShape method with invalid path
-*/
-func TestPutUpdateNotesSlideShapeInvalidPath(t *testing.T) {
-    request := createPutUpdateNotesSlideShapeRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PutUpdateNotesSlideShape", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PutUpdateNotesSlideShape", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShape(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutUpdateNotesSlideShape", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Update shape properties.
@@ -26699,7 +31305,6 @@ func createPutUpdateNotesSlideShapeParagraphRequest() PutUpdateNotesSlideShapePa
     var request PutUpdateNotesSlideShapeParagraphRequest
     request.Name = createTestParamValue("PutUpdateNotesSlideShapeParagraph", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PutUpdateNotesSlideShapeParagraph", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PutUpdateNotesSlideShapeParagraph", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PutUpdateNotesSlideShapeParagraph", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("PutUpdateNotesSlideShapeParagraph", "paragraphIndex", "int32").(int32)
     request.Dto = createTestParamValue("PutUpdateNotesSlideShapeParagraph", "dto", "Paragraph").(IParagraph)
@@ -26761,33 +31366,6 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PutUpdateNotesSlideShapeParagraph", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Update paragraph properties.
-   Test for SlidesApi.PutUpdateNotesSlideShapeParagraph method with invalid path
-*/
-func TestPutUpdateNotesSlideShapeParagraphInvalidPath(t *testing.T) {
-    request := createPutUpdateNotesSlideShapeParagraphRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PutUpdateNotesSlideShapeParagraph", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PutUpdateNotesSlideShapeParagraph", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapeParagraph(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutUpdateNotesSlideShapeParagraph", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Update paragraph properties.
@@ -26973,7 +31551,6 @@ func createPutUpdateNotesSlideShapePortionRequest() PutUpdateNotesSlideShapePort
     var request PutUpdateNotesSlideShapePortionRequest
     request.Name = createTestParamValue("PutUpdateNotesSlideShapePortion", "name", "string").(string)
     request.SlideIndex = createTestParamValue("PutUpdateNotesSlideShapePortion", "slideIndex", "int32").(int32)
-    request.Path = createTestParamValue("PutUpdateNotesSlideShapePortion", "path", "string").(string)
     request.ShapeIndex = createTestParamValue("PutUpdateNotesSlideShapePortion", "shapeIndex", "int32").(int32)
     request.ParagraphIndex = createTestParamValue("PutUpdateNotesSlideShapePortion", "paragraphIndex", "int32").(int32)
     request.PortionIndex = createTestParamValue("PutUpdateNotesSlideShapePortion", "portionIndex", "int32").(int32)
@@ -27036,33 +31613,6 @@ func TestPutUpdateNotesSlideShapePortionInvalidSlideIndex(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PutUpdateNotesSlideShapePortion", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Update portion properties.
-   Test for SlidesApi.PutUpdateNotesSlideShapePortion method with invalid path
-*/
-func TestPutUpdateNotesSlideShapePortionInvalidPath(t *testing.T) {
-    request := createPutUpdateNotesSlideShapePortionRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Path, "PutUpdateNotesSlideShapePortion", "path", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        request.Path = nullValue
-    } else {
-        request.Path = invalidValue.(string)
-    }
-
-    e := initializeTest("PutUpdateNotesSlideShapePortion", "path", request.Path)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapePortion(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutUpdateNotesSlideShapePortion", "path", request.Path, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Update portion properties.

@@ -51,4 +51,5 @@ const (
 	SlideExportFormat_Pot SlideExportFormat = "Pot"
 	SlideExportFormat_Potm SlideExportFormat = "Potm"
 	SlideExportFormat_Svg SlideExportFormat = "Svg"
+	SlideExportFormat_Fodp SlideExportFormat = "Fodp"
 )

@@ -109,6 +109,10 @@ type IPdfExportOptions interface {
 	// True to apply specified ImageTransparentColor  to an image.
 	getApplyImageTransparent() bool
 	setApplyImageTransparent(newValue bool)
+
+	// Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.             
+	getAccessPermissions() string
+	setAccessPermissions(newValue string)
 }
 
 type PdfExportOptions struct {
@@ -169,6 +173,9 @@ type PdfExportOptions struct {
 
 	// True to apply specified ImageTransparentColor  to an image.
 	ApplyImageTransparent bool `json:"ApplyImageTransparent"`
+
+	// Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.             
+	AccessPermissions string `json:"AccessPermissions"`
 }
 
 func NewPdfExportOptions() *PdfExportOptions {
@@ -177,6 +184,7 @@ func NewPdfExportOptions() *PdfExportOptions {
 	instance.Compliance = "Pdf15"
 	instance.NotesPosition = "None"
 	instance.CommentsPosition = "None"
+	instance.AccessPermissions = "None"
 	return instance
 }
 
@@ -312,6 +320,13 @@ func (this *PdfExportOptions) getApplyImageTransparent() bool {
 
 func (this *PdfExportOptions) setApplyImageTransparent(newValue bool) {
 	this.ApplyImageTransparent = newValue
+}
+func (this *PdfExportOptions) getAccessPermissions() string {
+	return this.AccessPermissions
+}
+
+func (this *PdfExportOptions) setAccessPermissions(newValue string) {
+	this.AccessPermissions = newValue
 }
 
 func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
@@ -765,6 +780,39 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.ApplyImageTransparent = valueForApplyImageTransparent
+		}
+	}
+	this.AccessPermissions = "None"
+	if valAccessPermissions, ok := objMap["accessPermissions"]; ok {
+		if valAccessPermissions != nil {
+			var valueForAccessPermissions string
+			err = json.Unmarshal(*valAccessPermissions, &valueForAccessPermissions)
+			if err != nil {
+				var valueForAccessPermissionsInt int32
+				err = json.Unmarshal(*valAccessPermissions, &valueForAccessPermissionsInt)
+				if err != nil {
+					return err
+				}
+				this.AccessPermissions = string(valueForAccessPermissionsInt)
+			} else {
+				this.AccessPermissions = valueForAccessPermissions
+			}
+		}
+	}
+	if valAccessPermissionsCap, ok := objMap["AccessPermissions"]; ok {
+		if valAccessPermissionsCap != nil {
+			var valueForAccessPermissions string
+			err = json.Unmarshal(*valAccessPermissionsCap, &valueForAccessPermissions)
+			if err != nil {
+				var valueForAccessPermissionsInt int32
+				err = json.Unmarshal(*valAccessPermissionsCap, &valueForAccessPermissionsInt)
+				if err != nil {
+					return err
+				}
+				this.AccessPermissions = string(valueForAccessPermissionsInt)
+			} else {
+				this.AccessPermissions = valueForAccessPermissions
+			}
 		}
 	}
 

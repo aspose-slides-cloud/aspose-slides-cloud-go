@@ -26,31 +26,65 @@
  */
 
 package asposeslidescloud
-// ExportFormat : Available export formats
-type ExportFormat string
 
-// List of ExportFormat ExportFormat
-const (
-	ExportFormat_Pdf ExportFormat = "Pdf"
-	ExportFormat_Xps ExportFormat = "Xps"
-	ExportFormat_Tiff ExportFormat = "Tiff"
-	ExportFormat_Pptx ExportFormat = "Pptx"
-	ExportFormat_Odp ExportFormat = "Odp"
-	ExportFormat_Otp ExportFormat = "Otp"
-	ExportFormat_Ppt ExportFormat = "Ppt"
-	ExportFormat_Pps ExportFormat = "Pps"
-	ExportFormat_Ppsx ExportFormat = "Ppsx"
-	ExportFormat_Pptm ExportFormat = "Pptm"
-	ExportFormat_Ppsm ExportFormat = "Ppsm"
-	ExportFormat_Pot ExportFormat = "Pot"
-	ExportFormat_Potx ExportFormat = "Potx"
-	ExportFormat_Potm ExportFormat = "Potm"
-	ExportFormat_Html ExportFormat = "Html"
-	ExportFormat_Swf ExportFormat = "Swf"
-	ExportFormat_Svg ExportFormat = "Svg"
-	ExportFormat_Jpeg ExportFormat = "Jpeg"
-	ExportFormat_Png ExportFormat = "Png"
-	ExportFormat_Gif ExportFormat = "Gif"
-	ExportFormat_Bmp ExportFormat = "Bmp"
-	ExportFormat_Fodp ExportFormat = "Fodp"
+import (
+	"encoding/json"
 )
+
+// Information about object existence.
+type IEntityExists interface {
+
+	// True if the object exists.
+	getExists() bool
+	setExists(newValue bool)
+}
+
+type EntityExists struct {
+
+	// True if the object exists.
+	Exists bool `json:"Exists"`
+}
+
+func NewEntityExists() *EntityExists {
+	instance := new(EntityExists)
+	return instance
+}
+
+func (this *EntityExists) getExists() bool {
+	return this.Exists
+}
+
+func (this *EntityExists) setExists(newValue bool) {
+	this.Exists = newValue
+}
+
+func (this *EntityExists) UnmarshalJSON(b []byte) error {
+	var objMap map[string]*json.RawMessage
+	err := json.Unmarshal(b, &objMap)
+	if err != nil {
+		return err
+	}
+	
+	if valExists, ok := objMap["exists"]; ok {
+		if valExists != nil {
+			var valueForExists bool
+			err = json.Unmarshal(*valExists, &valueForExists)
+			if err != nil {
+				return err
+			}
+			this.Exists = valueForExists
+		}
+	}
+	if valExistsCap, ok := objMap["Exists"]; ok {
+		if valExistsCap != nil {
+			var valueForExists bool
+			err = json.Unmarshal(*valExistsCap, &valueForExists)
+			if err != nil {
+				return err
+			}
+			this.Exists = valueForExists
+		}
+	}
+
+    return nil
+}

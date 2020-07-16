@@ -75,6 +75,9 @@ func init() {
 	typeRegistry["EffectFormat"] = reflect.TypeOf(EffectFormat{})
 	
 	typeDeterminers["EffectFormat"] = make(map[string]string)
+	typeRegistry["EntityExists"] = reflect.TypeOf(EntityExists{})
+	
+	typeDeterminers["EntityExists"] = make(map[string]string)
 	typeRegistry["ErrorDetails"] = reflect.TypeOf(ErrorDetails{})
 	
 	typeDeterminers["ErrorDetails"] = make(map[string]string)
