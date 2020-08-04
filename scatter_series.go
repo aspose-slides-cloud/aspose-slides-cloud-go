@@ -174,7 +174,7 @@ type ScatterSeries struct {
 func NewScatterSeries() *ScatterSeries {
 	instance := new(ScatterSeries)
 	instance.Type_ = ""
-	instance.DataPointType = "OneValue"
+	instance.DataPointType = "Scatter"
 	return instance
 }
 
@@ -687,7 +687,7 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 			this.LineFormat = &valueForLineFormat
 		}
 	}
-	this.DataPointType = "OneValue"
+	this.DataPointType = "Scatter"
 	if valDataPointType, ok := objMap["dataPointType"]; ok {
 		if valDataPointType != nil {
 			var valueForDataPointType string

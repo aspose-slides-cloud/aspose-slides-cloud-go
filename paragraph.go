@@ -119,8 +119,8 @@ type IParagraph interface {
 	setRightToLeft(newValue string)
 
 	// List of portion links.
-	getPortionList() []IResourceUriElement
-	setPortionList(newValue []IResourceUriElement)
+	getPortionList() []IPortion
+	setPortionList(newValue []IPortion)
 }
 
 type Paragraph struct {
@@ -189,7 +189,7 @@ type Paragraph struct {
 	RightToLeft string `json:"RightToLeft,omitempty"`
 
 	// List of portion links.
-	PortionList []IResourceUriElement `json:"PortionList,omitempty"`
+	PortionList []IPortion `json:"PortionList,omitempty"`
 }
 
 func NewParagraph() *Paragraph {
@@ -352,11 +352,11 @@ func (this *Paragraph) getRightToLeft() string {
 func (this *Paragraph) setRightToLeft(newValue string) {
 	this.RightToLeft = newValue
 }
-func (this *Paragraph) getPortionList() []IResourceUriElement {
+func (this *Paragraph) getPortionList() []IPortion {
 	return this.PortionList
 }
 
-func (this *Paragraph) setPortionList(newValue []IResourceUriElement) {
+func (this *Paragraph) setPortionList(newValue []IPortion) {
 	this.PortionList = newValue
 }
 
@@ -914,28 +914,28 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 	
 	if valPortionList, ok := objMap["portionList"]; ok {
 		if valPortionList != nil {
-			var valueForPortionList []ResourceUriElement
+			var valueForPortionList []Portion
 			err = json.Unmarshal(*valPortionList, &valueForPortionList)
 			if err != nil {
 				return err
 			}
-			valueForIPortionList := make([]IResourceUriElement, len(valueForPortionList))
+			valueForIPortionList := make([]IPortion, len(valueForPortionList))
 			for i, v := range valueForPortionList {
-				valueForIPortionList[i] = IResourceUriElement(&v)
+				valueForIPortionList[i] = IPortion(&v)
 			}
 			this.PortionList = valueForIPortionList
 		}
 	}
 	if valPortionListCap, ok := objMap["PortionList"]; ok {
 		if valPortionListCap != nil {
-			var valueForPortionList []ResourceUriElement
+			var valueForPortionList []Portion
 			err = json.Unmarshal(*valPortionListCap, &valueForPortionList)
 			if err != nil {
 				return err
 			}
-			valueForIPortionList := make([]IResourceUriElement, len(valueForPortionList))
+			valueForIPortionList := make([]IPortion, len(valueForPortionList))
 			for i, v := range valueForPortionList {
-				valueForIPortionList[i] = IResourceUriElement(&v)
+				valueForIPortionList[i] = IPortion(&v)
 			}
 			this.PortionList = valueForIPortionList
 		}

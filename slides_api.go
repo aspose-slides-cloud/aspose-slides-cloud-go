@@ -359,6 +359,153 @@ type CreateFolderRequest struct {
     StorageName string
 }
 
+/* SlidesApiService Delete a series from a chart.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param shapeIndex Shape index (must be a chart).
+ @param seriesIndex Series index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Chart*/
+func (a *SlidesApiService) DeleteChartSeries(request DeleteChartSeriesRequest) (IChart, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IChart
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+	shapeIndexPathStringValue := fmt.Sprintf("%v", request.ShapeIndex)
+	if len(shapeIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"shapeIndex"+"}", shapeIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"shapeIndex"+"}", "", -1)
+	}
+	seriesIndexPathStringValue := fmt.Sprintf("%v", request.SeriesIndex)
+	if len(seriesIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"seriesIndex"+"}", seriesIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"seriesIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if err != nil {
+		return successPayload, nil, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("-->: %v\n", r)
+	}
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--: %v\n", localVarHttpResponse)
+	}
+	defer localVarHttpResponse.Body.Close()
+	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--BODY: %v\n", string(responseBytes))
+	}
+	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("Chart", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IChart); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IChart); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.DeleteChartSeries
+*/
+type DeleteChartSeriesRequest struct {
+    Name string
+    SlideIndex int32
+    ShapeIndex int32
+    SeriesIndex int32
+    Password string
+    Folder string
+    Storage string
+}
+
 /* SlidesApiService Delete file
  @param path File path e.g. &#39;/folder/file.ext&#39;
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -7369,8 +7516,8 @@ type GetParagraphPortionsRequest struct {
 /* SlidesApiService Read slide animation effects.
  @param name Document name.
  @param slideIndex Slide index.
- @param shapeIndex Shape index. If specified, only effects related to that shape are returned.
  @param optional (nil or map[string]interface{}) with one or more of:
+     @param "shapeIndex" (int32) Shape index. If specified, only effects related to that shape are returned.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -7402,6 +7549,11 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if request.ShapeIndex != nil {
+		if err := typeCheckParameter(*request.ShapeIndex, "int32", "shapeIndex"); err != nil {
+			return successPayload, nil, err
+		}
+	}
 	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
 		return successPayload, nil, err
 	}
@@ -7412,7 +7564,9 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 		return successPayload, nil, err
 	}
 
-	localVarQueryParams.Add("ShapeIndex", parameterToString(request.ShapeIndex, ""))
+	if request.ShapeIndex != nil {
+		localVarQueryParams.Add("ShapeIndex", parameterToString(*request.ShapeIndex, ""))
+	}
 	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
 	}
@@ -7494,7 +7648,7 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 type GetSlideAnimationRequest struct {
     Name string
     SlideIndex int32
-    ShapeIndex int32
+    ShapeIndex *int32
     Password string
     Folder string
     Storage string
@@ -13072,6 +13226,149 @@ type PostAddNotesSlideRequest struct {
     Storage string
 }
 
+/* SlidesApiService Add a new series to a chart.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param shapeIndex Shape index (must be a chart).
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "series" (Series) Series DTO.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Chart*/
+func (a *SlidesApiService) PostChartSeries(request PostChartSeriesRequest) (IChart, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IChart
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+	shapeIndexPathStringValue := fmt.Sprintf("%v", request.ShapeIndex)
+	if len(shapeIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"shapeIndex"+"}", shapeIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"shapeIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &request.Series
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if err != nil {
+		return successPayload, nil, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("-->: %v\n", r)
+	}
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--: %v\n", localVarHttpResponse)
+	}
+	defer localVarHttpResponse.Body.Close()
+	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--BODY: %v\n", string(responseBytes))
+	}
+	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("Chart", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IChart); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IChart); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PostChartSeries
+*/
+type PostChartSeriesRequest struct {
+    Name string
+    SlideIndex int32
+    ShapeIndex int32
+    Series ISeries
+    Password string
+    Folder string
+    Storage string
+}
+
 /* SlidesApiService Copy layoutSlide from source presentation.
  @param name Document name.
  @param cloneFrom Name of the document to clone layoutSlide from.
@@ -17541,6 +17838,157 @@ type PostSubshapeSaveAsRequest struct {
     ScaleY *float64
     Bounds string
     FontsFolder string
+}
+
+/* SlidesApiService Update a series in a chart.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param shapeIndex Shape index (must be a chart).
+ @param seriesIndex Series index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "series" (Series) Series DTO.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Chart*/
+func (a *SlidesApiService) PutChartSeries(request PutChartSeriesRequest) (IChart, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IChart
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+	shapeIndexPathStringValue := fmt.Sprintf("%v", request.ShapeIndex)
+	if len(shapeIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"shapeIndex"+"}", shapeIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"shapeIndex"+"}", "", -1)
+	}
+	seriesIndexPathStringValue := fmt.Sprintf("%v", request.SeriesIndex)
+	if len(seriesIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"seriesIndex"+"}", seriesIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"seriesIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &request.Series
+	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if err != nil {
+		return successPayload, nil, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("-->: %v\n", r)
+	}
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--: %v\n", localVarHttpResponse)
+	}
+	defer localVarHttpResponse.Body.Close()
+	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if a.client.cfg.Debug {
+		fmt.Printf("<--BODY: %v\n", string(responseBytes))
+	}
+	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("Chart", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IChart); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IChart); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PutChartSeries
+*/
+type PutChartSeriesRequest struct {
+    Name string
+    SlideIndex int32
+    ShapeIndex int32
+    SeriesIndex int32
+    Series ISeries
+    Password string
+    Folder string
+    Storage string
 }
 
 /* SlidesApiService Update a layoutSlide.

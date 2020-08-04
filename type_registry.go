@@ -248,6 +248,7 @@ func init() {
 	typeRegistry["BubbleSeries"] = reflect.TypeOf(BubbleSeries{})
 	derivedTypes["BubbleSeries"] = "Series"
 	typeDeterminers["BubbleSeries"] = make(map[string]string)
+	typeDeterminers["BubbleSeries"]["DataPointType"] = "Bubble"
 	typeRegistry["ColorScheme"] = reflect.TypeOf(ColorScheme{})
 	derivedTypes["ColorScheme"] = "ResourceBase"
 	typeDeterminers["ColorScheme"] = make(map[string]string)
@@ -311,6 +312,7 @@ func init() {
 	typeRegistry["OneValueSeries"] = reflect.TypeOf(OneValueSeries{})
 	derivedTypes["OneValueSeries"] = "Series"
 	typeDeterminers["OneValueSeries"] = make(map[string]string)
+	typeDeterminers["OneValueSeries"]["DataPointType"] = "OneValue"
 	typeRegistry["Paragraph"] = reflect.TypeOf(Paragraph{})
 	derivedTypes["Paragraph"] = "ResourceBase"
 	typeDeterminers["Paragraph"] = make(map[string]string)
@@ -394,6 +396,7 @@ func init() {
 	typeRegistry["ScatterSeries"] = reflect.TypeOf(ScatterSeries{})
 	derivedTypes["ScatterSeries"] = "Series"
 	typeDeterminers["ScatterSeries"] = make(map[string]string)
+	typeDeterminers["ScatterSeries"]["DataPointType"] = "Scatter"
 	typeRegistry["ShapeBase"] = reflect.TypeOf(ShapeBase{})
 	derivedTypes["ShapeBase"] = "ResourceBase"
 	typeDeterminers["ShapeBase"] = make(map[string]string)
@@ -454,6 +457,7 @@ func init() {
 	typeRegistry["BoxAndWhiskerSeries"] = reflect.TypeOf(BoxAndWhiskerSeries{})
 	derivedTypes["BoxAndWhiskerSeries"] = "OneValueSeries"
 	typeDeterminers["BoxAndWhiskerSeries"] = make(map[string]string)
+	typeDeterminers["BoxAndWhiskerSeries"]["DataPointType"] = "OneValue"
 	typeRegistry["Chart"] = reflect.TypeOf(Chart{})
 	derivedTypes["Chart"] = "ShapeBase"
 	typeDeterminers["Chart"] = make(map[string]string)
@@ -501,6 +505,7 @@ func init() {
 	typeRegistry["WaterfallSeries"] = reflect.TypeOf(WaterfallSeries{})
 	derivedTypes["WaterfallSeries"] = "OneValueSeries"
 	typeDeterminers["WaterfallSeries"] = make(map[string]string)
+	typeDeterminers["WaterfallSeries"]["DataPointType"] = "OneValue"
 	typeRegistry["AudioFrame"] = reflect.TypeOf(AudioFrame{})
 	derivedTypes["AudioFrame"] = "GeometryShape"
 	typeDeterminers["AudioFrame"] = make(map[string]string)

@@ -408,6 +408,225 @@ func TestCreateFolderInvalidStorageName(t *testing.T) {
     assertError(t, "CreateFolder", "storageName", request.StorageName, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Delete a series from a chart.
+   Test for SlidesApi.DeleteChartSeries method
+*/
+func TestDeleteChartSeries(t *testing.T) {
+    request := createDeleteChartSeriesRequest()
+    e := initializeTest("DeleteChartSeries", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteChartSeries(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createDeleteChartSeriesRequest() DeleteChartSeriesRequest {
+    var request DeleteChartSeriesRequest
+    request.Name = createTestParamValue("DeleteChartSeries", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("DeleteChartSeries", "slideIndex", "int32").(int32)
+    request.ShapeIndex = createTestParamValue("DeleteChartSeries", "shapeIndex", "int32").(int32)
+    request.SeriesIndex = createTestParamValue("DeleteChartSeries", "seriesIndex", "int32").(int32)
+    request.Password = createTestParamValue("DeleteChartSeries", "password", "string").(string)
+    request.Folder = createTestParamValue("DeleteChartSeries", "folder", "string").(string)
+    request.Storage = createTestParamValue("DeleteChartSeries", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Delete a series from a chart.
+   Test for SlidesApi.DeleteChartSeries method with invalid name
+*/
+func TestDeleteChartSeriesInvalidName(t *testing.T) {
+    request := createDeleteChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "DeleteChartSeries", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartSeries", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartSeries", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a series from a chart.
+   Test for SlidesApi.DeleteChartSeries method with invalid slideIndex
+*/
+func TestDeleteChartSeriesInvalidSlideIndex(t *testing.T) {
+    request := createDeleteChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "DeleteChartSeries", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteChartSeries", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartSeries", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a series from a chart.
+   Test for SlidesApi.DeleteChartSeries method with invalid shapeIndex
+*/
+func TestDeleteChartSeriesInvalidShapeIndex(t *testing.T) {
+    request := createDeleteChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "DeleteChartSeries", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteChartSeries", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartSeries", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a series from a chart.
+   Test for SlidesApi.DeleteChartSeries method with invalid seriesIndex
+*/
+func TestDeleteChartSeriesInvalidSeriesIndex(t *testing.T) {
+    request := createDeleteChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SeriesIndex, "DeleteChartSeries", "seriesIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SeriesIndex = nullValue
+    } else {
+        request.SeriesIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteChartSeries", "seriesIndex", request.SeriesIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartSeries", "seriesIndex", request.SeriesIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a series from a chart.
+   Test for SlidesApi.DeleteChartSeries method with invalid password
+*/
+func TestDeleteChartSeriesInvalidPassword(t *testing.T) {
+    request := createDeleteChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "DeleteChartSeries", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartSeries", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartSeries", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a series from a chart.
+   Test for SlidesApi.DeleteChartSeries method with invalid folder
+*/
+func TestDeleteChartSeriesInvalidFolder(t *testing.T) {
+    request := createDeleteChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "DeleteChartSeries", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartSeries", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartSeries", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a series from a chart.
+   Test for SlidesApi.DeleteChartSeries method with invalid storage
+*/
+func TestDeleteChartSeriesInvalidStorage(t *testing.T) {
+    request := createDeleteChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "DeleteChartSeries", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartSeries", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartSeries", "storage", request.Storage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Delete file
    Test for SlidesApi.DeleteFile method
 */
@@ -10023,7 +10242,12 @@ func createGetSlideAnimationRequest() GetSlideAnimationRequest {
     var request GetSlideAnimationRequest
     request.Name = createTestParamValue("GetSlideAnimation", "name", "string").(string)
     request.SlideIndex = createTestParamValue("GetSlideAnimation", "slideIndex", "int32").(int32)
-    request.ShapeIndex = createTestParamValue("GetSlideAnimation", "shapeIndex", "int32").(int32)
+    testshapeIndex := createTestParamValue("GetSlideAnimation", "shapeIndex", "int32")
+    switch v := testshapeIndex.(type) { 
+    case int32:
+        request.ShapeIndex = new(int32)
+        *request.ShapeIndex = v
+    }
     request.Password = createTestParamValue("GetSlideAnimation", "password", "string").(string)
     request.Folder = createTestParamValue("GetSlideAnimation", "folder", "string").(string)
     request.Storage = createTestParamValue("GetSlideAnimation", "storage", "string").(string)
@@ -10089,13 +10313,14 @@ func TestGetSlideAnimationInvalidSlideIndex(t *testing.T) {
 */
 func TestGetSlideAnimationInvalidShapeIndex(t *testing.T) {
     request := createGetSlideAnimationRequest()
+    request.ShapeIndex = new(int32)
 
     invalidValue := invalidizeTestParamValue(request.ShapeIndex, "GetSlideAnimation", "shapeIndex", "int32")
     if (invalidValue == nil) {
-        var nullValue int32
+        var nullValue *int32
         request.ShapeIndex = nullValue
     } else {
-        request.ShapeIndex = invalidValue.(int32)
+        *request.ShapeIndex = invalidValue.(int32)
     }
 
     e := initializeTest("GetSlideAnimation", "shapeIndex", request.ShapeIndex)
@@ -17848,6 +18073,224 @@ func TestPostAddNotesSlideInvalidStorage(t *testing.T) {
     assertError(t, "PostAddNotesSlide", "storage", request.Storage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Add a new series to a chart.
+   Test for SlidesApi.PostChartSeries method
+*/
+func TestPostChartSeries(t *testing.T) {
+    request := createPostChartSeriesRequest()
+    e := initializeTest("PostChartSeries", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PostChartSeries(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPostChartSeriesRequest() PostChartSeriesRequest {
+    var request PostChartSeriesRequest
+    request.Name = createTestParamValue("PostChartSeries", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PostChartSeries", "slideIndex", "int32").(int32)
+    request.ShapeIndex = createTestParamValue("PostChartSeries", "shapeIndex", "int32").(int32)
+    request.Series = createTestParamValue("PostChartSeries", "series", "Series").(ISeries)
+    request.Password = createTestParamValue("PostChartSeries", "password", "string").(string)
+    request.Folder = createTestParamValue("PostChartSeries", "folder", "string").(string)
+    request.Storage = createTestParamValue("PostChartSeries", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Add a new series to a chart.
+   Test for SlidesApi.PostChartSeries method with invalid name
+*/
+func TestPostChartSeriesInvalidName(t *testing.T) {
+    request := createPostChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PostChartSeries", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartSeries", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartSeries", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new series to a chart.
+   Test for SlidesApi.PostChartSeries method with invalid slideIndex
+*/
+func TestPostChartSeriesInvalidSlideIndex(t *testing.T) {
+    request := createPostChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PostChartSeries", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostChartSeries", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartSeries", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new series to a chart.
+   Test for SlidesApi.PostChartSeries method with invalid shapeIndex
+*/
+func TestPostChartSeriesInvalidShapeIndex(t *testing.T) {
+    request := createPostChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PostChartSeries", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostChartSeries", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartSeries", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new series to a chart.
+   Test for SlidesApi.PostChartSeries method with invalid series
+*/
+func TestPostChartSeriesInvalidSeries(t *testing.T) {
+    request := createPostChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Series, "PostChartSeries", "series", "Series")
+    if (invalidValue == nil) {
+        request.Series = nil
+    } else {
+        request.Series = invalidValue.(ISeries)
+    }
+
+    e := initializeTest("PostChartSeries", "series", request.Series)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartSeries", "series", request.Series, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new series to a chart.
+   Test for SlidesApi.PostChartSeries method with invalid password
+*/
+func TestPostChartSeriesInvalidPassword(t *testing.T) {
+    request := createPostChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostChartSeries", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartSeries", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartSeries", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new series to a chart.
+   Test for SlidesApi.PostChartSeries method with invalid folder
+*/
+func TestPostChartSeriesInvalidFolder(t *testing.T) {
+    request := createPostChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PostChartSeries", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartSeries", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartSeries", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new series to a chart.
+   Test for SlidesApi.PostChartSeries method with invalid storage
+*/
+func TestPostChartSeriesInvalidStorage(t *testing.T) {
+    request := createPostChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PostChartSeries", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartSeries", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartSeries", "storage", request.Storage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Copy layoutSlide from source presentation.
    Test for SlidesApi.PostCopyLayoutSlideFromSourcePresentation method
 */
@@ -24990,6 +25433,252 @@ func TestPostSubshapeSaveAsInvalidFontsFolder(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostSubshapeSaveAs", "fontsFolder", request.FontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a series in a chart.
+   Test for SlidesApi.PutChartSeries method
+*/
+func TestPutChartSeries(t *testing.T) {
+    request := createPutChartSeriesRequest()
+    e := initializeTest("PutChartSeries", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutChartSeries(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutChartSeriesRequest() PutChartSeriesRequest {
+    var request PutChartSeriesRequest
+    request.Name = createTestParamValue("PutChartSeries", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PutChartSeries", "slideIndex", "int32").(int32)
+    request.ShapeIndex = createTestParamValue("PutChartSeries", "shapeIndex", "int32").(int32)
+    request.SeriesIndex = createTestParamValue("PutChartSeries", "seriesIndex", "int32").(int32)
+    request.Series = createTestParamValue("PutChartSeries", "series", "Series").(ISeries)
+    request.Password = createTestParamValue("PutChartSeries", "password", "string").(string)
+    request.Folder = createTestParamValue("PutChartSeries", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutChartSeries", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Update a series in a chart.
+   Test for SlidesApi.PutChartSeries method with invalid name
+*/
+func TestPutChartSeriesInvalidName(t *testing.T) {
+    request := createPutChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutChartSeries", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartSeries", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartSeries", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a series in a chart.
+   Test for SlidesApi.PutChartSeries method with invalid slideIndex
+*/
+func TestPutChartSeriesInvalidSlideIndex(t *testing.T) {
+    request := createPutChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PutChartSeries", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutChartSeries", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartSeries", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a series in a chart.
+   Test for SlidesApi.PutChartSeries method with invalid shapeIndex
+*/
+func TestPutChartSeriesInvalidShapeIndex(t *testing.T) {
+    request := createPutChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PutChartSeries", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutChartSeries", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartSeries", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a series in a chart.
+   Test for SlidesApi.PutChartSeries method with invalid seriesIndex
+*/
+func TestPutChartSeriesInvalidSeriesIndex(t *testing.T) {
+    request := createPutChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SeriesIndex, "PutChartSeries", "seriesIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SeriesIndex = nullValue
+    } else {
+        request.SeriesIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutChartSeries", "seriesIndex", request.SeriesIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartSeries", "seriesIndex", request.SeriesIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a series in a chart.
+   Test for SlidesApi.PutChartSeries method with invalid series
+*/
+func TestPutChartSeriesInvalidSeries(t *testing.T) {
+    request := createPutChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Series, "PutChartSeries", "series", "Series")
+    if (invalidValue == nil) {
+        request.Series = nil
+    } else {
+        request.Series = invalidValue.(ISeries)
+    }
+
+    e := initializeTest("PutChartSeries", "series", request.Series)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartSeries", "series", request.Series, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a series in a chart.
+   Test for SlidesApi.PutChartSeries method with invalid password
+*/
+func TestPutChartSeriesInvalidPassword(t *testing.T) {
+    request := createPutChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutChartSeries", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartSeries", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartSeries", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a series in a chart.
+   Test for SlidesApi.PutChartSeries method with invalid folder
+*/
+func TestPutChartSeriesInvalidFolder(t *testing.T) {
+    request := createPutChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutChartSeries", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartSeries", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartSeries", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a series in a chart.
+   Test for SlidesApi.PutChartSeries method with invalid storage
+*/
+func TestPutChartSeriesInvalidStorage(t *testing.T) {
+    request := createPutChartSeriesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutChartSeries", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartSeries", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartSeries", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Update a layoutSlide.

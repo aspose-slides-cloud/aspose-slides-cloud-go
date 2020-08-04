@@ -278,6 +278,12 @@ func undefaultize(value interface{}, paramType string) interface{} {
         json.Unmarshal(b, &slide)
         return &slide
     }
+    if paramType == "Series" {
+        var series OneValueSeries
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &series)
+        return &series
+    }
     if paramType == "Effect" {
         var slide Effect
         b, _ := json.Marshal(value)

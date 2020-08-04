@@ -174,7 +174,7 @@ type BubbleSeries struct {
 func NewBubbleSeries() *BubbleSeries {
 	instance := new(BubbleSeries)
 	instance.Type_ = ""
-	instance.DataPointType = "OneValue"
+	instance.DataPointType = "Bubble"
 	return instance
 }
 
@@ -687,7 +687,7 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.LineFormat = &valueForLineFormat
 		}
 	}
-	this.DataPointType = "OneValue"
+	this.DataPointType = "Bubble"
 	if valDataPointType, ok := objMap["dataPointType"]; ok {
 		if valDataPointType != nil {
 			var valueForDataPointType string

@@ -101,6 +101,9 @@ type ISeries interface {
 	// Line properties set for the series.
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
+
+	getDataPointType() string
+	setDataPointType(newValue string)
 }
 
 type Series struct {
@@ -155,11 +158,14 @@ type Series struct {
 
 	// Line properties set for the series.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
+
+	DataPointType string `json:"DataPointType,omitempty"`
 }
 
 func NewSeries() *Series {
 	instance := new(Series)
 	instance.Type_ = ""
+	instance.DataPointType = ""
 	return instance
 }
 
@@ -281,6 +287,13 @@ func (this *Series) getLineFormat() ILineFormat {
 
 func (this *Series) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
+}
+func (this *Series) getDataPointType() string {
+	return this.DataPointType
+}
+
+func (this *Series) setDataPointType(newValue string) {
+	this.DataPointType = newValue
 }
 
 func (this *Series) UnmarshalJSON(b []byte) error {
@@ -656,6 +669,39 @@ func (this *Series) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.LineFormat = &valueForLineFormat
+		}
+	}
+	this.DataPointType = ""
+	if valDataPointType, ok := objMap["dataPointType"]; ok {
+		if valDataPointType != nil {
+			var valueForDataPointType string
+			err = json.Unmarshal(*valDataPointType, &valueForDataPointType)
+			if err != nil {
+				var valueForDataPointTypeInt int32
+				err = json.Unmarshal(*valDataPointType, &valueForDataPointTypeInt)
+				if err != nil {
+					return err
+				}
+				this.DataPointType = string(valueForDataPointTypeInt)
+			} else {
+				this.DataPointType = valueForDataPointType
+			}
+		}
+	}
+	if valDataPointTypeCap, ok := objMap["DataPointType"]; ok {
+		if valDataPointTypeCap != nil {
+			var valueForDataPointType string
+			err = json.Unmarshal(*valDataPointTypeCap, &valueForDataPointType)
+			if err != nil {
+				var valueForDataPointTypeInt int32
+				err = json.Unmarshal(*valDataPointTypeCap, &valueForDataPointTypeInt)
+				if err != nil {
+					return err
+				}
+				this.DataPointType = string(valueForDataPointTypeInt)
+			} else {
+				this.DataPointType = valueForDataPointType
+			}
 		}
 	}
 

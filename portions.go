@@ -43,8 +43,8 @@ type IPortions interface {
 	setAlternateLinks(newValue []IResourceUri)
 
 	// List of portion links.
-	getPortionLinks() []IResourceUriElement
-	setPortionLinks(newValue []IResourceUriElement)
+	getItems() []IPortion
+	setItems(newValue []IPortion)
 }
 
 type Portions struct {
@@ -56,7 +56,7 @@ type Portions struct {
 	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// List of portion links.
-	PortionLinks []IResourceUriElement `json:"PortionLinks,omitempty"`
+	Items []IPortion `json:"Items,omitempty"`
 }
 
 func NewPortions() *Portions {
@@ -78,12 +78,12 @@ func (this *Portions) getAlternateLinks() []IResourceUri {
 func (this *Portions) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Portions) getPortionLinks() []IResourceUriElement {
-	return this.PortionLinks
+func (this *Portions) getItems() []IPortion {
+	return this.Items
 }
 
-func (this *Portions) setPortionLinks(newValue []IResourceUriElement) {
-	this.PortionLinks = newValue
+func (this *Portions) setItems(newValue []IPortion) {
+	this.Items = newValue
 }
 
 func (this *Portions) UnmarshalJSON(b []byte) error {
@@ -143,32 +143,32 @@ func (this *Portions) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
-	if valPortionLinks, ok := objMap["portionLinks"]; ok {
-		if valPortionLinks != nil {
-			var valueForPortionLinks []ResourceUriElement
-			err = json.Unmarshal(*valPortionLinks, &valueForPortionLinks)
+	if valItems, ok := objMap["items"]; ok {
+		if valItems != nil {
+			var valueForItems []Portion
+			err = json.Unmarshal(*valItems, &valueForItems)
 			if err != nil {
 				return err
 			}
-			valueForIPortionLinks := make([]IResourceUriElement, len(valueForPortionLinks))
-			for i, v := range valueForPortionLinks {
-				valueForIPortionLinks[i] = IResourceUriElement(&v)
+			valueForIItems := make([]IPortion, len(valueForItems))
+			for i, v := range valueForItems {
+				valueForIItems[i] = IPortion(&v)
 			}
-			this.PortionLinks = valueForIPortionLinks
+			this.Items = valueForIItems
 		}
 	}
-	if valPortionLinksCap, ok := objMap["PortionLinks"]; ok {
-		if valPortionLinksCap != nil {
-			var valueForPortionLinks []ResourceUriElement
-			err = json.Unmarshal(*valPortionLinksCap, &valueForPortionLinks)
+	if valItemsCap, ok := objMap["Items"]; ok {
+		if valItemsCap != nil {
+			var valueForItems []Portion
+			err = json.Unmarshal(*valItemsCap, &valueForItems)
 			if err != nil {
 				return err
 			}
-			valueForIPortionLinks := make([]IResourceUriElement, len(valueForPortionLinks))
-			for i, v := range valueForPortionLinks {
-				valueForIPortionLinks[i] = IResourceUriElement(&v)
+			valueForIItems := make([]IPortion, len(valueForItems))
+			for i, v := range valueForItems {
+				valueForIItems[i] = IPortion(&v)
 			}
-			this.PortionLinks = valueForIPortionLinks
+			this.Items = valueForIItems
 		}
 	}
 
