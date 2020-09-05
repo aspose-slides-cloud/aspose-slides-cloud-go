@@ -31,91 +31,93 @@ import (
 	"encoding/json"
 )
 
-// Represents export options for whole presentation.
-type IExportOptions interface {
+// One value chart data point.
+type IWaterfallChartDataPoint interface {
 
-	// Setting user password to protect the PDF document. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	// Value.
+	getValue() float64
+	setValue(newValue float64)
 
-	getFormat() string
-	setFormat(newValue string)
+	// Value.
+	getSetAsTotal() bool
+	setSetAsTotal(newValue bool)
 }
 
-type ExportOptions struct {
+type WaterfallChartDataPoint struct {
 
-	// Setting user password to protect the PDF document. 
-	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
+	// Value.
+	Value float64 `json:"Value"`
 
-	Format string `json:"Format,omitempty"`
+	// Value.
+	SetAsTotal bool `json:"SetAsTotal"`
 }
 
-func NewExportOptions() *ExportOptions {
-	instance := new(ExportOptions)
+func NewWaterfallChartDataPoint() *WaterfallChartDataPoint {
+	instance := new(WaterfallChartDataPoint)
 	return instance
 }
 
-func (this *ExportOptions) getDefaultRegularFont() string {
-	return this.DefaultRegularFont
+func (this *WaterfallChartDataPoint) getValue() float64 {
+	return this.Value
 }
 
-func (this *ExportOptions) setDefaultRegularFont(newValue string) {
-	this.DefaultRegularFont = newValue
+func (this *WaterfallChartDataPoint) setValue(newValue float64) {
+	this.Value = newValue
 }
-func (this *ExportOptions) getFormat() string {
-	return this.Format
-}
-
-func (this *ExportOptions) setFormat(newValue string) {
-	this.Format = newValue
+func (this *WaterfallChartDataPoint) getSetAsTotal() bool {
+	return this.SetAsTotal
 }
 
-func (this *ExportOptions) UnmarshalJSON(b []byte) error {
+func (this *WaterfallChartDataPoint) setSetAsTotal(newValue bool) {
+	this.SetAsTotal = newValue
+}
+
+func (this *WaterfallChartDataPoint) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
 		return err
 	}
 	
-	if valDefaultRegularFont, ok := objMap["defaultRegularFont"]; ok {
-		if valDefaultRegularFont != nil {
-			var valueForDefaultRegularFont string
-			err = json.Unmarshal(*valDefaultRegularFont, &valueForDefaultRegularFont)
+	if valValue, ok := objMap["value"]; ok {
+		if valValue != nil {
+			var valueForValue float64
+			err = json.Unmarshal(*valValue, &valueForValue)
 			if err != nil {
 				return err
 			}
-			this.DefaultRegularFont = valueForDefaultRegularFont
+			this.Value = valueForValue
 		}
 	}
-	if valDefaultRegularFontCap, ok := objMap["DefaultRegularFont"]; ok {
-		if valDefaultRegularFontCap != nil {
-			var valueForDefaultRegularFont string
-			err = json.Unmarshal(*valDefaultRegularFontCap, &valueForDefaultRegularFont)
+	if valValueCap, ok := objMap["Value"]; ok {
+		if valValueCap != nil {
+			var valueForValue float64
+			err = json.Unmarshal(*valValueCap, &valueForValue)
 			if err != nil {
 				return err
 			}
-			this.DefaultRegularFont = valueForDefaultRegularFont
+			this.Value = valueForValue
 		}
 	}
 	
-	if valFormat, ok := objMap["format"]; ok {
-		if valFormat != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormat, &valueForFormat)
+	if valSetAsTotal, ok := objMap["setAsTotal"]; ok {
+		if valSetAsTotal != nil {
+			var valueForSetAsTotal bool
+			err = json.Unmarshal(*valSetAsTotal, &valueForSetAsTotal)
 			if err != nil {
 				return err
 			}
-			this.Format = valueForFormat
+			this.SetAsTotal = valueForSetAsTotal
 		}
 	}
-	if valFormatCap, ok := objMap["Format"]; ok {
-		if valFormatCap != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormatCap, &valueForFormat)
+	if valSetAsTotalCap, ok := objMap["SetAsTotal"]; ok {
+		if valSetAsTotalCap != nil {
+			var valueForSetAsTotal bool
+			err = json.Unmarshal(*valSetAsTotalCap, &valueForSetAsTotal)
 			if err != nil {
 				return err
 			}
-			this.Format = valueForFormat
+			this.SetAsTotal = valueForSetAsTotal
 		}
 	}
 

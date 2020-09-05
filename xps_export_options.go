@@ -34,6 +34,10 @@ import (
 // Provides options that control how a presentation is saved in XPS format.
 type IXpsExportOptions interface {
 
+	// Setting user password to protect the PDF document. 
+	getDefaultRegularFont() string
+	setDefaultRegularFont(newValue string)
+
 	// Export format.
 	getFormat() string
 	setFormat(newValue string)
@@ -53,6 +57,9 @@ type IXpsExportOptions interface {
 
 type XpsExportOptions struct {
 
+	// Setting user password to protect the PDF document. 
+	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
+
 	// Export format.
 	Format string `json:"Format,omitempty"`
 
@@ -71,6 +78,13 @@ func NewXpsExportOptions() *XpsExportOptions {
 	return instance
 }
 
+func (this *XpsExportOptions) getDefaultRegularFont() string {
+	return this.DefaultRegularFont
+}
+
+func (this *XpsExportOptions) setDefaultRegularFont(newValue string) {
+	this.DefaultRegularFont = newValue
+}
 func (this *XpsExportOptions) getFormat() string {
 	return this.Format
 }
@@ -105,6 +119,27 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
 		return err
+	}
+	
+	if valDefaultRegularFont, ok := objMap["defaultRegularFont"]; ok {
+		if valDefaultRegularFont != nil {
+			var valueForDefaultRegularFont string
+			err = json.Unmarshal(*valDefaultRegularFont, &valueForDefaultRegularFont)
+			if err != nil {
+				return err
+			}
+			this.DefaultRegularFont = valueForDefaultRegularFont
+		}
+	}
+	if valDefaultRegularFontCap, ok := objMap["DefaultRegularFont"]; ok {
+		if valDefaultRegularFontCap != nil {
+			var valueForDefaultRegularFont string
+			err = json.Unmarshal(*valDefaultRegularFontCap, &valueForDefaultRegularFont)
+			if err != nil {
+				return err
+			}
+			this.DefaultRegularFont = valueForDefaultRegularFont
+		}
 	}
 	
 	if valFormat, ok := objMap["format"]; ok {

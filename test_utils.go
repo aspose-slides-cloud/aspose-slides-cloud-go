@@ -284,6 +284,12 @@ func undefaultize(value interface{}, paramType string) interface{} {
         json.Unmarshal(b, &series)
         return &series
     }
+    if paramType == "ChartCategory" {
+        var category ChartCategory
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &category)
+        return &category
+    }
     if paramType == "Effect" {
         var slide Effect
         b, _ := json.Marshal(value)

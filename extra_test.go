@@ -309,3 +309,95 @@ func TestNullableProperties(t *testing.T) {
 		return
 	}
 }
+
+/* 
+   Test for call with valid auth data
+*/
+func TestGoodAuth(t *testing.T) {
+	cfg := NewConfiguration()
+	configFile, err := os.Open("testConfig.json")
+	if err == nil {
+		json.NewDecoder(configFile).Decode(cfg)
+	}
+	testApiClient = NewAPIClient(cfg)
+	_, _, e := testApiClient.SlidesApi.GetSlidesApiInfo()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+
+/* 
+   Test for call with valid auth data
+*/
+func TestBadAuth(t *testing.T) {
+	cfg := NewConfiguration()
+	configFile, err := os.Open("testConfig.json")
+	if err == nil {
+		json.NewDecoder(configFile).Decode(cfg)
+	}
+	cfg.AppKey = "invalid"
+	testApiClient = NewAPIClient(cfg)
+	_, r, e := testApiClient.SlidesApi.GetSlidesApiInfo()
+	if e == nil {
+		t.Errorf("Must have failed.")
+		return
+	}
+	if r == nil {
+		t.Errorf("Null response not expected.")
+		return
+	}
+	statusCode := r.StatusCode
+	if statusCode != 401 {
+		t.Errorf("Unexpected error code: %v.", statusCode)
+		return
+	}
+}
+
+/* 
+   Test for call with valid auth data
+*/
+func TestGoodAuthToken(t *testing.T) {
+	cfg := NewConfiguration()
+	configFile, err := os.Open("testConfig.json")
+	if err == nil {
+		json.NewDecoder(configFile).Decode(cfg)
+	}
+	testApiClient = NewAPIClient(cfg)
+	_, _, e := testApiClient.SlidesApi.GetSlidesApiInfo()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	cfg.AppKey = "invalid"
+	testApiClient = NewAPIClient(cfg)
+	_, _, e = testApiClient.SlidesApi.GetSlidesApiInfo()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+
+/* 
+   Test for call with valid auth data
+*/
+func TestBadAuthToken(t *testing.T) {
+	cfg := NewConfiguration()
+	configFile, err := os.Open("testConfig.json")
+	if err == nil {
+		json.NewDecoder(configFile).Decode(cfg)
+	}
+	testApiClient = NewAPIClient(cfg)
+	_, _, e := testApiClient.SlidesApi.GetSlidesApiInfo()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	cfg.OAuthToken = "invalid"
+	testApiClient = NewAPIClient(cfg)
+	_, _, e = testApiClient.SlidesApi.GetSlidesApiInfo()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}

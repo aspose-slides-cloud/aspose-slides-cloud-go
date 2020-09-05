@@ -171,6 +171,64 @@ func (c *APIClient) ChangeBasePath (path string) {
 	c.cfg.BasePath = path
 }
 
+/* SlidesApiService Get API info.
+ @return ApiInfo*/
+func (c *APIClient) makeRequest(
+	ctx context.Context,
+	path string, method string,
+	postBody interface{},
+	headerParams map[string]string,
+	queryParams url.Values,
+	formParams url.Values,
+	files [][]byte) (response *http.Response, responseBytes []byte, err error) {
+	response, responseBytes, needRepeat, err := c.makeRequestWithAuthCheck(ctx, path, method, postBody, headerParams, queryParams, formParams, files)
+	if needRepeat {
+		c.cfg.OAuthToken = ""
+		response, responseBytes, _, err = c.makeRequestWithAuthCheck(ctx, path, method, postBody, headerParams, queryParams, formParams, files)
+	}
+	return response, responseBytes, err
+}
+
+/* SlidesApiService Get API info.
+ @return ApiInfo*/
+func (c *APIClient) makeRequestWithAuthCheck(
+	ctx context.Context,
+	path string, method string,
+	postBody interface{},
+	headerParams map[string]string,
+	queryParams url.Values,
+	formParams url.Values,
+	files [][]byte) (response *http.Response, responseBytes []byte, needRepeat bool, err error) {
+	needRepeat = len(c.cfg.OAuthToken) > 0
+	r, resp, err := c.prepareRequest(nil, path, method, postBody, headerParams, queryParams, formParams, files)
+	if err != nil {
+		return resp, nil, false, err
+	}
+	if c.cfg.Debug {
+		fmt.Printf("-->: %v\n", r)
+	}
+	localVarHttpResponse, err := c.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarHttpResponse, nil, false, err
+	}
+	if c.cfg.Debug {
+		fmt.Printf("<--: %v\n", localVarHttpResponse)
+	}
+	defer localVarHttpResponse.Body.Close()
+	responseBytes, err = ioutil.ReadAll(localVarHttpResponse.Body)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarHttpResponse, responseBytes, false, err
+	}
+	if c.cfg.Debug {
+		fmt.Printf("<--BODY: %v\n", string(responseBytes))
+	}
+	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1)
+	needRepeat = needRepeat &&
+		(localVarHttpResponse.StatusCode == 401 ||
+			(localVarHttpResponse.StatusCode == 400 && strings.Contains(string(responseBytes), " Authority")))
+	return localVarHttpResponse, responseBytes, needRepeat, err
+}
+
 // prepareRequest build the request
 func (c *APIClient) prepareRequest (
 	ctx context.Context,
@@ -179,7 +237,7 @@ func (c *APIClient) prepareRequest (
 	headerParams map[string]string,
 	queryParams url.Values,
 	formParams url.Values,
-	files [][]byte) (localVarRequest *http.Request, err error) {
+	files [][]byte) (localVarRequest *http.Request, response *http.Response, err error) {
 
 	var body *bytes.Buffer
 
@@ -191,17 +249,17 @@ func (c *APIClient) prepareRequest (
 			w := multipart.NewWriter(body)
 			bodyBuf, _, err := setBody(postBody, contentType)
 			if err != nil {
-				return nil, err
+				return nil, nil, err
 			}
 			w.WriteField("pipeline", string(bodyBuf.Bytes()))
 			for i, file := range files {
 				part, err := w.CreateFormFile(fmt.Sprintf("file%d", i), fmt.Sprintf("file%d", i))
 				if err != nil {
-					return nil, err
+					return nil, nil, err
 				}
 				_, err = part.Write(file)
 				if err != nil {
-					return nil, err
+					return nil, nil, err
 				}
 			}
 			w.Close()
@@ -212,7 +270,7 @@ func (c *APIClient) prepareRequest (
 			}
 			body, contentType, err = setBody(postBody, contentType)
 			if err != nil {
-				return nil, err
+				return nil, nil, err
 			}
 		}
 		headerParams["Content-Type"] = contentType
@@ -221,7 +279,7 @@ func (c *APIClient) prepareRequest (
 	// Setup path and query paramters
 	url, err := url.Parse(path)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	// Adding Query Param
@@ -242,7 +300,7 @@ func (c *APIClient) prepareRequest (
 		localVarRequest, err = http.NewRequest(method, url.String(), nil)
 	}
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	// Override request host, if applicable
@@ -250,16 +308,16 @@ func (c *APIClient) prepareRequest (
 		localVarRequest.Host = c.cfg.Host
 	}
 
-	err = c.prepareRequestHeader(localVarRequest, headerParams)
+	authResponse, err := c.prepareRequestHeader(localVarRequest, headerParams)
 	if err != nil {
-		return localVarRequest, err
+		return localVarRequest, authResponse, err
 	}
 	
-	return localVarRequest, nil
+	return localVarRequest, nil, nil
 }
 
 // prepareRequest build the request
-func (c *APIClient) prepareRequestHeader(localVarRequest *http.Request, headerParams map[string]string) error {
+func (c *APIClient) prepareRequestHeader(localVarRequest *http.Request, headerParams map[string]string) (*http.Response, error) {
 	// add header parameters, if any
 	if len(headerParams) > 0 {
 		headers := http.Header{}
@@ -270,8 +328,7 @@ func (c *APIClient) prepareRequestHeader(localVarRequest *http.Request, headerPa
 	}
 
 	// Add the user agent to the request.
-	localVarRequest.Header.Add("x-aspose-client", "go sdk")
-	localVarRequest.Header.Add("x-aspose-client-version", c.cfg.ApiVersion)
+	localVarRequest.Header.Add("x-aspose-client", fmt.Sprintf("go sdk v%v", c.cfg.ApiVersion))
 	if c.cfg.Timeout > 0 {
 		localVarRequest.Header.Add("x-aspose-timeout", strconv.FormatInt(int64(c.cfg.Timeout), 10))
 	}
@@ -284,26 +341,28 @@ func (c *APIClient) prepareRequestHeader(localVarRequest *http.Request, headerPa
 			c.cfg.AuthBasePath + "/connect/token",
 			strings.NewReader("grant_type=client_credentials&client_id=" + c.cfg.AppSid + "&client_secret=" + c.cfg.AppKey))
 		if (err != nil) {
-			return err
+			return nil, err
 		}
 		oauthRequest.Header.Set("Content-type", "application/x-www-form-urlencoded")
 		oauthResponse, err := c.callAPI(oauthRequest)
 		if (err != nil) {
-			return err
+                        oauthResponse.StatusCode = 401
+			return oauthResponse, err
 		}
 		defer oauthResponse.Body.Close()
 		if oauthResponse.StatusCode >= 300 {
-			return errors.New("Authentication error.")
+                        oauthResponse.StatusCode = 401
+			return oauthResponse, errors.New("Authentication error.")
  		}
 		var token OAuthResponse
 		if err = json.NewDecoder(oauthResponse.Body).Decode(&token); err != nil {
-			return err
+                        oauthResponse.StatusCode = 401
+			return oauthResponse, err
 		}
 		c.cfg.OAuthToken = token.AccessToken
 	}
 	localVarRequest.Header.Add("Authorization", "Bearer " + c.cfg.OAuthToken)
-	
-	return nil
+	return nil, nil
 }
 
 // Prevent trying to import "fmt"

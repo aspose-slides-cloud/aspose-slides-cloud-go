@@ -34,6 +34,10 @@ import (
 // Provides options that control how a presentation is saved in PPTX format.
 type IPptxExportOptions interface {
 
+	// Setting user password to protect the PDF document. 
+	getDefaultRegularFont() string
+	setDefaultRegularFont(newValue string)
+
 	// Export format.
 	getFormat() string
 	setFormat(newValue string)
@@ -44,6 +48,9 @@ type IPptxExportOptions interface {
 }
 
 type PptxExportOptions struct {
+
+	// Setting user password to protect the PDF document. 
+	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
 	// Export format.
 	Format string `json:"Format,omitempty"`
@@ -58,6 +65,13 @@ func NewPptxExportOptions() *PptxExportOptions {
 	return instance
 }
 
+func (this *PptxExportOptions) getDefaultRegularFont() string {
+	return this.DefaultRegularFont
+}
+
+func (this *PptxExportOptions) setDefaultRegularFont(newValue string) {
+	this.DefaultRegularFont = newValue
+}
 func (this *PptxExportOptions) getFormat() string {
 	return this.Format
 }
@@ -78,6 +92,27 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
 		return err
+	}
+	
+	if valDefaultRegularFont, ok := objMap["defaultRegularFont"]; ok {
+		if valDefaultRegularFont != nil {
+			var valueForDefaultRegularFont string
+			err = json.Unmarshal(*valDefaultRegularFont, &valueForDefaultRegularFont)
+			if err != nil {
+				return err
+			}
+			this.DefaultRegularFont = valueForDefaultRegularFont
+		}
+	}
+	if valDefaultRegularFontCap, ok := objMap["DefaultRegularFont"]; ok {
+		if valDefaultRegularFontCap != nil {
+			var valueForDefaultRegularFont string
+			err = json.Unmarshal(*valDefaultRegularFontCap, &valueForDefaultRegularFont)
+			if err != nil {
+				return err
+			}
+			this.DefaultRegularFont = valueForDefaultRegularFont
+		}
 	}
 	
 	if valFormat, ok := objMap["format"]; ok {

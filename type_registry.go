@@ -66,6 +66,9 @@ func init() {
 	typeRegistry["CustomDashPattern"] = reflect.TypeOf(CustomDashPattern{})
 	
 	typeDeterminers["CustomDashPattern"] = make(map[string]string)
+	typeRegistry["DataPoint"] = reflect.TypeOf(DataPoint{})
+	
+	typeDeterminers["DataPoint"] = make(map[string]string)
 	typeRegistry["DiscUsage"] = reflect.TypeOf(DiscUsage{})
 	
 	typeDeterminers["DiscUsage"] = make(map[string]string)
@@ -141,9 +144,6 @@ func init() {
 	typeRegistry["ObjectExist"] = reflect.TypeOf(ObjectExist{})
 	
 	typeDeterminers["ObjectExist"] = make(map[string]string)
-	typeRegistry["OneValueChartDataPoint"] = reflect.TypeOf(OneValueChartDataPoint{})
-	
-	typeDeterminers["OneValueChartDataPoint"] = make(map[string]string)
 	typeRegistry["OrderedMergeRequest"] = reflect.TypeOf(OrderedMergeRequest{})
 	
 	typeDeterminers["OrderedMergeRequest"] = make(map[string]string)
@@ -180,9 +180,6 @@ func init() {
 	typeRegistry["ResourceUriElement"] = reflect.TypeOf(ResourceUriElement{})
 	
 	typeDeterminers["ResourceUriElement"] = make(map[string]string)
-	typeRegistry["ScatterChartDataPoint"] = reflect.TypeOf(ScatterChartDataPoint{})
-	
-	typeDeterminers["ScatterChartDataPoint"] = make(map[string]string)
 	typeRegistry["Series"] = reflect.TypeOf(Series{})
 	
 	typeDeterminers["Series"] = make(map[string]string)
@@ -242,9 +239,6 @@ func init() {
 	derivedTypes["Base64InputFile"] = "InputFile"
 	typeDeterminers["Base64InputFile"] = make(map[string]string)
 	typeDeterminers["Base64InputFile"]["Type"] = "Base64"
-	typeRegistry["BubbleChartDataPoint"] = reflect.TypeOf(BubbleChartDataPoint{})
-	derivedTypes["BubbleChartDataPoint"] = "ScatterChartDataPoint"
-	typeDeterminers["BubbleChartDataPoint"] = make(map[string]string)
 	typeRegistry["BubbleSeries"] = reflect.TypeOf(BubbleSeries{})
 	derivedTypes["BubbleSeries"] = "Series"
 	typeDeterminers["BubbleSeries"] = make(map[string]string)
@@ -309,6 +303,9 @@ func init() {
 	typeRegistry["NotesSlide"] = reflect.TypeOf(NotesSlide{})
 	derivedTypes["NotesSlide"] = "ResourceBase"
 	typeDeterminers["NotesSlide"] = make(map[string]string)
+	typeRegistry["OneValueChartDataPoint"] = reflect.TypeOf(OneValueChartDataPoint{})
+	derivedTypes["OneValueChartDataPoint"] = "DataPoint"
+	typeDeterminers["OneValueChartDataPoint"] = make(map[string]string)
 	typeRegistry["OneValueSeries"] = reflect.TypeOf(OneValueSeries{})
 	derivedTypes["OneValueSeries"] = "Series"
 	typeDeterminers["OneValueSeries"] = make(map[string]string)
@@ -393,6 +390,9 @@ func init() {
 	derivedTypes["SaveSlide"] = "Task"
 	typeDeterminers["SaveSlide"] = make(map[string]string)
 	typeDeterminers["SaveSlide"]["Type"] = "SaveSlide"
+	typeRegistry["ScatterChartDataPoint"] = reflect.TypeOf(ScatterChartDataPoint{})
+	derivedTypes["ScatterChartDataPoint"] = "DataPoint"
+	typeDeterminers["ScatterChartDataPoint"] = make(map[string]string)
 	typeRegistry["ScatterSeries"] = reflect.TypeOf(ScatterSeries{})
 	derivedTypes["ScatterSeries"] = "Series"
 	typeDeterminers["ScatterSeries"] = make(map[string]string)
@@ -458,6 +458,9 @@ func init() {
 	derivedTypes["BoxAndWhiskerSeries"] = "OneValueSeries"
 	typeDeterminers["BoxAndWhiskerSeries"] = make(map[string]string)
 	typeDeterminers["BoxAndWhiskerSeries"]["DataPointType"] = "OneValue"
+	typeRegistry["BubbleChartDataPoint"] = reflect.TypeOf(BubbleChartDataPoint{})
+	derivedTypes["BubbleChartDataPoint"] = "ScatterChartDataPoint"
+	typeDeterminers["BubbleChartDataPoint"] = make(map[string]string)
 	typeRegistry["Chart"] = reflect.TypeOf(Chart{})
 	derivedTypes["Chart"] = "ShapeBase"
 	typeDeterminers["Chart"] = make(map[string]string)
@@ -502,6 +505,9 @@ func init() {
 	typeDeterminers["Table"] = make(map[string]string)
 	typeDeterminers["Table"]["Type"] = "Table"
 	typeDeterminers["Table"]["ShapeType"] = "Table"
+	typeRegistry["WaterfallChartDataPoint"] = reflect.TypeOf(WaterfallChartDataPoint{})
+	derivedTypes["WaterfallChartDataPoint"] = "OneValueChartDataPoint"
+	typeDeterminers["WaterfallChartDataPoint"] = make(map[string]string)
 	typeRegistry["WaterfallSeries"] = reflect.TypeOf(WaterfallSeries{})
 	derivedTypes["WaterfallSeries"] = "OneValueSeries"
 	typeDeterminers["WaterfallSeries"] = make(map[string]string)

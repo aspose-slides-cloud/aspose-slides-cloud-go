@@ -53,6 +53,10 @@ type IChartCategory interface {
 	// Get or sets the line format.
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
+
+	// Gets or sets the data points for chart data
+	getDataPoints() []IOneValueChartDataPoint
+	setDataPoints(newValue []IOneValueChartDataPoint)
 }
 
 type ChartCategory struct {
@@ -71,6 +75,9 @@ type ChartCategory struct {
 
 	// Get or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
+
+	// Gets or sets the data points for chart data
+	DataPoints []IOneValueChartDataPoint `json:"DataPoints,omitempty"`
 }
 
 func NewChartCategory() *ChartCategory {
@@ -112,6 +119,13 @@ func (this *ChartCategory) getLineFormat() ILineFormat {
 
 func (this *ChartCategory) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
+}
+func (this *ChartCategory) getDataPoints() []IOneValueChartDataPoint {
+	return this.DataPoints
+}
+
+func (this *ChartCategory) setDataPoints(newValue []IOneValueChartDataPoint) {
+	this.DataPoints = newValue
 }
 
 func (this *ChartCategory) UnmarshalJSON(b []byte) error {
@@ -231,6 +245,35 @@ func (this *ChartCategory) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.LineFormat = &valueForLineFormat
+		}
+	}
+	
+	if valDataPoints, ok := objMap["dataPoints"]; ok {
+		if valDataPoints != nil {
+			var valueForDataPoints []OneValueChartDataPoint
+			err = json.Unmarshal(*valDataPoints, &valueForDataPoints)
+			if err != nil {
+				return err
+			}
+			valueForIDataPoints := make([]IOneValueChartDataPoint, len(valueForDataPoints))
+			for i, v := range valueForDataPoints {
+				valueForIDataPoints[i] = IOneValueChartDataPoint(&v)
+			}
+			this.DataPoints = valueForIDataPoints
+		}
+	}
+	if valDataPointsCap, ok := objMap["DataPoints"]; ok {
+		if valDataPointsCap != nil {
+			var valueForDataPoints []OneValueChartDataPoint
+			err = json.Unmarshal(*valDataPointsCap, &valueForDataPoints)
+			if err != nil {
+				return err
+			}
+			valueForIDataPoints := make([]IOneValueChartDataPoint, len(valueForDataPoints))
+			for i, v := range valueForDataPoints {
+				valueForIDataPoints[i] = IOneValueChartDataPoint(&v)
+			}
+			this.DataPoints = valueForIDataPoints
 		}
 	}
 

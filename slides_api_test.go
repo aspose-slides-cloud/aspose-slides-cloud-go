@@ -408,6 +408,472 @@ func TestCreateFolderInvalidStorageName(t *testing.T) {
     assertError(t, "CreateFolder", "storageName", request.StorageName, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Delete a category from a chart.
+   Test for SlidesApi.DeleteChartCategory method
+*/
+func TestDeleteChartCategory(t *testing.T) {
+    request := createDeleteChartCategoryRequest()
+    e := initializeTest("DeleteChartCategory", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteChartCategory(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createDeleteChartCategoryRequest() DeleteChartCategoryRequest {
+    var request DeleteChartCategoryRequest
+    request.Name = createTestParamValue("DeleteChartCategory", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("DeleteChartCategory", "slideIndex", "int32").(int32)
+    request.ShapeIndex = createTestParamValue("DeleteChartCategory", "shapeIndex", "int32").(int32)
+    request.CategoryIndex = createTestParamValue("DeleteChartCategory", "categoryIndex", "int32").(int32)
+    request.Password = createTestParamValue("DeleteChartCategory", "password", "string").(string)
+    request.Folder = createTestParamValue("DeleteChartCategory", "folder", "string").(string)
+    request.Storage = createTestParamValue("DeleteChartCategory", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Delete a category from a chart.
+   Test for SlidesApi.DeleteChartCategory method with invalid name
+*/
+func TestDeleteChartCategoryInvalidName(t *testing.T) {
+    request := createDeleteChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "DeleteChartCategory", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartCategory", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartCategory", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a category from a chart.
+   Test for SlidesApi.DeleteChartCategory method with invalid slideIndex
+*/
+func TestDeleteChartCategoryInvalidSlideIndex(t *testing.T) {
+    request := createDeleteChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "DeleteChartCategory", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteChartCategory", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartCategory", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a category from a chart.
+   Test for SlidesApi.DeleteChartCategory method with invalid shapeIndex
+*/
+func TestDeleteChartCategoryInvalidShapeIndex(t *testing.T) {
+    request := createDeleteChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "DeleteChartCategory", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteChartCategory", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartCategory", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a category from a chart.
+   Test for SlidesApi.DeleteChartCategory method with invalid categoryIndex
+*/
+func TestDeleteChartCategoryInvalidCategoryIndex(t *testing.T) {
+    request := createDeleteChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.CategoryIndex, "DeleteChartCategory", "categoryIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.CategoryIndex = nullValue
+    } else {
+        request.CategoryIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteChartCategory", "categoryIndex", request.CategoryIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartCategory", "categoryIndex", request.CategoryIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a category from a chart.
+   Test for SlidesApi.DeleteChartCategory method with invalid password
+*/
+func TestDeleteChartCategoryInvalidPassword(t *testing.T) {
+    request := createDeleteChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "DeleteChartCategory", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartCategory", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartCategory", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a category from a chart.
+   Test for SlidesApi.DeleteChartCategory method with invalid folder
+*/
+func TestDeleteChartCategoryInvalidFolder(t *testing.T) {
+    request := createDeleteChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "DeleteChartCategory", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartCategory", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartCategory", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a category from a chart.
+   Test for SlidesApi.DeleteChartCategory method with invalid storage
+*/
+func TestDeleteChartCategoryInvalidStorage(t *testing.T) {
+    request := createDeleteChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "DeleteChartCategory", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartCategory", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartCategory", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a data point from a chart series.
+   Test for SlidesApi.DeleteChartDataPoint method
+*/
+func TestDeleteChartDataPoint(t *testing.T) {
+    request := createDeleteChartDataPointRequest()
+    e := initializeTest("DeleteChartDataPoint", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteChartDataPoint(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createDeleteChartDataPointRequest() DeleteChartDataPointRequest {
+    var request DeleteChartDataPointRequest
+    request.Name = createTestParamValue("DeleteChartDataPoint", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("DeleteChartDataPoint", "slideIndex", "int32").(int32)
+    request.ShapeIndex = createTestParamValue("DeleteChartDataPoint", "shapeIndex", "int32").(int32)
+    request.SeriesIndex = createTestParamValue("DeleteChartDataPoint", "seriesIndex", "int32").(int32)
+    request.PointIndex = createTestParamValue("DeleteChartDataPoint", "pointIndex", "int32").(int32)
+    request.Password = createTestParamValue("DeleteChartDataPoint", "password", "string").(string)
+    request.Folder = createTestParamValue("DeleteChartDataPoint", "folder", "string").(string)
+    request.Storage = createTestParamValue("DeleteChartDataPoint", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Delete a data point from a chart series.
+   Test for SlidesApi.DeleteChartDataPoint method with invalid name
+*/
+func TestDeleteChartDataPointInvalidName(t *testing.T) {
+    request := createDeleteChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "DeleteChartDataPoint", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartDataPoint", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartDataPoint", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a data point from a chart series.
+   Test for SlidesApi.DeleteChartDataPoint method with invalid slideIndex
+*/
+func TestDeleteChartDataPointInvalidSlideIndex(t *testing.T) {
+    request := createDeleteChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "DeleteChartDataPoint", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteChartDataPoint", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartDataPoint", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a data point from a chart series.
+   Test for SlidesApi.DeleteChartDataPoint method with invalid shapeIndex
+*/
+func TestDeleteChartDataPointInvalidShapeIndex(t *testing.T) {
+    request := createDeleteChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "DeleteChartDataPoint", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteChartDataPoint", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartDataPoint", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a data point from a chart series.
+   Test for SlidesApi.DeleteChartDataPoint method with invalid seriesIndex
+*/
+func TestDeleteChartDataPointInvalidSeriesIndex(t *testing.T) {
+    request := createDeleteChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SeriesIndex, "DeleteChartDataPoint", "seriesIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SeriesIndex = nullValue
+    } else {
+        request.SeriesIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteChartDataPoint", "seriesIndex", request.SeriesIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartDataPoint", "seriesIndex", request.SeriesIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a data point from a chart series.
+   Test for SlidesApi.DeleteChartDataPoint method with invalid pointIndex
+*/
+func TestDeleteChartDataPointInvalidPointIndex(t *testing.T) {
+    request := createDeleteChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.PointIndex, "DeleteChartDataPoint", "pointIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.PointIndex = nullValue
+    } else {
+        request.PointIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteChartDataPoint", "pointIndex", request.PointIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartDataPoint", "pointIndex", request.PointIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a data point from a chart series.
+   Test for SlidesApi.DeleteChartDataPoint method with invalid password
+*/
+func TestDeleteChartDataPointInvalidPassword(t *testing.T) {
+    request := createDeleteChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "DeleteChartDataPoint", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartDataPoint", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartDataPoint", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a data point from a chart series.
+   Test for SlidesApi.DeleteChartDataPoint method with invalid folder
+*/
+func TestDeleteChartDataPointInvalidFolder(t *testing.T) {
+    request := createDeleteChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "DeleteChartDataPoint", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartDataPoint", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartDataPoint", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a data point from a chart series.
+   Test for SlidesApi.DeleteChartDataPoint method with invalid storage
+*/
+func TestDeleteChartDataPointInvalidStorage(t *testing.T) {
+    request := createDeleteChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "DeleteChartDataPoint", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteChartDataPoint", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteChartDataPoint", "storage", request.Storage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Delete a series from a chart.
    Test for SlidesApi.DeleteChartSeries method
 */
@@ -18073,6 +18539,470 @@ func TestPostAddNotesSlideInvalidStorage(t *testing.T) {
     assertError(t, "PostAddNotesSlide", "storage", request.Storage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Add a new category to a chart.
+   Test for SlidesApi.PostChartCategory method
+*/
+func TestPostChartCategory(t *testing.T) {
+    request := createPostChartCategoryRequest()
+    e := initializeTest("PostChartCategory", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PostChartCategory(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPostChartCategoryRequest() PostChartCategoryRequest {
+    var request PostChartCategoryRequest
+    request.Name = createTestParamValue("PostChartCategory", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PostChartCategory", "slideIndex", "int32").(int32)
+    request.ShapeIndex = createTestParamValue("PostChartCategory", "shapeIndex", "int32").(int32)
+    request.Category = createTestParamValue("PostChartCategory", "category", "ChartCategory").(IChartCategory)
+    request.Password = createTestParamValue("PostChartCategory", "password", "string").(string)
+    request.Folder = createTestParamValue("PostChartCategory", "folder", "string").(string)
+    request.Storage = createTestParamValue("PostChartCategory", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Add a new category to a chart.
+   Test for SlidesApi.PostChartCategory method with invalid name
+*/
+func TestPostChartCategoryInvalidName(t *testing.T) {
+    request := createPostChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PostChartCategory", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartCategory", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartCategory", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new category to a chart.
+   Test for SlidesApi.PostChartCategory method with invalid slideIndex
+*/
+func TestPostChartCategoryInvalidSlideIndex(t *testing.T) {
+    request := createPostChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PostChartCategory", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostChartCategory", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartCategory", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new category to a chart.
+   Test for SlidesApi.PostChartCategory method with invalid shapeIndex
+*/
+func TestPostChartCategoryInvalidShapeIndex(t *testing.T) {
+    request := createPostChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PostChartCategory", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostChartCategory", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartCategory", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new category to a chart.
+   Test for SlidesApi.PostChartCategory method with invalid category
+*/
+func TestPostChartCategoryInvalidCategory(t *testing.T) {
+    request := createPostChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Category, "PostChartCategory", "category", "ChartCategory")
+    if (invalidValue == nil) {
+        request.Category = nil
+    } else {
+        request.Category = invalidValue.(IChartCategory)
+    }
+
+    e := initializeTest("PostChartCategory", "category", request.Category)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartCategory", "category", request.Category, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new category to a chart.
+   Test for SlidesApi.PostChartCategory method with invalid password
+*/
+func TestPostChartCategoryInvalidPassword(t *testing.T) {
+    request := createPostChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostChartCategory", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartCategory", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartCategory", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new category to a chart.
+   Test for SlidesApi.PostChartCategory method with invalid folder
+*/
+func TestPostChartCategoryInvalidFolder(t *testing.T) {
+    request := createPostChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PostChartCategory", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartCategory", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartCategory", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new category to a chart.
+   Test for SlidesApi.PostChartCategory method with invalid storage
+*/
+func TestPostChartCategoryInvalidStorage(t *testing.T) {
+    request := createPostChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PostChartCategory", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartCategory", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartCategory", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new data point to a chart series.
+   Test for SlidesApi.PostChartDataPoint method
+*/
+func TestPostChartDataPoint(t *testing.T) {
+    request := createPostChartDataPointRequest()
+    e := initializeTest("PostChartDataPoint", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PostChartDataPoint(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPostChartDataPointRequest() PostChartDataPointRequest {
+    var request PostChartDataPointRequest
+    request.Name = createTestParamValue("PostChartDataPoint", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PostChartDataPoint", "slideIndex", "int32").(int32)
+    request.ShapeIndex = createTestParamValue("PostChartDataPoint", "shapeIndex", "int32").(int32)
+    request.SeriesIndex = createTestParamValue("PostChartDataPoint", "seriesIndex", "int32").(int32)
+    request.DataPoint = createTestParamValue("PostChartDataPoint", "dataPoint", "DataPoint").(IDataPoint)
+    request.Password = createTestParamValue("PostChartDataPoint", "password", "string").(string)
+    request.Folder = createTestParamValue("PostChartDataPoint", "folder", "string").(string)
+    request.Storage = createTestParamValue("PostChartDataPoint", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Add a new data point to a chart series.
+   Test for SlidesApi.PostChartDataPoint method with invalid name
+*/
+func TestPostChartDataPointInvalidName(t *testing.T) {
+    request := createPostChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PostChartDataPoint", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartDataPoint", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartDataPoint", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new data point to a chart series.
+   Test for SlidesApi.PostChartDataPoint method with invalid slideIndex
+*/
+func TestPostChartDataPointInvalidSlideIndex(t *testing.T) {
+    request := createPostChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PostChartDataPoint", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostChartDataPoint", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartDataPoint", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new data point to a chart series.
+   Test for SlidesApi.PostChartDataPoint method with invalid shapeIndex
+*/
+func TestPostChartDataPointInvalidShapeIndex(t *testing.T) {
+    request := createPostChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PostChartDataPoint", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostChartDataPoint", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartDataPoint", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new data point to a chart series.
+   Test for SlidesApi.PostChartDataPoint method with invalid seriesIndex
+*/
+func TestPostChartDataPointInvalidSeriesIndex(t *testing.T) {
+    request := createPostChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SeriesIndex, "PostChartDataPoint", "seriesIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SeriesIndex = nullValue
+    } else {
+        request.SeriesIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostChartDataPoint", "seriesIndex", request.SeriesIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartDataPoint", "seriesIndex", request.SeriesIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new data point to a chart series.
+   Test for SlidesApi.PostChartDataPoint method with invalid dataPoint
+*/
+func TestPostChartDataPointInvalidDataPoint(t *testing.T) {
+    request := createPostChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.DataPoint, "PostChartDataPoint", "dataPoint", "DataPoint")
+    if (invalidValue == nil) {
+        request.DataPoint = nil
+    } else {
+        request.DataPoint = invalidValue.(IDataPoint)
+    }
+
+    e := initializeTest("PostChartDataPoint", "dataPoint", request.DataPoint)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartDataPoint", "dataPoint", request.DataPoint, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new data point to a chart series.
+   Test for SlidesApi.PostChartDataPoint method with invalid password
+*/
+func TestPostChartDataPointInvalidPassword(t *testing.T) {
+    request := createPostChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostChartDataPoint", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartDataPoint", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartDataPoint", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new data point to a chart series.
+   Test for SlidesApi.PostChartDataPoint method with invalid folder
+*/
+func TestPostChartDataPointInvalidFolder(t *testing.T) {
+    request := createPostChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PostChartDataPoint", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartDataPoint", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartDataPoint", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add a new data point to a chart series.
+   Test for SlidesApi.PostChartDataPoint method with invalid storage
+*/
+func TestPostChartDataPointInvalidStorage(t *testing.T) {
+    request := createPostChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PostChartDataPoint", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PostChartDataPoint", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostChartDataPoint", "storage", request.Storage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Add a new series to a chart.
    Test for SlidesApi.PostChartSeries method
 */
@@ -25433,6 +26363,526 @@ func TestPostSubshapeSaveAsInvalidFontsFolder(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostSubshapeSaveAs", "fontsFolder", request.FontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a chart category.
+   Test for SlidesApi.PutChartCategory method
+*/
+func TestPutChartCategory(t *testing.T) {
+    request := createPutChartCategoryRequest()
+    e := initializeTest("PutChartCategory", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutChartCategory(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutChartCategoryRequest() PutChartCategoryRequest {
+    var request PutChartCategoryRequest
+    request.Name = createTestParamValue("PutChartCategory", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PutChartCategory", "slideIndex", "int32").(int32)
+    request.ShapeIndex = createTestParamValue("PutChartCategory", "shapeIndex", "int32").(int32)
+    request.CategoryIndex = createTestParamValue("PutChartCategory", "categoryIndex", "int32").(int32)
+    request.Category = createTestParamValue("PutChartCategory", "category", "ChartCategory").(IChartCategory)
+    request.Password = createTestParamValue("PutChartCategory", "password", "string").(string)
+    request.Folder = createTestParamValue("PutChartCategory", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutChartCategory", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Update a chart category.
+   Test for SlidesApi.PutChartCategory method with invalid name
+*/
+func TestPutChartCategoryInvalidName(t *testing.T) {
+    request := createPutChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutChartCategory", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartCategory", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartCategory", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a chart category.
+   Test for SlidesApi.PutChartCategory method with invalid slideIndex
+*/
+func TestPutChartCategoryInvalidSlideIndex(t *testing.T) {
+    request := createPutChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PutChartCategory", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutChartCategory", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartCategory", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a chart category.
+   Test for SlidesApi.PutChartCategory method with invalid shapeIndex
+*/
+func TestPutChartCategoryInvalidShapeIndex(t *testing.T) {
+    request := createPutChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PutChartCategory", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutChartCategory", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartCategory", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a chart category.
+   Test for SlidesApi.PutChartCategory method with invalid categoryIndex
+*/
+func TestPutChartCategoryInvalidCategoryIndex(t *testing.T) {
+    request := createPutChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.CategoryIndex, "PutChartCategory", "categoryIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.CategoryIndex = nullValue
+    } else {
+        request.CategoryIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutChartCategory", "categoryIndex", request.CategoryIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartCategory", "categoryIndex", request.CategoryIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a chart category.
+   Test for SlidesApi.PutChartCategory method with invalid category
+*/
+func TestPutChartCategoryInvalidCategory(t *testing.T) {
+    request := createPutChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Category, "PutChartCategory", "category", "ChartCategory")
+    if (invalidValue == nil) {
+        request.Category = nil
+    } else {
+        request.Category = invalidValue.(IChartCategory)
+    }
+
+    e := initializeTest("PutChartCategory", "category", request.Category)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartCategory", "category", request.Category, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a chart category.
+   Test for SlidesApi.PutChartCategory method with invalid password
+*/
+func TestPutChartCategoryInvalidPassword(t *testing.T) {
+    request := createPutChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutChartCategory", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartCategory", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartCategory", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a chart category.
+   Test for SlidesApi.PutChartCategory method with invalid folder
+*/
+func TestPutChartCategoryInvalidFolder(t *testing.T) {
+    request := createPutChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutChartCategory", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartCategory", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartCategory", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a chart category.
+   Test for SlidesApi.PutChartCategory method with invalid storage
+*/
+func TestPutChartCategoryInvalidStorage(t *testing.T) {
+    request := createPutChartCategoryRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutChartCategory", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartCategory", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartCategory", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a data point in a chart series.
+   Test for SlidesApi.PutChartDataPoint method
+*/
+func TestPutChartDataPoint(t *testing.T) {
+    request := createPutChartDataPointRequest()
+    e := initializeTest("PutChartDataPoint", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutChartDataPoint(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutChartDataPointRequest() PutChartDataPointRequest {
+    var request PutChartDataPointRequest
+    request.Name = createTestParamValue("PutChartDataPoint", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PutChartDataPoint", "slideIndex", "int32").(int32)
+    request.ShapeIndex = createTestParamValue("PutChartDataPoint", "shapeIndex", "int32").(int32)
+    request.SeriesIndex = createTestParamValue("PutChartDataPoint", "seriesIndex", "int32").(int32)
+    request.PointIndex = createTestParamValue("PutChartDataPoint", "pointIndex", "int32").(int32)
+    request.DataPoint = createTestParamValue("PutChartDataPoint", "dataPoint", "DataPoint").(IDataPoint)
+    request.Password = createTestParamValue("PutChartDataPoint", "password", "string").(string)
+    request.Folder = createTestParamValue("PutChartDataPoint", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutChartDataPoint", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Update a data point in a chart series.
+   Test for SlidesApi.PutChartDataPoint method with invalid name
+*/
+func TestPutChartDataPointInvalidName(t *testing.T) {
+    request := createPutChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutChartDataPoint", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartDataPoint", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartDataPoint", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a data point in a chart series.
+   Test for SlidesApi.PutChartDataPoint method with invalid slideIndex
+*/
+func TestPutChartDataPointInvalidSlideIndex(t *testing.T) {
+    request := createPutChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PutChartDataPoint", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutChartDataPoint", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartDataPoint", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a data point in a chart series.
+   Test for SlidesApi.PutChartDataPoint method with invalid shapeIndex
+*/
+func TestPutChartDataPointInvalidShapeIndex(t *testing.T) {
+    request := createPutChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.ShapeIndex, "PutChartDataPoint", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.ShapeIndex = nullValue
+    } else {
+        request.ShapeIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutChartDataPoint", "shapeIndex", request.ShapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartDataPoint", "shapeIndex", request.ShapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a data point in a chart series.
+   Test for SlidesApi.PutChartDataPoint method with invalid seriesIndex
+*/
+func TestPutChartDataPointInvalidSeriesIndex(t *testing.T) {
+    request := createPutChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SeriesIndex, "PutChartDataPoint", "seriesIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SeriesIndex = nullValue
+    } else {
+        request.SeriesIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutChartDataPoint", "seriesIndex", request.SeriesIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartDataPoint", "seriesIndex", request.SeriesIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a data point in a chart series.
+   Test for SlidesApi.PutChartDataPoint method with invalid pointIndex
+*/
+func TestPutChartDataPointInvalidPointIndex(t *testing.T) {
+    request := createPutChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.PointIndex, "PutChartDataPoint", "pointIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.PointIndex = nullValue
+    } else {
+        request.PointIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutChartDataPoint", "pointIndex", request.PointIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartDataPoint", "pointIndex", request.PointIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a data point in a chart series.
+   Test for SlidesApi.PutChartDataPoint method with invalid dataPoint
+*/
+func TestPutChartDataPointInvalidDataPoint(t *testing.T) {
+    request := createPutChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.DataPoint, "PutChartDataPoint", "dataPoint", "DataPoint")
+    if (invalidValue == nil) {
+        request.DataPoint = nil
+    } else {
+        request.DataPoint = invalidValue.(IDataPoint)
+    }
+
+    e := initializeTest("PutChartDataPoint", "dataPoint", request.DataPoint)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartDataPoint", "dataPoint", request.DataPoint, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a data point in a chart series.
+   Test for SlidesApi.PutChartDataPoint method with invalid password
+*/
+func TestPutChartDataPointInvalidPassword(t *testing.T) {
+    request := createPutChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutChartDataPoint", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartDataPoint", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartDataPoint", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a data point in a chart series.
+   Test for SlidesApi.PutChartDataPoint method with invalid folder
+*/
+func TestPutChartDataPointInvalidFolder(t *testing.T) {
+    request := createPutChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutChartDataPoint", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartDataPoint", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartDataPoint", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update a data point in a chart series.
+   Test for SlidesApi.PutChartDataPoint method with invalid storage
+*/
+func TestPutChartDataPointInvalidStorage(t *testing.T) {
+    request := createPutChartDataPointRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutChartDataPoint", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutChartDataPoint", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
+    statusCode := 0
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutChartDataPoint", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Update a series in a chart.

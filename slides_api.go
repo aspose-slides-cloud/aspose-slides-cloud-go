@@ -29,7 +29,6 @@ package asposeslidescloud
 
 import (
 	"bytes"
-	"io/ioutil"
 	"net/url"
 	"net/http"
 	"strings"
@@ -114,29 +113,7 @@ func (a *SlidesApiService) CopyFile(request CopyFileRequest) (*http.Response, er
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -220,29 +197,7 @@ func (a *SlidesApiService) CopyFolder(request CopyFolderRequest) (*http.Response
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -316,29 +271,7 @@ func (a *SlidesApiService) CreateFolder(request CreateFolderRequest) (*http.Resp
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -357,6 +290,264 @@ func (a *SlidesApiService) CreateFolder(request CreateFolderRequest) (*http.Resp
 type CreateFolderRequest struct {
     Path string
     StorageName string
+}
+
+/* SlidesApiService Delete a category from a chart.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param shapeIndex Shape index.
+ @param categoryIndex Category index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Chart*/
+func (a *SlidesApiService) DeleteChartCategory(request DeleteChartCategoryRequest) (IChart, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IChart
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories/{categoryIndex}"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+	shapeIndexPathStringValue := fmt.Sprintf("%v", request.ShapeIndex)
+	if len(shapeIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"shapeIndex"+"}", shapeIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"shapeIndex"+"}", "", -1)
+	}
+	categoryIndexPathStringValue := fmt.Sprintf("%v", request.CategoryIndex)
+	if len(categoryIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"categoryIndex"+"}", categoryIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"categoryIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("Chart", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IChart); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IChart); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.DeleteChartCategory
+*/
+type DeleteChartCategoryRequest struct {
+    Name string
+    SlideIndex int32
+    ShapeIndex int32
+    CategoryIndex int32
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Delete a data point from a chart series.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param shapeIndex Shape index.
+ @param seriesIndex Series index.
+ @param pointIndex Data point index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Chart*/
+func (a *SlidesApiService) DeleteChartDataPoint(request DeleteChartDataPointRequest) (IChart, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IChart
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints/{pointIndex}"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+	shapeIndexPathStringValue := fmt.Sprintf("%v", request.ShapeIndex)
+	if len(shapeIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"shapeIndex"+"}", shapeIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"shapeIndex"+"}", "", -1)
+	}
+	seriesIndexPathStringValue := fmt.Sprintf("%v", request.SeriesIndex)
+	if len(seriesIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"seriesIndex"+"}", seriesIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"seriesIndex"+"}", "", -1)
+	}
+	pointIndexPathStringValue := fmt.Sprintf("%v", request.PointIndex)
+	if len(pointIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"pointIndex"+"}", pointIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"pointIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("Chart", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IChart); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IChart); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.DeleteChartDataPoint
+*/
+type DeleteChartDataPointRequest struct {
+    Name string
+    SlideIndex int32
+    ShapeIndex int32
+    SeriesIndex int32
+    PointIndex int32
+    Password string
+    Folder string
+    Storage string
 }
 
 /* SlidesApiService Delete a series from a chart.
@@ -446,29 +637,7 @@ func (a *SlidesApiService) DeleteChartSeries(request DeleteChartSeriesRequest) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -564,29 +733,7 @@ func (a *SlidesApiService) DeleteFile(request DeleteFileRequest) (*http.Response
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -668,29 +815,7 @@ func (a *SlidesApiService) DeleteFolder(request DeleteFolderRequest) (*http.Resp
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -785,29 +910,7 @@ func (a *SlidesApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (IS
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -930,29 +1033,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraph(request DeleteNotesSlidePar
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1077,29 +1158,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraphs(request DeleteNotesSlidePa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1231,29 +1290,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortion(request DeleteNotesSlidePorti
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1386,29 +1423,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortions(request DeleteNotesSlidePort
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1527,29 +1542,7 @@ func (a *SlidesApiService) DeleteNotesSlideShape(request DeleteNotesSlideShapeRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1666,29 +1659,7 @@ func (a *SlidesApiService) DeleteNotesSlideShapes(request DeleteNotesSlideShapes
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1812,29 +1783,7 @@ func (a *SlidesApiService) DeleteParagraph(request DeleteParagraphRequest) (IPar
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1959,29 +1908,7 @@ func (a *SlidesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (IP
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2113,29 +2040,7 @@ func (a *SlidesApiService) DeletePortion(request DeletePortionRequest) (IPortion
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2268,29 +2173,7 @@ func (a *SlidesApiService) DeletePortions(request DeletePortionsRequest) (IPorti
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2402,29 +2285,7 @@ func (a *SlidesApiService) DeleteSlideAnimation(request DeleteSlideAnimationRequ
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2540,29 +2401,7 @@ func (a *SlidesApiService) DeleteSlideAnimationEffect(request DeleteSlideAnimati
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2679,29 +2518,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequence(request Delet
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2825,29 +2642,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequenceEffect(request
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2958,29 +2753,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequences(request Dele
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3089,29 +2862,7 @@ func (a *SlidesApiService) DeleteSlideAnimationMainSequence(request DeleteSlideA
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3220,29 +2971,7 @@ func (a *SlidesApiService) DeleteSlideByIndex(request DeleteSlideByIndexRequest)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3358,29 +3087,7 @@ func (a *SlidesApiService) DeleteSlideShape(request DeleteSlideShapeRequest) (IS
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3497,29 +3204,7 @@ func (a *SlidesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3643,29 +3328,7 @@ func (a *SlidesApiService) DeleteSlideSubshape(request DeleteSlideSubshapeReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3790,29 +3453,7 @@ func (a *SlidesApiService) DeleteSlideSubshapes(request DeleteSlideSubshapesRequ
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3923,29 +3564,7 @@ func (a *SlidesApiService) DeleteSlidesCleanSlidesList(request DeleteSlidesClean
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4047,29 +3666,7 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperties(request DeleteSlidesDo
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4177,29 +3774,7 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperty(request DeleteSlidesDocu
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4308,29 +3883,7 @@ func (a *SlidesApiService) DeleteSlidesSlideBackground(request DeleteSlidesSlide
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4460,29 +4013,7 @@ func (a *SlidesApiService) DeleteSubshapeParagraph(request DeleteSubshapeParagra
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4615,29 +4146,7 @@ func (a *SlidesApiService) DeleteSubshapeParagraphs(request DeleteSubshapeParagr
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4777,29 +4286,7 @@ func (a *SlidesApiService) DeleteSubshapePortion(request DeleteSubshapePortionRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4940,29 +4427,7 @@ func (a *SlidesApiService) DeleteSubshapePortions(request DeleteSubshapePortions
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5061,29 +4526,7 @@ func (a *SlidesApiService) DownloadFile(request DownloadFileRequest) (*os.File, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5155,29 +4598,7 @@ func (a *SlidesApiService) GetDiscUsage(request GetDiscUsageRequest) (IDiscUsage
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5261,29 +4682,7 @@ func (a *SlidesApiService) GetFileVersions(request GetFileVersionsRequest) (IFil
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5368,29 +4767,7 @@ func (a *SlidesApiService) GetFilesList(request GetFilesListRequest) (IFilesList
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5496,29 +4873,7 @@ func (a *SlidesApiService) GetLayoutSlide(request GetLayoutSlideRequest) (ILayou
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5620,29 +4975,7 @@ func (a *SlidesApiService) GetLayoutSlidesList(request GetLayoutSlidesListReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5750,29 +5083,7 @@ func (a *SlidesApiService) GetMasterSlide(request GetMasterSlideRequest) (IMaste
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5874,29 +5185,7 @@ func (a *SlidesApiService) GetMasterSlidesList(request GetMasterSlidesListReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6004,29 +5293,7 @@ func (a *SlidesApiService) GetNotesSlide(request GetNotesSlideRequest) (INotesSl
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6135,29 +5402,7 @@ func (a *SlidesApiService) GetNotesSlideExists(request GetNotesSlideExistsReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6273,29 +5518,7 @@ func (a *SlidesApiService) GetNotesSlideShape(request GetNotesSlideShapeRequest)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6419,29 +5642,7 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraph(request GetNotesSlideShap
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6559,29 +5760,7 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraphs(request GetNotesSlideSha
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6712,29 +5891,7 @@ func (a *SlidesApiService) GetNotesSlideShapePortion(request GetNotesSlideShapeP
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6860,29 +6017,7 @@ func (a *SlidesApiService) GetNotesSlideShapePortions(request GetNotesSlideShape
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6993,29 +6128,7 @@ func (a *SlidesApiService) GetNotesSlideShapes(request GetNotesSlideShapesReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7156,29 +6269,7 @@ func (a *SlidesApiService) GetNotesSlideWithFormat(request GetNotesSlideWithForm
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7305,29 +6396,7 @@ func (a *SlidesApiService) GetParagraphPortion(request GetParagraphPortionReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7453,29 +6522,7 @@ func (a *SlidesApiService) GetParagraphPortions(request GetParagraphPortionsRequ
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7595,29 +6642,7 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7734,29 +6759,7 @@ func (a *SlidesApiService) GetSlideShape(request GetSlideShapeRequest) (IShapeBa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7880,29 +6883,7 @@ func (a *SlidesApiService) GetSlideShapeParagraph(request GetSlideShapeParagraph
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8020,29 +7001,7 @@ func (a *SlidesApiService) GetSlideShapeParagraphs(request GetSlideShapeParagrap
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8152,29 +7111,7 @@ func (a *SlidesApiService) GetSlideShapes(request GetSlideShapesRequest) (IShape
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8297,29 +7234,7 @@ func (a *SlidesApiService) GetSlideSubshape(request GetSlideSubshapeRequest) (IS
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8451,29 +7366,7 @@ func (a *SlidesApiService) GetSlideSubshapeParagraph(request GetSlideSubshapePar
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8599,29 +7492,7 @@ func (a *SlidesApiService) GetSlideSubshapeParagraphs(request GetSlideSubshapePa
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8739,29 +7610,7 @@ func (a *SlidesApiService) GetSlideSubshapes(request GetSlideSubshapesRequest) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8835,29 +7684,7 @@ func (a *SlidesApiService) GetSlidesApiInfo() (IApiInfo, *http.Response, error) 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8950,29 +7777,7 @@ func (a *SlidesApiService) GetSlidesDocument(request GetSlidesDocumentRequest) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9073,29 +7878,7 @@ func (a *SlidesApiService) GetSlidesDocumentProperties(request GetSlidesDocument
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9203,29 +7986,7 @@ func (a *SlidesApiService) GetSlidesDocumentProperty(request GetSlidesDocumentPr
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9334,29 +8095,7 @@ func (a *SlidesApiService) GetSlidesImageWithDefaultFormat(request GetSlidesImag
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9465,29 +8204,7 @@ func (a *SlidesApiService) GetSlidesImageWithFormat(request GetSlidesImageWithFo
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9583,29 +8300,7 @@ func (a *SlidesApiService) GetSlidesImages(request GetSlidesImagesRequest) (IIma
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9720,29 +8415,7 @@ func (a *SlidesApiService) GetSlidesPlaceholder(request GetSlidesPlaceholderRequ
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9852,29 +8525,7 @@ func (a *SlidesApiService) GetSlidesPlaceholders(request GetSlidesPlaceholdersRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9985,29 +8636,7 @@ func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPrese
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10116,29 +8745,7 @@ func (a *SlidesApiService) GetSlidesSlide(request GetSlidesSlideRequest) (ISlide
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10247,29 +8854,7 @@ func (a *SlidesApiService) GetSlidesSlideBackground(request GetSlidesSlideBackgr
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10378,29 +8963,7 @@ func (a *SlidesApiService) GetSlidesSlideComments(request GetSlidesSlideComments
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10509,29 +9072,7 @@ func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequ
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10649,29 +9190,7 @@ func (a *SlidesApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextIte
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10774,29 +9293,7 @@ func (a *SlidesApiService) GetSlidesSlidesList(request GetSlidesSlidesListReques
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10904,29 +9401,7 @@ func (a *SlidesApiService) GetSlidesTheme(request GetSlidesThemeRequest) (ITheme
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11035,29 +9510,7 @@ func (a *SlidesApiService) GetSlidesThemeColorScheme(request GetSlidesThemeColor
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11166,29 +9619,7 @@ func (a *SlidesApiService) GetSlidesThemeFontScheme(request GetSlidesThemeFontSc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11297,29 +9728,7 @@ func (a *SlidesApiService) GetSlidesThemeFormatScheme(request GetSlidesThemeForm
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11421,29 +9830,7 @@ func (a *SlidesApiService) GetSlidesViewProperties(request GetSlidesViewProperti
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11579,29 +9966,7 @@ func (a *SlidesApiService) GetSubshapeParagraphPortion(request GetSubshapeParagr
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11735,29 +10100,7 @@ func (a *SlidesApiService) GetSubshapeParagraphPortions(request GetSubshapeParag
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11863,29 +10206,7 @@ func (a *SlidesApiService) MoveFile(request MoveFileRequest) (*http.Response, er
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11969,29 +10290,7 @@ func (a *SlidesApiService) MoveFolder(request MoveFolderRequest) (*http.Response
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12073,29 +10372,7 @@ func (a *SlidesApiService) ObjectExists(request ObjectExistsRequest) (IObjectExi
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12221,29 +10498,7 @@ func (a *SlidesApiService) PostAddNewParagraph(request PostAddNewParagraphReques
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12381,29 +10636,7 @@ func (a *SlidesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12537,29 +10770,7 @@ func (a *SlidesApiService) PostAddNewShape(request PostAddNewShapeRequest) (ISha
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12699,29 +10910,7 @@ func (a *SlidesApiService) PostAddNewSubshape(request PostAddNewSubshapeRequest)
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12860,29 +11049,7 @@ func (a *SlidesApiService) PostAddNewSubshapeParagraph(request PostAddNewSubshap
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13028,29 +11195,7 @@ func (a *SlidesApiService) PostAddNewSubshapePortion(request PostAddNewSubshapeP
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13167,29 +11312,7 @@ func (a *SlidesApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13221,6 +11344,256 @@ type PostAddNotesSlideRequest struct {
     Name string
     SlideIndex int32
     Dto INotesSlide
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Add a new category to a chart.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param shapeIndex Shape index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "category" (ChartCategory) Category DTO.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Chart*/
+func (a *SlidesApiService) PostChartCategory(request PostChartCategoryRequest) (IChart, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IChart
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+	shapeIndexPathStringValue := fmt.Sprintf("%v", request.ShapeIndex)
+	if len(shapeIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"shapeIndex"+"}", shapeIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"shapeIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &request.Category
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("Chart", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IChart); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IChart); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PostChartCategory
+*/
+type PostChartCategoryRequest struct {
+    Name string
+    SlideIndex int32
+    ShapeIndex int32
+    Category IChartCategory
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Add a new data point to a chart series.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param shapeIndex Shape index.
+ @param seriesIndex Series index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "dataPoint" (DataPoint) Data point DTO.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Chart*/
+func (a *SlidesApiService) PostChartDataPoint(request PostChartDataPointRequest) (IChart, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IChart
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+	shapeIndexPathStringValue := fmt.Sprintf("%v", request.ShapeIndex)
+	if len(shapeIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"shapeIndex"+"}", shapeIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"shapeIndex"+"}", "", -1)
+	}
+	seriesIndexPathStringValue := fmt.Sprintf("%v", request.SeriesIndex)
+	if len(seriesIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"seriesIndex"+"}", seriesIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"seriesIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &request.DataPoint
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("Chart", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IChart); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IChart); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PostChartDataPoint
+*/
+type PostChartDataPointRequest struct {
+    Name string
+    SlideIndex int32
+    ShapeIndex int32
+    SeriesIndex int32
+    DataPoint IDataPoint
     Password string
     Folder string
     Storage string
@@ -13309,29 +11682,7 @@ func (a *SlidesApiService) PostChartSeries(request PostChartSeriesRequest) (ICha
 	}
 	// body params
 	localVarPostBody = &request.Series
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13453,29 +11804,7 @@ func (a *SlidesApiService) PostCopyLayoutSlideFromSourcePresentation(request Pos
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13607,29 +11936,7 @@ func (a *SlidesApiService) PostCopyMasterSlideFromSourcePresentation(request Pos
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13724,29 +12031,7 @@ func (a *SlidesApiService) PostGetNotesSlide(request PostGetNotesSlideRequest) (
 	}
 	// body params
 	localVarPostBody = request.Document
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13835,29 +12120,7 @@ func (a *SlidesApiService) PostGetNotesSlideExists(request PostGetNotesSlideExis
 	}
 	// body params
 	localVarPostBody = request.Document
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13978,29 +12241,7 @@ func (a *SlidesApiService) PostGetNotesSlideWithFormat(request PostGetNotesSlide
 	}
 	// body params
 	localVarPostBody = request.Document
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14123,29 +12364,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewParagraph(request PostNotesSlideA
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14283,29 +12502,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewPortion(request PostNotesSlideAdd
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14439,29 +12636,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewShape(request PostNotesSlideAddNe
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14622,29 +12797,7 @@ func (a *SlidesApiService) PostNotesSlideShapeSaveAs(request PostNotesSlideShape
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14749,29 +12902,7 @@ func (a *SlidesApiService) PostPresentationMerge(request PostPresentationMergeRe
 	}
 	// body params
 	localVarPostBody = &request.Request
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14929,29 +13060,7 @@ func (a *SlidesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15063,29 +13172,7 @@ func (a *SlidesApiService) PostSlideAnimationEffect(request PostSlideAnimationEf
 	}
 	// body params
 	localVarPostBody = &request.Effect
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15198,29 +13285,7 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequence(request PostSli
 	}
 	// body params
 	localVarPostBody = &request.Sequence
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15340,29 +13405,7 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequenceEffect(request P
 	}
 	// body params
 	localVarPostBody = &request.Effect
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15508,29 +13551,7 @@ func (a *SlidesApiService) PostSlideSaveAs(request PostSlideSaveAsRequest) (*os.
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15646,29 +13667,7 @@ func (a *SlidesApiService) PostSlidesAdd(request PostSlidesAddRequest) (ISlides,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15767,29 +13766,7 @@ func (a *SlidesApiService) PostSlidesConvert(request PostSlidesConvertRequest) (
 	}
 	// body params
 	localVarPostBody = request.Document
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15915,29 +13892,7 @@ func (a *SlidesApiService) PostSlidesCopy(request PostSlidesCopyRequest) (ISlide
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16053,29 +14008,7 @@ func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest)
 	}
 	// body params
 	localVarPostBody = request.Data
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16184,29 +14117,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocument
 	}
 	// body params
 	localVarPostBody = request.Html
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16329,29 +14240,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromSource(request PostSlidesDocume
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16486,29 +14375,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromTemplate(request PostSlidesDocu
 	}
 	// body params
 	localVarPostBody = request.Data
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16591,29 +14458,7 @@ func (a *SlidesApiService) PostSlidesPipeline(request PostSlidesPipelineRequest)
 	// body params
 	localVarPostBody = &request.Pipeline
 	localVarFiles = request.Files
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16718,29 +14563,7 @@ func (a *SlidesApiService) PostSlidesPresentationReplaceText(request PostSlidesP
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16853,29 +14676,7 @@ func (a *SlidesApiService) PostSlidesReorder(request PostSlidesReorderRequest) (
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16992,29 +14793,7 @@ func (a *SlidesApiService) PostSlidesReorderMany(request PostSlidesReorderManyRe
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17134,29 +14913,7 @@ func (a *SlidesApiService) PostSlidesSaveAs(request PostSlidesSaveAsRequest) (*o
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17256,29 +15013,7 @@ func (a *SlidesApiService) PostSlidesSetDocumentProperties(request PostSlidesSet
 	}
 	// body params
 	localVarPostBody = &request.Properties
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17400,29 +15135,7 @@ func (a *SlidesApiService) PostSlidesSlideReplaceText(request PostSlidesSlideRep
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17587,29 +15300,7 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (ISpl
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17781,29 +15472,7 @@ func (a *SlidesApiService) PostSubshapeSaveAs(request PostSubshapeSaveAsRequest)
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17838,6 +15507,272 @@ type PostSubshapeSaveAsRequest struct {
     ScaleY *float64
     Bounds string
     FontsFolder string
+}
+
+/* SlidesApiService Update a chart category.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param shapeIndex Shape index.
+ @param categoryIndex Category index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "category" (ChartCategory) Category DTO.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Chart*/
+func (a *SlidesApiService) PutChartCategory(request PutChartCategoryRequest) (IChart, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IChart
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories/{categoryIndex}"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+	shapeIndexPathStringValue := fmt.Sprintf("%v", request.ShapeIndex)
+	if len(shapeIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"shapeIndex"+"}", shapeIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"shapeIndex"+"}", "", -1)
+	}
+	categoryIndexPathStringValue := fmt.Sprintf("%v", request.CategoryIndex)
+	if len(categoryIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"categoryIndex"+"}", categoryIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"categoryIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &request.Category
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("Chart", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IChart); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IChart); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PutChartCategory
+*/
+type PutChartCategoryRequest struct {
+    Name string
+    SlideIndex int32
+    ShapeIndex int32
+    CategoryIndex int32
+    Category IChartCategory
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Update a data point in a chart series.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param shapeIndex Shape index.
+ @param seriesIndex Series index.
+ @param pointIndex Data point index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "dataPoint" (DataPoint) Data point DTO.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Chart*/
+func (a *SlidesApiService) PutChartDataPoint(request PutChartDataPointRequest) (IChart, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IChart
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints/{pointIndex}"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+	shapeIndexPathStringValue := fmt.Sprintf("%v", request.ShapeIndex)
+	if len(shapeIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"shapeIndex"+"}", shapeIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"shapeIndex"+"}", "", -1)
+	}
+	seriesIndexPathStringValue := fmt.Sprintf("%v", request.SeriesIndex)
+	if len(seriesIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"seriesIndex"+"}", seriesIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"seriesIndex"+"}", "", -1)
+	}
+	pointIndexPathStringValue := fmt.Sprintf("%v", request.PointIndex)
+	if len(pointIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"pointIndex"+"}", pointIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"pointIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &request.DataPoint
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+	}
+
+	successPayloadObject, err := createObjectForType("Chart", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IChart); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IChart); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PutChartDataPoint
+*/
+type PutChartDataPointRequest struct {
+    Name string
+    SlideIndex int32
+    ShapeIndex int32
+    SeriesIndex int32
+    PointIndex int32
+    DataPoint IDataPoint
+    Password string
+    Folder string
+    Storage string
 }
 
 /* SlidesApiService Update a series in a chart.
@@ -17930,29 +15865,7 @@ func (a *SlidesApiService) PutChartSeries(request PutChartSeriesRequest) (IChart
 	}
 	// body params
 	localVarPostBody = &request.Series
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18067,29 +15980,7 @@ func (a *SlidesApiService) PutLayoutSlide(request PutLayoutSlideRequest) (ILayou
 	}
 	// body params
 	localVarPostBody = &request.SlideDto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18249,29 +16140,7 @@ func (a *SlidesApiService) PutNotesSlideShapeSaveAs(request PutNotesSlideShapeSa
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18372,29 +16241,7 @@ func (a *SlidesApiService) PutPresentationMerge(request PutPresentationMergeRequ
 	}
 	// body params
 	localVarPostBody = &request.Request
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18527,29 +16374,7 @@ func (a *SlidesApiService) PutSetParagraphPortionProperties(request PutSetParagr
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18679,29 +16504,7 @@ func (a *SlidesApiService) PutSetParagraphProperties(request PutSetParagraphProp
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18844,29 +16647,7 @@ func (a *SlidesApiService) PutSetSubshapeParagraphPortionProperties(request PutS
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19004,29 +16785,7 @@ func (a *SlidesApiService) PutSetSubshapeParagraphProperties(request PutSetSubsh
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19189,29 +16948,7 @@ func (a *SlidesApiService) PutShapeSaveAs(request PutShapeSaveAsRequest) (*http.
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19319,29 +17056,7 @@ func (a *SlidesApiService) PutSlideAnimation(request PutSlideAnimationRequest) (
 	}
 	// body params
 	localVarPostBody = &request.Animation
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19461,29 +17176,7 @@ func (a *SlidesApiService) PutSlideAnimationEffect(request PutSlideAnimationEffe
 	}
 	// body params
 	localVarPostBody = &request.Effect
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19611,29 +17304,7 @@ func (a *SlidesApiService) PutSlideAnimationInteractiveSequenceEffect(request Pu
 	}
 	// body params
 	localVarPostBody = &request.Effect
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19781,29 +17452,7 @@ func (a *SlidesApiService) PutSlideSaveAs(request PutSlideSaveAsRequest) (*http.
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19916,29 +17565,7 @@ func (a *SlidesApiService) PutSlideShapeInfo(request PutSlideShapeInfoRequest) (
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20066,29 +17693,7 @@ func (a *SlidesApiService) PutSlideSubshapeInfo(request PutSlideSubshapeInfoRequ
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20190,29 +17795,7 @@ func (a *SlidesApiService) PutSlidesConvert(request PutSlidesConvertRequest) (*h
 	}
 	// body params
 	localVarPostBody = request.Document
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20308,29 +17891,7 @@ func (a *SlidesApiService) PutSlidesDocumentFromHtml(request PutSlidesDocumentFr
 	}
 	// body params
 	localVarPostBody = request.Html
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20450,29 +18011,7 @@ func (a *SlidesApiService) PutSlidesSaveAs(request PutSlidesSaveAsRequest) (*htt
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20575,29 +18114,7 @@ func (a *SlidesApiService) PutSlidesSetDocumentProperty(request PutSlidesSetDocu
 	}
 	// body params
 	localVarPostBody = &request.Property
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20710,29 +18227,7 @@ func (a *SlidesApiService) PutSlidesSlide(request PutSlidesSlideRequest) (ISlide
 	}
 	// body params
 	localVarPostBody = &request.SlideDto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20845,29 +18340,7 @@ func (a *SlidesApiService) PutSlidesSlideBackground(request PutSlidesSlideBackgr
 	}
 	// body params
 	localVarPostBody = &request.Background
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20979,29 +18452,7 @@ func (a *SlidesApiService) PutSlidesSlideBackgroundColor(request PutSlidesSlideB
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21136,29 +18587,7 @@ func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21266,29 +18695,7 @@ func (a *SlidesApiService) PutSlidesViewProperties(request PutSlidesViewProperti
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21454,29 +18861,7 @@ func (a *SlidesApiService) PutSubshapeSaveAs(request PutSubshapeSaveAsRequest) (
 	}
 	// body params
 	localVarPostBody = &request.Options
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21585,29 +18970,7 @@ func (a *SlidesApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideReques
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21727,29 +19090,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShape(request PutUpdateNotesSlideS
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21877,29 +19218,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapeParagraph(request PutUpdateNo
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -22035,29 +19354,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapePortion(request PutUpdateNote
 	}
 	// body params
 	localVarPostBody = &request.Dto
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -22141,29 +19438,7 @@ func (a *SlidesApiService) StorageExists(request StorageExistsRequest) (IStorage
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -22249,29 +19524,7 @@ func (a *SlidesApiService) UploadFile(request UploadFileRequest) (IFilesUploadRe
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	localVarPostBody = &request.File
-	r, err := a.client.prepareRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	if err != nil {
-		return successPayload, nil, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
-	}
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--: %v\n", localVarHttpResponse)
-	}
-	defer localVarHttpResponse.Body.Close()
-	responseBytes, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if a.client.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1) 
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
