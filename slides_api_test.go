@@ -79,7 +79,7 @@ func TestCopyFileInvalidSrcPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.CopyFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -106,7 +106,7 @@ func TestCopyFileInvalidDestPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.CopyFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -133,7 +133,7 @@ func TestCopyFileInvalidSrcStorageName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.CopyFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -160,7 +160,7 @@ func TestCopyFileInvalidDestStorageName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.CopyFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -187,7 +187,7 @@ func TestCopyFileInvalidVersionId(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.CopyFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -241,7 +241,7 @@ func TestCopyFolderInvalidSrcPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.CopyFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -268,7 +268,7 @@ func TestCopyFolderInvalidDestPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.CopyFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -295,7 +295,7 @@ func TestCopyFolderInvalidSrcStorageName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.CopyFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -322,7 +322,7 @@ func TestCopyFolderInvalidDestStorageName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.CopyFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -374,7 +374,7 @@ func TestCreateFolderInvalidPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.CreateFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -401,7 +401,7 @@ func TestCreateFolderInvalidStorageName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.CreateFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -458,7 +458,7 @@ func TestDeleteChartCategoryInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -485,7 +485,7 @@ func TestDeleteChartCategoryInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -512,7 +512,7 @@ func TestDeleteChartCategoryInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -539,7 +539,7 @@ func TestDeleteChartCategoryInvalidCategoryIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -566,7 +566,7 @@ func TestDeleteChartCategoryInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -593,7 +593,7 @@ func TestDeleteChartCategoryInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -620,7 +620,7 @@ func TestDeleteChartCategoryInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -678,7 +678,7 @@ func TestDeleteChartDataPointInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -705,7 +705,7 @@ func TestDeleteChartDataPointInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -732,7 +732,7 @@ func TestDeleteChartDataPointInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -759,7 +759,7 @@ func TestDeleteChartDataPointInvalidSeriesIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -786,7 +786,7 @@ func TestDeleteChartDataPointInvalidPointIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -813,7 +813,7 @@ func TestDeleteChartDataPointInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -840,7 +840,7 @@ func TestDeleteChartDataPointInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -867,7 +867,7 @@ func TestDeleteChartDataPointInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -924,7 +924,7 @@ func TestDeleteChartSeriesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -951,7 +951,7 @@ func TestDeleteChartSeriesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -978,7 +978,7 @@ func TestDeleteChartSeriesInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1005,7 +1005,7 @@ func TestDeleteChartSeriesInvalidSeriesIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1032,7 +1032,7 @@ func TestDeleteChartSeriesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1059,7 +1059,7 @@ func TestDeleteChartSeriesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1086,7 +1086,7 @@ func TestDeleteChartSeriesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1139,7 +1139,7 @@ func TestDeleteFileInvalidPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.DeleteFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1166,7 +1166,7 @@ func TestDeleteFileInvalidStorageName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.DeleteFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1193,7 +1193,7 @@ func TestDeleteFileInvalidVersionId(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.DeleteFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1251,7 +1251,7 @@ func TestDeleteFolderInvalidPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.DeleteFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1278,7 +1278,7 @@ func TestDeleteFolderInvalidStorageName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.DeleteFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1306,7 +1306,7 @@ func TestDeleteFolderInvalidRecursive(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.DeleteFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1361,7 +1361,7 @@ func TestDeleteNotesSlideInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1388,7 +1388,7 @@ func TestDeleteNotesSlideInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1415,7 +1415,7 @@ func TestDeleteNotesSlideInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1442,7 +1442,7 @@ func TestDeleteNotesSlideInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1469,7 +1469,7 @@ func TestDeleteNotesSlideInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1526,7 +1526,7 @@ func TestDeleteNotesSlideParagraphInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1553,7 +1553,7 @@ func TestDeleteNotesSlideParagraphInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1580,7 +1580,7 @@ func TestDeleteNotesSlideParagraphInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1607,7 +1607,7 @@ func TestDeleteNotesSlideParagraphInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1634,7 +1634,7 @@ func TestDeleteNotesSlideParagraphInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1661,7 +1661,7 @@ func TestDeleteNotesSlideParagraphInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1688,7 +1688,7 @@ func TestDeleteNotesSlideParagraphInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1745,7 +1745,7 @@ func TestDeleteNotesSlideParagraphsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1772,7 +1772,7 @@ func TestDeleteNotesSlideParagraphsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1799,7 +1799,7 @@ func TestDeleteNotesSlideParagraphsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1826,7 +1826,7 @@ func TestDeleteNotesSlideParagraphsInvalidParagraphs(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1853,7 +1853,7 @@ func TestDeleteNotesSlideParagraphsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1880,7 +1880,7 @@ func TestDeleteNotesSlideParagraphsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1907,7 +1907,7 @@ func TestDeleteNotesSlideParagraphsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1965,7 +1965,7 @@ func TestDeleteNotesSlidePortionInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -1992,7 +1992,7 @@ func TestDeleteNotesSlidePortionInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2019,7 +2019,7 @@ func TestDeleteNotesSlidePortionInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2046,7 +2046,7 @@ func TestDeleteNotesSlidePortionInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2073,7 +2073,7 @@ func TestDeleteNotesSlidePortionInvalidPortionIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2100,7 +2100,7 @@ func TestDeleteNotesSlidePortionInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2127,7 +2127,7 @@ func TestDeleteNotesSlidePortionInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2154,7 +2154,7 @@ func TestDeleteNotesSlidePortionInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2212,7 +2212,7 @@ func TestDeleteNotesSlidePortionsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2239,7 +2239,7 @@ func TestDeleteNotesSlidePortionsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2266,7 +2266,7 @@ func TestDeleteNotesSlidePortionsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2293,7 +2293,7 @@ func TestDeleteNotesSlidePortionsInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2320,7 +2320,7 @@ func TestDeleteNotesSlidePortionsInvalidPortions(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2347,7 +2347,7 @@ func TestDeleteNotesSlidePortionsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2374,7 +2374,7 @@ func TestDeleteNotesSlidePortionsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2401,7 +2401,7 @@ func TestDeleteNotesSlidePortionsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlidePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2457,7 +2457,7 @@ func TestDeleteNotesSlideShapeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2484,7 +2484,7 @@ func TestDeleteNotesSlideShapeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2511,7 +2511,7 @@ func TestDeleteNotesSlideShapeInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2538,7 +2538,7 @@ func TestDeleteNotesSlideShapeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2565,7 +2565,7 @@ func TestDeleteNotesSlideShapeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2592,7 +2592,7 @@ func TestDeleteNotesSlideShapeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2648,7 +2648,7 @@ func TestDeleteNotesSlideShapesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2675,7 +2675,7 @@ func TestDeleteNotesSlideShapesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2702,7 +2702,7 @@ func TestDeleteNotesSlideShapesInvalidShapes(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2729,7 +2729,7 @@ func TestDeleteNotesSlideShapesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2756,7 +2756,7 @@ func TestDeleteNotesSlideShapesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2783,7 +2783,7 @@ func TestDeleteNotesSlideShapesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteNotesSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2840,7 +2840,7 @@ func TestDeleteParagraphInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2867,7 +2867,7 @@ func TestDeleteParagraphInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2894,7 +2894,7 @@ func TestDeleteParagraphInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2921,7 +2921,7 @@ func TestDeleteParagraphInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2948,7 +2948,7 @@ func TestDeleteParagraphInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -2975,7 +2975,7 @@ func TestDeleteParagraphInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3002,7 +3002,7 @@ func TestDeleteParagraphInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3059,7 +3059,7 @@ func TestDeleteParagraphsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3086,7 +3086,7 @@ func TestDeleteParagraphsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3113,7 +3113,7 @@ func TestDeleteParagraphsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3140,7 +3140,7 @@ func TestDeleteParagraphsInvalidParagraphs(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3167,7 +3167,7 @@ func TestDeleteParagraphsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3194,7 +3194,7 @@ func TestDeleteParagraphsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3221,7 +3221,7 @@ func TestDeleteParagraphsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3279,7 +3279,7 @@ func TestDeletePortionInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3306,7 +3306,7 @@ func TestDeletePortionInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3333,7 +3333,7 @@ func TestDeletePortionInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3360,7 +3360,7 @@ func TestDeletePortionInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3387,7 +3387,7 @@ func TestDeletePortionInvalidPortionIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3414,7 +3414,7 @@ func TestDeletePortionInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3441,7 +3441,7 @@ func TestDeletePortionInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3468,7 +3468,7 @@ func TestDeletePortionInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3526,7 +3526,7 @@ func TestDeletePortionsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3553,7 +3553,7 @@ func TestDeletePortionsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3580,7 +3580,7 @@ func TestDeletePortionsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3607,7 +3607,7 @@ func TestDeletePortionsInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3634,7 +3634,7 @@ func TestDeletePortionsInvalidPortions(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3661,7 +3661,7 @@ func TestDeletePortionsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3688,7 +3688,7 @@ func TestDeletePortionsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3715,11 +3715,405 @@ func TestDeletePortionsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeletePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "DeletePortions", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a presentation section.
+   Test for SlidesApi.DeleteSection method
+*/
+func TestDeleteSection(t *testing.T) {
+    request := createDeleteSectionRequest()
+    e := initializeTest("DeleteSection", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteSection(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createDeleteSectionRequest() DeleteSectionRequest {
+    var request DeleteSectionRequest
+    request.Name = createTestParamValue("DeleteSection", "name", "string").(string)
+    request.SectionIndex = createTestParamValue("DeleteSection", "sectionIndex", "int32").(int32)
+    testwithSlides := createTestParamValue("DeleteSection", "withSlides", "bool")
+    switch v := testwithSlides.(type) { 
+    case bool:
+        request.WithSlides = new(bool)
+        *request.WithSlides = v
+    }
+    request.Password = createTestParamValue("DeleteSection", "password", "string").(string)
+    request.Folder = createTestParamValue("DeleteSection", "folder", "string").(string)
+    request.Storage = createTestParamValue("DeleteSection", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Delete a presentation section.
+   Test for SlidesApi.DeleteSection method with invalid name
+*/
+func TestDeleteSectionInvalidName(t *testing.T) {
+    request := createDeleteSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "DeleteSection", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSection", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSection", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a presentation section.
+   Test for SlidesApi.DeleteSection method with invalid sectionIndex
+*/
+func TestDeleteSectionInvalidSectionIndex(t *testing.T) {
+    request := createDeleteSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SectionIndex, "DeleteSection", "sectionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SectionIndex = nullValue
+    } else {
+        request.SectionIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSection", "sectionIndex", request.SectionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSection", "sectionIndex", request.SectionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a presentation section.
+   Test for SlidesApi.DeleteSection method with invalid withSlides
+*/
+func TestDeleteSectionInvalidWithSlides(t *testing.T) {
+    request := createDeleteSectionRequest()
+    request.WithSlides = new(bool)
+
+    invalidValue := invalidizeTestParamValue(request.WithSlides, "DeleteSection", "withSlides", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        request.WithSlides = nullValue
+    } else {
+        *request.WithSlides = invalidValue.(bool)
+    }
+
+    e := initializeTest("DeleteSection", "withSlides", request.WithSlides)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSection", "withSlides", request.WithSlides, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a presentation section.
+   Test for SlidesApi.DeleteSection method with invalid password
+*/
+func TestDeleteSectionInvalidPassword(t *testing.T) {
+    request := createDeleteSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "DeleteSection", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSection", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSection", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a presentation section.
+   Test for SlidesApi.DeleteSection method with invalid folder
+*/
+func TestDeleteSectionInvalidFolder(t *testing.T) {
+    request := createDeleteSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "DeleteSection", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSection", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSection", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete a presentation section.
+   Test for SlidesApi.DeleteSection method with invalid storage
+*/
+func TestDeleteSectionInvalidStorage(t *testing.T) {
+    request := createDeleteSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "DeleteSection", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSection", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSection", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete presentation sections.
+   Test for SlidesApi.DeleteSections method
+*/
+func TestDeleteSections(t *testing.T) {
+    request := createDeleteSectionsRequest()
+    e := initializeTest("DeleteSections", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteSections(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createDeleteSectionsRequest() DeleteSectionsRequest {
+    var request DeleteSectionsRequest
+    request.Name = createTestParamValue("DeleteSections", "name", "string").(string)
+    request.Sections = createTestParamValue("DeleteSections", "sections", "[]int32").([]int32)
+    testwithSlides := createTestParamValue("DeleteSections", "withSlides", "bool")
+    switch v := testwithSlides.(type) { 
+    case bool:
+        request.WithSlides = new(bool)
+        *request.WithSlides = v
+    }
+    request.Password = createTestParamValue("DeleteSections", "password", "string").(string)
+    request.Folder = createTestParamValue("DeleteSections", "folder", "string").(string)
+    request.Storage = createTestParamValue("DeleteSections", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Delete presentation sections.
+   Test for SlidesApi.DeleteSections method with invalid name
+*/
+func TestDeleteSectionsInvalidName(t *testing.T) {
+    request := createDeleteSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "DeleteSections", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSections", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSections", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete presentation sections.
+   Test for SlidesApi.DeleteSections method with invalid sections
+*/
+func TestDeleteSectionsInvalidSections(t *testing.T) {
+    request := createDeleteSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Sections, "DeleteSections", "sections", "[]int32")
+    if (invalidValue == nil) {
+        var nullValue []int32
+        request.Sections = nullValue
+    } else {
+        request.Sections = invalidValue.([]int32)
+    }
+
+    e := initializeTest("DeleteSections", "sections", request.Sections)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSections", "sections", request.Sections, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete presentation sections.
+   Test for SlidesApi.DeleteSections method with invalid withSlides
+*/
+func TestDeleteSectionsInvalidWithSlides(t *testing.T) {
+    request := createDeleteSectionsRequest()
+    request.WithSlides = new(bool)
+
+    invalidValue := invalidizeTestParamValue(request.WithSlides, "DeleteSections", "withSlides", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        request.WithSlides = nullValue
+    } else {
+        *request.WithSlides = invalidValue.(bool)
+    }
+
+    e := initializeTest("DeleteSections", "withSlides", request.WithSlides)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSections", "withSlides", request.WithSlides, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete presentation sections.
+   Test for SlidesApi.DeleteSections method with invalid password
+*/
+func TestDeleteSectionsInvalidPassword(t *testing.T) {
+    request := createDeleteSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "DeleteSections", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSections", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSections", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete presentation sections.
+   Test for SlidesApi.DeleteSections method with invalid folder
+*/
+func TestDeleteSectionsInvalidFolder(t *testing.T) {
+    request := createDeleteSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "DeleteSections", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSections", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSections", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete presentation sections.
+   Test for SlidesApi.DeleteSections method with invalid storage
+*/
+func TestDeleteSectionsInvalidStorage(t *testing.T) {
+    request := createDeleteSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "DeleteSections", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSections", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSections", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove animation from a slide.
@@ -3770,7 +4164,7 @@ func TestDeleteSlideAnimationInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3797,7 +4191,7 @@ func TestDeleteSlideAnimationInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3824,7 +4218,7 @@ func TestDeleteSlideAnimationInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3851,7 +4245,7 @@ func TestDeleteSlideAnimationInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3878,7 +4272,7 @@ func TestDeleteSlideAnimationInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3934,7 +4328,7 @@ func TestDeleteSlideAnimationEffectInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3961,7 +4355,7 @@ func TestDeleteSlideAnimationEffectInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -3988,7 +4382,7 @@ func TestDeleteSlideAnimationEffectInvalidEffectIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4015,7 +4409,7 @@ func TestDeleteSlideAnimationEffectInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4042,7 +4436,7 @@ func TestDeleteSlideAnimationEffectInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4069,7 +4463,7 @@ func TestDeleteSlideAnimationEffectInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4125,7 +4519,7 @@ func TestDeleteSlideAnimationInteractiveSequenceInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4152,7 +4546,7 @@ func TestDeleteSlideAnimationInteractiveSequenceInvalidSlideIndex(t *testing.T) 
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4179,7 +4573,7 @@ func TestDeleteSlideAnimationInteractiveSequenceInvalidSequenceIndex(t *testing.
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4206,7 +4600,7 @@ func TestDeleteSlideAnimationInteractiveSequenceInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4233,7 +4627,7 @@ func TestDeleteSlideAnimationInteractiveSequenceInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4260,7 +4654,7 @@ func TestDeleteSlideAnimationInteractiveSequenceInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4317,7 +4711,7 @@ func TestDeleteSlideAnimationInteractiveSequenceEffectInvalidName(t *testing.T) 
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4344,7 +4738,7 @@ func TestDeleteSlideAnimationInteractiveSequenceEffectInvalidSlideIndex(t *testi
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4371,7 +4765,7 @@ func TestDeleteSlideAnimationInteractiveSequenceEffectInvalidSequenceIndex(t *te
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4398,7 +4792,7 @@ func TestDeleteSlideAnimationInteractiveSequenceEffectInvalidEffectIndex(t *test
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4425,7 +4819,7 @@ func TestDeleteSlideAnimationInteractiveSequenceEffectInvalidPassword(t *testing
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4452,7 +4846,7 @@ func TestDeleteSlideAnimationInteractiveSequenceEffectInvalidFolder(t *testing.T
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4479,7 +4873,7 @@ func TestDeleteSlideAnimationInteractiveSequenceEffectInvalidStorage(t *testing.
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4534,7 +4928,7 @@ func TestDeleteSlideAnimationInteractiveSequencesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequences(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4561,7 +4955,7 @@ func TestDeleteSlideAnimationInteractiveSequencesInvalidSlideIndex(t *testing.T)
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequences(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4588,7 +4982,7 @@ func TestDeleteSlideAnimationInteractiveSequencesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequences(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4615,7 +5009,7 @@ func TestDeleteSlideAnimationInteractiveSequencesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequences(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4642,7 +5036,7 @@ func TestDeleteSlideAnimationInteractiveSequencesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationInteractiveSequences(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4697,7 +5091,7 @@ func TestDeleteSlideAnimationMainSequenceInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationMainSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4724,7 +5118,7 @@ func TestDeleteSlideAnimationMainSequenceInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationMainSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4751,7 +5145,7 @@ func TestDeleteSlideAnimationMainSequenceInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationMainSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4778,7 +5172,7 @@ func TestDeleteSlideAnimationMainSequenceInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationMainSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4805,7 +5199,7 @@ func TestDeleteSlideAnimationMainSequenceInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideAnimationMainSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4860,7 +5254,7 @@ func TestDeleteSlideByIndexInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideByIndex(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4887,7 +5281,7 @@ func TestDeleteSlideByIndexInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideByIndex(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4914,7 +5308,7 @@ func TestDeleteSlideByIndexInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideByIndex(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4941,7 +5335,7 @@ func TestDeleteSlideByIndexInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideByIndex(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -4968,7 +5362,7 @@ func TestDeleteSlideByIndexInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideByIndex(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5024,7 +5418,7 @@ func TestDeleteSlideShapeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5051,7 +5445,7 @@ func TestDeleteSlideShapeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5078,7 +5472,7 @@ func TestDeleteSlideShapeInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5105,7 +5499,7 @@ func TestDeleteSlideShapeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5132,7 +5526,7 @@ func TestDeleteSlideShapeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5159,7 +5553,7 @@ func TestDeleteSlideShapeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5215,7 +5609,7 @@ func TestDeleteSlideShapesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5242,7 +5636,7 @@ func TestDeleteSlideShapesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5269,7 +5663,7 @@ func TestDeleteSlideShapesInvalidShapes(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5296,7 +5690,7 @@ func TestDeleteSlideShapesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5323,7 +5717,7 @@ func TestDeleteSlideShapesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5350,7 +5744,7 @@ func TestDeleteSlideShapesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5407,7 +5801,7 @@ func TestDeleteSlideSubshapeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5434,7 +5828,7 @@ func TestDeleteSlideSubshapeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5461,7 +5855,7 @@ func TestDeleteSlideSubshapeInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5488,7 +5882,7 @@ func TestDeleteSlideSubshapeInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5515,7 +5909,7 @@ func TestDeleteSlideSubshapeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5542,7 +5936,7 @@ func TestDeleteSlideSubshapeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5569,7 +5963,7 @@ func TestDeleteSlideSubshapeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5626,7 +6020,7 @@ func TestDeleteSlideSubshapesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5653,7 +6047,7 @@ func TestDeleteSlideSubshapesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5680,7 +6074,7 @@ func TestDeleteSlideSubshapesInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5707,7 +6101,7 @@ func TestDeleteSlideSubshapesInvalidShapes(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5734,7 +6128,7 @@ func TestDeleteSlideSubshapesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5761,7 +6155,7 @@ func TestDeleteSlideSubshapesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5788,7 +6182,7 @@ func TestDeleteSlideSubshapesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5843,7 +6237,7 @@ func TestDeleteSlidesCleanSlidesListInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesCleanSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5870,7 +6264,7 @@ func TestDeleteSlidesCleanSlidesListInvalidSlides(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesCleanSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5897,7 +6291,7 @@ func TestDeleteSlidesCleanSlidesListInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesCleanSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5924,7 +6318,7 @@ func TestDeleteSlidesCleanSlidesListInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesCleanSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -5951,7 +6345,7 @@ func TestDeleteSlidesCleanSlidesListInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesCleanSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6005,7 +6399,7 @@ func TestDeleteSlidesDocumentPropertiesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6032,7 +6426,7 @@ func TestDeleteSlidesDocumentPropertiesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6059,7 +6453,7 @@ func TestDeleteSlidesDocumentPropertiesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6086,7 +6480,7 @@ func TestDeleteSlidesDocumentPropertiesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6141,7 +6535,7 @@ func TestDeleteSlidesDocumentPropertyInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6168,7 +6562,7 @@ func TestDeleteSlidesDocumentPropertyInvalidPropertyName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6195,7 +6589,7 @@ func TestDeleteSlidesDocumentPropertyInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6222,7 +6616,7 @@ func TestDeleteSlidesDocumentPropertyInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6249,7 +6643,7 @@ func TestDeleteSlidesDocumentPropertyInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6304,7 +6698,7 @@ func TestDeleteSlidesSlideBackgroundInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6331,7 +6725,7 @@ func TestDeleteSlidesSlideBackgroundInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6358,7 +6752,7 @@ func TestDeleteSlidesSlideBackgroundInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6385,7 +6779,7 @@ func TestDeleteSlidesSlideBackgroundInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6412,7 +6806,7 @@ func TestDeleteSlidesSlideBackgroundInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6470,7 +6864,7 @@ func TestDeleteSubshapeParagraphInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6497,7 +6891,7 @@ func TestDeleteSubshapeParagraphInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6524,7 +6918,7 @@ func TestDeleteSubshapeParagraphInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6551,7 +6945,7 @@ func TestDeleteSubshapeParagraphInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6578,7 +6972,7 @@ func TestDeleteSubshapeParagraphInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6605,7 +6999,7 @@ func TestDeleteSubshapeParagraphInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6632,7 +7026,7 @@ func TestDeleteSubshapeParagraphInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6659,7 +7053,7 @@ func TestDeleteSubshapeParagraphInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6717,7 +7111,7 @@ func TestDeleteSubshapeParagraphsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6744,7 +7138,7 @@ func TestDeleteSubshapeParagraphsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6771,7 +7165,7 @@ func TestDeleteSubshapeParagraphsInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6798,7 +7192,7 @@ func TestDeleteSubshapeParagraphsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6825,7 +7219,7 @@ func TestDeleteSubshapeParagraphsInvalidParagraphs(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6852,7 +7246,7 @@ func TestDeleteSubshapeParagraphsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6879,7 +7273,7 @@ func TestDeleteSubshapeParagraphsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6906,7 +7300,7 @@ func TestDeleteSubshapeParagraphsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6965,7 +7359,7 @@ func TestDeleteSubshapePortionInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -6992,7 +7386,7 @@ func TestDeleteSubshapePortionInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7019,7 +7413,7 @@ func TestDeleteSubshapePortionInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7046,7 +7440,7 @@ func TestDeleteSubshapePortionInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7073,7 +7467,7 @@ func TestDeleteSubshapePortionInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7100,7 +7494,7 @@ func TestDeleteSubshapePortionInvalidPortionIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7127,7 +7521,7 @@ func TestDeleteSubshapePortionInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7154,7 +7548,7 @@ func TestDeleteSubshapePortionInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7181,7 +7575,7 @@ func TestDeleteSubshapePortionInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7240,7 +7634,7 @@ func TestDeleteSubshapePortionsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7267,7 +7661,7 @@ func TestDeleteSubshapePortionsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7294,7 +7688,7 @@ func TestDeleteSubshapePortionsInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7321,7 +7715,7 @@ func TestDeleteSubshapePortionsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7348,7 +7742,7 @@ func TestDeleteSubshapePortionsInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7375,7 +7769,7 @@ func TestDeleteSubshapePortionsInvalidPortions(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7402,7 +7796,7 @@ func TestDeleteSubshapePortionsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7429,7 +7823,7 @@ func TestDeleteSubshapePortionsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7456,7 +7850,7 @@ func TestDeleteSubshapePortionsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DeleteSubshapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7510,7 +7904,7 @@ func TestDownloadFileInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DownloadFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7537,7 +7931,7 @@ func TestDownloadFileInvalidStorageName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DownloadFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7564,7 +7958,7 @@ func TestDownloadFileInvalidVersionId(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.DownloadFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7615,7 +8009,7 @@ func TestGetDiscUsageInvalidStorageName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetDiscUsage(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7667,7 +8061,7 @@ func TestGetFileVersionsInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetFileVersions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7694,7 +8088,7 @@ func TestGetFileVersionsInvalidStorageName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetFileVersions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7746,7 +8140,7 @@ func TestGetFilesListInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetFilesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7773,7 +8167,7 @@ func TestGetFilesListInvalidStorageName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetFilesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7828,7 +8222,7 @@ func TestGetLayoutSlideInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetLayoutSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7855,7 +8249,7 @@ func TestGetLayoutSlideInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetLayoutSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7882,7 +8276,7 @@ func TestGetLayoutSlideInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetLayoutSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7909,7 +8303,7 @@ func TestGetLayoutSlideInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetLayoutSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7936,7 +8330,7 @@ func TestGetLayoutSlideInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetLayoutSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -7990,7 +8384,7 @@ func TestGetLayoutSlidesListInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetLayoutSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8017,7 +8411,7 @@ func TestGetLayoutSlidesListInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetLayoutSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8044,7 +8438,7 @@ func TestGetLayoutSlidesListInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetLayoutSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8071,7 +8465,7 @@ func TestGetLayoutSlidesListInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetLayoutSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8126,7 +8520,7 @@ func TestGetMasterSlideInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetMasterSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8153,7 +8547,7 @@ func TestGetMasterSlideInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetMasterSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8180,7 +8574,7 @@ func TestGetMasterSlideInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetMasterSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8207,7 +8601,7 @@ func TestGetMasterSlideInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetMasterSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8234,7 +8628,7 @@ func TestGetMasterSlideInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetMasterSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8288,7 +8682,7 @@ func TestGetMasterSlidesListInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetMasterSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8315,7 +8709,7 @@ func TestGetMasterSlidesListInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetMasterSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8342,7 +8736,7 @@ func TestGetMasterSlidesListInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetMasterSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8369,7 +8763,7 @@ func TestGetMasterSlidesListInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetMasterSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8424,7 +8818,7 @@ func TestGetNotesSlideInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8451,7 +8845,7 @@ func TestGetNotesSlideInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8478,7 +8872,7 @@ func TestGetNotesSlideInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8505,7 +8899,7 @@ func TestGetNotesSlideInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8532,7 +8926,7 @@ func TestGetNotesSlideInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8587,7 +8981,7 @@ func TestGetNotesSlideExistsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideExists(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8614,7 +9008,7 @@ func TestGetNotesSlideExistsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideExists(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8641,7 +9035,7 @@ func TestGetNotesSlideExistsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideExists(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8668,7 +9062,7 @@ func TestGetNotesSlideExistsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideExists(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8695,11 +9089,174 @@ func TestGetNotesSlideExistsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideExists(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "GetNotesSlideExists", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get header/footer info for the notes slide.
+   Test for SlidesApi.GetNotesSlideHeaderFooter method
+*/
+func TestGetNotesSlideHeaderFooter(t *testing.T) {
+    request := createGetNotesSlideHeaderFooterRequest()
+    e := initializeTest("GetNotesSlideHeaderFooter", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetNotesSlideHeaderFooter(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetNotesSlideHeaderFooterRequest() GetNotesSlideHeaderFooterRequest {
+    var request GetNotesSlideHeaderFooterRequest
+    request.Name = createTestParamValue("GetNotesSlideHeaderFooter", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("GetNotesSlideHeaderFooter", "slideIndex", "int32").(int32)
+    request.Password = createTestParamValue("GetNotesSlideHeaderFooter", "password", "string").(string)
+    request.Storage = createTestParamValue("GetNotesSlideHeaderFooter", "storage", "string").(string)
+    request.Folder = createTestParamValue("GetNotesSlideHeaderFooter", "folder", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Get header/footer info for the notes slide.
+   Test for SlidesApi.GetNotesSlideHeaderFooter method with invalid name
+*/
+func TestGetNotesSlideHeaderFooterInvalidName(t *testing.T) {
+    request := createGetNotesSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetNotesSlideHeaderFooter", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetNotesSlideHeaderFooter", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetNotesSlideHeaderFooter", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get header/footer info for the notes slide.
+   Test for SlidesApi.GetNotesSlideHeaderFooter method with invalid slideIndex
+*/
+func TestGetNotesSlideHeaderFooterInvalidSlideIndex(t *testing.T) {
+    request := createGetNotesSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "GetNotesSlideHeaderFooter", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetNotesSlideHeaderFooter", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetNotesSlideHeaderFooter", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get header/footer info for the notes slide.
+   Test for SlidesApi.GetNotesSlideHeaderFooter method with invalid password
+*/
+func TestGetNotesSlideHeaderFooterInvalidPassword(t *testing.T) {
+    request := createGetNotesSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetNotesSlideHeaderFooter", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetNotesSlideHeaderFooter", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetNotesSlideHeaderFooter", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get header/footer info for the notes slide.
+   Test for SlidesApi.GetNotesSlideHeaderFooter method with invalid storage
+*/
+func TestGetNotesSlideHeaderFooterInvalidStorage(t *testing.T) {
+    request := createGetNotesSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetNotesSlideHeaderFooter", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetNotesSlideHeaderFooter", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetNotesSlideHeaderFooter", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get header/footer info for the notes slide.
+   Test for SlidesApi.GetNotesSlideHeaderFooter method with invalid folder
+*/
+func TestGetNotesSlideHeaderFooterInvalidFolder(t *testing.T) {
+    request := createGetNotesSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetNotesSlideHeaderFooter", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetNotesSlideHeaderFooter", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetNotesSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetNotesSlideHeaderFooter", "folder", request.Folder, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read slide shape info.
@@ -8751,7 +9308,7 @@ func TestGetNotesSlideShapeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8778,7 +9335,7 @@ func TestGetNotesSlideShapeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8805,7 +9362,7 @@ func TestGetNotesSlideShapeInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8832,7 +9389,7 @@ func TestGetNotesSlideShapeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8859,7 +9416,7 @@ func TestGetNotesSlideShapeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8886,7 +9443,7 @@ func TestGetNotesSlideShapeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8943,7 +9500,7 @@ func TestGetNotesSlideShapeParagraphInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8970,7 +9527,7 @@ func TestGetNotesSlideShapeParagraphInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -8997,7 +9554,7 @@ func TestGetNotesSlideShapeParagraphInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9024,7 +9581,7 @@ func TestGetNotesSlideShapeParagraphInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9051,7 +9608,7 @@ func TestGetNotesSlideShapeParagraphInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9078,7 +9635,7 @@ func TestGetNotesSlideShapeParagraphInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9105,7 +9662,7 @@ func TestGetNotesSlideShapeParagraphInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9161,7 +9718,7 @@ func TestGetNotesSlideShapeParagraphsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9188,7 +9745,7 @@ func TestGetNotesSlideShapeParagraphsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9215,7 +9772,7 @@ func TestGetNotesSlideShapeParagraphsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9242,7 +9799,7 @@ func TestGetNotesSlideShapeParagraphsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9269,7 +9826,7 @@ func TestGetNotesSlideShapeParagraphsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9296,7 +9853,7 @@ func TestGetNotesSlideShapeParagraphsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9354,7 +9911,7 @@ func TestGetNotesSlideShapePortionInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9381,7 +9938,7 @@ func TestGetNotesSlideShapePortionInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9408,7 +9965,7 @@ func TestGetNotesSlideShapePortionInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9435,7 +9992,7 @@ func TestGetNotesSlideShapePortionInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9462,7 +10019,7 @@ func TestGetNotesSlideShapePortionInvalidPortionIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9489,7 +10046,7 @@ func TestGetNotesSlideShapePortionInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9516,7 +10073,7 @@ func TestGetNotesSlideShapePortionInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9543,7 +10100,7 @@ func TestGetNotesSlideShapePortionInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9600,7 +10157,7 @@ func TestGetNotesSlideShapePortionsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9627,7 +10184,7 @@ func TestGetNotesSlideShapePortionsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9654,7 +10211,7 @@ func TestGetNotesSlideShapePortionsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9681,7 +10238,7 @@ func TestGetNotesSlideShapePortionsInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9708,7 +10265,7 @@ func TestGetNotesSlideShapePortionsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9735,7 +10292,7 @@ func TestGetNotesSlideShapePortionsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9762,7 +10319,7 @@ func TestGetNotesSlideShapePortionsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapePortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9817,7 +10374,7 @@ func TestGetNotesSlideShapesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9844,7 +10401,7 @@ func TestGetNotesSlideShapesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9871,7 +10428,7 @@ func TestGetNotesSlideShapesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9898,7 +10455,7 @@ func TestGetNotesSlideShapesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9925,7 +10482,7 @@ func TestGetNotesSlideShapesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -9995,7 +10552,7 @@ func TestGetNotesSlideWithFormatInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10022,7 +10579,7 @@ func TestGetNotesSlideWithFormatInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10049,7 +10606,7 @@ func TestGetNotesSlideWithFormatInvalidFormat(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10077,7 +10634,7 @@ func TestGetNotesSlideWithFormatInvalidWidth(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10105,7 +10662,7 @@ func TestGetNotesSlideWithFormatInvalidHeight(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10132,7 +10689,7 @@ func TestGetNotesSlideWithFormatInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10159,7 +10716,7 @@ func TestGetNotesSlideWithFormatInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10186,7 +10743,7 @@ func TestGetNotesSlideWithFormatInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10213,7 +10770,7 @@ func TestGetNotesSlideWithFormatInvalidFontsFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10271,7 +10828,7 @@ func TestGetParagraphPortionInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10298,7 +10855,7 @@ func TestGetParagraphPortionInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10325,7 +10882,7 @@ func TestGetParagraphPortionInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10352,7 +10909,7 @@ func TestGetParagraphPortionInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10379,7 +10936,7 @@ func TestGetParagraphPortionInvalidPortionIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10406,7 +10963,7 @@ func TestGetParagraphPortionInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10433,7 +10990,7 @@ func TestGetParagraphPortionInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10460,7 +11017,7 @@ func TestGetParagraphPortionInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10517,7 +11074,7 @@ func TestGetParagraphPortionsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10544,7 +11101,7 @@ func TestGetParagraphPortionsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10571,7 +11128,7 @@ func TestGetParagraphPortionsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10598,7 +11155,7 @@ func TestGetParagraphPortionsInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10625,7 +11182,7 @@ func TestGetParagraphPortionsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10652,7 +11209,7 @@ func TestGetParagraphPortionsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10679,11 +11236,146 @@ func TestGetParagraphPortionsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "GetParagraphPortions", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read presentation sections info.
+   Test for SlidesApi.GetSections method
+*/
+func TestGetSections(t *testing.T) {
+    request := createGetSectionsRequest()
+    e := initializeTest("GetSections", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSections(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetSectionsRequest() GetSectionsRequest {
+    var request GetSectionsRequest
+    request.Name = createTestParamValue("GetSections", "name", "string").(string)
+    request.Password = createTestParamValue("GetSections", "password", "string").(string)
+    request.Folder = createTestParamValue("GetSections", "folder", "string").(string)
+    request.Storage = createTestParamValue("GetSections", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Read presentation sections info.
+   Test for SlidesApi.GetSections method with invalid name
+*/
+func TestGetSectionsInvalidName(t *testing.T) {
+    request := createGetSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetSections", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSections", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSections", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read presentation sections info.
+   Test for SlidesApi.GetSections method with invalid password
+*/
+func TestGetSectionsInvalidPassword(t *testing.T) {
+    request := createGetSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetSections", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSections", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSections", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read presentation sections info.
+   Test for SlidesApi.GetSections method with invalid folder
+*/
+func TestGetSectionsInvalidFolder(t *testing.T) {
+    request := createGetSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetSections", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSections", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSections", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read presentation sections info.
+   Test for SlidesApi.GetSections method with invalid storage
+*/
+func TestGetSectionsInvalidStorage(t *testing.T) {
+    request := createGetSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetSections", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSections", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSections", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read slide animation effects.
@@ -10740,7 +11432,7 @@ func TestGetSlideAnimationInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10767,7 +11459,7 @@ func TestGetSlideAnimationInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10795,7 +11487,7 @@ func TestGetSlideAnimationInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10822,7 +11514,7 @@ func TestGetSlideAnimationInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10849,7 +11541,7 @@ func TestGetSlideAnimationInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10876,11 +11568,174 @@ func TestGetSlideAnimationInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "GetSlideAnimation", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get footer info for the slide.
+   Test for SlidesApi.GetSlideHeaderFooter method
+*/
+func TestGetSlideHeaderFooter(t *testing.T) {
+    request := createGetSlideHeaderFooterRequest()
+    e := initializeTest("GetSlideHeaderFooter", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSlideHeaderFooter(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetSlideHeaderFooterRequest() GetSlideHeaderFooterRequest {
+    var request GetSlideHeaderFooterRequest
+    request.Name = createTestParamValue("GetSlideHeaderFooter", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("GetSlideHeaderFooter", "slideIndex", "int32").(int32)
+    request.Password = createTestParamValue("GetSlideHeaderFooter", "password", "string").(string)
+    request.Folder = createTestParamValue("GetSlideHeaderFooter", "folder", "string").(string)
+    request.Storage = createTestParamValue("GetSlideHeaderFooter", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Get footer info for the slide.
+   Test for SlidesApi.GetSlideHeaderFooter method with invalid name
+*/
+func TestGetSlideHeaderFooterInvalidName(t *testing.T) {
+    request := createGetSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetSlideHeaderFooter", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideHeaderFooter", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideHeaderFooter", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get footer info for the slide.
+   Test for SlidesApi.GetSlideHeaderFooter method with invalid slideIndex
+*/
+func TestGetSlideHeaderFooterInvalidSlideIndex(t *testing.T) {
+    request := createGetSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "GetSlideHeaderFooter", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSlideHeaderFooter", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideHeaderFooter", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get footer info for the slide.
+   Test for SlidesApi.GetSlideHeaderFooter method with invalid password
+*/
+func TestGetSlideHeaderFooterInvalidPassword(t *testing.T) {
+    request := createGetSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetSlideHeaderFooter", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideHeaderFooter", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideHeaderFooter", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get footer info for the slide.
+   Test for SlidesApi.GetSlideHeaderFooter method with invalid folder
+*/
+func TestGetSlideHeaderFooterInvalidFolder(t *testing.T) {
+    request := createGetSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetSlideHeaderFooter", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideHeaderFooter", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideHeaderFooter", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get footer info for the slide.
+   Test for SlidesApi.GetSlideHeaderFooter method with invalid storage
+*/
+func TestGetSlideHeaderFooterInvalidStorage(t *testing.T) {
+    request := createGetSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetSlideHeaderFooter", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlideHeaderFooter", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlideHeaderFooter", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read slide shape info.
@@ -10932,7 +11787,7 @@ func TestGetSlideShapeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10959,7 +11814,7 @@ func TestGetSlideShapeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -10986,7 +11841,7 @@ func TestGetSlideShapeInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11013,7 +11868,7 @@ func TestGetSlideShapeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11040,7 +11895,7 @@ func TestGetSlideShapeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11067,7 +11922,7 @@ func TestGetSlideShapeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11124,7 +11979,7 @@ func TestGetSlideShapeParagraphInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11151,7 +12006,7 @@ func TestGetSlideShapeParagraphInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11178,7 +12033,7 @@ func TestGetSlideShapeParagraphInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11205,7 +12060,7 @@ func TestGetSlideShapeParagraphInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11232,7 +12087,7 @@ func TestGetSlideShapeParagraphInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11259,7 +12114,7 @@ func TestGetSlideShapeParagraphInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11286,7 +12141,7 @@ func TestGetSlideShapeParagraphInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11342,7 +12197,7 @@ func TestGetSlideShapeParagraphsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11369,7 +12224,7 @@ func TestGetSlideShapeParagraphsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11396,7 +12251,7 @@ func TestGetSlideShapeParagraphsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11423,7 +12278,7 @@ func TestGetSlideShapeParagraphsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11450,7 +12305,7 @@ func TestGetSlideShapeParagraphsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11477,7 +12332,7 @@ func TestGetSlideShapeParagraphsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11532,7 +12387,7 @@ func TestGetSlideShapesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11559,7 +12414,7 @@ func TestGetSlideShapesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11586,7 +12441,7 @@ func TestGetSlideShapesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11613,7 +12468,7 @@ func TestGetSlideShapesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11640,7 +12495,7 @@ func TestGetSlideShapesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideShapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11697,7 +12552,7 @@ func TestGetSlideSubshapeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11724,7 +12579,7 @@ func TestGetSlideSubshapeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11751,7 +12606,7 @@ func TestGetSlideSubshapeInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11778,7 +12633,7 @@ func TestGetSlideSubshapeInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11805,7 +12660,7 @@ func TestGetSlideSubshapeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11832,7 +12687,7 @@ func TestGetSlideSubshapeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11859,7 +12714,7 @@ func TestGetSlideSubshapeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11917,7 +12772,7 @@ func TestGetSlideSubshapeParagraphInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11944,7 +12799,7 @@ func TestGetSlideSubshapeParagraphInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11971,7 +12826,7 @@ func TestGetSlideSubshapeParagraphInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -11998,7 +12853,7 @@ func TestGetSlideSubshapeParagraphInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12025,7 +12880,7 @@ func TestGetSlideSubshapeParagraphInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12052,7 +12907,7 @@ func TestGetSlideSubshapeParagraphInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12079,7 +12934,7 @@ func TestGetSlideSubshapeParagraphInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12106,7 +12961,7 @@ func TestGetSlideSubshapeParagraphInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12163,7 +13018,7 @@ func TestGetSlideSubshapeParagraphsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12190,7 +13045,7 @@ func TestGetSlideSubshapeParagraphsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12217,7 +13072,7 @@ func TestGetSlideSubshapeParagraphsInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12244,7 +13099,7 @@ func TestGetSlideSubshapeParagraphsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12271,7 +13126,7 @@ func TestGetSlideSubshapeParagraphsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12298,7 +13153,7 @@ func TestGetSlideSubshapeParagraphsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12325,7 +13180,7 @@ func TestGetSlideSubshapeParagraphsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapeParagraphs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12381,7 +13236,7 @@ func TestGetSlideSubshapesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12408,7 +13263,7 @@ func TestGetSlideSubshapesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12435,7 +13290,7 @@ func TestGetSlideSubshapesInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12462,7 +13317,7 @@ func TestGetSlideSubshapesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12489,7 +13344,7 @@ func TestGetSlideSubshapesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12516,7 +13371,7 @@ func TestGetSlideSubshapesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlideSubshapes(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12587,7 +13442,7 @@ func TestGetSlidesDocumentInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocument(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12614,7 +13469,7 @@ func TestGetSlidesDocumentInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocument(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12641,7 +13496,7 @@ func TestGetSlidesDocumentInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocument(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12668,7 +13523,7 @@ func TestGetSlidesDocumentInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocument(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12722,7 +13577,7 @@ func TestGetSlidesDocumentPropertiesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12749,7 +13604,7 @@ func TestGetSlidesDocumentPropertiesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12776,7 +13631,7 @@ func TestGetSlidesDocumentPropertiesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12803,7 +13658,7 @@ func TestGetSlidesDocumentPropertiesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12858,7 +13713,7 @@ func TestGetSlidesDocumentPropertyInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12885,7 +13740,7 @@ func TestGetSlidesDocumentPropertyInvalidPropertyName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12912,7 +13767,7 @@ func TestGetSlidesDocumentPropertyInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12939,7 +13794,7 @@ func TestGetSlidesDocumentPropertyInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -12966,7 +13821,7 @@ func TestGetSlidesDocumentPropertyInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13022,7 +13877,7 @@ func TestGetSlidesImageWithDefaultFormatInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImageWithDefaultFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13049,7 +13904,7 @@ func TestGetSlidesImageWithDefaultFormatInvalidIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImageWithDefaultFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13076,7 +13931,7 @@ func TestGetSlidesImageWithDefaultFormatInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImageWithDefaultFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13103,7 +13958,7 @@ func TestGetSlidesImageWithDefaultFormatInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImageWithDefaultFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13130,7 +13985,7 @@ func TestGetSlidesImageWithDefaultFormatInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImageWithDefaultFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13187,7 +14042,7 @@ func TestGetSlidesImageWithFormatInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImageWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13214,7 +14069,7 @@ func TestGetSlidesImageWithFormatInvalidIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImageWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13241,7 +14096,7 @@ func TestGetSlidesImageWithFormatInvalidFormat(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImageWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13268,7 +14123,7 @@ func TestGetSlidesImageWithFormatInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImageWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13295,7 +14150,7 @@ func TestGetSlidesImageWithFormatInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImageWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13322,7 +14177,7 @@ func TestGetSlidesImageWithFormatInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImageWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13376,7 +14231,7 @@ func TestGetSlidesImagesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImages(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13403,7 +14258,7 @@ func TestGetSlidesImagesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImages(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13430,7 +14285,7 @@ func TestGetSlidesImagesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImages(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13457,7 +14312,7 @@ func TestGetSlidesImagesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesImages(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13513,7 +14368,7 @@ func TestGetSlidesPlaceholderInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPlaceholder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13540,7 +14395,7 @@ func TestGetSlidesPlaceholderInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPlaceholder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13567,7 +14422,7 @@ func TestGetSlidesPlaceholderInvalidPlaceholderIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPlaceholder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13594,7 +14449,7 @@ func TestGetSlidesPlaceholderInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPlaceholder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13621,7 +14476,7 @@ func TestGetSlidesPlaceholderInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPlaceholder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13648,7 +14503,7 @@ func TestGetSlidesPlaceholderInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPlaceholder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13703,7 +14558,7 @@ func TestGetSlidesPlaceholdersInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPlaceholders(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13730,7 +14585,7 @@ func TestGetSlidesPlaceholdersInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPlaceholders(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13757,7 +14612,7 @@ func TestGetSlidesPlaceholdersInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPlaceholders(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13784,7 +14639,7 @@ func TestGetSlidesPlaceholdersInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPlaceholders(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13811,7 +14666,7 @@ func TestGetSlidesPlaceholdersInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPlaceholders(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13871,7 +14726,7 @@ func TestGetSlidesPresentationTextItemsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPresentationTextItems(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13899,7 +14754,7 @@ func TestGetSlidesPresentationTextItemsInvalidWithEmpty(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPresentationTextItems(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13926,7 +14781,7 @@ func TestGetSlidesPresentationTextItemsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPresentationTextItems(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13953,7 +14808,7 @@ func TestGetSlidesPresentationTextItemsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPresentationTextItems(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -13980,7 +14835,7 @@ func TestGetSlidesPresentationTextItemsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesPresentationTextItems(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14035,7 +14890,7 @@ func TestGetSlidesSlideInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14062,7 +14917,7 @@ func TestGetSlidesSlideInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14089,7 +14944,7 @@ func TestGetSlidesSlideInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14116,7 +14971,7 @@ func TestGetSlidesSlideInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14143,7 +14998,7 @@ func TestGetSlidesSlideInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14198,7 +15053,7 @@ func TestGetSlidesSlideBackgroundInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14225,7 +15080,7 @@ func TestGetSlidesSlideBackgroundInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14252,7 +15107,7 @@ func TestGetSlidesSlideBackgroundInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14279,7 +15134,7 @@ func TestGetSlidesSlideBackgroundInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14306,7 +15161,7 @@ func TestGetSlidesSlideBackgroundInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14361,7 +15216,7 @@ func TestGetSlidesSlideCommentsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideComments(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14388,7 +15243,7 @@ func TestGetSlidesSlideCommentsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideComments(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14415,7 +15270,7 @@ func TestGetSlidesSlideCommentsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideComments(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14442,7 +15297,7 @@ func TestGetSlidesSlideCommentsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideComments(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14469,7 +15324,7 @@ func TestGetSlidesSlideCommentsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideComments(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14524,7 +15379,7 @@ func TestGetSlidesSlideImagesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideImages(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14551,7 +15406,7 @@ func TestGetSlidesSlideImagesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideImages(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14578,7 +15433,7 @@ func TestGetSlidesSlideImagesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideImages(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14605,7 +15460,7 @@ func TestGetSlidesSlideImagesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideImages(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14632,7 +15487,7 @@ func TestGetSlidesSlideImagesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideImages(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14693,7 +15548,7 @@ func TestGetSlidesSlideTextItemsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideTextItems(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14720,7 +15575,7 @@ func TestGetSlidesSlideTextItemsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideTextItems(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14748,7 +15603,7 @@ func TestGetSlidesSlideTextItemsInvalidWithEmpty(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideTextItems(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14775,7 +15630,7 @@ func TestGetSlidesSlideTextItemsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideTextItems(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14802,7 +15657,7 @@ func TestGetSlidesSlideTextItemsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideTextItems(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14829,7 +15684,7 @@ func TestGetSlidesSlideTextItemsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideTextItems(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14883,7 +15738,7 @@ func TestGetSlidesSlidesListInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14910,7 +15765,7 @@ func TestGetSlidesSlidesListInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14937,7 +15792,7 @@ func TestGetSlidesSlidesListInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -14964,7 +15819,7 @@ func TestGetSlidesSlidesListInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesSlidesList(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15019,7 +15874,7 @@ func TestGetSlidesThemeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesTheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15046,7 +15901,7 @@ func TestGetSlidesThemeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesTheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15073,7 +15928,7 @@ func TestGetSlidesThemeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesTheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15100,7 +15955,7 @@ func TestGetSlidesThemeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesTheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15127,7 +15982,7 @@ func TestGetSlidesThemeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesTheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15182,7 +16037,7 @@ func TestGetSlidesThemeColorSchemeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeColorScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15209,7 +16064,7 @@ func TestGetSlidesThemeColorSchemeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeColorScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15236,7 +16091,7 @@ func TestGetSlidesThemeColorSchemeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeColorScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15263,7 +16118,7 @@ func TestGetSlidesThemeColorSchemeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeColorScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15290,7 +16145,7 @@ func TestGetSlidesThemeColorSchemeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeColorScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15345,7 +16200,7 @@ func TestGetSlidesThemeFontSchemeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeFontScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15372,7 +16227,7 @@ func TestGetSlidesThemeFontSchemeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeFontScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15399,7 +16254,7 @@ func TestGetSlidesThemeFontSchemeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeFontScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15426,7 +16281,7 @@ func TestGetSlidesThemeFontSchemeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeFontScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15453,7 +16308,7 @@ func TestGetSlidesThemeFontSchemeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeFontScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15508,7 +16363,7 @@ func TestGetSlidesThemeFormatSchemeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeFormatScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15535,7 +16390,7 @@ func TestGetSlidesThemeFormatSchemeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeFormatScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15562,7 +16417,7 @@ func TestGetSlidesThemeFormatSchemeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeFormatScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15589,7 +16444,7 @@ func TestGetSlidesThemeFormatSchemeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeFormatScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15616,7 +16471,7 @@ func TestGetSlidesThemeFormatSchemeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesThemeFormatScheme(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15670,7 +16525,7 @@ func TestGetSlidesViewPropertiesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesViewProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15697,7 +16552,7 @@ func TestGetSlidesViewPropertiesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesViewProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15724,7 +16579,7 @@ func TestGetSlidesViewPropertiesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesViewProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15751,7 +16606,7 @@ func TestGetSlidesViewPropertiesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSlidesViewProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15810,7 +16665,7 @@ func TestGetSubshapeParagraphPortionInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15837,7 +16692,7 @@ func TestGetSubshapeParagraphPortionInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15864,7 +16719,7 @@ func TestGetSubshapeParagraphPortionInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15891,7 +16746,7 @@ func TestGetSubshapeParagraphPortionInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15918,7 +16773,7 @@ func TestGetSubshapeParagraphPortionInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15945,7 +16800,7 @@ func TestGetSubshapeParagraphPortionInvalidPortionIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15972,7 +16827,7 @@ func TestGetSubshapeParagraphPortionInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -15999,7 +16854,7 @@ func TestGetSubshapeParagraphPortionInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16026,7 +16881,7 @@ func TestGetSubshapeParagraphPortionInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16084,7 +16939,7 @@ func TestGetSubshapeParagraphPortionsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16111,7 +16966,7 @@ func TestGetSubshapeParagraphPortionsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16138,7 +16993,7 @@ func TestGetSubshapeParagraphPortionsInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16165,7 +17020,7 @@ func TestGetSubshapeParagraphPortionsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16192,7 +17047,7 @@ func TestGetSubshapeParagraphPortionsInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16219,7 +17074,7 @@ func TestGetSubshapeParagraphPortionsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16246,7 +17101,7 @@ func TestGetSubshapeParagraphPortionsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16273,7 +17128,7 @@ func TestGetSubshapeParagraphPortionsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphPortions(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16328,7 +17183,7 @@ func TestMoveFileInvalidSrcPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.MoveFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16355,7 +17210,7 @@ func TestMoveFileInvalidDestPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.MoveFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16382,7 +17237,7 @@ func TestMoveFileInvalidSrcStorageName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.MoveFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16409,7 +17264,7 @@ func TestMoveFileInvalidDestStorageName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.MoveFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16436,7 +17291,7 @@ func TestMoveFileInvalidVersionId(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.MoveFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16490,7 +17345,7 @@ func TestMoveFolderInvalidSrcPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.MoveFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16517,7 +17372,7 @@ func TestMoveFolderInvalidDestPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.MoveFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16544,7 +17399,7 @@ func TestMoveFolderInvalidSrcStorageName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.MoveFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16571,7 +17426,7 @@ func TestMoveFolderInvalidDestStorageName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.MoveFolder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16624,7 +17479,7 @@ func TestObjectExistsInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.ObjectExists(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16651,7 +17506,7 @@ func TestObjectExistsInvalidStorageName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.ObjectExists(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16678,7 +17533,7 @@ func TestObjectExistsInvalidVersionId(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.ObjectExists(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16741,7 +17596,7 @@ func TestPostAddNewParagraphInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16768,7 +17623,7 @@ func TestPostAddNewParagraphInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16795,7 +17650,7 @@ func TestPostAddNewParagraphInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16821,7 +17676,7 @@ func TestPostAddNewParagraphInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16848,7 +17703,7 @@ func TestPostAddNewParagraphInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16875,7 +17730,7 @@ func TestPostAddNewParagraphInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16902,7 +17757,7 @@ func TestPostAddNewParagraphInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16930,7 +17785,7 @@ func TestPostAddNewParagraphInvalidPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -16994,7 +17849,7 @@ func TestPostAddNewPortionInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17021,7 +17876,7 @@ func TestPostAddNewPortionInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17048,7 +17903,7 @@ func TestPostAddNewPortionInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17075,7 +17930,7 @@ func TestPostAddNewPortionInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17101,7 +17956,7 @@ func TestPostAddNewPortionInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17128,7 +17983,7 @@ func TestPostAddNewPortionInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17155,7 +18010,7 @@ func TestPostAddNewPortionInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17182,7 +18037,7 @@ func TestPostAddNewPortionInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17210,7 +18065,7 @@ func TestPostAddNewPortionInvalidPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17278,7 +18133,7 @@ func TestPostAddNewShapeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17305,7 +18160,7 @@ func TestPostAddNewShapeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17331,7 +18186,7 @@ func TestPostAddNewShapeInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17358,7 +18213,7 @@ func TestPostAddNewShapeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17385,7 +18240,7 @@ func TestPostAddNewShapeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17412,7 +18267,7 @@ func TestPostAddNewShapeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17440,7 +18295,7 @@ func TestPostAddNewShapeInvalidShapeToClone(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17468,7 +18323,7 @@ func TestPostAddNewShapeInvalidPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17537,7 +18392,7 @@ func TestPostAddNewSubshapeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17564,7 +18419,7 @@ func TestPostAddNewSubshapeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17591,7 +18446,7 @@ func TestPostAddNewSubshapeInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17617,7 +18472,7 @@ func TestPostAddNewSubshapeInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17644,7 +18499,7 @@ func TestPostAddNewSubshapeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17671,7 +18526,7 @@ func TestPostAddNewSubshapeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17698,7 +18553,7 @@ func TestPostAddNewSubshapeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17726,7 +18581,7 @@ func TestPostAddNewSubshapeInvalidShapeToClone(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17754,7 +18609,7 @@ func TestPostAddNewSubshapeInvalidPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17818,7 +18673,7 @@ func TestPostAddNewSubshapeParagraphInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17845,7 +18700,7 @@ func TestPostAddNewSubshapeParagraphInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17872,7 +18727,7 @@ func TestPostAddNewSubshapeParagraphInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17899,7 +18754,7 @@ func TestPostAddNewSubshapeParagraphInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17925,7 +18780,7 @@ func TestPostAddNewSubshapeParagraphInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17952,7 +18807,7 @@ func TestPostAddNewSubshapeParagraphInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -17979,7 +18834,7 @@ func TestPostAddNewSubshapeParagraphInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18006,7 +18861,7 @@ func TestPostAddNewSubshapeParagraphInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18034,7 +18889,7 @@ func TestPostAddNewSubshapeParagraphInvalidPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18099,7 +18954,7 @@ func TestPostAddNewSubshapePortionInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18126,7 +18981,7 @@ func TestPostAddNewSubshapePortionInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18153,7 +19008,7 @@ func TestPostAddNewSubshapePortionInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18180,7 +19035,7 @@ func TestPostAddNewSubshapePortionInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18207,7 +19062,7 @@ func TestPostAddNewSubshapePortionInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18233,7 +19088,7 @@ func TestPostAddNewSubshapePortionInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18260,7 +19115,7 @@ func TestPostAddNewSubshapePortionInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18287,7 +19142,7 @@ func TestPostAddNewSubshapePortionInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18314,7 +19169,7 @@ func TestPostAddNewSubshapePortionInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18342,7 +19197,7 @@ func TestPostAddNewSubshapePortionInvalidPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNewSubshapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18398,7 +19253,7 @@ func TestPostAddNotesSlideInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18425,7 +19280,7 @@ func TestPostAddNotesSlideInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18451,7 +19306,7 @@ func TestPostAddNotesSlideInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18478,7 +19333,7 @@ func TestPostAddNotesSlideInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18505,7 +19360,7 @@ func TestPostAddNotesSlideInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18532,7 +19387,7 @@ func TestPostAddNotesSlideInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostAddNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18589,7 +19444,7 @@ func TestPostChartCategoryInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18616,7 +19471,7 @@ func TestPostChartCategoryInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18643,7 +19498,7 @@ func TestPostChartCategoryInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18669,7 +19524,7 @@ func TestPostChartCategoryInvalidCategory(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18696,7 +19551,7 @@ func TestPostChartCategoryInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18723,7 +19578,7 @@ func TestPostChartCategoryInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18750,7 +19605,7 @@ func TestPostChartCategoryInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18808,7 +19663,7 @@ func TestPostChartDataPointInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18835,7 +19690,7 @@ func TestPostChartDataPointInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18862,7 +19717,7 @@ func TestPostChartDataPointInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18889,7 +19744,7 @@ func TestPostChartDataPointInvalidSeriesIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18915,7 +19770,7 @@ func TestPostChartDataPointInvalidDataPoint(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18942,7 +19797,7 @@ func TestPostChartDataPointInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18969,7 +19824,7 @@ func TestPostChartDataPointInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -18996,7 +19851,7 @@ func TestPostChartDataPointInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19053,7 +19908,7 @@ func TestPostChartSeriesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19080,7 +19935,7 @@ func TestPostChartSeriesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19107,7 +19962,7 @@ func TestPostChartSeriesInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19133,7 +19988,7 @@ func TestPostChartSeriesInvalidSeries(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19160,7 +20015,7 @@ func TestPostChartSeriesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19187,7 +20042,7 @@ func TestPostChartSeriesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19214,7 +20069,7 @@ func TestPostChartSeriesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19272,7 +20127,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyLayoutSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19299,7 +20154,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidCloneFrom(t *testing.T)
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyLayoutSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19326,7 +20181,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidCloneFromPosition(t *te
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyLayoutSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19353,7 +20208,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidCloneFromPassword(t *te
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyLayoutSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19380,7 +20235,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidCloneFromStorage(t *tes
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyLayoutSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19407,7 +20262,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidPassword(t *testing.T) 
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyLayoutSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19434,7 +20289,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyLayoutSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19461,7 +20316,7 @@ func TestPostCopyLayoutSlideFromSourcePresentationInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyLayoutSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19525,7 +20380,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyMasterSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19552,7 +20407,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidCloneFrom(t *testing.T)
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyMasterSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19579,7 +20434,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidCloneFromPosition(t *te
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyMasterSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19606,7 +20461,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidCloneFromPassword(t *te
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyMasterSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19633,7 +20488,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidCloneFromStorage(t *tes
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyMasterSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19661,7 +20516,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidApplyToAll(t *testing.T
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyMasterSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19688,7 +20543,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidPassword(t *testing.T) 
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyMasterSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19715,7 +20570,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyMasterSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19742,7 +20597,7 @@ func TestPostCopyMasterSlideFromSourcePresentationInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostCopyMasterSlideFromSourcePresentation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19769,10 +20624,36 @@ func TestPostGetNotesSlide(t *testing.T) {
 
 func createPostGetNotesSlideRequest() PostGetNotesSlideRequest {
     var request PostGetNotesSlideRequest
-    request.SlideIndex = createTestParamValue("PostGetNotesSlide", "slideIndex", "int32").(int32)
     request.Document = createTestParamValue("PostGetNotesSlide", "document", "[]byte").([]byte)
+    request.SlideIndex = createTestParamValue("PostGetNotesSlide", "slideIndex", "int32").(int32)
     request.Password = createTestParamValue("PostGetNotesSlide", "password", "string").(string)
     return request
+}
+
+/* SlidesApiServiceTests Read notes slide info.
+   Test for SlidesApi.PostGetNotesSlide method with invalid document
+*/
+func TestPostGetNotesSlideInvalidDocument(t *testing.T) {
+    request := createPostGetNotesSlideRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Document, "PostGetNotesSlide", "document", "[]byte")
+    if (invalidValue == nil) {
+        request.Document = nil
+    } else {
+        request.Document = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostGetNotesSlide", "document", request.Document)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlide(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlide", "document", request.Document, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read notes slide info.
@@ -19795,37 +20676,11 @@ func TestPostGetNotesSlideInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PostGetNotesSlide", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Read notes slide info.
-   Test for SlidesApi.PostGetNotesSlide method with invalid document
-*/
-func TestPostGetNotesSlideInvalidDocument(t *testing.T) {
-    request := createPostGetNotesSlideRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Document, "PostGetNotesSlide", "document", "[]byte")
-    if (invalidValue == nil) {
-        request.Document = nil
-    } else {
-        request.Document = invalidValue.([]byte)
-    }
-
-    e := initializeTest("PostGetNotesSlide", "document", request.Document)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlide(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostGetNotesSlide", "document", request.Document, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read notes slide info.
@@ -19848,7 +20703,7 @@ func TestPostGetNotesSlideInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19875,10 +20730,36 @@ func TestPostGetNotesSlideExists(t *testing.T) {
 
 func createPostGetNotesSlideExistsRequest() PostGetNotesSlideExistsRequest {
     var request PostGetNotesSlideExistsRequest
-    request.SlideIndex = createTestParamValue("PostGetNotesSlideExists", "slideIndex", "int32").(int32)
     request.Document = createTestParamValue("PostGetNotesSlideExists", "document", "[]byte").([]byte)
+    request.SlideIndex = createTestParamValue("PostGetNotesSlideExists", "slideIndex", "int32").(int32)
     request.Password = createTestParamValue("PostGetNotesSlideExists", "password", "string").(string)
     return request
+}
+
+/* SlidesApiServiceTests Get info whether a notes slide exists.
+   Test for SlidesApi.PostGetNotesSlideExists method with invalid document
+*/
+func TestPostGetNotesSlideExistsInvalidDocument(t *testing.T) {
+    request := createPostGetNotesSlideExistsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Document, "PostGetNotesSlideExists", "document", "[]byte")
+    if (invalidValue == nil) {
+        request.Document = nil
+    } else {
+        request.Document = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostGetNotesSlideExists", "document", request.Document)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideExists(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideExists", "document", request.Document, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Get info whether a notes slide exists.
@@ -19901,37 +20782,11 @@ func TestPostGetNotesSlideExistsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideExists(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PostGetNotesSlideExists", "slideIndex", request.SlideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Get info whether a notes slide exists.
-   Test for SlidesApi.PostGetNotesSlideExists method with invalid document
-*/
-func TestPostGetNotesSlideExistsInvalidDocument(t *testing.T) {
-    request := createPostGetNotesSlideExistsRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Document, "PostGetNotesSlideExists", "document", "[]byte")
-    if (invalidValue == nil) {
-        request.Document = nil
-    } else {
-        request.Document = invalidValue.([]byte)
-    }
-
-    e := initializeTest("PostGetNotesSlideExists", "document", request.Document)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideExists(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostGetNotesSlideExists", "document", request.Document, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Get info whether a notes slide exists.
@@ -19954,7 +20809,7 @@ func TestPostGetNotesSlideExistsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideExists(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -19982,9 +20837,9 @@ func TestPostGetNotesSlideWithFormat(t *testing.T) {
 
 func createPostGetNotesSlideWithFormatRequest() PostGetNotesSlideWithFormatRequest {
     var request PostGetNotesSlideWithFormatRequest
+    request.Document = createTestParamValue("PostGetNotesSlideWithFormat", "document", "[]byte").([]byte)
     request.SlideIndex = createTestParamValue("PostGetNotesSlideWithFormat", "slideIndex", "int32").(int32)
     request.Format = createTestParamValue("PostGetNotesSlideWithFormat", "format", "string").(string)
-    request.Document = createTestParamValue("PostGetNotesSlideWithFormat", "document", "[]byte").([]byte)
     testwidth := createTestParamValue("PostGetNotesSlideWithFormat", "width", "int32")
     switch v := testwidth.(type) { 
     case int32:
@@ -20000,6 +20855,32 @@ func createPostGetNotesSlideWithFormatRequest() PostGetNotesSlideWithFormatReque
     request.Password = createTestParamValue("PostGetNotesSlideWithFormat", "password", "string").(string)
     request.FontsFolder = createTestParamValue("PostGetNotesSlideWithFormat", "fontsFolder", "string").(string)
     return request
+}
+
+/* SlidesApiServiceTests Convert notes slide to the specified image format.
+   Test for SlidesApi.PostGetNotesSlideWithFormat method with invalid document
+*/
+func TestPostGetNotesSlideWithFormatInvalidDocument(t *testing.T) {
+    request := createPostGetNotesSlideWithFormatRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Document, "PostGetNotesSlideWithFormat", "document", "[]byte")
+    if (invalidValue == nil) {
+        request.Document = nil
+    } else {
+        request.Document = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostGetNotesSlideWithFormat", "document", request.Document)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostGetNotesSlideWithFormat", "document", request.Document, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Convert notes slide to the specified image format.
@@ -20022,7 +20903,7 @@ func TestPostGetNotesSlideWithFormatInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20049,37 +20930,11 @@ func TestPostGetNotesSlideWithFormatInvalidFormat(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PostGetNotesSlideWithFormat", "format", request.Format, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert notes slide to the specified image format.
-   Test for SlidesApi.PostGetNotesSlideWithFormat method with invalid document
-*/
-func TestPostGetNotesSlideWithFormatInvalidDocument(t *testing.T) {
-    request := createPostGetNotesSlideWithFormatRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Document, "PostGetNotesSlideWithFormat", "document", "[]byte")
-    if (invalidValue == nil) {
-        request.Document = nil
-    } else {
-        request.Document = invalidValue.([]byte)
-    }
-
-    e := initializeTest("PostGetNotesSlideWithFormat", "document", request.Document)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostGetNotesSlideWithFormat", "document", request.Document, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Convert notes slide to the specified image format.
@@ -20103,7 +20958,7 @@ func TestPostGetNotesSlideWithFormatInvalidWidth(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20131,7 +20986,7 @@ func TestPostGetNotesSlideWithFormatInvalidHeight(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20158,7 +21013,7 @@ func TestPostGetNotesSlideWithFormatInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20185,7 +21040,7 @@ func TestPostGetNotesSlideWithFormatInvalidFontsFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostGetNotesSlideWithFormat(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20248,7 +21103,7 @@ func TestPostNotesSlideAddNewParagraphInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20275,7 +21130,7 @@ func TestPostNotesSlideAddNewParagraphInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20302,7 +21157,7 @@ func TestPostNotesSlideAddNewParagraphInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20328,7 +21183,7 @@ func TestPostNotesSlideAddNewParagraphInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20355,7 +21210,7 @@ func TestPostNotesSlideAddNewParagraphInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20382,7 +21237,7 @@ func TestPostNotesSlideAddNewParagraphInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20409,7 +21264,7 @@ func TestPostNotesSlideAddNewParagraphInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20437,7 +21292,7 @@ func TestPostNotesSlideAddNewParagraphInvalidPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20501,7 +21356,7 @@ func TestPostNotesSlideAddNewPortionInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20528,7 +21383,7 @@ func TestPostNotesSlideAddNewPortionInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20555,7 +21410,7 @@ func TestPostNotesSlideAddNewPortionInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20582,7 +21437,7 @@ func TestPostNotesSlideAddNewPortionInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20608,7 +21463,7 @@ func TestPostNotesSlideAddNewPortionInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20635,7 +21490,7 @@ func TestPostNotesSlideAddNewPortionInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20662,7 +21517,7 @@ func TestPostNotesSlideAddNewPortionInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20689,7 +21544,7 @@ func TestPostNotesSlideAddNewPortionInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20717,7 +21572,7 @@ func TestPostNotesSlideAddNewPortionInvalidPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewPortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20785,7 +21640,7 @@ func TestPostNotesSlideAddNewShapeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20812,7 +21667,7 @@ func TestPostNotesSlideAddNewShapeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20838,7 +21693,7 @@ func TestPostNotesSlideAddNewShapeInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20865,7 +21720,7 @@ func TestPostNotesSlideAddNewShapeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20892,7 +21747,7 @@ func TestPostNotesSlideAddNewShapeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20919,7 +21774,7 @@ func TestPostNotesSlideAddNewShapeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20947,7 +21802,7 @@ func TestPostNotesSlideAddNewShapeInvalidShapeToClone(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -20975,7 +21830,7 @@ func TestPostNotesSlideAddNewShapeInvalidPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideAddNewShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21048,7 +21903,7 @@ func TestPostNotesSlideShapeSaveAsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21075,7 +21930,7 @@ func TestPostNotesSlideShapeSaveAsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21102,7 +21957,7 @@ func TestPostNotesSlideShapeSaveAsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21129,7 +21984,7 @@ func TestPostNotesSlideShapeSaveAsInvalidFormat(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21155,7 +22010,7 @@ func TestPostNotesSlideShapeSaveAsInvalidOptions(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21182,7 +22037,7 @@ func TestPostNotesSlideShapeSaveAsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21209,7 +22064,7 @@ func TestPostNotesSlideShapeSaveAsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21236,7 +22091,7 @@ func TestPostNotesSlideShapeSaveAsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21264,7 +22119,7 @@ func TestPostNotesSlideShapeSaveAsInvalidScaleX(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21292,7 +22147,7 @@ func TestPostNotesSlideShapeSaveAsInvalidScaleY(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21319,7 +22174,7 @@ func TestPostNotesSlideShapeSaveAsInvalidBounds(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21346,7 +22201,7 @@ func TestPostNotesSlideShapeSaveAsInvalidFontsFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21401,7 +22256,7 @@ func TestPostPresentationMergeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostPresentationMerge(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21427,7 +22282,7 @@ func TestPostPresentationMergeInvalidRequest(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostPresentationMerge(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21454,7 +22309,7 @@ func TestPostPresentationMergeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostPresentationMerge(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21481,7 +22336,7 @@ func TestPostPresentationMergeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostPresentationMerge(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21508,11 +22363,393 @@ func TestPostPresentationMergeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostPresentationMerge(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PostPresentationMerge", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create a section starting at a specified slide index.
+   Test for SlidesApi.PostSection method
+*/
+func TestPostSection(t *testing.T) {
+    request := createPostSectionRequest()
+    e := initializeTest("PostSection", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PostSection(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPostSectionRequest() PostSectionRequest {
+    var request PostSectionRequest
+    request.Name = createTestParamValue("PostSection", "name", "string").(string)
+    request.SectionName = createTestParamValue("PostSection", "sectionName", "string").(string)
+    request.SlideIndex = createTestParamValue("PostSection", "slideIndex", "int32").(int32)
+    request.Password = createTestParamValue("PostSection", "password", "string").(string)
+    request.Folder = createTestParamValue("PostSection", "folder", "string").(string)
+    request.Storage = createTestParamValue("PostSection", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Create a section starting at a specified slide index.
+   Test for SlidesApi.PostSection method with invalid name
+*/
+func TestPostSectionInvalidName(t *testing.T) {
+    request := createPostSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PostSection", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSection", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSection", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create a section starting at a specified slide index.
+   Test for SlidesApi.PostSection method with invalid sectionName
+*/
+func TestPostSectionInvalidSectionName(t *testing.T) {
+    request := createPostSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SectionName, "PostSection", "sectionName", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.SectionName = nullValue
+    } else {
+        request.SectionName = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSection", "sectionName", request.SectionName)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSection", "sectionName", request.SectionName, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create a section starting at a specified slide index.
+   Test for SlidesApi.PostSection method with invalid slideIndex
+*/
+func TestPostSectionInvalidSlideIndex(t *testing.T) {
+    request := createPostSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PostSection", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostSection", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSection", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create a section starting at a specified slide index.
+   Test for SlidesApi.PostSection method with invalid password
+*/
+func TestPostSectionInvalidPassword(t *testing.T) {
+    request := createPostSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostSection", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSection", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSection", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create a section starting at a specified slide index.
+   Test for SlidesApi.PostSection method with invalid folder
+*/
+func TestPostSectionInvalidFolder(t *testing.T) {
+    request := createPostSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PostSection", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSection", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSection", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create a section starting at a specified slide index.
+   Test for SlidesApi.PostSection method with invalid storage
+*/
+func TestPostSectionInvalidStorage(t *testing.T) {
+    request := createPostSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PostSection", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSection", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSection", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Move presentation section to a specified position.
+   Test for SlidesApi.PostSectionMove method
+*/
+func TestPostSectionMove(t *testing.T) {
+    request := createPostSectionMoveRequest()
+    e := initializeTest("PostSectionMove", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PostSectionMove(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPostSectionMoveRequest() PostSectionMoveRequest {
+    var request PostSectionMoveRequest
+    request.Name = createTestParamValue("PostSectionMove", "name", "string").(string)
+    request.SectionIndex = createTestParamValue("PostSectionMove", "sectionIndex", "int32").(int32)
+    request.NewPosition = createTestParamValue("PostSectionMove", "newPosition", "int32").(int32)
+    request.Password = createTestParamValue("PostSectionMove", "password", "string").(string)
+    request.Folder = createTestParamValue("PostSectionMove", "folder", "string").(string)
+    request.Storage = createTestParamValue("PostSectionMove", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Move presentation section to a specified position.
+   Test for SlidesApi.PostSectionMove method with invalid name
+*/
+func TestPostSectionMoveInvalidName(t *testing.T) {
+    request := createPostSectionMoveRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PostSectionMove", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSectionMove", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSectionMove(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSectionMove", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Move presentation section to a specified position.
+   Test for SlidesApi.PostSectionMove method with invalid sectionIndex
+*/
+func TestPostSectionMoveInvalidSectionIndex(t *testing.T) {
+    request := createPostSectionMoveRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SectionIndex, "PostSectionMove", "sectionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SectionIndex = nullValue
+    } else {
+        request.SectionIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostSectionMove", "sectionIndex", request.SectionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSectionMove(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSectionMove", "sectionIndex", request.SectionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Move presentation section to a specified position.
+   Test for SlidesApi.PostSectionMove method with invalid newPosition
+*/
+func TestPostSectionMoveInvalidNewPosition(t *testing.T) {
+    request := createPostSectionMoveRequest()
+
+    invalidValue := invalidizeTestParamValue(request.NewPosition, "PostSectionMove", "newPosition", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.NewPosition = nullValue
+    } else {
+        request.NewPosition = invalidValue.(int32)
+    }
+
+    e := initializeTest("PostSectionMove", "newPosition", request.NewPosition)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSectionMove(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSectionMove", "newPosition", request.NewPosition, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Move presentation section to a specified position.
+   Test for SlidesApi.PostSectionMove method with invalid password
+*/
+func TestPostSectionMoveInvalidPassword(t *testing.T) {
+    request := createPostSectionMoveRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostSectionMove", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSectionMove", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSectionMove(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSectionMove", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Move presentation section to a specified position.
+   Test for SlidesApi.PostSectionMove method with invalid folder
+*/
+func TestPostSectionMoveInvalidFolder(t *testing.T) {
+    request := createPostSectionMoveRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PostSectionMove", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSectionMove", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSectionMove(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSectionMove", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Move presentation section to a specified position.
+   Test for SlidesApi.PostSectionMove method with invalid storage
+*/
+func TestPostSectionMoveInvalidStorage(t *testing.T) {
+    request := createPostSectionMoveRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PostSectionMove", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSectionMove", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSectionMove(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSectionMove", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.
@@ -21581,7 +22818,7 @@ func TestPostShapeSaveAsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21608,7 +22845,7 @@ func TestPostShapeSaveAsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21635,7 +22872,7 @@ func TestPostShapeSaveAsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21662,7 +22899,7 @@ func TestPostShapeSaveAsInvalidFormat(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21688,7 +22925,7 @@ func TestPostShapeSaveAsInvalidOptions(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21715,7 +22952,7 @@ func TestPostShapeSaveAsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21742,7 +22979,7 @@ func TestPostShapeSaveAsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21769,7 +23006,7 @@ func TestPostShapeSaveAsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21797,7 +23034,7 @@ func TestPostShapeSaveAsInvalidScaleX(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21825,7 +23062,7 @@ func TestPostShapeSaveAsInvalidScaleY(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21852,7 +23089,7 @@ func TestPostShapeSaveAsInvalidBounds(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21879,7 +23116,7 @@ func TestPostShapeSaveAsInvalidFontsFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21935,7 +23172,7 @@ func TestPostSlideAnimationEffectInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21962,7 +23199,7 @@ func TestPostSlideAnimationEffectInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -21988,7 +23225,7 @@ func TestPostSlideAnimationEffectInvalidEffect(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22015,7 +23252,7 @@ func TestPostSlideAnimationEffectInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22042,7 +23279,7 @@ func TestPostSlideAnimationEffectInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22069,7 +23306,7 @@ func TestPostSlideAnimationEffectInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22125,7 +23362,7 @@ func TestPostSlideAnimationInteractiveSequenceInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22152,7 +23389,7 @@ func TestPostSlideAnimationInteractiveSequenceInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22178,7 +23415,7 @@ func TestPostSlideAnimationInteractiveSequenceInvalidSequence(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22205,7 +23442,7 @@ func TestPostSlideAnimationInteractiveSequenceInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22232,7 +23469,7 @@ func TestPostSlideAnimationInteractiveSequenceInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22259,7 +23496,7 @@ func TestPostSlideAnimationInteractiveSequenceInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequence(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22316,7 +23553,7 @@ func TestPostSlideAnimationInteractiveSequenceEffectInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22343,7 +23580,7 @@ func TestPostSlideAnimationInteractiveSequenceEffectInvalidSlideIndex(t *testing
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22370,7 +23607,7 @@ func TestPostSlideAnimationInteractiveSequenceEffectInvalidSequenceIndex(t *test
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22396,7 +23633,7 @@ func TestPostSlideAnimationInteractiveSequenceEffectInvalidEffect(t *testing.T) 
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22423,7 +23660,7 @@ func TestPostSlideAnimationInteractiveSequenceEffectInvalidPassword(t *testing.T
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22450,7 +23687,7 @@ func TestPostSlideAnimationInteractiveSequenceEffectInvalidFolder(t *testing.T) 
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22477,7 +23714,7 @@ func TestPostSlideAnimationInteractiveSequenceEffectInvalidStorage(t *testing.T)
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22548,7 +23785,7 @@ func TestPostSlideSaveAsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22575,7 +23812,7 @@ func TestPostSlideSaveAsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22602,7 +23839,7 @@ func TestPostSlideSaveAsInvalidFormat(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22628,7 +23865,7 @@ func TestPostSlideSaveAsInvalidOptions(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22656,7 +23893,7 @@ func TestPostSlideSaveAsInvalidWidth(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22684,7 +23921,7 @@ func TestPostSlideSaveAsInvalidHeight(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22711,7 +23948,7 @@ func TestPostSlideSaveAsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22738,7 +23975,7 @@ func TestPostSlideSaveAsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22765,7 +24002,7 @@ func TestPostSlideSaveAsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22792,7 +24029,7 @@ func TestPostSlideSaveAsInvalidFontsFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22853,7 +24090,7 @@ func TestPostSlidesAddInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesAdd(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22881,7 +24118,7 @@ func TestPostSlidesAddInvalidPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesAdd(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22908,7 +24145,7 @@ func TestPostSlidesAddInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesAdd(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22935,7 +24172,7 @@ func TestPostSlidesAddInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesAdd(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22962,7 +24199,7 @@ func TestPostSlidesAddInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesAdd(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -22989,7 +24226,7 @@ func TestPostSlidesAddInvalidLayoutAlias(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesAdd(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23017,11 +24254,37 @@ func TestPostSlidesConvert(t *testing.T) {
 
 func createPostSlidesConvertRequest() PostSlidesConvertRequest {
     var request PostSlidesConvertRequest
-    request.Format = createTestParamValue("PostSlidesConvert", "format", "string").(string)
     request.Document = createTestParamValue("PostSlidesConvert", "document", "[]byte").([]byte)
+    request.Format = createTestParamValue("PostSlidesConvert", "format", "string").(string)
     request.Password = createTestParamValue("PostSlidesConvert", "password", "string").(string)
     request.FontsFolder = createTestParamValue("PostSlidesConvert", "fontsFolder", "string").(string)
     return request
+}
+
+/* SlidesApiServiceTests Convert presentation from request content to format specified.
+   Test for SlidesApi.PostSlidesConvert method with invalid document
+*/
+func TestPostSlidesConvertInvalidDocument(t *testing.T) {
+    request := createPostSlidesConvertRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Document, "PostSlidesConvert", "document", "[]byte")
+    if (invalidValue == nil) {
+        request.Document = nil
+    } else {
+        request.Document = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostSlidesConvert", "document", request.Document)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSlidesConvert(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSlidesConvert", "document", request.Document, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Convert presentation from request content to format specified.
@@ -23044,37 +24307,11 @@ func TestPostSlidesConvertInvalidFormat(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesConvert(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PostSlidesConvert", "format", request.Format, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert presentation from request content to format specified.
-   Test for SlidesApi.PostSlidesConvert method with invalid document
-*/
-func TestPostSlidesConvertInvalidDocument(t *testing.T) {
-    request := createPostSlidesConvertRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Document, "PostSlidesConvert", "document", "[]byte")
-    if (invalidValue == nil) {
-        request.Document = nil
-    } else {
-        request.Document = invalidValue.([]byte)
-    }
-
-    e := initializeTest("PostSlidesConvert", "document", request.Document)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PostSlidesConvert(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostSlidesConvert", "document", request.Document, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Convert presentation from request content to format specified.
@@ -23097,7 +24334,7 @@ func TestPostSlidesConvertInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesConvert(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23124,7 +24361,7 @@ func TestPostSlidesConvertInvalidFontsFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesConvert(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23188,7 +24425,7 @@ func TestPostSlidesCopyInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesCopy(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23215,7 +24452,7 @@ func TestPostSlidesCopyInvalidSlideToCopy(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesCopy(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23243,7 +24480,7 @@ func TestPostSlidesCopyInvalidPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesCopy(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23270,7 +24507,7 @@ func TestPostSlidesCopyInvalidSource(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesCopy(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23297,7 +24534,7 @@ func TestPostSlidesCopyInvalidSourcePassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesCopy(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23324,7 +24561,7 @@ func TestPostSlidesCopyInvalidSourceStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesCopy(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23351,7 +24588,7 @@ func TestPostSlidesCopyInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesCopy(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23378,7 +24615,7 @@ func TestPostSlidesCopyInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesCopy(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23405,7 +24642,7 @@ func TestPostSlidesCopyInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesCopy(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23461,7 +24698,7 @@ func TestPostSlidesDocumentInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocument(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23487,7 +24724,7 @@ func TestPostSlidesDocumentInvalidData(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocument(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23514,7 +24751,7 @@ func TestPostSlidesDocumentInvalidInputPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocument(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23541,7 +24778,7 @@ func TestPostSlidesDocumentInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocument(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23568,7 +24805,7 @@ func TestPostSlidesDocumentInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocument(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23595,7 +24832,7 @@ func TestPostSlidesDocumentInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocument(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23650,7 +24887,7 @@ func TestPostSlidesDocumentFromHtmlInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromHtml(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23677,7 +24914,7 @@ func TestPostSlidesDocumentFromHtmlInvalidHtml(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromHtml(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23704,7 +24941,7 @@ func TestPostSlidesDocumentFromHtmlInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromHtml(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23731,7 +24968,7 @@ func TestPostSlidesDocumentFromHtmlInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromHtml(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23758,7 +24995,7 @@ func TestPostSlidesDocumentFromHtmlInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromHtml(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23815,7 +25052,7 @@ func TestPostSlidesDocumentFromSourceInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromSource(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23842,7 +25079,7 @@ func TestPostSlidesDocumentFromSourceInvalidSourcePath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromSource(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23869,7 +25106,7 @@ func TestPostSlidesDocumentFromSourceInvalidSourcePassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromSource(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23896,7 +25133,7 @@ func TestPostSlidesDocumentFromSourceInvalidSourceStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromSource(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23923,7 +25160,7 @@ func TestPostSlidesDocumentFromSourceInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromSource(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23950,7 +25187,7 @@ func TestPostSlidesDocumentFromSourceInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromSource(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -23977,7 +25214,7 @@ func TestPostSlidesDocumentFromSourceInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromSource(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24041,7 +25278,7 @@ func TestPostSlidesDocumentFromTemplateInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromTemplate(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24068,7 +25305,7 @@ func TestPostSlidesDocumentFromTemplateInvalidTemplatePath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromTemplate(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24095,7 +25332,7 @@ func TestPostSlidesDocumentFromTemplateInvalidData(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromTemplate(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24122,7 +25359,7 @@ func TestPostSlidesDocumentFromTemplateInvalidTemplatePassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromTemplate(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24149,7 +25386,7 @@ func TestPostSlidesDocumentFromTemplateInvalidTemplateStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromTemplate(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24177,7 +25414,7 @@ func TestPostSlidesDocumentFromTemplateInvalidIsImageDataEmbedded(t *testing.T) 
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromTemplate(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24204,7 +25441,7 @@ func TestPostSlidesDocumentFromTemplateInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromTemplate(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24231,7 +25468,7 @@ func TestPostSlidesDocumentFromTemplateInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromTemplate(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24258,7 +25495,7 @@ func TestPostSlidesDocumentFromTemplateInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromTemplate(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24310,7 +25547,7 @@ func TestPostSlidesPipelineInvalidPipeline(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesPipeline(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24336,7 +25573,7 @@ func TestPostSlidesPipelineInvalidFiles(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesPipeline(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24398,7 +25635,7 @@ func TestPostSlidesPresentationReplaceTextInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesPresentationReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24425,7 +25662,7 @@ func TestPostSlidesPresentationReplaceTextInvalidOldValue(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesPresentationReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24452,7 +25689,7 @@ func TestPostSlidesPresentationReplaceTextInvalidNewValue(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesPresentationReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24480,7 +25717,7 @@ func TestPostSlidesPresentationReplaceTextInvalidIgnoreCase(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesPresentationReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24507,7 +25744,7 @@ func TestPostSlidesPresentationReplaceTextInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesPresentationReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24534,7 +25771,7 @@ func TestPostSlidesPresentationReplaceTextInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesPresentationReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24561,7 +25798,7 @@ func TestPostSlidesPresentationReplaceTextInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesPresentationReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24617,7 +25854,7 @@ func TestPostSlidesReorderInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24644,7 +25881,7 @@ func TestPostSlidesReorderInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24671,7 +25908,7 @@ func TestPostSlidesReorderInvalidNewPosition(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24698,7 +25935,7 @@ func TestPostSlidesReorderInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24725,7 +25962,7 @@ func TestPostSlidesReorderInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24752,7 +25989,7 @@ func TestPostSlidesReorderInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorder(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24808,7 +26045,7 @@ func TestPostSlidesReorderManyInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorderMany(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24835,7 +26072,7 @@ func TestPostSlidesReorderManyInvalidOldPositions(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorderMany(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24862,7 +26099,7 @@ func TestPostSlidesReorderManyInvalidNewPositions(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorderMany(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24889,7 +26126,7 @@ func TestPostSlidesReorderManyInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorderMany(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24916,7 +26153,7 @@ func TestPostSlidesReorderManyInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorderMany(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -24943,7 +26180,7 @@ func TestPostSlidesReorderManyInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesReorderMany(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25001,7 +26238,7 @@ func TestPostSlidesSaveAsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25028,7 +26265,7 @@ func TestPostSlidesSaveAsInvalidFormat(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25054,7 +26291,7 @@ func TestPostSlidesSaveAsInvalidOptions(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25081,7 +26318,7 @@ func TestPostSlidesSaveAsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25108,7 +26345,7 @@ func TestPostSlidesSaveAsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25135,7 +26372,7 @@ func TestPostSlidesSaveAsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25162,7 +26399,7 @@ func TestPostSlidesSaveAsInvalidFontsFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25217,7 +26454,7 @@ func TestPostSlidesSetDocumentPropertiesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSetDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25243,7 +26480,7 @@ func TestPostSlidesSetDocumentPropertiesInvalidProperties(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSetDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25270,7 +26507,7 @@ func TestPostSlidesSetDocumentPropertiesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSetDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25297,7 +26534,7 @@ func TestPostSlidesSetDocumentPropertiesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSetDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25324,7 +26561,7 @@ func TestPostSlidesSetDocumentPropertiesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSetDocumentProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25387,7 +26624,7 @@ func TestPostSlidesSlideReplaceTextInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSlideReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25414,7 +26651,7 @@ func TestPostSlidesSlideReplaceTextInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSlideReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25441,7 +26678,7 @@ func TestPostSlidesSlideReplaceTextInvalidOldValue(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSlideReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25468,7 +26705,7 @@ func TestPostSlidesSlideReplaceTextInvalidNewValue(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSlideReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25496,7 +26733,7 @@ func TestPostSlidesSlideReplaceTextInvalidIgnoreCase(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSlideReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25523,7 +26760,7 @@ func TestPostSlidesSlideReplaceTextInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSlideReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25550,7 +26787,7 @@ func TestPostSlidesSlideReplaceTextInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSlideReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25577,7 +26814,7 @@ func TestPostSlidesSlideReplaceTextInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSlideReplaceText(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25659,7 +26896,7 @@ func TestPostSlidesSplitInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25685,7 +26922,7 @@ func TestPostSlidesSplitInvalidOptions(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25712,7 +26949,7 @@ func TestPostSlidesSplitInvalidFormat(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25740,7 +26977,7 @@ func TestPostSlidesSplitInvalidWidth(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25768,7 +27005,7 @@ func TestPostSlidesSplitInvalidHeight(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25796,7 +27033,7 @@ func TestPostSlidesSplitInvalidTo(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25824,7 +27061,7 @@ func TestPostSlidesSplitInvalidFrom(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25851,7 +27088,7 @@ func TestPostSlidesSplitInvalidDestFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25878,7 +27115,7 @@ func TestPostSlidesSplitInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25905,7 +27142,7 @@ func TestPostSlidesSplitInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25932,7 +27169,7 @@ func TestPostSlidesSplitInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -25959,7 +27196,7 @@ func TestPostSlidesSplitInvalidFontsFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSlidesSplit(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26033,7 +27270,7 @@ func TestPostSubshapeSaveAsInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26060,7 +27297,7 @@ func TestPostSubshapeSaveAsInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26087,7 +27324,7 @@ func TestPostSubshapeSaveAsInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26114,7 +27351,7 @@ func TestPostSubshapeSaveAsInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26141,7 +27378,7 @@ func TestPostSubshapeSaveAsInvalidFormat(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26167,7 +27404,7 @@ func TestPostSubshapeSaveAsInvalidOptions(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26194,7 +27431,7 @@ func TestPostSubshapeSaveAsInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26221,7 +27458,7 @@ func TestPostSubshapeSaveAsInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26248,7 +27485,7 @@ func TestPostSubshapeSaveAsInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26276,7 +27513,7 @@ func TestPostSubshapeSaveAsInvalidScaleX(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26304,7 +27541,7 @@ func TestPostSubshapeSaveAsInvalidScaleY(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26331,7 +27568,7 @@ func TestPostSubshapeSaveAsInvalidBounds(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26358,7 +27595,7 @@ func TestPostSubshapeSaveAsInvalidFontsFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PostSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26416,7 +27653,7 @@ func TestPutChartCategoryInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26443,7 +27680,7 @@ func TestPutChartCategoryInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26470,7 +27707,7 @@ func TestPutChartCategoryInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26497,7 +27734,7 @@ func TestPutChartCategoryInvalidCategoryIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26523,7 +27760,7 @@ func TestPutChartCategoryInvalidCategory(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26550,7 +27787,7 @@ func TestPutChartCategoryInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26577,7 +27814,7 @@ func TestPutChartCategoryInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26604,7 +27841,7 @@ func TestPutChartCategoryInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartCategory(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26663,7 +27900,7 @@ func TestPutChartDataPointInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26690,7 +27927,7 @@ func TestPutChartDataPointInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26717,7 +27954,7 @@ func TestPutChartDataPointInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26744,7 +27981,7 @@ func TestPutChartDataPointInvalidSeriesIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26771,7 +28008,7 @@ func TestPutChartDataPointInvalidPointIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26797,7 +28034,7 @@ func TestPutChartDataPointInvalidDataPoint(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26824,7 +28061,7 @@ func TestPutChartDataPointInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26851,7 +28088,7 @@ func TestPutChartDataPointInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26878,7 +28115,7 @@ func TestPutChartDataPointInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartDataPoint(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26936,7 +28173,7 @@ func TestPutChartSeriesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26963,7 +28200,7 @@ func TestPutChartSeriesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -26990,7 +28227,7 @@ func TestPutChartSeriesInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27017,7 +28254,7 @@ func TestPutChartSeriesInvalidSeriesIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27043,7 +28280,7 @@ func TestPutChartSeriesInvalidSeries(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27070,7 +28307,7 @@ func TestPutChartSeriesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27097,7 +28334,7 @@ func TestPutChartSeriesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27124,7 +28361,7 @@ func TestPutChartSeriesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutChartSeries(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27180,7 +28417,7 @@ func TestPutLayoutSlideInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutLayoutSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27207,7 +28444,7 @@ func TestPutLayoutSlideInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutLayoutSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27233,7 +28470,7 @@ func TestPutLayoutSlideInvalidSlideDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutLayoutSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27260,7 +28497,7 @@ func TestPutLayoutSlideInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutLayoutSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27287,7 +28524,7 @@ func TestPutLayoutSlideInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutLayoutSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27314,11 +28551,201 @@ func TestPutLayoutSlideInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutLayoutSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PutLayoutSlide", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set header/footer the notes slide.
+   Test for SlidesApi.PutNotesSlideHeaderFooter method
+*/
+func TestPutNotesSlideHeaderFooter(t *testing.T) {
+    request := createPutNotesSlideHeaderFooterRequest()
+    e := initializeTest("PutNotesSlideHeaderFooter", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutNotesSlideHeaderFooter(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutNotesSlideHeaderFooterRequest() PutNotesSlideHeaderFooterRequest {
+    var request PutNotesSlideHeaderFooterRequest
+    request.Name = createTestParamValue("PutNotesSlideHeaderFooter", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PutNotesSlideHeaderFooter", "slideIndex", "int32").(int32)
+    request.Dto = createTestParamValue("PutNotesSlideHeaderFooter", "dto", "NotesSlideHeaderFooter").(INotesSlideHeaderFooter)
+    request.Password = createTestParamValue("PutNotesSlideHeaderFooter", "password", "string").(string)
+    request.Storage = createTestParamValue("PutNotesSlideHeaderFooter", "storage", "string").(string)
+    request.Folder = createTestParamValue("PutNotesSlideHeaderFooter", "folder", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Set header/footer the notes slide.
+   Test for SlidesApi.PutNotesSlideHeaderFooter method with invalid name
+*/
+func TestPutNotesSlideHeaderFooterInvalidName(t *testing.T) {
+    request := createPutNotesSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutNotesSlideHeaderFooter", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutNotesSlideHeaderFooter", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutNotesSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutNotesSlideHeaderFooter", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set header/footer the notes slide.
+   Test for SlidesApi.PutNotesSlideHeaderFooter method with invalid slideIndex
+*/
+func TestPutNotesSlideHeaderFooterInvalidSlideIndex(t *testing.T) {
+    request := createPutNotesSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PutNotesSlideHeaderFooter", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutNotesSlideHeaderFooter", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutNotesSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutNotesSlideHeaderFooter", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set header/footer the notes slide.
+   Test for SlidesApi.PutNotesSlideHeaderFooter method with invalid dto
+*/
+func TestPutNotesSlideHeaderFooterInvalidDto(t *testing.T) {
+    request := createPutNotesSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Dto, "PutNotesSlideHeaderFooter", "dto", "NotesSlideHeaderFooter")
+    if (invalidValue == nil) {
+        request.Dto = nil
+    } else {
+        request.Dto = invalidValue.(INotesSlideHeaderFooter)
+    }
+
+    e := initializeTest("PutNotesSlideHeaderFooter", "dto", request.Dto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutNotesSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutNotesSlideHeaderFooter", "dto", request.Dto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set header/footer the notes slide.
+   Test for SlidesApi.PutNotesSlideHeaderFooter method with invalid password
+*/
+func TestPutNotesSlideHeaderFooterInvalidPassword(t *testing.T) {
+    request := createPutNotesSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutNotesSlideHeaderFooter", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutNotesSlideHeaderFooter", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutNotesSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutNotesSlideHeaderFooter", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set header/footer the notes slide.
+   Test for SlidesApi.PutNotesSlideHeaderFooter method with invalid storage
+*/
+func TestPutNotesSlideHeaderFooterInvalidStorage(t *testing.T) {
+    request := createPutNotesSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutNotesSlideHeaderFooter", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutNotesSlideHeaderFooter", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutNotesSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutNotesSlideHeaderFooter", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set header/footer the notes slide.
+   Test for SlidesApi.PutNotesSlideHeaderFooter method with invalid folder
+*/
+func TestPutNotesSlideHeaderFooterInvalidFolder(t *testing.T) {
+    request := createPutNotesSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutNotesSlideHeaderFooter", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutNotesSlideHeaderFooter", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutNotesSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutNotesSlideHeaderFooter", "folder", request.Folder, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.
@@ -27387,7 +28814,7 @@ func TestPutNotesSlideShapeSaveAsInvalidName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27414,7 +28841,7 @@ func TestPutNotesSlideShapeSaveAsInvalidSlideIndex(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27441,7 +28868,7 @@ func TestPutNotesSlideShapeSaveAsInvalidShapeIndex(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27468,7 +28895,7 @@ func TestPutNotesSlideShapeSaveAsInvalidFormat(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27495,7 +28922,7 @@ func TestPutNotesSlideShapeSaveAsInvalidOutPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27521,7 +28948,7 @@ func TestPutNotesSlideShapeSaveAsInvalidOptions(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27548,7 +28975,7 @@ func TestPutNotesSlideShapeSaveAsInvalidPassword(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27575,7 +29002,7 @@ func TestPutNotesSlideShapeSaveAsInvalidFolder(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27602,7 +29029,7 @@ func TestPutNotesSlideShapeSaveAsInvalidStorage(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27630,7 +29057,7 @@ func TestPutNotesSlideShapeSaveAsInvalidScaleX(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27658,7 +29085,7 @@ func TestPutNotesSlideShapeSaveAsInvalidScaleY(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27685,7 +29112,7 @@ func TestPutNotesSlideShapeSaveAsInvalidBounds(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27712,7 +29139,7 @@ func TestPutNotesSlideShapeSaveAsInvalidFontsFolder(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutNotesSlideShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27767,7 +29194,7 @@ func TestPutPresentationMergeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutPresentationMerge(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27793,7 +29220,7 @@ func TestPutPresentationMergeInvalidRequest(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutPresentationMerge(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27820,7 +29247,7 @@ func TestPutPresentationMergeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutPresentationMerge(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27847,7 +29274,7 @@ func TestPutPresentationMergeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutPresentationMerge(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27874,11 +29301,364 @@ func TestPutPresentationMergeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutPresentationMerge(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PutPresentationMerge", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update section name.
+   Test for SlidesApi.PutSection method
+*/
+func TestPutSection(t *testing.T) {
+    request := createPutSectionRequest()
+    e := initializeTest("PutSection", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutSection(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutSectionRequest() PutSectionRequest {
+    var request PutSectionRequest
+    request.Name = createTestParamValue("PutSection", "name", "string").(string)
+    request.SectionIndex = createTestParamValue("PutSection", "sectionIndex", "int32").(int32)
+    request.SectionName = createTestParamValue("PutSection", "sectionName", "string").(string)
+    request.Password = createTestParamValue("PutSection", "password", "string").(string)
+    request.Folder = createTestParamValue("PutSection", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutSection", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Update section name.
+   Test for SlidesApi.PutSection method with invalid name
+*/
+func TestPutSectionInvalidName(t *testing.T) {
+    request := createPutSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutSection", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSection", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSection", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update section name.
+   Test for SlidesApi.PutSection method with invalid sectionIndex
+*/
+func TestPutSectionInvalidSectionIndex(t *testing.T) {
+    request := createPutSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SectionIndex, "PutSection", "sectionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SectionIndex = nullValue
+    } else {
+        request.SectionIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSection", "sectionIndex", request.SectionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSection", "sectionIndex", request.SectionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update section name.
+   Test for SlidesApi.PutSection method with invalid sectionName
+*/
+func TestPutSectionInvalidSectionName(t *testing.T) {
+    request := createPutSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SectionName, "PutSection", "sectionName", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.SectionName = nullValue
+    } else {
+        request.SectionName = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSection", "sectionName", request.SectionName)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSection", "sectionName", request.SectionName, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update section name.
+   Test for SlidesApi.PutSection method with invalid password
+*/
+func TestPutSectionInvalidPassword(t *testing.T) {
+    request := createPutSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutSection", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSection", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSection", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update section name.
+   Test for SlidesApi.PutSection method with invalid folder
+*/
+func TestPutSectionInvalidFolder(t *testing.T) {
+    request := createPutSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutSection", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSection", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSection", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update section name.
+   Test for SlidesApi.PutSection method with invalid storage
+*/
+func TestPutSectionInvalidStorage(t *testing.T) {
+    request := createPutSectionRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutSection", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSection", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSection(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSection", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replace existing presentation sections with the ones provided in the sections DTO.
+   Test for SlidesApi.PutSections method
+*/
+func TestPutSections(t *testing.T) {
+    request := createPutSectionsRequest()
+    e := initializeTest("PutSections", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutSections(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutSectionsRequest() PutSectionsRequest {
+    var request PutSectionsRequest
+    request.Name = createTestParamValue("PutSections", "name", "string").(string)
+    request.Sections = createTestParamValue("PutSections", "sections", "Sections").(ISections)
+    request.Password = createTestParamValue("PutSections", "password", "string").(string)
+    request.Folder = createTestParamValue("PutSections", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutSections", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Replace existing presentation sections with the ones provided in the sections DTO.
+   Test for SlidesApi.PutSections method with invalid name
+*/
+func TestPutSectionsInvalidName(t *testing.T) {
+    request := createPutSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutSections", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSections", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSections", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replace existing presentation sections with the ones provided in the sections DTO.
+   Test for SlidesApi.PutSections method with invalid sections
+*/
+func TestPutSectionsInvalidSections(t *testing.T) {
+    request := createPutSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Sections, "PutSections", "sections", "Sections")
+    if (invalidValue == nil) {
+        request.Sections = nil
+    } else {
+        request.Sections = invalidValue.(ISections)
+    }
+
+    e := initializeTest("PutSections", "sections", request.Sections)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSections", "sections", request.Sections, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replace existing presentation sections with the ones provided in the sections DTO.
+   Test for SlidesApi.PutSections method with invalid password
+*/
+func TestPutSectionsInvalidPassword(t *testing.T) {
+    request := createPutSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutSections", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSections", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSections", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replace existing presentation sections with the ones provided in the sections DTO.
+   Test for SlidesApi.PutSections method with invalid folder
+*/
+func TestPutSectionsInvalidFolder(t *testing.T) {
+    request := createPutSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutSections", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSections", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSections", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replace existing presentation sections with the ones provided in the sections DTO.
+   Test for SlidesApi.PutSections method with invalid storage
+*/
+func TestPutSectionsInvalidStorage(t *testing.T) {
+    request := createPutSectionsRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutSections", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSections", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSections(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSections", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Update portion properties.
@@ -27933,7 +29713,7 @@ func TestPutSetParagraphPortionPropertiesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27960,7 +29740,7 @@ func TestPutSetParagraphPortionPropertiesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -27987,7 +29767,7 @@ func TestPutSetParagraphPortionPropertiesInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28014,7 +29794,7 @@ func TestPutSetParagraphPortionPropertiesInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28041,7 +29821,7 @@ func TestPutSetParagraphPortionPropertiesInvalidPortionIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28067,7 +29847,7 @@ func TestPutSetParagraphPortionPropertiesInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28094,7 +29874,7 @@ func TestPutSetParagraphPortionPropertiesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28121,7 +29901,7 @@ func TestPutSetParagraphPortionPropertiesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28148,7 +29928,7 @@ func TestPutSetParagraphPortionPropertiesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28206,7 +29986,7 @@ func TestPutSetParagraphPropertiesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28233,7 +30013,7 @@ func TestPutSetParagraphPropertiesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28260,7 +30040,7 @@ func TestPutSetParagraphPropertiesInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28287,7 +30067,7 @@ func TestPutSetParagraphPropertiesInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28313,7 +30093,7 @@ func TestPutSetParagraphPropertiesInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28340,7 +30120,7 @@ func TestPutSetParagraphPropertiesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28367,7 +30147,7 @@ func TestPutSetParagraphPropertiesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28394,7 +30174,7 @@ func TestPutSetParagraphPropertiesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28454,7 +30234,7 @@ func TestPutSetSubshapeParagraphPortionPropertiesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28481,7 +30261,7 @@ func TestPutSetSubshapeParagraphPortionPropertiesInvalidSlideIndex(t *testing.T)
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28508,7 +30288,7 @@ func TestPutSetSubshapeParagraphPortionPropertiesInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28535,7 +30315,7 @@ func TestPutSetSubshapeParagraphPortionPropertiesInvalidShapeIndex(t *testing.T)
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28562,7 +30342,7 @@ func TestPutSetSubshapeParagraphPortionPropertiesInvalidParagraphIndex(t *testin
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28589,7 +30369,7 @@ func TestPutSetSubshapeParagraphPortionPropertiesInvalidPortionIndex(t *testing.
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28615,7 +30395,7 @@ func TestPutSetSubshapeParagraphPortionPropertiesInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28642,7 +30422,7 @@ func TestPutSetSubshapeParagraphPortionPropertiesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28669,7 +30449,7 @@ func TestPutSetSubshapeParagraphPortionPropertiesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28696,7 +30476,7 @@ func TestPutSetSubshapeParagraphPortionPropertiesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphPortionProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28755,7 +30535,7 @@ func TestPutSetSubshapeParagraphPropertiesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28782,7 +30562,7 @@ func TestPutSetSubshapeParagraphPropertiesInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28809,7 +30589,7 @@ func TestPutSetSubshapeParagraphPropertiesInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28836,7 +30616,7 @@ func TestPutSetSubshapeParagraphPropertiesInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28863,7 +30643,7 @@ func TestPutSetSubshapeParagraphPropertiesInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28889,7 +30669,7 @@ func TestPutSetSubshapeParagraphPropertiesInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28916,7 +30696,7 @@ func TestPutSetSubshapeParagraphPropertiesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28943,7 +30723,7 @@ func TestPutSetSubshapeParagraphPropertiesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -28970,7 +30750,7 @@ func TestPutSetSubshapeParagraphPropertiesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSetSubshapeParagraphProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29043,7 +30823,7 @@ func TestPutShapeSaveAsInvalidName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29070,7 +30850,7 @@ func TestPutShapeSaveAsInvalidSlideIndex(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29097,7 +30877,7 @@ func TestPutShapeSaveAsInvalidShapeIndex(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29124,7 +30904,7 @@ func TestPutShapeSaveAsInvalidFormat(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29151,7 +30931,7 @@ func TestPutShapeSaveAsInvalidOutPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29177,7 +30957,7 @@ func TestPutShapeSaveAsInvalidOptions(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29204,7 +30984,7 @@ func TestPutShapeSaveAsInvalidPassword(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29231,7 +31011,7 @@ func TestPutShapeSaveAsInvalidFolder(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29258,7 +31038,7 @@ func TestPutShapeSaveAsInvalidStorage(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29286,7 +31066,7 @@ func TestPutShapeSaveAsInvalidScaleX(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29314,7 +31094,7 @@ func TestPutShapeSaveAsInvalidScaleY(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29341,7 +31121,7 @@ func TestPutShapeSaveAsInvalidBounds(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29368,7 +31148,7 @@ func TestPutShapeSaveAsInvalidFontsFolder(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutShapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29424,7 +31204,7 @@ func TestPutSlideAnimationInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29451,7 +31231,7 @@ func TestPutSlideAnimationInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29477,7 +31257,7 @@ func TestPutSlideAnimationInvalidAnimation(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29504,7 +31284,7 @@ func TestPutSlideAnimationInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29531,7 +31311,7 @@ func TestPutSlideAnimationInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29558,7 +31338,7 @@ func TestPutSlideAnimationInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimation(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29615,7 +31395,7 @@ func TestPutSlideAnimationEffectInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29642,7 +31422,7 @@ func TestPutSlideAnimationEffectInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29669,7 +31449,7 @@ func TestPutSlideAnimationEffectInvalidEffectIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29695,7 +31475,7 @@ func TestPutSlideAnimationEffectInvalidEffect(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29722,7 +31502,7 @@ func TestPutSlideAnimationEffectInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29749,7 +31529,7 @@ func TestPutSlideAnimationEffectInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29776,7 +31556,7 @@ func TestPutSlideAnimationEffectInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29834,7 +31614,7 @@ func TestPutSlideAnimationInteractiveSequenceEffectInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29861,7 +31641,7 @@ func TestPutSlideAnimationInteractiveSequenceEffectInvalidSlideIndex(t *testing.
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29888,7 +31668,7 @@ func TestPutSlideAnimationInteractiveSequenceEffectInvalidSequenceIndex(t *testi
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29915,7 +31695,7 @@ func TestPutSlideAnimationInteractiveSequenceEffectInvalidEffectIndex(t *testing
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29941,7 +31721,7 @@ func TestPutSlideAnimationInteractiveSequenceEffectInvalidEffect(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29968,7 +31748,7 @@ func TestPutSlideAnimationInteractiveSequenceEffectInvalidPassword(t *testing.T)
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -29995,7 +31775,7 @@ func TestPutSlideAnimationInteractiveSequenceEffectInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30022,11 +31802,201 @@ func TestPutSlideAnimationInteractiveSequenceEffectInvalidStorage(t *testing.T) 
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideAnimationInteractiveSequenceEffect(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PutSlideAnimationInteractiveSequenceEffect", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set footer the slide.
+   Test for SlidesApi.PutSlideHeaderFooter method
+*/
+func TestPutSlideHeaderFooter(t *testing.T) {
+    request := createPutSlideHeaderFooterRequest()
+    e := initializeTest("PutSlideHeaderFooter", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutSlideHeaderFooter(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutSlideHeaderFooterRequest() PutSlideHeaderFooterRequest {
+    var request PutSlideHeaderFooterRequest
+    request.Name = createTestParamValue("PutSlideHeaderFooter", "name", "string").(string)
+    request.SlideIndex = createTestParamValue("PutSlideHeaderFooter", "slideIndex", "int32").(int32)
+    request.Dto = createTestParamValue("PutSlideHeaderFooter", "dto", "HeaderFooter").(IHeaderFooter)
+    request.Password = createTestParamValue("PutSlideHeaderFooter", "password", "string").(string)
+    request.Folder = createTestParamValue("PutSlideHeaderFooter", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutSlideHeaderFooter", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Set footer the slide.
+   Test for SlidesApi.PutSlideHeaderFooter method with invalid name
+*/
+func TestPutSlideHeaderFooterInvalidName(t *testing.T) {
+    request := createPutSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutSlideHeaderFooter", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlideHeaderFooter", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideHeaderFooter", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set footer the slide.
+   Test for SlidesApi.PutSlideHeaderFooter method with invalid slideIndex
+*/
+func TestPutSlideHeaderFooterInvalidSlideIndex(t *testing.T) {
+    request := createPutSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.SlideIndex, "PutSlideHeaderFooter", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        request.SlideIndex = nullValue
+    } else {
+        request.SlideIndex = invalidValue.(int32)
+    }
+
+    e := initializeTest("PutSlideHeaderFooter", "slideIndex", request.SlideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideHeaderFooter", "slideIndex", request.SlideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set footer the slide.
+   Test for SlidesApi.PutSlideHeaderFooter method with invalid dto
+*/
+func TestPutSlideHeaderFooterInvalidDto(t *testing.T) {
+    request := createPutSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Dto, "PutSlideHeaderFooter", "dto", "HeaderFooter")
+    if (invalidValue == nil) {
+        request.Dto = nil
+    } else {
+        request.Dto = invalidValue.(IHeaderFooter)
+    }
+
+    e := initializeTest("PutSlideHeaderFooter", "dto", request.Dto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideHeaderFooter", "dto", request.Dto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set footer the slide.
+   Test for SlidesApi.PutSlideHeaderFooter method with invalid password
+*/
+func TestPutSlideHeaderFooterInvalidPassword(t *testing.T) {
+    request := createPutSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutSlideHeaderFooter", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlideHeaderFooter", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideHeaderFooter", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set footer the slide.
+   Test for SlidesApi.PutSlideHeaderFooter method with invalid folder
+*/
+func TestPutSlideHeaderFooterInvalidFolder(t *testing.T) {
+    request := createPutSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutSlideHeaderFooter", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlideHeaderFooter", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideHeaderFooter", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set footer the slide.
+   Test for SlidesApi.PutSlideHeaderFooter method with invalid storage
+*/
+func TestPutSlideHeaderFooterInvalidStorage(t *testing.T) {
+    request := createPutSlideHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutSlideHeaderFooter", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlideHeaderFooter", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlideHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlideHeaderFooter", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Save a slide to a specified format.
@@ -30093,7 +32063,7 @@ func TestPutSlideSaveAsInvalidName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30120,7 +32090,7 @@ func TestPutSlideSaveAsInvalidSlideIndex(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30147,7 +32117,7 @@ func TestPutSlideSaveAsInvalidFormat(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30174,7 +32144,7 @@ func TestPutSlideSaveAsInvalidOutPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30200,7 +32170,7 @@ func TestPutSlideSaveAsInvalidOptions(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30228,7 +32198,7 @@ func TestPutSlideSaveAsInvalidWidth(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30256,7 +32226,7 @@ func TestPutSlideSaveAsInvalidHeight(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30283,7 +32253,7 @@ func TestPutSlideSaveAsInvalidPassword(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30310,7 +32280,7 @@ func TestPutSlideSaveAsInvalidFolder(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30337,7 +32307,7 @@ func TestPutSlideSaveAsInvalidStorage(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30364,7 +32334,7 @@ func TestPutSlideSaveAsInvalidFontsFolder(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlideSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30421,7 +32391,7 @@ func TestPutSlideShapeInfoInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideShapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30448,7 +32418,7 @@ func TestPutSlideShapeInfoInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideShapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30475,7 +32445,7 @@ func TestPutSlideShapeInfoInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideShapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30501,7 +32471,7 @@ func TestPutSlideShapeInfoInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideShapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30528,7 +32498,7 @@ func TestPutSlideShapeInfoInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideShapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30555,7 +32525,7 @@ func TestPutSlideShapeInfoInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideShapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30582,7 +32552,7 @@ func TestPutSlideShapeInfoInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideShapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30640,7 +32610,7 @@ func TestPutSlideSubshapeInfoInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30667,7 +32637,7 @@ func TestPutSlideSubshapeInfoInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30694,7 +32664,7 @@ func TestPutSlideSubshapeInfoInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30721,7 +32691,7 @@ func TestPutSlideSubshapeInfoInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30747,7 +32717,7 @@ func TestPutSlideSubshapeInfoInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30774,7 +32744,7 @@ func TestPutSlideSubshapeInfoInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30801,7 +32771,7 @@ func TestPutSlideSubshapeInfoInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30828,7 +32798,7 @@ func TestPutSlideSubshapeInfoInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlideSubshapeInfo(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30855,12 +32825,38 @@ func TestPutSlidesConvert(t *testing.T) {
 
 func createPutSlidesConvertRequest() PutSlidesConvertRequest {
     var request PutSlidesConvertRequest
+    request.Document = createTestParamValue("PutSlidesConvert", "document", "[]byte").([]byte)
     request.Format = createTestParamValue("PutSlidesConvert", "format", "string").(string)
     request.OutPath = createTestParamValue("PutSlidesConvert", "outPath", "string").(string)
-    request.Document = createTestParamValue("PutSlidesConvert", "document", "[]byte").([]byte)
     request.Password = createTestParamValue("PutSlidesConvert", "password", "string").(string)
     request.FontsFolder = createTestParamValue("PutSlidesConvert", "fontsFolder", "string").(string)
     return request
+}
+
+/* SlidesApiServiceTests Convert presentation from request content to format specified.
+   Test for SlidesApi.PutSlidesConvert method with invalid document
+*/
+func TestPutSlidesConvertInvalidDocument(t *testing.T) {
+    request := createPutSlidesConvertRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Document, "PutSlidesConvert", "document", "[]byte")
+    if (invalidValue == nil) {
+        request.Document = nil
+    } else {
+        request.Document = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PutSlidesConvert", "document", request.Document)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.PutSlidesConvert(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesConvert", "document", request.Document, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Convert presentation from request content to format specified.
@@ -30883,7 +32879,7 @@ func TestPutSlidesConvertInvalidFormat(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesConvert(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30910,37 +32906,11 @@ func TestPutSlidesConvertInvalidOutPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesConvert(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PutSlidesConvert", "outPath", request.OutPath, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert presentation from request content to format specified.
-   Test for SlidesApi.PutSlidesConvert method with invalid document
-*/
-func TestPutSlidesConvertInvalidDocument(t *testing.T) {
-    request := createPutSlidesConvertRequest()
-
-    invalidValue := invalidizeTestParamValue(request.Document, "PutSlidesConvert", "document", "[]byte")
-    if (invalidValue == nil) {
-        request.Document = nil
-    } else {
-        request.Document = invalidValue.([]byte)
-    }
-
-    e := initializeTest("PutSlidesConvert", "document", request.Document)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := getTestApiClient().SlidesApi.PutSlidesConvert(request)
-    statusCode := 0
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesConvert", "document", request.Document, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Convert presentation from request content to format specified.
@@ -30963,7 +32933,7 @@ func TestPutSlidesConvertInvalidPassword(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesConvert(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -30990,7 +32960,7 @@ func TestPutSlidesConvertInvalidFontsFolder(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesConvert(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31045,7 +33015,7 @@ func TestPutSlidesDocumentFromHtmlInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesDocumentFromHtml(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31072,7 +33042,7 @@ func TestPutSlidesDocumentFromHtmlInvalidHtml(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesDocumentFromHtml(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31099,7 +33069,7 @@ func TestPutSlidesDocumentFromHtmlInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesDocumentFromHtml(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31126,7 +33096,7 @@ func TestPutSlidesDocumentFromHtmlInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesDocumentFromHtml(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31153,11 +33123,173 @@ func TestPutSlidesDocumentFromHtmlInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesDocumentFromHtml(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PutSlidesDocumentFromHtml", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set footers for all slides in a presentation.
+   Test for SlidesApi.PutSlidesHeaderFooter method
+*/
+func TestPutSlidesHeaderFooter(t *testing.T) {
+    request := createPutSlidesHeaderFooterRequest()
+    e := initializeTest("PutSlidesHeaderFooter", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutSlidesHeaderFooter(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutSlidesHeaderFooterRequest() PutSlidesHeaderFooterRequest {
+    var request PutSlidesHeaderFooterRequest
+    request.Name = createTestParamValue("PutSlidesHeaderFooter", "name", "string").(string)
+    request.Dto = createTestParamValue("PutSlidesHeaderFooter", "dto", "HeaderFooter").(IHeaderFooter)
+    request.Password = createTestParamValue("PutSlidesHeaderFooter", "password", "string").(string)
+    request.Storage = createTestParamValue("PutSlidesHeaderFooter", "storage", "string").(string)
+    request.Folder = createTestParamValue("PutSlidesHeaderFooter", "folder", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Set footers for all slides in a presentation.
+   Test for SlidesApi.PutSlidesHeaderFooter method with invalid name
+*/
+func TestPutSlidesHeaderFooterInvalidName(t *testing.T) {
+    request := createPutSlidesHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutSlidesHeaderFooter", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesHeaderFooter", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesHeaderFooter", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set footers for all slides in a presentation.
+   Test for SlidesApi.PutSlidesHeaderFooter method with invalid dto
+*/
+func TestPutSlidesHeaderFooterInvalidDto(t *testing.T) {
+    request := createPutSlidesHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Dto, "PutSlidesHeaderFooter", "dto", "HeaderFooter")
+    if (invalidValue == nil) {
+        request.Dto = nil
+    } else {
+        request.Dto = invalidValue.(IHeaderFooter)
+    }
+
+    e := initializeTest("PutSlidesHeaderFooter", "dto", request.Dto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesHeaderFooter", "dto", request.Dto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set footers for all slides in a presentation.
+   Test for SlidesApi.PutSlidesHeaderFooter method with invalid password
+*/
+func TestPutSlidesHeaderFooterInvalidPassword(t *testing.T) {
+    request := createPutSlidesHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutSlidesHeaderFooter", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesHeaderFooter", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesHeaderFooter", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set footers for all slides in a presentation.
+   Test for SlidesApi.PutSlidesHeaderFooter method with invalid storage
+*/
+func TestPutSlidesHeaderFooterInvalidStorage(t *testing.T) {
+    request := createPutSlidesHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutSlidesHeaderFooter", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesHeaderFooter", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesHeaderFooter", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set footers for all slides in a presentation.
+   Test for SlidesApi.PutSlidesHeaderFooter method with invalid folder
+*/
+func TestPutSlidesHeaderFooterInvalidFolder(t *testing.T) {
+    request := createPutSlidesHeaderFooterRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutSlidesHeaderFooter", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesHeaderFooter", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesHeaderFooter(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesHeaderFooter", "folder", request.Folder, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Save a presentation to a specified format.
@@ -31211,7 +33343,7 @@ func TestPutSlidesSaveAsInvalidName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31238,7 +33370,7 @@ func TestPutSlidesSaveAsInvalidOutPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31265,7 +33397,7 @@ func TestPutSlidesSaveAsInvalidFormat(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31291,7 +33423,7 @@ func TestPutSlidesSaveAsInvalidOptions(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31318,7 +33450,7 @@ func TestPutSlidesSaveAsInvalidPassword(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31345,7 +33477,7 @@ func TestPutSlidesSaveAsInvalidStorage(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31372,7 +33504,7 @@ func TestPutSlidesSaveAsInvalidFolder(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31399,7 +33531,7 @@ func TestPutSlidesSaveAsInvalidFontsFolder(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSlidesSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31455,7 +33587,7 @@ func TestPutSlidesSetDocumentPropertyInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSetDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31482,7 +33614,7 @@ func TestPutSlidesSetDocumentPropertyInvalidPropertyName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSetDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31508,7 +33640,7 @@ func TestPutSlidesSetDocumentPropertyInvalidProperty(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSetDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31535,7 +33667,7 @@ func TestPutSlidesSetDocumentPropertyInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSetDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31562,7 +33694,7 @@ func TestPutSlidesSetDocumentPropertyInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSetDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31589,7 +33721,7 @@ func TestPutSlidesSetDocumentPropertyInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSetDocumentProperty(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31645,7 +33777,7 @@ func TestPutSlidesSlideInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31672,7 +33804,7 @@ func TestPutSlidesSlideInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31698,7 +33830,7 @@ func TestPutSlidesSlideInvalidSlideDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31725,7 +33857,7 @@ func TestPutSlidesSlideInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31752,7 +33884,7 @@ func TestPutSlidesSlideInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31779,7 +33911,7 @@ func TestPutSlidesSlideInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31835,7 +33967,7 @@ func TestPutSlidesSlideBackgroundInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31862,7 +33994,7 @@ func TestPutSlidesSlideBackgroundInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31888,7 +34020,7 @@ func TestPutSlidesSlideBackgroundInvalidBackground(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31915,7 +34047,7 @@ func TestPutSlidesSlideBackgroundInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31942,7 +34074,7 @@ func TestPutSlidesSlideBackgroundInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -31969,7 +34101,7 @@ func TestPutSlidesSlideBackgroundInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackground(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32025,7 +34157,7 @@ func TestPutSlidesSlideBackgroundColorInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackgroundColor(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32052,7 +34184,7 @@ func TestPutSlidesSlideBackgroundColorInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackgroundColor(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32079,7 +34211,7 @@ func TestPutSlidesSlideBackgroundColorInvalidColor(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackgroundColor(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32106,7 +34238,7 @@ func TestPutSlidesSlideBackgroundColorInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackgroundColor(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32133,7 +34265,7 @@ func TestPutSlidesSlideBackgroundColorInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackgroundColor(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32160,7 +34292,7 @@ func TestPutSlidesSlideBackgroundColorInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideBackgroundColor(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32228,7 +34360,7 @@ func TestPutSlidesSlideSizeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32255,7 +34387,7 @@ func TestPutSlidesSlideSizeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32282,7 +34414,7 @@ func TestPutSlidesSlideSizeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32309,7 +34441,7 @@ func TestPutSlidesSlideSizeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32337,7 +34469,7 @@ func TestPutSlidesSlideSizeInvalidWidth(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32365,7 +34497,7 @@ func TestPutSlidesSlideSizeInvalidHeight(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32392,7 +34524,7 @@ func TestPutSlidesSlideSizeInvalidSizeType(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32419,7 +34551,7 @@ func TestPutSlidesSlideSizeInvalidScaleType(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32474,7 +34606,7 @@ func TestPutSlidesViewPropertiesInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesViewProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32500,7 +34632,7 @@ func TestPutSlidesViewPropertiesInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesViewProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32527,7 +34659,7 @@ func TestPutSlidesViewPropertiesInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesViewProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32554,7 +34686,7 @@ func TestPutSlidesViewPropertiesInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesViewProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32581,7 +34713,7 @@ func TestPutSlidesViewPropertiesInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutSlidesViewProperties(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32655,7 +34787,7 @@ func TestPutSubshapeSaveAsInvalidName(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32682,7 +34814,7 @@ func TestPutSubshapeSaveAsInvalidSlideIndex(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32709,7 +34841,7 @@ func TestPutSubshapeSaveAsInvalidPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32736,7 +34868,7 @@ func TestPutSubshapeSaveAsInvalidShapeIndex(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32763,7 +34895,7 @@ func TestPutSubshapeSaveAsInvalidFormat(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32790,7 +34922,7 @@ func TestPutSubshapeSaveAsInvalidOutPath(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32816,7 +34948,7 @@ func TestPutSubshapeSaveAsInvalidOptions(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32843,7 +34975,7 @@ func TestPutSubshapeSaveAsInvalidPassword(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32870,7 +35002,7 @@ func TestPutSubshapeSaveAsInvalidFolder(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32897,7 +35029,7 @@ func TestPutSubshapeSaveAsInvalidStorage(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32925,7 +35057,7 @@ func TestPutSubshapeSaveAsInvalidScaleX(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32953,7 +35085,7 @@ func TestPutSubshapeSaveAsInvalidScaleY(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -32980,7 +35112,7 @@ func TestPutSubshapeSaveAsInvalidBounds(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33007,7 +35139,7 @@ func TestPutSubshapeSaveAsInvalidFontsFolder(t *testing.T) {
        return
     }
     r, e := getTestApiClient().SlidesApi.PutSubshapeSaveAs(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33063,7 +35195,7 @@ func TestPutUpdateNotesSlideInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33090,7 +35222,7 @@ func TestPutUpdateNotesSlideInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33116,7 +35248,7 @@ func TestPutUpdateNotesSlideInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33143,7 +35275,7 @@ func TestPutUpdateNotesSlideInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33170,7 +35302,7 @@ func TestPutUpdateNotesSlideInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33197,7 +35329,7 @@ func TestPutUpdateNotesSlideInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlide(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33254,7 +35386,7 @@ func TestPutUpdateNotesSlideShapeInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33281,7 +35413,7 @@ func TestPutUpdateNotesSlideShapeInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33308,7 +35440,7 @@ func TestPutUpdateNotesSlideShapeInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33334,7 +35466,7 @@ func TestPutUpdateNotesSlideShapeInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33361,7 +35493,7 @@ func TestPutUpdateNotesSlideShapeInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33388,7 +35520,7 @@ func TestPutUpdateNotesSlideShapeInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33415,7 +35547,7 @@ func TestPutUpdateNotesSlideShapeInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShape(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33473,7 +35605,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33500,7 +35632,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33527,7 +35659,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33554,7 +35686,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33580,7 +35712,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33607,7 +35739,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33634,7 +35766,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33661,7 +35793,7 @@ func TestPutUpdateNotesSlideShapeParagraphInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapeParagraph(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33720,7 +35852,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33747,7 +35879,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidSlideIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33774,7 +35906,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidShapeIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33801,7 +35933,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidParagraphIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33828,7 +35960,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidPortionIndex(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33854,7 +35986,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidDto(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33881,7 +36013,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidPassword(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33908,7 +36040,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidFolder(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33935,7 +36067,7 @@ func TestPutUpdateNotesSlideShapePortionInvalidStorage(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.PutUpdateNotesSlideShapePortion(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -33986,7 +36118,7 @@ func TestStorageExistsInvalidStorageName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.StorageExists(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -34039,7 +36171,7 @@ func TestUploadFileInvalidPath(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.UploadFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -34065,7 +36197,7 @@ func TestUploadFileInvalidFile(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.UploadFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
@@ -34092,7 +36224,7 @@ func TestUploadFileInvalidStorageName(t *testing.T) {
        return
     }
     _, r, e := getTestApiClient().SlidesApi.UploadFile(request)
-    statusCode := 0
+    statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }

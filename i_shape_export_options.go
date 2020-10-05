@@ -33,16 +33,9 @@ import (
 
 // Represents export options for whole presentation.
 type IIShapeExportOptions interface {
-
-	// Export format.
-	getFormat() string
-	setFormat(newValue string)
 }
 
 type IShapeExportOptions struct {
-
-	// Export format.
-	Format string `json:"Format,omitempty"`
 }
 
 func NewIShapeExportOptions() *IShapeExportOptions {
@@ -50,40 +43,12 @@ func NewIShapeExportOptions() *IShapeExportOptions {
 	return instance
 }
 
-func (this *IShapeExportOptions) getFormat() string {
-	return this.Format
-}
-
-func (this *IShapeExportOptions) setFormat(newValue string) {
-	this.Format = newValue
-}
 
 func (this *IShapeExportOptions) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
 		return err
-	}
-	
-	if valFormat, ok := objMap["format"]; ok {
-		if valFormat != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormat, &valueForFormat)
-			if err != nil {
-				return err
-			}
-			this.Format = valueForFormat
-		}
-	}
-	if valFormatCap, ok := objMap["Format"]; ok {
-		if valFormatCap != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormatCap, &valueForFormat)
-			if err != nil {
-				return err
-			}
-			this.Format = valueForFormat
-		}
 	}
 
     return nil

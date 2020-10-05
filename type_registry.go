@@ -268,6 +268,9 @@ func init() {
 	derivedTypes["GradientFill"] = "FillFormat"
 	typeDeterminers["GradientFill"] = make(map[string]string)
 	typeDeterminers["GradientFill"]["Type"] = "Gradient"
+	typeRegistry["HeaderFooter"] = reflect.TypeOf(HeaderFooter{})
+	derivedTypes["HeaderFooter"] = "ResourceBase"
+	typeDeterminers["HeaderFooter"] = make(map[string]string)
 	typeRegistry["HtmlExportOptions"] = reflect.TypeOf(HtmlExportOptions{})
 	derivedTypes["HtmlExportOptions"] = "ExportOptions"
 	typeDeterminers["HtmlExportOptions"] = make(map[string]string)
@@ -303,6 +306,9 @@ func init() {
 	typeRegistry["NotesSlide"] = reflect.TypeOf(NotesSlide{})
 	derivedTypes["NotesSlide"] = "ResourceBase"
 	typeDeterminers["NotesSlide"] = make(map[string]string)
+	typeRegistry["NotesSlideHeaderFooter"] = reflect.TypeOf(NotesSlideHeaderFooter{})
+	derivedTypes["NotesSlideHeaderFooter"] = "ResourceBase"
+	typeDeterminers["NotesSlideHeaderFooter"] = make(map[string]string)
 	typeRegistry["OneValueChartDataPoint"] = reflect.TypeOf(OneValueChartDataPoint{})
 	derivedTypes["OneValueChartDataPoint"] = "DataPoint"
 	typeDeterminers["OneValueChartDataPoint"] = make(map[string]string)
@@ -397,6 +403,12 @@ func init() {
 	derivedTypes["ScatterSeries"] = "Series"
 	typeDeterminers["ScatterSeries"] = make(map[string]string)
 	typeDeterminers["ScatterSeries"]["DataPointType"] = "Scatter"
+	typeRegistry["Section"] = reflect.TypeOf(Section{})
+	derivedTypes["Section"] = "ResourceBase"
+	typeDeterminers["Section"] = make(map[string]string)
+	typeRegistry["Sections"] = reflect.TypeOf(Sections{})
+	derivedTypes["Sections"] = "ResourceBase"
+	typeDeterminers["Sections"] = make(map[string]string)
 	typeRegistry["ShapeBase"] = reflect.TypeOf(ShapeBase{})
 	derivedTypes["ShapeBase"] = "ResourceBase"
 	typeDeterminers["ShapeBase"] = make(map[string]string)

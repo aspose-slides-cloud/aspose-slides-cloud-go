@@ -223,9 +223,10 @@ func (c *APIClient) makeRequestWithAuthCheck(
 		fmt.Printf("<--BODY: %v\n", string(responseBytes))
 	}
 	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1)
+        responseLength := len(responseBytes)
 	needRepeat = needRepeat &&
 		(localVarHttpResponse.StatusCode == 401 ||
-			(localVarHttpResponse.StatusCode == 400 && strings.Contains(string(responseBytes), " Authority")))
+			(localVarHttpResponse.StatusCode == 500 && responseLength == 0))
 	return localVarHttpResponse, responseBytes, needRepeat, err
 }
 

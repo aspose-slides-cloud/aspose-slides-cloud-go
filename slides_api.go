@@ -61,6 +61,12 @@ func (a *SlidesApiService) CopyFile(request CopyFileRequest) (*http.Response, er
 		localVarFiles [][]byte
 	)
 
+	if len(request.SrcPath) == 0 {
+		return nil, reportError("Missing required parameter request.srcPath")
+	}
+	if len(request.DestPath) == 0 {
+		return nil, reportError("Missing required parameter request.destPath")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/file/copy/{srcPath}"
 	srcPathPathStringValue := fmt.Sprintf("%v", request.SrcPath)
@@ -120,7 +126,7 @@ func (a *SlidesApiService) CopyFile(request CopyFileRequest) (*http.Response, er
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -151,6 +157,12 @@ func (a *SlidesApiService) CopyFolder(request CopyFolderRequest) (*http.Response
 		localVarFiles [][]byte
 	)
 
+	if len(request.SrcPath) == 0 {
+		return nil, reportError("Missing required parameter request.srcPath")
+	}
+	if len(request.DestPath) == 0 {
+		return nil, reportError("Missing required parameter request.destPath")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/folder/copy/{srcPath}"
 	srcPathPathStringValue := fmt.Sprintf("%v", request.SrcPath)
@@ -204,7 +216,7 @@ func (a *SlidesApiService) CopyFolder(request CopyFolderRequest) (*http.Response
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -232,6 +244,9 @@ func (a *SlidesApiService) CreateFolder(request CreateFolderRequest) (*http.Resp
 		localVarFiles [][]byte
 	)
 
+	if len(request.Path) == 0 {
+		return nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/folder/{path}"
 	pathPathStringValue := fmt.Sprintf("%v", request.Path)
@@ -278,7 +293,7 @@ func (a *SlidesApiService) CreateFolder(request CreateFolderRequest) (*http.Resp
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -310,6 +325,9 @@ func (a *SlidesApiService) DeleteChartCategory(request DeleteChartCategoryReques
 	 	successPayload IChart
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories/{categoryIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -386,7 +404,7 @@ func (a *SlidesApiService) DeleteChartCategory(request DeleteChartCategoryReques
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Chart", responseBytes)
@@ -436,6 +454,9 @@ func (a *SlidesApiService) DeleteChartDataPoint(request DeleteChartDataPointRequ
 	 	successPayload IChart
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints/{pointIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -518,7 +539,7 @@ func (a *SlidesApiService) DeleteChartDataPoint(request DeleteChartDataPointRequ
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Chart", responseBytes)
@@ -568,6 +589,9 @@ func (a *SlidesApiService) DeleteChartSeries(request DeleteChartSeriesRequest) (
 	 	successPayload IChart
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -644,7 +668,7 @@ func (a *SlidesApiService) DeleteChartSeries(request DeleteChartSeriesRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Chart", responseBytes)
@@ -688,6 +712,9 @@ func (a *SlidesApiService) DeleteFile(request DeleteFileRequest) (*http.Response
 		localVarFiles [][]byte
 	)
 
+	if len(request.Path) == 0 {
+		return nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/file/{path}"
 	pathPathStringValue := fmt.Sprintf("%v", request.Path)
@@ -740,7 +767,7 @@ func (a *SlidesApiService) DeleteFile(request DeleteFileRequest) (*http.Response
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -768,6 +795,9 @@ func (a *SlidesApiService) DeleteFolder(request DeleteFolderRequest) (*http.Resp
 		localVarFiles [][]byte
 	)
 
+	if len(request.Path) == 0 {
+		return nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/folder/{path}"
 	pathPathStringValue := fmt.Sprintf("%v", request.Path)
@@ -822,7 +852,7 @@ func (a *SlidesApiService) DeleteFolder(request DeleteFolderRequest) (*http.Resp
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -853,6 +883,9 @@ func (a *SlidesApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (IS
 	 	successPayload ISlide
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -917,7 +950,7 @@ func (a *SlidesApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (IS
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Slide", responseBytes)
@@ -964,6 +997,9 @@ func (a *SlidesApiService) DeleteNotesSlideParagraph(request DeleteNotesSlidePar
 	 	successPayload IParagraphs
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -1040,7 +1076,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraph(request DeleteNotesSlidePar
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
@@ -1089,6 +1125,9 @@ func (a *SlidesApiService) DeleteNotesSlideParagraphs(request DeleteNotesSlidePa
 	 	successPayload IParagraphs
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -1165,7 +1204,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraphs(request DeleteNotesSlidePa
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
@@ -1215,6 +1254,9 @@ func (a *SlidesApiService) DeleteNotesSlidePortion(request DeleteNotesSlidePorti
 	 	successPayload IPortions
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -1297,7 +1339,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortion(request DeleteNotesSlidePorti
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portions", responseBytes)
@@ -1348,6 +1390,9 @@ func (a *SlidesApiService) DeleteNotesSlidePortions(request DeleteNotesSlidePort
 	 	successPayload IPortions
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -1430,7 +1475,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortions(request DeleteNotesSlidePort
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portions", responseBytes)
@@ -1479,6 +1524,9 @@ func (a *SlidesApiService) DeleteNotesSlideShape(request DeleteNotesSlideShapeRe
 	 	successPayload IShapes
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -1549,7 +1597,7 @@ func (a *SlidesApiService) DeleteNotesSlideShape(request DeleteNotesSlideShapeRe
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
@@ -1596,6 +1644,9 @@ func (a *SlidesApiService) DeleteNotesSlideShapes(request DeleteNotesSlideShapes
 	 	successPayload IShapes
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -1666,7 +1717,7 @@ func (a *SlidesApiService) DeleteNotesSlideShapes(request DeleteNotesSlideShapes
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
@@ -1714,6 +1765,9 @@ func (a *SlidesApiService) DeleteParagraph(request DeleteParagraphRequest) (IPar
 	 	successPayload IParagraphs
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -1790,7 +1844,7 @@ func (a *SlidesApiService) DeleteParagraph(request DeleteParagraphRequest) (IPar
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
@@ -1839,6 +1893,9 @@ func (a *SlidesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (IP
 	 	successPayload IParagraphs
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -1915,7 +1972,7 @@ func (a *SlidesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (IP
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
@@ -1965,6 +2022,9 @@ func (a *SlidesApiService) DeletePortion(request DeletePortionRequest) (IPortion
 	 	successPayload IPortions
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -2047,7 +2107,7 @@ func (a *SlidesApiService) DeletePortion(request DeletePortionRequest) (IPortion
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portions", responseBytes)
@@ -2098,6 +2158,9 @@ func (a *SlidesApiService) DeletePortions(request DeletePortionsRequest) (IPorti
 	 	successPayload IPortions
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -2180,7 +2243,7 @@ func (a *SlidesApiService) DeletePortions(request DeletePortionsRequest) (IPorti
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portions", responseBytes)
@@ -2212,6 +2275,250 @@ type DeletePortionsRequest struct {
     Storage string
 }
 
+/* SlidesApiService Delete a presentation section.
+ @param name Document name.
+ @param sectionIndex Section index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "withSlides" (bool) True to delete the slides related to the deleted section; move them to the remaining sections otherwise.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Sections*/
+func (a *SlidesApiService) DeleteSection(request DeleteSectionRequest) (ISections, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload ISections
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/sections/{sectionIndex}"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	sectionIndexPathStringValue := fmt.Sprintf("%v", request.SectionIndex)
+	if len(sectionIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"sectionIndex"+"}", sectionIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"sectionIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if request.WithSlides != nil {
+		if err := typeCheckParameter(*request.WithSlides, "bool", "withSlides"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if request.WithSlides != nil {
+		localVarQueryParams.Add("WithSlides", parameterToString(request.WithSlides, ""))
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("Sections", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISections); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISections); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.DeleteSection
+*/
+type DeleteSectionRequest struct {
+    Name string
+    SectionIndex int32
+    WithSlides *bool
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Delete presentation sections.
+ @param name Document name.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "sections" ([]int32) The indices of the sections to be deleted; delete all by default.
+     @param "withSlides" (bool) True to delete the slides related to the deleted sections; move them to the remaining sections otherwise.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Sections*/
+func (a *SlidesApiService) DeleteSections(request DeleteSectionsRequest) (ISections, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload ISections
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/sections"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Sections, "[]int32", "sections"); err != nil {
+		return successPayload, nil, err
+	}
+	if request.WithSlides != nil {
+		if err := typeCheckParameter(*request.WithSlides, "bool", "withSlides"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Sections; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Sections", parameterToString(localVarTempParam, ""))
+	}
+	if request.WithSlides != nil {
+		localVarQueryParams.Add("WithSlides", parameterToString(request.WithSlides, ""))
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("Sections", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISections); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISections); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.DeleteSections
+*/
+type DeleteSectionsRequest struct {
+    Name string
+    Sections []int32
+    WithSlides *bool
+    Password string
+    Folder string
+    Storage string
+}
+
 /* SlidesApiService Remove animation from a slide.
  @param name Document name.
  @param slideIndex Slide index.
@@ -2228,6 +2535,9 @@ func (a *SlidesApiService) DeleteSlideAnimation(request DeleteSlideAnimationRequ
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -2292,7 +2602,7 @@ func (a *SlidesApiService) DeleteSlideAnimation(request DeleteSlideAnimationRequ
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -2338,6 +2648,9 @@ func (a *SlidesApiService) DeleteSlideAnimationEffect(request DeleteSlideAnimati
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation/mainSequence/{effectIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -2408,7 +2721,7 @@ func (a *SlidesApiService) DeleteSlideAnimationEffect(request DeleteSlideAnimati
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -2455,6 +2768,9 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequence(request Delet
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -2525,7 +2841,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequence(request Delet
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -2573,6 +2889,9 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequenceEffect(request
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}/{effectIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -2649,7 +2968,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequenceEffect(request
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -2696,6 +3015,9 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequences(request Dele
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -2760,7 +3082,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequences(request Dele
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -2805,6 +3127,9 @@ func (a *SlidesApiService) DeleteSlideAnimationMainSequence(request DeleteSlideA
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation/mainSequence"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -2869,7 +3194,7 @@ func (a *SlidesApiService) DeleteSlideAnimationMainSequence(request DeleteSlideA
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -2914,6 +3239,9 @@ func (a *SlidesApiService) DeleteSlideByIndex(request DeleteSlideByIndexRequest)
 	 	successPayload ISlides
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -2978,7 +3306,7 @@ func (a *SlidesApiService) DeleteSlideByIndex(request DeleteSlideByIndexRequest)
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Slides", responseBytes)
@@ -3024,6 +3352,9 @@ func (a *SlidesApiService) DeleteSlideShape(request DeleteSlideShapeRequest) (IS
 	 	successPayload IShapes
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -3094,7 +3425,7 @@ func (a *SlidesApiService) DeleteSlideShape(request DeleteSlideShapeRequest) (IS
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
@@ -3141,6 +3472,9 @@ func (a *SlidesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (
 	 	successPayload IShapes
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -3211,7 +3545,7 @@ func (a *SlidesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
@@ -3259,6 +3593,12 @@ func (a *SlidesApiService) DeleteSlideSubshape(request DeleteSlideSubshapeReques
 	 	successPayload IShapes
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -3335,7 +3675,7 @@ func (a *SlidesApiService) DeleteSlideSubshape(request DeleteSlideSubshapeReques
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
@@ -3384,6 +3724,12 @@ func (a *SlidesApiService) DeleteSlideSubshapes(request DeleteSlideSubshapesRequ
 	 	successPayload IShapes
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -3460,7 +3806,7 @@ func (a *SlidesApiService) DeleteSlideSubshapes(request DeleteSlideSubshapesRequ
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
@@ -3507,6 +3853,9 @@ func (a *SlidesApiService) DeleteSlidesCleanSlidesList(request DeleteSlidesClean
 	 	successPayload ISlides
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -3571,7 +3920,7 @@ func (a *SlidesApiService) DeleteSlidesCleanSlidesList(request DeleteSlidesClean
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Slides", responseBytes)
@@ -3615,6 +3964,9 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperties(request DeleteSlidesDo
 	 	successPayload IDocumentProperties
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/documentproperties"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -3673,7 +4025,7 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperties(request DeleteSlidesDo
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("DocumentProperties", responseBytes)
@@ -3717,6 +4069,12 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperty(request DeleteSlidesDocu
 	 	successPayload IDocumentProperties
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.PropertyName) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.propertyName")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/documentproperties/{propertyName}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -3781,7 +4139,7 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperty(request DeleteSlidesDocu
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("DocumentProperties", responseBytes)
@@ -3826,6 +4184,9 @@ func (a *SlidesApiService) DeleteSlidesSlideBackground(request DeleteSlidesSlide
 	 	successPayload ISlideBackground
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/background"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -3890,7 +4251,7 @@ func (a *SlidesApiService) DeleteSlidesSlideBackground(request DeleteSlidesSlide
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideBackground", responseBytes)
@@ -3938,6 +4299,12 @@ func (a *SlidesApiService) DeleteSubshapeParagraph(request DeleteSubshapeParagra
 	 	successPayload IParagraphs
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -4020,7 +4387,7 @@ func (a *SlidesApiService) DeleteSubshapeParagraph(request DeleteSubshapeParagra
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
@@ -4071,6 +4438,12 @@ func (a *SlidesApiService) DeleteSubshapeParagraphs(request DeleteSubshapeParagr
 	 	successPayload IParagraphs
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -4153,7 +4526,7 @@ func (a *SlidesApiService) DeleteSubshapeParagraphs(request DeleteSubshapeParagr
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
@@ -4205,6 +4578,12 @@ func (a *SlidesApiService) DeleteSubshapePortion(request DeleteSubshapePortionRe
 	 	successPayload IPortions
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -4293,7 +4672,7 @@ func (a *SlidesApiService) DeleteSubshapePortion(request DeleteSubshapePortionRe
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portions", responseBytes)
@@ -4346,6 +4725,12 @@ func (a *SlidesApiService) DeleteSubshapePortions(request DeleteSubshapePortions
 	 	successPayload IPortions
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -4434,7 +4819,7 @@ func (a *SlidesApiService) DeleteSubshapePortions(request DeleteSubshapePortions
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portions", responseBytes)
@@ -4481,6 +4866,9 @@ func (a *SlidesApiService) DownloadFile(request DownloadFileRequest) (*os.File, 
 	 	successPayload *os.File
 	)
 
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/file/{path}"
 	pathPathStringValue := fmt.Sprintf("%v", request.Path)
@@ -4533,7 +4921,7 @@ func (a *SlidesApiService) DownloadFile(request DownloadFileRequest) (*os.File, 
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -4605,7 +4993,7 @@ func (a *SlidesApiService) GetDiscUsage(request GetDiscUsageRequest) (IDiscUsage
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("DiscUsage", responseBytes)
@@ -4643,6 +5031,9 @@ func (a *SlidesApiService) GetFileVersions(request GetFileVersionsRequest) (IFil
 	 	successPayload IFileVersions
 	)
 
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/version/{path}"
 	pathPathStringValue := fmt.Sprintf("%v", request.Path)
@@ -4689,7 +5080,7 @@ func (a *SlidesApiService) GetFileVersions(request GetFileVersionsRequest) (IFil
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("FileVersions", responseBytes)
@@ -4728,6 +5119,9 @@ func (a *SlidesApiService) GetFilesList(request GetFilesListRequest) (IFilesList
 	 	successPayload IFilesList
 	)
 
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/folder/{path}"
 	pathPathStringValue := fmt.Sprintf("%v", request.Path)
@@ -4774,7 +5168,7 @@ func (a *SlidesApiService) GetFilesList(request GetFilesListRequest) (IFilesList
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("FilesList", responseBytes)
@@ -4816,6 +5210,9 @@ func (a *SlidesApiService) GetLayoutSlide(request GetLayoutSlideRequest) (ILayou
 	 	successPayload ILayoutSlide
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/layoutSlides/{slideIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -4880,7 +5277,7 @@ func (a *SlidesApiService) GetLayoutSlide(request GetLayoutSlideRequest) (ILayou
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("LayoutSlide", responseBytes)
@@ -4924,6 +5321,9 @@ func (a *SlidesApiService) GetLayoutSlidesList(request GetLayoutSlidesListReques
 	 	successPayload ILayoutSlides
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/layoutSlides"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -4982,7 +5382,7 @@ func (a *SlidesApiService) GetLayoutSlidesList(request GetLayoutSlidesListReques
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("LayoutSlides", responseBytes)
@@ -5026,6 +5426,9 @@ func (a *SlidesApiService) GetMasterSlide(request GetMasterSlideRequest) (IMaste
 	 	successPayload IMasterSlide
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/masterSlides/{slideIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -5090,7 +5493,7 @@ func (a *SlidesApiService) GetMasterSlide(request GetMasterSlideRequest) (IMaste
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("MasterSlide", responseBytes)
@@ -5134,6 +5537,9 @@ func (a *SlidesApiService) GetMasterSlidesList(request GetMasterSlidesListReques
 	 	successPayload IMasterSlides
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/masterSlides"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -5192,7 +5598,7 @@ func (a *SlidesApiService) GetMasterSlidesList(request GetMasterSlidesListReques
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("MasterSlides", responseBytes)
@@ -5236,6 +5642,9 @@ func (a *SlidesApiService) GetNotesSlide(request GetNotesSlideRequest) (INotesSl
 	 	successPayload INotesSlide
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -5300,7 +5709,7 @@ func (a *SlidesApiService) GetNotesSlide(request GetNotesSlideRequest) (INotesSl
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("NotesSlide", responseBytes)
@@ -5345,6 +5754,9 @@ func (a *SlidesApiService) GetNotesSlideExists(request GetNotesSlideExistsReques
 	 	successPayload IEntityExists
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/exist"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -5409,7 +5821,7 @@ func (a *SlidesApiService) GetNotesSlideExists(request GetNotesSlideExistsReques
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("EntityExists", responseBytes)
@@ -5438,6 +5850,118 @@ type GetNotesSlideExistsRequest struct {
     Storage string
 }
 
+/* SlidesApiService Get header/footer info for the notes slide.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "storage" (string) Document storage.
+     @param "folder" (string) Document folder.
+ @return NotesSlideHeaderFooter*/
+func (a *SlidesApiService) GetNotesSlideHeaderFooter(request GetNotesSlideHeaderFooterRequest) (INotesSlideHeaderFooter, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload INotesSlideHeaderFooter
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/headerFooter"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("NotesSlideHeaderFooter", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(INotesSlideHeaderFooter); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(INotesSlideHeaderFooter); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.GetNotesSlideHeaderFooter
+*/
+type GetNotesSlideHeaderFooterRequest struct {
+    Name string
+    SlideIndex int32
+    Password string
+    Storage string
+    Folder string
+}
+
 /* SlidesApiService Read slide shape info.
  @param name Document name.
  @param slideIndex Slide index.
@@ -5455,6 +5979,9 @@ func (a *SlidesApiService) GetNotesSlideShape(request GetNotesSlideShapeRequest)
 	 	successPayload IShapeBase
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -5525,7 +6052,7 @@ func (a *SlidesApiService) GetNotesSlideShape(request GetNotesSlideShapeRequest)
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
@@ -5573,6 +6100,9 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraph(request GetNotesSlideShap
 	 	successPayload IParagraph
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -5649,7 +6179,7 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraph(request GetNotesSlideShap
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
@@ -5697,6 +6227,9 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraphs(request GetNotesSlideSha
 	 	successPayload IParagraphs
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -5767,7 +6300,7 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraphs(request GetNotesSlideSha
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
@@ -5816,6 +6349,9 @@ func (a *SlidesApiService) GetNotesSlideShapePortion(request GetNotesSlideShapeP
 	 	successPayload IPortion
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -5898,7 +6434,7 @@ func (a *SlidesApiService) GetNotesSlideShapePortion(request GetNotesSlideShapeP
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portion", responseBytes)
@@ -5948,6 +6484,9 @@ func (a *SlidesApiService) GetNotesSlideShapePortions(request GetNotesSlideShape
 	 	successPayload IPortions
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -6024,7 +6563,7 @@ func (a *SlidesApiService) GetNotesSlideShapePortions(request GetNotesSlideShape
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portions", responseBytes)
@@ -6071,6 +6610,9 @@ func (a *SlidesApiService) GetNotesSlideShapes(request GetNotesSlideShapesReques
 	 	successPayload IShapes
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -6135,7 +6677,7 @@ func (a *SlidesApiService) GetNotesSlideShapes(request GetNotesSlideShapesReques
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
@@ -6184,6 +6726,12 @@ func (a *SlidesApiService) GetNotesSlideWithFormat(request GetNotesSlideWithForm
 	 	successPayload *os.File
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Format) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.format")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -6276,7 +6824,7 @@ func (a *SlidesApiService) GetNotesSlideWithFormat(request GetNotesSlideWithForm
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -6321,6 +6869,9 @@ func (a *SlidesApiService) GetParagraphPortion(request GetParagraphPortionReques
 	 	successPayload IPortion
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -6403,7 +6954,7 @@ func (a *SlidesApiService) GetParagraphPortion(request GetParagraphPortionReques
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portion", responseBytes)
@@ -6453,6 +7004,9 @@ func (a *SlidesApiService) GetParagraphPortions(request GetParagraphPortionsRequ
 	 	successPayload IPortions
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -6529,7 +7083,7 @@ func (a *SlidesApiService) GetParagraphPortions(request GetParagraphPortionsRequ
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portions", responseBytes)
@@ -6560,6 +7114,110 @@ type GetParagraphPortionsRequest struct {
     Storage string
 }
 
+/* SlidesApiService Read presentation sections info.
+ @param name Document name.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Sections*/
+func (a *SlidesApiService) GetSections(request GetSectionsRequest) (ISections, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload ISections
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/sections"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("Sections", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISections); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISections); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.GetSections
+*/
+type GetSectionsRequest struct {
+    Name string
+    Password string
+    Folder string
+    Storage string
+}
+
 /* SlidesApiService Read slide animation effects.
  @param name Document name.
  @param slideIndex Slide index.
@@ -6577,6 +7235,9 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -6649,7 +7310,7 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -6679,6 +7340,118 @@ type GetSlideAnimationRequest struct {
     Storage string
 }
 
+/* SlidesApiService Get footer info for the slide.
+ @param name Document name.
+ @param slideIndex The position of the slide to be reordered.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return HeaderFooter*/
+func (a *SlidesApiService) GetSlideHeaderFooter(request GetSlideHeaderFooterRequest) (IHeaderFooter, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IHeaderFooter
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/headerFooter"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("HeaderFooter", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IHeaderFooter); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IHeaderFooter); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.GetSlideHeaderFooter
+*/
+type GetSlideHeaderFooterRequest struct {
+    Name string
+    SlideIndex int32
+    Password string
+    Folder string
+    Storage string
+}
+
 /* SlidesApiService Read slide shape info.
  @param name Document name.
  @param slideIndex Slide index.
@@ -6696,6 +7469,9 @@ func (a *SlidesApiService) GetSlideShape(request GetSlideShapeRequest) (IShapeBa
 	 	successPayload IShapeBase
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -6766,7 +7542,7 @@ func (a *SlidesApiService) GetSlideShape(request GetSlideShapeRequest) (IShapeBa
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
@@ -6814,6 +7590,9 @@ func (a *SlidesApiService) GetSlideShapeParagraph(request GetSlideShapeParagraph
 	 	successPayload IParagraph
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -6890,7 +7669,7 @@ func (a *SlidesApiService) GetSlideShapeParagraph(request GetSlideShapeParagraph
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
@@ -6938,6 +7717,9 @@ func (a *SlidesApiService) GetSlideShapeParagraphs(request GetSlideShapeParagrap
 	 	successPayload IParagraphs
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -7008,7 +7790,7 @@ func (a *SlidesApiService) GetSlideShapeParagraphs(request GetSlideShapeParagrap
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
@@ -7054,6 +7836,9 @@ func (a *SlidesApiService) GetSlideShapes(request GetSlideShapesRequest) (IShape
 	 	successPayload IShapes
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -7118,7 +7903,7 @@ func (a *SlidesApiService) GetSlideShapes(request GetSlideShapesRequest) (IShape
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
@@ -7165,6 +7950,12 @@ func (a *SlidesApiService) GetSlideSubshape(request GetSlideSubshapeRequest) (IS
 	 	successPayload IShapeBase
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -7241,7 +8032,7 @@ func (a *SlidesApiService) GetSlideSubshape(request GetSlideSubshapeRequest) (IS
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
@@ -7291,6 +8082,12 @@ func (a *SlidesApiService) GetSlideSubshapeParagraph(request GetSlideSubshapePar
 	 	successPayload IParagraph
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -7373,7 +8170,7 @@ func (a *SlidesApiService) GetSlideSubshapeParagraph(request GetSlideSubshapePar
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
@@ -7423,6 +8220,12 @@ func (a *SlidesApiService) GetSlideSubshapeParagraphs(request GetSlideSubshapePa
 	 	successPayload IParagraphs
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -7499,7 +8302,7 @@ func (a *SlidesApiService) GetSlideSubshapeParagraphs(request GetSlideSubshapePa
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraphs", responseBytes)
@@ -7547,6 +8350,12 @@ func (a *SlidesApiService) GetSlideSubshapes(request GetSlideSubshapesRequest) (
 	 	successPayload IShapes
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -7617,7 +8426,7 @@ func (a *SlidesApiService) GetSlideSubshapes(request GetSlideSubshapesRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Shapes", responseBytes)
@@ -7691,7 +8500,7 @@ func (a *SlidesApiService) GetSlidesApiInfo() (IApiInfo, *http.Response, error) 
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ApiInfo", responseBytes)
@@ -7726,6 +8535,9 @@ func (a *SlidesApiService) GetSlidesDocument(request GetSlidesDocumentRequest) (
 	 	successPayload IDocument
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -7784,7 +8596,7 @@ func (a *SlidesApiService) GetSlidesDocument(request GetSlidesDocumentRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Document", responseBytes)
@@ -7827,6 +8639,9 @@ func (a *SlidesApiService) GetSlidesDocumentProperties(request GetSlidesDocument
 	 	successPayload IDocumentProperties
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/documentproperties"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -7885,7 +8700,7 @@ func (a *SlidesApiService) GetSlidesDocumentProperties(request GetSlidesDocument
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("DocumentProperties", responseBytes)
@@ -7929,6 +8744,12 @@ func (a *SlidesApiService) GetSlidesDocumentProperty(request GetSlidesDocumentPr
 	 	successPayload IDocumentProperty
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.PropertyName) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.propertyName")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/documentproperties/{propertyName}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -7993,7 +8814,7 @@ func (a *SlidesApiService) GetSlidesDocumentProperty(request GetSlidesDocumentPr
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("DocumentProperty", responseBytes)
@@ -8038,6 +8859,9 @@ func (a *SlidesApiService) GetSlidesImageWithDefaultFormat(request GetSlidesImag
 	 	successPayload *os.File
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/images/{index}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -8102,7 +8926,7 @@ func (a *SlidesApiService) GetSlidesImageWithDefaultFormat(request GetSlidesImag
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -8141,6 +8965,12 @@ func (a *SlidesApiService) GetSlidesImageWithFormat(request GetSlidesImageWithFo
 	 	successPayload *os.File
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Format) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.format")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/images/{index}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -8211,7 +9041,7 @@ func (a *SlidesApiService) GetSlidesImageWithFormat(request GetSlidesImageWithFo
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -8249,6 +9079,9 @@ func (a *SlidesApiService) GetSlidesImages(request GetSlidesImagesRequest) (IIma
 	 	successPayload IImages
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/images"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -8307,7 +9140,7 @@ func (a *SlidesApiService) GetSlidesImages(request GetSlidesImagesRequest) (IIma
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Images", responseBytes)
@@ -8352,6 +9185,9 @@ func (a *SlidesApiService) GetSlidesPlaceholder(request GetSlidesPlaceholderRequ
 	 	successPayload IPlaceholder
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/placeholders/{placeholderIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -8422,7 +9258,7 @@ func (a *SlidesApiService) GetSlidesPlaceholder(request GetSlidesPlaceholderRequ
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Placeholder", responseBytes)
@@ -8468,6 +9304,9 @@ func (a *SlidesApiService) GetSlidesPlaceholders(request GetSlidesPlaceholdersRe
 	 	successPayload IPlaceholders
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/placeholders"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -8532,7 +9371,7 @@ func (a *SlidesApiService) GetSlidesPlaceholders(request GetSlidesPlaceholdersRe
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Placeholders", responseBytes)
@@ -8577,6 +9416,9 @@ func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPrese
 	 	successPayload ITextItems
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/textItems"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -8643,7 +9485,7 @@ func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPrese
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("TextItems", responseBytes)
@@ -8688,6 +9530,9 @@ func (a *SlidesApiService) GetSlidesSlide(request GetSlidesSlideRequest) (ISlide
 	 	successPayload ISlide
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -8752,7 +9597,7 @@ func (a *SlidesApiService) GetSlidesSlide(request GetSlidesSlideRequest) (ISlide
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Slide", responseBytes)
@@ -8797,6 +9642,9 @@ func (a *SlidesApiService) GetSlidesSlideBackground(request GetSlidesSlideBackgr
 	 	successPayload ISlideBackground
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/background"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -8861,7 +9709,7 @@ func (a *SlidesApiService) GetSlidesSlideBackground(request GetSlidesSlideBackgr
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideBackground", responseBytes)
@@ -8906,6 +9754,9 @@ func (a *SlidesApiService) GetSlidesSlideComments(request GetSlidesSlideComments
 	 	successPayload ISlideComments
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/comments"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -8970,7 +9821,7 @@ func (a *SlidesApiService) GetSlidesSlideComments(request GetSlidesSlideComments
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideComments", responseBytes)
@@ -9015,6 +9866,9 @@ func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequ
 	 	successPayload IImages
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/images"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -9079,7 +9933,7 @@ func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequ
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Images", responseBytes)
@@ -9125,6 +9979,9 @@ func (a *SlidesApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextIte
 	 	successPayload ITextItems
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/textItems"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -9197,7 +10054,7 @@ func (a *SlidesApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextIte
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("TextItems", responseBytes)
@@ -9242,6 +10099,9 @@ func (a *SlidesApiService) GetSlidesSlidesList(request GetSlidesSlidesListReques
 	 	successPayload ISlides
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -9300,7 +10160,7 @@ func (a *SlidesApiService) GetSlidesSlidesList(request GetSlidesSlidesListReques
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Slides", responseBytes)
@@ -9344,6 +10204,9 @@ func (a *SlidesApiService) GetSlidesTheme(request GetSlidesThemeRequest) (ITheme
 	 	successPayload ITheme
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/theme"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -9408,7 +10271,7 @@ func (a *SlidesApiService) GetSlidesTheme(request GetSlidesThemeRequest) (ITheme
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Theme", responseBytes)
@@ -9453,6 +10316,9 @@ func (a *SlidesApiService) GetSlidesThemeColorScheme(request GetSlidesThemeColor
 	 	successPayload IColorScheme
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/theme/colorScheme"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -9517,7 +10383,7 @@ func (a *SlidesApiService) GetSlidesThemeColorScheme(request GetSlidesThemeColor
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ColorScheme", responseBytes)
@@ -9562,6 +10428,9 @@ func (a *SlidesApiService) GetSlidesThemeFontScheme(request GetSlidesThemeFontSc
 	 	successPayload IFontScheme
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/theme/fontScheme"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -9626,7 +10495,7 @@ func (a *SlidesApiService) GetSlidesThemeFontScheme(request GetSlidesThemeFontSc
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("FontScheme", responseBytes)
@@ -9671,6 +10540,9 @@ func (a *SlidesApiService) GetSlidesThemeFormatScheme(request GetSlidesThemeForm
 	 	successPayload IFormatScheme
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/theme/formatScheme"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -9735,7 +10607,7 @@ func (a *SlidesApiService) GetSlidesThemeFormatScheme(request GetSlidesThemeForm
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("FormatScheme", responseBytes)
@@ -9779,6 +10651,9 @@ func (a *SlidesApiService) GetSlidesViewProperties(request GetSlidesViewProperti
 	 	successPayload IViewProperties
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/viewProperties"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -9837,7 +10712,7 @@ func (a *SlidesApiService) GetSlidesViewProperties(request GetSlidesViewProperti
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ViewProperties", responseBytes)
@@ -9885,6 +10760,12 @@ func (a *SlidesApiService) GetSubshapeParagraphPortion(request GetSubshapeParagr
 	 	successPayload IPortion
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -9973,7 +10854,7 @@ func (a *SlidesApiService) GetSubshapeParagraphPortion(request GetSubshapeParagr
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portion", responseBytes)
@@ -10025,6 +10906,12 @@ func (a *SlidesApiService) GetSubshapeParagraphPortions(request GetSubshapeParag
 	 	successPayload IPortions
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -10107,7 +10994,7 @@ func (a *SlidesApiService) GetSubshapeParagraphPortions(request GetSubshapeParag
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portions", responseBytes)
@@ -10154,6 +11041,12 @@ func (a *SlidesApiService) MoveFile(request MoveFileRequest) (*http.Response, er
 		localVarFiles [][]byte
 	)
 
+	if len(request.SrcPath) == 0 {
+		return nil, reportError("Missing required parameter request.srcPath")
+	}
+	if len(request.DestPath) == 0 {
+		return nil, reportError("Missing required parameter request.destPath")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/file/move/{srcPath}"
 	srcPathPathStringValue := fmt.Sprintf("%v", request.SrcPath)
@@ -10213,7 +11106,7 @@ func (a *SlidesApiService) MoveFile(request MoveFileRequest) (*http.Response, er
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -10244,6 +11137,12 @@ func (a *SlidesApiService) MoveFolder(request MoveFolderRequest) (*http.Response
 		localVarFiles [][]byte
 	)
 
+	if len(request.SrcPath) == 0 {
+		return nil, reportError("Missing required parameter request.srcPath")
+	}
+	if len(request.DestPath) == 0 {
+		return nil, reportError("Missing required parameter request.destPath")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/folder/move/{srcPath}"
 	srcPathPathStringValue := fmt.Sprintf("%v", request.SrcPath)
@@ -10297,7 +11196,7 @@ func (a *SlidesApiService) MoveFolder(request MoveFolderRequest) (*http.Response
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -10327,6 +11226,9 @@ func (a *SlidesApiService) ObjectExists(request ObjectExistsRequest) (IObjectExi
 	 	successPayload IObjectExist
 	)
 
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/exist/{path}"
 	pathPathStringValue := fmt.Sprintf("%v", request.Path)
@@ -10379,7 +11281,7 @@ func (a *SlidesApiService) ObjectExists(request ObjectExistsRequest) (IObjectExi
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ObjectExist", responseBytes)
@@ -10410,8 +11312,8 @@ type ObjectExistsRequest struct {
  @param name Document name.
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
+ @param dto Paragraph DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Paragraph) Paragraph DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -10425,6 +11327,12 @@ func (a *SlidesApiService) PostAddNewParagraph(request PostAddNewParagraphReques
 	 	successPayload IParagraph
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -10505,7 +11413,7 @@ func (a *SlidesApiService) PostAddNewParagraph(request PostAddNewParagraphReques
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
@@ -10542,8 +11450,8 @@ type PostAddNewParagraphRequest struct {
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
  @param paragraphIndex Paragraph index.
+ @param dto Portion DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Portion) Portion DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -10557,6 +11465,12 @@ func (a *SlidesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (
 	 	successPayload IPortion
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -10643,7 +11557,7 @@ func (a *SlidesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portion", responseBytes)
@@ -10695,6 +11609,9 @@ func (a *SlidesApiService) PostAddNewShape(request PostAddNewShapeRequest) (ISha
 	 	successPayload IShapeBase
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -10777,7 +11694,7 @@ func (a *SlidesApiService) PostAddNewShape(request PostAddNewShapeRequest) (ISha
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
@@ -10829,6 +11746,12 @@ func (a *SlidesApiService) PostAddNewSubshape(request PostAddNewSubshapeRequest)
 	 	successPayload IShapeBase
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -10917,7 +11840,7 @@ func (a *SlidesApiService) PostAddNewSubshape(request PostAddNewSubshapeRequest)
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
@@ -10955,8 +11878,8 @@ type PostAddNewSubshapeRequest struct {
  @param slideIndex Slide index.
  @param path Shape path.
  @param shapeIndex Shape index.
+ @param dto Paragraph DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Paragraph) Paragraph DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -10970,6 +11893,15 @@ func (a *SlidesApiService) PostAddNewSubshapeParagraph(request PostAddNewSubshap
 	 	successPayload IParagraph
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -11056,7 +11988,7 @@ func (a *SlidesApiService) PostAddNewSubshapeParagraph(request PostAddNewSubshap
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
@@ -11095,8 +12027,8 @@ type PostAddNewSubshapeParagraphRequest struct {
  @param path Shape path.
  @param shapeIndex Shape index.
  @param paragraphIndex Paragraph index.
+ @param dto Portion DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Portion) Portion DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -11110,6 +12042,15 @@ func (a *SlidesApiService) PostAddNewSubshapePortion(request PostAddNewSubshapeP
 	 	successPayload IPortion
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -11202,7 +12143,7 @@ func (a *SlidesApiService) PostAddNewSubshapePortion(request PostAddNewSubshapeP
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portion", responseBytes)
@@ -11239,8 +12180,8 @@ type PostAddNewSubshapePortionRequest struct {
 /* SlidesApiService Add new notes slide.
  @param name Document name.
  @param slideIndex Slide index.
+ @param dto A NotesSlide object with notes slide data.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (NotesSlide) A NotesSlide object with notes slide data.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -11253,6 +12194,12 @@ func (a *SlidesApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (
 	 	successPayload INotesSlide
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -11319,7 +12266,7 @@ func (a *SlidesApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("NotesSlide", responseBytes)
@@ -11353,8 +12300,8 @@ type PostAddNotesSlideRequest struct {
  @param name Document name.
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
+ @param category Category DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "category" (ChartCategory) Category DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -11367,6 +12314,12 @@ func (a *SlidesApiService) PostChartCategory(request PostChartCategoryRequest) (
 	 	successPayload IChart
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Category == nil {
+		return successPayload, nil, reportError("Missing required parameter request.category")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -11439,7 +12392,7 @@ func (a *SlidesApiService) PostChartCategory(request PostChartCategoryRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Chart", responseBytes)
@@ -11475,8 +12428,8 @@ type PostChartCategoryRequest struct {
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
  @param seriesIndex Series index.
+ @param dataPoint Data point DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dataPoint" (DataPoint) Data point DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -11489,6 +12442,12 @@ func (a *SlidesApiService) PostChartDataPoint(request PostChartDataPointRequest)
 	 	successPayload IChart
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.DataPoint == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dataPoint")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -11567,7 +12526,7 @@ func (a *SlidesApiService) PostChartDataPoint(request PostChartDataPointRequest)
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Chart", responseBytes)
@@ -11603,8 +12562,8 @@ type PostChartDataPointRequest struct {
  @param name Document name.
  @param slideIndex Slide index.
  @param shapeIndex Shape index (must be a chart).
+ @param series Series DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "series" (Series) Series DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -11617,6 +12576,12 @@ func (a *SlidesApiService) PostChartSeries(request PostChartSeriesRequest) (ICha
 	 	successPayload IChart
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Series == nil {
+		return successPayload, nil, reportError("Missing required parameter request.series")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -11689,7 +12654,7 @@ func (a *SlidesApiService) PostChartSeries(request PostChartSeriesRequest) (ICha
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Chart", responseBytes)
@@ -11739,6 +12704,12 @@ func (a *SlidesApiService) PostCopyLayoutSlideFromSourcePresentation(request Pos
 	 	successPayload ILayoutSlide
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.CloneFrom) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.cloneFrom")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/layoutSlides"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -11811,7 +12782,7 @@ func (a *SlidesApiService) PostCopyLayoutSlideFromSourcePresentation(request Pos
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("LayoutSlide", responseBytes)
@@ -11863,6 +12834,12 @@ func (a *SlidesApiService) PostCopyMasterSlideFromSourcePresentation(request Pos
 	 	successPayload IMasterSlide
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.CloneFrom) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.cloneFrom")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/masterSlides"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -11943,7 +12920,7 @@ func (a *SlidesApiService) PostCopyMasterSlideFromSourcePresentation(request Pos
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("MasterSlide", responseBytes)
@@ -11977,9 +12954,9 @@ type PostCopyMasterSlideFromSourcePresentationRequest struct {
 }
 
 /* SlidesApiService Read notes slide info.
+ @param document Document data.
  @param slideIndex Slide index.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "document" ([]byte) Document data.
      @param "password" (string) Document password.
  @return NotesSlide*/
 func (a *SlidesApiService) PostGetNotesSlide(request PostGetNotesSlideRequest) (INotesSlide, *http.Response, error) {
@@ -11990,6 +12967,9 @@ func (a *SlidesApiService) PostGetNotesSlide(request PostGetNotesSlideRequest) (
 	 	successPayload INotesSlide
 	)
 
+	if len(request.Document) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.document")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/slides/{slideIndex}/notesSlide"
 	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
@@ -12038,7 +13018,7 @@ func (a *SlidesApiService) PostGetNotesSlide(request PostGetNotesSlideRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("NotesSlide", responseBytes)
@@ -12060,15 +13040,15 @@ func (a *SlidesApiService) PostGetNotesSlide(request PostGetNotesSlideRequest) (
 /* Request for SlidesApiService.PostGetNotesSlide
 */
 type PostGetNotesSlideRequest struct {
-    SlideIndex int32
     Document []byte
+    SlideIndex int32
     Password string
 }
 
 /* SlidesApiService Get info whether a notes slide exists.
+ @param document Document data.
  @param slideIndex Slide index.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "document" ([]byte) Document data.
      @param "password" (string) Document password.
  @return EntityExists*/
 func (a *SlidesApiService) PostGetNotesSlideExists(request PostGetNotesSlideExistsRequest) (IEntityExists, *http.Response, error) {
@@ -12079,6 +13059,9 @@ func (a *SlidesApiService) PostGetNotesSlideExists(request PostGetNotesSlideExis
 	 	successPayload IEntityExists
 	)
 
+	if len(request.Document) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.document")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/slides/{slideIndex}/notesSlide/exist"
 	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
@@ -12127,7 +13110,7 @@ func (a *SlidesApiService) PostGetNotesSlideExists(request PostGetNotesSlideExis
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("EntityExists", responseBytes)
@@ -12149,16 +13132,16 @@ func (a *SlidesApiService) PostGetNotesSlideExists(request PostGetNotesSlideExis
 /* Request for SlidesApiService.PostGetNotesSlideExists
 */
 type PostGetNotesSlideExistsRequest struct {
-    SlideIndex int32
     Document []byte
+    SlideIndex int32
     Password string
 }
 
 /* SlidesApiService Convert notes slide to the specified image format.
+ @param document Document data.
  @param slideIndex Slide index.
  @param format Output file format.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "document" ([]byte) Document data.
      @param "width" (int32) Output file width.
      @param "height" (int32) Output file height.
      @param "password" (string) Document password.
@@ -12172,6 +13155,12 @@ func (a *SlidesApiService) PostGetNotesSlideWithFormat(request PostGetNotesSlide
 	 	successPayload *os.File
 	)
 
+	if len(request.Document) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.document")
+	}
+	if len(request.Format) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.format")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/slides/{slideIndex}/notesSlide/{format}"
 	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
@@ -12248,7 +13237,7 @@ func (a *SlidesApiService) PostGetNotesSlideWithFormat(request PostGetNotesSlide
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -12263,9 +13252,9 @@ func (a *SlidesApiService) PostGetNotesSlideWithFormat(request PostGetNotesSlide
 /* Request for SlidesApiService.PostGetNotesSlideWithFormat
 */
 type PostGetNotesSlideWithFormatRequest struct {
+    Document []byte
     SlideIndex int32
     Format string
-    Document []byte
     Width *int32
     Height *int32
     Password string
@@ -12276,8 +13265,8 @@ type PostGetNotesSlideWithFormatRequest struct {
  @param name Document name.
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
+ @param dto Paragraph DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Paragraph) Paragraph DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -12291,6 +13280,12 @@ func (a *SlidesApiService) PostNotesSlideAddNewParagraph(request PostNotesSlideA
 	 	successPayload IParagraph
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -12371,7 +13366,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewParagraph(request PostNotesSlideA
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
@@ -12408,8 +13403,8 @@ type PostNotesSlideAddNewParagraphRequest struct {
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
  @param paragraphIndex Paragraph index.
+ @param dto Portion DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Portion) Portion DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -12423,6 +13418,12 @@ func (a *SlidesApiService) PostNotesSlideAddNewPortion(request PostNotesSlideAdd
 	 	successPayload IPortion
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -12509,7 +13510,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewPortion(request PostNotesSlideAdd
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portion", responseBytes)
@@ -12545,8 +13546,8 @@ type PostNotesSlideAddNewPortionRequest struct {
 /* SlidesApiService Create new shape.
  @param name Document name.
  @param slideIndex Slide index.
+ @param dto Shape DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (ShapeBase) Shape DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -12561,6 +13562,12 @@ func (a *SlidesApiService) PostNotesSlideAddNewShape(request PostNotesSlideAddNe
 	 	successPayload IShapeBase
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -12643,7 +13650,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewShape(request PostNotesSlideAddNe
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
@@ -12698,6 +13705,12 @@ func (a *SlidesApiService) PostNotesSlideShapeSaveAs(request PostNotesSlideShape
 	 	successPayload *os.File
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Format) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.format")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -12804,7 +13817,7 @@ func (a *SlidesApiService) PostNotesSlideShapeSaveAs(request PostNotesSlideShape
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -12835,8 +13848,8 @@ type PostNotesSlideShapeSaveAsRequest struct {
 
 /* SlidesApiService Merge the presentation with other presentations specified in the request parameter.
  @param name Document name.
+ @param request PresentationsMergeRequest with a list of presentations to merge.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "request" (PresentationsMergeRequest) PresentationsMergeRequest with a list of presentations to merge.
      @param "password" (string) Document password.
      @param "storage" (string) Document storage.
      @param "folder" (string) Document folder.
@@ -12849,6 +13862,12 @@ func (a *SlidesApiService) PostPresentationMerge(request PostPresentationMergeRe
 	 	successPayload IDocument
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Request == nil {
+		return successPayload, nil, reportError("Missing required parameter request.request")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/merge"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -12909,7 +13928,7 @@ func (a *SlidesApiService) PostPresentationMerge(request PostPresentationMergeRe
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Document", responseBytes)
@@ -12938,6 +13957,234 @@ type PostPresentationMergeRequest struct {
     Folder string
 }
 
+/* SlidesApiService Create a section starting at a specified slide index.
+ @param name Document name.
+ @param sectionName Section name.
+ @param slideIndex Slide index (one-based).
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Sections*/
+func (a *SlidesApiService) PostSection(request PostSectionRequest) (ISections, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload ISections
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.SectionName) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.sectionName")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/sections"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("SectionName", parameterToString(request.SectionName, ""))
+	localVarQueryParams.Add("SlideIndex", parameterToString(request.SlideIndex, ""))
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("Sections", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISections); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISections); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PostSection
+*/
+type PostSectionRequest struct {
+    Name string
+    SectionName string
+    SlideIndex int32
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Move presentation section to a specified position.
+ @param name Document name.
+ @param sectionIndex The position of the section to be reordered.
+ @param newPosition The new position of the reordered section.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Sections*/
+func (a *SlidesApiService) PostSectionMove(request PostSectionMoveRequest) (ISections, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload ISections
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/sections/{sectionIndex}/move"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	sectionIndexPathStringValue := fmt.Sprintf("%v", request.SectionIndex)
+	if len(sectionIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"sectionIndex"+"}", sectionIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"sectionIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("NewPosition", parameterToString(request.NewPosition, ""))
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("Sections", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISections); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISections); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PostSectionMove
+*/
+type PostSectionMoveRequest struct {
+    Name string
+    SectionIndex int32
+    NewPosition int32
+    Password string
+    Folder string
+    Storage string
+}
+
 /* SlidesApiService Render shape to specified picture format.
  @param name Presentation name.
  @param slideIndex Slide index.
@@ -12961,6 +14208,12 @@ func (a *SlidesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 	 	successPayload *os.File
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Format) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.format")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -13067,7 +14320,7 @@ func (a *SlidesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -13099,8 +14352,8 @@ type PostShapeSaveAsRequest struct {
 /* SlidesApiService Add an effect to slide animation.
  @param name Document name.
  @param slideIndex Slide index.
+ @param effect Animation effect DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "effect" (Effect) Animation effect DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -13113,6 +14366,12 @@ func (a *SlidesApiService) PostSlideAnimationEffect(request PostSlideAnimationEf
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Effect == nil {
+		return successPayload, nil, reportError("Missing required parameter request.effect")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation/mainSequence"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -13179,7 +14438,7 @@ func (a *SlidesApiService) PostSlideAnimationEffect(request PostSlideAnimationEf
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -13212,8 +14471,8 @@ type PostSlideAnimationEffectRequest struct {
 /* SlidesApiService Set slide animation.
  @param name Document name.
  @param slideIndex Slide index.
+ @param sequence Animation sequence DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "sequence" (InteractiveSequence) Animation sequence DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -13226,6 +14485,12 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequence(request PostSli
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Sequence == nil {
+		return successPayload, nil, reportError("Missing required parameter request.sequence")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -13292,7 +14557,7 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequence(request PostSli
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -13326,8 +14591,8 @@ type PostSlideAnimationInteractiveSequenceRequest struct {
  @param name Document name.
  @param slideIndex Slide index.
  @param sequenceIndex The position of the interactive sequence.
+ @param effect Animation effect DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "effect" (Effect) Animation effect DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -13340,6 +14605,12 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequenceEffect(request P
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Effect == nil {
+		return successPayload, nil, reportError("Missing required parameter request.effect")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -13412,7 +14683,7 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequenceEffect(request P
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -13464,6 +14735,12 @@ func (a *SlidesApiService) PostSlideSaveAs(request PostSlideSaveAsRequest) (*os.
 	 	successPayload *os.File
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Format) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.format")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -13558,7 +14835,7 @@ func (a *SlidesApiService) PostSlideSaveAs(request PostSlideSaveAsRequest) (*os.
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -13602,6 +14879,9 @@ func (a *SlidesApiService) PostSlidesAdd(request PostSlidesAddRequest) (ISlides,
 	 	successPayload ISlides
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -13674,7 +14954,7 @@ func (a *SlidesApiService) PostSlidesAdd(request PostSlidesAddRequest) (ISlides,
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Slides", responseBytes)
@@ -13705,9 +14985,9 @@ type PostSlidesAddRequest struct {
 }
 
 /* SlidesApiService Convert presentation from request content to format specified.
+ @param document Document data.
  @param format Export format.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "document" ([]byte) Document data.
      @param "password" (string) Document password.
      @param "fontsFolder" (string) Custom fonts folder.
  @return *os.File*/
@@ -13719,6 +14999,12 @@ func (a *SlidesApiService) PostSlidesConvert(request PostSlidesConvertRequest) (
 	 	successPayload *os.File
 	)
 
+	if len(request.Document) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.document")
+	}
+	if len(request.Format) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.format")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/convert/{format}"
 	formatPathStringValue := fmt.Sprintf("%v", request.Format)
@@ -13773,7 +15059,7 @@ func (a *SlidesApiService) PostSlidesConvert(request PostSlidesConvertRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -13788,8 +15074,8 @@ func (a *SlidesApiService) PostSlidesConvert(request PostSlidesConvertRequest) (
 /* Request for SlidesApiService.PostSlidesConvert
 */
 type PostSlidesConvertRequest struct {
-    Format string
     Document []byte
+    Format string
     Password string
     FontsFolder string
 }
@@ -13814,6 +15100,9 @@ func (a *SlidesApiService) PostSlidesCopy(request PostSlidesCopyRequest) (ISlide
 	 	successPayload ISlides
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/copy"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -13899,7 +15188,7 @@ func (a *SlidesApiService) PostSlidesCopy(request PostSlidesCopyRequest) (ISlide
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Slides", responseBytes)
@@ -13949,6 +15238,9 @@ func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest)
 	 	successPayload IDocument
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -14015,7 +15307,7 @@ func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest)
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Document", responseBytes)
@@ -14061,6 +15353,9 @@ func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocument
 	 	successPayload IDocument
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/fromHtml"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -14124,7 +15419,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocument
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Document", responseBytes)
@@ -14171,6 +15466,9 @@ func (a *SlidesApiService) PostSlidesDocumentFromSource(request PostSlidesDocume
 	 	successPayload IDocument
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/fromSource"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -14247,7 +15545,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromSource(request PostSlidesDocume
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Document", responseBytes)
@@ -14298,6 +15596,12 @@ func (a *SlidesApiService) PostSlidesDocumentFromTemplate(request PostSlidesDocu
 	 	successPayload IDocument
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.TemplatePath) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.templatePath")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/fromTemplate"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -14382,7 +15686,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromTemplate(request PostSlidesDocu
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Document", responseBytes)
@@ -14416,9 +15720,7 @@ type PostSlidesDocumentFromTemplateRequest struct {
 }
 
 /* SlidesApiService Performs slides pipeline.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "pipeline" (Pipeline) A Pipeline object.
-     @param "files" ([][]byte) files to upload with the pipeline
+ @param pipeline A Pipeline object.
  @return *os.File*/
 func (a *SlidesApiService) PostSlidesPipeline(request PostSlidesPipelineRequest) (*os.File, *http.Response, error) {
 	var (
@@ -14428,6 +15730,9 @@ func (a *SlidesApiService) PostSlidesPipeline(request PostSlidesPipelineRequest)
 	 	successPayload *os.File
 	)
 
+	if request.Pipeline == nil {
+		return successPayload, nil, reportError("Missing required parameter request.pipeline")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/pipeline"
 
@@ -14465,7 +15770,7 @@ func (a *SlidesApiService) PostSlidesPipeline(request PostSlidesPipelineRequest)
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -14502,6 +15807,15 @@ func (a *SlidesApiService) PostSlidesPresentationReplaceText(request PostSlidesP
 	 	successPayload IDocumentReplaceResult
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.OldValue) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.oldValue")
+	}
+	if len(request.NewValue) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.newValue")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/replaceText"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -14570,7 +15884,7 @@ func (a *SlidesApiService) PostSlidesPresentationReplaceText(request PostSlidesP
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("DocumentReplaceResult", responseBytes)
@@ -14618,6 +15932,9 @@ func (a *SlidesApiService) PostSlidesReorder(request PostSlidesReorderRequest) (
 	 	successPayload ISlides
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/move"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -14683,7 +16000,7 @@ func (a *SlidesApiService) PostSlidesReorder(request PostSlidesReorderRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Slides", responseBytes)
@@ -14730,6 +16047,9 @@ func (a *SlidesApiService) PostSlidesReorderMany(request PostSlidesReorderManyRe
 	 	successPayload ISlides
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/reorder"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -14800,7 +16120,7 @@ func (a *SlidesApiService) PostSlidesReorderMany(request PostSlidesReorderManyRe
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Slides", responseBytes)
@@ -14848,6 +16168,12 @@ func (a *SlidesApiService) PostSlidesSaveAs(request PostSlidesSaveAsRequest) (*o
 	 	successPayload *os.File
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Format) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.format")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -14920,7 +16246,7 @@ func (a *SlidesApiService) PostSlidesSaveAs(request PostSlidesSaveAsRequest) (*o
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -14946,8 +16272,8 @@ type PostSlidesSaveAsRequest struct {
 
 /* SlidesApiService Set document properties.
  @param name Document name.
+ @param properties New properties.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "properties" (DocumentProperties) New properties.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -14960,6 +16286,12 @@ func (a *SlidesApiService) PostSlidesSetDocumentProperties(request PostSlidesSet
 	 	successPayload IDocumentProperties
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Properties == nil {
+		return successPayload, nil, reportError("Missing required parameter request.properties")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/documentproperties"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -15020,7 +16352,7 @@ func (a *SlidesApiService) PostSlidesSetDocumentProperties(request PostSlidesSet
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("DocumentProperties", responseBytes)
@@ -15068,6 +16400,15 @@ func (a *SlidesApiService) PostSlidesSlideReplaceText(request PostSlidesSlideRep
 	 	successPayload ISlideReplaceResult
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.OldValue) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.oldValue")
+	}
+	if len(request.NewValue) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.newValue")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/replaceText"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -15142,7 +16483,7 @@ func (a *SlidesApiService) PostSlidesSlideReplaceText(request PostSlidesSlideRep
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideReplaceResult", responseBytes)
@@ -15197,6 +16538,9 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (ISpl
 	 	successPayload ISplitDocumentResult
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/split"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -15307,7 +16651,7 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (ISpl
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SplitDocumentResult", responseBytes)
@@ -15367,6 +16711,15 @@ func (a *SlidesApiService) PostSubshapeSaveAs(request PostSubshapeSaveAsRequest)
 	 	successPayload *os.File
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
+	if len(request.Format) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.format")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -15479,7 +16832,7 @@ func (a *SlidesApiService) PostSubshapeSaveAs(request PostSubshapeSaveAsRequest)
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	defer successPayload.Close()
@@ -15514,8 +16867,8 @@ type PostSubshapeSaveAsRequest struct {
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
  @param categoryIndex Category index.
+ @param category Category DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "category" (ChartCategory) Category DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -15528,6 +16881,12 @@ func (a *SlidesApiService) PutChartCategory(request PutChartCategoryRequest) (IC
 	 	successPayload IChart
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Category == nil {
+		return successPayload, nil, reportError("Missing required parameter request.category")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/categories/{categoryIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -15606,7 +16965,7 @@ func (a *SlidesApiService) PutChartCategory(request PutChartCategoryRequest) (IC
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Chart", responseBytes)
@@ -15644,8 +17003,8 @@ type PutChartCategoryRequest struct {
  @param shapeIndex Shape index.
  @param seriesIndex Series index.
  @param pointIndex Data point index.
+ @param dataPoint Data point DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dataPoint" (DataPoint) Data point DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -15658,6 +17017,12 @@ func (a *SlidesApiService) PutChartDataPoint(request PutChartDataPointRequest) (
 	 	successPayload IChart
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.DataPoint == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dataPoint")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}/dataPoints/{pointIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -15742,7 +17107,7 @@ func (a *SlidesApiService) PutChartDataPoint(request PutChartDataPointRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Chart", responseBytes)
@@ -15780,8 +17145,8 @@ type PutChartDataPointRequest struct {
  @param slideIndex Slide index.
  @param shapeIndex Shape index (must be a chart).
  @param seriesIndex Series index.
+ @param series Series DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "series" (Series) Series DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -15794,6 +17159,12 @@ func (a *SlidesApiService) PutChartSeries(request PutChartSeriesRequest) (IChart
 	 	successPayload IChart
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Series == nil {
+		return successPayload, nil, reportError("Missing required parameter request.series")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/series/{seriesIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -15872,7 +17243,7 @@ func (a *SlidesApiService) PutChartSeries(request PutChartSeriesRequest) (IChart
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Chart", responseBytes)
@@ -15907,8 +17278,8 @@ type PutChartSeriesRequest struct {
 /* SlidesApiService Update a layoutSlide.
  @param name Document name.
  @param slideIndex Slide index.
+ @param slideDto Slide update data.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "slideDto" (LayoutSlide) Slide update data.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -15921,6 +17292,12 @@ func (a *SlidesApiService) PutLayoutSlide(request PutLayoutSlideRequest) (ILayou
 	 	successPayload ILayoutSlide
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.SlideDto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.slideDto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/layoutSlides/{slideIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -15987,7 +17364,7 @@ func (a *SlidesApiService) PutLayoutSlide(request PutLayoutSlideRequest) (ILayou
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("LayoutSlide", responseBytes)
@@ -16017,6 +17394,125 @@ type PutLayoutSlideRequest struct {
     Storage string
 }
 
+/* SlidesApiService Set header/footer the notes slide.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param dto Header/footer to set.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "storage" (string) Document storage.
+     @param "folder" (string) Document folder.
+ @return NotesSlideHeaderFooter*/
+func (a *SlidesApiService) PutNotesSlideHeaderFooter(request PutNotesSlideHeaderFooterRequest) (INotesSlideHeaderFooter, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload INotesSlideHeaderFooter
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/headerFooter"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &request.Dto
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("NotesSlideHeaderFooter", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(INotesSlideHeaderFooter); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(INotesSlideHeaderFooter); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PutNotesSlideHeaderFooter
+*/
+type PutNotesSlideHeaderFooterRequest struct {
+    Name string
+    SlideIndex int32
+    Dto INotesSlideHeaderFooter
+    Password string
+    Storage string
+    Folder string
+}
+
 /* SlidesApiService Render shape to specified picture format.
  @param name Presentation name.
  @param slideIndex Slide index.
@@ -16040,6 +17536,15 @@ func (a *SlidesApiService) PutNotesSlideShapeSaveAs(request PutNotesSlideShapeSa
 		localVarFiles [][]byte
 	)
 
+	if len(request.Name) == 0 {
+		return nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Format) == 0 {
+		return nil, reportError("Missing required parameter request.format")
+	}
+	if len(request.OutPath) == 0 {
+		return nil, reportError("Missing required parameter request.outPath")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -16147,7 +17652,7 @@ func (a *SlidesApiService) PutNotesSlideShapeSaveAs(request PutNotesSlideShapeSa
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -16174,8 +17679,8 @@ type PutNotesSlideShapeSaveAsRequest struct {
 
 /* SlidesApiService Merge the presentation with other presentations or some of their slides specified in the request parameter.
  @param name Document name.
+ @param request OrderedMergeRequest with a list of presentations and slide indices to merge.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "request" (OrderedMergeRequest) OrderedMergeRequest with a list of presentations and slide indices to merge.
      @param "password" (string) Document password.
      @param "storage" (string) Document storage.
      @param "folder" (string) Document folder.
@@ -16188,6 +17693,12 @@ func (a *SlidesApiService) PutPresentationMerge(request PutPresentationMergeRequ
 	 	successPayload IDocument
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Request == nil {
+		return successPayload, nil, reportError("Missing required parameter request.request")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/merge"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -16248,7 +17759,7 @@ func (a *SlidesApiService) PutPresentationMerge(request PutPresentationMergeRequ
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Document", responseBytes)
@@ -16277,14 +17788,243 @@ type PutPresentationMergeRequest struct {
     Folder string
 }
 
+/* SlidesApiService Update section name.
+ @param name Document name.
+ @param sectionIndex The position of the section to be updated.
+ @param sectionName Section name.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Sections*/
+func (a *SlidesApiService) PutSection(request PutSectionRequest) (ISections, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload ISections
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.SectionName) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.sectionName")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/sections/{sectionIndex}"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	sectionIndexPathStringValue := fmt.Sprintf("%v", request.SectionIndex)
+	if len(sectionIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"sectionIndex"+"}", sectionIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"sectionIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("SectionName", parameterToString(request.SectionName, ""))
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("Sections", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISections); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISections); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PutSection
+*/
+type PutSectionRequest struct {
+    Name string
+    SectionIndex int32
+    SectionName string
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Replace existing presentation sections with the ones provided in the sections DTO.
+ @param name Document name.
+ @param sections Sections DTO.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Sections*/
+func (a *SlidesApiService) PutSections(request PutSectionsRequest) (ISections, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload ISections
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Sections == nil {
+		return successPayload, nil, reportError("Missing required parameter request.sections")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/sections"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &request.Sections
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("Sections", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISections); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISections); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PutSections
+*/
+type PutSectionsRequest struct {
+    Name string
+    Sections ISections
+    Password string
+    Folder string
+    Storage string
+}
+
 /* SlidesApiService Update portion properties.
  @param name Document name.
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
  @param paragraphIndex Paragraph index.
  @param portionIndex Portion index.
+ @param dto Portion DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Portion) Portion DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -16297,6 +18037,12 @@ func (a *SlidesApiService) PutSetParagraphPortionProperties(request PutSetParagr
 	 	successPayload IPortion
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -16381,7 +18127,7 @@ func (a *SlidesApiService) PutSetParagraphPortionProperties(request PutSetParagr
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portion", responseBytes)
@@ -16419,8 +18165,8 @@ type PutSetParagraphPortionPropertiesRequest struct {
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
  @param paragraphIndex Paragraph index.
+ @param dto Paragraph DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Paragraph) Paragraph DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -16433,6 +18179,12 @@ func (a *SlidesApiService) PutSetParagraphProperties(request PutSetParagraphProp
 	 	successPayload IParagraph
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -16511,7 +18263,7 @@ func (a *SlidesApiService) PutSetParagraphProperties(request PutSetParagraphProp
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
@@ -16550,8 +18302,8 @@ type PutSetParagraphPropertiesRequest struct {
  @param shapeIndex Shape index.
  @param paragraphIndex Paragraph index.
  @param portionIndex Portion index.
+ @param dto Portion DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Portion) Portion DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -16564,6 +18316,15 @@ func (a *SlidesApiService) PutSetSubshapeParagraphPortionProperties(request PutS
 	 	successPayload IPortion
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -16654,7 +18415,7 @@ func (a *SlidesApiService) PutSetSubshapeParagraphPortionProperties(request PutS
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portion", responseBytes)
@@ -16694,8 +18455,8 @@ type PutSetSubshapeParagraphPortionPropertiesRequest struct {
  @param path Shape path.
  @param shapeIndex Shape index.
  @param paragraphIndex Paragraph index.
+ @param dto Paragraph DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Paragraph) Paragraph DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -16708,6 +18469,15 @@ func (a *SlidesApiService) PutSetSubshapeParagraphProperties(request PutSetSubsh
 	 	successPayload IParagraph
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/paragraphs/{paragraphIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -16792,7 +18562,7 @@ func (a *SlidesApiService) PutSetSubshapeParagraphProperties(request PutSetSubsh
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
@@ -16848,6 +18618,15 @@ func (a *SlidesApiService) PutShapeSaveAs(request PutShapeSaveAsRequest) (*http.
 		localVarFiles [][]byte
 	)
 
+	if len(request.Name) == 0 {
+		return nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Format) == 0 {
+		return nil, reportError("Missing required parameter request.format")
+	}
+	if len(request.OutPath) == 0 {
+		return nil, reportError("Missing required parameter request.outPath")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -16955,7 +18734,7 @@ func (a *SlidesApiService) PutShapeSaveAs(request PutShapeSaveAsRequest) (*http.
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -16983,8 +18762,8 @@ type PutShapeSaveAsRequest struct {
 /* SlidesApiService Set slide animation.
  @param name Document name.
  @param slideIndex Slide index.
+ @param animation Animation DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "animation" (SlideAnimation) Animation DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -16997,6 +18776,12 @@ func (a *SlidesApiService) PutSlideAnimation(request PutSlideAnimationRequest) (
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Animation == nil {
+		return successPayload, nil, reportError("Missing required parameter request.animation")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -17063,7 +18848,7 @@ func (a *SlidesApiService) PutSlideAnimation(request PutSlideAnimationRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -17097,8 +18882,8 @@ type PutSlideAnimationRequest struct {
  @param name Document name.
  @param slideIndex Slide index.
  @param effectIndex The position of the effect to be modified.
+ @param effect Animation effect DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "effect" (Effect) Animation effect DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -17111,6 +18896,12 @@ func (a *SlidesApiService) PutSlideAnimationEffect(request PutSlideAnimationEffe
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Effect == nil {
+		return successPayload, nil, reportError("Missing required parameter request.effect")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation/mainSequence/{effectIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -17183,7 +18974,7 @@ func (a *SlidesApiService) PutSlideAnimationEffect(request PutSlideAnimationEffe
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -17219,8 +19010,8 @@ type PutSlideAnimationEffectRequest struct {
  @param slideIndex Slide index.
  @param sequenceIndex The position of the interactive sequence.
  @param effectIndex The position of the effect to be modified.
+ @param effect Animation effect DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "effect" (Effect) Animation effect DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -17233,6 +19024,12 @@ func (a *SlidesApiService) PutSlideAnimationInteractiveSequenceEffect(request Pu
 	 	successPayload ISlideAnimation
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Effect == nil {
+		return successPayload, nil, reportError("Missing required parameter request.effect")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/animation/interactiveSequences/{sequenceIndex}/{effectIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -17311,7 +19108,7 @@ func (a *SlidesApiService) PutSlideAnimationInteractiveSequenceEffect(request Pu
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideAnimation", responseBytes)
@@ -17343,6 +19140,125 @@ type PutSlideAnimationInteractiveSequenceEffectRequest struct {
     Storage string
 }
 
+/* SlidesApiService Set footer the slide.
+ @param name Document name.
+ @param slideIndex The position of the slide to be reordered.
+ @param dto Footer to set.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return HeaderFooter*/
+func (a *SlidesApiService) PutSlideHeaderFooter(request PutSlideHeaderFooterRequest) (IHeaderFooter, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IHeaderFooter
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/headerFooter"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", request.SlideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &request.Dto
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("HeaderFooter", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IHeaderFooter); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IHeaderFooter); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PutSlideHeaderFooter
+*/
+type PutSlideHeaderFooterRequest struct {
+    Name string
+    SlideIndex int32
+    Dto IHeaderFooter
+    Password string
+    Folder string
+    Storage string
+}
+
 /* SlidesApiService Save a slide to a specified format.
  @param name Document name.
  @param slideIndex Slide index.
@@ -17364,6 +19280,15 @@ func (a *SlidesApiService) PutSlideSaveAs(request PutSlideSaveAsRequest) (*http.
 		localVarFiles [][]byte
 	)
 
+	if len(request.Name) == 0 {
+		return nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Format) == 0 {
+		return nil, reportError("Missing required parameter request.format")
+	}
+	if len(request.OutPath) == 0 {
+		return nil, reportError("Missing required parameter request.outPath")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -17459,7 +19384,7 @@ func (a *SlidesApiService) PutSlideSaveAs(request PutSlideSaveAsRequest) (*http.
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -17486,8 +19411,8 @@ type PutSlideSaveAsRequest struct {
  @param name Document name.
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
+ @param dto Shape DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (ShapeBase) Shape DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -17500,6 +19425,12 @@ func (a *SlidesApiService) PutSlideShapeInfo(request PutSlideShapeInfoRequest) (
 	 	successPayload IShapeBase
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -17572,7 +19503,7 @@ func (a *SlidesApiService) PutSlideShapeInfo(request PutSlideShapeInfoRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
@@ -17608,8 +19539,8 @@ type PutSlideShapeInfoRequest struct {
  @param slideIndex Slide index.
  @param path Shape path.
  @param shapeIndex Shape index.
+ @param dto Shape DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (ShapeBase) Shape DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -17622,6 +19553,15 @@ func (a *SlidesApiService) PutSlideSubshapeInfo(request PutSlideSubshapeInfoRequ
 	 	successPayload IShapeBase
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -17700,7 +19640,7 @@ func (a *SlidesApiService) PutSlideSubshapeInfo(request PutSlideSubshapeInfoRequ
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
@@ -17733,10 +19673,10 @@ type PutSlideSubshapeInfoRequest struct {
 }
 
 /* SlidesApiService Convert presentation from request content to format specified.
+ @param document Document data.
  @param format Export format.
  @param outPath Path to save result.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "document" ([]byte) Document data.
      @param "password" (string) Document password.
      @param "fontsFolder" (string) Custom fonts folder.
  @return */
@@ -17747,6 +19687,15 @@ func (a *SlidesApiService) PutSlidesConvert(request PutSlidesConvertRequest) (*h
 		localVarFiles [][]byte
 	)
 
+	if len(request.Document) == 0 {
+		return nil, reportError("Missing required parameter request.document")
+	}
+	if len(request.Format) == 0 {
+		return nil, reportError("Missing required parameter request.format")
+	}
+	if len(request.OutPath) == 0 {
+		return nil, reportError("Missing required parameter request.outPath")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/convert/{format}"
 	formatPathStringValue := fmt.Sprintf("%v", request.Format)
@@ -17802,7 +19751,7 @@ func (a *SlidesApiService) PutSlidesConvert(request PutSlidesConvertRequest) (*h
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -17812,9 +19761,9 @@ func (a *SlidesApiService) PutSlidesConvert(request PutSlidesConvertRequest) (*h
 /* Request for SlidesApiService.PutSlidesConvert
 */
 type PutSlidesConvertRequest struct {
+    Document []byte
     Format string
     OutPath string
-    Document []byte
     Password string
     FontsFolder string
 }
@@ -17835,6 +19784,9 @@ func (a *SlidesApiService) PutSlidesDocumentFromHtml(request PutSlidesDocumentFr
 	 	successPayload IDocument
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/fromHtml"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -17898,7 +19850,7 @@ func (a *SlidesApiService) PutSlidesDocumentFromHtml(request PutSlidesDocumentFr
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Document", responseBytes)
@@ -17927,6 +19879,117 @@ type PutSlidesDocumentFromHtmlRequest struct {
     Folder string
 }
 
+/* SlidesApiService Set footers for all slides in a presentation.
+ @param name Document name.
+ @param dto HeaderFooter instance.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "storage" (string) Document storage.
+     @param "folder" (string) Document folder.
+ @return Document*/
+func (a *SlidesApiService) PutSlidesHeaderFooter(request PutSlidesHeaderFooterRequest) (IDocument, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IDocument
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/headerFooter"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &request.Dto
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PutSlidesHeaderFooter
+*/
+type PutSlidesHeaderFooterRequest struct {
+    Name string
+    Dto IHeaderFooter
+    Password string
+    Storage string
+    Folder string
+}
+
 /* SlidesApiService Save a presentation to a specified format.
  @param name Document name.
  @param outPath Output path.
@@ -17945,6 +20008,15 @@ func (a *SlidesApiService) PutSlidesSaveAs(request PutSlidesSaveAsRequest) (*htt
 		localVarFiles [][]byte
 	)
 
+	if len(request.Name) == 0 {
+		return nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.OutPath) == 0 {
+		return nil, reportError("Missing required parameter request.outPath")
+	}
+	if len(request.Format) == 0 {
+		return nil, reportError("Missing required parameter request.format")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -18018,7 +20090,7 @@ func (a *SlidesApiService) PutSlidesSaveAs(request PutSlidesSaveAsRequest) (*htt
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -18041,8 +20113,8 @@ type PutSlidesSaveAsRequest struct {
 /* SlidesApiService Set document property.
  @param name Document name.
  @param propertyName The property name.
+ @param property Property with the value.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "property" (DocumentProperty) Property with the value.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -18055,6 +20127,15 @@ func (a *SlidesApiService) PutSlidesSetDocumentProperty(request PutSlidesSetDocu
 	 	successPayload IDocumentProperty
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.PropertyName) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.propertyName")
+	}
+	if request.Property == nil {
+		return successPayload, nil, reportError("Missing required parameter request.property")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/documentproperties/{propertyName}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -18121,7 +20202,7 @@ func (a *SlidesApiService) PutSlidesSetDocumentProperty(request PutSlidesSetDocu
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("DocumentProperty", responseBytes)
@@ -18154,8 +20235,8 @@ type PutSlidesSetDocumentPropertyRequest struct {
 /* SlidesApiService Update a slide.
  @param name Document name.
  @param slideIndex Slide index.
+ @param slideDto Slide update data.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "slideDto" (Slide) Slide update data.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -18168,6 +20249,12 @@ func (a *SlidesApiService) PutSlidesSlide(request PutSlidesSlideRequest) (ISlide
 	 	successPayload ISlide
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.SlideDto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.slideDto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -18234,7 +20321,7 @@ func (a *SlidesApiService) PutSlidesSlide(request PutSlidesSlideRequest) (ISlide
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Slide", responseBytes)
@@ -18267,8 +20354,8 @@ type PutSlidesSlideRequest struct {
 /* SlidesApiService Set background for a slide.
  @param name Document name.
  @param slideIndex Slide index.
+ @param background Slide background update data.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "background" (SlideBackground) Slide background update data.
      @param "folder" (string) Document folder.
      @param "password" (string) Document password.
      @param "storage" (string) Document storage.
@@ -18281,6 +20368,12 @@ func (a *SlidesApiService) PutSlidesSlideBackground(request PutSlidesSlideBackgr
 	 	successPayload ISlideBackground
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Background == nil {
+		return successPayload, nil, reportError("Missing required parameter request.background")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/background"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -18347,7 +20440,7 @@ func (a *SlidesApiService) PutSlidesSlideBackground(request PutSlidesSlideBackgr
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideBackground", responseBytes)
@@ -18394,6 +20487,12 @@ func (a *SlidesApiService) PutSlidesSlideBackgroundColor(request PutSlidesSlideB
 	 	successPayload ISlideBackground
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Color) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.color")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/backgroundColor"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -18459,7 +20558,7 @@ func (a *SlidesApiService) PutSlidesSlideBackgroundColor(request PutSlidesSlideB
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("SlideBackground", responseBytes)
@@ -18508,6 +20607,9 @@ func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest)
 	 	successPayload IDocument
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slideSize"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -18594,7 +20696,7 @@ func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest)
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Document", responseBytes)
@@ -18628,8 +20730,8 @@ type PutSlidesSlideSizeRequest struct {
 
 /* SlidesApiService Update presentation document properties.
  @param name Document name.
+ @param dto The view properties data.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (ViewProperties) The view properties data.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -18642,6 +20744,12 @@ func (a *SlidesApiService) PutSlidesViewProperties(request PutSlidesViewProperti
 	 	successPayload IViewProperties
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/viewProperties"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -18702,7 +20810,7 @@ func (a *SlidesApiService) PutSlidesViewProperties(request PutSlidesViewProperti
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ViewProperties", responseBytes)
@@ -18755,6 +20863,18 @@ func (a *SlidesApiService) PutSubshapeSaveAs(request PutSubshapeSaveAsRequest) (
 		localVarFiles [][]byte
 	)
 
+	if len(request.Name) == 0 {
+		return nil, reportError("Missing required parameter request.name")
+	}
+	if len(request.Path) == 0 {
+		return nil, reportError("Missing required parameter request.path")
+	}
+	if len(request.Format) == 0 {
+		return nil, reportError("Missing required parameter request.format")
+	}
+	if len(request.OutPath) == 0 {
+		return nil, reportError("Missing required parameter request.outPath")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -18868,7 +20988,7 @@ func (a *SlidesApiService) PutSubshapeSaveAs(request PutSubshapeSaveAsRequest) (
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return localVarHttpResponse, reportError(errorMessage.getMessage())
+		return localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 
@@ -18897,8 +21017,8 @@ type PutSubshapeSaveAsRequest struct {
 /* SlidesApiService Update notes slide properties.
  @param name Document name.
  @param slideIndex Slide index.
+ @param dto A NotesSlide object with notes slide data.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (NotesSlide) A NotesSlide object with notes slide data.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -18911,6 +21031,12 @@ func (a *SlidesApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideReques
 	 	successPayload INotesSlide
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -18977,7 +21103,7 @@ func (a *SlidesApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideReques
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("NotesSlide", responseBytes)
@@ -19011,8 +21137,8 @@ type PutUpdateNotesSlideRequest struct {
  @param name Document name.
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
+ @param dto Shape DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (ShapeBase) Shape DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -19025,6 +21151,12 @@ func (a *SlidesApiService) PutUpdateNotesSlideShape(request PutUpdateNotesSlideS
 	 	successPayload IShapeBase
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -19097,7 +21229,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShape(request PutUpdateNotesSlideS
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("ShapeBase", responseBytes)
@@ -19133,8 +21265,8 @@ type PutUpdateNotesSlideShapeRequest struct {
  @param slideIndex Slide index.
  @param shapeIndex Shape index.
  @param paragraphIndex Paragraph index.
+ @param dto Paragraph DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Paragraph) Paragraph DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -19147,6 +21279,12 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapeParagraph(request PutUpdateNo
 	 	successPayload IParagraph
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -19225,7 +21363,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapeParagraph(request PutUpdateNo
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Paragraph", responseBytes)
@@ -19263,8 +21401,8 @@ type PutUpdateNotesSlideShapeParagraphRequest struct {
  @param shapeIndex Shape index.
  @param paragraphIndex Paragraph index.
  @param portionIndex Portion index.
+ @param dto Portion DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "dto" (Portion) Portion DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -19277,6 +21415,12 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapePortion(request PutUpdateNote
 	 	successPayload IPortion
 	)
 
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
 	namePathStringValue := fmt.Sprintf("%v", request.Name)
@@ -19361,7 +21505,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapePortion(request PutUpdateNote
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("Portion", responseBytes)
@@ -19405,6 +21549,9 @@ func (a *SlidesApiService) StorageExists(request StorageExistsRequest) (IStorage
 	 	successPayload IStorageExist
 	)
 
+	if len(request.StorageName) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.storageName")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/{storageName}/exist"
 	storageNamePathStringValue := fmt.Sprintf("%v", request.StorageName)
@@ -19445,7 +21592,7 @@ func (a *SlidesApiService) StorageExists(request StorageExistsRequest) (IStorage
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("StorageExist", responseBytes)
@@ -19484,6 +21631,12 @@ func (a *SlidesApiService) UploadFile(request UploadFileRequest) (IFilesUploadRe
 	 	successPayload IFilesUploadResult
 	)
 
+	if len(request.Path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.path")
+	}
+	if len(request.File) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.file")
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/storage/file/{path}"
 	pathPathStringValue := fmt.Sprintf("%v", request.Path)
@@ -19531,7 +21684,7 @@ func (a *SlidesApiService) UploadFile(request UploadFileRequest) (IFilesUploadRe
 		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
 			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
 		}
-		return successPayload, localVarHttpResponse, reportError(errorMessage.getMessage())
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
 	}
 
 	successPayloadObject, err := createObjectForType("FilesUploadResult", responseBytes)

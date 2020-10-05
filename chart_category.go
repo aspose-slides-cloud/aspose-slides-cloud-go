@@ -34,9 +34,13 @@ import (
 // Represents chart category resource
 type IChartCategory interface {
 
-	// Gets or sets the categories for chart data
-	getCategories() []IChartCategory
-	setCategories(newValue []IChartCategory)
+	// Gets or sets the parent categories. Used with Sunburst &amp; treemap categories; ignored for other chart types.
+	getParentCategories() []string
+	setParentCategories(newValue []string)
+
+	// Gets or sets the grouping level for the category. Used with Sunburst &amp; treemap categories; ignored for other chart types.
+	getLevel() int32
+	setLevel(newValue int32)
 
 	// Category value
 	getValue() string
@@ -61,8 +65,11 @@ type IChartCategory interface {
 
 type ChartCategory struct {
 
-	// Gets or sets the categories for chart data
-	Categories []IChartCategory `json:"Categories,omitempty"`
+	// Gets or sets the parent categories. Used with Sunburst &amp; treemap categories; ignored for other chart types.
+	ParentCategories []string `json:"ParentCategories,omitempty"`
+
+	// Gets or sets the grouping level for the category. Used with Sunburst &amp; treemap categories; ignored for other chart types.
+	Level int32 `json:"Level,omitempty"`
 
 	// Category value
 	Value string `json:"Value,omitempty"`
@@ -85,12 +92,19 @@ func NewChartCategory() *ChartCategory {
 	return instance
 }
 
-func (this *ChartCategory) getCategories() []IChartCategory {
-	return this.Categories
+func (this *ChartCategory) getParentCategories() []string {
+	return this.ParentCategories
 }
 
-func (this *ChartCategory) setCategories(newValue []IChartCategory) {
-	this.Categories = newValue
+func (this *ChartCategory) setParentCategories(newValue []string) {
+	this.ParentCategories = newValue
+}
+func (this *ChartCategory) getLevel() int32 {
+	return this.Level
+}
+
+func (this *ChartCategory) setLevel(newValue int32) {
+	this.Level = newValue
 }
 func (this *ChartCategory) getValue() string {
 	return this.Value
@@ -135,32 +149,45 @@ func (this *ChartCategory) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valCategories, ok := objMap["categories"]; ok {
-		if valCategories != nil {
-			var valueForCategories []ChartCategory
-			err = json.Unmarshal(*valCategories, &valueForCategories)
+	if valParentCategories, ok := objMap["parentCategories"]; ok {
+		if valParentCategories != nil {
+			var valueForParentCategories []string
+			err = json.Unmarshal(*valParentCategories, &valueForParentCategories)
 			if err != nil {
 				return err
 			}
-			valueForICategories := make([]IChartCategory, len(valueForCategories))
-			for i, v := range valueForCategories {
-				valueForICategories[i] = IChartCategory(&v)
-			}
-			this.Categories = valueForICategories
+			this.ParentCategories = valueForParentCategories
 		}
 	}
-	if valCategoriesCap, ok := objMap["Categories"]; ok {
-		if valCategoriesCap != nil {
-			var valueForCategories []ChartCategory
-			err = json.Unmarshal(*valCategoriesCap, &valueForCategories)
+	if valParentCategoriesCap, ok := objMap["ParentCategories"]; ok {
+		if valParentCategoriesCap != nil {
+			var valueForParentCategories []string
+			err = json.Unmarshal(*valParentCategoriesCap, &valueForParentCategories)
 			if err != nil {
 				return err
 			}
-			valueForICategories := make([]IChartCategory, len(valueForCategories))
-			for i, v := range valueForCategories {
-				valueForICategories[i] = IChartCategory(&v)
+			this.ParentCategories = valueForParentCategories
+		}
+	}
+	
+	if valLevel, ok := objMap["level"]; ok {
+		if valLevel != nil {
+			var valueForLevel int32
+			err = json.Unmarshal(*valLevel, &valueForLevel)
+			if err != nil {
+				return err
 			}
-			this.Categories = valueForICategories
+			this.Level = valueForLevel
+		}
+	}
+	if valLevelCap, ok := objMap["Level"]; ok {
+		if valLevelCap != nil {
+			var valueForLevel int32
+			err = json.Unmarshal(*valLevelCap, &valueForLevel)
+			if err != nil {
+				return err
+			}
+			this.Level = valueForLevel
 		}
 	}
 	

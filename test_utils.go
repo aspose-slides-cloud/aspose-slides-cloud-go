@@ -315,6 +315,24 @@ func undefaultize(value interface{}, paramType string) interface{} {
         json.Unmarshal(b, &vp)
         return &vp
     }
+    if paramType == "HeaderFooter" {
+        var vp HeaderFooter
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &vp)
+        return &vp
+    }
+    if paramType == "NotesSlideHeaderFooter" {
+        var vp NotesSlideHeaderFooter
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &vp)
+        return &vp
+    }
+    if paramType == "Sections" {
+        var vp Sections
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &vp)
+        return &vp
+    }
     return value
 }
 
