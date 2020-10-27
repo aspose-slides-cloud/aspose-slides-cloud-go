@@ -43,8 +43,8 @@ type IParagraphs interface {
 	setAlternateLinks(newValue []IResourceUri)
 
 	// List of paragraph links.
-	getParagraphLinks() []IResourceUriElement
-	setParagraphLinks(newValue []IResourceUriElement)
+	getParagraphLinks() []IResourceUri
+	setParagraphLinks(newValue []IResourceUri)
 }
 
 type Paragraphs struct {
@@ -56,7 +56,7 @@ type Paragraphs struct {
 	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// List of paragraph links.
-	ParagraphLinks []IResourceUriElement `json:"ParagraphLinks,omitempty"`
+	ParagraphLinks []IResourceUri `json:"ParagraphLinks,omitempty"`
 }
 
 func NewParagraphs() *Paragraphs {
@@ -78,11 +78,11 @@ func (this *Paragraphs) getAlternateLinks() []IResourceUri {
 func (this *Paragraphs) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Paragraphs) getParagraphLinks() []IResourceUriElement {
+func (this *Paragraphs) getParagraphLinks() []IResourceUri {
 	return this.ParagraphLinks
 }
 
-func (this *Paragraphs) setParagraphLinks(newValue []IResourceUriElement) {
+func (this *Paragraphs) setParagraphLinks(newValue []IResourceUri) {
 	this.ParagraphLinks = newValue
 }
 
@@ -145,28 +145,28 @@ func (this *Paragraphs) UnmarshalJSON(b []byte) error {
 	
 	if valParagraphLinks, ok := objMap["paragraphLinks"]; ok {
 		if valParagraphLinks != nil {
-			var valueForParagraphLinks []ResourceUriElement
+			var valueForParagraphLinks []ResourceUri
 			err = json.Unmarshal(*valParagraphLinks, &valueForParagraphLinks)
 			if err != nil {
 				return err
 			}
-			valueForIParagraphLinks := make([]IResourceUriElement, len(valueForParagraphLinks))
+			valueForIParagraphLinks := make([]IResourceUri, len(valueForParagraphLinks))
 			for i, v := range valueForParagraphLinks {
-				valueForIParagraphLinks[i] = IResourceUriElement(&v)
+				valueForIParagraphLinks[i] = IResourceUri(&v)
 			}
 			this.ParagraphLinks = valueForIParagraphLinks
 		}
 	}
 	if valParagraphLinksCap, ok := objMap["ParagraphLinks"]; ok {
 		if valParagraphLinksCap != nil {
-			var valueForParagraphLinks []ResourceUriElement
+			var valueForParagraphLinks []ResourceUri
 			err = json.Unmarshal(*valParagraphLinksCap, &valueForParagraphLinks)
 			if err != nil {
 				return err
 			}
-			valueForIParagraphLinks := make([]IResourceUriElement, len(valueForParagraphLinks))
+			valueForIParagraphLinks := make([]IResourceUri, len(valueForParagraphLinks))
 			for i, v := range valueForParagraphLinks {
-				valueForIParagraphLinks[i] = IResourceUriElement(&v)
+				valueForIParagraphLinks[i] = IResourceUri(&v)
 			}
 			this.ParagraphLinks = valueForIParagraphLinks
 		}

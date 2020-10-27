@@ -43,28 +43,28 @@ type IDocument interface {
 	setAlternateLinks(newValue []IResourceUri)
 
 	// Link to Document properties.
-	getDocumentProperties() IResourceUriElement
-	setDocumentProperties(newValue IResourceUriElement)
+	getDocumentProperties() IResourceUri
+	setDocumentProperties(newValue IResourceUri)
 
 	// Link to Document properties.
-	getViewProperties() IResourceUriElement
-	setViewProperties(newValue IResourceUriElement)
+	getViewProperties() IResourceUri
+	setViewProperties(newValue IResourceUri)
 
 	// Link to slides collection.
-	getSlides() IResourceUriElement
-	setSlides(newValue IResourceUriElement)
+	getSlides() IResourceUri
+	setSlides(newValue IResourceUri)
 
 	// Link to images collection.
-	getImages() IResourceUriElement
-	setImages(newValue IResourceUriElement)
+	getImages() IResourceUri
+	setImages(newValue IResourceUri)
 
 	// Link to layout slides collection.
-	getLayoutSlides() IResourceUriElement
-	setLayoutSlides(newValue IResourceUriElement)
+	getLayoutSlides() IResourceUri
+	setLayoutSlides(newValue IResourceUri)
 
 	// Link to master slides collection.
-	getMasterSlides() IResourceUriElement
-	setMasterSlides(newValue IResourceUriElement)
+	getMasterSlides() IResourceUri
+	setMasterSlides(newValue IResourceUri)
 }
 
 type Document struct {
@@ -76,22 +76,22 @@ type Document struct {
 	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Link to Document properties.
-	DocumentProperties IResourceUriElement `json:"DocumentProperties,omitempty"`
+	DocumentProperties IResourceUri `json:"DocumentProperties,omitempty"`
 
 	// Link to Document properties.
-	ViewProperties IResourceUriElement `json:"ViewProperties,omitempty"`
+	ViewProperties IResourceUri `json:"ViewProperties,omitempty"`
 
 	// Link to slides collection.
-	Slides IResourceUriElement `json:"Slides,omitempty"`
+	Slides IResourceUri `json:"Slides,omitempty"`
 
 	// Link to images collection.
-	Images IResourceUriElement `json:"Images,omitempty"`
+	Images IResourceUri `json:"Images,omitempty"`
 
 	// Link to layout slides collection.
-	LayoutSlides IResourceUriElement `json:"LayoutSlides,omitempty"`
+	LayoutSlides IResourceUri `json:"LayoutSlides,omitempty"`
 
 	// Link to master slides collection.
-	MasterSlides IResourceUriElement `json:"MasterSlides,omitempty"`
+	MasterSlides IResourceUri `json:"MasterSlides,omitempty"`
 }
 
 func NewDocument() *Document {
@@ -113,46 +113,46 @@ func (this *Document) getAlternateLinks() []IResourceUri {
 func (this *Document) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Document) getDocumentProperties() IResourceUriElement {
+func (this *Document) getDocumentProperties() IResourceUri {
 	return this.DocumentProperties
 }
 
-func (this *Document) setDocumentProperties(newValue IResourceUriElement) {
+func (this *Document) setDocumentProperties(newValue IResourceUri) {
 	this.DocumentProperties = newValue
 }
-func (this *Document) getViewProperties() IResourceUriElement {
+func (this *Document) getViewProperties() IResourceUri {
 	return this.ViewProperties
 }
 
-func (this *Document) setViewProperties(newValue IResourceUriElement) {
+func (this *Document) setViewProperties(newValue IResourceUri) {
 	this.ViewProperties = newValue
 }
-func (this *Document) getSlides() IResourceUriElement {
+func (this *Document) getSlides() IResourceUri {
 	return this.Slides
 }
 
-func (this *Document) setSlides(newValue IResourceUriElement) {
+func (this *Document) setSlides(newValue IResourceUri) {
 	this.Slides = newValue
 }
-func (this *Document) getImages() IResourceUriElement {
+func (this *Document) getImages() IResourceUri {
 	return this.Images
 }
 
-func (this *Document) setImages(newValue IResourceUriElement) {
+func (this *Document) setImages(newValue IResourceUri) {
 	this.Images = newValue
 }
-func (this *Document) getLayoutSlides() IResourceUriElement {
+func (this *Document) getLayoutSlides() IResourceUri {
 	return this.LayoutSlides
 }
 
-func (this *Document) setLayoutSlides(newValue IResourceUriElement) {
+func (this *Document) setLayoutSlides(newValue IResourceUri) {
 	this.LayoutSlides = newValue
 }
-func (this *Document) getMasterSlides() IResourceUriElement {
+func (this *Document) getMasterSlides() IResourceUri {
 	return this.MasterSlides
 }
 
-func (this *Document) setMasterSlides(newValue IResourceUriElement) {
+func (this *Document) setMasterSlides(newValue IResourceUri) {
 	this.MasterSlides = newValue
 }
 
@@ -215,7 +215,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	
 	if valDocumentProperties, ok := objMap["documentProperties"]; ok {
 		if valDocumentProperties != nil {
-			var valueForDocumentProperties ResourceUriElement
+			var valueForDocumentProperties ResourceUri
 			err = json.Unmarshal(*valDocumentProperties, &valueForDocumentProperties)
 			if err != nil {
 				return err
@@ -225,7 +225,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	}
 	if valDocumentPropertiesCap, ok := objMap["DocumentProperties"]; ok {
 		if valDocumentPropertiesCap != nil {
-			var valueForDocumentProperties ResourceUriElement
+			var valueForDocumentProperties ResourceUri
 			err = json.Unmarshal(*valDocumentPropertiesCap, &valueForDocumentProperties)
 			if err != nil {
 				return err
@@ -236,7 +236,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	
 	if valViewProperties, ok := objMap["viewProperties"]; ok {
 		if valViewProperties != nil {
-			var valueForViewProperties ResourceUriElement
+			var valueForViewProperties ResourceUri
 			err = json.Unmarshal(*valViewProperties, &valueForViewProperties)
 			if err != nil {
 				return err
@@ -246,7 +246,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	}
 	if valViewPropertiesCap, ok := objMap["ViewProperties"]; ok {
 		if valViewPropertiesCap != nil {
-			var valueForViewProperties ResourceUriElement
+			var valueForViewProperties ResourceUri
 			err = json.Unmarshal(*valViewPropertiesCap, &valueForViewProperties)
 			if err != nil {
 				return err
@@ -257,7 +257,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	
 	if valSlides, ok := objMap["slides"]; ok {
 		if valSlides != nil {
-			var valueForSlides ResourceUriElement
+			var valueForSlides ResourceUri
 			err = json.Unmarshal(*valSlides, &valueForSlides)
 			if err != nil {
 				return err
@@ -267,7 +267,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	}
 	if valSlidesCap, ok := objMap["Slides"]; ok {
 		if valSlidesCap != nil {
-			var valueForSlides ResourceUriElement
+			var valueForSlides ResourceUri
 			err = json.Unmarshal(*valSlidesCap, &valueForSlides)
 			if err != nil {
 				return err
@@ -278,7 +278,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	
 	if valImages, ok := objMap["images"]; ok {
 		if valImages != nil {
-			var valueForImages ResourceUriElement
+			var valueForImages ResourceUri
 			err = json.Unmarshal(*valImages, &valueForImages)
 			if err != nil {
 				return err
@@ -288,7 +288,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	}
 	if valImagesCap, ok := objMap["Images"]; ok {
 		if valImagesCap != nil {
-			var valueForImages ResourceUriElement
+			var valueForImages ResourceUri
 			err = json.Unmarshal(*valImagesCap, &valueForImages)
 			if err != nil {
 				return err
@@ -299,7 +299,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	
 	if valLayoutSlides, ok := objMap["layoutSlides"]; ok {
 		if valLayoutSlides != nil {
-			var valueForLayoutSlides ResourceUriElement
+			var valueForLayoutSlides ResourceUri
 			err = json.Unmarshal(*valLayoutSlides, &valueForLayoutSlides)
 			if err != nil {
 				return err
@@ -309,7 +309,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	}
 	if valLayoutSlidesCap, ok := objMap["LayoutSlides"]; ok {
 		if valLayoutSlidesCap != nil {
-			var valueForLayoutSlides ResourceUriElement
+			var valueForLayoutSlides ResourceUri
 			err = json.Unmarshal(*valLayoutSlidesCap, &valueForLayoutSlides)
 			if err != nil {
 				return err
@@ -320,7 +320,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	
 	if valMasterSlides, ok := objMap["masterSlides"]; ok {
 		if valMasterSlides != nil {
-			var valueForMasterSlides ResourceUriElement
+			var valueForMasterSlides ResourceUri
 			err = json.Unmarshal(*valMasterSlides, &valueForMasterSlides)
 			if err != nil {
 				return err
@@ -330,7 +330,7 @@ func (this *Document) UnmarshalJSON(b []byte) error {
 	}
 	if valMasterSlidesCap, ok := objMap["MasterSlides"]; ok {
 		if valMasterSlidesCap != nil {
-			var valueForMasterSlides ResourceUriElement
+			var valueForMasterSlides ResourceUri
 			err = json.Unmarshal(*valMasterSlidesCap, &valueForMasterSlides)
 			if err != nil {
 				return err

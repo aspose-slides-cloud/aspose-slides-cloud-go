@@ -79,8 +79,8 @@ type IConnector interface {
 	setZOrderPosition(newValue int32)
 
 	// Gets or sets the link to shapes.
-	getShapes() IResourceUriElement
-	setShapes(newValue IResourceUriElement)
+	getShapes() IResourceUri
+	setShapes(newValue IResourceUri)
 
 	// Gets or sets the fill format.
 	getFillFormat() IFillFormat
@@ -98,13 +98,9 @@ type IConnector interface {
 	getType() string
 	setType(newValue string)
 
-	// Shape type.
+	// Combined shape type.
 	getShapeType() string
 	setShapeType(newValue string)
-
-	// Geometry shape type.
-	getGeometryShapeType() string
-	setGeometryShapeType(newValue string)
 
 	// Start shape link.
 	getStartShapeConnectedTo() IResourceUri
@@ -159,7 +155,7 @@ type Connector struct {
 	ZOrderPosition int32 `json:"ZOrderPosition"`
 
 	// Gets or sets the link to shapes.
-	Shapes IResourceUriElement `json:"Shapes,omitempty"`
+	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// Gets or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -173,11 +169,8 @@ type Connector struct {
 	// Shape type.
 	Type_ string `json:"Type"`
 
-	// Shape type.
+	// Combined shape type.
 	ShapeType string `json:"ShapeType"`
-
-	// Geometry shape type.
-	GeometryShapeType string `json:"GeometryShapeType"`
 
 	// Start shape link.
 	StartShapeConnectedTo IResourceUri `json:"StartShapeConnectedTo,omitempty"`
@@ -196,7 +189,6 @@ func NewConnector() *Connector {
 	instance := new(Connector)
 	instance.Type_ = "Connector"
 	instance.ShapeType = "Custom"
-	instance.GeometryShapeType = "Custom"
 	return instance
 }
 
@@ -277,11 +269,11 @@ func (this *Connector) getZOrderPosition() int32 {
 func (this *Connector) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *Connector) getShapes() IResourceUriElement {
+func (this *Connector) getShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *Connector) setShapes(newValue IResourceUriElement) {
+func (this *Connector) setShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
 func (this *Connector) getFillFormat() IFillFormat {
@@ -318,13 +310,6 @@ func (this *Connector) getShapeType() string {
 
 func (this *Connector) setShapeType(newValue string) {
 	this.ShapeType = newValue
-}
-func (this *Connector) getGeometryShapeType() string {
-	return this.GeometryShapeType
-}
-
-func (this *Connector) setGeometryShapeType(newValue string) {
-	this.GeometryShapeType = newValue
 }
 func (this *Connector) getStartShapeConnectedTo() IResourceUri {
 	return this.StartShapeConnectedTo
@@ -603,7 +588,7 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 	
 	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapes, &valueForShapes)
 			if err != nil {
 				return err
@@ -613,7 +598,7 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
 		if valShapesCap != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapesCap, &valueForShapes)
 			if err != nil {
 				return err
@@ -747,39 +732,6 @@ func (this *Connector) UnmarshalJSON(b []byte) error {
 				this.ShapeType = string(valueForShapeTypeInt)
 			} else {
 				this.ShapeType = valueForShapeType
-			}
-		}
-	}
-	this.GeometryShapeType = "Custom"
-	if valGeometryShapeType, ok := objMap["geometryShapeType"]; ok {
-		if valGeometryShapeType != nil {
-			var valueForGeometryShapeType string
-			err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeType)
-			if err != nil {
-				var valueForGeometryShapeTypeInt int32
-				err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.GeometryShapeType = string(valueForGeometryShapeTypeInt)
-			} else {
-				this.GeometryShapeType = valueForGeometryShapeType
-			}
-		}
-	}
-	if valGeometryShapeTypeCap, ok := objMap["GeometryShapeType"]; ok {
-		if valGeometryShapeTypeCap != nil {
-			var valueForGeometryShapeType string
-			err = json.Unmarshal(*valGeometryShapeTypeCap, &valueForGeometryShapeType)
-			if err != nil {
-				var valueForGeometryShapeTypeInt int32
-				err = json.Unmarshal(*valGeometryShapeTypeCap, &valueForGeometryShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.GeometryShapeType = string(valueForGeometryShapeTypeInt)
-			} else {
-				this.GeometryShapeType = valueForGeometryShapeType
 			}
 		}
 	}

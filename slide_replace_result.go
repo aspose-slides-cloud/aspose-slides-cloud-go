@@ -55,36 +55,36 @@ type ISlideReplaceResult interface {
 	setShowMasterShapes(newValue bool)
 
 	// Gets or sets the  link to the layout slide.
-	getLayoutSlide() IResourceUriElement
-	setLayoutSlide(newValue IResourceUriElement)
+	getLayoutSlide() IResourceUri
+	setLayoutSlide(newValue IResourceUri)
 
 	// Gets or sets the  link to list of top-level shapes.
-	getShapes() IResourceUriElement
-	setShapes(newValue IResourceUriElement)
+	getShapes() IResourceUri
+	setShapes(newValue IResourceUri)
 
 	// Gets or sets the link to theme.
-	getTheme() IResourceUriElement
-	setTheme(newValue IResourceUriElement)
+	getTheme() IResourceUri
+	setTheme(newValue IResourceUri)
 
 	// Gets or sets the  link to placeholders.
-	getPlaceholders() IResourceUriElement
-	setPlaceholders(newValue IResourceUriElement)
+	getPlaceholders() IResourceUri
+	setPlaceholders(newValue IResourceUri)
 
 	// Gets or sets the link to images.
-	getImages() IResourceUriElement
-	setImages(newValue IResourceUriElement)
+	getImages() IResourceUri
+	setImages(newValue IResourceUri)
 
 	// Gets or sets the link to comments.
-	getComments() IResourceUriElement
-	setComments(newValue IResourceUriElement)
+	getComments() IResourceUri
+	setComments(newValue IResourceUri)
 
 	// Get or sets the link to slide's background
-	getBackground() IResourceUriElement
-	setBackground(newValue IResourceUriElement)
+	getBackground() IResourceUri
+	setBackground(newValue IResourceUri)
 
 	// Get or sets the link to notes slide.
-	getNotesSlide() IResourceUriElement
-	setNotesSlide(newValue IResourceUriElement)
+	getNotesSlide() IResourceUri
+	setNotesSlide(newValue IResourceUri)
 
 	// Gets or sets the number of matches 
 	getMatches() int32
@@ -109,28 +109,28 @@ type SlideReplaceResult struct {
 	ShowMasterShapes bool `json:"ShowMasterShapes"`
 
 	// Gets or sets the  link to the layout slide.
-	LayoutSlide IResourceUriElement `json:"LayoutSlide,omitempty"`
+	LayoutSlide IResourceUri `json:"LayoutSlide,omitempty"`
 
 	// Gets or sets the  link to list of top-level shapes.
-	Shapes IResourceUriElement `json:"Shapes,omitempty"`
+	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// Gets or sets the link to theme.
-	Theme IResourceUriElement `json:"Theme,omitempty"`
+	Theme IResourceUri `json:"Theme,omitempty"`
 
 	// Gets or sets the  link to placeholders.
-	Placeholders IResourceUriElement `json:"Placeholders,omitempty"`
+	Placeholders IResourceUri `json:"Placeholders,omitempty"`
 
 	// Gets or sets the link to images.
-	Images IResourceUriElement `json:"Images,omitempty"`
+	Images IResourceUri `json:"Images,omitempty"`
 
 	// Gets or sets the link to comments.
-	Comments IResourceUriElement `json:"Comments,omitempty"`
+	Comments IResourceUri `json:"Comments,omitempty"`
 
 	// Get or sets the link to slide's background
-	Background IResourceUriElement `json:"Background,omitempty"`
+	Background IResourceUri `json:"Background,omitempty"`
 
 	// Get or sets the link to notes slide.
-	NotesSlide IResourceUriElement `json:"NotesSlide,omitempty"`
+	NotesSlide IResourceUri `json:"NotesSlide,omitempty"`
 
 	// Gets or sets the number of matches 
 	Matches int32 `json:"Matches"`
@@ -176,60 +176,60 @@ func (this *SlideReplaceResult) getShowMasterShapes() bool {
 func (this *SlideReplaceResult) setShowMasterShapes(newValue bool) {
 	this.ShowMasterShapes = newValue
 }
-func (this *SlideReplaceResult) getLayoutSlide() IResourceUriElement {
+func (this *SlideReplaceResult) getLayoutSlide() IResourceUri {
 	return this.LayoutSlide
 }
 
-func (this *SlideReplaceResult) setLayoutSlide(newValue IResourceUriElement) {
+func (this *SlideReplaceResult) setLayoutSlide(newValue IResourceUri) {
 	this.LayoutSlide = newValue
 }
-func (this *SlideReplaceResult) getShapes() IResourceUriElement {
+func (this *SlideReplaceResult) getShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *SlideReplaceResult) setShapes(newValue IResourceUriElement) {
+func (this *SlideReplaceResult) setShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
-func (this *SlideReplaceResult) getTheme() IResourceUriElement {
+func (this *SlideReplaceResult) getTheme() IResourceUri {
 	return this.Theme
 }
 
-func (this *SlideReplaceResult) setTheme(newValue IResourceUriElement) {
+func (this *SlideReplaceResult) setTheme(newValue IResourceUri) {
 	this.Theme = newValue
 }
-func (this *SlideReplaceResult) getPlaceholders() IResourceUriElement {
+func (this *SlideReplaceResult) getPlaceholders() IResourceUri {
 	return this.Placeholders
 }
 
-func (this *SlideReplaceResult) setPlaceholders(newValue IResourceUriElement) {
+func (this *SlideReplaceResult) setPlaceholders(newValue IResourceUri) {
 	this.Placeholders = newValue
 }
-func (this *SlideReplaceResult) getImages() IResourceUriElement {
+func (this *SlideReplaceResult) getImages() IResourceUri {
 	return this.Images
 }
 
-func (this *SlideReplaceResult) setImages(newValue IResourceUriElement) {
+func (this *SlideReplaceResult) setImages(newValue IResourceUri) {
 	this.Images = newValue
 }
-func (this *SlideReplaceResult) getComments() IResourceUriElement {
+func (this *SlideReplaceResult) getComments() IResourceUri {
 	return this.Comments
 }
 
-func (this *SlideReplaceResult) setComments(newValue IResourceUriElement) {
+func (this *SlideReplaceResult) setComments(newValue IResourceUri) {
 	this.Comments = newValue
 }
-func (this *SlideReplaceResult) getBackground() IResourceUriElement {
+func (this *SlideReplaceResult) getBackground() IResourceUri {
 	return this.Background
 }
 
-func (this *SlideReplaceResult) setBackground(newValue IResourceUriElement) {
+func (this *SlideReplaceResult) setBackground(newValue IResourceUri) {
 	this.Background = newValue
 }
-func (this *SlideReplaceResult) getNotesSlide() IResourceUriElement {
+func (this *SlideReplaceResult) getNotesSlide() IResourceUri {
 	return this.NotesSlide
 }
 
-func (this *SlideReplaceResult) setNotesSlide(newValue IResourceUriElement) {
+func (this *SlideReplaceResult) setNotesSlide(newValue IResourceUri) {
 	this.NotesSlide = newValue
 }
 func (this *SlideReplaceResult) getMatches() int32 {
@@ -362,7 +362,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	
 	if valLayoutSlide, ok := objMap["layoutSlide"]; ok {
 		if valLayoutSlide != nil {
-			var valueForLayoutSlide ResourceUriElement
+			var valueForLayoutSlide ResourceUri
 			err = json.Unmarshal(*valLayoutSlide, &valueForLayoutSlide)
 			if err != nil {
 				return err
@@ -372,7 +372,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	}
 	if valLayoutSlideCap, ok := objMap["LayoutSlide"]; ok {
 		if valLayoutSlideCap != nil {
-			var valueForLayoutSlide ResourceUriElement
+			var valueForLayoutSlide ResourceUri
 			err = json.Unmarshal(*valLayoutSlideCap, &valueForLayoutSlide)
 			if err != nil {
 				return err
@@ -383,7 +383,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	
 	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapes, &valueForShapes)
 			if err != nil {
 				return err
@@ -393,7 +393,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
 		if valShapesCap != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapesCap, &valueForShapes)
 			if err != nil {
 				return err
@@ -404,7 +404,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	
 	if valTheme, ok := objMap["theme"]; ok {
 		if valTheme != nil {
-			var valueForTheme ResourceUriElement
+			var valueForTheme ResourceUri
 			err = json.Unmarshal(*valTheme, &valueForTheme)
 			if err != nil {
 				return err
@@ -414,7 +414,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	}
 	if valThemeCap, ok := objMap["Theme"]; ok {
 		if valThemeCap != nil {
-			var valueForTheme ResourceUriElement
+			var valueForTheme ResourceUri
 			err = json.Unmarshal(*valThemeCap, &valueForTheme)
 			if err != nil {
 				return err
@@ -425,7 +425,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	
 	if valPlaceholders, ok := objMap["placeholders"]; ok {
 		if valPlaceholders != nil {
-			var valueForPlaceholders ResourceUriElement
+			var valueForPlaceholders ResourceUri
 			err = json.Unmarshal(*valPlaceholders, &valueForPlaceholders)
 			if err != nil {
 				return err
@@ -435,7 +435,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	}
 	if valPlaceholdersCap, ok := objMap["Placeholders"]; ok {
 		if valPlaceholdersCap != nil {
-			var valueForPlaceholders ResourceUriElement
+			var valueForPlaceholders ResourceUri
 			err = json.Unmarshal(*valPlaceholdersCap, &valueForPlaceholders)
 			if err != nil {
 				return err
@@ -446,7 +446,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	
 	if valImages, ok := objMap["images"]; ok {
 		if valImages != nil {
-			var valueForImages ResourceUriElement
+			var valueForImages ResourceUri
 			err = json.Unmarshal(*valImages, &valueForImages)
 			if err != nil {
 				return err
@@ -456,7 +456,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	}
 	if valImagesCap, ok := objMap["Images"]; ok {
 		if valImagesCap != nil {
-			var valueForImages ResourceUriElement
+			var valueForImages ResourceUri
 			err = json.Unmarshal(*valImagesCap, &valueForImages)
 			if err != nil {
 				return err
@@ -467,7 +467,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	
 	if valComments, ok := objMap["comments"]; ok {
 		if valComments != nil {
-			var valueForComments ResourceUriElement
+			var valueForComments ResourceUri
 			err = json.Unmarshal(*valComments, &valueForComments)
 			if err != nil {
 				return err
@@ -477,7 +477,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	}
 	if valCommentsCap, ok := objMap["Comments"]; ok {
 		if valCommentsCap != nil {
-			var valueForComments ResourceUriElement
+			var valueForComments ResourceUri
 			err = json.Unmarshal(*valCommentsCap, &valueForComments)
 			if err != nil {
 				return err
@@ -488,7 +488,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	
 	if valBackground, ok := objMap["background"]; ok {
 		if valBackground != nil {
-			var valueForBackground ResourceUriElement
+			var valueForBackground ResourceUri
 			err = json.Unmarshal(*valBackground, &valueForBackground)
 			if err != nil {
 				return err
@@ -498,7 +498,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	}
 	if valBackgroundCap, ok := objMap["Background"]; ok {
 		if valBackgroundCap != nil {
-			var valueForBackground ResourceUriElement
+			var valueForBackground ResourceUri
 			err = json.Unmarshal(*valBackgroundCap, &valueForBackground)
 			if err != nil {
 				return err
@@ -509,7 +509,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	
 	if valNotesSlide, ok := objMap["notesSlide"]; ok {
 		if valNotesSlide != nil {
-			var valueForNotesSlide ResourceUriElement
+			var valueForNotesSlide ResourceUri
 			err = json.Unmarshal(*valNotesSlide, &valueForNotesSlide)
 			if err != nil {
 				return err
@@ -519,7 +519,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	}
 	if valNotesSlideCap, ok := objMap["NotesSlide"]; ok {
 		if valNotesSlideCap != nil {
-			var valueForNotesSlide ResourceUriElement
+			var valueForNotesSlide ResourceUri
 			err = json.Unmarshal(*valNotesSlideCap, &valueForNotesSlide)
 			if err != nil {
 				return err

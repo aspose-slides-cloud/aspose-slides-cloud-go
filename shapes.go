@@ -43,8 +43,8 @@ type IShapes interface {
 	setAlternateLinks(newValue []IResourceUri)
 
 	// List of shape links.
-	getShapesLinks() []IResourceUriElement
-	setShapesLinks(newValue []IResourceUriElement)
+	getShapesLinks() []IResourceUri
+	setShapesLinks(newValue []IResourceUri)
 }
 
 type Shapes struct {
@@ -56,7 +56,7 @@ type Shapes struct {
 	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// List of shape links.
-	ShapesLinks []IResourceUriElement `json:"ShapesLinks,omitempty"`
+	ShapesLinks []IResourceUri `json:"ShapesLinks,omitempty"`
 }
 
 func NewShapes() *Shapes {
@@ -78,11 +78,11 @@ func (this *Shapes) getAlternateLinks() []IResourceUri {
 func (this *Shapes) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Shapes) getShapesLinks() []IResourceUriElement {
+func (this *Shapes) getShapesLinks() []IResourceUri {
 	return this.ShapesLinks
 }
 
-func (this *Shapes) setShapesLinks(newValue []IResourceUriElement) {
+func (this *Shapes) setShapesLinks(newValue []IResourceUri) {
 	this.ShapesLinks = newValue
 }
 
@@ -145,28 +145,28 @@ func (this *Shapes) UnmarshalJSON(b []byte) error {
 	
 	if valShapesLinks, ok := objMap["shapesLinks"]; ok {
 		if valShapesLinks != nil {
-			var valueForShapesLinks []ResourceUriElement
+			var valueForShapesLinks []ResourceUri
 			err = json.Unmarshal(*valShapesLinks, &valueForShapesLinks)
 			if err != nil {
 				return err
 			}
-			valueForIShapesLinks := make([]IResourceUriElement, len(valueForShapesLinks))
+			valueForIShapesLinks := make([]IResourceUri, len(valueForShapesLinks))
 			for i, v := range valueForShapesLinks {
-				valueForIShapesLinks[i] = IResourceUriElement(&v)
+				valueForIShapesLinks[i] = IResourceUri(&v)
 			}
 			this.ShapesLinks = valueForIShapesLinks
 		}
 	}
 	if valShapesLinksCap, ok := objMap["ShapesLinks"]; ok {
 		if valShapesLinksCap != nil {
-			var valueForShapesLinks []ResourceUriElement
+			var valueForShapesLinks []ResourceUri
 			err = json.Unmarshal(*valShapesLinksCap, &valueForShapesLinks)
 			if err != nil {
 				return err
 			}
-			valueForIShapesLinks := make([]IResourceUriElement, len(valueForShapesLinks))
+			valueForIShapesLinks := make([]IResourceUri, len(valueForShapesLinks))
 			for i, v := range valueForShapesLinks {
-				valueForIShapesLinks[i] = IResourceUriElement(&v)
+				valueForIShapesLinks[i] = IResourceUri(&v)
 			}
 			this.ShapesLinks = valueForIShapesLinks
 		}

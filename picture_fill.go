@@ -59,8 +59,8 @@ type IPictureFill interface {
 	setDpi(newValue int32)
 
 	// Internal image link.
-	getImage() IResourceUriElement
-	setImage(newValue IResourceUriElement)
+	getImage() IResourceUri
+	setImage(newValue IResourceUri)
 
 	// Base 64 image data.
 	getBase64Data() string
@@ -96,7 +96,7 @@ type PictureFill struct {
 	Dpi int32 `json:"Dpi"`
 
 	// Internal image link.
-	Image IResourceUriElement `json:"Image,omitempty"`
+	Image IResourceUri `json:"Image,omitempty"`
 
 	// Base 64 image data.
 	Base64Data string `json:"Base64Data,omitempty"`
@@ -157,11 +157,11 @@ func (this *PictureFill) getDpi() int32 {
 func (this *PictureFill) setDpi(newValue int32) {
 	this.Dpi = newValue
 }
-func (this *PictureFill) getImage() IResourceUriElement {
+func (this *PictureFill) getImage() IResourceUri {
 	return this.Image
 }
 
-func (this *PictureFill) setImage(newValue IResourceUriElement) {
+func (this *PictureFill) setImage(newValue IResourceUri) {
 	this.Image = newValue
 }
 func (this *PictureFill) getBase64Data() string {
@@ -333,7 +333,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 	
 	if valImage, ok := objMap["image"]; ok {
 		if valImage != nil {
-			var valueForImage ResourceUriElement
+			var valueForImage ResourceUri
 			err = json.Unmarshal(*valImage, &valueForImage)
 			if err != nil {
 				return err
@@ -343,7 +343,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 	}
 	if valImageCap, ok := objMap["Image"]; ok {
 		if valImageCap != nil {
-			var valueForImage ResourceUriElement
+			var valueForImage ResourceUri
 			err = json.Unmarshal(*valImageCap, &valueForImage)
 			if err != nil {
 				return err

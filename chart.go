@@ -79,8 +79,8 @@ type IChart interface {
 	setZOrderPosition(newValue int32)
 
 	// Gets or sets the link to shapes.
-	getShapes() IResourceUriElement
-	setShapes(newValue IResourceUriElement)
+	getShapes() IResourceUri
+	setShapes(newValue IResourceUri)
 
 	// Gets or sets the fill format.
 	getFillFormat() IFillFormat
@@ -97,10 +97,6 @@ type IChart interface {
 	// Shape type.
 	getType() string
 	setType(newValue string)
-
-	// Combined shape type.
-	getShapeType() string
-	setShapeType(newValue string)
 
 	// Gets or sets the type of the chart.
 	getChartType() string
@@ -183,7 +179,7 @@ type Chart struct {
 	ZOrderPosition int32 `json:"ZOrderPosition"`
 
 	// Gets or sets the link to shapes.
-	Shapes IResourceUriElement `json:"Shapes,omitempty"`
+	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// Gets or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -196,9 +192,6 @@ type Chart struct {
 
 	// Shape type.
 	Type_ string `json:"Type"`
-
-	// Combined shape type.
-	ShapeType string `json:"ShapeType"`
 
 	// Gets or sets the type of the chart.
 	ChartType string `json:"ChartType"`
@@ -237,7 +230,6 @@ type Chart struct {
 func NewChart() *Chart {
 	instance := new(Chart)
 	instance.Type_ = "Chart"
-	instance.ShapeType = "Chart"
 	instance.ChartType = "ClusteredColumn"
 	return instance
 }
@@ -319,11 +311,11 @@ func (this *Chart) getZOrderPosition() int32 {
 func (this *Chart) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *Chart) getShapes() IResourceUriElement {
+func (this *Chart) getShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *Chart) setShapes(newValue IResourceUriElement) {
+func (this *Chart) setShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
 func (this *Chart) getFillFormat() IFillFormat {
@@ -353,13 +345,6 @@ func (this *Chart) getType() string {
 
 func (this *Chart) setType(newValue string) {
 	this.Type_ = newValue
-}
-func (this *Chart) getShapeType() string {
-	return this.ShapeType
-}
-
-func (this *Chart) setShapeType(newValue string) {
-	this.ShapeType = newValue
 }
 func (this *Chart) getChartType() string {
 	return this.ChartType
@@ -687,7 +672,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	
 	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapes, &valueForShapes)
 			if err != nil {
 				return err
@@ -697,7 +682,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
 		if valShapesCap != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapesCap, &valueForShapes)
 			if err != nil {
 				return err
@@ -798,39 +783,6 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 				this.Type_ = string(valueForTypeInt)
 			} else {
 				this.Type_ = valueForType
-			}
-		}
-	}
-	this.ShapeType = "Chart"
-	if valShapeType, ok := objMap["shapeType"]; ok {
-		if valShapeType != nil {
-			var valueForShapeType string
-			err = json.Unmarshal(*valShapeType, &valueForShapeType)
-			if err != nil {
-				var valueForShapeTypeInt int32
-				err = json.Unmarshal(*valShapeType, &valueForShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.ShapeType = string(valueForShapeTypeInt)
-			} else {
-				this.ShapeType = valueForShapeType
-			}
-		}
-	}
-	if valShapeTypeCap, ok := objMap["ShapeType"]; ok {
-		if valShapeTypeCap != nil {
-			var valueForShapeType string
-			err = json.Unmarshal(*valShapeTypeCap, &valueForShapeType)
-			if err != nil {
-				var valueForShapeTypeInt int32
-				err = json.Unmarshal(*valShapeTypeCap, &valueForShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.ShapeType = string(valueForShapeTypeInt)
-			} else {
-				this.ShapeType = valueForShapeType
 			}
 		}
 	}

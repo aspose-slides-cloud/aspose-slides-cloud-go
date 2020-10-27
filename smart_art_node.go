@@ -39,8 +39,8 @@ type ISmartArtNode interface {
 	setNodes(newValue []ISmartArtNode)
 
 	// Gets or sets the link to shapes.
-	getShapes() IResourceUriElement
-	setShapes(newValue IResourceUriElement)
+	getShapes() IResourceUri
+	setShapes(newValue IResourceUri)
 
 	// True for and assistant node.
 	getIsAssistant() bool
@@ -61,7 +61,7 @@ type SmartArtNode struct {
 	Nodes []ISmartArtNode `json:"Nodes,omitempty"`
 
 	// Gets or sets the link to shapes.
-	Shapes IResourceUriElement `json:"Shapes,omitempty"`
+	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// True for and assistant node.
 	IsAssistant bool `json:"IsAssistant"`
@@ -86,11 +86,11 @@ func (this *SmartArtNode) getNodes() []ISmartArtNode {
 func (this *SmartArtNode) setNodes(newValue []ISmartArtNode) {
 	this.Nodes = newValue
 }
-func (this *SmartArtNode) getShapes() IResourceUriElement {
+func (this *SmartArtNode) getShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *SmartArtNode) setShapes(newValue IResourceUriElement) {
+func (this *SmartArtNode) setShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
 func (this *SmartArtNode) getIsAssistant() bool {
@@ -153,7 +153,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 	
 	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapes, &valueForShapes)
 			if err != nil {
 				return err
@@ -163,7 +163,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
 		if valShapesCap != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapesCap, &valueForShapes)
 			if err != nil {
 				return err

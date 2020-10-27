@@ -79,8 +79,8 @@ type IPictureFrame interface {
 	setZOrderPosition(newValue int32)
 
 	// Gets or sets the link to shapes.
-	getShapes() IResourceUriElement
-	setShapes(newValue IResourceUriElement)
+	getShapes() IResourceUri
+	setShapes(newValue IResourceUri)
 
 	// Gets or sets the fill format.
 	getFillFormat() IFillFormat
@@ -101,10 +101,6 @@ type IPictureFrame interface {
 	// Combined shape type.
 	getShapeType() string
 	setShapeType(newValue string)
-
-	// Geometry shape type.
-	getGeometryShapeType() string
-	setGeometryShapeType(newValue string)
 
 	// Fill format.
 	getPictureFillFormat() IPictureFill
@@ -147,7 +143,7 @@ type PictureFrame struct {
 	ZOrderPosition int32 `json:"ZOrderPosition"`
 
 	// Gets or sets the link to shapes.
-	Shapes IResourceUriElement `json:"Shapes,omitempty"`
+	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// Gets or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -164,9 +160,6 @@ type PictureFrame struct {
 	// Combined shape type.
 	ShapeType string `json:"ShapeType"`
 
-	// Geometry shape type.
-	GeometryShapeType string `json:"GeometryShapeType"`
-
 	// Fill format.
 	PictureFillFormat IPictureFill `json:"PictureFillFormat,omitempty"`
 }
@@ -174,8 +167,7 @@ type PictureFrame struct {
 func NewPictureFrame() *PictureFrame {
 	instance := new(PictureFrame)
 	instance.Type_ = "PictureFrame"
-	instance.ShapeType = "PictureFrame"
-	instance.GeometryShapeType = "Custom"
+	instance.ShapeType = "Custom"
 	return instance
 }
 
@@ -256,11 +248,11 @@ func (this *PictureFrame) getZOrderPosition() int32 {
 func (this *PictureFrame) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *PictureFrame) getShapes() IResourceUriElement {
+func (this *PictureFrame) getShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *PictureFrame) setShapes(newValue IResourceUriElement) {
+func (this *PictureFrame) setShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
 func (this *PictureFrame) getFillFormat() IFillFormat {
@@ -297,13 +289,6 @@ func (this *PictureFrame) getShapeType() string {
 
 func (this *PictureFrame) setShapeType(newValue string) {
 	this.ShapeType = newValue
-}
-func (this *PictureFrame) getGeometryShapeType() string {
-	return this.GeometryShapeType
-}
-
-func (this *PictureFrame) setGeometryShapeType(newValue string) {
-	this.GeometryShapeType = newValue
 }
 func (this *PictureFrame) getPictureFillFormat() IPictureFill {
 	return this.PictureFillFormat
@@ -561,7 +546,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 	
 	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapes, &valueForShapes)
 			if err != nil {
 				return err
@@ -571,7 +556,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
 		if valShapesCap != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapesCap, &valueForShapes)
 			if err != nil {
 				return err
@@ -675,7 +660,7 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.ShapeType = "PictureFrame"
+	this.ShapeType = "Custom"
 	if valShapeType, ok := objMap["shapeType"]; ok {
 		if valShapeType != nil {
 			var valueForShapeType string
@@ -705,39 +690,6 @@ func (this *PictureFrame) UnmarshalJSON(b []byte) error {
 				this.ShapeType = string(valueForShapeTypeInt)
 			} else {
 				this.ShapeType = valueForShapeType
-			}
-		}
-	}
-	this.GeometryShapeType = "Custom"
-	if valGeometryShapeType, ok := objMap["geometryShapeType"]; ok {
-		if valGeometryShapeType != nil {
-			var valueForGeometryShapeType string
-			err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeType)
-			if err != nil {
-				var valueForGeometryShapeTypeInt int32
-				err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.GeometryShapeType = string(valueForGeometryShapeTypeInt)
-			} else {
-				this.GeometryShapeType = valueForGeometryShapeType
-			}
-		}
-	}
-	if valGeometryShapeTypeCap, ok := objMap["GeometryShapeType"]; ok {
-		if valGeometryShapeTypeCap != nil {
-			var valueForGeometryShapeType string
-			err = json.Unmarshal(*valGeometryShapeTypeCap, &valueForGeometryShapeType)
-			if err != nil {
-				var valueForGeometryShapeTypeInt int32
-				err = json.Unmarshal(*valGeometryShapeTypeCap, &valueForGeometryShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.GeometryShapeType = string(valueForGeometryShapeTypeInt)
-			} else {
-				this.GeometryShapeType = valueForGeometryShapeType
 			}
 		}
 	}

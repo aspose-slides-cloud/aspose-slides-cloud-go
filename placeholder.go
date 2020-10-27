@@ -59,8 +59,8 @@ type IPlaceholder interface {
 	setType(newValue string)
 
 	// Shape link.
-	getShape() IResourceUriElement
-	setShape(newValue IResourceUriElement)
+	getShape() IResourceUri
+	setShape(newValue IResourceUri)
 }
 
 type Placeholder struct {
@@ -84,7 +84,7 @@ type Placeholder struct {
 	Type_ string `json:"Type"`
 
 	// Shape link.
-	Shape IResourceUriElement `json:"Shape,omitempty"`
+	Shape IResourceUri `json:"Shape,omitempty"`
 }
 
 func NewPlaceholder() *Placeholder {
@@ -137,11 +137,11 @@ func (this *Placeholder) getType() string {
 func (this *Placeholder) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *Placeholder) getShape() IResourceUriElement {
+func (this *Placeholder) getShape() IResourceUri {
 	return this.Shape
 }
 
-func (this *Placeholder) setShape(newValue IResourceUriElement) {
+func (this *Placeholder) setShape(newValue IResourceUri) {
 	this.Shape = newValue
 }
 
@@ -324,7 +324,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 	
 	if valShape, ok := objMap["shape"]; ok {
 		if valShape != nil {
-			var valueForShape ResourceUriElement
+			var valueForShape ResourceUri
 			err = json.Unmarshal(*valShape, &valueForShape)
 			if err != nil {
 				return err
@@ -334,7 +334,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 	}
 	if valShapeCap, ok := objMap["Shape"]; ok {
 		if valShapeCap != nil {
-			var valueForShape ResourceUriElement
+			var valueForShape ResourceUri
 			err = json.Unmarshal(*valShapeCap, &valueForShape)
 			if err != nil {
 				return err

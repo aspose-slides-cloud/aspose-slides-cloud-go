@@ -47,16 +47,16 @@ type ITheme interface {
 	setName(newValue string)
 
 	// Color scheme.
-	getColorScheme() IResourceUriElement
-	setColorScheme(newValue IResourceUriElement)
+	getColorScheme() IResourceUri
+	setColorScheme(newValue IResourceUri)
 
 	// Font scheme.
-	getFontScheme() IResourceUriElement
-	setFontScheme(newValue IResourceUriElement)
+	getFontScheme() IResourceUri
+	setFontScheme(newValue IResourceUri)
 
 	// Format scheme.
-	getFormatScheme() IResourceUriElement
-	setFormatScheme(newValue IResourceUriElement)
+	getFormatScheme() IResourceUri
+	setFormatScheme(newValue IResourceUri)
 }
 
 type Theme struct {
@@ -71,13 +71,13 @@ type Theme struct {
 	Name string `json:"Name,omitempty"`
 
 	// Color scheme.
-	ColorScheme IResourceUriElement `json:"ColorScheme,omitempty"`
+	ColorScheme IResourceUri `json:"ColorScheme,omitempty"`
 
 	// Font scheme.
-	FontScheme IResourceUriElement `json:"FontScheme,omitempty"`
+	FontScheme IResourceUri `json:"FontScheme,omitempty"`
 
 	// Format scheme.
-	FormatScheme IResourceUriElement `json:"FormatScheme,omitempty"`
+	FormatScheme IResourceUri `json:"FormatScheme,omitempty"`
 }
 
 func NewTheme() *Theme {
@@ -106,25 +106,25 @@ func (this *Theme) getName() string {
 func (this *Theme) setName(newValue string) {
 	this.Name = newValue
 }
-func (this *Theme) getColorScheme() IResourceUriElement {
+func (this *Theme) getColorScheme() IResourceUri {
 	return this.ColorScheme
 }
 
-func (this *Theme) setColorScheme(newValue IResourceUriElement) {
+func (this *Theme) setColorScheme(newValue IResourceUri) {
 	this.ColorScheme = newValue
 }
-func (this *Theme) getFontScheme() IResourceUriElement {
+func (this *Theme) getFontScheme() IResourceUri {
 	return this.FontScheme
 }
 
-func (this *Theme) setFontScheme(newValue IResourceUriElement) {
+func (this *Theme) setFontScheme(newValue IResourceUri) {
 	this.FontScheme = newValue
 }
-func (this *Theme) getFormatScheme() IResourceUriElement {
+func (this *Theme) getFormatScheme() IResourceUri {
 	return this.FormatScheme
 }
 
-func (this *Theme) setFormatScheme(newValue IResourceUriElement) {
+func (this *Theme) setFormatScheme(newValue IResourceUri) {
 	this.FormatScheme = newValue
 }
 
@@ -208,7 +208,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 	
 	if valColorScheme, ok := objMap["colorScheme"]; ok {
 		if valColorScheme != nil {
-			var valueForColorScheme ResourceUriElement
+			var valueForColorScheme ResourceUri
 			err = json.Unmarshal(*valColorScheme, &valueForColorScheme)
 			if err != nil {
 				return err
@@ -218,7 +218,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 	}
 	if valColorSchemeCap, ok := objMap["ColorScheme"]; ok {
 		if valColorSchemeCap != nil {
-			var valueForColorScheme ResourceUriElement
+			var valueForColorScheme ResourceUri
 			err = json.Unmarshal(*valColorSchemeCap, &valueForColorScheme)
 			if err != nil {
 				return err
@@ -229,7 +229,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 	
 	if valFontScheme, ok := objMap["fontScheme"]; ok {
 		if valFontScheme != nil {
-			var valueForFontScheme ResourceUriElement
+			var valueForFontScheme ResourceUri
 			err = json.Unmarshal(*valFontScheme, &valueForFontScheme)
 			if err != nil {
 				return err
@@ -239,7 +239,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 	}
 	if valFontSchemeCap, ok := objMap["FontScheme"]; ok {
 		if valFontSchemeCap != nil {
-			var valueForFontScheme ResourceUriElement
+			var valueForFontScheme ResourceUri
 			err = json.Unmarshal(*valFontSchemeCap, &valueForFontScheme)
 			if err != nil {
 				return err
@@ -250,7 +250,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 	
 	if valFormatScheme, ok := objMap["formatScheme"]; ok {
 		if valFormatScheme != nil {
-			var valueForFormatScheme ResourceUriElement
+			var valueForFormatScheme ResourceUri
 			err = json.Unmarshal(*valFormatScheme, &valueForFormatScheme)
 			if err != nil {
 				return err
@@ -260,7 +260,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 	}
 	if valFormatSchemeCap, ok := objMap["FormatScheme"]; ok {
 		if valFormatSchemeCap != nil {
-			var valueForFormatScheme ResourceUriElement
+			var valueForFormatScheme ResourceUri
 			err = json.Unmarshal(*valFormatSchemeCap, &valueForFormatScheme)
 			if err != nil {
 				return err

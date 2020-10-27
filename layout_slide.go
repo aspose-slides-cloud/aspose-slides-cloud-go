@@ -51,12 +51,12 @@ type ILayoutSlide interface {
 	setType(newValue string)
 
 	// Master slide link.
-	getMasterSlide() IResourceUriElement
-	setMasterSlide(newValue IResourceUriElement)
+	getMasterSlide() IResourceUri
+	setMasterSlide(newValue IResourceUri)
 
 	// List of depending slides.
-	getDependingSlides() []IResourceUriElement
-	setDependingSlides(newValue []IResourceUriElement)
+	getDependingSlides() []IResourceUri
+	setDependingSlides(newValue []IResourceUri)
 }
 
 type LayoutSlide struct {
@@ -74,10 +74,10 @@ type LayoutSlide struct {
 	Type_ string `json:"Type"`
 
 	// Master slide link.
-	MasterSlide IResourceUriElement `json:"MasterSlide,omitempty"`
+	MasterSlide IResourceUri `json:"MasterSlide,omitempty"`
 
 	// List of depending slides.
-	DependingSlides []IResourceUriElement `json:"DependingSlides,omitempty"`
+	DependingSlides []IResourceUri `json:"DependingSlides,omitempty"`
 }
 
 func NewLayoutSlide() *LayoutSlide {
@@ -114,18 +114,18 @@ func (this *LayoutSlide) getType() string {
 func (this *LayoutSlide) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *LayoutSlide) getMasterSlide() IResourceUriElement {
+func (this *LayoutSlide) getMasterSlide() IResourceUri {
 	return this.MasterSlide
 }
 
-func (this *LayoutSlide) setMasterSlide(newValue IResourceUriElement) {
+func (this *LayoutSlide) setMasterSlide(newValue IResourceUri) {
 	this.MasterSlide = newValue
 }
-func (this *LayoutSlide) getDependingSlides() []IResourceUriElement {
+func (this *LayoutSlide) getDependingSlides() []IResourceUri {
 	return this.DependingSlides
 }
 
-func (this *LayoutSlide) setDependingSlides(newValue []IResourceUriElement) {
+func (this *LayoutSlide) setDependingSlides(newValue []IResourceUri) {
 	this.DependingSlides = newValue
 }
 
@@ -242,7 +242,7 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 	
 	if valMasterSlide, ok := objMap["masterSlide"]; ok {
 		if valMasterSlide != nil {
-			var valueForMasterSlide ResourceUriElement
+			var valueForMasterSlide ResourceUri
 			err = json.Unmarshal(*valMasterSlide, &valueForMasterSlide)
 			if err != nil {
 				return err
@@ -252,7 +252,7 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 	}
 	if valMasterSlideCap, ok := objMap["MasterSlide"]; ok {
 		if valMasterSlideCap != nil {
-			var valueForMasterSlide ResourceUriElement
+			var valueForMasterSlide ResourceUri
 			err = json.Unmarshal(*valMasterSlideCap, &valueForMasterSlide)
 			if err != nil {
 				return err
@@ -263,28 +263,28 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 	
 	if valDependingSlides, ok := objMap["dependingSlides"]; ok {
 		if valDependingSlides != nil {
-			var valueForDependingSlides []ResourceUriElement
+			var valueForDependingSlides []ResourceUri
 			err = json.Unmarshal(*valDependingSlides, &valueForDependingSlides)
 			if err != nil {
 				return err
 			}
-			valueForIDependingSlides := make([]IResourceUriElement, len(valueForDependingSlides))
+			valueForIDependingSlides := make([]IResourceUri, len(valueForDependingSlides))
 			for i, v := range valueForDependingSlides {
-				valueForIDependingSlides[i] = IResourceUriElement(&v)
+				valueForIDependingSlides[i] = IResourceUri(&v)
 			}
 			this.DependingSlides = valueForIDependingSlides
 		}
 	}
 	if valDependingSlidesCap, ok := objMap["DependingSlides"]; ok {
 		if valDependingSlidesCap != nil {
-			var valueForDependingSlides []ResourceUriElement
+			var valueForDependingSlides []ResourceUri
 			err = json.Unmarshal(*valDependingSlidesCap, &valueForDependingSlides)
 			if err != nil {
 				return err
 			}
-			valueForIDependingSlides := make([]IResourceUriElement, len(valueForDependingSlides))
+			valueForIDependingSlides := make([]IResourceUri, len(valueForDependingSlides))
 			for i, v := range valueForDependingSlides {
-				valueForIDependingSlides[i] = IResourceUriElement(&v)
+				valueForIDependingSlides[i] = IResourceUri(&v)
 			}
 			this.DependingSlides = valueForIDependingSlides
 		}

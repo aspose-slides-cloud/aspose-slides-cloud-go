@@ -43,8 +43,8 @@ type ISlides interface {
 	setAlternateLinks(newValue []IResourceUri)
 
 	// List of slide links.
-	getSlideList() []IResourceUriElement
-	setSlideList(newValue []IResourceUriElement)
+	getSlideList() []IResourceUri
+	setSlideList(newValue []IResourceUri)
 }
 
 type Slides struct {
@@ -56,7 +56,7 @@ type Slides struct {
 	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// List of slide links.
-	SlideList []IResourceUriElement `json:"SlideList,omitempty"`
+	SlideList []IResourceUri `json:"SlideList,omitempty"`
 }
 
 func NewSlides() *Slides {
@@ -78,11 +78,11 @@ func (this *Slides) getAlternateLinks() []IResourceUri {
 func (this *Slides) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Slides) getSlideList() []IResourceUriElement {
+func (this *Slides) getSlideList() []IResourceUri {
 	return this.SlideList
 }
 
-func (this *Slides) setSlideList(newValue []IResourceUriElement) {
+func (this *Slides) setSlideList(newValue []IResourceUri) {
 	this.SlideList = newValue
 }
 
@@ -145,28 +145,28 @@ func (this *Slides) UnmarshalJSON(b []byte) error {
 	
 	if valSlideList, ok := objMap["slideList"]; ok {
 		if valSlideList != nil {
-			var valueForSlideList []ResourceUriElement
+			var valueForSlideList []ResourceUri
 			err = json.Unmarshal(*valSlideList, &valueForSlideList)
 			if err != nil {
 				return err
 			}
-			valueForISlideList := make([]IResourceUriElement, len(valueForSlideList))
+			valueForISlideList := make([]IResourceUri, len(valueForSlideList))
 			for i, v := range valueForSlideList {
-				valueForISlideList[i] = IResourceUriElement(&v)
+				valueForISlideList[i] = IResourceUri(&v)
 			}
 			this.SlideList = valueForISlideList
 		}
 	}
 	if valSlideListCap, ok := objMap["SlideList"]; ok {
 		if valSlideListCap != nil {
-			var valueForSlideList []ResourceUriElement
+			var valueForSlideList []ResourceUri
 			err = json.Unmarshal(*valSlideListCap, &valueForSlideList)
 			if err != nil {
 				return err
 			}
-			valueForISlideList := make([]IResourceUriElement, len(valueForSlideList))
+			valueForISlideList := make([]IResourceUri, len(valueForSlideList))
 			for i, v := range valueForSlideList {
-				valueForISlideList[i] = IResourceUriElement(&v)
+				valueForISlideList[i] = IResourceUri(&v)
 			}
 			this.SlideList = valueForISlideList
 		}

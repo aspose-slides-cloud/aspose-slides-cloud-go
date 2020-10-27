@@ -79,8 +79,8 @@ type IGraphicalObject interface {
 	setZOrderPosition(newValue int32)
 
 	// Gets or sets the link to shapes.
-	getShapes() IResourceUriElement
-	setShapes(newValue IResourceUriElement)
+	getShapes() IResourceUri
+	setShapes(newValue IResourceUri)
 
 	// Gets or sets the fill format.
 	getFillFormat() IFillFormat
@@ -97,10 +97,6 @@ type IGraphicalObject interface {
 	// Shape type.
 	getType() string
 	setType(newValue string)
-
-	// Combined shape type.
-	getShapeType() string
-	setShapeType(newValue string)
 }
 
 type GraphicalObject struct {
@@ -139,7 +135,7 @@ type GraphicalObject struct {
 	ZOrderPosition int32 `json:"ZOrderPosition"`
 
 	// Gets or sets the link to shapes.
-	Shapes IResourceUriElement `json:"Shapes,omitempty"`
+	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// Gets or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -152,15 +148,11 @@ type GraphicalObject struct {
 
 	// Shape type.
 	Type_ string `json:"Type"`
-
-	// Combined shape type.
-	ShapeType string `json:"ShapeType"`
 }
 
 func NewGraphicalObject() *GraphicalObject {
 	instance := new(GraphicalObject)
 	instance.Type_ = "GraphicalObject"
-	instance.ShapeType = "GraphicalObject"
 	return instance
 }
 
@@ -241,11 +233,11 @@ func (this *GraphicalObject) getZOrderPosition() int32 {
 func (this *GraphicalObject) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *GraphicalObject) getShapes() IResourceUriElement {
+func (this *GraphicalObject) getShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *GraphicalObject) setShapes(newValue IResourceUriElement) {
+func (this *GraphicalObject) setShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
 func (this *GraphicalObject) getFillFormat() IFillFormat {
@@ -275,13 +267,6 @@ func (this *GraphicalObject) getType() string {
 
 func (this *GraphicalObject) setType(newValue string) {
 	this.Type_ = newValue
-}
-func (this *GraphicalObject) getShapeType() string {
-	return this.ShapeType
-}
-
-func (this *GraphicalObject) setShapeType(newValue string) {
-	this.ShapeType = newValue
 }
 
 func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
@@ -532,7 +517,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 	
 	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapes, &valueForShapes)
 			if err != nil {
 				return err
@@ -542,7 +527,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
 		if valShapesCap != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapesCap, &valueForShapes)
 			if err != nil {
 				return err
@@ -643,39 +628,6 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 				this.Type_ = string(valueForTypeInt)
 			} else {
 				this.Type_ = valueForType
-			}
-		}
-	}
-	this.ShapeType = "GraphicalObject"
-	if valShapeType, ok := objMap["shapeType"]; ok {
-		if valShapeType != nil {
-			var valueForShapeType string
-			err = json.Unmarshal(*valShapeType, &valueForShapeType)
-			if err != nil {
-				var valueForShapeTypeInt int32
-				err = json.Unmarshal(*valShapeType, &valueForShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.ShapeType = string(valueForShapeTypeInt)
-			} else {
-				this.ShapeType = valueForShapeType
-			}
-		}
-	}
-	if valShapeTypeCap, ok := objMap["ShapeType"]; ok {
-		if valShapeTypeCap != nil {
-			var valueForShapeType string
-			err = json.Unmarshal(*valShapeTypeCap, &valueForShapeType)
-			if err != nil {
-				var valueForShapeTypeInt int32
-				err = json.Unmarshal(*valShapeTypeCap, &valueForShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.ShapeType = string(valueForShapeTypeInt)
-			} else {
-				this.ShapeType = valueForShapeType
 			}
 		}
 	}

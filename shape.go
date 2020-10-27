@@ -79,8 +79,8 @@ type IShape interface {
 	setZOrderPosition(newValue int32)
 
 	// Gets or sets the link to shapes.
-	getShapes() IResourceUriElement
-	setShapes(newValue IResourceUriElement)
+	getShapes() IResourceUri
+	setShapes(newValue IResourceUri)
 
 	// Gets or sets the fill format.
 	getFillFormat() IFillFormat
@@ -98,21 +98,17 @@ type IShape interface {
 	getType() string
 	setType(newValue string)
 
-	// Shape type.
+	// Combined shape type.
 	getShapeType() string
 	setShapeType(newValue string)
-
-	// Geometry shape type.
-	getGeometryShapeType() string
-	setGeometryShapeType(newValue string)
 
 	// Gets or sets the text.
 	getText() string
 	setText(newValue string)
 
 	// Get or sets list to paragraphs list
-	getParagraphs() IResourceUriElement
-	setParagraphs(newValue IResourceUriElement)
+	getParagraphs() IResourceUri
+	setParagraphs(newValue IResourceUri)
 }
 
 type Shape struct {
@@ -151,7 +147,7 @@ type Shape struct {
 	ZOrderPosition int32 `json:"ZOrderPosition"`
 
 	// Gets or sets the link to shapes.
-	Shapes IResourceUriElement `json:"Shapes,omitempty"`
+	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// Gets or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -165,24 +161,20 @@ type Shape struct {
 	// Shape type.
 	Type_ string `json:"Type"`
 
-	// Shape type.
+	// Combined shape type.
 	ShapeType string `json:"ShapeType"`
-
-	// Geometry shape type.
-	GeometryShapeType string `json:"GeometryShapeType"`
 
 	// Gets or sets the text.
 	Text string `json:"Text,omitempty"`
 
 	// Get or sets list to paragraphs list
-	Paragraphs IResourceUriElement `json:"Paragraphs,omitempty"`
+	Paragraphs IResourceUri `json:"Paragraphs,omitempty"`
 }
 
 func NewShape() *Shape {
 	instance := new(Shape)
 	instance.Type_ = "Shape"
 	instance.ShapeType = "Custom"
-	instance.GeometryShapeType = "Custom"
 	return instance
 }
 
@@ -263,11 +255,11 @@ func (this *Shape) getZOrderPosition() int32 {
 func (this *Shape) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *Shape) getShapes() IResourceUriElement {
+func (this *Shape) getShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *Shape) setShapes(newValue IResourceUriElement) {
+func (this *Shape) setShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
 func (this *Shape) getFillFormat() IFillFormat {
@@ -305,13 +297,6 @@ func (this *Shape) getShapeType() string {
 func (this *Shape) setShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this *Shape) getGeometryShapeType() string {
-	return this.GeometryShapeType
-}
-
-func (this *Shape) setGeometryShapeType(newValue string) {
-	this.GeometryShapeType = newValue
-}
 func (this *Shape) getText() string {
 	return this.Text
 }
@@ -319,11 +304,11 @@ func (this *Shape) getText() string {
 func (this *Shape) setText(newValue string) {
 	this.Text = newValue
 }
-func (this *Shape) getParagraphs() IResourceUriElement {
+func (this *Shape) getParagraphs() IResourceUri {
 	return this.Paragraphs
 }
 
-func (this *Shape) setParagraphs(newValue IResourceUriElement) {
+func (this *Shape) setParagraphs(newValue IResourceUri) {
 	this.Paragraphs = newValue
 }
 
@@ -575,7 +560,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 	
 	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapes, &valueForShapes)
 			if err != nil {
 				return err
@@ -585,7 +570,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
 		if valShapesCap != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapesCap, &valueForShapes)
 			if err != nil {
 				return err
@@ -722,39 +707,6 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.GeometryShapeType = "Custom"
-	if valGeometryShapeType, ok := objMap["geometryShapeType"]; ok {
-		if valGeometryShapeType != nil {
-			var valueForGeometryShapeType string
-			err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeType)
-			if err != nil {
-				var valueForGeometryShapeTypeInt int32
-				err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.GeometryShapeType = string(valueForGeometryShapeTypeInt)
-			} else {
-				this.GeometryShapeType = valueForGeometryShapeType
-			}
-		}
-	}
-	if valGeometryShapeTypeCap, ok := objMap["GeometryShapeType"]; ok {
-		if valGeometryShapeTypeCap != nil {
-			var valueForGeometryShapeType string
-			err = json.Unmarshal(*valGeometryShapeTypeCap, &valueForGeometryShapeType)
-			if err != nil {
-				var valueForGeometryShapeTypeInt int32
-				err = json.Unmarshal(*valGeometryShapeTypeCap, &valueForGeometryShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.GeometryShapeType = string(valueForGeometryShapeTypeInt)
-			} else {
-				this.GeometryShapeType = valueForGeometryShapeType
-			}
-		}
-	}
 	
 	if valText, ok := objMap["text"]; ok {
 		if valText != nil {
@@ -779,7 +731,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 	
 	if valParagraphs, ok := objMap["paragraphs"]; ok {
 		if valParagraphs != nil {
-			var valueForParagraphs ResourceUriElement
+			var valueForParagraphs ResourceUri
 			err = json.Unmarshal(*valParagraphs, &valueForParagraphs)
 			if err != nil {
 				return err
@@ -789,7 +741,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 	}
 	if valParagraphsCap, ok := objMap["Paragraphs"]; ok {
 		if valParagraphsCap != nil {
-			var valueForParagraphs ResourceUriElement
+			var valueForParagraphs ResourceUri
 			err = json.Unmarshal(*valParagraphsCap, &valueForParagraphs)
 			if err != nil {
 				return err

@@ -79,8 +79,8 @@ type IAudioFrame interface {
 	setZOrderPosition(newValue int32)
 
 	// Gets or sets the link to shapes.
-	getShapes() IResourceUriElement
-	setShapes(newValue IResourceUriElement)
+	getShapes() IResourceUri
+	setShapes(newValue IResourceUri)
 
 	// Gets or sets the fill format.
 	getFillFormat() IFillFormat
@@ -101,10 +101,6 @@ type IAudioFrame interface {
 	// Combined shape type.
 	getShapeType() string
 	setShapeType(newValue string)
-
-	// Geometry shape type.
-	getGeometryShapeType() string
-	setGeometryShapeType(newValue string)
 
 	// Returns or sets a last track index.
 	getAudioCdEndTrack() int32
@@ -183,7 +179,7 @@ type AudioFrame struct {
 	ZOrderPosition int32 `json:"ZOrderPosition"`
 
 	// Gets or sets the link to shapes.
-	Shapes IResourceUriElement `json:"Shapes,omitempty"`
+	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// Gets or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -199,9 +195,6 @@ type AudioFrame struct {
 
 	// Combined shape type.
 	ShapeType string `json:"ShapeType"`
-
-	// Geometry shape type.
-	GeometryShapeType string `json:"GeometryShapeType"`
 
 	// Returns or sets a last track index.
 	AudioCdEndTrack int32 `json:"AudioCdEndTrack,omitempty"`
@@ -237,8 +230,7 @@ type AudioFrame struct {
 func NewAudioFrame() *AudioFrame {
 	instance := new(AudioFrame)
 	instance.Type_ = "AudioFrame"
-	instance.ShapeType = "AudioFrame"
-	instance.GeometryShapeType = "Custom"
+	instance.ShapeType = "Custom"
 	instance.PlayMode = ""
 	instance.Volume = ""
 	return instance
@@ -321,11 +313,11 @@ func (this *AudioFrame) getZOrderPosition() int32 {
 func (this *AudioFrame) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *AudioFrame) getShapes() IResourceUriElement {
+func (this *AudioFrame) getShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *AudioFrame) setShapes(newValue IResourceUriElement) {
+func (this *AudioFrame) setShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
 func (this *AudioFrame) getFillFormat() IFillFormat {
@@ -362,13 +354,6 @@ func (this *AudioFrame) getShapeType() string {
 
 func (this *AudioFrame) setShapeType(newValue string) {
 	this.ShapeType = newValue
-}
-func (this *AudioFrame) getGeometryShapeType() string {
-	return this.GeometryShapeType
-}
-
-func (this *AudioFrame) setGeometryShapeType(newValue string) {
-	this.GeometryShapeType = newValue
 }
 func (this *AudioFrame) getAudioCdEndTrack() int32 {
 	return this.AudioCdEndTrack
@@ -689,7 +674,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	
 	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapes, &valueForShapes)
 			if err != nil {
 				return err
@@ -699,7 +684,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
 		if valShapesCap != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapesCap, &valueForShapes)
 			if err != nil {
 				return err
@@ -803,7 +788,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.ShapeType = "AudioFrame"
+	this.ShapeType = "Custom"
 	if valShapeType, ok := objMap["shapeType"]; ok {
 		if valShapeType != nil {
 			var valueForShapeType string
@@ -833,39 +818,6 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 				this.ShapeType = string(valueForShapeTypeInt)
 			} else {
 				this.ShapeType = valueForShapeType
-			}
-		}
-	}
-	this.GeometryShapeType = "Custom"
-	if valGeometryShapeType, ok := objMap["geometryShapeType"]; ok {
-		if valGeometryShapeType != nil {
-			var valueForGeometryShapeType string
-			err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeType)
-			if err != nil {
-				var valueForGeometryShapeTypeInt int32
-				err = json.Unmarshal(*valGeometryShapeType, &valueForGeometryShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.GeometryShapeType = string(valueForGeometryShapeTypeInt)
-			} else {
-				this.GeometryShapeType = valueForGeometryShapeType
-			}
-		}
-	}
-	if valGeometryShapeTypeCap, ok := objMap["GeometryShapeType"]; ok {
-		if valGeometryShapeTypeCap != nil {
-			var valueForGeometryShapeType string
-			err = json.Unmarshal(*valGeometryShapeTypeCap, &valueForGeometryShapeType)
-			if err != nil {
-				var valueForGeometryShapeTypeInt int32
-				err = json.Unmarshal(*valGeometryShapeTypeCap, &valueForGeometryShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.GeometryShapeType = string(valueForGeometryShapeTypeInt)
-			} else {
-				this.GeometryShapeType = valueForGeometryShapeType
 			}
 		}
 	}

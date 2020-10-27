@@ -79,8 +79,8 @@ type IShapeBase interface {
 	setZOrderPosition(newValue int32)
 
 	// Gets or sets the link to shapes.
-	getShapes() IResourceUriElement
-	setShapes(newValue IResourceUriElement)
+	getShapes() IResourceUri
+	setShapes(newValue IResourceUri)
 
 	// Gets or sets the fill format.
 	getFillFormat() IFillFormat
@@ -96,9 +96,6 @@ type IShapeBase interface {
 
 	getType() string
 	setType(newValue string)
-
-	getShapeType() string
-	setShapeType(newValue string)
 }
 
 type ShapeBase struct {
@@ -137,7 +134,7 @@ type ShapeBase struct {
 	ZOrderPosition int32 `json:"ZOrderPosition"`
 
 	// Gets or sets the link to shapes.
-	Shapes IResourceUriElement `json:"Shapes,omitempty"`
+	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// Gets or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -149,14 +146,11 @@ type ShapeBase struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
 	Type_ string `json:"Type,omitempty"`
-
-	ShapeType string `json:"ShapeType,omitempty"`
 }
 
 func NewShapeBase() *ShapeBase {
 	instance := new(ShapeBase)
 	instance.Type_ = ""
-	instance.ShapeType = ""
 	return instance
 }
 
@@ -237,11 +231,11 @@ func (this *ShapeBase) getZOrderPosition() int32 {
 func (this *ShapeBase) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *ShapeBase) getShapes() IResourceUriElement {
+func (this *ShapeBase) getShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *ShapeBase) setShapes(newValue IResourceUriElement) {
+func (this *ShapeBase) setShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
 func (this *ShapeBase) getFillFormat() IFillFormat {
@@ -271,13 +265,6 @@ func (this *ShapeBase) getType() string {
 
 func (this *ShapeBase) setType(newValue string) {
 	this.Type_ = newValue
-}
-func (this *ShapeBase) getShapeType() string {
-	return this.ShapeType
-}
-
-func (this *ShapeBase) setShapeType(newValue string) {
-	this.ShapeType = newValue
 }
 
 func (this *ShapeBase) UnmarshalJSON(b []byte) error {
@@ -528,7 +515,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 	
 	if valShapes, ok := objMap["shapes"]; ok {
 		if valShapes != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapes, &valueForShapes)
 			if err != nil {
 				return err
@@ -538,7 +525,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
 		if valShapesCap != nil {
-			var valueForShapes ResourceUriElement
+			var valueForShapes ResourceUri
 			err = json.Unmarshal(*valShapesCap, &valueForShapes)
 			if err != nil {
 				return err
@@ -639,39 +626,6 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 				this.Type_ = string(valueForTypeInt)
 			} else {
 				this.Type_ = valueForType
-			}
-		}
-	}
-	this.ShapeType = ""
-	if valShapeType, ok := objMap["shapeType"]; ok {
-		if valShapeType != nil {
-			var valueForShapeType string
-			err = json.Unmarshal(*valShapeType, &valueForShapeType)
-			if err != nil {
-				var valueForShapeTypeInt int32
-				err = json.Unmarshal(*valShapeType, &valueForShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.ShapeType = string(valueForShapeTypeInt)
-			} else {
-				this.ShapeType = valueForShapeType
-			}
-		}
-	}
-	if valShapeTypeCap, ok := objMap["ShapeType"]; ok {
-		if valShapeTypeCap != nil {
-			var valueForShapeType string
-			err = json.Unmarshal(*valShapeTypeCap, &valueForShapeType)
-			if err != nil {
-				var valueForShapeTypeInt int32
-				err = json.Unmarshal(*valShapeTypeCap, &valueForShapeTypeInt)
-				if err != nil {
-					return err
-				}
-				this.ShapeType = string(valueForShapeTypeInt)
-			} else {
-				this.ShapeType = valueForShapeType
 			}
 		}
 	}

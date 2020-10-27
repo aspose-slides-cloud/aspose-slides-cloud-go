@@ -150,10 +150,6 @@ func TestChart(t *testing.T) {
 		t.Errorf("Unexpected chart type: %v.", chart.getType())
 		return
 	}
-	if chart.getShapeType() != "Chart" {
-		t.Errorf("Unexpected chart shape type: %v.", chart.getType())
-		return
-	}
 }
 
 /*
@@ -186,7 +182,6 @@ func TestNullableProperties(t *testing.T) {
 
         var dto1 Chart
         dto1.setType("Chart")
-        dto1.setShapeType("Chart")
         dto1.setChartType("Line")
         dto1.setWidth(400)
         dto1.setHeight(300)
@@ -253,7 +248,6 @@ func TestNullableProperties(t *testing.T) {
 
         var dto2 Chart
         dto2.setType("Chart")
-        dto2.setShapeType("Chart")
         dto2.setChartType("Line")
         var axis2 Axis
         axis2.setMinValue(min2)

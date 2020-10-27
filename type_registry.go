@@ -177,9 +177,6 @@ func init() {
 	typeRegistry["ResourceUri"] = reflect.TypeOf(ResourceUri{})
 	
 	typeDeterminers["ResourceUri"] = make(map[string]string)
-	typeRegistry["ResourceUriElement"] = reflect.TypeOf(ResourceUriElement{})
-	
-	typeDeterminers["ResourceUriElement"] = make(map[string]string)
 	typeRegistry["Series"] = reflect.TypeOf(Series{})
 	
 	typeDeterminers["Series"] = make(map[string]string)
@@ -477,7 +474,6 @@ func init() {
 	derivedTypes["Chart"] = "ShapeBase"
 	typeDeterminers["Chart"] = make(map[string]string)
 	typeDeterminers["Chart"]["Type"] = "Chart"
-	typeDeterminers["Chart"]["ShapeType"] = "Chart"
 	typeRegistry["DocumentReplaceResult"] = reflect.TypeOf(DocumentReplaceResult{})
 	derivedTypes["DocumentReplaceResult"] = "Document"
 	typeDeterminers["DocumentReplaceResult"] = make(map[string]string)
@@ -488,17 +484,14 @@ func init() {
 	derivedTypes["GraphicalObject"] = "ShapeBase"
 	typeDeterminers["GraphicalObject"] = make(map[string]string)
 	typeDeterminers["GraphicalObject"]["Type"] = "GraphicalObject"
-	typeDeterminers["GraphicalObject"]["ShapeType"] = "GraphicalObject"
 	typeRegistry["GroupShape"] = reflect.TypeOf(GroupShape{})
 	derivedTypes["GroupShape"] = "ShapeBase"
 	typeDeterminers["GroupShape"] = make(map[string]string)
 	typeDeterminers["GroupShape"]["Type"] = "GroupShape"
-	typeDeterminers["GroupShape"]["ShapeType"] = "GroupShape"
 	typeRegistry["OleObjectFrame"] = reflect.TypeOf(OleObjectFrame{})
 	derivedTypes["OleObjectFrame"] = "ShapeBase"
 	typeDeterminers["OleObjectFrame"] = make(map[string]string)
 	typeDeterminers["OleObjectFrame"]["Type"] = "OleObjectFrame"
-	typeDeterminers["OleObjectFrame"]["ShapeType"] = "OleObjectFrame"
 	typeRegistry["SlideReplaceResult"] = reflect.TypeOf(SlideReplaceResult{})
 	derivedTypes["SlideReplaceResult"] = "Slide"
 	typeDeterminers["SlideReplaceResult"] = make(map[string]string)
@@ -506,17 +499,10 @@ func init() {
 	derivedTypes["SmartArt"] = "ShapeBase"
 	typeDeterminers["SmartArt"] = make(map[string]string)
 	typeDeterminers["SmartArt"]["Type"] = "SmartArt"
-	typeDeterminers["SmartArt"]["ShapeType"] = "Diagram"
-	typeRegistry["SmartArtShape"] = reflect.TypeOf(SmartArtShape{})
-	derivedTypes["SmartArtShape"] = "ShapeBase"
-	typeDeterminers["SmartArtShape"] = make(map[string]string)
-	typeDeterminers["SmartArtShape"]["Type"] = "SmartArtShape"
-	typeDeterminers["SmartArtShape"]["ShapeType"] = "Custom"
 	typeRegistry["Table"] = reflect.TypeOf(Table{})
 	derivedTypes["Table"] = "ShapeBase"
 	typeDeterminers["Table"] = make(map[string]string)
 	typeDeterminers["Table"]["Type"] = "Table"
-	typeDeterminers["Table"]["ShapeType"] = "Table"
 	typeRegistry["WaterfallChartDataPoint"] = reflect.TypeOf(WaterfallChartDataPoint{})
 	derivedTypes["WaterfallChartDataPoint"] = "OneValueChartDataPoint"
 	typeDeterminers["WaterfallChartDataPoint"] = make(map[string]string)
@@ -528,7 +514,6 @@ func init() {
 	derivedTypes["AudioFrame"] = "GeometryShape"
 	typeDeterminers["AudioFrame"] = make(map[string]string)
 	typeDeterminers["AudioFrame"]["Type"] = "AudioFrame"
-	typeDeterminers["AudioFrame"]["ShapeType"] = "AudioFrame"
 	typeRegistry["Connector"] = reflect.TypeOf(Connector{})
 	derivedTypes["Connector"] = "GeometryShape"
 	typeDeterminers["Connector"] = make(map[string]string)
@@ -537,16 +522,18 @@ func init() {
 	derivedTypes["PictureFrame"] = "GeometryShape"
 	typeDeterminers["PictureFrame"] = make(map[string]string)
 	typeDeterminers["PictureFrame"]["Type"] = "PictureFrame"
-	typeDeterminers["PictureFrame"]["ShapeType"] = "PictureFrame"
 	typeRegistry["Shape"] = reflect.TypeOf(Shape{})
 	derivedTypes["Shape"] = "GeometryShape"
 	typeDeterminers["Shape"] = make(map[string]string)
 	typeDeterminers["Shape"]["Type"] = "Shape"
+	typeRegistry["SmartArtShape"] = reflect.TypeOf(SmartArtShape{})
+	derivedTypes["SmartArtShape"] = "GeometryShape"
+	typeDeterminers["SmartArtShape"] = make(map[string]string)
+	typeDeterminers["SmartArtShape"]["Type"] = "SmartArtShape"
 	typeRegistry["VideoFrame"] = reflect.TypeOf(VideoFrame{})
 	derivedTypes["VideoFrame"] = "GeometryShape"
 	typeDeterminers["VideoFrame"] = make(map[string]string)
 	typeDeterminers["VideoFrame"]["Type"] = "VideoFrame"
-	typeDeterminers["VideoFrame"]["ShapeType"] = "VideoFrame"
 }
 
 func createObjectForType(typeName string, data []byte) (interface{}, error) {

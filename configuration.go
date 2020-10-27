@@ -69,7 +69,7 @@ func NewConfiguration() *Configuration {
 		AppSid:        "https",
 		AppKey:        "https",
 		Version:       "v3.0",
-		ApiVersion:    "20.9.0",
+		ApiVersion:    "20.10.0",
 		CustomHeaders: make(map[string]string),
 	}
 	return cfg
