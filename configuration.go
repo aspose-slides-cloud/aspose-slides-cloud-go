@@ -51,25 +51,25 @@ type Configuration struct {
 	AuthBasePath  string            	`json:"AuthBaseUrl,omitempty"`
 	Version       string            	`json:"Version,omitempty"`
 	Host          string            	`json:"host,omitempty"`
-	AppSid	      string            	`json:"AppSid,omitempty"`
-	AppKey	      string            	`json:"AppKey,omitempty"`
+	AppSid        string            	`json:"AppSid,omitempty"`
+	AppKey        string            	`json:"AppKey,omitempty"`
 	OAuthToken    string            	`json:"OAuthToken,omitempty"`
 	Scheme        string            	`json:"scheme,omitempty"`
 	ApiVersion    string            	`json:"ApiVersion,omitempty"`
 	Debug         bool 	           	`json:"Debug,omitempty"`
 	Timeout       int 	           	`json:"Timeout,omitempty"`
-	CustomHeaders	map[string]string	`json:"CustomHeaders,omitempty"`
-	HTTPClient 	  *http.Client
+	CustomHeaders map[string]string	        `json:"CustomHeaders,omitempty"`
+	HTTPClient   *http.Client
 }
 
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		BasePath:      "https://api.aspose.cloud",
-		AuthBasePath: "https://api.aspose.cloud",
-		AppSid:        "https",
-		AppKey:        "https",
+		AuthBasePath:  "https://api.aspose.cloud",
+		AppSid:        "",
+		AppKey:        "",
 		Version:       "v3.0",
-		ApiVersion:    "20.10.0",
+		ApiVersion:    "20.12.0",
 		CustomHeaders: make(map[string]string),
 	}
 	return cfg

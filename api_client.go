@@ -336,33 +336,35 @@ func (c *APIClient) prepareRequestHeader(localVarRequest *http.Request, headerPa
 	for headerKey, headerValue := range c.cfg.CustomHeaders {
 		localVarRequest.Header.Add(headerKey, headerValue)
 	}
-	if (len(c.cfg.OAuthToken) == 0) {
-		oauthRequest, err := http.NewRequest(
-			"POST",
-			c.cfg.AuthBasePath + "/connect/token",
-			strings.NewReader("grant_type=client_credentials&client_id=" + c.cfg.AppSid + "&client_secret=" + c.cfg.AppKey))
-		if (err != nil) {
-			return nil, err
+	if (len(c.cfg.AppSid) > 0 || len(c.cfg.OAuthToken) > 0) {
+		if (len(c.cfg.OAuthToken) == 0) {
+			oauthRequest, err := http.NewRequest(
+				"POST",
+				c.cfg.AuthBasePath + "/connect/token",
+				strings.NewReader("grant_type=client_credentials&client_id=" + c.cfg.AppSid + "&client_secret=" + c.cfg.AppKey))
+			if (err != nil) {
+				return nil, err
+			}
+			oauthRequest.Header.Set("Content-type", "application/x-www-form-urlencoded")
+			oauthResponse, err := c.callAPI(oauthRequest)
+			if (err != nil) {
+        	                oauthResponse.StatusCode = 401
+				return oauthResponse, err
+			}
+			defer oauthResponse.Body.Close()
+			if oauthResponse.StatusCode >= 300 {
+                        	oauthResponse.StatusCode = 401
+				return oauthResponse, errors.New("Authentication error.")
+ 			}
+			var token OAuthResponse
+			if err = json.NewDecoder(oauthResponse.Body).Decode(&token); err != nil {
+        	                oauthResponse.StatusCode = 401
+				return oauthResponse, err
+			}
+			c.cfg.OAuthToken = token.AccessToken
 		}
-		oauthRequest.Header.Set("Content-type", "application/x-www-form-urlencoded")
-		oauthResponse, err := c.callAPI(oauthRequest)
-		if (err != nil) {
-                        oauthResponse.StatusCode = 401
-			return oauthResponse, err
-		}
-		defer oauthResponse.Body.Close()
-		if oauthResponse.StatusCode >= 300 {
-                        oauthResponse.StatusCode = 401
-			return oauthResponse, errors.New("Authentication error.")
- 		}
-		var token OAuthResponse
-		if err = json.NewDecoder(oauthResponse.Body).Decode(&token); err != nil {
-                        oauthResponse.StatusCode = 401
-			return oauthResponse, err
-		}
-		c.cfg.OAuthToken = token.AccessToken
+		localVarRequest.Header.Add("Authorization", "Bearer " + c.cfg.OAuthToken)
 	}
-	localVarRequest.Header.Add("Authorization", "Bearer " + c.cfg.OAuthToken)
 	return nil, nil
 }
 

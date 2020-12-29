@@ -40,9 +40,9 @@ import (
 var (
 	testApiClient           *APIClient
 	testFolderName          = "TempSlidesSDK"
-	testFileName            = "test.ppt"
-	unprotectedTestFileName = "test-unprotected.ppt"
-	changedTestFileName     = "changedtest.ppt"
+	testFileName            = "test.pptx"
+	unprotectedTestFileName = "test-unprotected.pptx"
+	changedTestFileName     = "changedtest.pptx"
 	testTemplateFileName    = "TemplateCV.pptx"
 	testFilePassword        = "password"
 	isInitialized		= false

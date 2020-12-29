@@ -93,7 +93,7 @@ func TestTimeout(t *testing.T) {
 	}
 
 	var request PostSlideSaveAsRequest
-	request.Name = "test.ppt"
+	request.Name = "test.pptx"
 	request.SlideIndex = 1
 	request.Format = "svg"
 	request.Password = "password"
@@ -124,7 +124,7 @@ func TestShape(t *testing.T) {
 	}
 
 	var request GetSlideShapeRequest
-	request.Name = "test.ppt"
+	request.Name = "test.pptx"
 	request.SlideIndex = 1
 	request.ShapeIndex = 1
 	request.Password = "password"
@@ -330,7 +330,7 @@ func TestBadAuth(t *testing.T) {
 	if err == nil {
 		json.NewDecoder(configFile).Decode(cfg)
 	}
-	cfg.AppKey = "invalid"
+	cfg.AppSid = "invalid"
 	testApiClient = NewAPIClient(cfg)
 	_, r, e := testApiClient.SlidesApi.GetSlidesApiInfo()
 	if e == nil {
@@ -363,7 +363,7 @@ func TestGoodAuthToken(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	cfg.AppKey = "invalid"
+	cfg.AppSid = "invalid"
 	testApiClient = NewAPIClient(cfg)
 	_, _, e = testApiClient.SlidesApi.GetSlidesApiInfo()
 	if e != nil {

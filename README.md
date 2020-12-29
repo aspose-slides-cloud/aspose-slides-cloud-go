@@ -30,8 +30,8 @@ go get github.com/aspose-slides-cloud/aspose-slides-cloud-go
 The example code below converts a PowerPoint document to PDF format using asposeslidescloud library:
 ```go
         cfg := asposeslidescloud.NewConfiguration()
-	cfg.AppSid = "MyAppSid"
-	cfg.AppKey = "MyAppKey"
+	cfg.AppSid = "MyClientId"
+	cfg.AppKey = "MyClientSecret"
        	apiClient := asposeslidescloud.NewAPIClient(cfg)
 	var request asposeslidescloud.PostSlidesConvertRequest
 	request.Format = "pdf"
