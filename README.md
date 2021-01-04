@@ -1,3 +1,5 @@
+![](https://img.shields.io/badge/api-v3.0-lightgrey)  [![GitHub license](https://img.shields.io/github/license/aspose-slides-cloud/aspose-slides-cloud-go)](https://github.com/aspose-slides-cloud/aspose-slides-cloud-go)
+
 # Aspose.Slides Cloud SDK for Go
 This repository contains Aspose.Slides Cloud SDK for Go source code. This SDK allows you to work with Aspose.Slides Cloud REST APIs in your Go applications.
 
@@ -9,6 +11,20 @@ This repository contains Aspose.Slides Cloud SDK for Go source code. This SDK al
 * Find and replace
 * Full read & write access to Document Object Model, including slides, shapes, paragraphs, portions and many others
 * Support of Aspose.Storage API
+
+### New Features & Recent API Changes
+
+#### 20.12
+* New property "HttpRequestTimeout" is added to SDK configuration. It allows to specify a custom timeout (in seconds) for HTTP requests made by the SDK.
+
+#### 20.10
+* Removed shapeType property from BaseShape class; replaced geometryShapeType with shapeType property for GeometryShape.
+* Removed redundant ResourceUriElement class. All properties of ResourceUriElement type are changed to ResourceUri type.
+
+#### 20.9
+* New getSections, putSections, putSection, postSection, postSectionMove, deleteSection, deleteSections methods to add, update and delete presentation sections.
+* New postSlidesHeaderFooter, postSlideHeaderFooter, getSlideHeaderFooter, postNotesSlideHeaderFooter, getNotesSlideHeaderFooter methods to manage header/footer settings for slides.
+* Replaces cateslidesries for parentCateslidesries & level properties in ChartCateslidesry class to properly support Sunburst & Treeview charts.
 
 ## Licensing
 All Aspose.Slides Cloud SDKs are licensed under MIT License.
@@ -22,13 +38,13 @@ To use Aspose Slides Cloud SDK for Go you need to register an account with [Aspo
 ### Installation
 
 ```sh
-go get github.com/aspose-slides-cloud/aspose-slides-cloud-go
+slides get github.com/aspose-slides-cloud/aspose-slides-cloud-slides
 ```
 
 ### Sample usage
 
 The example code below converts a PowerPoint document to PDF format using asposeslidescloud library:
-```go
+```slides
         cfg := asposeslidescloud.NewConfiguration()
 	cfg.AppSid = "MyClientId"
 	cfg.AppKey = "MyClientSecret"
@@ -41,20 +57,11 @@ The example code below converts a PowerPoint document to PDF format using aspose
 	fmt.Printf("My PDF was saved to %s", r.Name())
 ```
 
-## Contact Us
+## Aspose.Slides Cloud SDKs in Popular Languages
 
-Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.aspose.cloud/c/slides).
+| .NET | Java | PHP | Python | Ruby | Node.js | Android | Swift|Perl|Go|
+|---|---|---|---|---|---|---|--|--|--|
+| [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-dotnet) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-java) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-php) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-python) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-ruby)  | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-nodejs) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-android) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-swift)|[GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-perl) |[GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-slides) |
+| [NuGet](https://www.nuget.org/packages/Aspose.slides-Cloud/) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides-cloud) | [Composer](https://packagist.org/packages/aspose/slides-sdk-php) | [PIP](https://pypi.org/project/asposeslidescloud/) | [GEM](https://rubygems.org/gems/aspose_slides_cloud)  | [NPM](https://www.npmjs.com/package/asposeslidescloud) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides-cloud) | [Cocoapods](https://cocoapods.org/pods/AsposeslidesCloud)|[Meta Cpan](https://metacpan.org/release/AsposeSlidesCloud-SlidesApi) | [Go.Dev](https://pkg.slides.dev/github.com/aspose-slides-cloud/aspose-slides-cloud-slides/) | 
 
-## Resources
- 
-[Website](https://www.aspose.cloud/)  
-[Product Home](https://products.aspose.cloud/slides/family)  
-[API Reference](https://apireference.aspose.cloud/slides/)  
-[Documentation](https://docs.aspose.cloud/slides/)  
-[Blog](https://blog.aspose.cloud/category/slides/)  
- 
-## Other languages
-
-We generate our SDKs in different languages so you may check if yours is available in our [list](https://github.com/aspose-slides-cloud).
- 
-If you don't find your language in the list, feel free to request it from us, or use raw REST API requests as you can find it [here](https://products.aspose.cloud/slides/curl).
+[Product Page](https://products.aspose.cloud/slides/slides) | [Documentation](https://docs.aspose.cloud/display/slidescloud/Home) | [API Reference](https://apireference.aspose.cloud/slides/) | [Code Samples](https://github.com/aspose-slides-cloud/aspose-slides-cloud-slides) | [Blog](https://blog.aspose.cloud/cateslidesry/slides/) | [Free Support](https://forum.aspose.cloud/c/slides) | [Free Trial](https://dashboard.aspose.cloud/#/apps)
