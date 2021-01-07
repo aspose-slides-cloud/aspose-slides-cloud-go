@@ -1,30 +1,42 @@
 ![](https://img.shields.io/badge/api-v3.0-lightgrey)  [![GitHub license](https://img.shields.io/github/license/aspose-slides-cloud/aspose-slides-cloud-go)](https://github.com/aspose-slides-cloud/aspose-slides-cloud-go)
 
-# Aspose.Slides Cloud SDK for Go
-This repository contains Aspose.Slides Cloud SDK for Go source code. This SDK allows you to work with Aspose.Slides Cloud REST APIs in your Go applications.
+# Go REST API to Process Presentation in Cloud
+This repository contains Aspose.Slides Cloud SDK for Go source code. This SDK allows you to [process & manipulate PPT, PPTX, ODP, OTP](https://products.aspose.cloud/slides/go) using Aspose.slides Cloud REST APIs in your applications.
 
-## Key Features
-* Conversion between various document-related formats (20+ formats supported), including PDF<->PowerPoint conversion
-* Download slides and shapes in various formats, including PDF and SVG
-* Merge and split PowerPoint presentations
-* Access PowerPoint presentation metadata and statistics
-* Find and replace
-* Full read & write access to Document Object Model, including slides, shapes, paragraphs, portions and many others
-* Support of Aspose.Storage API
+## Presentation Processing Features
 
-### New Features & Recent API Changes
+- Fetch presentation images in any of the supported file formats.
+- Copy the layout side or clone the master slide from the source presentation.
+- Process slides shapes, slides notes, placeholders, colors & font theme info.
+- Programmatically create a presentation from HTML & export it to various formats.
+- Merge multiple presentations or split the single presentation into multiple ones.
+- Extract and replace text from a specific slide or an entire presentation.
 
-#### 20.12
-* New property "HttpRequestTimeout" is added to SDK configuration. It allows to specify a custom timeout (in seconds) for HTTP requests made by the SDK.
+## Read & Write Presentation Formats
 
-#### 20.10
-* Removed shapeType property from BaseShape class; replaced geometryShapeType with shapeType property for GeometryShape.
-* Removed redundant ResourceUriElement class. All properties of ResourceUriElement type are changed to ResourceUri type.
+**Microsoft PowerPoint:** PPT, PPTX, PPS, PPSX, PPTM, PPSM, POTX, POTM
+**OpenOffice:** ODP, OTP, FODP
 
-#### 20.9
-* New getSections, putSections, putSection, postSection, postSectionMove, deleteSection, deleteSections methods to add, update and delete presentation sections.
-* New postSlidesHeaderFooter, postSlideHeaderFooter, getSlideHeaderFooter, postNotesSlideHeaderFooter, getNotesSlideHeaderFooter methods to manage header/footer settings for slides.
-* Replaces cateslidesries for parentCateslidesries & level properties in ChartCateslidesry class to properly support Sunburst & Treeview charts.
+## Save Presentation As
+
+**Fixed Layout:** PDF, PDF/A, XPS
+**Images:** JPEG, PNG, BMP, TIFF, SVG
+**Web:** HTML
+**Other:** SWF (export whole presentations)
+
+## Enhancements in Version 20.12
+- Updated the SDK to run with cloud image.
+- **HttpRequestTimeout** property is added to SDK configuration. It allows specifying a custom timeout (in seconds) for **HTTP** requests made by the SDK.
+
+## Enhancements in Version 20.10
+* Removed ****ShapeType** property from BaseShape class; replaced **GeometryShapeType** with **ShapeType** property for **GeometryShape**.
+* Removed redundant **ResourceUriElement** class. All properties of **ResourceUriElement** type are changed to ResourceUri type.
+
+## Enhancements in Version 20.9
+* New **GetSections, PutSections, PutSection, PostSection, PostSectionMove, DeleteSection, DeleteSections** methods to add, update and delete presentation sections.
+* New **PostslidesHeaderFooter, PostSlideHeaderFooter, GetSlideHeaderFooter, PostNotesSlideHeaderFooter, GetNotesSlideHeaderFooter** methods to manage header/footer settings for slides.
+* Replaced Categories for **ParentCategories** & Level properties in **ChartCategory** class to properly support Sunburst & Treeview charts.
+
 
 ## Licensing
 All Aspose.Slides Cloud SDKs are licensed under MIT License.
@@ -62,6 +74,6 @@ The example code below converts a PowerPoint document to PDF format using aspose
 | .NET | Java | PHP | Python | Ruby | Node.js | Android | Swift|Perl|Go|
 |---|---|---|---|---|---|---|--|--|--|
 | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-dotnet) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-java) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-php) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-python) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-ruby)  | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-nodejs) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-android) | [GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-swift)|[GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-perl) |[GitHub](https://github.com/aspose-slides-cloud/aspose-slides-cloud-slides) |
-| [NuGet](https://www.nuget.org/packages/Aspose.slides-Cloud/) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides-cloud) | [Composer](https://packagist.org/packages/aspose/slides-sdk-php) | [PIP](https://pypi.org/project/asposeslidescloud/) | [GEM](https://rubygems.org/gems/aspose_slides_cloud)  | [NPM](https://www.npmjs.com/package/asposeslidescloud) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides-cloud) | [Cocoapods](https://cocoapods.org/pods/AsposeslidesCloud)|[Meta Cpan](https://metacpan.org/release/AsposeSlidesCloud-SlidesApi) | [Go.Dev](https://pkg.slides.dev/github.com/aspose-slides-cloud/aspose-slides-cloud-slides/) | 
+| [NuGet](https://www.nuget.org/packages/Aspose.slides-Cloud/) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides-cloud) | [Composer](https://packagist.org/packages/aspose/slides-sdk-php) | [PIP](https://pypi.org/project/asposeslidescloud/) | [GEM](https://rubygems.org/gems/aspose_slides_cloud)  | [NPM](https://www.npmjs.com/package/asposeslidescloud) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-slides-cloud) | [Cocoapods](https://cocoapods.org/pods/AsposeslidesCloud)|[Meta Cpan](https://metacpan.org/release/AsposeSlidesCloud-SlidesApi) | [Go.Dev](https://pkg.slides.dev/github.com/aspose-slides-cloud/aspose-slides-cloud-slides/) |
 
 [Product Page](https://products.aspose.cloud/slides/slides) | [Documentation](https://docs.aspose.cloud/display/slidescloud/Home) | [API Reference](https://apireference.aspose.cloud/slides/) | [Code Samples](https://github.com/aspose-slides-cloud/aspose-slides-cloud-slides) | [Blog](https://blog.aspose.cloud/cateslidesry/slides/) | [Free Support](https://forum.aspose.cloud/c/slides) | [Free Trial](https://dashboard.aspose.cloud/#/apps)
