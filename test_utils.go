@@ -153,7 +153,11 @@ func getTestApiClient() *APIClient {
 
 func createTestParamValue(functionName string, paramName string, paramType string) interface{} {
 	if paramType == "[]byte" {
-		data, _ := ioutil.ReadFile("testData/" + testFileName)
+		fileParam := testFileName
+		if functionName == "PostSlidesDocumentFromPdf" {
+			fileParam = "test.pdf"
+		}
+		data, _ := ioutil.ReadFile("testData/" + fileParam)
 		return data
 	}
 	var value interface{}
@@ -311,6 +315,18 @@ func undefaultize(value interface{}, paramType string) interface{} {
     }
     if paramType == "ViewProperties" {
         var vp ViewProperties
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &vp)
+        return &vp
+    }
+    if paramType == "SlideProperties" {
+        var vp SlideProperties
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &vp)
+        return &vp
+    }
+    if paramType == "ProtectionProperties" {
+        var vp ProtectionProperties
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &vp)
         return &vp

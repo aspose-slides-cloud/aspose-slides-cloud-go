@@ -14842,6 +14842,141 @@ func TestGetSlidesPresentationTextItemsInvalidStorage(t *testing.T) {
     assertError(t, "GetSlidesPresentationTextItems", "storage", request.Storage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Read presentation protection properties.
+   Test for SlidesApi.GetSlidesProtectionProperties method
+*/
+func TestGetSlidesProtectionProperties(t *testing.T) {
+    request := createGetSlidesProtectionPropertiesRequest()
+    e := initializeTest("GetSlidesProtectionProperties", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSlidesProtectionProperties(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetSlidesProtectionPropertiesRequest() GetSlidesProtectionPropertiesRequest {
+    var request GetSlidesProtectionPropertiesRequest
+    request.Name = createTestParamValue("GetSlidesProtectionProperties", "name", "string").(string)
+    request.Password = createTestParamValue("GetSlidesProtectionProperties", "password", "string").(string)
+    request.Folder = createTestParamValue("GetSlidesProtectionProperties", "folder", "string").(string)
+    request.Storage = createTestParamValue("GetSlidesProtectionProperties", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Read presentation protection properties.
+   Test for SlidesApi.GetSlidesProtectionProperties method with invalid name
+*/
+func TestGetSlidesProtectionPropertiesInvalidName(t *testing.T) {
+    request := createGetSlidesProtectionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetSlidesProtectionProperties", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlidesProtectionProperties", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlidesProtectionProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlidesProtectionProperties", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read presentation protection properties.
+   Test for SlidesApi.GetSlidesProtectionProperties method with invalid password
+*/
+func TestGetSlidesProtectionPropertiesInvalidPassword(t *testing.T) {
+    request := createGetSlidesProtectionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetSlidesProtectionProperties", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlidesProtectionProperties", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlidesProtectionProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlidesProtectionProperties", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read presentation protection properties.
+   Test for SlidesApi.GetSlidesProtectionProperties method with invalid folder
+*/
+func TestGetSlidesProtectionPropertiesInvalidFolder(t *testing.T) {
+    request := createGetSlidesProtectionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetSlidesProtectionProperties", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlidesProtectionProperties", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlidesProtectionProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlidesProtectionProperties", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read presentation protection properties.
+   Test for SlidesApi.GetSlidesProtectionProperties method with invalid storage
+*/
+func TestGetSlidesProtectionPropertiesInvalidStorage(t *testing.T) {
+    request := createGetSlidesProtectionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetSlidesProtectionProperties", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlidesProtectionProperties", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlidesProtectionProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlidesProtectionProperties", "storage", request.Storage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Read presentation slide info.
    Test for SlidesApi.GetSlidesSlide method
 */
@@ -15492,6 +15627,141 @@ func TestGetSlidesSlideImagesInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetSlidesSlideImages", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read presentation slide properties.
+   Test for SlidesApi.GetSlidesSlideProperties method
+*/
+func TestGetSlidesSlideProperties(t *testing.T) {
+    request := createGetSlidesSlidePropertiesRequest()
+    e := initializeTest("GetSlidesSlideProperties", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSlidesSlideProperties(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createGetSlidesSlidePropertiesRequest() GetSlidesSlidePropertiesRequest {
+    var request GetSlidesSlidePropertiesRequest
+    request.Name = createTestParamValue("GetSlidesSlideProperties", "name", "string").(string)
+    request.Password = createTestParamValue("GetSlidesSlideProperties", "password", "string").(string)
+    request.Folder = createTestParamValue("GetSlidesSlideProperties", "folder", "string").(string)
+    request.Storage = createTestParamValue("GetSlidesSlideProperties", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Read presentation slide properties.
+   Test for SlidesApi.GetSlidesSlideProperties method with invalid name
+*/
+func TestGetSlidesSlidePropertiesInvalidName(t *testing.T) {
+    request := createGetSlidesSlidePropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "GetSlidesSlideProperties", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlidesSlideProperties", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlidesSlideProperties", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read presentation slide properties.
+   Test for SlidesApi.GetSlidesSlideProperties method with invalid password
+*/
+func TestGetSlidesSlidePropertiesInvalidPassword(t *testing.T) {
+    request := createGetSlidesSlidePropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "GetSlidesSlideProperties", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlidesSlideProperties", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlidesSlideProperties", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read presentation slide properties.
+   Test for SlidesApi.GetSlidesSlideProperties method with invalid folder
+*/
+func TestGetSlidesSlidePropertiesInvalidFolder(t *testing.T) {
+    request := createGetSlidesSlidePropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "GetSlidesSlideProperties", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlidesSlideProperties", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlidesSlideProperties", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read presentation slide properties.
+   Test for SlidesApi.GetSlidesSlideProperties method with invalid storage
+*/
+func TestGetSlidesSlidePropertiesInvalidStorage(t *testing.T) {
+    request := createGetSlidesSlidePropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "GetSlidesSlideProperties", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSlidesSlideProperties", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSlidesSlideProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSlidesSlideProperties", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Extract slide text items.
@@ -25002,6 +25272,168 @@ func TestPostSlidesDocumentFromHtmlInvalidFolder(t *testing.T) {
     assertError(t, "PostSlidesDocumentFromHtml", "folder", request.Folder, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Create presentation document from pdf or append pdf to an existing presentation.
+   Test for SlidesApi.PostSlidesDocumentFromPdf method
+*/
+func TestPostSlidesDocumentFromPdf(t *testing.T) {
+    request := createPostSlidesDocumentFromPdfRequest()
+    e := initializeTest("PostSlidesDocumentFromPdf", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PostSlidesDocumentFromPdf(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPostSlidesDocumentFromPdfRequest() PostSlidesDocumentFromPdfRequest {
+    var request PostSlidesDocumentFromPdfRequest
+    request.Name = createTestParamValue("PostSlidesDocumentFromPdf", "name", "string").(string)
+    request.Pdf = createTestParamValue("PostSlidesDocumentFromPdf", "pdf", "[]byte").([]byte)
+    request.Password = createTestParamValue("PostSlidesDocumentFromPdf", "password", "string").(string)
+    request.Storage = createTestParamValue("PostSlidesDocumentFromPdf", "storage", "string").(string)
+    request.Folder = createTestParamValue("PostSlidesDocumentFromPdf", "folder", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Create presentation document from pdf or append pdf to an existing presentation.
+   Test for SlidesApi.PostSlidesDocumentFromPdf method with invalid name
+*/
+func TestPostSlidesDocumentFromPdfInvalidName(t *testing.T) {
+    request := createPostSlidesDocumentFromPdfRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PostSlidesDocumentFromPdf", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSlidesDocumentFromPdf", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromPdf(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSlidesDocumentFromPdf", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create presentation document from pdf or append pdf to an existing presentation.
+   Test for SlidesApi.PostSlidesDocumentFromPdf method with invalid pdf
+*/
+func TestPostSlidesDocumentFromPdfInvalidPdf(t *testing.T) {
+    request := createPostSlidesDocumentFromPdfRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Pdf, "PostSlidesDocumentFromPdf", "pdf", "[]byte")
+    if (invalidValue == nil) {
+        request.Pdf = nil
+    } else {
+        request.Pdf = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostSlidesDocumentFromPdf", "pdf", request.Pdf)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromPdf(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSlidesDocumentFromPdf", "pdf", request.Pdf, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create presentation document from pdf or append pdf to an existing presentation.
+   Test for SlidesApi.PostSlidesDocumentFromPdf method with invalid password
+*/
+func TestPostSlidesDocumentFromPdfInvalidPassword(t *testing.T) {
+    request := createPostSlidesDocumentFromPdfRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PostSlidesDocumentFromPdf", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSlidesDocumentFromPdf", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromPdf(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSlidesDocumentFromPdf", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create presentation document from pdf or append pdf to an existing presentation.
+   Test for SlidesApi.PostSlidesDocumentFromPdf method with invalid storage
+*/
+func TestPostSlidesDocumentFromPdfInvalidStorage(t *testing.T) {
+    request := createPostSlidesDocumentFromPdfRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PostSlidesDocumentFromPdf", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSlidesDocumentFromPdf", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromPdf(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSlidesDocumentFromPdf", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create presentation document from pdf or append pdf to an existing presentation.
+   Test for SlidesApi.PostSlidesDocumentFromPdf method with invalid folder
+*/
+func TestPostSlidesDocumentFromPdfInvalidFolder(t *testing.T) {
+    request := createPostSlidesDocumentFromPdfRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PostSlidesDocumentFromPdf", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PostSlidesDocumentFromPdf", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PostSlidesDocumentFromPdf(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostSlidesDocumentFromPdf", "folder", request.Folder, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Create a presentation from an existing source.
    Test for SlidesApi.PostSlidesDocumentFromSource method
 */
@@ -33292,6 +33724,168 @@ func TestPutSlidesHeaderFooterInvalidFolder(t *testing.T) {
     assertError(t, "PutSlidesHeaderFooter", "folder", request.Folder, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Update presentation protection properties.
+   Test for SlidesApi.PutSlidesProtectionProperties method
+*/
+func TestPutSlidesProtectionProperties(t *testing.T) {
+    request := createPutSlidesProtectionPropertiesRequest()
+    e := initializeTest("PutSlidesProtectionProperties", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutSlidesProtectionProperties(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutSlidesProtectionPropertiesRequest() PutSlidesProtectionPropertiesRequest {
+    var request PutSlidesProtectionPropertiesRequest
+    request.Name = createTestParamValue("PutSlidesProtectionProperties", "name", "string").(string)
+    request.Dto = createTestParamValue("PutSlidesProtectionProperties", "dto", "ProtectionProperties").(IProtectionProperties)
+    request.Password = createTestParamValue("PutSlidesProtectionProperties", "password", "string").(string)
+    request.Folder = createTestParamValue("PutSlidesProtectionProperties", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutSlidesProtectionProperties", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Update presentation protection properties.
+   Test for SlidesApi.PutSlidesProtectionProperties method with invalid name
+*/
+func TestPutSlidesProtectionPropertiesInvalidName(t *testing.T) {
+    request := createPutSlidesProtectionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutSlidesProtectionProperties", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesProtectionProperties", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesProtectionProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesProtectionProperties", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update presentation protection properties.
+   Test for SlidesApi.PutSlidesProtectionProperties method with invalid dto
+*/
+func TestPutSlidesProtectionPropertiesInvalidDto(t *testing.T) {
+    request := createPutSlidesProtectionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Dto, "PutSlidesProtectionProperties", "dto", "ProtectionProperties")
+    if (invalidValue == nil) {
+        request.Dto = nil
+    } else {
+        request.Dto = invalidValue.(IProtectionProperties)
+    }
+
+    e := initializeTest("PutSlidesProtectionProperties", "dto", request.Dto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesProtectionProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesProtectionProperties", "dto", request.Dto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update presentation protection properties.
+   Test for SlidesApi.PutSlidesProtectionProperties method with invalid password
+*/
+func TestPutSlidesProtectionPropertiesInvalidPassword(t *testing.T) {
+    request := createPutSlidesProtectionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutSlidesProtectionProperties", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesProtectionProperties", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesProtectionProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesProtectionProperties", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update presentation protection properties.
+   Test for SlidesApi.PutSlidesProtectionProperties method with invalid folder
+*/
+func TestPutSlidesProtectionPropertiesInvalidFolder(t *testing.T) {
+    request := createPutSlidesProtectionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutSlidesProtectionProperties", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesProtectionProperties", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesProtectionProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesProtectionProperties", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update presentation protection properties.
+   Test for SlidesApi.PutSlidesProtectionProperties method with invalid storage
+*/
+func TestPutSlidesProtectionPropertiesInvalidStorage(t *testing.T) {
+    request := createPutSlidesProtectionPropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutSlidesProtectionProperties", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesProtectionProperties", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesProtectionProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesProtectionProperties", "storage", request.Storage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Save a presentation to a specified format.
    Test for SlidesApi.PutSlidesSaveAs method
 */
@@ -34297,6 +34891,168 @@ func TestPutSlidesSlideBackgroundColorInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PutSlidesSlideBackgroundColor", "storage", request.Storage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update presentation slide properties.
+   Test for SlidesApi.PutSlidesSlideProperties method
+*/
+func TestPutSlidesSlideProperties(t *testing.T) {
+    request := createPutSlidesSlidePropertiesRequest()
+    e := initializeTest("PutSlidesSlideProperties", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.PutSlidesSlideProperties(request)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+func createPutSlidesSlidePropertiesRequest() PutSlidesSlidePropertiesRequest {
+    var request PutSlidesSlidePropertiesRequest
+    request.Name = createTestParamValue("PutSlidesSlideProperties", "name", "string").(string)
+    request.Dto = createTestParamValue("PutSlidesSlideProperties", "dto", "SlideProperties").(ISlideProperties)
+    request.Password = createTestParamValue("PutSlidesSlideProperties", "password", "string").(string)
+    request.Folder = createTestParamValue("PutSlidesSlideProperties", "folder", "string").(string)
+    request.Storage = createTestParamValue("PutSlidesSlideProperties", "storage", "string").(string)
+    return request
+}
+
+/* SlidesApiServiceTests Update presentation slide properties.
+   Test for SlidesApi.PutSlidesSlideProperties method with invalid name
+*/
+func TestPutSlidesSlidePropertiesInvalidName(t *testing.T) {
+    request := createPutSlidesSlidePropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Name, "PutSlidesSlideProperties", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Name = nullValue
+    } else {
+        request.Name = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesSlideProperties", "name", request.Name)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesSlideProperties", "name", request.Name, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update presentation slide properties.
+   Test for SlidesApi.PutSlidesSlideProperties method with invalid dto
+*/
+func TestPutSlidesSlidePropertiesInvalidDto(t *testing.T) {
+    request := createPutSlidesSlidePropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Dto, "PutSlidesSlideProperties", "dto", "SlideProperties")
+    if (invalidValue == nil) {
+        request.Dto = nil
+    } else {
+        request.Dto = invalidValue.(ISlideProperties)
+    }
+
+    e := initializeTest("PutSlidesSlideProperties", "dto", request.Dto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesSlideProperties", "dto", request.Dto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update presentation slide properties.
+   Test for SlidesApi.PutSlidesSlideProperties method with invalid password
+*/
+func TestPutSlidesSlidePropertiesInvalidPassword(t *testing.T) {
+    request := createPutSlidesSlidePropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Password, "PutSlidesSlideProperties", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Password = nullValue
+    } else {
+        request.Password = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesSlideProperties", "password", request.Password)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesSlideProperties", "password", request.Password, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update presentation slide properties.
+   Test for SlidesApi.PutSlidesSlideProperties method with invalid folder
+*/
+func TestPutSlidesSlidePropertiesInvalidFolder(t *testing.T) {
+    request := createPutSlidesSlidePropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Folder, "PutSlidesSlideProperties", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Folder = nullValue
+    } else {
+        request.Folder = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesSlideProperties", "folder", request.Folder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesSlideProperties", "folder", request.Folder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update presentation slide properties.
+   Test for SlidesApi.PutSlidesSlideProperties method with invalid storage
+*/
+func TestPutSlidesSlidePropertiesInvalidStorage(t *testing.T) {
+    request := createPutSlidesSlidePropertiesRequest()
+
+    invalidValue := invalidizeTestParamValue(request.Storage, "PutSlidesSlideProperties", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        request.Storage = nullValue
+    } else {
+        request.Storage = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesSlideProperties", "storage", request.Storage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideProperties(request)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesSlideProperties", "storage", request.Storage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Set slide size for a presentation.

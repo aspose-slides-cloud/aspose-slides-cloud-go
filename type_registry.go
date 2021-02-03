@@ -353,6 +353,9 @@ func init() {
 	typeRegistry["PptxExportOptions"] = reflect.TypeOf(PptxExportOptions{})
 	derivedTypes["PptxExportOptions"] = "ExportOptions"
 	typeDeterminers["PptxExportOptions"] = make(map[string]string)
+	typeRegistry["ProtectionProperties"] = reflect.TypeOf(ProtectionProperties{})
+	derivedTypes["ProtectionProperties"] = "ResourceBase"
+	typeDeterminers["ProtectionProperties"] = make(map[string]string)
 	typeRegistry["RemoveShape"] = reflect.TypeOf(RemoveShape{})
 	derivedTypes["RemoveShape"] = "Task"
 	typeDeterminers["RemoveShape"] = make(map[string]string)
@@ -424,6 +427,9 @@ func init() {
 	typeRegistry["SlideComments"] = reflect.TypeOf(SlideComments{})
 	derivedTypes["SlideComments"] = "ResourceBase"
 	typeDeterminers["SlideComments"] = make(map[string]string)
+	typeRegistry["SlideProperties"] = reflect.TypeOf(SlideProperties{})
+	derivedTypes["SlideProperties"] = "ResourceBase"
+	typeDeterminers["SlideProperties"] = make(map[string]string)
 	typeRegistry["Slides"] = reflect.TypeOf(Slides{})
 	derivedTypes["Slides"] = "ResourceBase"
 	typeDeterminers["Slides"] = make(map[string]string)

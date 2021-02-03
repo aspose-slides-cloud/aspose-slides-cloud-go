@@ -369,9 +369,6 @@ func (a *SlidesApiService) DeleteChartCategory(request DeleteChartCategoryReques
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -396,6 +393,9 @@ func (a *SlidesApiService) DeleteChartCategory(request DeleteChartCategoryReques
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -504,9 +504,6 @@ func (a *SlidesApiService) DeleteChartDataPoint(request DeleteChartDataPointRequ
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -531,6 +528,9 @@ func (a *SlidesApiService) DeleteChartDataPoint(request DeleteChartDataPointRequ
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -633,9 +633,6 @@ func (a *SlidesApiService) DeleteChartSeries(request DeleteChartSeriesRequest) (
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -660,6 +657,9 @@ func (a *SlidesApiService) DeleteChartSeries(request DeleteChartSeriesRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -915,9 +915,6 @@ func (a *SlidesApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (IS
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -942,6 +939,9 @@ func (a *SlidesApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (IS
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -1041,9 +1041,6 @@ func (a *SlidesApiService) DeleteNotesSlideParagraph(request DeleteNotesSlidePar
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -1068,6 +1065,9 @@ func (a *SlidesApiService) DeleteNotesSlideParagraph(request DeleteNotesSlidePar
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -1169,9 +1169,6 @@ func (a *SlidesApiService) DeleteNotesSlideParagraphs(request DeleteNotesSlidePa
 	if localVarTempParam := request.Paragraphs; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Paragraphs", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -1196,6 +1193,9 @@ func (a *SlidesApiService) DeleteNotesSlideParagraphs(request DeleteNotesSlidePa
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -1304,9 +1304,6 @@ func (a *SlidesApiService) DeleteNotesSlidePortion(request DeleteNotesSlidePorti
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -1331,6 +1328,9 @@ func (a *SlidesApiService) DeleteNotesSlidePortion(request DeleteNotesSlidePorti
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -1440,9 +1440,6 @@ func (a *SlidesApiService) DeleteNotesSlidePortions(request DeleteNotesSlidePort
 	if localVarTempParam := request.Portions; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Portions", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -1467,6 +1464,9 @@ func (a *SlidesApiService) DeleteNotesSlidePortions(request DeleteNotesSlidePort
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -1562,9 +1562,6 @@ func (a *SlidesApiService) DeleteNotesSlideShape(request DeleteNotesSlideShapeRe
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -1589,6 +1586,9 @@ func (a *SlidesApiService) DeleteNotesSlideShape(request DeleteNotesSlideShapeRe
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -1682,9 +1682,6 @@ func (a *SlidesApiService) DeleteNotesSlideShapes(request DeleteNotesSlideShapes
 	if localVarTempParam := request.Shapes; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Shapes", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -1709,6 +1706,9 @@ func (a *SlidesApiService) DeleteNotesSlideShapes(request DeleteNotesSlideShapes
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -1809,9 +1809,6 @@ func (a *SlidesApiService) DeleteParagraph(request DeleteParagraphRequest) (IPar
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -1836,6 +1833,9 @@ func (a *SlidesApiService) DeleteParagraph(request DeleteParagraphRequest) (IPar
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -1937,9 +1937,6 @@ func (a *SlidesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (IP
 	if localVarTempParam := request.Paragraphs; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Paragraphs", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -1964,6 +1961,9 @@ func (a *SlidesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (IP
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -2072,9 +2072,6 @@ func (a *SlidesApiService) DeletePortion(request DeletePortionRequest) (IPortion
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -2099,6 +2096,9 @@ func (a *SlidesApiService) DeletePortion(request DeletePortionRequest) (IPortion
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -2208,9 +2208,6 @@ func (a *SlidesApiService) DeletePortions(request DeletePortionsRequest) (IPorti
 	if localVarTempParam := request.Portions; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Portions", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -2235,6 +2232,9 @@ func (a *SlidesApiService) DeletePortions(request DeletePortionsRequest) (IPorti
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -2332,9 +2332,6 @@ func (a *SlidesApiService) DeleteSection(request DeleteSectionRequest) (ISection
 	if request.WithSlides != nil {
 		localVarQueryParams.Add("WithSlides", parameterToString(request.WithSlides, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -2359,6 +2356,9 @@ func (a *SlidesApiService) DeleteSection(request DeleteSectionRequest) (ISection
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -2454,9 +2454,6 @@ func (a *SlidesApiService) DeleteSections(request DeleteSectionsRequest) (ISecti
 	if request.WithSlides != nil {
 		localVarQueryParams.Add("WithSlides", parameterToString(request.WithSlides, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -2481,6 +2478,9 @@ func (a *SlidesApiService) DeleteSections(request DeleteSectionsRequest) (ISecti
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -2567,9 +2567,6 @@ func (a *SlidesApiService) DeleteSlideAnimation(request DeleteSlideAnimationRequ
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -2594,6 +2591,9 @@ func (a *SlidesApiService) DeleteSlideAnimation(request DeleteSlideAnimationRequ
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -2686,9 +2686,6 @@ func (a *SlidesApiService) DeleteSlideAnimationEffect(request DeleteSlideAnimati
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -2713,6 +2710,9 @@ func (a *SlidesApiService) DeleteSlideAnimationEffect(request DeleteSlideAnimati
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -2806,9 +2806,6 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequence(request Delet
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -2833,6 +2830,9 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequence(request Delet
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -2933,9 +2933,6 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequenceEffect(request
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -2960,6 +2957,9 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequenceEffect(request
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -3047,9 +3047,6 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequences(request Dele
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -3074,6 +3071,9 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequences(request Dele
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -3159,9 +3159,6 @@ func (a *SlidesApiService) DeleteSlideAnimationMainSequence(request DeleteSlideA
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -3186,6 +3183,9 @@ func (a *SlidesApiService) DeleteSlideAnimationMainSequence(request DeleteSlideA
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -3271,9 +3271,6 @@ func (a *SlidesApiService) DeleteSlideByIndex(request DeleteSlideByIndexRequest)
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -3298,6 +3295,9 @@ func (a *SlidesApiService) DeleteSlideByIndex(request DeleteSlideByIndexRequest)
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -3390,9 +3390,6 @@ func (a *SlidesApiService) DeleteSlideShape(request DeleteSlideShapeRequest) (IS
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -3417,6 +3414,9 @@ func (a *SlidesApiService) DeleteSlideShape(request DeleteSlideShapeRequest) (IS
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -3510,9 +3510,6 @@ func (a *SlidesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (
 	if localVarTempParam := request.Shapes; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Shapes", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -3537,6 +3534,9 @@ func (a *SlidesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -3640,9 +3640,6 @@ func (a *SlidesApiService) DeleteSlideSubshape(request DeleteSlideSubshapeReques
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -3667,6 +3664,9 @@ func (a *SlidesApiService) DeleteSlideSubshape(request DeleteSlideSubshapeReques
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -3771,9 +3771,6 @@ func (a *SlidesApiService) DeleteSlideSubshapes(request DeleteSlideSubshapesRequ
 	if localVarTempParam := request.Shapes; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Shapes", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -3798,6 +3795,9 @@ func (a *SlidesApiService) DeleteSlideSubshapes(request DeleteSlideSubshapesRequ
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -3885,9 +3885,6 @@ func (a *SlidesApiService) DeleteSlidesCleanSlidesList(request DeleteSlidesClean
 	if localVarTempParam := request.Slides; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Slides", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -3912,6 +3909,9 @@ func (a *SlidesApiService) DeleteSlidesCleanSlidesList(request DeleteSlidesClean
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -3990,9 +3990,6 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperties(request DeleteSlidesDo
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -4017,6 +4014,9 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperties(request DeleteSlidesDo
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -4104,9 +4104,6 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperty(request DeleteSlidesDocu
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -4131,6 +4128,9 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperty(request DeleteSlidesDocu
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -4216,9 +4216,6 @@ func (a *SlidesApiService) DeleteSlidesSlideBackground(request DeleteSlidesSlide
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -4243,6 +4240,9 @@ func (a *SlidesApiService) DeleteSlidesSlideBackground(request DeleteSlidesSlide
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -4352,9 +4352,6 @@ func (a *SlidesApiService) DeleteSubshapeParagraph(request DeleteSubshapeParagra
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -4379,6 +4376,9 @@ func (a *SlidesApiService) DeleteSubshapeParagraph(request DeleteSubshapeParagra
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -4491,9 +4491,6 @@ func (a *SlidesApiService) DeleteSubshapeParagraphs(request DeleteSubshapeParagr
 	if localVarTempParam := request.Paragraphs; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Paragraphs", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -4518,6 +4515,9 @@ func (a *SlidesApiService) DeleteSubshapeParagraphs(request DeleteSubshapeParagr
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -4637,9 +4637,6 @@ func (a *SlidesApiService) DeleteSubshapePortion(request DeleteSubshapePortionRe
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -4664,6 +4661,9 @@ func (a *SlidesApiService) DeleteSubshapePortion(request DeleteSubshapePortionRe
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -4784,9 +4784,6 @@ func (a *SlidesApiService) DeleteSubshapePortions(request DeleteSubshapePortions
 	if localVarTempParam := request.Portions; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Portions", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -4811,6 +4808,9 @@ func (a *SlidesApiService) DeleteSubshapePortions(request DeleteSubshapePortions
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -5242,9 +5242,6 @@ func (a *SlidesApiService) GetLayoutSlide(request GetLayoutSlideRequest) (ILayou
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -5269,6 +5266,9 @@ func (a *SlidesApiService) GetLayoutSlide(request GetLayoutSlideRequest) (ILayou
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -5347,9 +5347,6 @@ func (a *SlidesApiService) GetLayoutSlidesList(request GetLayoutSlidesListReques
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -5374,6 +5371,9 @@ func (a *SlidesApiService) GetLayoutSlidesList(request GetLayoutSlidesListReques
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -5458,9 +5458,6 @@ func (a *SlidesApiService) GetMasterSlide(request GetMasterSlideRequest) (IMaste
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -5485,6 +5482,9 @@ func (a *SlidesApiService) GetMasterSlide(request GetMasterSlideRequest) (IMaste
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -5563,9 +5563,6 @@ func (a *SlidesApiService) GetMasterSlidesList(request GetMasterSlidesListReques
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -5590,6 +5587,9 @@ func (a *SlidesApiService) GetMasterSlidesList(request GetMasterSlidesListReques
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -5674,9 +5674,6 @@ func (a *SlidesApiService) GetNotesSlide(request GetNotesSlideRequest) (INotesSl
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -5701,6 +5698,9 @@ func (a *SlidesApiService) GetNotesSlide(request GetNotesSlideRequest) (INotesSl
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -5786,9 +5786,6 @@ func (a *SlidesApiService) GetNotesSlideExists(request GetNotesSlideExistsReques
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -5813,6 +5810,9 @@ func (a *SlidesApiService) GetNotesSlideExists(request GetNotesSlideExistsReques
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -5898,9 +5898,6 @@ func (a *SlidesApiService) GetNotesSlideHeaderFooter(request GetNotesSlideHeader
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -5925,6 +5922,9 @@ func (a *SlidesApiService) GetNotesSlideHeaderFooter(request GetNotesSlideHeader
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -6017,9 +6017,6 @@ func (a *SlidesApiService) GetNotesSlideShape(request GetNotesSlideShapeRequest)
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -6044,6 +6041,9 @@ func (a *SlidesApiService) GetNotesSlideShape(request GetNotesSlideShapeRequest)
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -6144,9 +6144,6 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraph(request GetNotesSlideShap
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -6171,6 +6168,9 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraph(request GetNotesSlideShap
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -6265,9 +6265,6 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraphs(request GetNotesSlideSha
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -6292,6 +6289,9 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraphs(request GetNotesSlideSha
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -6399,9 +6399,6 @@ func (a *SlidesApiService) GetNotesSlideShapePortion(request GetNotesSlideShapeP
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -6426,6 +6423,9 @@ func (a *SlidesApiService) GetNotesSlideShapePortion(request GetNotesSlideShapeP
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -6528,9 +6528,6 @@ func (a *SlidesApiService) GetNotesSlideShapePortions(request GetNotesSlideShape
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -6555,6 +6552,9 @@ func (a *SlidesApiService) GetNotesSlideShapePortions(request GetNotesSlideShape
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -6642,9 +6642,6 @@ func (a *SlidesApiService) GetNotesSlideShapes(request GetNotesSlideShapesReques
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -6669,6 +6666,9 @@ func (a *SlidesApiService) GetNotesSlideShapes(request GetNotesSlideShapesReques
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -6786,9 +6786,6 @@ func (a *SlidesApiService) GetNotesSlideWithFormat(request GetNotesSlideWithForm
 	if request.Height != nil {
 		localVarQueryParams.Add("Height", parameterToString(*request.Height, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -6816,6 +6813,9 @@ func (a *SlidesApiService) GetNotesSlideWithFormat(request GetNotesSlideWithForm
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -6919,9 +6919,6 @@ func (a *SlidesApiService) GetParagraphPortion(request GetParagraphPortionReques
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -6946,6 +6943,9 @@ func (a *SlidesApiService) GetParagraphPortion(request GetParagraphPortionReques
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -7048,9 +7048,6 @@ func (a *SlidesApiService) GetParagraphPortions(request GetParagraphPortionsRequ
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -7075,6 +7072,9 @@ func (a *SlidesApiService) GetParagraphPortions(request GetParagraphPortionsRequ
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -7155,9 +7155,6 @@ func (a *SlidesApiService) GetSections(request GetSectionsRequest) (ISections, *
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -7182,6 +7179,9 @@ func (a *SlidesApiService) GetSections(request GetSectionsRequest) (ISections, *
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -7275,9 +7275,6 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 	if request.ShapeIndex != nil {
 		localVarQueryParams.Add("ShapeIndex", parameterToString(*request.ShapeIndex, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -7302,6 +7299,9 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -7388,9 +7388,6 @@ func (a *SlidesApiService) GetSlideHeaderFooter(request GetSlideHeaderFooterRequ
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -7415,6 +7412,9 @@ func (a *SlidesApiService) GetSlideHeaderFooter(request GetSlideHeaderFooterRequ
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -7507,9 +7507,6 @@ func (a *SlidesApiService) GetSlideShape(request GetSlideShapeRequest) (IShapeBa
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -7534,6 +7531,9 @@ func (a *SlidesApiService) GetSlideShape(request GetSlideShapeRequest) (IShapeBa
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -7634,9 +7634,6 @@ func (a *SlidesApiService) GetSlideShapeParagraph(request GetSlideShapeParagraph
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -7661,6 +7658,9 @@ func (a *SlidesApiService) GetSlideShapeParagraph(request GetSlideShapeParagraph
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -7755,9 +7755,6 @@ func (a *SlidesApiService) GetSlideShapeParagraphs(request GetSlideShapeParagrap
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -7782,6 +7779,9 @@ func (a *SlidesApiService) GetSlideShapeParagraphs(request GetSlideShapeParagrap
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -7868,9 +7868,6 @@ func (a *SlidesApiService) GetSlideShapes(request GetSlideShapesRequest) (IShape
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -7895,6 +7892,9 @@ func (a *SlidesApiService) GetSlideShapes(request GetSlideShapesRequest) (IShape
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -7997,9 +7997,6 @@ func (a *SlidesApiService) GetSlideSubshape(request GetSlideSubshapeRequest) (IS
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -8024,6 +8021,9 @@ func (a *SlidesApiService) GetSlideSubshape(request GetSlideSubshapeRequest) (IS
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -8135,9 +8135,6 @@ func (a *SlidesApiService) GetSlideSubshapeParagraph(request GetSlideSubshapePar
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -8162,6 +8159,9 @@ func (a *SlidesApiService) GetSlideSubshapeParagraph(request GetSlideSubshapePar
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -8267,9 +8267,6 @@ func (a *SlidesApiService) GetSlideSubshapeParagraphs(request GetSlideSubshapePa
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -8294,6 +8291,9 @@ func (a *SlidesApiService) GetSlideSubshapeParagraphs(request GetSlideSubshapePa
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -8391,9 +8391,6 @@ func (a *SlidesApiService) GetSlideSubshapes(request GetSlideSubshapesRequest) (
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -8418,6 +8415,9 @@ func (a *SlidesApiService) GetSlideSubshapes(request GetSlideSubshapesRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -8561,9 +8561,6 @@ func (a *SlidesApiService) GetSlidesDocument(request GetSlidesDocumentRequest) (
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -8588,6 +8585,9 @@ func (a *SlidesApiService) GetSlidesDocument(request GetSlidesDocumentRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -8665,9 +8665,6 @@ func (a *SlidesApiService) GetSlidesDocumentProperties(request GetSlidesDocument
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -8692,6 +8689,9 @@ func (a *SlidesApiService) GetSlidesDocumentProperties(request GetSlidesDocument
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -8779,9 +8779,6 @@ func (a *SlidesApiService) GetSlidesDocumentProperty(request GetSlidesDocumentPr
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -8806,6 +8803,9 @@ func (a *SlidesApiService) GetSlidesDocumentProperty(request GetSlidesDocumentPr
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -8891,9 +8891,6 @@ func (a *SlidesApiService) GetSlidesImageWithDefaultFormat(request GetSlidesImag
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -8918,6 +8915,9 @@ func (a *SlidesApiService) GetSlidesImageWithDefaultFormat(request GetSlidesImag
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -9006,9 +9006,6 @@ func (a *SlidesApiService) GetSlidesImageWithFormat(request GetSlidesImageWithFo
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -9033,6 +9030,9 @@ func (a *SlidesApiService) GetSlidesImageWithFormat(request GetSlidesImageWithFo
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -9105,9 +9105,6 @@ func (a *SlidesApiService) GetSlidesImages(request GetSlidesImagesRequest) (IIma
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -9132,6 +9129,9 @@ func (a *SlidesApiService) GetSlidesImages(request GetSlidesImagesRequest) (IIma
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -9223,9 +9223,6 @@ func (a *SlidesApiService) GetSlidesPlaceholder(request GetSlidesPlaceholderRequ
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -9250,6 +9247,9 @@ func (a *SlidesApiService) GetSlidesPlaceholder(request GetSlidesPlaceholderRequ
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -9336,9 +9336,6 @@ func (a *SlidesApiService) GetSlidesPlaceholders(request GetSlidesPlaceholdersRe
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -9363,6 +9360,9 @@ func (a *SlidesApiService) GetSlidesPlaceholders(request GetSlidesPlaceholdersRe
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -9450,9 +9450,6 @@ func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPrese
 	if request.WithEmpty != nil {
 		localVarQueryParams.Add("WithEmpty", parameterToString(request.WithEmpty, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -9477,6 +9474,9 @@ func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPrese
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -9509,6 +9509,110 @@ func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPrese
 type GetSlidesPresentationTextItemsRequest struct {
     Name string
     WithEmpty *bool
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Read presentation protection properties.
+ @param name Document name.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return ProtectionProperties*/
+func (a *SlidesApiService) GetSlidesProtectionProperties(request GetSlidesProtectionPropertiesRequest) (IProtectionProperties, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IProtectionProperties
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/protectionProperties"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("ProtectionProperties", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IProtectionProperties); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IProtectionProperties); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.GetSlidesProtectionProperties
+*/
+type GetSlidesProtectionPropertiesRequest struct {
+    Name string
     Password string
     Folder string
     Storage string
@@ -9562,9 +9666,6 @@ func (a *SlidesApiService) GetSlidesSlide(request GetSlidesSlideRequest) (ISlide
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -9589,6 +9690,9 @@ func (a *SlidesApiService) GetSlidesSlide(request GetSlidesSlideRequest) (ISlide
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -9674,9 +9778,6 @@ func (a *SlidesApiService) GetSlidesSlideBackground(request GetSlidesSlideBackgr
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -9701,6 +9802,9 @@ func (a *SlidesApiService) GetSlidesSlideBackground(request GetSlidesSlideBackgr
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -9786,9 +9890,6 @@ func (a *SlidesApiService) GetSlidesSlideComments(request GetSlidesSlideComments
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -9813,6 +9914,9 @@ func (a *SlidesApiService) GetSlidesSlideComments(request GetSlidesSlideComments
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -9898,9 +10002,6 @@ func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequ
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -9925,6 +10026,9 @@ func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequ
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -9957,6 +10061,110 @@ func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequ
 type GetSlidesSlideImagesRequest struct {
     Name string
     SlideIndex int32
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Read presentation slide properties.
+ @param name Document name.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return SlideProperties*/
+func (a *SlidesApiService) GetSlidesSlideProperties(request GetSlidesSlidePropertiesRequest) (ISlideProperties, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload ISlideProperties
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slideProperties"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("SlideProperties", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideProperties); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideProperties); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.GetSlidesSlideProperties
+*/
+type GetSlidesSlidePropertiesRequest struct {
+    Name string
     Password string
     Folder string
     Storage string
@@ -10019,9 +10227,6 @@ func (a *SlidesApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextIte
 	if request.WithEmpty != nil {
 		localVarQueryParams.Add("WithEmpty", parameterToString(request.WithEmpty, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -10046,6 +10251,9 @@ func (a *SlidesApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextIte
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -10125,9 +10333,6 @@ func (a *SlidesApiService) GetSlidesSlidesList(request GetSlidesSlidesListReques
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -10152,6 +10357,9 @@ func (a *SlidesApiService) GetSlidesSlidesList(request GetSlidesSlidesListReques
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -10236,9 +10444,6 @@ func (a *SlidesApiService) GetSlidesTheme(request GetSlidesThemeRequest) (ITheme
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -10263,6 +10468,9 @@ func (a *SlidesApiService) GetSlidesTheme(request GetSlidesThemeRequest) (ITheme
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -10348,9 +10556,6 @@ func (a *SlidesApiService) GetSlidesThemeColorScheme(request GetSlidesThemeColor
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -10375,6 +10580,9 @@ func (a *SlidesApiService) GetSlidesThemeColorScheme(request GetSlidesThemeColor
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -10460,9 +10668,6 @@ func (a *SlidesApiService) GetSlidesThemeFontScheme(request GetSlidesThemeFontSc
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -10487,6 +10692,9 @@ func (a *SlidesApiService) GetSlidesThemeFontScheme(request GetSlidesThemeFontSc
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -10572,9 +10780,6 @@ func (a *SlidesApiService) GetSlidesThemeFormatScheme(request GetSlidesThemeForm
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -10599,6 +10804,9 @@ func (a *SlidesApiService) GetSlidesThemeFormatScheme(request GetSlidesThemeForm
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -10677,9 +10885,6 @@ func (a *SlidesApiService) GetSlidesViewProperties(request GetSlidesViewProperti
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -10704,6 +10909,9 @@ func (a *SlidesApiService) GetSlidesViewProperties(request GetSlidesViewProperti
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -10819,9 +11027,6 @@ func (a *SlidesApiService) GetSubshapeParagraphPortion(request GetSubshapeParagr
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -10846,6 +11051,9 @@ func (a *SlidesApiService) GetSubshapeParagraphPortion(request GetSubshapeParagr
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -10959,9 +11167,6 @@ func (a *SlidesApiService) GetSubshapeParagraphPortions(request GetSubshapeParag
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -10986,6 +11191,9 @@ func (a *SlidesApiService) GetSubshapeParagraphPortions(request GetSubshapeParag
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -11373,9 +11581,6 @@ func (a *SlidesApiService) PostAddNewParagraph(request PostAddNewParagraphReques
 		}
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -11403,6 +11608,9 @@ func (a *SlidesApiService) PostAddNewParagraph(request PostAddNewParagraphReques
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -11517,9 +11725,6 @@ func (a *SlidesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (
 		}
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -11547,6 +11752,9 @@ func (a *SlidesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -11651,9 +11859,6 @@ func (a *SlidesApiService) PostAddNewShape(request PostAddNewShapeRequest) (ISha
 		}
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -11684,6 +11889,9 @@ func (a *SlidesApiService) PostAddNewShape(request PostAddNewShapeRequest) (ISha
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -11797,9 +12005,6 @@ func (a *SlidesApiService) PostAddNewSubshape(request PostAddNewSubshapeRequest)
 		}
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -11830,6 +12035,9 @@ func (a *SlidesApiService) PostAddNewSubshape(request PostAddNewSubshapeRequest)
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -11948,9 +12156,6 @@ func (a *SlidesApiService) PostAddNewSubshapeParagraph(request PostAddNewSubshap
 		}
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -11978,6 +12183,9 @@ func (a *SlidesApiService) PostAddNewSubshapeParagraph(request PostAddNewSubshap
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -12103,9 +12311,6 @@ func (a *SlidesApiService) PostAddNewSubshapePortion(request PostAddNewSubshapeP
 		}
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -12133,6 +12338,9 @@ func (a *SlidesApiService) PostAddNewSubshapePortion(request PostAddNewSubshapeP
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -12229,9 +12437,6 @@ func (a *SlidesApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -12256,6 +12461,9 @@ func (a *SlidesApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -12355,9 +12563,6 @@ func (a *SlidesApiService) PostChartCategory(request PostChartCategoryRequest) (
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -12382,6 +12587,9 @@ func (a *SlidesApiService) PostChartCategory(request PostChartCategoryRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Category
@@ -12489,9 +12697,6 @@ func (a *SlidesApiService) PostChartDataPoint(request PostChartDataPointRequest)
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -12516,6 +12721,9 @@ func (a *SlidesApiService) PostChartDataPoint(request PostChartDataPointRequest)
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.DataPoint
@@ -12617,9 +12825,6 @@ func (a *SlidesApiService) PostChartSeries(request PostChartSeriesRequest) (ICha
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -12644,6 +12849,9 @@ func (a *SlidesApiService) PostChartSeries(request PostChartSeriesRequest) (ICha
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Series
@@ -12741,14 +12949,8 @@ func (a *SlidesApiService) PostCopyLayoutSlideFromSourcePresentation(request Pos
 
 	localVarQueryParams.Add("CloneFrom", parameterToString(request.CloneFrom, ""))
 	localVarQueryParams.Add("CloneFromPosition", parameterToString(request.CloneFromPosition, ""))
-	if localVarTempParam := request.CloneFromPassword; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("CloneFromPassword", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.CloneFromStorage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("CloneFromStorage", parameterToString(localVarTempParam, ""))
-	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
@@ -12774,6 +12976,12 @@ func (a *SlidesApiService) PostCopyLayoutSlideFromSourcePresentation(request Pos
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.CloneFromPassword; len(localVarTempParam) > 0 {
+		localVarHeaderParams["CloneFromPassword"] = parameterToString(localVarTempParam, "")
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -12876,17 +13084,11 @@ func (a *SlidesApiService) PostCopyMasterSlideFromSourcePresentation(request Pos
 
 	localVarQueryParams.Add("CloneFrom", parameterToString(request.CloneFrom, ""))
 	localVarQueryParams.Add("CloneFromPosition", parameterToString(request.CloneFromPosition, ""))
-	if localVarTempParam := request.CloneFromPassword; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("CloneFromPassword", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.CloneFromStorage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("CloneFromStorage", parameterToString(localVarTempParam, ""))
 	}
 	if request.ApplyToAll != nil {
 		localVarQueryParams.Add("ApplyToAll", parameterToString(request.ApplyToAll, ""))
-	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
@@ -12912,6 +13114,12 @@ func (a *SlidesApiService) PostCopyMasterSlideFromSourcePresentation(request Pos
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.CloneFromPassword; len(localVarTempParam) > 0 {
+		localVarHeaderParams["CloneFromPassword"] = parameterToString(localVarTempParam, "")
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -12987,9 +13195,6 @@ func (a *SlidesApiService) PostGetNotesSlide(request PostGetNotesSlideRequest) (
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/octet-stream", "multipart/form-data",  }
 
@@ -13008,6 +13213,9 @@ func (a *SlidesApiService) PostGetNotesSlide(request PostGetNotesSlideRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = request.Document
@@ -13079,9 +13287,6 @@ func (a *SlidesApiService) PostGetNotesSlideExists(request PostGetNotesSlideExis
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/octet-stream",  }
 
@@ -13100,6 +13305,9 @@ func (a *SlidesApiService) PostGetNotesSlideExists(request PostGetNotesSlideExis
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = request.Document
@@ -13203,9 +13411,6 @@ func (a *SlidesApiService) PostGetNotesSlideWithFormat(request PostGetNotesSlide
 	if request.Height != nil {
 		localVarQueryParams.Add("Height", parameterToString(*request.Height, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.FontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
@@ -13227,6 +13432,9 @@ func (a *SlidesApiService) PostGetNotesSlideWithFormat(request PostGetNotesSlide
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = request.Document
@@ -13326,9 +13534,6 @@ func (a *SlidesApiService) PostNotesSlideAddNewParagraph(request PostNotesSlideA
 		}
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -13356,6 +13561,9 @@ func (a *SlidesApiService) PostNotesSlideAddNewParagraph(request PostNotesSlideA
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -13470,9 +13678,6 @@ func (a *SlidesApiService) PostNotesSlideAddNewPortion(request PostNotesSlideAdd
 		}
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -13500,6 +13705,9 @@ func (a *SlidesApiService) PostNotesSlideAddNewPortion(request PostNotesSlideAdd
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -13607,9 +13815,6 @@ func (a *SlidesApiService) PostNotesSlideAddNewShape(request PostNotesSlideAddNe
 		}
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -13640,6 +13845,9 @@ func (a *SlidesApiService) PostNotesSlideAddNewShape(request PostNotesSlideAddNe
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -13768,9 +13976,6 @@ func (a *SlidesApiService) PostNotesSlideShapeSaveAs(request PostNotesSlideShape
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -13807,6 +14012,9 @@ func (a *SlidesApiService) PostNotesSlideShapeSaveAs(request PostNotesSlideShape
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Options
@@ -13891,9 +14099,6 @@ func (a *SlidesApiService) PostPresentationMerge(request PostPresentationMergeRe
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -13918,6 +14123,9 @@ func (a *SlidesApiService) PostPresentationMerge(request PostPresentationMergeRe
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Request
@@ -14005,9 +14213,6 @@ func (a *SlidesApiService) PostSection(request PostSectionRequest) (ISections, *
 
 	localVarQueryParams.Add("SectionName", parameterToString(request.SectionName, ""))
 	localVarQueryParams.Add("SlideIndex", parameterToString(request.SlideIndex, ""))
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -14032,6 +14237,9 @@ func (a *SlidesApiService) PostSection(request PostSectionRequest) (ISections, *
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -14120,9 +14328,6 @@ func (a *SlidesApiService) PostSectionMove(request PostSectionMoveRequest) (ISec
 	}
 
 	localVarQueryParams.Add("NewPosition", parameterToString(request.NewPosition, ""))
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -14147,6 +14352,9 @@ func (a *SlidesApiService) PostSectionMove(request PostSectionMoveRequest) (ISec
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -14271,9 +14479,6 @@ func (a *SlidesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -14310,6 +14515,9 @@ func (a *SlidesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Options
@@ -14401,9 +14609,6 @@ func (a *SlidesApiService) PostSlideAnimationEffect(request PostSlideAnimationEf
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -14428,6 +14633,9 @@ func (a *SlidesApiService) PostSlideAnimationEffect(request PostSlideAnimationEf
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Effect
@@ -14520,9 +14728,6 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequence(request PostSli
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -14547,6 +14752,9 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequence(request PostSli
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Sequence
@@ -14646,9 +14854,6 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequenceEffect(request P
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -14673,6 +14878,9 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequenceEffect(request P
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Effect
@@ -14795,9 +15003,6 @@ func (a *SlidesApiService) PostSlideSaveAs(request PostSlideSaveAsRequest) (*os.
 	if request.Height != nil {
 		localVarQueryParams.Add("Height", parameterToString(*request.Height, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -14825,6 +15030,9 @@ func (a *SlidesApiService) PostSlideSaveAs(request PostSlideSaveAsRequest) (*os.
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Options
@@ -14916,9 +15124,6 @@ func (a *SlidesApiService) PostSlidesAdd(request PostSlidesAddRequest) (ISlides,
 	if request.Position != nil {
 		localVarQueryParams.Add("Position", parameterToString(*request.Position, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -14946,6 +15151,9 @@ func (a *SlidesApiService) PostSlidesAdd(request PostSlidesAddRequest) (ISlides,
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -15025,9 +15233,6 @@ func (a *SlidesApiService) PostSlidesConvert(request PostSlidesConvertRequest) (
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.FontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
@@ -15049,6 +15254,9 @@ func (a *SlidesApiService) PostSlidesConvert(request PostSlidesConvertRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = request.Document
@@ -15147,14 +15355,8 @@ func (a *SlidesApiService) PostSlidesCopy(request PostSlidesCopyRequest) (ISlide
 	if localVarTempParam := request.Source; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Source", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.SourcePassword; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("SourcePassword", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.SourceStorage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("SourceStorage", parameterToString(localVarTempParam, ""))
-	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
@@ -15180,6 +15382,12 @@ func (a *SlidesApiService) PostSlidesCopy(request PostSlidesCopyRequest) (ISlide
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.SourcePassword; len(localVarTempParam) > 0 {
+		localVarHeaderParams["SourcePassword"] = parameterToString(localVarTempParam, "")
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -15267,12 +15475,6 @@ func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest)
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.InputPassword; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("InputPassword", parameterToString(localVarTempParam, ""))
-	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -15297,6 +15499,12 @@ func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest)
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.InputPassword; len(localVarTempParam) > 0 {
+		localVarHeaderParams["InputPassword"] = parameterToString(localVarTempParam, "")
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = request.Data
@@ -15382,9 +15590,6 @@ func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocument
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -15409,6 +15614,9 @@ func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocument
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = request.Html
@@ -15443,6 +15651,114 @@ func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocument
 type PostSlidesDocumentFromHtmlRequest struct {
     Name string
     Html string
+    Password string
+    Storage string
+    Folder string
+}
+
+/* SlidesApiService Create presentation document from pdf or append pdf to an existing presentation.
+ @param name Document name.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "pdf" ([]byte) PDF data.
+     @param "password" (string) Document password.
+     @param "storage" (string) Document storage.
+     @param "folder" (string) Document folder.
+ @return Document*/
+func (a *SlidesApiService) PostSlidesDocumentFromPdf(request PostSlidesDocumentFromPdfRequest) (IDocument, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IDocument
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/fromPdf"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/octet-stream",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	// body params
+	localVarPostBody = request.Pdf
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PostSlidesDocumentFromPdf
+*/
+type PostSlidesDocumentFromPdfRequest struct {
+    Name string
+    Pdf []byte
     Password string
     Storage string
     Folder string
@@ -15504,14 +15820,8 @@ func (a *SlidesApiService) PostSlidesDocumentFromSource(request PostSlidesDocume
 	if localVarTempParam := request.SourcePath; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("SourcePath", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.SourcePassword; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("SourcePassword", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.SourceStorage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("SourceStorage", parameterToString(localVarTempParam, ""))
-	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
@@ -15537,6 +15847,12 @@ func (a *SlidesApiService) PostSlidesDocumentFromSource(request PostSlidesDocume
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.SourcePassword; len(localVarTempParam) > 0 {
+		localVarHeaderParams["SourcePassword"] = parameterToString(localVarTempParam, "")
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -15640,17 +15956,11 @@ func (a *SlidesApiService) PostSlidesDocumentFromTemplate(request PostSlidesDocu
 	}
 
 	localVarQueryParams.Add("TemplatePath", parameterToString(request.TemplatePath, ""))
-	if localVarTempParam := request.TemplatePassword; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("TemplatePassword", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.TemplateStorage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("TemplateStorage", parameterToString(localVarTempParam, ""))
 	}
 	if request.IsImageDataEmbedded != nil {
 		localVarQueryParams.Add("IsImageDataEmbedded", parameterToString(request.IsImageDataEmbedded, ""))
-	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
@@ -15676,6 +15986,12 @@ func (a *SlidesApiService) PostSlidesDocumentFromTemplate(request PostSlidesDocu
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.TemplatePassword; len(localVarTempParam) > 0 {
+		localVarHeaderParams["TemplatePassword"] = parameterToString(localVarTempParam, "")
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = request.Data
@@ -15849,9 +16165,6 @@ func (a *SlidesApiService) PostSlidesPresentationReplaceText(request PostSlidesP
 	if request.IgnoreCase != nil {
 		localVarQueryParams.Add("IgnoreCase", parameterToString(request.IgnoreCase, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -15876,6 +16189,9 @@ func (a *SlidesApiService) PostSlidesPresentationReplaceText(request PostSlidesP
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -15965,9 +16281,6 @@ func (a *SlidesApiService) PostSlidesReorder(request PostSlidesReorderRequest) (
 	}
 
 	localVarQueryParams.Add("NewPosition", parameterToString(request.NewPosition, ""))
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -15992,6 +16305,9 @@ func (a *SlidesApiService) PostSlidesReorder(request PostSlidesReorderRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -16085,9 +16401,6 @@ func (a *SlidesApiService) PostSlidesReorderMany(request PostSlidesReorderManyRe
 	if localVarTempParam := request.NewPositions; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("NewPositions", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -16112,6 +16425,9 @@ func (a *SlidesApiService) PostSlidesReorderMany(request PostSlidesReorderManyRe
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -16206,9 +16522,6 @@ func (a *SlidesApiService) PostSlidesSaveAs(request PostSlidesSaveAsRequest) (*o
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -16236,6 +16549,9 @@ func (a *SlidesApiService) PostSlidesSaveAs(request PostSlidesSaveAsRequest) (*o
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Options
@@ -16315,9 +16631,6 @@ func (a *SlidesApiService) PostSlidesSetDocumentProperties(request PostSlidesSet
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -16342,6 +16655,9 @@ func (a *SlidesApiService) PostSlidesSetDocumentProperties(request PostSlidesSet
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Properties
@@ -16448,9 +16764,6 @@ func (a *SlidesApiService) PostSlidesSlideReplaceText(request PostSlidesSlideRep
 	if request.IgnoreCase != nil {
 		localVarQueryParams.Add("IgnoreCase", parameterToString(request.IgnoreCase, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -16475,6 +16788,9 @@ func (a *SlidesApiService) PostSlidesSlideReplaceText(request PostSlidesSlideRep
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -16611,9 +16927,6 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (ISpl
 	if localVarTempParam := request.DestFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("DestFolder", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -16641,6 +16954,9 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (ISpl
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Options
@@ -16783,9 +17099,6 @@ func (a *SlidesApiService) PostSubshapeSaveAs(request PostSubshapeSaveAsRequest)
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -16822,6 +17135,9 @@ func (a *SlidesApiService) PostSubshapeSaveAs(request PostSubshapeSaveAsRequest)
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Options
@@ -16928,9 +17244,6 @@ func (a *SlidesApiService) PutChartCategory(request PutChartCategoryRequest) (IC
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -16955,6 +17268,9 @@ func (a *SlidesApiService) PutChartCategory(request PutChartCategoryRequest) (IC
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Category
@@ -17070,9 +17386,6 @@ func (a *SlidesApiService) PutChartDataPoint(request PutChartDataPointRequest) (
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -17097,6 +17410,9 @@ func (a *SlidesApiService) PutChartDataPoint(request PutChartDataPointRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.DataPoint
@@ -17206,9 +17522,6 @@ func (a *SlidesApiService) PutChartSeries(request PutChartSeriesRequest) (IChart
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -17233,6 +17546,9 @@ func (a *SlidesApiService) PutChartSeries(request PutChartSeriesRequest) (IChart
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Series
@@ -17327,9 +17643,6 @@ func (a *SlidesApiService) PutLayoutSlide(request PutLayoutSlideRequest) (ILayou
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -17354,6 +17667,9 @@ func (a *SlidesApiService) PutLayoutSlide(request PutLayoutSlideRequest) (ILayou
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.SlideDto
@@ -17446,9 +17762,6 @@ func (a *SlidesApiService) PutNotesSlideHeaderFooter(request PutNotesSlideHeader
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -17473,6 +17786,9 @@ func (a *SlidesApiService) PutNotesSlideHeaderFooter(request PutNotesSlideHeader
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -17603,9 +17919,6 @@ func (a *SlidesApiService) PutNotesSlideShapeSaveAs(request PutNotesSlideShapeSa
 	}
 
 	localVarQueryParams.Add("OutPath", parameterToString(request.OutPath, ""))
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -17642,6 +17955,9 @@ func (a *SlidesApiService) PutNotesSlideShapeSaveAs(request PutNotesSlideShapeSa
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Options
@@ -17722,9 +18038,6 @@ func (a *SlidesApiService) PutPresentationMerge(request PutPresentationMergeRequ
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -17749,6 +18062,9 @@ func (a *SlidesApiService) PutPresentationMerge(request PutPresentationMergeRequ
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Request
@@ -17841,9 +18157,6 @@ func (a *SlidesApiService) PutSection(request PutSectionRequest) (ISections, *ht
 	}
 
 	localVarQueryParams.Add("SectionName", parameterToString(request.SectionName, ""))
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -17868,6 +18181,9 @@ func (a *SlidesApiService) PutSection(request PutSectionRequest) (ISections, *ht
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -17951,9 +18267,6 @@ func (a *SlidesApiService) PutSections(request PutSectionsRequest) (ISections, *
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -17978,6 +18291,9 @@ func (a *SlidesApiService) PutSections(request PutSectionsRequest) (ISections, *
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Sections
@@ -18090,9 +18406,6 @@ func (a *SlidesApiService) PutSetParagraphPortionProperties(request PutSetParagr
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -18117,6 +18430,9 @@ func (a *SlidesApiService) PutSetParagraphPortionProperties(request PutSetParagr
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -18226,9 +18542,6 @@ func (a *SlidesApiService) PutSetParagraphProperties(request PutSetParagraphProp
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -18253,6 +18566,9 @@ func (a *SlidesApiService) PutSetParagraphProperties(request PutSetParagraphProp
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -18378,9 +18694,6 @@ func (a *SlidesApiService) PutSetSubshapeParagraphPortionProperties(request PutS
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -18405,6 +18718,9 @@ func (a *SlidesApiService) PutSetSubshapeParagraphPortionProperties(request PutS
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -18525,9 +18841,6 @@ func (a *SlidesApiService) PutSetSubshapeParagraphProperties(request PutSetSubsh
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -18552,6 +18865,9 @@ func (a *SlidesApiService) PutSetSubshapeParagraphProperties(request PutSetSubsh
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -18685,9 +19001,6 @@ func (a *SlidesApiService) PutShapeSaveAs(request PutShapeSaveAsRequest) (*http.
 	}
 
 	localVarQueryParams.Add("OutPath", parameterToString(request.OutPath, ""))
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -18724,6 +19037,9 @@ func (a *SlidesApiService) PutShapeSaveAs(request PutShapeSaveAsRequest) (*http.
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Options
@@ -18811,9 +19127,6 @@ func (a *SlidesApiService) PutSlideAnimation(request PutSlideAnimationRequest) (
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -18838,6 +19151,9 @@ func (a *SlidesApiService) PutSlideAnimation(request PutSlideAnimationRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Animation
@@ -18937,9 +19253,6 @@ func (a *SlidesApiService) PutSlideAnimationEffect(request PutSlideAnimationEffe
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -18964,6 +19277,9 @@ func (a *SlidesApiService) PutSlideAnimationEffect(request PutSlideAnimationEffe
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Effect
@@ -19071,9 +19387,6 @@ func (a *SlidesApiService) PutSlideAnimationInteractiveSequenceEffect(request Pu
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -19098,6 +19411,9 @@ func (a *SlidesApiService) PutSlideAnimationInteractiveSequenceEffect(request Pu
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Effect
@@ -19192,9 +19508,6 @@ func (a *SlidesApiService) PutSlideHeaderFooter(request PutSlideHeaderFooterRequ
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -19219,6 +19532,9 @@ func (a *SlidesApiService) PutSlideHeaderFooter(request PutSlideHeaderFooterRequ
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -19344,9 +19660,6 @@ func (a *SlidesApiService) PutSlideSaveAs(request PutSlideSaveAsRequest) (*http.
 	if request.Height != nil {
 		localVarQueryParams.Add("Height", parameterToString(*request.Height, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -19374,6 +19687,9 @@ func (a *SlidesApiService) PutSlideSaveAs(request PutSlideSaveAsRequest) (*http.
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Options
@@ -19466,9 +19782,6 @@ func (a *SlidesApiService) PutSlideShapeInfo(request PutSlideShapeInfoRequest) (
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -19493,6 +19806,9 @@ func (a *SlidesApiService) PutSlideShapeInfo(request PutSlideShapeInfoRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -19603,9 +19919,6 @@ func (a *SlidesApiService) PutSlideSubshapeInfo(request PutSlideSubshapeInfoRequ
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -19630,6 +19943,9 @@ func (a *SlidesApiService) PutSlideSubshapeInfo(request PutSlideSubshapeInfoRequ
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -19717,9 +20033,6 @@ func (a *SlidesApiService) PutSlidesConvert(request PutSlidesConvertRequest) (*h
 	}
 
 	localVarQueryParams.Add("OutPath", parameterToString(request.OutPath, ""))
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.FontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
@@ -19741,6 +20054,9 @@ func (a *SlidesApiService) PutSlidesConvert(request PutSlidesConvertRequest) (*h
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = request.Document
@@ -19813,9 +20129,6 @@ func (a *SlidesApiService) PutSlidesDocumentFromHtml(request PutSlidesDocumentFr
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -19840,6 +20153,9 @@ func (a *SlidesApiService) PutSlidesDocumentFromHtml(request PutSlidesDocumentFr
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = request.Html
@@ -19924,9 +20240,6 @@ func (a *SlidesApiService) PutSlidesHeaderFooter(request PutSlidesHeaderFooterRe
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -19951,6 +20264,9 @@ func (a *SlidesApiService) PutSlidesHeaderFooter(request PutSlidesHeaderFooterRe
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -19988,6 +20304,117 @@ type PutSlidesHeaderFooterRequest struct {
     Password string
     Storage string
     Folder string
+}
+
+/* SlidesApiService Update presentation protection properties.
+ @param name Document name.
+ @param dto The view properties data.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return ProtectionProperties*/
+func (a *SlidesApiService) PutSlidesProtectionProperties(request PutSlidesProtectionPropertiesRequest) (IProtectionProperties, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IProtectionProperties
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/protectionProperties"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	// body params
+	localVarPostBody = &request.Dto
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("ProtectionProperties", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IProtectionProperties); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IProtectionProperties); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PutSlidesProtectionProperties
+*/
+type PutSlidesProtectionPropertiesRequest struct {
+    Name string
+    Dto IProtectionProperties
+    Password string
+    Folder string
+    Storage string
 }
 
 /* SlidesApiService Save a presentation to a specified format.
@@ -20050,9 +20477,6 @@ func (a *SlidesApiService) PutSlidesSaveAs(request PutSlidesSaveAsRequest) (*htt
 	}
 
 	localVarQueryParams.Add("OutPath", parameterToString(request.OutPath, ""))
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -20080,6 +20504,9 @@ func (a *SlidesApiService) PutSlidesSaveAs(request PutSlidesSaveAsRequest) (*htt
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Options
@@ -20165,9 +20592,6 @@ func (a *SlidesApiService) PutSlidesSetDocumentProperty(request PutSlidesSetDocu
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -20192,6 +20616,9 @@ func (a *SlidesApiService) PutSlidesSetDocumentProperty(request PutSlidesSetDocu
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Property
@@ -20284,9 +20711,6 @@ func (a *SlidesApiService) PutSlidesSlide(request PutSlidesSlideRequest) (ISlide
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -20311,6 +20735,9 @@ func (a *SlidesApiService) PutSlidesSlide(request PutSlidesSlideRequest) (ISlide
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.SlideDto
@@ -20406,9 +20833,6 @@ func (a *SlidesApiService) PutSlidesSlideBackground(request PutSlidesSlideBackgr
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -20430,6 +20854,9 @@ func (a *SlidesApiService) PutSlidesSlideBackground(request PutSlidesSlideBackgr
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Background
@@ -20526,9 +20953,6 @@ func (a *SlidesApiService) PutSlidesSlideBackgroundColor(request PutSlidesSlideB
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -20550,6 +20974,9 @@ func (a *SlidesApiService) PutSlidesSlideBackgroundColor(request PutSlidesSlideB
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -20585,6 +21012,117 @@ type PutSlidesSlideBackgroundColorRequest struct {
     Color string
     Folder string
     Password string
+    Storage string
+}
+
+/* SlidesApiService Update presentation slide properties.
+ @param name Document name.
+ @param dto The view properties data.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return SlideProperties*/
+func (a *SlidesApiService) PutSlidesSlideProperties(request PutSlidesSlidePropertiesRequest) (ISlideProperties, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload ISlideProperties
+	)
+
+	if len(request.Name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter request.name")
+	}
+	if request.Dto == nil {
+		return successPayload, nil, reportError("Missing required parameter request.dto")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slideProperties"
+	namePathStringValue := fmt.Sprintf("%v", request.Name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(request.Password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(request.Storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json",  }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	// body params
+	localVarPostBody = &request.Dto
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("SlideProperties", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(ISlideProperties); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(ISlideProperties); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.PutSlidesSlideProperties
+*/
+type PutSlidesSlidePropertiesRequest struct {
+    Name string
+    Dto ISlideProperties
+    Password string
+    Folder string
     Storage string
 }
 
@@ -20649,9 +21187,6 @@ func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest)
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
@@ -20688,6 +21223,9 @@ func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest)
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
@@ -20773,9 +21311,6 @@ func (a *SlidesApiService) PutSlidesViewProperties(request PutSlidesViewProperti
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -20800,6 +21335,9 @@ func (a *SlidesApiService) PutSlidesViewProperties(request PutSlidesViewProperti
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -20939,9 +21477,6 @@ func (a *SlidesApiService) PutSubshapeSaveAs(request PutSubshapeSaveAsRequest) (
 	}
 
 	localVarQueryParams.Add("OutPath", parameterToString(request.OutPath, ""))
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -20978,6 +21513,9 @@ func (a *SlidesApiService) PutSubshapeSaveAs(request PutSubshapeSaveAsRequest) (
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Options
@@ -21066,9 +21604,6 @@ func (a *SlidesApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideReques
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -21093,6 +21628,9 @@ func (a *SlidesApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideReques
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -21192,9 +21730,6 @@ func (a *SlidesApiService) PutUpdateNotesSlideShape(request PutUpdateNotesSlideS
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -21219,6 +21754,9 @@ func (a *SlidesApiService) PutUpdateNotesSlideShape(request PutUpdateNotesSlideS
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -21326,9 +21864,6 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapeParagraph(request PutUpdateNo
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -21353,6 +21888,9 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapeParagraph(request PutUpdateNo
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
@@ -21468,9 +22006,6 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapePortion(request PutUpdateNote
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Password", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam := request.Folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
@@ -21495,6 +22030,9 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapePortion(request PutUpdateNote
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	// body params
 	localVarPostBody = &request.Dto
