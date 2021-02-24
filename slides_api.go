@@ -101,7 +101,7 @@ func (a *SlidesApiService) CopyFile(request CopyFileRequest) (*http.Response, er
 		localVarQueryParams.Add("VersionId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -191,7 +191,7 @@ func (a *SlidesApiService) CopyFolder(request CopyFolderRequest) (*http.Response
 		localVarQueryParams.Add("DestStorageName", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -268,7 +268,7 @@ func (a *SlidesApiService) CreateFolder(request CreateFolderRequest) (*http.Resp
 		localVarQueryParams.Add("StorageName", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -376,7 +376,7 @@ func (a *SlidesApiService) DeleteChartCategory(request DeleteChartCategoryReques
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -511,7 +511,7 @@ func (a *SlidesApiService) DeleteChartDataPoint(request DeleteChartDataPointRequ
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -640,7 +640,7 @@ func (a *SlidesApiService) DeleteChartSeries(request DeleteChartSeriesRequest) (
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -742,7 +742,7 @@ func (a *SlidesApiService) DeleteFile(request DeleteFileRequest) (*http.Response
 		localVarQueryParams.Add("VersionId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -827,7 +827,7 @@ func (a *SlidesApiService) DeleteFolder(request DeleteFolderRequest) (*http.Resp
 		localVarQueryParams.Add("Recursive", parameterToString(request.Recursive, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -922,7 +922,7 @@ func (a *SlidesApiService) DeleteNotesSlide(request DeleteNotesSlideRequest) (IS
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1048,7 +1048,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraph(request DeleteNotesSlidePar
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1176,7 +1176,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraphs(request DeleteNotesSlidePa
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1311,7 +1311,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortion(request DeleteNotesSlidePorti
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1447,7 +1447,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortions(request DeleteNotesSlidePort
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1569,7 +1569,7 @@ func (a *SlidesApiService) DeleteNotesSlideShape(request DeleteNotesSlideShapeRe
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1689,7 +1689,7 @@ func (a *SlidesApiService) DeleteNotesSlideShapes(request DeleteNotesSlideShapes
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1816,7 +1816,7 @@ func (a *SlidesApiService) DeleteParagraph(request DeleteParagraphRequest) (IPar
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1944,7 +1944,7 @@ func (a *SlidesApiService) DeleteParagraphs(request DeleteParagraphsRequest) (IP
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2079,7 +2079,7 @@ func (a *SlidesApiService) DeletePortion(request DeletePortionRequest) (IPortion
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2215,7 +2215,7 @@ func (a *SlidesApiService) DeletePortions(request DeletePortionsRequest) (IPorti
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2339,7 +2339,7 @@ func (a *SlidesApiService) DeleteSection(request DeleteSectionRequest) (ISection
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2461,7 +2461,7 @@ func (a *SlidesApiService) DeleteSections(request DeleteSectionsRequest) (ISecti
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2574,7 +2574,7 @@ func (a *SlidesApiService) DeleteSlideAnimation(request DeleteSlideAnimationRequ
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2693,7 +2693,7 @@ func (a *SlidesApiService) DeleteSlideAnimationEffect(request DeleteSlideAnimati
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2813,7 +2813,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequence(request Delet
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2940,7 +2940,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequenceEffect(request
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -3054,7 +3054,7 @@ func (a *SlidesApiService) DeleteSlideAnimationInteractiveSequences(request Dele
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -3166,7 +3166,7 @@ func (a *SlidesApiService) DeleteSlideAnimationMainSequence(request DeleteSlideA
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -3278,7 +3278,7 @@ func (a *SlidesApiService) DeleteSlideByIndex(request DeleteSlideByIndexRequest)
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -3397,7 +3397,7 @@ func (a *SlidesApiService) DeleteSlideShape(request DeleteSlideShapeRequest) (IS
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -3517,7 +3517,7 @@ func (a *SlidesApiService) DeleteSlideShapes(request DeleteSlideShapesRequest) (
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -3647,7 +3647,7 @@ func (a *SlidesApiService) DeleteSlideSubshape(request DeleteSlideSubshapeReques
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -3778,7 +3778,7 @@ func (a *SlidesApiService) DeleteSlideSubshapes(request DeleteSlideSubshapesRequ
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -3892,7 +3892,7 @@ func (a *SlidesApiService) DeleteSlidesCleanSlidesList(request DeleteSlidesClean
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -3997,7 +3997,7 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperties(request DeleteSlidesDo
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -4111,7 +4111,7 @@ func (a *SlidesApiService) DeleteSlidesDocumentProperty(request DeleteSlidesDocu
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -4223,7 +4223,7 @@ func (a *SlidesApiService) DeleteSlidesSlideBackground(request DeleteSlidesSlide
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -4359,7 +4359,7 @@ func (a *SlidesApiService) DeleteSubshapeParagraph(request DeleteSubshapeParagra
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -4498,7 +4498,7 @@ func (a *SlidesApiService) DeleteSubshapeParagraphs(request DeleteSubshapeParagr
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -4644,7 +4644,7 @@ func (a *SlidesApiService) DeleteSubshapePortion(request DeleteSubshapePortionRe
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -4791,7 +4791,7 @@ func (a *SlidesApiService) DeleteSubshapePortions(request DeleteSubshapePortions
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -4896,7 +4896,7 @@ func (a *SlidesApiService) DownloadFile(request DownloadFileRequest) (*os.File, 
 		localVarQueryParams.Add("VersionId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -4968,7 +4968,7 @@ func (a *SlidesApiService) GetDiscUsage(request GetDiscUsageRequest) (IDiscUsage
 		localVarQueryParams.Add("StorageName", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -5055,7 +5055,7 @@ func (a *SlidesApiService) GetFileVersions(request GetFileVersionsRequest) (IFil
 		localVarQueryParams.Add("StorageName", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -5143,7 +5143,7 @@ func (a *SlidesApiService) GetFilesList(request GetFilesListRequest) (IFilesList
 		localVarQueryParams.Add("StorageName", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -5249,7 +5249,7 @@ func (a *SlidesApiService) GetLayoutSlide(request GetLayoutSlideRequest) (ILayou
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -5354,7 +5354,7 @@ func (a *SlidesApiService) GetLayoutSlidesList(request GetLayoutSlidesListReques
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -5465,7 +5465,7 @@ func (a *SlidesApiService) GetMasterSlide(request GetMasterSlideRequest) (IMaste
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -5570,7 +5570,7 @@ func (a *SlidesApiService) GetMasterSlidesList(request GetMasterSlidesListReques
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -5681,7 +5681,7 @@ func (a *SlidesApiService) GetNotesSlide(request GetNotesSlideRequest) (INotesSl
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -5793,7 +5793,7 @@ func (a *SlidesApiService) GetNotesSlideExists(request GetNotesSlideExistsReques
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -5905,7 +5905,7 @@ func (a *SlidesApiService) GetNotesSlideHeaderFooter(request GetNotesSlideHeader
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -6024,7 +6024,7 @@ func (a *SlidesApiService) GetNotesSlideShape(request GetNotesSlideShapeRequest)
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -6151,7 +6151,7 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraph(request GetNotesSlideShap
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -6272,7 +6272,7 @@ func (a *SlidesApiService) GetNotesSlideShapeParagraphs(request GetNotesSlideSha
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -6406,7 +6406,7 @@ func (a *SlidesApiService) GetNotesSlideShapePortion(request GetNotesSlideShapeP
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -6535,7 +6535,7 @@ func (a *SlidesApiService) GetNotesSlideShapePortions(request GetNotesSlideShape
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -6649,7 +6649,7 @@ func (a *SlidesApiService) GetNotesSlideShapes(request GetNotesSlideShapesReques
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -6796,7 +6796,7 @@ func (a *SlidesApiService) GetNotesSlideWithFormat(request GetNotesSlideWithForm
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -6926,7 +6926,7 @@ func (a *SlidesApiService) GetParagraphPortion(request GetParagraphPortionReques
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -7055,7 +7055,7 @@ func (a *SlidesApiService) GetParagraphPortions(request GetParagraphPortionsRequ
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -7162,7 +7162,7 @@ func (a *SlidesApiService) GetSections(request GetSectionsRequest) (ISections, *
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -7282,7 +7282,7 @@ func (a *SlidesApiService) GetSlideAnimation(request GetSlideAnimationRequest) (
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -7395,7 +7395,7 @@ func (a *SlidesApiService) GetSlideHeaderFooter(request GetSlideHeaderFooterRequ
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -7514,7 +7514,7 @@ func (a *SlidesApiService) GetSlideShape(request GetSlideShapeRequest) (IShapeBa
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -7641,7 +7641,7 @@ func (a *SlidesApiService) GetSlideShapeParagraph(request GetSlideShapeParagraph
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -7762,7 +7762,7 @@ func (a *SlidesApiService) GetSlideShapeParagraphs(request GetSlideShapeParagrap
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -7875,7 +7875,7 @@ func (a *SlidesApiService) GetSlideShapes(request GetSlideShapesRequest) (IShape
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -8004,7 +8004,7 @@ func (a *SlidesApiService) GetSlideSubshape(request GetSlideSubshapeRequest) (IS
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -8142,7 +8142,7 @@ func (a *SlidesApiService) GetSlideSubshapeParagraph(request GetSlideSubshapePar
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -8274,7 +8274,7 @@ func (a *SlidesApiService) GetSlideSubshapeParagraphs(request GetSlideSubshapePa
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -8398,7 +8398,7 @@ func (a *SlidesApiService) GetSlideSubshapes(request GetSlideSubshapesRequest) (
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -8475,7 +8475,7 @@ func (a *SlidesApiService) GetSlidesApiInfo() (IApiInfo, *http.Response, error) 
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -8568,7 +8568,7 @@ func (a *SlidesApiService) GetSlidesDocument(request GetSlidesDocumentRequest) (
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -8672,7 +8672,7 @@ func (a *SlidesApiService) GetSlidesDocumentProperties(request GetSlidesDocument
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -8786,7 +8786,7 @@ func (a *SlidesApiService) GetSlidesDocumentProperty(request GetSlidesDocumentPr
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -8898,7 +8898,7 @@ func (a *SlidesApiService) GetSlidesImageWithDefaultFormat(request GetSlidesImag
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -9013,7 +9013,7 @@ func (a *SlidesApiService) GetSlidesImageWithFormat(request GetSlidesImageWithFo
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -9112,7 +9112,7 @@ func (a *SlidesApiService) GetSlidesImages(request GetSlidesImagesRequest) (IIma
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -9230,7 +9230,7 @@ func (a *SlidesApiService) GetSlidesPlaceholder(request GetSlidesPlaceholderRequ
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -9343,7 +9343,7 @@ func (a *SlidesApiService) GetSlidesPlaceholders(request GetSlidesPlaceholdersRe
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -9457,7 +9457,7 @@ func (a *SlidesApiService) GetSlidesPresentationTextItems(request GetSlidesPrese
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -9562,7 +9562,7 @@ func (a *SlidesApiService) GetSlidesProtectionProperties(request GetSlidesProtec
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -9673,7 +9673,7 @@ func (a *SlidesApiService) GetSlidesSlide(request GetSlidesSlideRequest) (ISlide
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -9785,7 +9785,7 @@ func (a *SlidesApiService) GetSlidesSlideBackground(request GetSlidesSlideBackgr
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -9897,7 +9897,7 @@ func (a *SlidesApiService) GetSlidesSlideComments(request GetSlidesSlideComments
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -10009,7 +10009,7 @@ func (a *SlidesApiService) GetSlidesSlideImages(request GetSlidesSlideImagesRequ
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -10114,7 +10114,7 @@ func (a *SlidesApiService) GetSlidesSlideProperties(request GetSlidesSlideProper
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -10234,7 +10234,7 @@ func (a *SlidesApiService) GetSlidesSlideTextItems(request GetSlidesSlideTextIte
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -10340,7 +10340,7 @@ func (a *SlidesApiService) GetSlidesSlidesList(request GetSlidesSlidesListReques
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -10451,7 +10451,7 @@ func (a *SlidesApiService) GetSlidesTheme(request GetSlidesThemeRequest) (ITheme
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -10563,7 +10563,7 @@ func (a *SlidesApiService) GetSlidesThemeColorScheme(request GetSlidesThemeColor
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -10675,7 +10675,7 @@ func (a *SlidesApiService) GetSlidesThemeFontScheme(request GetSlidesThemeFontSc
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -10787,7 +10787,7 @@ func (a *SlidesApiService) GetSlidesThemeFormatScheme(request GetSlidesThemeForm
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -10892,7 +10892,7 @@ func (a *SlidesApiService) GetSlidesViewProperties(request GetSlidesViewProperti
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -11034,7 +11034,7 @@ func (a *SlidesApiService) GetSubshapeParagraphPortion(request GetSubshapeParagr
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -11174,7 +11174,7 @@ func (a *SlidesApiService) GetSubshapeParagraphPortions(request GetSubshapeParag
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -11289,7 +11289,7 @@ func (a *SlidesApiService) MoveFile(request MoveFileRequest) (*http.Response, er
 		localVarQueryParams.Add("VersionId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -11379,7 +11379,7 @@ func (a *SlidesApiService) MoveFolder(request MoveFolderRequest) (*http.Response
 		localVarQueryParams.Add("DestStorageName", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -11464,7 +11464,7 @@ func (a *SlidesApiService) ObjectExists(request ObjectExistsRequest) (IObjectExi
 		localVarQueryParams.Add("VersionId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -11591,7 +11591,7 @@ func (a *SlidesApiService) PostAddNewParagraph(request PostAddNewParagraphReques
 		localVarQueryParams.Add("Position", parameterToString(*request.Position, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -11735,7 +11735,7 @@ func (a *SlidesApiService) PostAddNewPortion(request PostAddNewPortionRequest) (
 		localVarQueryParams.Add("Position", parameterToString(*request.Position, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -11872,7 +11872,7 @@ func (a *SlidesApiService) PostAddNewShape(request PostAddNewShapeRequest) (ISha
 		localVarQueryParams.Add("Position", parameterToString(*request.Position, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -12018,7 +12018,7 @@ func (a *SlidesApiService) PostAddNewSubshape(request PostAddNewSubshapeRequest)
 		localVarQueryParams.Add("Position", parameterToString(*request.Position, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -12166,7 +12166,7 @@ func (a *SlidesApiService) PostAddNewSubshapeParagraph(request PostAddNewSubshap
 		localVarQueryParams.Add("Position", parameterToString(*request.Position, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -12321,7 +12321,7 @@ func (a *SlidesApiService) PostAddNewSubshapePortion(request PostAddNewSubshapeP
 		localVarQueryParams.Add("Position", parameterToString(*request.Position, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -12444,7 +12444,7 @@ func (a *SlidesApiService) PostAddNotesSlide(request PostAddNotesSlideRequest) (
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -12570,7 +12570,7 @@ func (a *SlidesApiService) PostChartCategory(request PostChartCategoryRequest) (
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -12704,7 +12704,7 @@ func (a *SlidesApiService) PostChartDataPoint(request PostChartDataPointRequest)
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -12832,7 +12832,7 @@ func (a *SlidesApiService) PostChartSeries(request PostChartSeriesRequest) (ICha
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -12959,7 +12959,7 @@ func (a *SlidesApiService) PostCopyLayoutSlideFromSourcePresentation(request Pos
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -13097,7 +13097,7 @@ func (a *SlidesApiService) PostCopyMasterSlideFromSourcePresentation(request Pos
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -13196,7 +13196,7 @@ func (a *SlidesApiService) PostGetNotesSlide(request PostGetNotesSlideRequest) (
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/octet-stream", "multipart/form-data",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -13217,8 +13217,7 @@ func (a *SlidesApiService) PostGetNotesSlide(request PostGetNotesSlideRequest) (
 	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
-	localVarPostBody = request.Document
+	localVarPostBody = &request.Document
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -13288,7 +13287,7 @@ func (a *SlidesApiService) PostGetNotesSlideExists(request PostGetNotesSlideExis
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/octet-stream",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -13309,8 +13308,7 @@ func (a *SlidesApiService) PostGetNotesSlideExists(request PostGetNotesSlideExis
 	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
-	localVarPostBody = request.Document
+	localVarPostBody = &request.Document
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -13415,7 +13413,7 @@ func (a *SlidesApiService) PostGetNotesSlideWithFormat(request PostGetNotesSlide
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/octet-stream", "multipart/form-data",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -13436,8 +13434,7 @@ func (a *SlidesApiService) PostGetNotesSlideWithFormat(request PostGetNotesSlide
 	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
-	localVarPostBody = request.Document
+	localVarPostBody = &request.Document
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -13544,7 +13541,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewParagraph(request PostNotesSlideA
 		localVarQueryParams.Add("Position", parameterToString(*request.Position, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -13688,7 +13685,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewPortion(request PostNotesSlideAdd
 		localVarQueryParams.Add("Position", parameterToString(*request.Position, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -13828,7 +13825,7 @@ func (a *SlidesApiService) PostNotesSlideAddNewShape(request PostNotesSlideAddNe
 		localVarQueryParams.Add("Position", parameterToString(*request.Position, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -13995,7 +13992,7 @@ func (a *SlidesApiService) PostNotesSlideShapeSaveAs(request PostNotesSlideShape
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -14106,7 +14103,7 @@ func (a *SlidesApiService) PostPresentationMerge(request PostPresentationMergeRe
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -14220,7 +14217,7 @@ func (a *SlidesApiService) PostSection(request PostSectionRequest) (ISections, *
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -14335,7 +14332,7 @@ func (a *SlidesApiService) PostSectionMove(request PostSectionMoveRequest) (ISec
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -14498,7 +14495,7 @@ func (a *SlidesApiService) PostShapeSaveAs(request PostShapeSaveAsRequest) (*os.
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -14616,7 +14613,7 @@ func (a *SlidesApiService) PostSlideAnimationEffect(request PostSlideAnimationEf
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -14735,7 +14732,7 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequence(request PostSli
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -14861,7 +14858,7 @@ func (a *SlidesApiService) PostSlideAnimationInteractiveSequenceEffect(request P
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -15013,7 +15010,7 @@ func (a *SlidesApiService) PostSlideSaveAs(request PostSlideSaveAsRequest) (*os.
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -15134,7 +15131,7 @@ func (a *SlidesApiService) PostSlidesAdd(request PostSlidesAddRequest) (ISlides,
 		localVarQueryParams.Add("LayoutAlias", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -15237,7 +15234,7 @@ func (a *SlidesApiService) PostSlidesConvert(request PostSlidesConvertRequest) (
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/octet-stream", "multipart/form-data",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -15258,8 +15255,7 @@ func (a *SlidesApiService) PostSlidesConvert(request PostSlidesConvertRequest) (
 	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
-	localVarPostBody = request.Document
+	localVarPostBody = &request.Document
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -15365,7 +15361,7 @@ func (a *SlidesApiService) PostSlidesCopy(request PostSlidesCopyRequest) (ISlide
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -15482,7 +15478,7 @@ func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest)
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/octet-stream", "multipart/form-data",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -15506,8 +15502,7 @@ func (a *SlidesApiService) PostSlidesDocument(request PostSlidesDocumentRequest)
 	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
-	localVarPostBody = request.Data
+	localVarPostBody = &request.Data
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -15597,7 +15592,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromHtml(request PostSlidesDocument
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -15705,7 +15700,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromPdf(request PostSlidesDocumentF
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/octet-stream",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -15726,8 +15721,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromPdf(request PostSlidesDocumentF
 	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
-	localVarPostBody = request.Pdf
+	localVarPostBody = &request.Pdf
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -15830,7 +15824,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromSource(request PostSlidesDocume
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -15969,7 +15963,7 @@ func (a *SlidesApiService) PostSlidesDocumentFromTemplate(request PostSlidesDocu
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -16037,6 +16031,8 @@ type PostSlidesDocumentFromTemplateRequest struct {
 
 /* SlidesApiService Performs slides pipeline.
  @param pipeline A Pipeline object.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "files" ([][]byte) Files to upload with the pipeline
  @return *os.File*/
 func (a *SlidesApiService) PostSlidesPipeline(request PostSlidesPipelineRequest) (*os.File, *http.Response, error) {
 	var (
@@ -16058,7 +16054,7 @@ func (a *SlidesApiService) PostSlidesPipeline(request PostSlidesPipelineRequest)
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "multipart/form-data",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -16076,9 +16072,9 @@ func (a *SlidesApiService) PostSlidesPipeline(request PostSlidesPipelineRequest)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
+	localVarFiles = request.Files
 	// body params
 	localVarPostBody = &request.Pipeline
-	localVarFiles = request.Files
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -16172,7 +16168,7 @@ func (a *SlidesApiService) PostSlidesPresentationReplaceText(request PostSlidesP
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -16288,7 +16284,7 @@ func (a *SlidesApiService) PostSlidesReorder(request PostSlidesReorderRequest) (
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -16408,7 +16404,7 @@ func (a *SlidesApiService) PostSlidesReorderMany(request PostSlidesReorderManyRe
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -16532,7 +16528,7 @@ func (a *SlidesApiService) PostSlidesSaveAs(request PostSlidesSaveAsRequest) (*o
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -16638,7 +16634,7 @@ func (a *SlidesApiService) PostSlidesSetDocumentProperties(request PostSlidesSet
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -16771,7 +16767,7 @@ func (a *SlidesApiService) PostSlidesSlideReplaceText(request PostSlidesSlideRep
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -16937,7 +16933,7 @@ func (a *SlidesApiService) PostSlidesSplit(request PostSlidesSplitRequest) (ISpl
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -17118,7 +17114,7 @@ func (a *SlidesApiService) PostSubshapeSaveAs(request PostSubshapeSaveAsRequest)
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -17251,7 +17247,7 @@ func (a *SlidesApiService) PutChartCategory(request PutChartCategoryRequest) (IC
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -17393,7 +17389,7 @@ func (a *SlidesApiService) PutChartDataPoint(request PutChartDataPointRequest) (
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -17529,7 +17525,7 @@ func (a *SlidesApiService) PutChartSeries(request PutChartSeriesRequest) (IChart
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -17650,7 +17646,7 @@ func (a *SlidesApiService) PutLayoutSlide(request PutLayoutSlideRequest) (ILayou
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -17769,7 +17765,7 @@ func (a *SlidesApiService) PutNotesSlideHeaderFooter(request PutNotesSlideHeader
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -17938,7 +17934,7 @@ func (a *SlidesApiService) PutNotesSlideShapeSaveAs(request PutNotesSlideShapeSa
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -18045,7 +18041,7 @@ func (a *SlidesApiService) PutPresentationMerge(request PutPresentationMergeRequ
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -18164,7 +18160,7 @@ func (a *SlidesApiService) PutSection(request PutSectionRequest) (ISections, *ht
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -18274,7 +18270,7 @@ func (a *SlidesApiService) PutSections(request PutSectionsRequest) (ISections, *
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -18413,7 +18409,7 @@ func (a *SlidesApiService) PutSetParagraphPortionProperties(request PutSetParagr
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -18549,7 +18545,7 @@ func (a *SlidesApiService) PutSetParagraphProperties(request PutSetParagraphProp
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -18701,7 +18697,7 @@ func (a *SlidesApiService) PutSetSubshapeParagraphPortionProperties(request PutS
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -18848,7 +18844,7 @@ func (a *SlidesApiService) PutSetSubshapeParagraphProperties(request PutSetSubsh
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -19020,7 +19016,7 @@ func (a *SlidesApiService) PutShapeSaveAs(request PutShapeSaveAsRequest) (*http.
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -19134,7 +19130,7 @@ func (a *SlidesApiService) PutSlideAnimation(request PutSlideAnimationRequest) (
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -19260,7 +19256,7 @@ func (a *SlidesApiService) PutSlideAnimationEffect(request PutSlideAnimationEffe
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -19394,7 +19390,7 @@ func (a *SlidesApiService) PutSlideAnimationInteractiveSequenceEffect(request Pu
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -19515,7 +19511,7 @@ func (a *SlidesApiService) PutSlideHeaderFooter(request PutSlideHeaderFooterRequ
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -19670,7 +19666,7 @@ func (a *SlidesApiService) PutSlideSaveAs(request PutSlideSaveAsRequest) (*http.
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -19789,7 +19785,7 @@ func (a *SlidesApiService) PutSlideShapeInfo(request PutSlideShapeInfoRequest) (
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -19926,7 +19922,7 @@ func (a *SlidesApiService) PutSlideSubshapeInfo(request PutSlideSubshapeInfoRequ
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -20037,7 +20033,7 @@ func (a *SlidesApiService) PutSlidesConvert(request PutSlidesConvertRequest) (*h
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/octet-stream", "multipart/form-data",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -20058,8 +20054,7 @@ func (a *SlidesApiService) PutSlidesConvert(request PutSlidesConvertRequest) (*h
 	if localVarTempParam := request.Password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
-	localVarPostBody = request.Document
+	localVarPostBody = &request.Document
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
@@ -20136,7 +20131,7 @@ func (a *SlidesApiService) PutSlidesDocumentFromHtml(request PutSlidesDocumentFr
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -20247,7 +20242,7 @@ func (a *SlidesApiService) PutSlidesHeaderFooter(request PutSlidesHeaderFooterRe
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -20358,7 +20353,7 @@ func (a *SlidesApiService) PutSlidesProtectionProperties(request PutSlidesProtec
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -20487,7 +20482,7 @@ func (a *SlidesApiService) PutSlidesSaveAs(request PutSlidesSaveAsRequest) (*htt
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -20599,7 +20594,7 @@ func (a *SlidesApiService) PutSlidesSetDocumentProperty(request PutSlidesSetDocu
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -20718,7 +20713,7 @@ func (a *SlidesApiService) PutSlidesSlide(request PutSlidesSlideRequest) (ISlide
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -20837,7 +20832,7 @@ func (a *SlidesApiService) PutSlidesSlideBackground(request PutSlidesSlideBackgr
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -20957,7 +20952,7 @@ func (a *SlidesApiService) PutSlidesSlideBackgroundColor(request PutSlidesSlideB
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -21067,7 +21062,7 @@ func (a *SlidesApiService) PutSlidesSlideProperties(request PutSlidesSlideProper
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -21206,7 +21201,7 @@ func (a *SlidesApiService) PutSlidesSlideSize(request PutSlidesSlideSizeRequest)
 		localVarQueryParams.Add("ScaleType", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -21318,7 +21313,7 @@ func (a *SlidesApiService) PutSlidesViewProperties(request PutSlidesViewProperti
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -21496,7 +21491,7 @@ func (a *SlidesApiService) PutSubshapeSaveAs(request PutSubshapeSaveAsRequest) (
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -21611,7 +21606,7 @@ func (a *SlidesApiService) PutUpdateNotesSlide(request PutUpdateNotesSlideReques
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -21737,7 +21732,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShape(request PutUpdateNotesSlideS
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -21871,7 +21866,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapeParagraph(request PutUpdateNo
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -22013,7 +22008,7 @@ func (a *SlidesApiService) PutUpdateNotesSlideShapePortion(request PutUpdateNote
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -22105,7 +22100,7 @@ func (a *SlidesApiService) StorageExists(request StorageExistsRequest) (IStorage
 
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -22196,7 +22191,7 @@ func (a *SlidesApiService) UploadFile(request UploadFileRequest) (IFilesUploadRe
 		localVarQueryParams.Add("StorageName", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "multipart/form-data",  }
+	localVarHttpContentTypes := []string{ "application/json" }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)

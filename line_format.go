@@ -54,6 +54,10 @@ type ILineFormat interface {
 	getStyle() string
 	setStyle(newValue string)
 
+	// Sketch type.
+	getSketchType() string
+	setSketchType(newValue string)
+
 	// Begin arrowhead.
 	getBeginArrowHead() IArrowHeadProperties
 	setBeginArrowHead(newValue IArrowHeadProperties)
@@ -96,6 +100,9 @@ type LineFormat struct {
 	// Style.
 	Style string `json:"Style,omitempty"`
 
+	// Sketch type.
+	SketchType string `json:"SketchType,omitempty"`
+
 	// Begin arrowhead.
 	BeginArrowHead IArrowHeadProperties `json:"BeginArrowHead,omitempty"`
 
@@ -122,6 +129,7 @@ func NewLineFormat() *LineFormat {
 	instance.DashStyle = ""
 	instance.JoinStyle = ""
 	instance.Style = ""
+	instance.SketchType = ""
 	return instance
 }
 
@@ -159,6 +167,13 @@ func (this *LineFormat) getStyle() string {
 
 func (this *LineFormat) setStyle(newValue string) {
 	this.Style = newValue
+}
+func (this *LineFormat) getSketchType() string {
+	return this.SketchType
+}
+
+func (this *LineFormat) setSketchType(newValue string) {
+	this.SketchType = newValue
 }
 func (this *LineFormat) getBeginArrowHead() IArrowHeadProperties {
 	return this.BeginArrowHead
@@ -371,6 +386,39 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 				this.Style = string(valueForStyleInt)
 			} else {
 				this.Style = valueForStyle
+			}
+		}
+	}
+	this.SketchType = ""
+	if valSketchType, ok := objMap["sketchType"]; ok {
+		if valSketchType != nil {
+			var valueForSketchType string
+			err = json.Unmarshal(*valSketchType, &valueForSketchType)
+			if err != nil {
+				var valueForSketchTypeInt int32
+				err = json.Unmarshal(*valSketchType, &valueForSketchTypeInt)
+				if err != nil {
+					return err
+				}
+				this.SketchType = string(valueForSketchTypeInt)
+			} else {
+				this.SketchType = valueForSketchType
+			}
+		}
+	}
+	if valSketchTypeCap, ok := objMap["SketchType"]; ok {
+		if valSketchTypeCap != nil {
+			var valueForSketchType string
+			err = json.Unmarshal(*valSketchTypeCap, &valueForSketchType)
+			if err != nil {
+				var valueForSketchTypeInt int32
+				err = json.Unmarshal(*valSketchTypeCap, &valueForSketchTypeInt)
+				if err != nil {
+					return err
+				}
+				this.SketchType = string(valueForSketchTypeInt)
+			} else {
+				this.SketchType = valueForSketchType
 			}
 		}
 	}

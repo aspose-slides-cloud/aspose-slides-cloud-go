@@ -157,7 +157,7 @@ func createTestParamValue(functionName string, paramName string, paramType strin
 		if functionName == "PostSlidesDocumentFromPdf" {
 			fileParam = "test.pdf"
 		}
-		data, _ := ioutil.ReadFile("testData/" + fileParam)
+		data, _ := ioutil.ReadFile("TestData/" + fileParam)
 		return data
 	}
 	var value interface{}

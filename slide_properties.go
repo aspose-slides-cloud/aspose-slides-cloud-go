@@ -46,7 +46,7 @@ type ISlideProperties interface {
 	getFirstSlideNumber() int32
 	setFirstSlideNumber(newValue int32)
 
-	// Last used view mode.
+	// Slide orientation.
 	getOrientation() string
 	setOrientation(newValue string)
 
@@ -78,7 +78,7 @@ type SlideProperties struct {
 	// First slide number.
 	FirstSlideNumber int32 `json:"FirstSlideNumber,omitempty"`
 
-	// Last used view mode.
+	// Slide orientation.
 	Orientation string `json:"Orientation,omitempty"`
 
 	// Scale type.
