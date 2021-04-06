@@ -53,9 +53,7 @@ func initializeTest(functionName string, invalidParamName string, invalidParamVa
 	if !isInitialized {
 		version := "0"
 		c := getTestApiClient()
-		var request DownloadFileRequest
-		request.Path = "TempTests/version.txt"
-		f, _, e := c.SlidesApi.DownloadFile(request)
+		f, _, e := c.SlidesApi.DownloadFile("TempTests/version.txt", "", "")
 		if e == nil {
 			data, e := ioutil.ReadFile(f.Name())
 			if e == nil {
@@ -68,22 +66,16 @@ func initializeTest(functionName string, invalidParamName string, invalidParamVa
 				return e
 			}
 			for _, file := range files {
-				var request UploadFileRequest
-				request.Path = "TempTests/" + file.Name()
 				bytes, e := ioutil.ReadFile("TestData/" + file.Name())
 				if e != nil {
 					return e
 				}
-				request.File = bytes
-				_, _, e = c.SlidesApi.UploadFile(request)
+				_, _, e = c.SlidesApi.UploadFile("TempTests/" + file.Name(), bytes, "")
 				if e != nil {
 					return e
 				}
 			}
-			var request UploadFileRequest
-			request.Path = "TempTests/version.txt"
-			request.File = []byte(expectedTestDataVersion)
-			_, _, e = c.SlidesApi.UploadFile(request)
+			_, _, e = c.SlidesApi.UploadFile("TempTests/version.txt", []byte(expectedTestDataVersion), "")
 			if e != nil {
 				return e
 			}
@@ -106,18 +98,13 @@ func initializeTest(functionName string, invalidParamName string, invalidParamVa
 	for path, rule := range files {
 		if rule.Action == "Put" {
 			c := getTestApiClient()
-			var request CopyFileRequest
-			request.SrcPath = "TempTests/" + rule.ActualName
-			request.DestPath = path
-			_, e := c.SlidesApi.CopyFile(request)
+			_, e := c.SlidesApi.CopyFile("TempTests/" + rule.ActualName, path, "", "", "")
 			if e != nil {
 				return e
 			}
 		} else if rule.Action == "Delete" {
 			c := getTestApiClient()
-			var request DeleteFileRequest
-			request.Path = path
-			_, e := c.SlidesApi.DeleteFile(request)
+			_, e := c.SlidesApi.DeleteFile(path, "", "")
 			if e != nil {
 				return e
 			}
@@ -159,6 +146,11 @@ func createTestParamValue(functionName string, paramName string, paramType strin
 		}
 		data, _ := ioutil.ReadFile("TestData/" + fileParam)
 		return data
+	}
+	if paramType == "[][]byte" {
+		data1, _ := ioutil.ReadFile("TestData/test.pptx")
+		data2, _ := ioutil.ReadFile("TestData/test-unprotected.pptx")
+        	return [][]byte { data1, data2 }
 	}
 	var value interface{}
 	value = "test" + paramName

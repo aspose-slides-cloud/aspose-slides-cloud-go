@@ -70,11 +70,7 @@ func TestPipeline(t *testing.T) {
 	}
         files := [][]byte { data1, data2 }
 
-        var request PostSlidesPipelineRequest
-        request.Pipeline = pipeline
-        request.Files = files
-
-	_, _, e = getTestApiClient().SlidesApi.PostSlidesPipeline(request)
+	_, _, e = getTestApiClient().SlidesApi.Pipeline(pipeline, files)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -92,13 +88,6 @@ func TestTimeout(t *testing.T) {
 		return
 	}
 
-	var request PostSlideSaveAsRequest
-	request.Name = "test.pptx"
-	request.SlideIndex = 1
-	request.Format = "svg"
-	request.Password = "password"
-	request.Folder = "TempSlidesSDK"
-
 	cfg := NewConfiguration()
 	configFile, err := os.Open("testConfig.json")
 	if err == nil {
@@ -106,7 +95,7 @@ func TestTimeout(t *testing.T) {
 	}
 	cfg.Timeout = 1
 	testApiClient = NewAPIClient(cfg)
-	_, _, e = testApiClient.SlidesApi.PostSlideSaveAs(request)
+	_, _, e = testApiClient.SlidesApi.DownloadSlide("test.pptx", 1, "svg", nil, nil, nil, "password", "TempSlidesSDK", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -123,14 +112,7 @@ func TestShape(t *testing.T) {
 		return
 	}
 
-	var request GetSlideShapeRequest
-	request.Name = "test.pptx"
-	request.SlideIndex = 1
-	request.ShapeIndex = 1
-	request.Password = "password"
-	request.Folder = "TempSlidesSDK"
-
-	r, _, e := getTestApiClient().SlidesApi.GetSlideShape(request)
+	r, _, e := getTestApiClient().SlidesApi.GetShape("test.pptx", 1, 1, "password", "TempSlidesSDK", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -171,10 +153,7 @@ func TestNullableProperties(t *testing.T) {
 	}
 
 	c := getTestApiClient()
-	var request CopyFileRequest
-	request.SrcPath = "TempTests/" + fileName
-	request.DestPath = folderName + "/" + fileName
-	_, e = c.SlidesApi.CopyFile(request)
+	_, e = c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -212,27 +191,15 @@ func TestNullableProperties(t *testing.T) {
         axis1.setMaxValue(max1)
         axes.setHorizontalAxis(&axis1)
         dto1.setAxes(&axes)
-	var postRequest PostAddNewShapeRequest
-	postRequest.Name = fileName
-	postRequest.SlideIndex = 1
-	postRequest.Password = password
-	postRequest.Folder = folderName
         dto1.setX(12)
         dto1.setY(14)
-	postRequest.Dto = &dto1
-	_, _, e = c.SlidesApi.PostAddNewShape(postRequest)
+	_, _, e = c.SlidesApi.CreateShape(fileName, 1, &dto1, nil, nil, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	var getRequest GetSlideShapeRequest
-	getRequest.Name = fileName
-	getRequest.SlideIndex = 1
-	getRequest.ShapeIndex = 4
-	getRequest.Password = password
-	getRequest.Folder = folderName
-	r, _, e := c.SlidesApi.GetSlideShape(getRequest)
+	r, _, e := c.SlidesApi.GetShape(fileName, 1, 4, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -253,20 +220,13 @@ func TestNullableProperties(t *testing.T) {
         axis2.setMinValue(min2)
         axes.setHorizontalAxis(&axis2)
         dto2.setAxes(&axes)
-	var putRequest PutSlideShapeInfoRequest
-	putRequest.Name = fileName
-	putRequest.SlideIndex = 1
-	putRequest.ShapeIndex = 4
-	putRequest.Password = password
-	putRequest.Folder = folderName
-	putRequest.Dto = &dto2
-	_, _, e = c.SlidesApi.PutSlideShapeInfo(putRequest)
+	_, _, e = c.SlidesApi.UpdateShape(fileName, 1, 4, &dto2, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	r, _, e = c.SlidesApi.GetSlideShape(getRequest)
+	r, _, e = c.SlidesApi.GetShape(fileName, 1, 4, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -283,13 +243,13 @@ func TestNullableProperties(t *testing.T) {
         var axis3 Axis
         axis3.setMaxValue(max2)
         axes.setHorizontalAxis(&axis3)
-	_, _, e = c.SlidesApi.PutSlideShapeInfo(putRequest)
+	_, _, e = c.SlidesApi.UpdateShape(fileName, 1, 4, &dto2, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	r, _, e = c.SlidesApi.GetSlideShape(getRequest)
+	r, _, e = c.SlidesApi.GetShape(fileName, 1, 4, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: Wrong MinValue.")
 		return
@@ -314,7 +274,7 @@ func TestGoodAuth(t *testing.T) {
 		json.NewDecoder(configFile).Decode(cfg)
 	}
 	testApiClient = NewAPIClient(cfg)
-	_, _, e := testApiClient.SlidesApi.GetSlidesApiInfo()
+	_, _, e := testApiClient.SlidesApi.GetApiInfo()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -332,7 +292,7 @@ func TestBadAuth(t *testing.T) {
 	}
 	cfg.AppSid = "invalid"
 	testApiClient = NewAPIClient(cfg)
-	_, r, e := testApiClient.SlidesApi.GetSlidesApiInfo()
+	_, r, e := testApiClient.SlidesApi.GetApiInfo()
 	if e == nil {
 		t.Errorf("Must have failed.")
 		return
@@ -358,14 +318,14 @@ func TestGoodAuthToken(t *testing.T) {
 		json.NewDecoder(configFile).Decode(cfg)
 	}
 	testApiClient = NewAPIClient(cfg)
-	_, _, e := testApiClient.SlidesApi.GetSlidesApiInfo()
+	_, _, e := testApiClient.SlidesApi.GetApiInfo()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 	cfg.AppSid = "invalid"
 	testApiClient = NewAPIClient(cfg)
-	_, _, e = testApiClient.SlidesApi.GetSlidesApiInfo()
+	_, _, e = testApiClient.SlidesApi.GetApiInfo()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -382,14 +342,14 @@ func TestBadAuthToken(t *testing.T) {
 		json.NewDecoder(configFile).Decode(cfg)
 	}
 	testApiClient = NewAPIClient(cfg)
-	_, _, e := testApiClient.SlidesApi.GetSlidesApiInfo()
+	_, _, e := testApiClient.SlidesApi.GetApiInfo()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 	cfg.OAuthToken = "invalid"
 	testApiClient = NewAPIClient(cfg)
-	_, _, e = testApiClient.SlidesApi.GetSlidesApiInfo()
+	_, _, e = testApiClient.SlidesApi.GetApiInfo()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

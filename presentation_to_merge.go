@@ -45,6 +45,10 @@ type IPresentationToMerge interface {
 	// Get or sets the indexes of slides to merge
 	getSlides() []int32
 	setSlides(newValue []int32)
+
+	// Merge (request or storage). 
+	getSource() string
+	setSource(newValue string)
 }
 
 type PresentationToMerge struct {
@@ -57,10 +61,14 @@ type PresentationToMerge struct {
 
 	// Get or sets the indexes of slides to merge
 	Slides []int32 `json:"Slides,omitempty"`
+
+	// Merge (request or storage). 
+	Source string `json:"Source,omitempty"`
 }
 
 func NewPresentationToMerge() *PresentationToMerge {
 	instance := new(PresentationToMerge)
+	instance.Source = ""
 	return instance
 }
 
@@ -84,6 +92,13 @@ func (this *PresentationToMerge) getSlides() []int32 {
 
 func (this *PresentationToMerge) setSlides(newValue []int32) {
 	this.Slides = newValue
+}
+func (this *PresentationToMerge) getSource() string {
+	return this.Source
+}
+
+func (this *PresentationToMerge) setSource(newValue string) {
+	this.Source = newValue
 }
 
 func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
@@ -153,6 +168,39 @@ func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Slides = valueForSlides
+		}
+	}
+	this.Source = ""
+	if valSource, ok := objMap["source"]; ok {
+		if valSource != nil {
+			var valueForSource string
+			err = json.Unmarshal(*valSource, &valueForSource)
+			if err != nil {
+				var valueForSourceInt int32
+				err = json.Unmarshal(*valSource, &valueForSourceInt)
+				if err != nil {
+					return err
+				}
+				this.Source = string(valueForSourceInt)
+			} else {
+				this.Source = valueForSource
+			}
+		}
+	}
+	if valSourceCap, ok := objMap["Source"]; ok {
+		if valSourceCap != nil {
+			var valueForSource string
+			err = json.Unmarshal(*valSourceCap, &valueForSource)
+			if err != nil {
+				var valueForSourceInt int32
+				err = json.Unmarshal(*valSourceCap, &valueForSourceInt)
+				if err != nil {
+					return err
+				}
+				this.Source = string(valueForSourceInt)
+			} else {
+				this.Source = valueForSource
+			}
 		}
 	}
 
