@@ -78,7 +78,6 @@ func (a *SlidesApiService) CopyFile(srcPath string, destPath string, srcStorageN
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(srcStorageName, "string", "srcStorageName"); err != nil {
 		return nil, err
@@ -119,7 +118,7 @@ func (a *SlidesApiService) CopyFile(srcPath string, destPath string, srcStorageN
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -174,7 +173,6 @@ func (a *SlidesApiService) CopyFolder(srcPath string, destPath string, srcStorag
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(srcStorageName, "string", "srcStorageName"); err != nil {
 		return nil, err
@@ -209,7 +207,7 @@ func (a *SlidesApiService) CopyFolder(srcPath string, destPath string, srcStorag
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -258,7 +256,6 @@ func (a *SlidesApiService) CreateFolder(path string, storageName string) (*http.
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(storageName, "string", "storageName"); err != nil {
 		return nil, err
@@ -286,7 +283,7 @@ func (a *SlidesApiService) CreateFolder(path string, storageName string) (*http.
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -357,7 +354,6 @@ func (a *SlidesApiService) DeleteChartCategory(name string, slideIndex int32, sh
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -397,7 +393,7 @@ func (a *SlidesApiService) DeleteChartCategory(name string, slideIndex int32, sh
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -492,7 +488,6 @@ func (a *SlidesApiService) DeleteChartDataPoint(name string, slideIndex int32, s
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -532,7 +527,7 @@ func (a *SlidesApiService) DeleteChartDataPoint(name string, slideIndex int32, s
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -621,7 +616,6 @@ func (a *SlidesApiService) DeleteChartSeries(name string, slideIndex int32, shap
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -661,7 +655,7 @@ func (a *SlidesApiService) DeleteChartSeries(name string, slideIndex int32, shap
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -726,7 +720,6 @@ func (a *SlidesApiService) DeleteFile(path string, storageName string, versionId
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(storageName, "string", "storageName"); err != nil {
 		return nil, err
@@ -760,7 +753,7 @@ func (a *SlidesApiService) DeleteFile(path string, storageName string, versionId
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -809,7 +802,6 @@ func (a *SlidesApiService) DeleteFolder(path string, storageName string, recursi
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(storageName, "string", "storageName"); err != nil {
 		return nil, err
@@ -845,7 +837,7 @@ func (a *SlidesApiService) DeleteFolder(path string, storageName string, recursi
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -903,7 +895,6 @@ func (a *SlidesApiService) DeleteNotesSlide(name string, slideIndex int32, passw
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -943,7 +934,7 @@ func (a *SlidesApiService) DeleteNotesSlide(name string, slideIndex int32, passw
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1029,7 +1020,6 @@ func (a *SlidesApiService) DeleteNotesSlideParagraph(name string, slideIndex int
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -1069,7 +1059,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraph(name string, slideIndex int
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1151,7 +1141,6 @@ func (a *SlidesApiService) DeleteNotesSlideParagraphs(name string, slideIndex in
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(paragraphs, "[]int32", "paragraphs"); err != nil {
 		return successPayload, nil, err
@@ -1197,7 +1186,7 @@ func (a *SlidesApiService) DeleteNotesSlideParagraphs(name string, slideIndex in
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1292,7 +1281,6 @@ func (a *SlidesApiService) DeleteNotesSlidePortion(name string, slideIndex int32
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -1332,7 +1320,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortion(name string, slideIndex int32
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1422,7 +1410,6 @@ func (a *SlidesApiService) DeleteNotesSlidePortions(name string, slideIndex int3
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(portions, "[]int32", "portions"); err != nil {
 		return successPayload, nil, err
@@ -1468,7 +1455,7 @@ func (a *SlidesApiService) DeleteNotesSlidePortions(name string, slideIndex int3
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1550,7 +1537,6 @@ func (a *SlidesApiService) DeleteNotesSlideShape(name string, slideIndex int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -1590,7 +1576,7 @@ func (a *SlidesApiService) DeleteNotesSlideShape(name string, slideIndex int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1664,7 +1650,6 @@ func (a *SlidesApiService) DeleteNotesSlideShapes(name string, slideIndex int32,
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(shapes, "[]int32", "shapes"); err != nil {
 		return successPayload, nil, err
@@ -1710,7 +1695,7 @@ func (a *SlidesApiService) DeleteNotesSlideShapes(name string, slideIndex int32,
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1797,7 +1782,6 @@ func (a *SlidesApiService) DeleteParagraph(name string, slideIndex int32, shapeI
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -1837,7 +1821,7 @@ func (a *SlidesApiService) DeleteParagraph(name string, slideIndex int32, shapeI
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -1919,7 +1903,6 @@ func (a *SlidesApiService) DeleteParagraphs(name string, slideIndex int32, shape
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(paragraphs, "[]int32", "paragraphs"); err != nil {
 		return successPayload, nil, err
@@ -1965,7 +1948,7 @@ func (a *SlidesApiService) DeleteParagraphs(name string, slideIndex int32, shape
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2060,7 +2043,6 @@ func (a *SlidesApiService) DeletePortion(name string, slideIndex int32, shapeInd
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -2100,7 +2082,7 @@ func (a *SlidesApiService) DeletePortion(name string, slideIndex int32, shapeInd
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2190,7 +2172,6 @@ func (a *SlidesApiService) DeletePortions(name string, slideIndex int32, shapeIn
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(portions, "[]int32", "portions"); err != nil {
 		return successPayload, nil, err
@@ -2236,7 +2217,7 @@ func (a *SlidesApiService) DeletePortions(name string, slideIndex int32, shapeIn
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2312,7 +2293,6 @@ func (a *SlidesApiService) DeleteSection(name string, sectionIndex int32, withSl
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if withSlides != nil {
 		if err := typeCheckParameter(*withSlides, "bool", "withSlides"); err != nil {
@@ -2360,7 +2340,7 @@ func (a *SlidesApiService) DeleteSection(name string, sectionIndex int32, withSl
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2428,7 +2408,6 @@ func (a *SlidesApiService) DeleteSections(name string, sections []int32, withSli
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(sections, "[]int32", "sections"); err != nil {
 		return successPayload, nil, err
@@ -2482,7 +2461,7 @@ func (a *SlidesApiService) DeleteSections(name string, sections []int32, withSli
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2555,7 +2534,6 @@ func (a *SlidesApiService) DeleteAnimation(name string, slideIndex int32, passwo
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -2595,7 +2573,7 @@ func (a *SlidesApiService) DeleteAnimation(name string, slideIndex int32, passwo
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2678,7 +2656,6 @@ func (a *SlidesApiService) DeleteAnimationEffect(name string, slideIndex int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -2718,7 +2695,7 @@ func (a *SlidesApiService) DeleteAnimationEffect(name string, slideIndex int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2802,7 +2779,6 @@ func (a *SlidesApiService) DeleteAnimationInteractiveSequence(name string, slide
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -2842,7 +2818,7 @@ func (a *SlidesApiService) DeleteAnimationInteractiveSequence(name string, slide
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -2933,7 +2909,6 @@ func (a *SlidesApiService) DeleteAnimationInteractiveSequenceEffect(name string,
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -2973,7 +2948,7 @@ func (a *SlidesApiService) DeleteAnimationInteractiveSequenceEffect(name string,
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3051,7 +3026,6 @@ func (a *SlidesApiService) DeleteAnimationInteractiveSequences(name string, slid
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -3091,7 +3065,7 @@ func (a *SlidesApiService) DeleteAnimationInteractiveSequences(name string, slid
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3167,7 +3141,6 @@ func (a *SlidesApiService) DeleteAnimationMainSequence(name string, slideIndex i
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -3207,7 +3180,7 @@ func (a *SlidesApiService) DeleteAnimationMainSequence(name string, slideIndex i
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3283,7 +3256,6 @@ func (a *SlidesApiService) DeleteSlide(name string, slideIndex int32, password s
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -3323,7 +3295,7 @@ func (a *SlidesApiService) DeleteSlide(name string, slideIndex int32, password s
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3406,7 +3378,6 @@ func (a *SlidesApiService) DeleteShape(name string, slideIndex int32, shapeIndex
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -3446,7 +3417,7 @@ func (a *SlidesApiService) DeleteShape(name string, slideIndex int32, shapeIndex
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3524,7 +3495,6 @@ func (a *SlidesApiService) DeleteShapes(name string, slideIndex int32, shapes []
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(shapes, "[]int32", "shapes"); err != nil {
 		return successPayload, nil, err
@@ -3570,7 +3540,7 @@ func (a *SlidesApiService) DeleteShapes(name string, slideIndex int32, shapes []
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3664,7 +3634,6 @@ func (a *SlidesApiService) DeleteSubshape(name string, slideIndex int32, path st
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -3704,7 +3673,7 @@ func (a *SlidesApiService) DeleteSubshape(name string, slideIndex int32, path st
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3793,7 +3762,6 @@ func (a *SlidesApiService) DeleteSubshapes(name string, slideIndex int32, path s
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(shapes, "[]int32", "shapes"); err != nil {
 		return successPayload, nil, err
@@ -3839,7 +3807,7 @@ func (a *SlidesApiService) DeleteSubshapes(name string, slideIndex int32, path s
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -3911,7 +3879,6 @@ func (a *SlidesApiService) DeleteSlides(name string, slides []int32, password st
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(slides, "[]int32", "slides"); err != nil {
 		return successPayload, nil, err
@@ -3957,7 +3924,7 @@ func (a *SlidesApiService) DeleteSlides(name string, slides []int32, password st
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4026,7 +3993,6 @@ func (a *SlidesApiService) DeleteDocumentProperties(name string, password string
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -4066,7 +4032,7 @@ func (a *SlidesApiService) DeleteDocumentProperties(name string, password string
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4144,7 +4110,6 @@ func (a *SlidesApiService) DeleteDocumentProperty(name string, propertyName stri
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -4184,7 +4149,7 @@ func (a *SlidesApiService) DeleteDocumentProperty(name string, propertyName stri
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4224,43 +4189,35 @@ type DeleteSlidesDocumentPropertyRequest struct {
     Storage string
 }
 
-/* SlidesApiService Remove background from a slide.
+/* SlidesApiService Resets all presentation protection settings. 
  @param name Document name.
- @param slideIndex Slide index.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "password" (string) Document password.
+     @param "password" (string) Presentation password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
- @return SlideBackground*/
-func (a *SlidesApiService) DeleteBackground(name string, slideIndex int32, password string, folder string, storage string) (ISlideBackground, *http.Response, error) {
+ @return ProtectionProperties*/
+func (a *SlidesApiService) DeleteProtection(name string, password string, folder string, storage string) (IProtectionProperties, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
 		localVarPostBody interface{}
 		localVarFiles [][]byte
-	 	successPayload ISlideBackground
+	 	successPayload IProtectionProperties
 	)
 
 	if len(name) == 0 {
 		return successPayload, nil, reportError("Missing required parameter name")
 	}
 	// create path and map variables
-	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/background"
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/protection"
 	namePathStringValue := fmt.Sprintf("%v", name)
 	if len(namePathStringValue) > 0 {
 		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
 	} else {
 		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
 	}
-	slideIndexPathStringValue := fmt.Sprintf("%v", slideIndex)
-	if len(slideIndexPathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
-	}
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -4300,7 +4257,199 @@ func (a *SlidesApiService) DeleteBackground(name string, slideIndex int32, passw
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("ProtectionProperties", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IProtectionProperties); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IProtectionProperties); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+func (a *SlidesApiService) DeleteSlidesProtectionProperties(request DeleteSlidesProtectionPropertiesRequest) (IProtectionProperties, *http.Response, error) {
+	return a.DeleteProtection(request.Name, request.Password, request.Folder, request.Storage)
+}
+
+/* Request for SlidesApiService.DeleteSlidesProtectionProperties
+*/
+type DeleteSlidesProtectionPropertiesRequest struct {
+    Name string
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Resets all presentation protection settings. 
+ @param document Document data.
+ @param password Presentation password.
+ @return *os.File*/
+func (a *SlidesApiService) DeleteProtectionOnline(document []byte, password string) (*os.File, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload *os.File
+	)
+
+	if len(document) == 0 {
+		return successPayload, nil, reportError("Missing required parameter document")
+	}
+	if len(password) == 0 {
+		return successPayload, nil, reportError("Missing required parameter password")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/protection/delete"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"multipart/form-data",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHeaderParams["Password"] = parameterToString(password, "")
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	defer successPayload.Close()
+        successPayload, err = processFileResponse(responseBody)
+        if err != nil {
+		return successPayload, localVarHttpResponse, err
+        }
+
+	return successPayload, localVarHttpResponse, err
+}
+
+func (a *SlidesApiService) DeleteSlidesProtectionPropertiesOnline(request DeleteSlidesProtectionPropertiesOnlineRequest) (*os.File, *http.Response, error) {
+	return a.DeleteProtectionOnline(request.Document, request.Password)
+}
+
+/* Request for SlidesApiService.DeleteSlidesProtectionPropertiesOnline
+*/
+type DeleteSlidesProtectionPropertiesOnlineRequest struct {
+    Document []byte
+    Password string
+}
+
+/* SlidesApiService Remove background from a slide.
+ @param name Document name.
+ @param slideIndex Slide index.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return SlideBackground*/
+func (a *SlidesApiService) DeleteBackground(name string, slideIndex int32, password string, folder string, storage string) (ISlideBackground, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload ISlideBackground
+	)
+
+	if len(name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/background"
+	namePathStringValue := fmt.Sprintf("%v", name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	slideIndexPathStringValue := fmt.Sprintf("%v", slideIndex)
+	if len(slideIndexPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4400,7 +4549,6 @@ func (a *SlidesApiService) DeleteSubshapeParagraph(name string, slideIndex int32
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -4440,7 +4588,7 @@ func (a *SlidesApiService) DeleteSubshapeParagraph(name string, slideIndex int32
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4533,7 +4681,6 @@ func (a *SlidesApiService) DeleteSubshapeParagraphs(name string, slideIndex int3
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(paragraphs, "[]int32", "paragraphs"); err != nil {
 		return successPayload, nil, err
@@ -4579,7 +4726,7 @@ func (a *SlidesApiService) DeleteSubshapeParagraphs(name string, slideIndex int3
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4685,7 +4832,6 @@ func (a *SlidesApiService) DeleteSubshapePortion(name string, slideIndex int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -4725,7 +4871,7 @@ func (a *SlidesApiService) DeleteSubshapePortion(name string, slideIndex int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4826,7 +4972,6 @@ func (a *SlidesApiService) DeleteSubshapePortions(name string, slideIndex int32,
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(portions, "[]int32", "portions"); err != nil {
 		return successPayload, nil, err
@@ -4872,7 +5017,7 @@ func (a *SlidesApiService) DeleteSubshapePortions(name string, slideIndex int32,
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -4912,6 +5057,104 @@ type DeleteSubshapePortionsRequest struct {
     Storage string
 }
 
+/* SlidesApiService Removes shapes with name \&quot;watermark\&quot; from the presentation.
+ @param name Document name.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "shapeName" (string) Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return */
+func (a *SlidesApiService) DeleteWatermark(name string, shapeName string, password string, folder string, storage string) (*http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	)
+
+	if len(name) == 0 {
+		return nil, reportError("Missing required parameter name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/watermark/delete"
+	namePathStringValue := fmt.Sprintf("%v", name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if err := typeCheckParameter(shapeName, "string", "shapeName"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(folder, "string", "folder"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
+		return nil, err
+	}
+
+	if localVarTempParam := shapeName; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("ShapeName", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+
+	return localVarHttpResponse, err
+}
+
+/* Request for SlidesApiService.DeleteWatermark
+*/
+type DeleteWatermarkRequest struct {
+    Name string
+    ShapeName string
+    Password string
+    Folder string
+    Storage string
+}
+
 /* SlidesApiService Download file
  @param path File path e.g. &#39;/folder/file.ext&#39;
  @param optional (nil or map[string]interface{}) with one or more of:
@@ -4940,7 +5183,6 @@ func (a *SlidesApiService) DownloadFile(path string, storageName string, version
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(storageName, "string", "storageName"); err != nil {
 		return successPayload, nil, err
@@ -4974,7 +5216,7 @@ func (a *SlidesApiService) DownloadFile(path string, storageName string, version
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5018,7 +5260,6 @@ func (a *SlidesApiService) GetDiscUsage(storageName string) (IDiscUsage, *http.R
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(storageName, "string", "storageName"); err != nil {
 		return successPayload, nil, err
@@ -5046,7 +5287,7 @@ func (a *SlidesApiService) GetDiscUsage(storageName string) (IDiscUsage, *http.R
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5105,7 +5346,6 @@ func (a *SlidesApiService) GetFileVersions(path string, storageName string) (IFi
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(storageName, "string", "storageName"); err != nil {
 		return successPayload, nil, err
@@ -5133,7 +5373,7 @@ func (a *SlidesApiService) GetFileVersions(path string, storageName string) (IFi
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5193,7 +5433,6 @@ func (a *SlidesApiService) GetFilesList(path string, storageName string) (IFiles
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(storageName, "string", "storageName"); err != nil {
 		return successPayload, nil, err
@@ -5221,7 +5460,7 @@ func (a *SlidesApiService) GetFilesList(path string, storageName string) (IFiles
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5290,7 +5529,6 @@ func (a *SlidesApiService) GetLayoutSlide(name string, slideIndex int32, passwor
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -5330,7 +5568,7 @@ func (a *SlidesApiService) GetLayoutSlide(name string, slideIndex int32, passwor
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5395,7 +5633,6 @@ func (a *SlidesApiService) GetLayoutSlides(name string, password string, folder 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -5435,7 +5672,7 @@ func (a *SlidesApiService) GetLayoutSlides(name string, password string, folder 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5510,7 +5747,6 @@ func (a *SlidesApiService) GetMasterSlide(name string, slideIndex int32, passwor
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -5550,7 +5786,7 @@ func (a *SlidesApiService) GetMasterSlide(name string, slideIndex int32, passwor
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5615,7 +5851,6 @@ func (a *SlidesApiService) GetMasterSlides(name string, password string, folder 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -5655,7 +5890,7 @@ func (a *SlidesApiService) GetMasterSlides(name string, password string, folder 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5730,7 +5965,6 @@ func (a *SlidesApiService) GetNotesSlide(name string, slideIndex int32, password
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -5770,7 +6004,7 @@ func (a *SlidesApiService) GetNotesSlide(name string, slideIndex int32, password
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5842,7 +6076,6 @@ func (a *SlidesApiService) NotesSlideExists(name string, slideIndex int32, passw
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -5882,7 +6115,7 @@ func (a *SlidesApiService) NotesSlideExists(name string, slideIndex int32, passw
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -5958,7 +6191,6 @@ func (a *SlidesApiService) GetNotesSlideHeaderFooter(name string, slideIndex int
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -5998,7 +6230,7 @@ func (a *SlidesApiService) GetNotesSlideHeaderFooter(name string, slideIndex int
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6077,7 +6309,6 @@ func (a *SlidesApiService) GetNotesSlideShape(name string, slideIndex int32, sha
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -6117,7 +6348,7 @@ func (a *SlidesApiService) GetNotesSlideShape(name string, slideIndex int32, sha
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6204,7 +6435,6 @@ func (a *SlidesApiService) GetNotesSlideParagraph(name string, slideIndex int32,
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -6244,7 +6474,7 @@ func (a *SlidesApiService) GetNotesSlideParagraph(name string, slideIndex int32,
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6329,7 +6559,6 @@ func (a *SlidesApiService) GetNotesSlideParagraphs(name string, slideIndex int32
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -6369,7 +6598,7 @@ func (a *SlidesApiService) GetNotesSlideParagraphs(name string, slideIndex int32
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6467,7 +6696,6 @@ func (a *SlidesApiService) GetNotesSlidePortion(name string, slideIndex int32, s
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -6507,7 +6735,7 @@ func (a *SlidesApiService) GetNotesSlidePortion(name string, slideIndex int32, s
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6600,7 +6828,6 @@ func (a *SlidesApiService) GetNotesSlidePortions(name string, slideIndex int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -6640,7 +6867,7 @@ func (a *SlidesApiService) GetNotesSlidePortions(name string, slideIndex int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6718,7 +6945,6 @@ func (a *SlidesApiService) GetNotesSlideShapes(name string, slideIndex int32, pa
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -6758,7 +6984,7 @@ func (a *SlidesApiService) GetNotesSlideShapes(name string, slideIndex int32, pa
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6843,7 +7069,6 @@ func (a *SlidesApiService) DownloadNotesSlide(name string, slideIndex int32, for
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if width != nil {
 		if err := typeCheckParameter(*width, "int32", "width"); err != nil {
@@ -6905,7 +7130,7 @@ func (a *SlidesApiService) DownloadNotesSlide(name string, slideIndex int32, for
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -6999,7 +7224,6 @@ func (a *SlidesApiService) GetPortion(name string, slideIndex int32, shapeIndex 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -7039,7 +7263,7 @@ func (a *SlidesApiService) GetPortion(name string, slideIndex int32, shapeIndex 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7132,7 +7356,6 @@ func (a *SlidesApiService) GetPortions(name string, slideIndex int32, shapeIndex
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -7172,7 +7395,7 @@ func (a *SlidesApiService) GetPortions(name string, slideIndex int32, shapeIndex
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7243,7 +7466,6 @@ func (a *SlidesApiService) GetSections(name string, password string, folder stri
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -7283,7 +7505,7 @@ func (a *SlidesApiService) GetSections(name string, password string, folder stri
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7355,7 +7577,6 @@ func (a *SlidesApiService) GetAnimation(name string, slideIndex int32, shapeInde
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if shapeIndex != nil {
 		if err := typeCheckParameter(*shapeIndex, "int32", "shapeIndex"); err != nil {
@@ -7403,7 +7624,7 @@ func (a *SlidesApiService) GetAnimation(name string, slideIndex int32, shapeInde
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7480,7 +7701,6 @@ func (a *SlidesApiService) GetSlideHeaderFooter(name string, slideIndex int32, p
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -7520,7 +7740,7 @@ func (a *SlidesApiService) GetSlideHeaderFooter(name string, slideIndex int32, p
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7599,7 +7819,6 @@ func (a *SlidesApiService) GetShape(name string, slideIndex int32, shapeIndex in
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -7639,7 +7858,7 @@ func (a *SlidesApiService) GetShape(name string, slideIndex int32, shapeIndex in
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7730,7 +7949,6 @@ func (a *SlidesApiService) GetParagraph(name string, slideIndex int32, shapeInde
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -7770,7 +7988,7 @@ func (a *SlidesApiService) GetParagraph(name string, slideIndex int32, shapeInde
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7855,7 +8073,6 @@ func (a *SlidesApiService) GetParagraphs(name string, slideIndex int32, shapeInd
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -7895,7 +8112,7 @@ func (a *SlidesApiService) GetParagraphs(name string, slideIndex int32, shapeInd
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -7972,7 +8189,6 @@ func (a *SlidesApiService) GetShapes(name string, slideIndex int32, password str
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -8012,7 +8228,7 @@ func (a *SlidesApiService) GetShapes(name string, slideIndex int32, password str
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8105,7 +8321,6 @@ func (a *SlidesApiService) GetSubshape(name string, slideIndex int32, path strin
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -8145,7 +8360,7 @@ func (a *SlidesApiService) GetSubshape(name string, slideIndex int32, path strin
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8247,7 +8462,6 @@ func (a *SlidesApiService) GetSubshapeParagraph(name string, slideIndex int32, p
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -8287,7 +8501,7 @@ func (a *SlidesApiService) GetSubshapeParagraph(name string, slideIndex int32, p
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8383,7 +8597,6 @@ func (a *SlidesApiService) GetSubshapeParagraphs(name string, slideIndex int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -8423,7 +8636,7 @@ func (a *SlidesApiService) GetSubshapeParagraphs(name string, slideIndex int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8511,7 +8724,6 @@ func (a *SlidesApiService) GetSubshapes(name string, slideIndex int32, path stri
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -8551,7 +8763,7 @@ func (a *SlidesApiService) GetSubshapes(name string, slideIndex int32, path stri
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8607,7 +8819,6 @@ func (a *SlidesApiService) GetApiInfo() (IApiInfo, *http.Response, error) {
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 
 	// to determine the Content-Type header
@@ -8629,7 +8840,7 @@ func (a *SlidesApiService) GetApiInfo() (IApiInfo, *http.Response, error) {
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8665,7 +8876,7 @@ func (a *SlidesApiService) GetSlidesApiInfo() (IApiInfo, *http.Response, error) 
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
-     @param "storage" (string) Documentstorage.
+     @param "storage" (string) Document storage.
  @return Document*/
 func (a *SlidesApiService) GetPresentation(name string, password string, folder string, storage string) (IDocument, *http.Response, error) {
 	var (
@@ -8689,7 +8900,6 @@ func (a *SlidesApiService) GetPresentation(name string, password string, folder 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -8729,7 +8939,7 @@ func (a *SlidesApiService) GetPresentation(name string, password string, folder 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8797,7 +9007,6 @@ func (a *SlidesApiService) GetDocumentProperties(name string, password string, f
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -8837,7 +9046,7 @@ func (a *SlidesApiService) GetDocumentProperties(name string, password string, f
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -8915,7 +9124,6 @@ func (a *SlidesApiService) GetDocumentProperty(name string, propertyName string,
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -8955,7 +9163,7 @@ func (a *SlidesApiService) GetDocumentProperty(name string, propertyName string,
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9031,7 +9239,6 @@ func (a *SlidesApiService) DownloadImageDefaultFormat(name string, index int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -9071,7 +9278,7 @@ func (a *SlidesApiService) DownloadImageDefaultFormat(name string, index int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9150,7 +9357,6 @@ func (a *SlidesApiService) DownloadImage(name string, index int32, format string
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -9190,7 +9396,7 @@ func (a *SlidesApiService) DownloadImage(name string, index int32, format string
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9253,7 +9459,6 @@ func (a *SlidesApiService) GetPresentationImages(name string, password string, f
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -9293,7 +9498,7 @@ func (a *SlidesApiService) GetPresentationImages(name string, password string, f
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9375,7 +9580,6 @@ func (a *SlidesApiService) GetPlaceholder(name string, slideIndex int32, placeho
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -9415,7 +9619,7 @@ func (a *SlidesApiService) GetPlaceholder(name string, slideIndex int32, placeho
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9492,7 +9696,6 @@ func (a *SlidesApiService) GetPlaceholders(name string, slideIndex int32, passwo
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -9532,7 +9735,7 @@ func (a *SlidesApiService) GetPlaceholders(name string, slideIndex int32, passwo
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9602,7 +9805,6 @@ func (a *SlidesApiService) GetPresentationTextItems(name string, withEmpty *bool
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if withEmpty != nil {
 		if err := typeCheckParameter(*withEmpty, "bool", "withEmpty"); err != nil {
@@ -9650,7 +9852,7 @@ func (a *SlidesApiService) GetPresentationTextItems(name string, withEmpty *bool
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9709,7 +9911,7 @@ func (a *SlidesApiService) GetProtectionProperties(name string, password string,
 		return successPayload, nil, reportError("Missing required parameter name")
 	}
 	// create path and map variables
-	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/protectionProperties"
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/protection"
 	namePathStringValue := fmt.Sprintf("%v", name)
 	if len(namePathStringValue) > 0 {
 		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
@@ -9719,7 +9921,6 @@ func (a *SlidesApiService) GetProtectionProperties(name string, password string,
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -9759,7 +9960,7 @@ func (a *SlidesApiService) GetProtectionProperties(name string, password string,
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9834,7 +10035,6 @@ func (a *SlidesApiService) GetSlide(name string, slideIndex int32, password stri
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -9874,7 +10074,7 @@ func (a *SlidesApiService) GetSlide(name string, slideIndex int32, password stri
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -9950,7 +10150,6 @@ func (a *SlidesApiService) GetBackground(name string, slideIndex int32, password
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -9990,7 +10189,7 @@ func (a *SlidesApiService) GetBackground(name string, slideIndex int32, password
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10066,7 +10265,6 @@ func (a *SlidesApiService) GetComments(name string, slideIndex int32, password s
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -10106,7 +10304,7 @@ func (a *SlidesApiService) GetComments(name string, slideIndex int32, password s
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10182,7 +10380,6 @@ func (a *SlidesApiService) GetSlideImages(name string, slideIndex int32, passwor
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -10222,7 +10419,7 @@ func (a *SlidesApiService) GetSlideImages(name string, slideIndex int32, passwor
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10291,7 +10488,6 @@ func (a *SlidesApiService) GetSlideProperties(name string, password string, fold
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -10331,7 +10527,7 @@ func (a *SlidesApiService) GetSlideProperties(name string, password string, fold
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10407,7 +10603,6 @@ func (a *SlidesApiService) GetSlideTextItems(name string, slideIndex int32, with
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if withEmpty != nil {
 		if err := typeCheckParameter(*withEmpty, "bool", "withEmpty"); err != nil {
@@ -10455,7 +10650,7 @@ func (a *SlidesApiService) GetSlideTextItems(name string, slideIndex int32, with
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10525,7 +10720,6 @@ func (a *SlidesApiService) GetSlides(name string, password string, folder string
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -10565,7 +10759,7 @@ func (a *SlidesApiService) GetSlides(name string, password string, folder string
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10640,7 +10834,6 @@ func (a *SlidesApiService) GetTheme(name string, slideIndex int32, password stri
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -10680,7 +10873,7 @@ func (a *SlidesApiService) GetTheme(name string, slideIndex int32, password stri
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10756,7 +10949,6 @@ func (a *SlidesApiService) GetColorScheme(name string, slideIndex int32, passwor
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -10796,7 +10988,7 @@ func (a *SlidesApiService) GetColorScheme(name string, slideIndex int32, passwor
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10872,7 +11064,6 @@ func (a *SlidesApiService) GetFontScheme(name string, slideIndex int32, password
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -10912,7 +11103,7 @@ func (a *SlidesApiService) GetFontScheme(name string, slideIndex int32, password
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -10988,7 +11179,6 @@ func (a *SlidesApiService) GetFormatScheme(name string, slideIndex int32, passwo
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -11028,7 +11218,7 @@ func (a *SlidesApiService) GetFormatScheme(name string, slideIndex int32, passwo
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11097,7 +11287,6 @@ func (a *SlidesApiService) GetViewProperties(name string, password string, folde
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -11137,7 +11326,7 @@ func (a *SlidesApiService) GetViewProperties(name string, password string, folde
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11243,7 +11432,6 @@ func (a *SlidesApiService) GetSubshapePortion(name string, slideIndex int32, pat
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -11283,7 +11471,7 @@ func (a *SlidesApiService) GetSubshapePortion(name string, slideIndex int32, pat
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11387,7 +11575,6 @@ func (a *SlidesApiService) GetSubshapePortions(name string, slideIndex int32, pa
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -11427,7 +11614,7 @@ func (a *SlidesApiService) GetSubshapePortions(name string, slideIndex int32, pa
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11502,7 +11689,6 @@ func (a *SlidesApiService) MoveFile(srcPath string, destPath string, srcStorageN
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(srcStorageName, "string", "srcStorageName"); err != nil {
 		return nil, err
@@ -11543,7 +11729,7 @@ func (a *SlidesApiService) MoveFile(srcPath string, destPath string, srcStorageN
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11598,7 +11784,6 @@ func (a *SlidesApiService) MoveFolder(srcPath string, destPath string, srcStorag
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(srcStorageName, "string", "srcStorageName"); err != nil {
 		return nil, err
@@ -11633,7 +11818,7 @@ func (a *SlidesApiService) MoveFolder(srcPath string, destPath string, srcStorag
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11684,7 +11869,6 @@ func (a *SlidesApiService) ObjectExists(path string, storageName string, version
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(storageName, "string", "storageName"); err != nil {
 		return successPayload, nil, err
@@ -11718,7 +11902,7 @@ func (a *SlidesApiService) ObjectExists(path string, storageName string, version
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11800,7 +11984,6 @@ func (a *SlidesApiService) CreateParagraph(name string, slideIndex int32, shapeI
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if position != nil {
 		if err := typeCheckParameter(*position, "int32", "position"); err != nil {
@@ -11848,9 +12031,8 @@ func (a *SlidesApiService) CreateParagraph(name string, slideIndex int32, shapeI
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -11948,7 +12130,6 @@ func (a *SlidesApiService) CreatePortion(name string, slideIndex int32, shapeInd
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if position != nil {
 		if err := typeCheckParameter(*position, "int32", "position"); err != nil {
@@ -11996,9 +12177,8 @@ func (a *SlidesApiService) CreatePortion(name string, slideIndex int32, shapeInd
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12081,7 +12261,6 @@ func (a *SlidesApiService) CreateShape(name string, slideIndex int32, dto IShape
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if shapeToClone != nil {
 		if err := typeCheckParameter(*shapeToClone, "int32", "shapeToClone"); err != nil {
@@ -12137,9 +12316,8 @@ func (a *SlidesApiService) CreateShape(name string, slideIndex int32, dto IShape
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12231,7 +12409,6 @@ func (a *SlidesApiService) CreateSubshape(name string, slideIndex int32, path st
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if shapeToClone != nil {
 		if err := typeCheckParameter(*shapeToClone, "int32", "shapeToClone"); err != nil {
@@ -12287,9 +12464,8 @@ func (a *SlidesApiService) CreateSubshape(name string, slideIndex int32, path st
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12391,7 +12567,6 @@ func (a *SlidesApiService) CreateSubshapeParagraph(name string, slideIndex int32
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if position != nil {
 		if err := typeCheckParameter(*position, "int32", "position"); err != nil {
@@ -12439,9 +12614,8 @@ func (a *SlidesApiService) CreateSubshapeParagraph(name string, slideIndex int32
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12550,7 +12724,6 @@ func (a *SlidesApiService) CreateSubshapePortion(name string, slideIndex int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if position != nil {
 		if err := typeCheckParameter(*position, "int32", "position"); err != nil {
@@ -12598,9 +12771,8 @@ func (a *SlidesApiService) CreateSubshapePortion(name string, slideIndex int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12685,7 +12857,6 @@ func (a *SlidesApiService) CreateNotesSlide(name string, slideIndex int32, dto I
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -12725,9 +12896,8 @@ func (a *SlidesApiService) CreateNotesSlide(name string, slideIndex int32, dto I
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12816,7 +12986,6 @@ func (a *SlidesApiService) AlignShapes(name string, slideIndex int32, alignmentT
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if alignToSlide != nil {
 		if err := typeCheckParameter(*alignToSlide, "bool", "alignToSlide"); err != nil {
@@ -12870,7 +13039,7 @@ func (a *SlidesApiService) AlignShapes(name string, slideIndex int32, alignmentT
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -12960,7 +13129,6 @@ func (a *SlidesApiService) CreateChartCategory(name string, slideIndex int32, sh
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -13000,9 +13168,8 @@ func (a *SlidesApiService) CreateChartCategory(name string, slideIndex int32, sh
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &category
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13098,7 +13265,6 @@ func (a *SlidesApiService) CreateChartDataPoint(name string, slideIndex int32, s
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -13138,9 +13304,8 @@ func (a *SlidesApiService) CreateChartDataPoint(name string, slideIndex int32, s
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dataPoint
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13230,7 +13395,6 @@ func (a *SlidesApiService) CreateChartSeries(name string, slideIndex int32, shap
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -13270,9 +13434,8 @@ func (a *SlidesApiService) CreateChartSeries(name string, slideIndex int32, shap
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &series
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13350,7 +13513,6 @@ func (a *SlidesApiService) CopyLayoutSlide(name string, cloneFrom string, cloneF
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(cloneFromPassword, "string", "cloneFromPassword"); err != nil {
 		return successPayload, nil, err
@@ -13404,7 +13566,7 @@ func (a *SlidesApiService) CopyLayoutSlide(name string, cloneFrom string, cloneF
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13484,7 +13646,6 @@ func (a *SlidesApiService) CopyMasterSlide(name string, cloneFrom string, cloneF
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(cloneFromPassword, "string", "cloneFromPassword"); err != nil {
 		return successPayload, nil, err
@@ -13546,7 +13707,7 @@ func (a *SlidesApiService) CopyMasterSlide(name string, cloneFrom string, cloneF
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13618,7 +13779,6 @@ func (a *SlidesApiService) DownloadImageDefaultFormatOnline(document []byte, ind
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -13646,8 +13806,10 @@ func (a *SlidesApiService) DownloadImageDefaultFormatOnline(document []byte, ind
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13716,7 +13878,6 @@ func (a *SlidesApiService) DownloadImageOnline(document []byte, index int32, for
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -13744,8 +13905,10 @@ func (a *SlidesApiService) DownloadImageOnline(document []byte, index int32, for
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13808,7 +13971,6 @@ func (a *SlidesApiService) DownloadImagesOnline(document []byte, format string, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -13836,8 +13998,10 @@ func (a *SlidesApiService) DownloadImagesOnline(document []byte, format string, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -13897,7 +14061,6 @@ func (a *SlidesApiService) DownloadImagesDefaultFormat(name string, password str
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -13937,7 +14100,7 @@ func (a *SlidesApiService) DownloadImagesDefaultFormat(name string, password str
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14008,7 +14171,6 @@ func (a *SlidesApiService) DownloadImages(name string, format string, password s
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -14048,7 +14210,7 @@ func (a *SlidesApiService) DownloadImages(name string, format string, password s
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14087,14 +14249,14 @@ type PostExportImagesWithFormatRequest struct {
  @param shapeIndex Index of shape starting from 1
  @param format Export picture format.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "password" (string) Document password.
-     @param "storage" (string) Document storage.
      @param "scaleX" (float64) X scale ratio.
      @param "scaleY" (float64) Y scale ratio.
      @param "bounds" (string) Shape thumbnail bounds type.
+     @param "password" (string) Document password.
+     @param "storage" (string) Document storage.
      @param "fontsFolder" (string) Fonts folder.
  @return *os.File*/
-func (a *SlidesApiService) DownloadShapeOnline(document []byte, slideIndex int32, shapeIndex int32, format string, password string, storage string, scaleX *float64, scaleY *float64, bounds string, fontsFolder string) (*os.File, *http.Response, error) {
+func (a *SlidesApiService) DownloadShapeOnline(document []byte, slideIndex int32, shapeIndex int32, format string, scaleX *float64, scaleY *float64, bounds string, password string, storage string, fontsFolder string) (*os.File, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -14131,14 +14293,7 @@ func (a *SlidesApiService) DownloadShapeOnline(document []byte, slideIndex int32
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(password, "string", "password"); err != nil {
-		return successPayload, nil, err
-	}
-	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
-		return successPayload, nil, err
-	}
 	if scaleX != nil {
 		if err := typeCheckParameter(*scaleX, "float64", "scaleX"); err != nil {
 			return successPayload, nil, err
@@ -14152,13 +14307,16 @@ func (a *SlidesApiService) DownloadShapeOnline(document []byte, slideIndex int32
 	if err := typeCheckParameter(bounds, "string", "bounds"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
 	if err := typeCheckParameter(fontsFolder, "string", "fontsFolder"); err != nil {
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam := storage; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
-	}
 	if scaleX != nil {
 		localVarQueryParams.Add("ScaleX", parameterToString(*scaleX, ""))
 	}
@@ -14167,6 +14325,9 @@ func (a *SlidesApiService) DownloadShapeOnline(document []byte, slideIndex int32
 	}
 	if localVarTempParam := bounds; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Bounds", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := fontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
@@ -14193,8 +14354,10 @@ func (a *SlidesApiService) DownloadShapeOnline(document []byte, slideIndex int32
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14214,7 +14377,7 @@ func (a *SlidesApiService) DownloadShapeOnline(document []byte, slideIndex int32
 }
 
 func (a *SlidesApiService) PostExportShape(request PostExportShapeRequest) (*os.File, *http.Response, error) {
-	return a.DownloadShapeOnline(request.Document, request.SlideIndex, request.ShapeIndex, request.Format, request.Password, request.Storage, request.ScaleX, request.ScaleY, request.Bounds, request.FontsFolder)
+	return a.DownloadShapeOnline(request.Document, request.SlideIndex, request.ShapeIndex, request.Format, request.ScaleX, request.ScaleY, request.Bounds, request.Password, request.Storage, request.FontsFolder)
 }
 
 /* Request for SlidesApiService.PostExportShape
@@ -14224,11 +14387,11 @@ type PostExportShapeRequest struct {
     SlideIndex int32
     ShapeIndex int32
     Format string
-    Password string
-    Storage string
     ScaleX *float64
     ScaleY *float64
     Bounds string
+    Password string
+    Storage string
     FontsFolder string
 }
 
@@ -14274,7 +14437,6 @@ func (a *SlidesApiService) DownloadSlideOnline(document []byte, slideIndex int32
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if width != nil {
 		if err := typeCheckParameter(*width, "int32", "width"); err != nil {
@@ -14330,8 +14492,10 @@ func (a *SlidesApiService) DownloadSlideOnline(document []byte, slideIndex int32
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14395,7 +14559,6 @@ func (a *SlidesApiService) GetNotesSlideOnline(document []byte, slideIndex int32
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -14423,8 +14586,10 @@ func (a *SlidesApiService) GetNotesSlideOnline(document []byte, slideIndex int32
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14490,7 +14655,6 @@ func (a *SlidesApiService) NotesSlideExistsOnline(document []byte, slideIndex in
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -14518,8 +14682,10 @@ func (a *SlidesApiService) NotesSlideExistsOnline(document []byte, slideIndex in
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14598,7 +14764,6 @@ func (a *SlidesApiService) DownloadNotesSlideOnline(document []byte, slideIndex 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if width != nil {
 		if err := typeCheckParameter(*width, "int32", "width"); err != nil {
@@ -14648,8 +14813,10 @@ func (a *SlidesApiService) DownloadNotesSlideOnline(document []byte, slideIndex 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14684,12 +14851,116 @@ type PostGetNotesSlideWithFormatRequest struct {
     FontsFolder string
 }
 
-/* SlidesApiService Get all presentation images.
+/* SlidesApiService Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+ @param name Document name.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "image" ([]byte) Image data.
+     @param "pictureFrame" (PictureFrame) PictureFrame DTO
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return */
+func (a *SlidesApiService) CreateImageWatermark(name string, image []byte, pictureFrame IPictureFrame, password string, folder string, storage string) (*http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	)
+
+	if len(name) == 0 {
+		return nil, reportError("Missing required parameter name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/watermark/image"
+	namePathStringValue := fmt.Sprintf("%v", name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(folder, "string", "folder"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
+		return nil, err
+	}
+
+	if localVarTempParam := folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	if len(image) > 0 {
+		localVarFiles = append(localVarFiles, image)
+	}
+	localVarPostBody = &pictureFrame
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+
+	return localVarHttpResponse, err
+}
+
+func (a *SlidesApiService) PostImageWatermark(request PostImageWatermarkRequest) (*http.Response, error) {
+	return a.CreateImageWatermark(request.Name, request.Image, request.PictureFrame, request.Password, request.Folder, request.Storage)
+}
+
+/* Request for SlidesApiService.PostImageWatermark
+*/
+type PostImageWatermarkRequest struct {
+    Name string
+    Image []byte
+    PictureFrame IPictureFrame
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
  @param document Document data.
  @param optional (nil or map[string]interface{}) with one or more of:
+     @param "image" ([]byte) Image data.
+     @param "pictureFrame" (PictureFrame) PictureFrame DTO.
      @param "password" (string) Document password.
  @return *os.File*/
-func (a *SlidesApiService) DownloadImagesDefaultFormatOnline(document []byte, password string) (*os.File, *http.Response, error) {
+func (a *SlidesApiService) CreateImageWatermarkOnline(document []byte, image []byte, pictureFrame IPictureFrame, password string) (*os.File, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -14701,11 +14972,10 @@ func (a *SlidesApiService) DownloadImagesDefaultFormatOnline(document []byte, pa
 		return successPayload, nil, reportError("Missing required parameter document")
 	}
 	// create path and map variables
-	localVarPath := a.client.cfg.GetApiUrl() + "/slides/images/download"
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/watermark/image"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -14733,8 +15003,97 @@ func (a *SlidesApiService) DownloadImagesDefaultFormatOnline(document []byte, pa
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	if len(image) > 0 {
+		localVarFiles = append(localVarFiles, image)
+	}
+	localVarPostBody = &pictureFrame
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	defer successPayload.Close()
+        successPayload, err = processFileResponse(responseBody)
+        if err != nil {
+		return successPayload, localVarHttpResponse, err
+        }
+
+	return successPayload, localVarHttpResponse, err
+}
+
+func (a *SlidesApiService) PostImageWatermarkOnline(request PostImageWatermarkOnlineRequest) (*os.File, *http.Response, error) {
+	return a.CreateImageWatermarkOnline(request.Document, request.Image, request.PictureFrame, request.Password)
+}
+
+/* Request for SlidesApiService.PostImageWatermarkOnline
+*/
+type PostImageWatermarkOnlineRequest struct {
+    Document []byte
+    Image []byte
+    PictureFrame IPictureFrame
+    Password string
+}
+
+/* SlidesApiService Get all presentation images.
+ @param document Document data.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+ @return *os.File*/
+func (a *SlidesApiService) DownloadImagesDefaultFormatOnline(document []byte, password string) (*os.File, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload *os.File
+	)
+
+	if len(document) == 0 {
+		return successPayload, nil, reportError("Missing required parameter document")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/images/download"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"multipart/form-data",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14812,7 +15171,6 @@ func (a *SlidesApiService) CreateNotesSlideParagraph(name string, slideIndex int
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if position != nil {
 		if err := typeCheckParameter(*position, "int32", "position"); err != nil {
@@ -14860,9 +15218,8 @@ func (a *SlidesApiService) CreateNotesSlideParagraph(name string, slideIndex int
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -14960,7 +15317,6 @@ func (a *SlidesApiService) CreateNotesSlidePortion(name string, slideIndex int32
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if position != nil {
 		if err := typeCheckParameter(*position, "int32", "position"); err != nil {
@@ -15008,9 +15364,8 @@ func (a *SlidesApiService) CreateNotesSlidePortion(name string, slideIndex int32
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15096,7 +15451,6 @@ func (a *SlidesApiService) CreateNotesSlideShape(name string, slideIndex int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if shapeToClone != nil {
 		if err := typeCheckParameter(*shapeToClone, "int32", "shapeToClone"); err != nil {
@@ -15152,9 +15506,8 @@ func (a *SlidesApiService) CreateNotesSlideShape(name string, slideIndex int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15255,7 +15608,6 @@ func (a *SlidesApiService) DownloadNotesSlideShape(name string, slideIndex int32
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if scaleX != nil {
 		if err := typeCheckParameter(*scaleX, "float64", "scaleX"); err != nil {
@@ -15323,9 +15675,8 @@ func (a *SlidesApiService) DownloadNotesSlideShape(name string, slideIndex int32
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &options
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15398,7 +15749,6 @@ func (a *SlidesApiService) Merge(name string, request IPresentationsMergeRequest
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -15438,9 +15788,8 @@ func (a *SlidesApiService) Merge(name string, request IPresentationsMergeRequest
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &request
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15510,7 +15859,6 @@ func (a *SlidesApiService) ReplacePresentationTextOnline(document []byte, oldVal
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if ignoreCase != nil {
 		if err := typeCheckParameter(*ignoreCase, "bool", "ignoreCase"); err != nil {
@@ -15548,8 +15896,10 @@ func (a *SlidesApiService) ReplacePresentationTextOnline(document []byte, oldVal
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15619,7 +15969,6 @@ func (a *SlidesApiService) SplitOnline(document []byte, format string, width *in
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if width != nil {
 		if err := typeCheckParameter(*width, "int32", "width"); err != nil {
@@ -15691,8 +16040,10 @@ func (a *SlidesApiService) SplitOnline(document []byte, format string, width *in
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15763,7 +16114,6 @@ func (a *SlidesApiService) CreateSection(name string, sectionName string, slideI
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -15805,7 +16155,7 @@ func (a *SlidesApiService) CreateSection(name string, sectionName string, slideI
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -15883,7 +16233,6 @@ func (a *SlidesApiService) MoveSection(name string, sectionIndex int32, newPosit
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -15924,7 +16273,7 @@ func (a *SlidesApiService) MoveSection(name string, sectionIndex int32, newPosit
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16023,7 +16372,6 @@ func (a *SlidesApiService) DownloadShape(name string, slideIndex int32, shapeInd
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if scaleX != nil {
 		if err := typeCheckParameter(*scaleX, "float64", "scaleX"); err != nil {
@@ -16091,9 +16439,8 @@ func (a *SlidesApiService) DownloadShape(name string, slideIndex int32, shapeInd
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &options
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16173,7 +16520,6 @@ func (a *SlidesApiService) CreateAnimationEffect(name string, slideIndex int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -16213,9 +16559,8 @@ func (a *SlidesApiService) CreateAnimationEffect(name string, slideIndex int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &effect
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16296,7 +16641,6 @@ func (a *SlidesApiService) CreateAnimationInteractiveSequence(name string, slide
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -16336,9 +16680,8 @@ func (a *SlidesApiService) CreateAnimationInteractiveSequence(name string, slide
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &sequence
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16426,7 +16769,6 @@ func (a *SlidesApiService) CreateAnimationInteractiveSequenceEffect(name string,
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -16466,9 +16808,8 @@ func (a *SlidesApiService) CreateAnimationInteractiveSequenceEffect(name string,
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &effect
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16547,7 +16888,6 @@ func (a *SlidesApiService) ReplaceSlideTextOnline(document []byte, slideIndex in
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if ignoreCase != nil {
 		if err := typeCheckParameter(*ignoreCase, "bool", "ignoreCase"); err != nil {
@@ -16585,8 +16925,10 @@ func (a *SlidesApiService) ReplaceSlideTextOnline(document []byte, slideIndex in
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16670,7 +17012,6 @@ func (a *SlidesApiService) DownloadSlide(name string, slideIndex int32, format s
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if width != nil {
 		if err := typeCheckParameter(*width, "int32", "width"); err != nil {
@@ -16732,9 +17073,8 @@ func (a *SlidesApiService) DownloadSlide(name string, slideIndex int32, format s
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &options
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16803,7 +17143,6 @@ func (a *SlidesApiService) CreateSlide(name string, layoutAlias string, position
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(layoutAlias, "string", "layoutAlias"); err != nil {
 		return successPayload, nil, err
@@ -16857,7 +17196,7 @@ func (a *SlidesApiService) CreateSlide(name string, layoutAlias string, position
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -16931,7 +17270,6 @@ func (a *SlidesApiService) Convert(document []byte, format string, password stri
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -16971,8 +17309,10 @@ func (a *SlidesApiService) Convert(document []byte, format string, password stri
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17039,7 +17379,6 @@ func (a *SlidesApiService) CopySlide(name string, slideToCopy int32, position *i
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if position != nil {
 		if err := typeCheckParameter(*position, "int32", "position"); err != nil {
@@ -17106,7 +17445,7 @@ func (a *SlidesApiService) CopySlide(name string, slideToCopy int32, position *i
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17181,7 +17520,6 @@ func (a *SlidesApiService) CreatePresentation(name string, data []byte, inputPas
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(inputPassword, "string", "inputPassword"); err != nil {
 		return successPayload, nil, err
@@ -17227,8 +17565,10 @@ func (a *SlidesApiService) CreatePresentation(name string, data []byte, inputPas
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &data
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(data) > 0 {
+		localVarFiles = append(localVarFiles, data)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17299,7 +17639,6 @@ func (a *SlidesApiService) ImportFromHtml(name string, html string, password str
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(html, "string", "html"); err != nil {
 		return successPayload, nil, err
@@ -17342,9 +17681,8 @@ func (a *SlidesApiService) ImportFromHtml(name string, html string, password str
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = html
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17414,7 +17752,6 @@ func (a *SlidesApiService) ImportFromPdf(name string, pdf []byte, password strin
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -17454,8 +17791,10 @@ func (a *SlidesApiService) ImportFromPdf(name string, pdf []byte, password strin
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &pdf
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(pdf) > 0 {
+		localVarFiles = append(localVarFiles, pdf)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17527,7 +17866,6 @@ func (a *SlidesApiService) CreatePresentationFromSource(name string, sourcePath 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(sourcePath, "string", "sourcePath"); err != nil {
 		return successPayload, nil, err
@@ -17585,7 +17923,7 @@ func (a *SlidesApiService) CreatePresentationFromSource(name string, sourcePath 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17664,7 +18002,6 @@ func (a *SlidesApiService) CreatePresentationFromTemplate(name string, templateP
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(data, "string", "data"); err != nil {
 		return successPayload, nil, err
@@ -17728,9 +18065,8 @@ func (a *SlidesApiService) CreatePresentationFromTemplate(name string, templateP
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = data
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17793,7 +18129,6 @@ func (a *SlidesApiService) MergeOnline(files [][]byte, request IOrderedMergeRequ
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -17822,9 +18157,8 @@ func (a *SlidesApiService) MergeOnline(files [][]byte, request IOrderedMergeRequ
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarFiles = files
-	// body params
 	localVarPostBody = &request
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17876,7 +18210,6 @@ func (a *SlidesApiService) Pipeline(pipeline IPipeline, files [][]byte) (*os.Fil
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 
 	// to determine the Content-Type header
@@ -17899,9 +18232,8 @@ func (a *SlidesApiService) Pipeline(pipeline IPipeline, files [][]byte) (*os.Fil
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	localVarFiles = files
-	// body params
 	localVarPostBody = &pipeline
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -17969,7 +18301,6 @@ func (a *SlidesApiService) ReplacePresentationText(name string, oldValue string,
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if ignoreCase != nil {
 		if err := typeCheckParameter(*ignoreCase, "bool", "ignoreCase"); err != nil {
@@ -18019,7 +18350,7 @@ func (a *SlidesApiService) ReplacePresentationText(name string, oldValue string,
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18098,7 +18429,6 @@ func (a *SlidesApiService) MoveSlide(name string, slideIndex int32, newPosition 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -18139,7 +18469,7 @@ func (a *SlidesApiService) MoveSlide(name string, slideIndex int32, newPosition 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18211,7 +18541,6 @@ func (a *SlidesApiService) ReorderSlides(name string, oldPositions []int32, newP
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(oldPositions, "[]int32", "oldPositions"); err != nil {
 		return successPayload, nil, err
@@ -18263,7 +18592,7 @@ func (a *SlidesApiService) ReorderSlides(name string, oldPositions []int32, newP
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18345,7 +18674,6 @@ func (a *SlidesApiService) DownloadPresentation(name string, format string, opti
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -18391,9 +18719,8 @@ func (a *SlidesApiService) DownloadPresentation(name string, format string, opti
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &options
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18461,7 +18788,6 @@ func (a *SlidesApiService) SetDocumentProperties(name string, properties IDocume
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -18501,9 +18827,8 @@ func (a *SlidesApiService) SetDocumentProperties(name string, properties IDocume
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &properties
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18588,7 +18913,6 @@ func (a *SlidesApiService) ReplaceSlideText(name string, slideIndex int32, oldVa
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if ignoreCase != nil {
 		if err := typeCheckParameter(*ignoreCase, "bool", "ignoreCase"); err != nil {
@@ -18638,7 +18962,7 @@ func (a *SlidesApiService) ReplaceSlideText(name string, slideIndex int32, oldVa
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18718,7 +19042,6 @@ func (a *SlidesApiService) Split(name string, options IExportOptions, format str
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(format, "string", "format"); err != nil {
 		return successPayload, nil, err
@@ -18808,9 +19131,8 @@ func (a *SlidesApiService) Split(name string, options IExportOptions, format str
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &options
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -18925,7 +19247,6 @@ func (a *SlidesApiService) DownloadSubshape(name string, slideIndex int32, path 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if scaleX != nil {
 		if err := typeCheckParameter(*scaleX, "float64", "scaleX"); err != nil {
@@ -18993,9 +19314,8 @@ func (a *SlidesApiService) DownloadSubshape(name string, slideIndex int32, path 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &options
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19034,6 +19354,344 @@ type PostSubshapeSaveAsRequest struct {
     Folder string
     Storage string
     FontsFolder string
+}
+
+/* SlidesApiService Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+ @param name Document name.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "shape" (Shape) Shape DTO
+     @param "fontHeight" (float64) Watermark font height.
+     @param "text" (string) Watermark text.
+     @param "fontName" (string) Watermark font name.
+     @param "fontColor" (string) Watermark font color.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return */
+func (a *SlidesApiService) CreateWatermark(name string, shape IShape, fontHeight *float64, text string, fontName string, fontColor string, password string, folder string, storage string) (*http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	)
+
+	if len(name) == 0 {
+		return nil, reportError("Missing required parameter name")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/watermark"
+	namePathStringValue := fmt.Sprintf("%v", name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if fontHeight != nil {
+		if err := typeCheckParameter(*fontHeight, "float64", "fontHeight"); err != nil {
+			return nil, err
+		}
+	}
+	if err := typeCheckParameter(text, "string", "text"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(fontName, "string", "fontName"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(fontColor, "string", "fontColor"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(folder, "string", "folder"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
+		return nil, err
+	}
+
+	if fontHeight != nil {
+		localVarQueryParams.Add("FontHeight", parameterToString(*fontHeight, ""))
+	}
+	if localVarTempParam := text; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Text", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := fontName; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("FontName", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := fontColor; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("FontColor", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	localVarPostBody = &shape
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+
+	return localVarHttpResponse, err
+}
+
+func (a *SlidesApiService) PostWatermark(request PostWatermarkRequest) (*http.Response, error) {
+	return a.CreateWatermark(request.Name, request.Shape, request.FontHeight, request.Text, request.FontName, request.FontColor, request.Password, request.Folder, request.Storage)
+}
+
+/* Request for SlidesApiService.PostWatermark
+*/
+type PostWatermarkRequest struct {
+    Name string
+    Shape IShape
+    FontHeight *float64
+    Text string
+    FontName string
+    FontColor string
+    Password string
+    Folder string
+    Storage string
+}
+
+/* SlidesApiService Removes shapes with name \&quot;watermark\&quot; from the presentation.
+ @param document Document data.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "shapeName" (string) Name of the watermark shape. If null, default value \&quot;watermark\&quot;is used.
+     @param "password" (string) Document password.
+ @return *os.File*/
+func (a *SlidesApiService) DeleteWatermarkOnline(document []byte, shapeName string, password string) (*os.File, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload *os.File
+	)
+
+	if len(document) == 0 {
+		return successPayload, nil, reportError("Missing required parameter document")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/watermark/delete"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if err := typeCheckParameter(shapeName, "string", "shapeName"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := shapeName; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("ShapeName", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"multipart/form-data",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	defer successPayload.Close()
+        successPayload, err = processFileResponse(responseBody)
+        if err != nil {
+		return successPayload, localVarHttpResponse, err
+        }
+
+	return successPayload, localVarHttpResponse, err
+}
+
+func (a *SlidesApiService) PostWatermarkDeleteOnline(request PostWatermarkDeleteOnlineRequest) (*os.File, *http.Response, error) {
+	return a.DeleteWatermarkOnline(request.Document, request.ShapeName, request.Password)
+}
+
+/* Request for SlidesApiService.PostWatermarkDeleteOnline
+*/
+type PostWatermarkDeleteOnlineRequest struct {
+    Document []byte
+    ShapeName string
+    Password string
+}
+
+/* SlidesApiService Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+ @param document Document data.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "shape" (Shape) Shape DTO
+     @param "fontHeight" (float64) Watermark font height.
+     @param "text" (string) Watermark text.
+     @param "fontName" (string) Watermark font name.
+     @param "fontColor" (string) Watermark font color.
+     @param "password" (string) Document password.
+ @return *os.File*/
+func (a *SlidesApiService) CreateWatermarkOnline(document []byte, shape IShape, fontHeight *float64, text string, fontName string, fontColor string, password string) (*os.File, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload *os.File
+	)
+
+	if len(document) == 0 {
+		return successPayload, nil, reportError("Missing required parameter document")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/watermark"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if fontHeight != nil {
+		if err := typeCheckParameter(*fontHeight, "float64", "fontHeight"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if err := typeCheckParameter(text, "string", "text"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(fontName, "string", "fontName"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(fontColor, "string", "fontColor"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if fontHeight != nil {
+		localVarQueryParams.Add("FontHeight", parameterToString(*fontHeight, ""))
+	}
+	if localVarTempParam := text; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Text", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := fontName; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("FontName", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := fontColor; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("FontColor", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"multipart/form-data",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarPostBody = &shape
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	defer successPayload.Close()
+        successPayload, err = processFileResponse(responseBody)
+        if err != nil {
+		return successPayload, localVarHttpResponse, err
+        }
+
+	return successPayload, localVarHttpResponse, err
+}
+
+func (a *SlidesApiService) PostWatermarkOnline(request PostWatermarkOnlineRequest) (*os.File, *http.Response, error) {
+	return a.CreateWatermarkOnline(request.Document, request.Shape, request.FontHeight, request.Text, request.FontName, request.FontColor, request.Password)
+}
+
+/* Request for SlidesApiService.PostWatermarkOnline
+*/
+type PostWatermarkOnlineRequest struct {
+    Document []byte
+    Shape IShape
+    FontHeight *float64
+    Text string
+    FontName string
+    FontColor string
+    Password string
 }
 
 /* SlidesApiService Update a chart category.
@@ -19090,7 +19748,6 @@ func (a *SlidesApiService) UpdateChartCategory(name string, slideIndex int32, sh
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -19130,9 +19787,8 @@ func (a *SlidesApiService) UpdateChartCategory(name string, slideIndex int32, sh
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &category
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19236,7 +19892,6 @@ func (a *SlidesApiService) UpdateChartDataPoint(name string, slideIndex int32, s
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -19276,9 +19931,8 @@ func (a *SlidesApiService) UpdateChartDataPoint(name string, slideIndex int32, s
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dataPoint
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19376,7 +20030,6 @@ func (a *SlidesApiService) UpdateChartSeries(name string, slideIndex int32, shap
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -19416,9 +20069,8 @@ func (a *SlidesApiService) UpdateChartSeries(name string, slideIndex int32, shap
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &series
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19468,14 +20120,14 @@ type PutChartSeriesRequest struct {
  @param format Export picture format.
  @param outPath Path to save result.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "password" (string) Document password.
-     @param "storage" (string) Document storage.
      @param "scaleX" (float64) X scale ratio.
      @param "scaleY" (float64) Y scale ratio.
      @param "bounds" (string) Shape thumbnail bounds type.
+     @param "password" (string) Document password.
+     @param "storage" (string) Document storage.
      @param "fontsFolder" (string) Fonts folder.
  @return */
-func (a *SlidesApiService) SaveShapeOnline(document []byte, slideIndex int32, shapeIndex int32, format string, outPath string, password string, storage string, scaleX *float64, scaleY *float64, bounds string, fontsFolder string) (*http.Response, error) {
+func (a *SlidesApiService) SaveShapeOnline(document []byte, slideIndex int32, shapeIndex int32, format string, outPath string, scaleX *float64, scaleY *float64, bounds string, password string, storage string, fontsFolder string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -19514,14 +20166,7 @@ func (a *SlidesApiService) SaveShapeOnline(document []byte, slideIndex int32, sh
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(password, "string", "password"); err != nil {
-		return nil, err
-	}
-	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
-		return nil, err
-	}
 	if scaleX != nil {
 		if err := typeCheckParameter(*scaleX, "float64", "scaleX"); err != nil {
 			return nil, err
@@ -19535,14 +20180,17 @@ func (a *SlidesApiService) SaveShapeOnline(document []byte, slideIndex int32, sh
 	if err := typeCheckParameter(bounds, "string", "bounds"); err != nil {
 		return nil, err
 	}
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return nil, err
+	}
+	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
+		return nil, err
+	}
 	if err := typeCheckParameter(fontsFolder, "string", "fontsFolder"); err != nil {
 		return nil, err
 	}
 
 	localVarQueryParams.Add("OutPath", parameterToString(outPath, ""))
-	if localVarTempParam := storage; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
-	}
 	if scaleX != nil {
 		localVarQueryParams.Add("ScaleX", parameterToString(*scaleX, ""))
 	}
@@ -19551,6 +20199,9 @@ func (a *SlidesApiService) SaveShapeOnline(document []byte, slideIndex int32, sh
 	}
 	if localVarTempParam := bounds; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Bounds", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := fontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
@@ -19577,8 +20228,10 @@ func (a *SlidesApiService) SaveShapeOnline(document []byte, slideIndex int32, sh
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19593,7 +20246,7 @@ func (a *SlidesApiService) SaveShapeOnline(document []byte, slideIndex int32, sh
 }
 
 func (a *SlidesApiService) PutExportShape(request PutExportShapeRequest) (*http.Response, error) {
-	return a.SaveShapeOnline(request.Document, request.SlideIndex, request.ShapeIndex, request.Format, request.OutPath, request.Password, request.Storage, request.ScaleX, request.ScaleY, request.Bounds, request.FontsFolder)
+	return a.SaveShapeOnline(request.Document, request.SlideIndex, request.ShapeIndex, request.Format, request.OutPath, request.ScaleX, request.ScaleY, request.Bounds, request.Password, request.Storage, request.FontsFolder)
 }
 
 /* Request for SlidesApiService.PutExportShape
@@ -19604,11 +20257,11 @@ type PutExportShapeRequest struct {
     ShapeIndex int32
     Format string
     OutPath string
-    Password string
-    Storage string
     ScaleX *float64
     ScaleY *float64
     Bounds string
+    Password string
+    Storage string
     FontsFolder string
 }
 
@@ -19657,7 +20310,6 @@ func (a *SlidesApiService) SaveSlideOnline(document []byte, slideIndex int32, fo
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if width != nil {
 		if err := typeCheckParameter(*width, "int32", "width"); err != nil {
@@ -19714,8 +20366,10 @@ func (a *SlidesApiService) SaveSlideOnline(document []byte, slideIndex int32, fo
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19787,7 +20441,6 @@ func (a *SlidesApiService) UpdateLayoutSlide(name string, slideIndex int32, slid
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -19827,9 +20480,8 @@ func (a *SlidesApiService) UpdateLayoutSlide(name string, slideIndex int32, slid
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &slideDto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -19910,7 +20562,6 @@ func (a *SlidesApiService) SetNotesSlideHeaderFooter(name string, slideIndex int
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -19950,9 +20601,8 @@ func (a *SlidesApiService) SetNotesSlideHeaderFooter(name string, slideIndex int
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20054,7 +20704,6 @@ func (a *SlidesApiService) SaveNotesSlideShape(name string, slideIndex int32, sh
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if scaleX != nil {
 		if err := typeCheckParameter(*scaleX, "float64", "scaleX"); err != nil {
@@ -20123,9 +20772,8 @@ func (a *SlidesApiService) SaveNotesSlideShape(name string, slideIndex int32, sh
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &options
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20194,7 +20842,6 @@ func (a *SlidesApiService) OrderedMerge(name string, request IOrderedMergeReques
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -20234,9 +20881,8 @@ func (a *SlidesApiService) OrderedMerge(name string, request IOrderedMergeReques
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &request
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20314,7 +20960,6 @@ func (a *SlidesApiService) SplitAndSaveOnline(document []byte, format string, de
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(destFolder, "string", "destFolder"); err != nil {
 		return successPayload, nil, err
@@ -20392,8 +21037,10 @@ func (a *SlidesApiService) SplitAndSaveOnline(document []byte, format string, de
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20478,7 +21125,6 @@ func (a *SlidesApiService) UpdateSection(name string, sectionIndex int32, sectio
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -20519,7 +21165,7 @@ func (a *SlidesApiService) UpdateSection(name string, sectionIndex int32, sectio
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20593,7 +21239,6 @@ func (a *SlidesApiService) SetSections(name string, sections ISections, password
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -20633,9 +21278,8 @@ func (a *SlidesApiService) SetSections(name string, sections ISections, password
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &sections
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20736,7 +21380,6 @@ func (a *SlidesApiService) UpdatePortion(name string, slideIndex int32, shapeInd
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -20776,9 +21419,8 @@ func (a *SlidesApiService) UpdatePortion(name string, slideIndex int32, shapeInd
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -20876,7 +21518,6 @@ func (a *SlidesApiService) UpdateParagraph(name string, slideIndex int32, shapeI
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -20916,9 +21557,8 @@ func (a *SlidesApiService) UpdateParagraph(name string, slideIndex int32, shapeI
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21032,7 +21672,6 @@ func (a *SlidesApiService) UpdateSubshapePortion(name string, slideIndex int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -21072,9 +21711,8 @@ func (a *SlidesApiService) UpdateSubshapePortion(name string, slideIndex int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21183,7 +21821,6 @@ func (a *SlidesApiService) UpdateSubshapeParagraph(name string, slideIndex int32
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -21223,9 +21860,8 @@ func (a *SlidesApiService) UpdateSubshapeParagraph(name string, slideIndex int32
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21330,7 +21966,6 @@ func (a *SlidesApiService) SaveShape(name string, slideIndex int32, shapeIndex i
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if scaleX != nil {
 		if err := typeCheckParameter(*scaleX, "float64", "scaleX"); err != nil {
@@ -21399,9 +22034,8 @@ func (a *SlidesApiService) SaveShape(name string, slideIndex int32, shapeIndex i
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &options
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21477,7 +22111,6 @@ func (a *SlidesApiService) SetAnimation(name string, slideIndex int32, animation
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -21517,9 +22150,8 @@ func (a *SlidesApiService) SetAnimation(name string, slideIndex int32, animation
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &animation
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21607,7 +22239,6 @@ func (a *SlidesApiService) UpdateAnimationEffect(name string, slideIndex int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -21647,9 +22278,8 @@ func (a *SlidesApiService) UpdateAnimationEffect(name string, slideIndex int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &effect
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21745,7 +22375,6 @@ func (a *SlidesApiService) UpdateAnimationInteractiveSequenceEffect(name string,
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -21785,9 +22414,8 @@ func (a *SlidesApiService) UpdateAnimationInteractiveSequenceEffect(name string,
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &effect
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -21870,7 +22498,6 @@ func (a *SlidesApiService) SetSlideHeaderFooter(name string, slideIndex int32, d
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -21910,9 +22537,8 @@ func (a *SlidesApiService) SetSlideHeaderFooter(name string, slideIndex int32, d
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -22006,7 +22632,6 @@ func (a *SlidesApiService) SaveSlide(name string, slideIndex int32, format strin
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if width != nil {
 		if err := typeCheckParameter(*width, "int32", "width"); err != nil {
@@ -22069,9 +22694,8 @@ func (a *SlidesApiService) SaveSlide(name string, slideIndex int32, format strin
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &options
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -22152,7 +22776,6 @@ func (a *SlidesApiService) UpdateShape(name string, slideIndex int32, shapeIndex
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -22192,9 +22815,8 @@ func (a *SlidesApiService) UpdateShape(name string, slideIndex int32, shapeIndex
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -22293,7 +22915,6 @@ func (a *SlidesApiService) UpdateSubshape(name string, slideIndex int32, path st
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -22333,9 +22954,8 @@ func (a *SlidesApiService) UpdateSubshape(name string, slideIndex int32, path st
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -22414,7 +23034,6 @@ func (a *SlidesApiService) ConvertAndSave(document []byte, format string, outPat
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return nil, err
@@ -22455,8 +23074,10 @@ func (a *SlidesApiService) ConvertAndSave(document []byte, format string, outPat
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarPostBody = &document
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -22483,117 +23104,6 @@ type PutSlidesConvertRequest struct {
     Password string
     Storage string
     FontsFolder string
-}
-
-/* SlidesApiService Update presentation document from html.
- @param name Document name.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "html" (string) HTML data.
-     @param "password" (string) Document password.
-     @param "folder" (string) Document folder.
-     @param "storage" (string) Document storage.
- @return Document*/
-func (a *SlidesApiService) PutSlidesDocumentFromHtml(name string, html string, password string, folder string, storage string) (IDocument, *http.Response, error) {
-	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFiles [][]byte
-	 	successPayload IDocument
-	)
-
-	if len(name) == 0 {
-		return successPayload, nil, reportError("Missing required parameter name")
-	}
-	// create path and map variables
-	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/fromHtml"
-	namePathStringValue := fmt.Sprintf("%v", name)
-	if len(namePathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
-	}
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if err := typeCheckParameter(html, "string", "html"); err != nil {
-		return successPayload, nil, err
-	}
-	if err := typeCheckParameter(password, "string", "password"); err != nil {
-		return successPayload, nil, err
-	}
-	if err := typeCheckParameter(folder, "string", "folder"); err != nil {
-		return successPayload, nil, err
-	}
-	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
-		return successPayload, nil, err
-	}
-
-	if localVarTempParam := folder; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
-	}
-	if localVarTempParam := storage; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
-	}
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json" }
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{
-		"application/json",
-		}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	if localVarTempParam := password; len(localVarTempParam) > 0 {
-		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
-	}
-	// body params
-	localVarPostBody = html
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	responseBody := bytes.NewReader(responseBytes)
-	if localVarHttpResponse.StatusCode >= 300 {
-		var errorMessage ErrorMessage
-		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
-			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
-		}
-		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
-	}
-
-	successPayloadObject, err := createObjectForType("Document", responseBytes)
-	if err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
-		if sp, ok := successPayloadObject.(IDocument); ok {
-			return sp, localVarHttpResponse, err
-		}
-		return successPayload, localVarHttpResponse, err
-	}
-	if successPayload, _ = successPayloadObject.(IDocument); true {
-	}
-
-	return successPayload, localVarHttpResponse, err
-}
-
-/* Request for SlidesApiService.PutSlidesDocumentFromHtml
-*/
-type PutSlidesDocumentFromHtmlRequest struct {
-    Name string
-    Html string
-    Password string
-    Folder string
-    Storage string
 }
 
 /* SlidesApiService Set footers for all slides in a presentation.
@@ -22629,7 +23139,6 @@ func (a *SlidesApiService) SetPresentationHeaderFooter(name string, dto IHeaderF
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -22669,9 +23178,8 @@ func (a *SlidesApiService) SetPresentationHeaderFooter(name string, dto IHeaderF
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -22734,7 +23242,6 @@ func (a *SlidesApiService) MergeAndSaveOnline(outPath string, files [][]byte, re
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return nil, err
@@ -22770,9 +23277,8 @@ func (a *SlidesApiService) MergeAndSaveOnline(outPath string, files [][]byte, re
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
 	localVarFiles = files
-	// body params
 	localVarPostBody = &request
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -22800,15 +23306,15 @@ type PutSlidesMergeRequest struct {
     Storage string
 }
 
-/* SlidesApiService Update presentation protection properties.
+/* SlidesApiService Updates presentation protection properties.
  @param name Document name.
- @param dto The view properties data.
+ @param dto Protection properties.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return ProtectionProperties*/
-func (a *SlidesApiService) SetProtectionProperties(name string, dto IProtectionProperties, password string, folder string, storage string) (IProtectionProperties, *http.Response, error) {
+func (a *SlidesApiService) SetProtection(name string, dto IProtectionProperties, password string, folder string, storage string) (IProtectionProperties, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -22823,7 +23329,7 @@ func (a *SlidesApiService) SetProtectionProperties(name string, dto IProtectionP
 		return successPayload, nil, reportError("Missing required parameter dto")
 	}
 	// create path and map variables
-	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/protectionProperties"
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/protection"
 	namePathStringValue := fmt.Sprintf("%v", name)
 	if len(namePathStringValue) > 0 {
 		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
@@ -22833,7 +23339,6 @@ func (a *SlidesApiService) SetProtectionProperties(name string, dto IProtectionP
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -22873,9 +23378,8 @@ func (a *SlidesApiService) SetProtectionProperties(name string, dto IProtectionP
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -22902,7 +23406,7 @@ func (a *SlidesApiService) SetProtectionProperties(name string, dto IProtectionP
 }
 
 func (a *SlidesApiService) PutSlidesProtectionProperties(request PutSlidesProtectionPropertiesRequest) (IProtectionProperties, *http.Response, error) {
-	return a.SetProtectionProperties(request.Name, request.Dto, request.Password, request.Folder, request.Storage)
+	return a.SetProtection(request.Name, request.Dto, request.Password, request.Folder, request.Storage)
 }
 
 /* Request for SlidesApiService.PutSlidesProtectionProperties
@@ -22913,6 +23417,93 @@ type PutSlidesProtectionPropertiesRequest struct {
     Password string
     Folder string
     Storage string
+}
+
+/* SlidesApiService Sets presentation protection options. 
+ @param document Document data.
+ @param dto Protection properties.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "password" (string) Document password.
+ @return *os.File*/
+func (a *SlidesApiService) SetProtectionOnline(document []byte, dto IProtectionProperties, password string) (*os.File, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload *os.File
+	)
+
+	if len(document) == 0 {
+		return successPayload, nil, reportError("Missing required parameter document")
+	}
+	if dto == nil {
+		return successPayload, nil, reportError("Missing required parameter dto")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/protection"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"multipart/form-data",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarPostBody = &dto
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	defer successPayload.Close()
+        successPayload, err = processFileResponse(responseBody)
+        if err != nil {
+		return successPayload, localVarHttpResponse, err
+        }
+
+	return successPayload, localVarHttpResponse, err
+}
+
+func (a *SlidesApiService) PutSlidesProtectionPropertiesOnline(request PutSlidesProtectionPropertiesOnlineRequest) (*os.File, *http.Response, error) {
+	return a.SetProtectionOnline(request.Document, request.Dto, request.Password)
+}
+
+/* Request for SlidesApiService.PutSlidesProtectionPropertiesOnline
+*/
+type PutSlidesProtectionPropertiesOnlineRequest struct {
+    Document []byte
+    Dto IProtectionProperties
+    Password string
 }
 
 /* SlidesApiService Save a presentation to a specified format.
@@ -22959,7 +23550,6 @@ func (a *SlidesApiService) SavePresentation(name string, format string, outPath 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return nil, err
@@ -23006,9 +23596,8 @@ func (a *SlidesApiService) SavePresentation(name string, format string, outPath 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &options
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -23082,7 +23671,6 @@ func (a *SlidesApiService) SetDocumentProperty(name string, propertyName string,
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -23122,9 +23710,8 @@ func (a *SlidesApiService) SetDocumentProperty(name string, propertyName string,
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &property
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -23205,7 +23792,6 @@ func (a *SlidesApiService) UpdateSlide(name string, slideIndex int32, slideDto I
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -23245,9 +23831,8 @@ func (a *SlidesApiService) UpdateSlide(name string, slideIndex int32, slideDto I
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &slideDto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -23328,7 +23913,6 @@ func (a *SlidesApiService) SetBackground(name string, slideIndex int32, backgrou
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -23368,9 +23952,8 @@ func (a *SlidesApiService) SetBackground(name string, slideIndex int32, backgrou
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &background
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -23451,7 +24034,6 @@ func (a *SlidesApiService) SetBackgroundColor(name string, slideIndex int32, col
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -23492,7 +24074,7 @@ func (a *SlidesApiService) SetBackgroundColor(name string, slideIndex int32, col
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -23566,7 +24148,6 @@ func (a *SlidesApiService) SetSlideProperties(name string, dto ISlideProperties,
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -23606,9 +24187,8 @@ func (a *SlidesApiService) SetSlideProperties(name string, dto ISlideProperties,
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -23648,146 +24228,6 @@ type PutSlidesSlidePropertiesRequest struct {
     Storage string
 }
 
-/* SlidesApiService Set slide size for a presentation.
- @param name Document name.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "width" (int32) Slide width.
-     @param "height" (int32) Slide height.
-     @param "sizeType" (string) Standard slide size type.
-     @param "scaleType" (string) Standard slide scale type.
-     @param "password" (string) Document password.
-     @param "folder" (string) Document folder.
-     @param "storage" (string) Document storage.
- @return Document*/
-func (a *SlidesApiService) PutSlidesSlideSize(name string, width *int32, height *int32, sizeType string, scaleType string, password string, folder string, storage string) (IDocument, *http.Response, error) {
-	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFiles [][]byte
-	 	successPayload IDocument
-	)
-
-	if len(name) == 0 {
-		return successPayload, nil, reportError("Missing required parameter name")
-	}
-	// create path and map variables
-	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slideSize"
-	namePathStringValue := fmt.Sprintf("%v", name)
-	if len(namePathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
-	}
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if width != nil {
-		if err := typeCheckParameter(*width, "int32", "width"); err != nil {
-			return successPayload, nil, err
-		}
-	}
-	if height != nil {
-		if err := typeCheckParameter(*height, "int32", "height"); err != nil {
-			return successPayload, nil, err
-		}
-	}
-	if err := typeCheckParameter(sizeType, "string", "sizeType"); err != nil {
-		return successPayload, nil, err
-	}
-	if err := typeCheckParameter(scaleType, "string", "scaleType"); err != nil {
-		return successPayload, nil, err
-	}
-	if err := typeCheckParameter(password, "string", "password"); err != nil {
-		return successPayload, nil, err
-	}
-	if err := typeCheckParameter(folder, "string", "folder"); err != nil {
-		return successPayload, nil, err
-	}
-	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
-		return successPayload, nil, err
-	}
-
-	if width != nil {
-		localVarQueryParams.Add("Width", parameterToString(*width, ""))
-	}
-	if height != nil {
-		localVarQueryParams.Add("Height", parameterToString(*height, ""))
-	}
-	if localVarTempParam := sizeType; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("SizeType", parameterToString(localVarTempParam, ""))
-	}
-	if localVarTempParam := scaleType; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("ScaleType", parameterToString(localVarTempParam, ""))
-	}
-	if localVarTempParam := folder; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
-	}
-	if localVarTempParam := storage; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
-	}
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json" }
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{
-		"application/json",
-		}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	if localVarTempParam := password; len(localVarTempParam) > 0 {
-		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
-	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
-	responseBody := bytes.NewReader(responseBytes)
-	if localVarHttpResponse.StatusCode >= 300 {
-		var errorMessage ErrorMessage
-		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
-			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
-		}
-		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
-	}
-
-	successPayloadObject, err := createObjectForType("Document", responseBytes)
-	if err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
-		if sp, ok := successPayloadObject.(IDocument); ok {
-			return sp, localVarHttpResponse, err
-		}
-		return successPayload, localVarHttpResponse, err
-	}
-	if successPayload, _ = successPayloadObject.(IDocument); true {
-	}
-
-	return successPayload, localVarHttpResponse, err
-}
-
-/* Request for SlidesApiService.PutSlidesSlideSize
-*/
-type PutSlidesSlideSizeRequest struct {
-    Name string
-    Width *int32
-    Height *int32
-    SizeType string
-    ScaleType string
-    Password string
-    Folder string
-    Storage string
-}
-
 /* SlidesApiService Update presentation document properties.
  @param name Document name.
  @param dto The view properties data.
@@ -23821,7 +24261,6 @@ func (a *SlidesApiService) SetViewProperties(name string, dto IViewProperties, p
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -23861,9 +24300,8 @@ func (a *SlidesApiService) SetViewProperties(name string, dto IViewProperties, p
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -23974,7 +24412,6 @@ func (a *SlidesApiService) SaveSubshape(name string, slideIndex int32, path stri
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if scaleX != nil {
 		if err := typeCheckParameter(*scaleX, "float64", "scaleX"); err != nil {
@@ -24043,9 +24480,8 @@ func (a *SlidesApiService) SaveSubshape(name string, slideIndex int32, path stri
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &options
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -24122,7 +24558,6 @@ func (a *SlidesApiService) UpdateNotesSlide(name string, slideIndex int32, dto I
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -24162,9 +24597,8 @@ func (a *SlidesApiService) UpdateNotesSlide(name string, slideIndex int32, dto I
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -24252,7 +24686,6 @@ func (a *SlidesApiService) UpdateNotesSlideShape(name string, slideIndex int32, 
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -24292,9 +24725,8 @@ func (a *SlidesApiService) UpdateNotesSlideShape(name string, slideIndex int32, 
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -24390,7 +24822,6 @@ func (a *SlidesApiService) UpdateNotesSlideParagraph(name string, slideIndex int
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -24430,9 +24861,8 @@ func (a *SlidesApiService) UpdateNotesSlideParagraph(name string, slideIndex int
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -24536,7 +24966,6 @@ func (a *SlidesApiService) UpdateNotesSlidePortion(name string, slideIndex int32
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
@@ -24576,9 +25005,8 @@ func (a *SlidesApiService) UpdateNotesSlidePortion(name string, slideIndex int32
 	if localVarTempParam := password; len(localVarTempParam) > 0 {
 		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
 	}
-	// body params
 	localVarPostBody = &dto
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -24647,7 +25075,6 @@ func (a *SlidesApiService) StorageExists(storageName string) (IStorageExist, *ht
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 
 	// to determine the Content-Type header
@@ -24669,7 +25096,7 @@ func (a *SlidesApiService) StorageExists(storageName string) (IStorageExist, *ht
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage
@@ -24732,7 +25159,6 @@ func (a *SlidesApiService) UploadFile(path string, file []byte, storageName stri
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(storageName, "string", "storageName"); err != nil {
 		return successPayload, nil, err
@@ -24760,8 +25186,10 @@ func (a *SlidesApiService) UploadFile(path string, file []byte, storageName stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarPostBody = &file
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFiles)
+	if len(file) > 0 {
+		localVarFiles = append(localVarFiles, file)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse.StatusCode >= 300 {
 		var errorMessage ErrorMessage

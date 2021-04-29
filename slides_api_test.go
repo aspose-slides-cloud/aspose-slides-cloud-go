@@ -7611,6 +7611,222 @@ func TestDeleteSlidesDocumentPropertyInvalidStorage(t *testing.T) {
     assertError(t, "DeleteSlidesDocumentProperty", "storage", teststorage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Resets all presentation protection settings. 
+   Test for SlidesApi.DeleteSlidesProtectionProperties method
+*/
+func TestDeleteSlidesProtectionProperties(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSlidesProtectionProperties", "name", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSlidesProtectionProperties", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSlidesProtectionProperties", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSlidesProtectionProperties", "storage", "string").(string)
+    e := initializeTest("DeleteSlidesProtectionProperties", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteProtection(testname, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Resets all presentation protection settings. 
+   Test for SlidesApi.DeleteSlidesProtectionProperties method with invalid name
+*/
+func TestDeleteSlidesProtectionPropertiesInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSlidesProtectionProperties", "name", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSlidesProtectionProperties", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSlidesProtectionProperties", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSlidesProtectionProperties", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "DeleteSlidesProtectionProperties", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlidesProtectionProperties", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteProtection(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlidesProtectionProperties", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Resets all presentation protection settings. 
+   Test for SlidesApi.DeleteSlidesProtectionProperties method with invalid password
+*/
+func TestDeleteSlidesProtectionPropertiesInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSlidesProtectionProperties", "name", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSlidesProtectionProperties", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSlidesProtectionProperties", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSlidesProtectionProperties", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteSlidesProtectionProperties", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlidesProtectionProperties", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteProtection(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlidesProtectionProperties", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Resets all presentation protection settings. 
+   Test for SlidesApi.DeleteSlidesProtectionProperties method with invalid folder
+*/
+func TestDeleteSlidesProtectionPropertiesInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSlidesProtectionProperties", "name", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSlidesProtectionProperties", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSlidesProtectionProperties", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSlidesProtectionProperties", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "DeleteSlidesProtectionProperties", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlidesProtectionProperties", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteProtection(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlidesProtectionProperties", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Resets all presentation protection settings. 
+   Test for SlidesApi.DeleteSlidesProtectionProperties method with invalid storage
+*/
+func TestDeleteSlidesProtectionPropertiesInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSlidesProtectionProperties", "name", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSlidesProtectionProperties", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSlidesProtectionProperties", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSlidesProtectionProperties", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "DeleteSlidesProtectionProperties", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlidesProtectionProperties", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteProtection(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlidesProtectionProperties", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Resets all presentation protection settings. 
+   Test for SlidesApi.DeleteSlidesProtectionPropertiesOnline method
+*/
+func TestDeleteSlidesProtectionPropertiesOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("DeleteSlidesProtectionPropertiesOnline", "document", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("DeleteSlidesProtectionPropertiesOnline", "password", "string").(string)
+    e := initializeTest("DeleteSlidesProtectionPropertiesOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    r, _, e := c.SlidesApi.DeleteProtectionOnline(testdocument, testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Resets all presentation protection settings. 
+   Test for SlidesApi.DeleteSlidesProtectionPropertiesOnline method with invalid document
+*/
+func TestDeleteSlidesProtectionPropertiesOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("DeleteSlidesProtectionPropertiesOnline", "document", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("DeleteSlidesProtectionPropertiesOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "DeleteSlidesProtectionPropertiesOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("DeleteSlidesProtectionPropertiesOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteProtectionOnline(testdocument, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlidesProtectionPropertiesOnline", "document", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Resets all presentation protection settings. 
+   Test for SlidesApi.DeleteSlidesProtectionPropertiesOnline method with invalid password
+*/
+func TestDeleteSlidesProtectionPropertiesOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("DeleteSlidesProtectionPropertiesOnline", "document", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("DeleteSlidesProtectionPropertiesOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteSlidesProtectionPropertiesOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSlidesProtectionPropertiesOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteProtectionOnline(testdocument, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSlidesProtectionPropertiesOnline", "password", testpassword, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Remove background from a slide.
    Test for SlidesApi.DeleteSlidesSlideBackground method
 */
@@ -9062,6 +9278,183 @@ func TestDeleteSubshapePortionsInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteSubshapePortions", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
+   Test for SlidesApi.DeleteWatermark method
+*/
+func TestDeleteWatermark(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteWatermark", "name", "string").(string)
+    testshapeName, _ := createTestParamValue("DeleteWatermark", "shapeName", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteWatermark", "storage", "string").(string)
+    e := initializeTest("DeleteWatermark", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, e = c.SlidesApi.DeleteWatermark(testname, testshapeName, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
+   Test for SlidesApi.DeleteWatermark method with invalid name
+*/
+func TestDeleteWatermarkInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteWatermark", "name", "string").(string)
+    testshapeName, _ := createTestParamValue("DeleteWatermark", "shapeName", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "DeleteWatermark", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteWatermark", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.DeleteWatermark(testname, testshapeName, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteWatermark", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
+   Test for SlidesApi.DeleteWatermark method with invalid shapeName
+*/
+func TestDeleteWatermarkInvalidShapeName(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteWatermark", "name", "string").(string)
+    testshapeName, _ := createTestParamValue("DeleteWatermark", "shapeName", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeName, "DeleteWatermark", "shapeName", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testshapeName = nullValue
+    } else {
+        testshapeName, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteWatermark", "shapeName", testshapeName)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.DeleteWatermark(testname, testshapeName, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteWatermark", "shapeName", testshapeName, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
+   Test for SlidesApi.DeleteWatermark method with invalid password
+*/
+func TestDeleteWatermarkInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteWatermark", "name", "string").(string)
+    testshapeName, _ := createTestParamValue("DeleteWatermark", "shapeName", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteWatermark", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteWatermark", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.DeleteWatermark(testname, testshapeName, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteWatermark", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
+   Test for SlidesApi.DeleteWatermark method with invalid folder
+*/
+func TestDeleteWatermarkInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteWatermark", "name", "string").(string)
+    testshapeName, _ := createTestParamValue("DeleteWatermark", "shapeName", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "DeleteWatermark", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteWatermark", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.DeleteWatermark(testname, testshapeName, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteWatermark", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
+   Test for SlidesApi.DeleteWatermark method with invalid storage
+*/
+func TestDeleteWatermarkInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteWatermark", "name", "string").(string)
+    testshapeName, _ := createTestParamValue("DeleteWatermark", "shapeName", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "DeleteWatermark", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteWatermark", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.DeleteWatermark(testname, testshapeName, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteWatermark", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Download file
@@ -25431,8 +25824,6 @@ func TestPostExportShape(t *testing.T) {
     testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
     testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
-    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -25446,6 +25837,8 @@ func TestPostExportShape(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
     e := initializeTest("PostExportShape", "", "")
     if e != nil {
@@ -25453,7 +25846,7 @@ func TestPostExportShape(t *testing.T) {
        return
     }
     c := getTestApiClient()
-    r, _, e := c.SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    r, _, e := c.SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -25469,8 +25862,6 @@ func TestPostExportShapeInvalidDocument(t *testing.T) {
     testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
     testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
-    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -25484,6 +25875,8 @@ func TestPostExportShapeInvalidDocument(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testdocument, "PostExportShape", "document", "[]byte")
@@ -25498,7 +25891,7 @@ func TestPostExportShapeInvalidDocument(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -25514,8 +25907,6 @@ func TestPostExportShapeInvalidSlideIndex(t *testing.T) {
     testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
     testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
-    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -25529,6 +25920,8 @@ func TestPostExportShapeInvalidSlideIndex(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testslideIndex, "PostExportShape", "slideIndex", "int32")
@@ -25544,7 +25937,7 @@ func TestPostExportShapeInvalidSlideIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -25560,8 +25953,6 @@ func TestPostExportShapeInvalidShapeIndex(t *testing.T) {
     testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
     testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
-    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -25575,6 +25966,8 @@ func TestPostExportShapeInvalidShapeIndex(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testshapeIndex, "PostExportShape", "shapeIndex", "int32")
@@ -25590,7 +25983,7 @@ func TestPostExportShapeInvalidShapeIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -25606,8 +25999,6 @@ func TestPostExportShapeInvalidFormat(t *testing.T) {
     testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
     testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
-    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -25621,6 +26012,8 @@ func TestPostExportShapeInvalidFormat(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testformat, "PostExportShape", "format", "string")
@@ -25636,104 +26029,12 @@ func TestPostExportShapeInvalidFormat(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PostExportShape", "format", testformat, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Render shape to specified picture format.
-   Test for SlidesApi.PostExportShape method with invalid password
-*/
-func TestPostExportShapeInvalidPassword(t *testing.T) {
-    testdocument, _ := createTestParamValue("PostExportShape", "document", "[]byte").([]byte)
-    testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
-    testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
-    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
-    var testscaleX *float64
-    testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
-    if (testscaleXValue != nil) {
-        testscaleX = new(float64)
-        *testscaleX, _ = testscaleXValue.(float64)
-    }
-    var testscaleY *float64
-    testscaleYValue := createTestParamValue("PostExportShape", "scaleY", "float64")
-    if (testscaleYValue != nil) {
-        testscaleY = new(float64)
-        *testscaleY, _ = testscaleYValue.(float64)
-    }
-    testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
-    testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testpassword, "PostExportShape", "password", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testpassword = nullValue
-    } else {
-        testpassword, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PostExportShape", "password", testpassword)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostExportShape", "password", testpassword, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Render shape to specified picture format.
-   Test for SlidesApi.PostExportShape method with invalid storage
-*/
-func TestPostExportShapeInvalidStorage(t *testing.T) {
-    testdocument, _ := createTestParamValue("PostExportShape", "document", "[]byte").([]byte)
-    testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
-    testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
-    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
-    var testscaleX *float64
-    testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
-    if (testscaleXValue != nil) {
-        testscaleX = new(float64)
-        *testscaleX, _ = testscaleXValue.(float64)
-    }
-    var testscaleY *float64
-    testscaleYValue := createTestParamValue("PostExportShape", "scaleY", "float64")
-    if (testscaleYValue != nil) {
-        testscaleY = new(float64)
-        *testscaleY, _ = testscaleYValue.(float64)
-    }
-    testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
-    testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(teststorage, "PostExportShape", "storage", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        teststorage = nullValue
-    } else {
-        teststorage, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PostExportShape", "storage", teststorage)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PostExportShape", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.
@@ -25744,8 +26045,6 @@ func TestPostExportShapeInvalidScaleX(t *testing.T) {
     testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
     testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
-    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -25759,6 +26058,8 @@ func TestPostExportShapeInvalidScaleX(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
     testscaleX = new(float64)
 
@@ -25775,7 +26076,7 @@ func TestPostExportShapeInvalidScaleX(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -25791,8 +26092,6 @@ func TestPostExportShapeInvalidScaleY(t *testing.T) {
     testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
     testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
-    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -25806,6 +26105,8 @@ func TestPostExportShapeInvalidScaleY(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
     testscaleY = new(float64)
 
@@ -25822,7 +26123,7 @@ func TestPostExportShapeInvalidScaleY(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -25838,8 +26139,6 @@ func TestPostExportShapeInvalidBounds(t *testing.T) {
     testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
     testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
-    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -25853,6 +26152,8 @@ func TestPostExportShapeInvalidBounds(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testbounds, "PostExportShape", "bounds", "string")
@@ -25868,7 +26169,7 @@ func TestPostExportShapeInvalidBounds(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -25877,15 +26178,13 @@ func TestPostExportShapeInvalidBounds(t *testing.T) {
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.
-   Test for SlidesApi.PostExportShape method with invalid fontsFolder
+   Test for SlidesApi.PostExportShape method with invalid password
 */
-func TestPostExportShapeInvalidFontsFolder(t *testing.T) {
+func TestPostExportShapeInvalidPassword(t *testing.T) {
     testdocument, _ := createTestParamValue("PostExportShape", "document", "[]byte").([]byte)
     testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
     testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
-    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -25899,6 +26198,100 @@ func TestPostExportShapeInvalidFontsFolder(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "PostExportShape", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostExportShape", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostExportShape", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PostExportShape method with invalid storage
+*/
+func TestPostExportShapeInvalidStorage(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostExportShape", "document", "[]byte").([]byte)
+    testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
+    testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
+    var testscaleX *float64
+    testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
+    if (testscaleXValue != nil) {
+        testscaleX = new(float64)
+        *testscaleX, _ = testscaleXValue.(float64)
+    }
+    var testscaleY *float64
+    testscaleYValue := createTestParamValue("PostExportShape", "scaleY", "float64")
+    if (testscaleYValue != nil) {
+        testscaleY = new(float64)
+        *testscaleY, _ = testscaleYValue.(float64)
+    }
+    testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "PostExportShape", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostExportShape", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostExportShape", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PostExportShape method with invalid fontsFolder
+*/
+func TestPostExportShapeInvalidFontsFolder(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostExportShape", "document", "[]byte").([]byte)
+    testslideIndex, _ := createTestParamValue("PostExportShape", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("PostExportShape", "shapeIndex", "int32").(int32)
+    testformat, _ := createTestParamValue("PostExportShape", "format", "string").(string)
+    var testscaleX *float64
+    testscaleXValue := createTestParamValue("PostExportShape", "scaleX", "float64")
+    if (testscaleXValue != nil) {
+        testscaleX = new(float64)
+        *testscaleX, _ = testscaleXValue.(float64)
+    }
+    var testscaleY *float64
+    testscaleYValue := createTestParamValue("PostExportShape", "scaleY", "float64")
+    if (testscaleYValue != nil) {
+        testscaleY = new(float64)
+        *testscaleY, _ = testscaleYValue.(float64)
+    }
+    testbounds, _ := createTestParamValue("PostExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PostExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PostExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PostExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testfontsFolder, "PostExportShape", "fontsFolder", "string")
@@ -25914,7 +26307,7 @@ func TestPostExportShapeInvalidFontsFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -26858,6 +27251,358 @@ func TestPostGetNotesSlideWithFormatInvalidFontsFolder(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PostGetNotesSlideWithFormat", "fontsFolder", testfontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermark method
+*/
+func TestPostImageWatermark(t *testing.T) {
+    testname, _ := createTestParamValue("PostImageWatermark", "name", "string").(string)
+    testimage, _ := createTestParamValue("PostImageWatermark", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermark", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostImageWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostImageWatermark", "storage", "string").(string)
+    e := initializeTest("PostImageWatermark", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, e = c.SlidesApi.CreateImageWatermark(testname, testimage, testpictureFrame, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermark method with invalid name
+*/
+func TestPostImageWatermarkInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("PostImageWatermark", "name", "string").(string)
+    testimage, _ := createTestParamValue("PostImageWatermark", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermark", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostImageWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostImageWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "PostImageWatermark", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostImageWatermark", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateImageWatermark(testname, testimage, testpictureFrame, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostImageWatermark", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermark method with invalid image
+*/
+func TestPostImageWatermarkInvalidImage(t *testing.T) {
+    testname, _ := createTestParamValue("PostImageWatermark", "name", "string").(string)
+    testimage, _ := createTestParamValue("PostImageWatermark", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermark", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostImageWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostImageWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testimage, "PostImageWatermark", "image", "[]byte")
+    if (invalidValue == nil) {
+        testimage = nil
+    } else {
+        testimage, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostImageWatermark", "image", testimage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateImageWatermark(testname, testimage, testpictureFrame, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostImageWatermark", "image", testimage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermark method with invalid pictureFrame
+*/
+func TestPostImageWatermarkInvalidPictureFrame(t *testing.T) {
+    testname, _ := createTestParamValue("PostImageWatermark", "name", "string").(string)
+    testimage, _ := createTestParamValue("PostImageWatermark", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermark", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostImageWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostImageWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpictureFrame, "PostImageWatermark", "pictureFrame", "PictureFrame")
+    if (invalidValue == nil) {
+        testpictureFrame = nil
+    } else {
+        testpictureFrame, _ = invalidValue.(IPictureFrame)
+    }
+
+    e := initializeTest("PostImageWatermark", "pictureFrame", testpictureFrame)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateImageWatermark(testname, testimage, testpictureFrame, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostImageWatermark", "pictureFrame", testpictureFrame, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermark method with invalid password
+*/
+func TestPostImageWatermarkInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("PostImageWatermark", "name", "string").(string)
+    testimage, _ := createTestParamValue("PostImageWatermark", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermark", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostImageWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostImageWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "PostImageWatermark", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostImageWatermark", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateImageWatermark(testname, testimage, testpictureFrame, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostImageWatermark", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermark method with invalid folder
+*/
+func TestPostImageWatermarkInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("PostImageWatermark", "name", "string").(string)
+    testimage, _ := createTestParamValue("PostImageWatermark", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermark", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostImageWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostImageWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "PostImageWatermark", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostImageWatermark", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateImageWatermark(testname, testimage, testpictureFrame, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostImageWatermark", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermark method with invalid storage
+*/
+func TestPostImageWatermarkInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("PostImageWatermark", "name", "string").(string)
+    testimage, _ := createTestParamValue("PostImageWatermark", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermark", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostImageWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostImageWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "PostImageWatermark", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostImageWatermark", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateImageWatermark(testname, testimage, testpictureFrame, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostImageWatermark", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermarkOnline method
+*/
+func TestPostImageWatermarkOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostImageWatermarkOnline", "document", "[]byte").([]byte)
+    testimage, _ := createTestParamValue("PostImageWatermarkOnline", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermarkOnline", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermarkOnline", "password", "string").(string)
+    e := initializeTest("PostImageWatermarkOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    r, _, e := c.SlidesApi.CreateImageWatermarkOnline(testdocument, testimage, testpictureFrame, testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermarkOnline method with invalid document
+*/
+func TestPostImageWatermarkOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostImageWatermarkOnline", "document", "[]byte").([]byte)
+    testimage, _ := createTestParamValue("PostImageWatermarkOnline", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermarkOnline", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermarkOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "PostImageWatermarkOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostImageWatermarkOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateImageWatermarkOnline(testdocument, testimage, testpictureFrame, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostImageWatermarkOnline", "document", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermarkOnline method with invalid image
+*/
+func TestPostImageWatermarkOnlineInvalidImage(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostImageWatermarkOnline", "document", "[]byte").([]byte)
+    testimage, _ := createTestParamValue("PostImageWatermarkOnline", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermarkOnline", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermarkOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testimage, "PostImageWatermarkOnline", "image", "[]byte")
+    if (invalidValue == nil) {
+        testimage = nil
+    } else {
+        testimage, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostImageWatermarkOnline", "image", testimage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateImageWatermarkOnline(testdocument, testimage, testpictureFrame, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostImageWatermarkOnline", "image", testimage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermarkOnline method with invalid pictureFrame
+*/
+func TestPostImageWatermarkOnlineInvalidPictureFrame(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostImageWatermarkOnline", "document", "[]byte").([]byte)
+    testimage, _ := createTestParamValue("PostImageWatermarkOnline", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermarkOnline", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermarkOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpictureFrame, "PostImageWatermarkOnline", "pictureFrame", "PictureFrame")
+    if (invalidValue == nil) {
+        testpictureFrame = nil
+    } else {
+        testpictureFrame, _ = invalidValue.(IPictureFrame)
+    }
+
+    e := initializeTest("PostImageWatermarkOnline", "pictureFrame", testpictureFrame)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateImageWatermarkOnline(testdocument, testimage, testpictureFrame, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostImageWatermarkOnline", "pictureFrame", testpictureFrame, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds an image watermark to each slide of the presentation.  Image can be provided as a part of the form or withing PictureFrame DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostImageWatermarkOnline method with invalid password
+*/
+func TestPostImageWatermarkOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostImageWatermarkOnline", "document", "[]byte").([]byte)
+    testimage, _ := createTestParamValue("PostImageWatermarkOnline", "image", "[]byte").([]byte)
+    testpictureFrame, _ := createTestParamValue("PostImageWatermarkOnline", "pictureFrame", "PictureFrame").(IPictureFrame)
+    testpassword, _ := createTestParamValue("PostImageWatermarkOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "PostImageWatermarkOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostImageWatermarkOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateImageWatermarkOnline(testdocument, testimage, testpictureFrame, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostImageWatermarkOnline", "password", testpassword, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Get all presentation images.
@@ -37222,6 +37967,799 @@ func TestPostSubshapeSaveAsInvalidFontsFolder(t *testing.T) {
     assertError(t, "PostSubshapeSaveAs", "fontsFolder", testfontsFolder, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermark method
+*/
+func TestPostWatermark(t *testing.T) {
+    testname, _ := createTestParamValue("PostWatermark", "name", "string").(string)
+    testshape, _ := createTestParamValue("PostWatermark", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermark", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermark", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermark", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermark", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostWatermark", "storage", "string").(string)
+    e := initializeTest("PostWatermark", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, e = c.SlidesApi.CreateWatermark(testname, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermark method with invalid name
+*/
+func TestPostWatermarkInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("PostWatermark", "name", "string").(string)
+    testshape, _ := createTestParamValue("PostWatermark", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermark", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermark", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermark", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermark", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "PostWatermark", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermark", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateWatermark(testname, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermark", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermark method with invalid shape
+*/
+func TestPostWatermarkInvalidShape(t *testing.T) {
+    testname, _ := createTestParamValue("PostWatermark", "name", "string").(string)
+    testshape, _ := createTestParamValue("PostWatermark", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermark", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermark", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermark", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermark", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshape, "PostWatermark", "shape", "Shape")
+    if (invalidValue == nil) {
+        testshape = nil
+    } else {
+        testshape, _ = invalidValue.(IShape)
+    }
+
+    e := initializeTest("PostWatermark", "shape", testshape)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateWatermark(testname, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermark", "shape", testshape, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermark method with invalid fontHeight
+*/
+func TestPostWatermarkInvalidFontHeight(t *testing.T) {
+    testname, _ := createTestParamValue("PostWatermark", "name", "string").(string)
+    testshape, _ := createTestParamValue("PostWatermark", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermark", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermark", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermark", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermark", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostWatermark", "storage", "string").(string)
+    testfontHeight = new(float64)
+
+    invalidValue := invalidizeTestParamValue(testfontHeight, "PostWatermark", "fontHeight", "float64")
+    if (invalidValue == nil) {
+        var nullValue *float64
+        testfontHeight = nullValue
+    } else {
+        *testfontHeight, _ = invalidValue.(float64)
+    }
+
+    e := initializeTest("PostWatermark", "fontHeight", testfontHeight)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateWatermark(testname, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermark", "fontHeight", testfontHeight, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermark method with invalid text
+*/
+func TestPostWatermarkInvalidText(t *testing.T) {
+    testname, _ := createTestParamValue("PostWatermark", "name", "string").(string)
+    testshape, _ := createTestParamValue("PostWatermark", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermark", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermark", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermark", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermark", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testtext, "PostWatermark", "text", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testtext = nullValue
+    } else {
+        testtext, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermark", "text", testtext)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateWatermark(testname, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermark", "text", testtext, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermark method with invalid fontName
+*/
+func TestPostWatermarkInvalidFontName(t *testing.T) {
+    testname, _ := createTestParamValue("PostWatermark", "name", "string").(string)
+    testshape, _ := createTestParamValue("PostWatermark", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermark", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermark", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermark", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermark", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfontName, "PostWatermark", "fontName", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfontName = nullValue
+    } else {
+        testfontName, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermark", "fontName", testfontName)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateWatermark(testname, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermark", "fontName", testfontName, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermark method with invalid fontColor
+*/
+func TestPostWatermarkInvalidFontColor(t *testing.T) {
+    testname, _ := createTestParamValue("PostWatermark", "name", "string").(string)
+    testshape, _ := createTestParamValue("PostWatermark", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermark", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermark", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermark", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermark", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfontColor, "PostWatermark", "fontColor", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfontColor = nullValue
+    } else {
+        testfontColor, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermark", "fontColor", testfontColor)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateWatermark(testname, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermark", "fontColor", testfontColor, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermark method with invalid password
+*/
+func TestPostWatermarkInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("PostWatermark", "name", "string").(string)
+    testshape, _ := createTestParamValue("PostWatermark", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermark", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermark", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermark", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermark", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "PostWatermark", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermark", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateWatermark(testname, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermark", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermark method with invalid folder
+*/
+func TestPostWatermarkInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("PostWatermark", "name", "string").(string)
+    testshape, _ := createTestParamValue("PostWatermark", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermark", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermark", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermark", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermark", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "PostWatermark", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermark", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateWatermark(testname, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermark", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermark method with invalid storage
+*/
+func TestPostWatermarkInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("PostWatermark", "name", "string").(string)
+    testshape, _ := createTestParamValue("PostWatermark", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermark", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermark", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermark", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermark", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermark", "password", "string").(string)
+    testfolder, _ := createTestParamValue("PostWatermark", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("PostWatermark", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "PostWatermark", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermark", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.CreateWatermark(testname, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermark", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
+   Test for SlidesApi.PostWatermarkDeleteOnline method
+*/
+func TestPostWatermarkDeleteOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkDeleteOnline", "document", "[]byte").([]byte)
+    testshapeName, _ := createTestParamValue("PostWatermarkDeleteOnline", "shapeName", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkDeleteOnline", "password", "string").(string)
+    e := initializeTest("PostWatermarkDeleteOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    r, _, e := c.SlidesApi.DeleteWatermarkOnline(testdocument, testshapeName, testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
+   Test for SlidesApi.PostWatermarkDeleteOnline method with invalid document
+*/
+func TestPostWatermarkDeleteOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkDeleteOnline", "document", "[]byte").([]byte)
+    testshapeName, _ := createTestParamValue("PostWatermarkDeleteOnline", "shapeName", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkDeleteOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "PostWatermarkDeleteOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostWatermarkDeleteOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteWatermarkOnline(testdocument, testshapeName, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermarkDeleteOnline", "document", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
+   Test for SlidesApi.PostWatermarkDeleteOnline method with invalid shapeName
+*/
+func TestPostWatermarkDeleteOnlineInvalidShapeName(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkDeleteOnline", "document", "[]byte").([]byte)
+    testshapeName, _ := createTestParamValue("PostWatermarkDeleteOnline", "shapeName", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkDeleteOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeName, "PostWatermarkDeleteOnline", "shapeName", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testshapeName = nullValue
+    } else {
+        testshapeName, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermarkDeleteOnline", "shapeName", testshapeName)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteWatermarkOnline(testdocument, testshapeName, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermarkDeleteOnline", "shapeName", testshapeName, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
+   Test for SlidesApi.PostWatermarkDeleteOnline method with invalid password
+*/
+func TestPostWatermarkDeleteOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkDeleteOnline", "document", "[]byte").([]byte)
+    testshapeName, _ := createTestParamValue("PostWatermarkDeleteOnline", "shapeName", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkDeleteOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "PostWatermarkDeleteOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermarkDeleteOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteWatermarkOnline(testdocument, testshapeName, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermarkDeleteOnline", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermarkOnline method
+*/
+func TestPostWatermarkOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkOnline", "document", "[]byte").([]byte)
+    testshape, _ := createTestParamValue("PostWatermarkOnline", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermarkOnline", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermarkOnline", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermarkOnline", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermarkOnline", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkOnline", "password", "string").(string)
+    e := initializeTest("PostWatermarkOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    r, _, e := c.SlidesApi.CreateWatermarkOnline(testdocument, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermarkOnline method with invalid document
+*/
+func TestPostWatermarkOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkOnline", "document", "[]byte").([]byte)
+    testshape, _ := createTestParamValue("PostWatermarkOnline", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermarkOnline", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermarkOnline", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermarkOnline", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermarkOnline", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "PostWatermarkOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PostWatermarkOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateWatermarkOnline(testdocument, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermarkOnline", "document", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermarkOnline method with invalid shape
+*/
+func TestPostWatermarkOnlineInvalidShape(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkOnline", "document", "[]byte").([]byte)
+    testshape, _ := createTestParamValue("PostWatermarkOnline", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermarkOnline", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermarkOnline", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermarkOnline", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermarkOnline", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshape, "PostWatermarkOnline", "shape", "Shape")
+    if (invalidValue == nil) {
+        testshape = nil
+    } else {
+        testshape, _ = invalidValue.(IShape)
+    }
+
+    e := initializeTest("PostWatermarkOnline", "shape", testshape)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateWatermarkOnline(testdocument, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermarkOnline", "shape", testshape, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermarkOnline method with invalid fontHeight
+*/
+func TestPostWatermarkOnlineInvalidFontHeight(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkOnline", "document", "[]byte").([]byte)
+    testshape, _ := createTestParamValue("PostWatermarkOnline", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermarkOnline", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermarkOnline", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermarkOnline", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermarkOnline", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkOnline", "password", "string").(string)
+    testfontHeight = new(float64)
+
+    invalidValue := invalidizeTestParamValue(testfontHeight, "PostWatermarkOnline", "fontHeight", "float64")
+    if (invalidValue == nil) {
+        var nullValue *float64
+        testfontHeight = nullValue
+    } else {
+        *testfontHeight, _ = invalidValue.(float64)
+    }
+
+    e := initializeTest("PostWatermarkOnline", "fontHeight", testfontHeight)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateWatermarkOnline(testdocument, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermarkOnline", "fontHeight", testfontHeight, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermarkOnline method with invalid text
+*/
+func TestPostWatermarkOnlineInvalidText(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkOnline", "document", "[]byte").([]byte)
+    testshape, _ := createTestParamValue("PostWatermarkOnline", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermarkOnline", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermarkOnline", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermarkOnline", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermarkOnline", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testtext, "PostWatermarkOnline", "text", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testtext = nullValue
+    } else {
+        testtext, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermarkOnline", "text", testtext)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateWatermarkOnline(testdocument, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermarkOnline", "text", testtext, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermarkOnline method with invalid fontName
+*/
+func TestPostWatermarkOnlineInvalidFontName(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkOnline", "document", "[]byte").([]byte)
+    testshape, _ := createTestParamValue("PostWatermarkOnline", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermarkOnline", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermarkOnline", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermarkOnline", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermarkOnline", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfontName, "PostWatermarkOnline", "fontName", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfontName = nullValue
+    } else {
+        testfontName, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermarkOnline", "fontName", testfontName)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateWatermarkOnline(testdocument, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermarkOnline", "fontName", testfontName, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermarkOnline method with invalid fontColor
+*/
+func TestPostWatermarkOnlineInvalidFontColor(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkOnline", "document", "[]byte").([]byte)
+    testshape, _ := createTestParamValue("PostWatermarkOnline", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermarkOnline", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermarkOnline", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermarkOnline", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermarkOnline", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfontColor, "PostWatermarkOnline", "fontColor", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfontColor = nullValue
+    } else {
+        testfontColor, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermarkOnline", "fontColor", testfontColor)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateWatermarkOnline(testdocument, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermarkOnline", "fontColor", testfontColor, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
+   Test for SlidesApi.PostWatermarkOnline method with invalid password
+*/
+func TestPostWatermarkOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("PostWatermarkOnline", "document", "[]byte").([]byte)
+    testshape, _ := createTestParamValue("PostWatermarkOnline", "shape", "Shape").(IShape)
+    var testfontHeight *float64
+    testfontHeightValue := createTestParamValue("PostWatermarkOnline", "fontHeight", "float64")
+    if (testfontHeightValue != nil) {
+        testfontHeight = new(float64)
+        *testfontHeight, _ = testfontHeightValue.(float64)
+    }
+    testtext, _ := createTestParamValue("PostWatermarkOnline", "text", "string").(string)
+    testfontName, _ := createTestParamValue("PostWatermarkOnline", "fontName", "string").(string)
+    testfontColor, _ := createTestParamValue("PostWatermarkOnline", "fontColor", "string").(string)
+    testpassword, _ := createTestParamValue("PostWatermarkOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "PostWatermarkOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PostWatermarkOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateWatermarkOnline(testdocument, testshape, testfontHeight, testtext, testfontName, testfontColor, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PostWatermarkOnline", "password", testpassword, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Update a chart category.
    Test for SlidesApi.PutChartCategory method
 */
@@ -38163,8 +39701,6 @@ func TestPutExportShape(t *testing.T) {
     testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
     testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -38178,6 +39714,8 @@ func TestPutExportShape(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
     e := initializeTest("PutExportShape", "", "")
     if e != nil {
@@ -38185,7 +39723,7 @@ func TestPutExportShape(t *testing.T) {
        return
     }
     c := getTestApiClient()
-    _, e = c.SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    _, e = c.SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -38201,8 +39739,6 @@ func TestPutExportShapeInvalidDocument(t *testing.T) {
     testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
     testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -38216,6 +39752,8 @@ func TestPutExportShapeInvalidDocument(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testdocument, "PutExportShape", "document", "[]byte")
@@ -38230,7 +39768,7 @@ func TestPutExportShapeInvalidDocument(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -38247,8 +39785,6 @@ func TestPutExportShapeInvalidSlideIndex(t *testing.T) {
     testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
     testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -38262,6 +39798,8 @@ func TestPutExportShapeInvalidSlideIndex(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testslideIndex, "PutExportShape", "slideIndex", "int32")
@@ -38277,7 +39815,7 @@ func TestPutExportShapeInvalidSlideIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -38294,8 +39832,6 @@ func TestPutExportShapeInvalidShapeIndex(t *testing.T) {
     testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
     testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -38309,6 +39845,8 @@ func TestPutExportShapeInvalidShapeIndex(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testshapeIndex, "PutExportShape", "shapeIndex", "int32")
@@ -38324,7 +39862,7 @@ func TestPutExportShapeInvalidShapeIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -38341,8 +39879,6 @@ func TestPutExportShapeInvalidFormat(t *testing.T) {
     testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
     testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -38356,6 +39892,8 @@ func TestPutExportShapeInvalidFormat(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testformat, "PutExportShape", "format", "string")
@@ -38371,7 +39909,7 @@ func TestPutExportShapeInvalidFormat(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -38388,8 +39926,6 @@ func TestPutExportShapeInvalidOutPath(t *testing.T) {
     testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
     testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -38403,6 +39939,8 @@ func TestPutExportShapeInvalidOutPath(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testoutPath, "PutExportShape", "outPath", "string")
@@ -38418,106 +39956,12 @@ func TestPutExportShapeInvalidOutPath(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PutExportShape", "outPath", testoutPath, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Render shape to specified picture format.
-   Test for SlidesApi.PutExportShape method with invalid password
-*/
-func TestPutExportShapeInvalidPassword(t *testing.T) {
-    testdocument, _ := createTestParamValue("PutExportShape", "document", "[]byte").([]byte)
-    testslideIndex, _ := createTestParamValue("PutExportShape", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
-    testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
-    testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
-    var testscaleX *float64
-    testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
-    if (testscaleXValue != nil) {
-        testscaleX = new(float64)
-        *testscaleX, _ = testscaleXValue.(float64)
-    }
-    var testscaleY *float64
-    testscaleYValue := createTestParamValue("PutExportShape", "scaleY", "float64")
-    if (testscaleYValue != nil) {
-        testscaleY = new(float64)
-        *testscaleY, _ = testscaleYValue.(float64)
-    }
-    testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
-    testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testpassword, "PutExportShape", "password", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testpassword = nullValue
-    } else {
-        testpassword, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutExportShape", "password", testpassword)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutExportShape", "password", testpassword, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Render shape to specified picture format.
-   Test for SlidesApi.PutExportShape method with invalid storage
-*/
-func TestPutExportShapeInvalidStorage(t *testing.T) {
-    testdocument, _ := createTestParamValue("PutExportShape", "document", "[]byte").([]byte)
-    testslideIndex, _ := createTestParamValue("PutExportShape", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
-    testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
-    testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
-    var testscaleX *float64
-    testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
-    if (testscaleXValue != nil) {
-        testscaleX = new(float64)
-        *testscaleX, _ = testscaleXValue.(float64)
-    }
-    var testscaleY *float64
-    testscaleYValue := createTestParamValue("PutExportShape", "scaleY", "float64")
-    if (testscaleYValue != nil) {
-        testscaleY = new(float64)
-        *testscaleY, _ = testscaleYValue.(float64)
-    }
-    testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
-    testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(teststorage, "PutExportShape", "storage", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        teststorage = nullValue
-    } else {
-        teststorage, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutExportShape", "storage", teststorage)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutExportShape", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.
@@ -38529,8 +39973,6 @@ func TestPutExportShapeInvalidScaleX(t *testing.T) {
     testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
     testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -38544,6 +39986,8 @@ func TestPutExportShapeInvalidScaleX(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
     testscaleX = new(float64)
 
@@ -38560,7 +40004,7 @@ func TestPutExportShapeInvalidScaleX(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -38577,8 +40021,6 @@ func TestPutExportShapeInvalidScaleY(t *testing.T) {
     testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
     testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -38592,6 +40034,8 @@ func TestPutExportShapeInvalidScaleY(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
     testscaleY = new(float64)
 
@@ -38608,7 +40052,7 @@ func TestPutExportShapeInvalidScaleY(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -38625,8 +40069,6 @@ func TestPutExportShapeInvalidBounds(t *testing.T) {
     testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
     testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -38640,6 +40082,8 @@ func TestPutExportShapeInvalidBounds(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testbounds, "PutExportShape", "bounds", "string")
@@ -38655,7 +40099,7 @@ func TestPutExportShapeInvalidBounds(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -38664,16 +40108,14 @@ func TestPutExportShapeInvalidBounds(t *testing.T) {
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.
-   Test for SlidesApi.PutExportShape method with invalid fontsFolder
+   Test for SlidesApi.PutExportShape method with invalid password
 */
-func TestPutExportShapeInvalidFontsFolder(t *testing.T) {
+func TestPutExportShapeInvalidPassword(t *testing.T) {
     testdocument, _ := createTestParamValue("PutExportShape", "document", "[]byte").([]byte)
     testslideIndex, _ := createTestParamValue("PutExportShape", "slideIndex", "int32").(int32)
     testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
     testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
     testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
-    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     var testscaleX *float64
     testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
     if (testscaleXValue != nil) {
@@ -38687,6 +40129,102 @@ func TestPutExportShapeInvalidFontsFolder(t *testing.T) {
         *testscaleY, _ = testscaleYValue.(float64)
     }
     testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "PutExportShape", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PutExportShape", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutExportShape", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutExportShape method with invalid storage
+*/
+func TestPutExportShapeInvalidStorage(t *testing.T) {
+    testdocument, _ := createTestParamValue("PutExportShape", "document", "[]byte").([]byte)
+    testslideIndex, _ := createTestParamValue("PutExportShape", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
+    testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
+    testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
+    var testscaleX *float64
+    testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
+    if (testscaleXValue != nil) {
+        testscaleX = new(float64)
+        *testscaleX, _ = testscaleXValue.(float64)
+    }
+    var testscaleY *float64
+    testscaleYValue := createTestParamValue("PutExportShape", "scaleY", "float64")
+    if (testscaleYValue != nil) {
+        testscaleY = new(float64)
+        *testscaleY, _ = testscaleYValue.(float64)
+    }
+    testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "PutExportShape", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PutExportShape", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutExportShape", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Render shape to specified picture format.
+   Test for SlidesApi.PutExportShape method with invalid fontsFolder
+*/
+func TestPutExportShapeInvalidFontsFolder(t *testing.T) {
+    testdocument, _ := createTestParamValue("PutExportShape", "document", "[]byte").([]byte)
+    testslideIndex, _ := createTestParamValue("PutExportShape", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("PutExportShape", "shapeIndex", "int32").(int32)
+    testformat, _ := createTestParamValue("PutExportShape", "format", "string").(string)
+    testoutPath, _ := createTestParamValue("PutExportShape", "outPath", "string").(string)
+    var testscaleX *float64
+    testscaleXValue := createTestParamValue("PutExportShape", "scaleX", "float64")
+    if (testscaleXValue != nil) {
+        testscaleX = new(float64)
+        *testscaleX, _ = testscaleXValue.(float64)
+    }
+    var testscaleY *float64
+    testscaleYValue := createTestParamValue("PutExportShape", "scaleY", "float64")
+    if (testscaleYValue != nil) {
+        testscaleY = new(float64)
+        *testscaleY, _ = testscaleYValue.(float64)
+    }
+    testbounds, _ := createTestParamValue("PutExportShape", "bounds", "string").(string)
+    testpassword, _ := createTestParamValue("PutExportShape", "password", "string").(string)
+    teststorage, _ := createTestParamValue("PutExportShape", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("PutExportShape", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testfontsFolder, "PutExportShape", "fontsFolder", "string")
@@ -38702,7 +40240,7 @@ func TestPutExportShapeInvalidFontsFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testpassword, teststorage, testscaleX, testscaleY, testbounds, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SaveShapeOnline(testdocument, testslideIndex, testshapeIndex, testformat, testoutPath, testscaleX, testscaleY, testbounds, testpassword, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -45773,183 +47311,6 @@ func TestPutSlidesConvertInvalidFontsFolder(t *testing.T) {
     assertError(t, "PutSlidesConvert", "fontsFolder", testfontsFolder, int32(statusCode), e)
 }
 
-/* SlidesApiServiceTests Update presentation document from html.
-   Test for SlidesApi.PutSlidesDocumentFromHtml method
-*/
-func TestPutSlidesDocumentFromHtml(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesDocumentFromHtml", "name", "string").(string)
-    testhtml, _ := createTestParamValue("PutSlidesDocumentFromHtml", "html", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesDocumentFromHtml", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesDocumentFromHtml", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesDocumentFromHtml", "storage", "string").(string)
-    e := initializeTest("PutSlidesDocumentFromHtml", "", "")
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    c := getTestApiClient()
-    _, _, e = c.SlidesApi.PutSlidesDocumentFromHtml(testname, testhtml, testpassword, testfolder, teststorage)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-}
-
-/* SlidesApiServiceTests Update presentation document from html.
-   Test for SlidesApi.PutSlidesDocumentFromHtml method with invalid name
-*/
-func TestPutSlidesDocumentFromHtmlInvalidName(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesDocumentFromHtml", "name", "string").(string)
-    testhtml, _ := createTestParamValue("PutSlidesDocumentFromHtml", "html", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesDocumentFromHtml", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesDocumentFromHtml", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesDocumentFromHtml", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testname, "PutSlidesDocumentFromHtml", "name", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testname = nullValue
-    } else {
-        testname, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlidesDocumentFromHtml", "name", testname)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesDocumentFromHtml(testname, testhtml, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesDocumentFromHtml", "name", testname, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Update presentation document from html.
-   Test for SlidesApi.PutSlidesDocumentFromHtml method with invalid html
-*/
-func TestPutSlidesDocumentFromHtmlInvalidHtml(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesDocumentFromHtml", "name", "string").(string)
-    testhtml, _ := createTestParamValue("PutSlidesDocumentFromHtml", "html", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesDocumentFromHtml", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesDocumentFromHtml", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesDocumentFromHtml", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testhtml, "PutSlidesDocumentFromHtml", "html", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testhtml = nullValue
-    } else {
-        testhtml, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlidesDocumentFromHtml", "html", testhtml)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesDocumentFromHtml(testname, testhtml, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesDocumentFromHtml", "html", testhtml, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Update presentation document from html.
-   Test for SlidesApi.PutSlidesDocumentFromHtml method with invalid password
-*/
-func TestPutSlidesDocumentFromHtmlInvalidPassword(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesDocumentFromHtml", "name", "string").(string)
-    testhtml, _ := createTestParamValue("PutSlidesDocumentFromHtml", "html", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesDocumentFromHtml", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesDocumentFromHtml", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesDocumentFromHtml", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testpassword, "PutSlidesDocumentFromHtml", "password", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testpassword = nullValue
-    } else {
-        testpassword, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlidesDocumentFromHtml", "password", testpassword)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesDocumentFromHtml(testname, testhtml, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesDocumentFromHtml", "password", testpassword, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Update presentation document from html.
-   Test for SlidesApi.PutSlidesDocumentFromHtml method with invalid folder
-*/
-func TestPutSlidesDocumentFromHtmlInvalidFolder(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesDocumentFromHtml", "name", "string").(string)
-    testhtml, _ := createTestParamValue("PutSlidesDocumentFromHtml", "html", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesDocumentFromHtml", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesDocumentFromHtml", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesDocumentFromHtml", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testfolder, "PutSlidesDocumentFromHtml", "folder", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testfolder = nullValue
-    } else {
-        testfolder, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlidesDocumentFromHtml", "folder", testfolder)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesDocumentFromHtml(testname, testhtml, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesDocumentFromHtml", "folder", testfolder, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Update presentation document from html.
-   Test for SlidesApi.PutSlidesDocumentFromHtml method with invalid storage
-*/
-func TestPutSlidesDocumentFromHtmlInvalidStorage(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesDocumentFromHtml", "name", "string").(string)
-    testhtml, _ := createTestParamValue("PutSlidesDocumentFromHtml", "html", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesDocumentFromHtml", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesDocumentFromHtml", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesDocumentFromHtml", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(teststorage, "PutSlidesDocumentFromHtml", "storage", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        teststorage = nullValue
-    } else {
-        teststorage, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlidesDocumentFromHtml", "storage", teststorage)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesDocumentFromHtml(testname, testhtml, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesDocumentFromHtml", "storage", teststorage, int32(statusCode), e)
-}
-
 /* SlidesApiServiceTests Set footers for all slides in a presentation.
    Test for SlidesApi.PutSlidesHeaderFooter method
 */
@@ -46301,7 +47662,7 @@ func TestPutSlidesMergeInvalidStorage(t *testing.T) {
     assertError(t, "PutSlidesMerge", "storage", teststorage, int32(statusCode), e)
 }
 
-/* SlidesApiServiceTests Update presentation protection properties.
+/* SlidesApiServiceTests Updates presentation protection properties.
    Test for SlidesApi.PutSlidesProtectionProperties method
 */
 func TestPutSlidesProtectionProperties(t *testing.T) {
@@ -46316,14 +47677,14 @@ func TestPutSlidesProtectionProperties(t *testing.T) {
        return
     }
     c := getTestApiClient()
-    _, _, e = c.SlidesApi.SetProtectionProperties(testname, testdto, testpassword, testfolder, teststorage)
+    _, _, e = c.SlidesApi.SetProtection(testname, testdto, testpassword, testfolder, teststorage)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
     }
 }
 
-/* SlidesApiServiceTests Update presentation protection properties.
+/* SlidesApiServiceTests Updates presentation protection properties.
    Test for SlidesApi.PutSlidesProtectionProperties method with invalid name
 */
 func TestPutSlidesProtectionPropertiesInvalidName(t *testing.T) {
@@ -46346,7 +47707,7 @@ func TestPutSlidesProtectionPropertiesInvalidName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.SetProtectionProperties(testname, testdto, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.SetProtection(testname, testdto, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -46354,7 +47715,7 @@ func TestPutSlidesProtectionPropertiesInvalidName(t *testing.T) {
     assertError(t, "PutSlidesProtectionProperties", "name", testname, int32(statusCode), e)
 }
 
-/* SlidesApiServiceTests Update presentation protection properties.
+/* SlidesApiServiceTests Updates presentation protection properties.
    Test for SlidesApi.PutSlidesProtectionProperties method with invalid dto
 */
 func TestPutSlidesProtectionPropertiesInvalidDto(t *testing.T) {
@@ -46376,7 +47737,7 @@ func TestPutSlidesProtectionPropertiesInvalidDto(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.SetProtectionProperties(testname, testdto, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.SetProtection(testname, testdto, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -46384,7 +47745,7 @@ func TestPutSlidesProtectionPropertiesInvalidDto(t *testing.T) {
     assertError(t, "PutSlidesProtectionProperties", "dto", testdto, int32(statusCode), e)
 }
 
-/* SlidesApiServiceTests Update presentation protection properties.
+/* SlidesApiServiceTests Updates presentation protection properties.
    Test for SlidesApi.PutSlidesProtectionProperties method with invalid password
 */
 func TestPutSlidesProtectionPropertiesInvalidPassword(t *testing.T) {
@@ -46407,7 +47768,7 @@ func TestPutSlidesProtectionPropertiesInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.SetProtectionProperties(testname, testdto, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.SetProtection(testname, testdto, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -46415,7 +47776,7 @@ func TestPutSlidesProtectionPropertiesInvalidPassword(t *testing.T) {
     assertError(t, "PutSlidesProtectionProperties", "password", testpassword, int32(statusCode), e)
 }
 
-/* SlidesApiServiceTests Update presentation protection properties.
+/* SlidesApiServiceTests Updates presentation protection properties.
    Test for SlidesApi.PutSlidesProtectionProperties method with invalid folder
 */
 func TestPutSlidesProtectionPropertiesInvalidFolder(t *testing.T) {
@@ -46438,7 +47799,7 @@ func TestPutSlidesProtectionPropertiesInvalidFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.SetProtectionProperties(testname, testdto, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.SetProtection(testname, testdto, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -46446,7 +47807,7 @@ func TestPutSlidesProtectionPropertiesInvalidFolder(t *testing.T) {
     assertError(t, "PutSlidesProtectionProperties", "folder", testfolder, int32(statusCode), e)
 }
 
-/* SlidesApiServiceTests Update presentation protection properties.
+/* SlidesApiServiceTests Updates presentation protection properties.
    Test for SlidesApi.PutSlidesProtectionProperties method with invalid storage
 */
 func TestPutSlidesProtectionPropertiesInvalidStorage(t *testing.T) {
@@ -46469,12 +47830,118 @@ func TestPutSlidesProtectionPropertiesInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.SetProtectionProperties(testname, testdto, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.SetProtection(testname, testdto, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "PutSlidesProtectionProperties", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Sets presentation protection options. 
+   Test for SlidesApi.PutSlidesProtectionPropertiesOnline method
+*/
+func TestPutSlidesProtectionPropertiesOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "document", "[]byte").([]byte)
+    testdto, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "dto", "ProtectionProperties").(IProtectionProperties)
+    testpassword, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "password", "string").(string)
+    e := initializeTest("PutSlidesProtectionPropertiesOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    r, _, e := c.SlidesApi.SetProtectionOnline(testdocument, testdto, testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Sets presentation protection options. 
+   Test for SlidesApi.PutSlidesProtectionPropertiesOnline method with invalid document
+*/
+func TestPutSlidesProtectionPropertiesOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "document", "[]byte").([]byte)
+    testdto, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "dto", "ProtectionProperties").(IProtectionProperties)
+    testpassword, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "PutSlidesProtectionPropertiesOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("PutSlidesProtectionPropertiesOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetProtectionOnline(testdocument, testdto, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesProtectionPropertiesOnline", "document", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Sets presentation protection options. 
+   Test for SlidesApi.PutSlidesProtectionPropertiesOnline method with invalid dto
+*/
+func TestPutSlidesProtectionPropertiesOnlineInvalidDto(t *testing.T) {
+    testdocument, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "document", "[]byte").([]byte)
+    testdto, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "dto", "ProtectionProperties").(IProtectionProperties)
+    testpassword, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdto, "PutSlidesProtectionPropertiesOnline", "dto", "ProtectionProperties")
+    if (invalidValue == nil) {
+        testdto = nil
+    } else {
+        testdto, _ = invalidValue.(IProtectionProperties)
+    }
+
+    e := initializeTest("PutSlidesProtectionPropertiesOnline", "dto", testdto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetProtectionOnline(testdocument, testdto, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesProtectionPropertiesOnline", "dto", testdto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Sets presentation protection options. 
+   Test for SlidesApi.PutSlidesProtectionPropertiesOnline method with invalid password
+*/
+func TestPutSlidesProtectionPropertiesOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "document", "[]byte").([]byte)
+    testdto, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "dto", "ProtectionProperties").(IProtectionProperties)
+    testpassword, _ := createTestParamValue("PutSlidesProtectionPropertiesOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "PutSlidesProtectionPropertiesOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("PutSlidesProtectionPropertiesOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetProtectionOnline(testdocument, testdto, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "PutSlidesProtectionPropertiesOnline", "password", testpassword, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Save a presentation to a specified format.
@@ -47804,395 +49271,6 @@ func TestPutSlidesSlidePropertiesInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "PutSlidesSlideProperties", "storage", teststorage, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Set slide size for a presentation.
-   Test for SlidesApi.PutSlidesSlideSize method
-*/
-func TestPutSlidesSlideSize(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesSlideSize", "name", "string").(string)
-    var testwidth *int32
-    testwidthValue := createTestParamValue("PutSlidesSlideSize", "width", "int32")
-    if (testwidthValue != nil) {
-        testwidth = new(int32)
-        *testwidth, _ = testwidthValue.(int32)
-    }
-    var testheight *int32
-    testheightValue := createTestParamValue("PutSlidesSlideSize", "height", "int32")
-    if (testheightValue != nil) {
-        testheight = new(int32)
-        *testheight, _ = testheightValue.(int32)
-    }
-    testsizeType, _ := createTestParamValue("PutSlidesSlideSize", "sizeType", "string").(string)
-    testscaleType, _ := createTestParamValue("PutSlidesSlideSize", "scaleType", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesSlideSize", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesSlideSize", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesSlideSize", "storage", "string").(string)
-    e := initializeTest("PutSlidesSlideSize", "", "")
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    c := getTestApiClient()
-    _, _, e = c.SlidesApi.PutSlidesSlideSize(testname, testwidth, testheight, testsizeType, testscaleType, testpassword, testfolder, teststorage)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-}
-
-/* SlidesApiServiceTests Set slide size for a presentation.
-   Test for SlidesApi.PutSlidesSlideSize method with invalid name
-*/
-func TestPutSlidesSlideSizeInvalidName(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesSlideSize", "name", "string").(string)
-    var testwidth *int32
-    testwidthValue := createTestParamValue("PutSlidesSlideSize", "width", "int32")
-    if (testwidthValue != nil) {
-        testwidth = new(int32)
-        *testwidth, _ = testwidthValue.(int32)
-    }
-    var testheight *int32
-    testheightValue := createTestParamValue("PutSlidesSlideSize", "height", "int32")
-    if (testheightValue != nil) {
-        testheight = new(int32)
-        *testheight, _ = testheightValue.(int32)
-    }
-    testsizeType, _ := createTestParamValue("PutSlidesSlideSize", "sizeType", "string").(string)
-    testscaleType, _ := createTestParamValue("PutSlidesSlideSize", "scaleType", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesSlideSize", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesSlideSize", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesSlideSize", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testname, "PutSlidesSlideSize", "name", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testname = nullValue
-    } else {
-        testname, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlidesSlideSize", "name", testname)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(testname, testwidth, testheight, testsizeType, testscaleType, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesSlideSize", "name", testname, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Set slide size for a presentation.
-   Test for SlidesApi.PutSlidesSlideSize method with invalid width
-*/
-func TestPutSlidesSlideSizeInvalidWidth(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesSlideSize", "name", "string").(string)
-    var testwidth *int32
-    testwidthValue := createTestParamValue("PutSlidesSlideSize", "width", "int32")
-    if (testwidthValue != nil) {
-        testwidth = new(int32)
-        *testwidth, _ = testwidthValue.(int32)
-    }
-    var testheight *int32
-    testheightValue := createTestParamValue("PutSlidesSlideSize", "height", "int32")
-    if (testheightValue != nil) {
-        testheight = new(int32)
-        *testheight, _ = testheightValue.(int32)
-    }
-    testsizeType, _ := createTestParamValue("PutSlidesSlideSize", "sizeType", "string").(string)
-    testscaleType, _ := createTestParamValue("PutSlidesSlideSize", "scaleType", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesSlideSize", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesSlideSize", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesSlideSize", "storage", "string").(string)
-    testwidth = new(int32)
-
-    invalidValue := invalidizeTestParamValue(testwidth, "PutSlidesSlideSize", "width", "int32")
-    if (invalidValue == nil) {
-        var nullValue *int32
-        testwidth = nullValue
-    } else {
-        *testwidth, _ = invalidValue.(int32)
-    }
-
-    e := initializeTest("PutSlidesSlideSize", "width", testwidth)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(testname, testwidth, testheight, testsizeType, testscaleType, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesSlideSize", "width", testwidth, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Set slide size for a presentation.
-   Test for SlidesApi.PutSlidesSlideSize method with invalid height
-*/
-func TestPutSlidesSlideSizeInvalidHeight(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesSlideSize", "name", "string").(string)
-    var testwidth *int32
-    testwidthValue := createTestParamValue("PutSlidesSlideSize", "width", "int32")
-    if (testwidthValue != nil) {
-        testwidth = new(int32)
-        *testwidth, _ = testwidthValue.(int32)
-    }
-    var testheight *int32
-    testheightValue := createTestParamValue("PutSlidesSlideSize", "height", "int32")
-    if (testheightValue != nil) {
-        testheight = new(int32)
-        *testheight, _ = testheightValue.(int32)
-    }
-    testsizeType, _ := createTestParamValue("PutSlidesSlideSize", "sizeType", "string").(string)
-    testscaleType, _ := createTestParamValue("PutSlidesSlideSize", "scaleType", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesSlideSize", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesSlideSize", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesSlideSize", "storage", "string").(string)
-    testheight = new(int32)
-
-    invalidValue := invalidizeTestParamValue(testheight, "PutSlidesSlideSize", "height", "int32")
-    if (invalidValue == nil) {
-        var nullValue *int32
-        testheight = nullValue
-    } else {
-        *testheight, _ = invalidValue.(int32)
-    }
-
-    e := initializeTest("PutSlidesSlideSize", "height", testheight)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(testname, testwidth, testheight, testsizeType, testscaleType, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesSlideSize", "height", testheight, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Set slide size for a presentation.
-   Test for SlidesApi.PutSlidesSlideSize method with invalid sizeType
-*/
-func TestPutSlidesSlideSizeInvalidSizeType(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesSlideSize", "name", "string").(string)
-    var testwidth *int32
-    testwidthValue := createTestParamValue("PutSlidesSlideSize", "width", "int32")
-    if (testwidthValue != nil) {
-        testwidth = new(int32)
-        *testwidth, _ = testwidthValue.(int32)
-    }
-    var testheight *int32
-    testheightValue := createTestParamValue("PutSlidesSlideSize", "height", "int32")
-    if (testheightValue != nil) {
-        testheight = new(int32)
-        *testheight, _ = testheightValue.(int32)
-    }
-    testsizeType, _ := createTestParamValue("PutSlidesSlideSize", "sizeType", "string").(string)
-    testscaleType, _ := createTestParamValue("PutSlidesSlideSize", "scaleType", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesSlideSize", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesSlideSize", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesSlideSize", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testsizeType, "PutSlidesSlideSize", "sizeType", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testsizeType = nullValue
-    } else {
-        testsizeType, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlidesSlideSize", "sizeType", testsizeType)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(testname, testwidth, testheight, testsizeType, testscaleType, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesSlideSize", "sizeType", testsizeType, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Set slide size for a presentation.
-   Test for SlidesApi.PutSlidesSlideSize method with invalid scaleType
-*/
-func TestPutSlidesSlideSizeInvalidScaleType(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesSlideSize", "name", "string").(string)
-    var testwidth *int32
-    testwidthValue := createTestParamValue("PutSlidesSlideSize", "width", "int32")
-    if (testwidthValue != nil) {
-        testwidth = new(int32)
-        *testwidth, _ = testwidthValue.(int32)
-    }
-    var testheight *int32
-    testheightValue := createTestParamValue("PutSlidesSlideSize", "height", "int32")
-    if (testheightValue != nil) {
-        testheight = new(int32)
-        *testheight, _ = testheightValue.(int32)
-    }
-    testsizeType, _ := createTestParamValue("PutSlidesSlideSize", "sizeType", "string").(string)
-    testscaleType, _ := createTestParamValue("PutSlidesSlideSize", "scaleType", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesSlideSize", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesSlideSize", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesSlideSize", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testscaleType, "PutSlidesSlideSize", "scaleType", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testscaleType = nullValue
-    } else {
-        testscaleType, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlidesSlideSize", "scaleType", testscaleType)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(testname, testwidth, testheight, testsizeType, testscaleType, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesSlideSize", "scaleType", testscaleType, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Set slide size for a presentation.
-   Test for SlidesApi.PutSlidesSlideSize method with invalid password
-*/
-func TestPutSlidesSlideSizeInvalidPassword(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesSlideSize", "name", "string").(string)
-    var testwidth *int32
-    testwidthValue := createTestParamValue("PutSlidesSlideSize", "width", "int32")
-    if (testwidthValue != nil) {
-        testwidth = new(int32)
-        *testwidth, _ = testwidthValue.(int32)
-    }
-    var testheight *int32
-    testheightValue := createTestParamValue("PutSlidesSlideSize", "height", "int32")
-    if (testheightValue != nil) {
-        testheight = new(int32)
-        *testheight, _ = testheightValue.(int32)
-    }
-    testsizeType, _ := createTestParamValue("PutSlidesSlideSize", "sizeType", "string").(string)
-    testscaleType, _ := createTestParamValue("PutSlidesSlideSize", "scaleType", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesSlideSize", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesSlideSize", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesSlideSize", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testpassword, "PutSlidesSlideSize", "password", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testpassword = nullValue
-    } else {
-        testpassword, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlidesSlideSize", "password", testpassword)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(testname, testwidth, testheight, testsizeType, testscaleType, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesSlideSize", "password", testpassword, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Set slide size for a presentation.
-   Test for SlidesApi.PutSlidesSlideSize method with invalid folder
-*/
-func TestPutSlidesSlideSizeInvalidFolder(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesSlideSize", "name", "string").(string)
-    var testwidth *int32
-    testwidthValue := createTestParamValue("PutSlidesSlideSize", "width", "int32")
-    if (testwidthValue != nil) {
-        testwidth = new(int32)
-        *testwidth, _ = testwidthValue.(int32)
-    }
-    var testheight *int32
-    testheightValue := createTestParamValue("PutSlidesSlideSize", "height", "int32")
-    if (testheightValue != nil) {
-        testheight = new(int32)
-        *testheight, _ = testheightValue.(int32)
-    }
-    testsizeType, _ := createTestParamValue("PutSlidesSlideSize", "sizeType", "string").(string)
-    testscaleType, _ := createTestParamValue("PutSlidesSlideSize", "scaleType", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesSlideSize", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesSlideSize", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesSlideSize", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testfolder, "PutSlidesSlideSize", "folder", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testfolder = nullValue
-    } else {
-        testfolder, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlidesSlideSize", "folder", testfolder)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(testname, testwidth, testheight, testsizeType, testscaleType, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesSlideSize", "folder", testfolder, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Set slide size for a presentation.
-   Test for SlidesApi.PutSlidesSlideSize method with invalid storage
-*/
-func TestPutSlidesSlideSizeInvalidStorage(t *testing.T) {
-    testname, _ := createTestParamValue("PutSlidesSlideSize", "name", "string").(string)
-    var testwidth *int32
-    testwidthValue := createTestParamValue("PutSlidesSlideSize", "width", "int32")
-    if (testwidthValue != nil) {
-        testwidth = new(int32)
-        *testwidth, _ = testwidthValue.(int32)
-    }
-    var testheight *int32
-    testheightValue := createTestParamValue("PutSlidesSlideSize", "height", "int32")
-    if (testheightValue != nil) {
-        testheight = new(int32)
-        *testheight, _ = testheightValue.(int32)
-    }
-    testsizeType, _ := createTestParamValue("PutSlidesSlideSize", "sizeType", "string").(string)
-    testscaleType, _ := createTestParamValue("PutSlidesSlideSize", "scaleType", "string").(string)
-    testpassword, _ := createTestParamValue("PutSlidesSlideSize", "password", "string").(string)
-    testfolder, _ := createTestParamValue("PutSlidesSlideSize", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("PutSlidesSlideSize", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(teststorage, "PutSlidesSlideSize", "storage", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        teststorage = nullValue
-    } else {
-        teststorage, _ = invalidValue.(string)
-    }
-
-    e := initializeTest("PutSlidesSlideSize", "storage", teststorage)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := getTestApiClient().SlidesApi.PutSlidesSlideSize(testname, testwidth, testheight, testsizeType, testscaleType, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "PutSlidesSlideSize", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Update presentation document properties.

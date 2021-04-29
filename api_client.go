@@ -179,12 +179,11 @@ func (c *APIClient) makeRequest(
 	postBody interface{},
 	headerParams map[string]string,
 	queryParams url.Values,
-	formParams url.Values,
 	files [][]byte) (response *http.Response, responseBytes []byte, err error) {
-	response, responseBytes, needRepeat, err := c.makeRequestWithAuthCheck(ctx, path, method, postBody, headerParams, queryParams, formParams, files)
+	response, responseBytes, needRepeat, err := c.makeRequestWithAuthCheck(ctx, path, method, postBody, headerParams, queryParams, files)
 	if needRepeat {
 		c.cfg.OAuthToken = ""
-		response, responseBytes, _, err = c.makeRequestWithAuthCheck(ctx, path, method, postBody, headerParams, queryParams, formParams, files)
+		response, responseBytes, _, err = c.makeRequestWithAuthCheck(ctx, path, method, postBody, headerParams, queryParams, files)
 	}
 	return response, responseBytes, err
 }
@@ -197,10 +196,9 @@ func (c *APIClient) makeRequestWithAuthCheck(
 	postBody interface{},
 	headerParams map[string]string,
 	queryParams url.Values,
-	formParams url.Values,
 	files [][]byte) (response *http.Response, responseBytes []byte, needRepeat bool, err error) {
 	needRepeat = len(c.cfg.OAuthToken) > 0
-	r, resp, err := c.prepareRequest(nil, path, method, postBody, headerParams, queryParams, formParams, files)
+	r, resp, err := c.prepareRequest(nil, path, method, postBody, headerParams, queryParams, files)
 	if err != nil {
 		return resp, nil, false, err
 	}
@@ -237,42 +235,49 @@ func (c *APIClient) prepareRequest (
 	postBody interface{},
 	headerParams map[string]string,
 	queryParams url.Values,
-	formParams url.Values,
 	files [][]byte) (localVarRequest *http.Request, response *http.Response, err error) {
 
 	var body *bytes.Buffer
-
-	// Detect postBody type and post.
+        partCount := len(files)
 	if postBody != nil {
+		partCount += 1
+	}
+	if partCount > 1 {
 		contentType := headerParams["Content-Type"]
-		if len(files) > 0 {
-			body = &bytes.Buffer{}
-			w := multipart.NewWriter(body)
+		body = &bytes.Buffer{}
+		w := multipart.NewWriter(body)
+		if postBody != nil {
 			bodyBuf, _, err := setBody(postBody, contentType)
 			if err != nil {
 				return nil, nil, err
 			}
 			w.WriteField("pipeline", string(bodyBuf.Bytes()))
-			for i, file := range files {
-				part, err := w.CreateFormFile(fmt.Sprintf("file%d", i), fmt.Sprintf("file%d", i))
-				if err != nil {
-					return nil, nil, err
-				}
-				_, err = part.Write(file)
-				if err != nil {
-					return nil, nil, err
-				}
-			}
-			w.Close()
-	                contentType = w.FormDataContentType()
-		} else {
-			if contentType == "" {
-				contentType = detectContentType(postBody)
-			}
-			body, contentType, err = setBody(postBody, contentType)
+		}
+		for i, file := range files {
+			part, err := w.CreateFormFile(fmt.Sprintf("file%d", i), fmt.Sprintf("file%d", i))
 			if err != nil {
 				return nil, nil, err
 			}
+			_, err = part.Write(file)
+			if err != nil {
+				return nil, nil, err
+			}
+		}
+		w.Close()
+                contentType = w.FormDataContentType()
+		headerParams["Content-Type"] = contentType
+	} else if partCount == 1 {
+		contentType := headerParams["Content-Type"]
+		if contentType == "" {
+			contentType = detectContentType(postBody)
+		}
+		if postBody != nil {
+			body, contentType, err = setBody(postBody, contentType)
+		} else {
+			body, contentType, err = setBody(files[0], contentType)
+		}
+		if err != nil {
+			return nil, nil, err
 		}
 		headerParams["Content-Type"] = contentType
 	}

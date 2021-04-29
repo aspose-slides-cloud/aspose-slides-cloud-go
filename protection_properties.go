@@ -49,6 +49,22 @@ type IProtectionProperties interface {
 	// True if the document should be opened as read-only.
 	getReadOnlyRecommended() bool
 	setReadOnlyRecommended(newValue bool)
+
+	// Password for read protection.
+	getReadPassword() string
+	setReadPassword(newValue string)
+
+	// Password for write protection.
+	getWritePassword() string
+	setWritePassword(newValue string)
+
+	// Returns true if the presentation protected for editing. 
+	getIsWriteProtected() bool
+	setIsWriteProtected(newValue bool)
+
+	// Returns true if the presentation protected for reading. 
+	getIsEncrypted() bool
+	setIsEncrypted(newValue bool)
 }
 
 type ProtectionProperties struct {
@@ -64,6 +80,18 @@ type ProtectionProperties struct {
 
 	// True if the document should be opened as read-only.
 	ReadOnlyRecommended bool `json:"ReadOnlyRecommended"`
+
+	// Password for read protection.
+	ReadPassword string `json:"ReadPassword,omitempty"`
+
+	// Password for write protection.
+	WritePassword string `json:"WritePassword,omitempty"`
+
+	// Returns true if the presentation protected for editing. 
+	IsWriteProtected bool `json:"IsWriteProtected"`
+
+	// Returns true if the presentation protected for reading. 
+	IsEncrypted bool `json:"IsEncrypted"`
 }
 
 func NewProtectionProperties() *ProtectionProperties {
@@ -98,6 +126,34 @@ func (this *ProtectionProperties) getReadOnlyRecommended() bool {
 
 func (this *ProtectionProperties) setReadOnlyRecommended(newValue bool) {
 	this.ReadOnlyRecommended = newValue
+}
+func (this *ProtectionProperties) getReadPassword() string {
+	return this.ReadPassword
+}
+
+func (this *ProtectionProperties) setReadPassword(newValue string) {
+	this.ReadPassword = newValue
+}
+func (this *ProtectionProperties) getWritePassword() string {
+	return this.WritePassword
+}
+
+func (this *ProtectionProperties) setWritePassword(newValue string) {
+	this.WritePassword = newValue
+}
+func (this *ProtectionProperties) getIsWriteProtected() bool {
+	return this.IsWriteProtected
+}
+
+func (this *ProtectionProperties) setIsWriteProtected(newValue bool) {
+	this.IsWriteProtected = newValue
+}
+func (this *ProtectionProperties) getIsEncrypted() bool {
+	return this.IsEncrypted
+}
+
+func (this *ProtectionProperties) setIsEncrypted(newValue bool) {
+	this.IsEncrypted = newValue
 }
 
 func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
@@ -196,6 +252,90 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.ReadOnlyRecommended = valueForReadOnlyRecommended
+		}
+	}
+	
+	if valReadPassword, ok := objMap["readPassword"]; ok {
+		if valReadPassword != nil {
+			var valueForReadPassword string
+			err = json.Unmarshal(*valReadPassword, &valueForReadPassword)
+			if err != nil {
+				return err
+			}
+			this.ReadPassword = valueForReadPassword
+		}
+	}
+	if valReadPasswordCap, ok := objMap["ReadPassword"]; ok {
+		if valReadPasswordCap != nil {
+			var valueForReadPassword string
+			err = json.Unmarshal(*valReadPasswordCap, &valueForReadPassword)
+			if err != nil {
+				return err
+			}
+			this.ReadPassword = valueForReadPassword
+		}
+	}
+	
+	if valWritePassword, ok := objMap["writePassword"]; ok {
+		if valWritePassword != nil {
+			var valueForWritePassword string
+			err = json.Unmarshal(*valWritePassword, &valueForWritePassword)
+			if err != nil {
+				return err
+			}
+			this.WritePassword = valueForWritePassword
+		}
+	}
+	if valWritePasswordCap, ok := objMap["WritePassword"]; ok {
+		if valWritePasswordCap != nil {
+			var valueForWritePassword string
+			err = json.Unmarshal(*valWritePasswordCap, &valueForWritePassword)
+			if err != nil {
+				return err
+			}
+			this.WritePassword = valueForWritePassword
+		}
+	}
+	
+	if valIsWriteProtected, ok := objMap["isWriteProtected"]; ok {
+		if valIsWriteProtected != nil {
+			var valueForIsWriteProtected bool
+			err = json.Unmarshal(*valIsWriteProtected, &valueForIsWriteProtected)
+			if err != nil {
+				return err
+			}
+			this.IsWriteProtected = valueForIsWriteProtected
+		}
+	}
+	if valIsWriteProtectedCap, ok := objMap["IsWriteProtected"]; ok {
+		if valIsWriteProtectedCap != nil {
+			var valueForIsWriteProtected bool
+			err = json.Unmarshal(*valIsWriteProtectedCap, &valueForIsWriteProtected)
+			if err != nil {
+				return err
+			}
+			this.IsWriteProtected = valueForIsWriteProtected
+		}
+	}
+	
+	if valIsEncrypted, ok := objMap["isEncrypted"]; ok {
+		if valIsEncrypted != nil {
+			var valueForIsEncrypted bool
+			err = json.Unmarshal(*valIsEncrypted, &valueForIsEncrypted)
+			if err != nil {
+				return err
+			}
+			this.IsEncrypted = valueForIsEncrypted
+		}
+	}
+	if valIsEncryptedCap, ok := objMap["IsEncrypted"]; ok {
+		if valIsEncryptedCap != nil {
+			var valueForIsEncrypted bool
+			err = json.Unmarshal(*valIsEncryptedCap, &valueForIsEncrypted)
+			if err != nil {
+				return err
+			}
+			this.IsEncrypted = valueForIsEncrypted
 		}
 	}
 

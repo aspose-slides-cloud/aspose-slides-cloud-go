@@ -144,6 +144,9 @@ func createTestParamValue(functionName string, paramName string, paramType strin
 		if functionName == "PostSlidesDocumentFromPdf" {
 			fileParam = "test.pdf"
 		}
+		if paramName == "image" {
+			fileParam = "watermark.png"
+		}
 		data, _ := ioutil.ReadFile("TestData/" + fileParam)
 		return data
 	}
