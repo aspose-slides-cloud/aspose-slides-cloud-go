@@ -141,7 +141,7 @@ func getTestApiClient() *APIClient {
 func createTestParamValue(functionName string, paramName string, paramType string) interface{} {
 	if paramType == "[]byte" {
 		fileParam := testFileName
-		if functionName == "PostSlidesDocumentFromPdf" {
+		if functionName == "ImportFromPdf" {
 			fileParam = "test.pdf"
 		}
 		if paramName == "image" {
@@ -267,6 +267,12 @@ func undefaultize(value interface{}, paramType string) interface{} {
     }
     if paramType == "SlideAnimation" {
         var slide SlideAnimation
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
+        return &slide
+    }
+    if paramType == "SlideComment" {
+        var slide SlideComment
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
         return &slide

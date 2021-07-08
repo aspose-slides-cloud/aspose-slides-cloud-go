@@ -254,7 +254,7 @@ func (c *APIClient) prepareRequest (
 			w.WriteField("pipeline", string(bodyBuf.Bytes()))
 		}
 		for i, file := range files {
-			part, err := w.CreateFormFile(fmt.Sprintf("file%d", i), fmt.Sprintf("file%d", i))
+			part, err := w.CreateFormFile(fmt.Sprintf("file%d", i + 1), fmt.Sprintf("file%d", i + 1))
 			if err != nil {
 				return nil, nil, err
 			}

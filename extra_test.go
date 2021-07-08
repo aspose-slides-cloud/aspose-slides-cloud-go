@@ -37,7 +37,7 @@ import (
 /* 
    Test for SlidesApi.PostSlideSaveAs with timeout method
 */
-func TestPipeline(t *testing.T) {
+func TestPipelineTemplate(t *testing.T) {
         file1 := NewRequestInputFile()
         file1.Index = 0
 
