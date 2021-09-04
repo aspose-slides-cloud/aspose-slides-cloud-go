@@ -383,13 +383,14 @@ func TestConvert(t *testing.T) {
     testpassword, _ := createTestParamValue("Convert", "password", "string").(string)
     teststorage, _ := createTestParamValue("Convert", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("Convert", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("Convert", "slides", "[]int32").([]int32)
     e := initializeTest("Convert", "", "")
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
     }
     c := getTestApiClient()
-    r, _, e := c.SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder)
+    r, _, e := c.SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder, testslides)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -406,6 +407,7 @@ func TestConvertInvalidDocument(t *testing.T) {
     testpassword, _ := createTestParamValue("Convert", "password", "string").(string)
     teststorage, _ := createTestParamValue("Convert", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("Convert", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("Convert", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testdocument, "Convert", "document", "[]byte")
     if (invalidValue == nil) {
@@ -419,7 +421,7 @@ func TestConvertInvalidDocument(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -436,6 +438,7 @@ func TestConvertInvalidFormat(t *testing.T) {
     testpassword, _ := createTestParamValue("Convert", "password", "string").(string)
     teststorage, _ := createTestParamValue("Convert", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("Convert", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("Convert", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testformat, "Convert", "format", "string")
     if (invalidValue == nil) {
@@ -450,7 +453,7 @@ func TestConvertInvalidFormat(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -467,6 +470,7 @@ func TestConvertInvalidPassword(t *testing.T) {
     testpassword, _ := createTestParamValue("Convert", "password", "string").(string)
     teststorage, _ := createTestParamValue("Convert", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("Convert", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("Convert", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testpassword, "Convert", "password", "string")
     if (invalidValue == nil) {
@@ -481,7 +485,7 @@ func TestConvertInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -498,6 +502,7 @@ func TestConvertInvalidStorage(t *testing.T) {
     testpassword, _ := createTestParamValue("Convert", "password", "string").(string)
     teststorage, _ := createTestParamValue("Convert", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("Convert", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("Convert", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(teststorage, "Convert", "storage", "string")
     if (invalidValue == nil) {
@@ -512,7 +517,7 @@ func TestConvertInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -529,6 +534,7 @@ func TestConvertInvalidFontsFolder(t *testing.T) {
     testpassword, _ := createTestParamValue("Convert", "password", "string").(string)
     teststorage, _ := createTestParamValue("Convert", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("Convert", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("Convert", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testfontsFolder, "Convert", "fontsFolder", "string")
     if (invalidValue == nil) {
@@ -543,12 +549,44 @@ func TestConvertInvalidFontsFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "Convert", "fontsFolder", testfontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert presentation from request content to format specified.
+   Test for SlidesApi.Convert method with invalid slides
+*/
+func TestConvertInvalidSlides(t *testing.T) {
+    testdocument, _ := createTestParamValue("Convert", "document", "[]byte").([]byte)
+    testformat, _ := createTestParamValue("Convert", "format", "string").(string)
+    testpassword, _ := createTestParamValue("Convert", "password", "string").(string)
+    teststorage, _ := createTestParamValue("Convert", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("Convert", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("Convert", "slides", "[]int32").([]int32)
+
+    invalidValue := invalidizeTestParamValue(testslides, "Convert", "slides", "[]int32")
+    if (invalidValue == nil) {
+        var nullValue []int32
+        testslides = nullValue
+    } else {
+        testslides, _ = invalidValue.([]int32)
+    }
+
+    e := initializeTest("Convert", "slides", testslides)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.Convert(testdocument, testformat, testpassword, teststorage, testfontsFolder, testslides)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "Convert", "slides", testslides, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Convert presentation from request content to format specified.
@@ -561,13 +599,14 @@ func TestConvertAndSave(t *testing.T) {
     testpassword, _ := createTestParamValue("ConvertAndSave", "password", "string").(string)
     teststorage, _ := createTestParamValue("ConvertAndSave", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("ConvertAndSave", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("ConvertAndSave", "slides", "[]int32").([]int32)
     e := initializeTest("ConvertAndSave", "", "")
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
     }
     c := getTestApiClient()
-    _, e = c.SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder)
+    _, e = c.SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder, testslides)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -584,6 +623,7 @@ func TestConvertAndSaveInvalidDocument(t *testing.T) {
     testpassword, _ := createTestParamValue("ConvertAndSave", "password", "string").(string)
     teststorage, _ := createTestParamValue("ConvertAndSave", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("ConvertAndSave", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("ConvertAndSave", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testdocument, "ConvertAndSave", "document", "[]byte")
     if (invalidValue == nil) {
@@ -597,7 +637,7 @@ func TestConvertAndSaveInvalidDocument(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -615,6 +655,7 @@ func TestConvertAndSaveInvalidFormat(t *testing.T) {
     testpassword, _ := createTestParamValue("ConvertAndSave", "password", "string").(string)
     teststorage, _ := createTestParamValue("ConvertAndSave", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("ConvertAndSave", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("ConvertAndSave", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testformat, "ConvertAndSave", "format", "string")
     if (invalidValue == nil) {
@@ -629,7 +670,7 @@ func TestConvertAndSaveInvalidFormat(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -647,6 +688,7 @@ func TestConvertAndSaveInvalidOutPath(t *testing.T) {
     testpassword, _ := createTestParamValue("ConvertAndSave", "password", "string").(string)
     teststorage, _ := createTestParamValue("ConvertAndSave", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("ConvertAndSave", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("ConvertAndSave", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testoutPath, "ConvertAndSave", "outPath", "string")
     if (invalidValue == nil) {
@@ -661,7 +703,7 @@ func TestConvertAndSaveInvalidOutPath(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -679,6 +721,7 @@ func TestConvertAndSaveInvalidPassword(t *testing.T) {
     testpassword, _ := createTestParamValue("ConvertAndSave", "password", "string").(string)
     teststorage, _ := createTestParamValue("ConvertAndSave", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("ConvertAndSave", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("ConvertAndSave", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testpassword, "ConvertAndSave", "password", "string")
     if (invalidValue == nil) {
@@ -693,7 +736,7 @@ func TestConvertAndSaveInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -711,6 +754,7 @@ func TestConvertAndSaveInvalidStorage(t *testing.T) {
     testpassword, _ := createTestParamValue("ConvertAndSave", "password", "string").(string)
     teststorage, _ := createTestParamValue("ConvertAndSave", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("ConvertAndSave", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("ConvertAndSave", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(teststorage, "ConvertAndSave", "storage", "string")
     if (invalidValue == nil) {
@@ -725,7 +769,7 @@ func TestConvertAndSaveInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -743,6 +787,7 @@ func TestConvertAndSaveInvalidFontsFolder(t *testing.T) {
     testpassword, _ := createTestParamValue("ConvertAndSave", "password", "string").(string)
     teststorage, _ := createTestParamValue("ConvertAndSave", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("ConvertAndSave", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("ConvertAndSave", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testfontsFolder, "ConvertAndSave", "fontsFolder", "string")
     if (invalidValue == nil) {
@@ -757,12 +802,45 @@ func TestConvertAndSaveInvalidFontsFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "ConvertAndSave", "fontsFolder", testfontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert presentation from request content to format specified.
+   Test for SlidesApi.ConvertAndSave method with invalid slides
+*/
+func TestConvertAndSaveInvalidSlides(t *testing.T) {
+    testdocument, _ := createTestParamValue("ConvertAndSave", "document", "[]byte").([]byte)
+    testformat, _ := createTestParamValue("ConvertAndSave", "format", "string").(string)
+    testoutPath, _ := createTestParamValue("ConvertAndSave", "outPath", "string").(string)
+    testpassword, _ := createTestParamValue("ConvertAndSave", "password", "string").(string)
+    teststorage, _ := createTestParamValue("ConvertAndSave", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ConvertAndSave", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("ConvertAndSave", "slides", "[]int32").([]int32)
+
+    invalidValue := invalidizeTestParamValue(testslides, "ConvertAndSave", "slides", "[]int32")
+    if (invalidValue == nil) {
+        var nullValue []int32
+        testslides = nullValue
+    } else {
+        testslides, _ = invalidValue.([]int32)
+    }
+
+    e := initializeTest("ConvertAndSave", "slides", testslides)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.ConvertAndSave(testdocument, testformat, testoutPath, testpassword, teststorage, testfontsFolder, testslides)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ConvertAndSave", "slides", testslides, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Copy file
@@ -22616,13 +22694,14 @@ func TestDownloadPresentation(t *testing.T) {
     testfolder, _ := createTestParamValue("DownloadPresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("DownloadPresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("DownloadPresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("DownloadPresentation", "slides", "[]int32").([]int32)
     e := initializeTest("DownloadPresentation", "", "")
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
     }
     c := getTestApiClient()
-    r, _, e := c.SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    r, _, e := c.SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -22641,6 +22720,7 @@ func TestDownloadPresentationInvalidName(t *testing.T) {
     testfolder, _ := createTestParamValue("DownloadPresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("DownloadPresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("DownloadPresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("DownloadPresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testname, "DownloadPresentation", "name", "string")
     if (invalidValue == nil) {
@@ -22655,7 +22735,7 @@ func TestDownloadPresentationInvalidName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -22674,6 +22754,7 @@ func TestDownloadPresentationInvalidFormat(t *testing.T) {
     testfolder, _ := createTestParamValue("DownloadPresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("DownloadPresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("DownloadPresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("DownloadPresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testformat, "DownloadPresentation", "format", "string")
     if (invalidValue == nil) {
@@ -22688,7 +22769,7 @@ func TestDownloadPresentationInvalidFormat(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -22707,6 +22788,7 @@ func TestDownloadPresentationInvalidOptions(t *testing.T) {
     testfolder, _ := createTestParamValue("DownloadPresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("DownloadPresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("DownloadPresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("DownloadPresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testoptions, "DownloadPresentation", "options", "ExportOptions")
     if (invalidValue == nil) {
@@ -22720,7 +22802,7 @@ func TestDownloadPresentationInvalidOptions(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -22739,6 +22821,7 @@ func TestDownloadPresentationInvalidPassword(t *testing.T) {
     testfolder, _ := createTestParamValue("DownloadPresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("DownloadPresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("DownloadPresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("DownloadPresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testpassword, "DownloadPresentation", "password", "string")
     if (invalidValue == nil) {
@@ -22753,7 +22836,7 @@ func TestDownloadPresentationInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -22772,6 +22855,7 @@ func TestDownloadPresentationInvalidFolder(t *testing.T) {
     testfolder, _ := createTestParamValue("DownloadPresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("DownloadPresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("DownloadPresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("DownloadPresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testfolder, "DownloadPresentation", "folder", "string")
     if (invalidValue == nil) {
@@ -22786,7 +22870,7 @@ func TestDownloadPresentationInvalidFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -22805,6 +22889,7 @@ func TestDownloadPresentationInvalidStorage(t *testing.T) {
     testfolder, _ := createTestParamValue("DownloadPresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("DownloadPresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("DownloadPresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("DownloadPresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(teststorage, "DownloadPresentation", "storage", "string")
     if (invalidValue == nil) {
@@ -22819,7 +22904,7 @@ func TestDownloadPresentationInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -22838,6 +22923,7 @@ func TestDownloadPresentationInvalidFontsFolder(t *testing.T) {
     testfolder, _ := createTestParamValue("DownloadPresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("DownloadPresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("DownloadPresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("DownloadPresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testfontsFolder, "DownloadPresentation", "fontsFolder", "string")
     if (invalidValue == nil) {
@@ -22852,12 +22938,46 @@ func TestDownloadPresentationInvalidFontsFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "DownloadPresentation", "fontsFolder", testfontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Save a presentation to a specified format.
+   Test for SlidesApi.DownloadPresentation method with invalid slides
+*/
+func TestDownloadPresentationInvalidSlides(t *testing.T) {
+    testname, _ := createTestParamValue("DownloadPresentation", "name", "string").(string)
+    testformat, _ := createTestParamValue("DownloadPresentation", "format", "string").(string)
+    testoptions, _ := createTestParamValue("DownloadPresentation", "options", "ExportOptions").(IExportOptions)
+    testpassword, _ := createTestParamValue("DownloadPresentation", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DownloadPresentation", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DownloadPresentation", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("DownloadPresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("DownloadPresentation", "slides", "[]int32").([]int32)
+
+    invalidValue := invalidizeTestParamValue(testslides, "DownloadPresentation", "slides", "[]int32")
+    if (invalidValue == nil) {
+        var nullValue []int32
+        testslides = nullValue
+    } else {
+        testslides, _ = invalidValue.([]int32)
+    }
+
+    e := initializeTest("DownloadPresentation", "slides", testslides)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DownloadPresentation(testname, testformat, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DownloadPresentation", "slides", testslides, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.
@@ -39504,13 +39624,14 @@ func TestSavePresentation(t *testing.T) {
     testfolder, _ := createTestParamValue("SavePresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SavePresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SavePresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("SavePresentation", "slides", "[]int32").([]int32)
     e := initializeTest("SavePresentation", "", "")
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
     }
     c := getTestApiClient()
-    _, e = c.SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    _, e = c.SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -39529,6 +39650,7 @@ func TestSavePresentationInvalidName(t *testing.T) {
     testfolder, _ := createTestParamValue("SavePresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SavePresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SavePresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("SavePresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testname, "SavePresentation", "name", "string")
     if (invalidValue == nil) {
@@ -39543,7 +39665,7 @@ func TestSavePresentationInvalidName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39563,6 +39685,7 @@ func TestSavePresentationInvalidFormat(t *testing.T) {
     testfolder, _ := createTestParamValue("SavePresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SavePresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SavePresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("SavePresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testformat, "SavePresentation", "format", "string")
     if (invalidValue == nil) {
@@ -39577,7 +39700,7 @@ func TestSavePresentationInvalidFormat(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39597,6 +39720,7 @@ func TestSavePresentationInvalidOutPath(t *testing.T) {
     testfolder, _ := createTestParamValue("SavePresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SavePresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SavePresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("SavePresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testoutPath, "SavePresentation", "outPath", "string")
     if (invalidValue == nil) {
@@ -39611,7 +39735,7 @@ func TestSavePresentationInvalidOutPath(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39631,6 +39755,7 @@ func TestSavePresentationInvalidOptions(t *testing.T) {
     testfolder, _ := createTestParamValue("SavePresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SavePresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SavePresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("SavePresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testoptions, "SavePresentation", "options", "ExportOptions")
     if (invalidValue == nil) {
@@ -39644,7 +39769,7 @@ func TestSavePresentationInvalidOptions(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39664,6 +39789,7 @@ func TestSavePresentationInvalidPassword(t *testing.T) {
     testfolder, _ := createTestParamValue("SavePresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SavePresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SavePresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("SavePresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testpassword, "SavePresentation", "password", "string")
     if (invalidValue == nil) {
@@ -39678,7 +39804,7 @@ func TestSavePresentationInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39698,6 +39824,7 @@ func TestSavePresentationInvalidFolder(t *testing.T) {
     testfolder, _ := createTestParamValue("SavePresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SavePresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SavePresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("SavePresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testfolder, "SavePresentation", "folder", "string")
     if (invalidValue == nil) {
@@ -39712,7 +39839,7 @@ func TestSavePresentationInvalidFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39732,6 +39859,7 @@ func TestSavePresentationInvalidStorage(t *testing.T) {
     testfolder, _ := createTestParamValue("SavePresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SavePresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SavePresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("SavePresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(teststorage, "SavePresentation", "storage", "string")
     if (invalidValue == nil) {
@@ -39746,7 +39874,7 @@ func TestSavePresentationInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39766,6 +39894,7 @@ func TestSavePresentationInvalidFontsFolder(t *testing.T) {
     testfolder, _ := createTestParamValue("SavePresentation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SavePresentation", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SavePresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("SavePresentation", "slides", "[]int32").([]int32)
 
     invalidValue := invalidizeTestParamValue(testfontsFolder, "SavePresentation", "fontsFolder", "string")
     if (invalidValue == nil) {
@@ -39780,12 +39909,47 @@ func TestSavePresentationInvalidFontsFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder)
+    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "SavePresentation", "fontsFolder", testfontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Save a presentation to a specified format.
+   Test for SlidesApi.SavePresentation method with invalid slides
+*/
+func TestSavePresentationInvalidSlides(t *testing.T) {
+    testname, _ := createTestParamValue("SavePresentation", "name", "string").(string)
+    testformat, _ := createTestParamValue("SavePresentation", "format", "string").(string)
+    testoutPath, _ := createTestParamValue("SavePresentation", "outPath", "string").(string)
+    testoptions, _ := createTestParamValue("SavePresentation", "options", "ExportOptions").(IExportOptions)
+    testpassword, _ := createTestParamValue("SavePresentation", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SavePresentation", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SavePresentation", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SavePresentation", "fontsFolder", "string").(string)
+    testslides, _ := createTestParamValue("SavePresentation", "slides", "[]int32").([]int32)
+
+    invalidValue := invalidizeTestParamValue(testslides, "SavePresentation", "slides", "[]int32")
+    if (invalidValue == nil) {
+        var nullValue []int32
+        testslides = nullValue
+    } else {
+        testslides, _ = invalidValue.([]int32)
+    }
+
+    e := initializeTest("SavePresentation", "slides", testslides)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SavePresentation(testname, testformat, testoutPath, testoptions, testpassword, testfolder, teststorage, testfontsFolder, testslides)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SavePresentation", "slides", testslides, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Render shape to specified picture format.

@@ -180,8 +180,9 @@ func (a *SlidesApiService) AlignShapes(name string, slideIndex int32, alignmentT
      @param "password" (string) Document password.
      @param "storage" (string) Document storage.
      @param "fontsFolder" (string) Custom fonts folder.
+     @param "slides" ([]int32) The indices of the slides to be converted. If not specified, all slides are converted by default.
  @return *os.File*/
-func (a *SlidesApiService) Convert(document []byte, format string, password string, storage string, fontsFolder string) (*os.File, *http.Response, error) {
+func (a *SlidesApiService) Convert(document []byte, format string, password string, storage string, fontsFolder string, slides []int32) (*os.File, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -216,12 +217,18 @@ func (a *SlidesApiService) Convert(document []byte, format string, password stri
 	if err := typeCheckParameter(fontsFolder, "string", "fontsFolder"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(slides, "[]int32", "slides"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam := storage; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam := fontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := slides; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Slides", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json" }
@@ -275,8 +282,9 @@ func (a *SlidesApiService) Convert(document []byte, format string, password stri
      @param "password" (string) Document password.
      @param "storage" (string) Document storage.
      @param "fontsFolder" (string) Custom fonts folder.
+     @param "slides" ([]int32) The indices of the slides to be converted. If not specified, all slides are converted by default.
  @return */
-func (a *SlidesApiService) ConvertAndSave(document []byte, format string, outPath string, password string, storage string, fontsFolder string) (*http.Response, error) {
+func (a *SlidesApiService) ConvertAndSave(document []byte, format string, outPath string, password string, storage string, fontsFolder string, slides []int32) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -313,6 +321,9 @@ func (a *SlidesApiService) ConvertAndSave(document []byte, format string, outPat
 	if err := typeCheckParameter(fontsFolder, "string", "fontsFolder"); err != nil {
 		return nil, err
 	}
+	if err := typeCheckParameter(slides, "[]int32", "slides"); err != nil {
+		return nil, err
+	}
 
 	localVarQueryParams.Add("OutPath", parameterToString(outPath, ""))
 	if localVarTempParam := storage; len(localVarTempParam) > 0 {
@@ -320,6 +331,9 @@ func (a *SlidesApiService) ConvertAndSave(document []byte, format string, outPat
 	}
 	if localVarTempParam := fontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := slides; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Slides", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json" }
@@ -9949,8 +9963,9 @@ func (a *SlidesApiService) DownloadNotesSlideShape(name string, slideIndex int32
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
      @param "fontsFolder" (string) Custom fonts folder.
+     @param "slides" ([]int32) The indices of the slides to be saved. If not specified, all slides are saved by default.
  @return *os.File*/
-func (a *SlidesApiService) DownloadPresentation(name string, format string, options IExportOptions, password string, folder string, storage string, fontsFolder string) (*os.File, *http.Response, error) {
+func (a *SlidesApiService) DownloadPresentation(name string, format string, options IExportOptions, password string, folder string, storage string, fontsFolder string, slides []int32) (*os.File, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -9994,6 +10009,9 @@ func (a *SlidesApiService) DownloadPresentation(name string, format string, opti
 	if err := typeCheckParameter(fontsFolder, "string", "fontsFolder"); err != nil {
 		return successPayload, nil, err
 	}
+	if err := typeCheckParameter(slides, "[]int32", "slides"); err != nil {
+		return successPayload, nil, err
+	}
 
 	if localVarTempParam := folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
@@ -10003,6 +10021,9 @@ func (a *SlidesApiService) DownloadPresentation(name string, format string, opti
 	}
 	if localVarTempParam := fontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := slides; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Slides", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json" }
@@ -17975,8 +17996,9 @@ func (a *SlidesApiService) SaveNotesSlideShape(name string, slideIndex int32, sh
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
      @param "fontsFolder" (string) Custom fonts folder.
+     @param "slides" ([]int32) The indices of the slides to be saved. If not specified, all slides are saved by default.
  @return */
-func (a *SlidesApiService) SavePresentation(name string, format string, outPath string, options IExportOptions, password string, folder string, storage string, fontsFolder string) (*http.Response, error) {
+func (a *SlidesApiService) SavePresentation(name string, format string, outPath string, options IExportOptions, password string, folder string, storage string, fontsFolder string, slides []int32) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -18022,6 +18044,9 @@ func (a *SlidesApiService) SavePresentation(name string, format string, outPath 
 	if err := typeCheckParameter(fontsFolder, "string", "fontsFolder"); err != nil {
 		return nil, err
 	}
+	if err := typeCheckParameter(slides, "[]int32", "slides"); err != nil {
+		return nil, err
+	}
 
 	localVarQueryParams.Add("OutPath", parameterToString(outPath, ""))
 	if localVarTempParam := folder; len(localVarTempParam) > 0 {
@@ -18032,6 +18057,9 @@ func (a *SlidesApiService) SavePresentation(name string, format string, outPath 
 	}
 	if localVarTempParam := fontsFolder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := slides; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Slides", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json" }
