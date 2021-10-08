@@ -34,7 +34,7 @@ import (
 // Provides options that control how a presentation is saved in XPS format.
 type IXpsExportOptions interface {
 
-	// Setting user password to protect the PDF document. 
+	// Default regular font for rendering the presentation. 
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
@@ -57,7 +57,7 @@ type IXpsExportOptions interface {
 
 type XpsExportOptions struct {
 
-	// Setting user password to protect the PDF document. 
+	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
 	// Export format.

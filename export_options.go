@@ -34,7 +34,7 @@ import (
 // Represents export options for whole presentation.
 type IExportOptions interface {
 
-	// Setting user password to protect the PDF document. 
+	// Default regular font for rendering the presentation. 
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
@@ -44,7 +44,7 @@ type IExportOptions interface {
 
 type ExportOptions struct {
 
-	// Setting user password to protect the PDF document. 
+	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
 	Format string `json:"Format,omitempty"`

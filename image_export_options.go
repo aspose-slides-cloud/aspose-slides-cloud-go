@@ -34,7 +34,7 @@ import (
 // Provides options that control how a presentation is saved in an image format.
 type IImageExportOptions interface {
 
-	// Setting user password to protect the PDF document. 
+	// Default regular font for rendering the presentation. 
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
@@ -61,7 +61,7 @@ type IImageExportOptions interface {
 
 type ImageExportOptions struct {
 
-	// Setting user password to protect the PDF document. 
+	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
 	// Export format.

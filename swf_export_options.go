@@ -34,7 +34,7 @@ import (
 // Provides options that control how a presentation is saved in SWF format.
 type ISwfExportOptions interface {
 
-	// Setting user password to protect the PDF document. 
+	// Default regular font for rendering the presentation. 
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
@@ -125,7 +125,7 @@ type ISwfExportOptions interface {
 
 type SwfExportOptions struct {
 
-	// Setting user password to protect the PDF document. 
+	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
 	// Export format.

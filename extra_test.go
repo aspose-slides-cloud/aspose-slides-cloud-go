@@ -139,7 +139,7 @@ func TestChart(t *testing.T) {
  */
 func TestNullableProperties(t *testing.T) {
         var folderName = "TempSlidesSDK"
-        var fileName = "placeholders.pptx"
+        var fileName = "test.pptx"
         var password = "password"
         var min1  = 44.3
         var min2 = 12.0
@@ -199,7 +199,7 @@ func TestNullableProperties(t *testing.T) {
 		return
 	}
 
-	r, _, e := c.SlidesApi.GetShape(fileName, 1, 4, password, folderName, "")
+	r, _, e := c.SlidesApi.GetShape(fileName, 1, 5, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -220,13 +220,13 @@ func TestNullableProperties(t *testing.T) {
         axis2.setMinValue(min2)
         axes.setHorizontalAxis(&axis2)
         dto2.setAxes(&axes)
-	_, _, e = c.SlidesApi.UpdateShape(fileName, 1, 4, &dto2, password, folderName, "")
+	_, _, e = c.SlidesApi.UpdateShape(fileName, 1, 5, &dto2, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	r, _, e = c.SlidesApi.GetShape(fileName, 1, 4, password, folderName, "")
+	r, _, e = c.SlidesApi.GetShape(fileName, 1, 5, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -243,13 +243,13 @@ func TestNullableProperties(t *testing.T) {
         var axis3 Axis
         axis3.setMaxValue(max2)
         axes.setHorizontalAxis(&axis3)
-	_, _, e = c.SlidesApi.UpdateShape(fileName, 1, 4, &dto2, password, folderName, "")
+	_, _, e = c.SlidesApi.UpdateShape(fileName, 1, 5, &dto2, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	r, _, e = c.SlidesApi.GetShape(fileName, 1, 4, password, folderName, "")
+	r, _, e = c.SlidesApi.GetShape(fileName, 1, 5, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: Wrong MinValue.")
 		return

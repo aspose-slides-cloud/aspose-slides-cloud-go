@@ -34,7 +34,7 @@ import (
 // Provides options that control how a presentation is saved in Pdf format.
 type IPdfExportOptions interface {
 
-	// Setting user password to protect the PDF document. 
+	// Default regular font for rendering the presentation. 
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
@@ -121,7 +121,7 @@ type IPdfExportOptions interface {
 
 type PdfExportOptions struct {
 
-	// Setting user password to protect the PDF document. 
+	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
 	// Export format.
