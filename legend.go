@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -379,5 +378,5 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

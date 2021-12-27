@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -723,32 +722,52 @@ func (this *ScatterSeries) UnmarshalJSON(b []byte) error {
 	
 	if valDataPoints, ok := objMap["dataPoints"]; ok {
 		if valDataPoints != nil {
-			var valueForDataPoints []ScatterChartDataPoint
+			var valueForDataPoints []json.RawMessage
 			err = json.Unmarshal(*valDataPoints, &valueForDataPoints)
 			if err != nil {
 				return err
 			}
 			valueForIDataPoints := make([]IScatterChartDataPoint, len(valueForDataPoints))
 			for i, v := range valueForDataPoints {
-				valueForIDataPoints[i] = IScatterChartDataPoint(&v)
+				vObject, err := createObjectForType("ScatterChartDataPoint", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIDataPoints[i] = vObject.(IScatterChartDataPoint)
+				}
 			}
 			this.DataPoints = valueForIDataPoints
 		}
 	}
 	if valDataPointsCap, ok := objMap["DataPoints"]; ok {
 		if valDataPointsCap != nil {
-			var valueForDataPoints []ScatterChartDataPoint
+			var valueForDataPoints []json.RawMessage
 			err = json.Unmarshal(*valDataPointsCap, &valueForDataPoints)
 			if err != nil {
 				return err
 			}
 			valueForIDataPoints := make([]IScatterChartDataPoint, len(valueForDataPoints))
 			for i, v := range valueForDataPoints {
-				valueForIDataPoints[i] = IScatterChartDataPoint(&v)
+				vObject, err := createObjectForType("ScatterChartDataPoint", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIDataPoints[i] = vObject.(IScatterChartDataPoint)
+				}
 			}
 			this.DataPoints = valueForIDataPoints
 		}
 	}
 
-    return nil
+	return nil
 }

@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -89,6 +88,10 @@ type ISmartArt interface {
 	// Gets or sets the effect format.
 	getEffectFormat() IEffectFormat
 	setEffectFormat(newValue IEffectFormat)
+
+	// Gets or sets the 3D format
+	getThreeDFormat() IThreeDFormat
+	setThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
 	getLineFormat() ILineFormat
@@ -162,6 +165,9 @@ type SmartArt struct {
 
 	// Gets or sets the effect format.
 	EffectFormat IEffectFormat `json:"EffectFormat,omitempty"`
+
+	// Gets or sets the 3D format
+	ThreeDFormat IThreeDFormat `json:"ThreeDFormat,omitempty"`
 
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
@@ -292,6 +298,13 @@ func (this *SmartArt) getEffectFormat() IEffectFormat {
 func (this *SmartArt) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
+func (this *SmartArt) getThreeDFormat() IThreeDFormat {
+	return this.ThreeDFormat
+}
+
+func (this *SmartArt) setThreeDFormat(newValue IThreeDFormat) {
+	this.ThreeDFormat = newValue
+}
 func (this *SmartArt) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
@@ -372,28 +385,48 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 	
 	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
@@ -651,6 +684,27 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
+	if valThreeDFormat, ok := objMap["threeDFormat"]; ok {
+		if valThreeDFormat != nil {
+			var valueForThreeDFormat ThreeDFormat
+			err = json.Unmarshal(*valThreeDFormat, &valueForThreeDFormat)
+			if err != nil {
+				return err
+			}
+			this.ThreeDFormat = &valueForThreeDFormat
+		}
+	}
+	if valThreeDFormatCap, ok := objMap["ThreeDFormat"]; ok {
+		if valThreeDFormatCap != nil {
+			var valueForThreeDFormat ThreeDFormat
+			err = json.Unmarshal(*valThreeDFormatCap, &valueForThreeDFormat)
+			if err != nil {
+				return err
+			}
+			this.ThreeDFormat = &valueForThreeDFormat
+		}
+	}
+	
 	if valLineFormat, ok := objMap["lineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
@@ -806,28 +860,48 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 	
 	if valNodes, ok := objMap["nodes"]; ok {
 		if valNodes != nil {
-			var valueForNodes []SmartArtNode
+			var valueForNodes []json.RawMessage
 			err = json.Unmarshal(*valNodes, &valueForNodes)
 			if err != nil {
 				return err
 			}
 			valueForINodes := make([]ISmartArtNode, len(valueForNodes))
 			for i, v := range valueForNodes {
-				valueForINodes[i] = ISmartArtNode(&v)
+				vObject, err := createObjectForType("SmartArtNode", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForINodes[i] = vObject.(ISmartArtNode)
+				}
 			}
 			this.Nodes = valueForINodes
 		}
 	}
 	if valNodesCap, ok := objMap["Nodes"]; ok {
 		if valNodesCap != nil {
-			var valueForNodes []SmartArtNode
+			var valueForNodes []json.RawMessage
 			err = json.Unmarshal(*valNodesCap, &valueForNodes)
 			if err != nil {
 				return err
 			}
 			valueForINodes := make([]ISmartArtNode, len(valueForNodes))
 			for i, v := range valueForNodes {
-				valueForINodes[i] = ISmartArtNode(&v)
+				vObject, err := createObjectForType("SmartArtNode", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForINodes[i] = vObject.(ISmartArtNode)
+				}
 			}
 			this.Nodes = valueForINodes
 		}
@@ -854,5 +928,5 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

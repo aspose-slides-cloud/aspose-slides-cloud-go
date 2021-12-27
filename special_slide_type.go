@@ -26,6 +26,10 @@
  */
 
 package asposeslidescloud
+import (
+	"strings"
+)
+
 // SpecialSlideType : 
 type SpecialSlideType string
 
@@ -35,3 +39,7 @@ const (
 	SpecialSlideType_LayoutSlide SpecialSlideType = "LayoutSlide"
 	SpecialSlideType_NotesSlide SpecialSlideType = "NotesSlide"
 )
+
+func SpecialSlideType_Validate(value string) (bool) {
+	return strings.ToLower(value) == strings.ToLower(string(SpecialSlideType_MasterSlide)) || strings.ToLower(value) == strings.ToLower(string(SpecialSlideType_LayoutSlide)) || strings.ToLower(value) == strings.ToLower(string(SpecialSlideType_NotesSlide))
+}

@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -462,28 +461,48 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 	
 	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
@@ -1134,5 +1153,5 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

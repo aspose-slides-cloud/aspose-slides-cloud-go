@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -86,5 +85,5 @@ func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

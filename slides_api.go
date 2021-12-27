@@ -71,6 +71,9 @@ func (a *SlidesApiService) AlignShapes(name string, slideIndex int32, alignmentT
 	if len(alignmentType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter alignmentType")
 	}
+	if !ShapesAlignmentType_Validate(alignmentType) {
+		return successPayload, nil, reportError("Invalid value for parameter alignmentType: " + alignmentType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/align/{alignmentType}"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -199,8 +202,14 @@ func (a *SlidesApiService) AlignSpecialSlideShapes(name string, slideIndex int32
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if len(alignmentType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter alignmentType")
+	}
+	if !ShapesAlignmentType_Validate(alignmentType) {
+		return successPayload, nil, reportError("Invalid value for parameter alignmentType: " + alignmentType)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/align/{alignmentType}"
@@ -334,6 +343,9 @@ func (a *SlidesApiService) Convert(document []byte, format string, password stri
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
 	}
+	if !ExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/convert/{format}"
 	formatPathStringValue := fmt.Sprintf("%v", format)
@@ -436,6 +448,9 @@ func (a *SlidesApiService) ConvertAndSave(document []byte, format string, outPat
 	}
 	if len(format) == 0 {
 		return nil, reportError("Missing required parameter format")
+	}
+	if !ExportFormat_Validate(format) {
+		return nil, reportError("Invalid value for parameter format: " + format)
 	}
 	if len(outPath) == 0 {
 		return nil, reportError("Missing required parameter outPath")
@@ -2494,8 +2509,8 @@ func (a *SlidesApiService) CreatePortion(name string, slideIndex int32, shapeInd
 /* SlidesApiService Create a presentation.
  @param name Document name.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "data" ([]byte) Document input data.
-     @param "inputPassword" (string) The password for input document.
+     @param "data" ([]byte) Source presentation binary data.
+     @param "inputPassword" (string) The password for source presentation.
      @param "password" (string) The document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -2599,9 +2614,9 @@ func (a *SlidesApiService) CreatePresentation(name string, data []byte, inputPas
 /* SlidesApiService Create a presentation from an existing source.
  @param name Document name.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "sourcePath" (string) Template file path.
-     @param "sourcePassword" (string) Template file password.
-     @param "sourceStorage" (string) Template storage name.
+     @param "sourcePath" (string) Source file path.
+     @param "sourcePassword" (string) Source file password.
+     @param "sourceStorage" (string) Source storage name.
      @param "password" (string) The document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -3194,6 +3209,9 @@ func (a *SlidesApiService) CreateSpecialSlideAnimationEffect(name string, slideI
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if effect == nil {
 		return successPayload, nil, reportError("Missing required parameter effect")
 	}
@@ -3309,6 +3327,9 @@ func (a *SlidesApiService) CreateSpecialSlideAnimationInteractiveSequence(name s
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if sequence == nil {
 		return successPayload, nil, reportError("Missing required parameter sequence")
@@ -3426,6 +3447,9 @@ func (a *SlidesApiService) CreateSpecialSlideAnimationInteractiveSequenceEffect(
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if effect == nil {
 		return successPayload, nil, reportError("Missing required parameter effect")
@@ -3550,6 +3574,9 @@ func (a *SlidesApiService) CreateSpecialSlideParagraph(name string, slideIndex i
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if dto == nil {
 		return successPayload, nil, reportError("Missing required parameter dto")
@@ -3683,6 +3710,9 @@ func (a *SlidesApiService) CreateSpecialSlidePortion(name string, slideIndex int
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if dto == nil {
 		return successPayload, nil, reportError("Missing required parameter dto")
@@ -3822,6 +3852,9 @@ func (a *SlidesApiService) CreateSpecialSlideShape(name string, slideIndex int32
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -3953,6 +3986,9 @@ func (a *SlidesApiService) CreateSpecialSlideSubshape(name string, slideIndex in
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -4094,6 +4130,9 @@ func (a *SlidesApiService) CreateSpecialSlideSubshapeParagraph(name string, slid
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -4237,6 +4276,9 @@ func (a *SlidesApiService) CreateSpecialSlideSubshapePortion(name string, slideI
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -8165,6 +8207,9 @@ func (a *SlidesApiService) DeleteSpecialSlideAnimation(name string, slideIndex i
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/animation"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -8276,6 +8321,9 @@ func (a *SlidesApiService) DeleteSpecialSlideAnimationEffect(name string, slideI
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/animation/mainSequence/{effectIndex}"
@@ -8395,6 +8443,9 @@ func (a *SlidesApiService) DeleteSpecialSlideAnimationInteractiveSequence(name s
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/animation/interactiveSequences/{sequenceIndex}"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -8513,6 +8564,9 @@ func (a *SlidesApiService) DeleteSpecialSlideAnimationInteractiveSequenceEffect(
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/animation/interactiveSequences/{sequenceIndex}/{effectIndex}"
@@ -8637,6 +8691,9 @@ func (a *SlidesApiService) DeleteSpecialSlideAnimationInteractiveSequences(name 
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/animation/interactiveSequences"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -8747,6 +8804,9 @@ func (a *SlidesApiService) DeleteSpecialSlideAnimationMainSequence(name string, 
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/animation/mainSequence"
@@ -8860,6 +8920,9 @@ func (a *SlidesApiService) DeleteSpecialSlideParagraph(name string, slideIndex i
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}"
@@ -8986,6 +9049,9 @@ func (a *SlidesApiService) DeleteSpecialSlideParagraphs(name string, slideIndex 
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/paragraphs"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -9111,6 +9177,9 @@ func (a *SlidesApiService) DeleteSpecialSlidePortion(name string, slideIndex int
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
@@ -9244,6 +9313,9 @@ func (a *SlidesApiService) DeleteSpecialSlidePortions(name string, slideIndex in
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -9374,6 +9446,9 @@ func (a *SlidesApiService) DeleteSpecialSlideShape(name string, slideIndex int32
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -9491,6 +9566,9 @@ func (a *SlidesApiService) DeleteSpecialSlideShapes(name string, slideIndex int3
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes"
@@ -9610,6 +9688,9 @@ func (a *SlidesApiService) DeleteSpecialSlideSubshape(name string, slideIndex in
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -9739,6 +9820,9 @@ func (a *SlidesApiService) DeleteSpecialSlideSubshapeParagraph(name string, slid
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -9875,6 +9959,9 @@ func (a *SlidesApiService) DeleteSpecialSlideSubshapeParagraphs(name string, sli
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
 	}
@@ -10010,6 +10097,9 @@ func (a *SlidesApiService) DeleteSpecialSlideSubshapePortion(name string, slideI
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -10153,6 +10243,9 @@ func (a *SlidesApiService) DeleteSpecialSlideSubshapePortions(name string, slide
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
 	}
@@ -10292,6 +10385,9 @@ func (a *SlidesApiService) DeleteSpecialSlideSubshapes(name string, slideIndex i
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -11414,6 +11510,9 @@ func (a *SlidesApiService) DownloadImage(name string, index int32, format string
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
 	}
+	if !ImageExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/images/{index}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -11687,6 +11786,9 @@ func (a *SlidesApiService) DownloadImageOnline(document []byte, index int32, for
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
 	}
+	if !ImageExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/images/{index}/{format}"
 	indexPathStringValue := fmt.Sprintf("%v", index)
@@ -11774,6 +11876,9 @@ func (a *SlidesApiService) DownloadImages(name string, format string, password s
 	}
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
+	}
+	if !ImageExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/images/download/{format}"
@@ -12027,6 +12132,9 @@ func (a *SlidesApiService) DownloadImagesOnline(document []byte, format string, 
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
 	}
+	if !ImageExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/images/download/{format}"
 	formatPathStringValue := fmt.Sprintf("%v", format)
@@ -12112,6 +12220,9 @@ func (a *SlidesApiService) DownloadNotesSlide(name string, slideIndex int32, for
 	}
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
+	}
+	if !NotesSlideExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/notesSlide/{format}"
@@ -12240,6 +12351,9 @@ func (a *SlidesApiService) DownloadNotesSlideOnline(document []byte, slideIndex 
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
 	}
+	if !NotesSlideExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/slides/{slideIndex}/notesSlide/{format}"
 	slideIndexPathStringValue := fmt.Sprintf("%v", slideIndex)
@@ -12352,6 +12466,9 @@ func (a *SlidesApiService) DownloadPresentation(name string, format string, opti
 	}
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
+	}
+	if !ExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/{format}"
@@ -12469,6 +12586,12 @@ func (a *SlidesApiService) DownloadShape(name string, slideIndex int32, shapeInd
 	}
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
+	}
+	if !ShapeExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
+	if len(bounds) != 0 && !ShapeThumbnailBounds_Validate(bounds) {
+		return successPayload, nil, reportError("Invalid value for parameter bounds: " + bounds)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}"
@@ -12614,6 +12737,12 @@ func (a *SlidesApiService) DownloadShapeOnline(document []byte, slideIndex int32
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
 	}
+	if !ShapeExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
+	if len(bounds) != 0 && !ShapeThumbnailBounds_Validate(bounds) {
+		return successPayload, nil, reportError("Invalid value for parameter bounds: " + bounds)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/slides/{slideIndex}/shapes/{shapeIndex}/{format}"
 	slideIndexPathStringValue := fmt.Sprintf("%v", slideIndex)
@@ -12748,6 +12877,9 @@ func (a *SlidesApiService) DownloadSlide(name string, slideIndex int32, format s
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
 	}
+	if !SlideExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -12878,6 +13010,9 @@ func (a *SlidesApiService) DownloadSlideOnline(document []byte, slideIndex int32
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
 	}
+	if !SlideExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/slides/{slideIndex}/{format}"
 	slideIndexPathStringValue := fmt.Sprintf("%v", slideIndex)
@@ -13003,8 +13138,17 @@ func (a *SlidesApiService) DownloadSpecialSlideShape(name string, slideIndex int
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
+	}
+	if !ShapeExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
+	if len(bounds) != 0 && !ShapeThumbnailBounds_Validate(bounds) {
+		return successPayload, nil, reportError("Invalid value for parameter bounds: " + bounds)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/{format}"
@@ -13159,11 +13303,20 @@ func (a *SlidesApiService) DownloadSpecialSlideSubshape(name string, slideIndex 
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
 	}
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
+	}
+	if !ShapeExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
+	if len(bounds) != 0 && !ShapeThumbnailBounds_Validate(bounds) {
+		return successPayload, nil, reportError("Invalid value for parameter bounds: " + bounds)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{path}/{shapeIndex}/{format}"
@@ -13326,6 +13479,12 @@ func (a *SlidesApiService) DownloadSubshape(name string, slideIndex int32, path 
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
 	}
+	if !ShapeExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
+	if len(bounds) != 0 && !ShapeThumbnailBounds_Validate(bounds) {
+		return successPayload, nil, reportError("Invalid value for parameter bounds: " + bounds)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/{format}"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -13453,11 +13612,12 @@ func (a *SlidesApiService) DownloadSubshape(name string, slideIndex int32, path 
  @param slideIndex Slide index.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "shapeIndex" (int32) Shape index. If specified, only effects related to that shape are returned.
+     @param "paragraphIndex" (int32) Paragraph index.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) GetAnimation(name string, slideIndex int32, shapeIndex *int32, password string, folder string, storage string) (ISlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) GetAnimation(name string, slideIndex int32, shapeIndex *int32, paragraphIndex *int32, password string, folder string, storage string) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -13491,6 +13651,11 @@ func (a *SlidesApiService) GetAnimation(name string, slideIndex int32, shapeInde
 			return successPayload, nil, err
 		}
 	}
+	if paragraphIndex != nil {
+		if err := typeCheckParameter(*paragraphIndex, "int32", "paragraphIndex"); err != nil {
+			return successPayload, nil, err
+		}
+	}
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
 	}
@@ -13503,6 +13668,9 @@ func (a *SlidesApiService) GetAnimation(name string, slideIndex int32, shapeInde
 
 	if shapeIndex != nil {
 		localVarQueryParams.Add("ShapeIndex", parameterToString(*shapeIndex, ""))
+	}
+	if paragraphIndex != nil {
+		localVarQueryParams.Add("ParagraphIndex", parameterToString(*paragraphIndex, ""))
 	}
 	if localVarTempParam := folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
@@ -17193,11 +17361,12 @@ func (a *SlidesApiService) GetSlides(name string, password string, folder string
  @param slideType Slide type (master, layout or notes).
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "shapeIndex" (int32) Shape index. If specified, only effects related to that shape are returned.
+     @param "paragraphIndex" (int32) Paragraph index. If specified, only effects related to that paragraph are returned.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return SlideAnimation*/
-func (a *SlidesApiService) GetSpecialSlideAnimation(name string, slideIndex int32, slideType string, shapeIndex *int32, password string, folder string, storage string) (ISlideAnimation, *http.Response, error) {
+func (a *SlidesApiService) GetSpecialSlideAnimation(name string, slideIndex int32, slideType string, shapeIndex *int32, paragraphIndex *int32, password string, folder string, storage string) (ISlideAnimation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody interface{}
@@ -17210,6 +17379,9 @@ func (a *SlidesApiService) GetSpecialSlideAnimation(name string, slideIndex int3
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/animation"
@@ -17240,6 +17412,11 @@ func (a *SlidesApiService) GetSpecialSlideAnimation(name string, slideIndex int3
 			return successPayload, nil, err
 		}
 	}
+	if paragraphIndex != nil {
+		if err := typeCheckParameter(*paragraphIndex, "int32", "paragraphIndex"); err != nil {
+			return successPayload, nil, err
+		}
+	}
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
 	}
@@ -17252,6 +17429,9 @@ func (a *SlidesApiService) GetSpecialSlideAnimation(name string, slideIndex int3
 
 	if shapeIndex != nil {
 		localVarQueryParams.Add("ShapeIndex", parameterToString(*shapeIndex, ""))
+	}
+	if paragraphIndex != nil {
+		localVarQueryParams.Add("ParagraphIndex", parameterToString(*paragraphIndex, ""))
 	}
 	if localVarTempParam := folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
@@ -17331,6 +17511,9 @@ func (a *SlidesApiService) GetSpecialSlideParagraph(name string, slideIndex int3
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}"
@@ -17456,6 +17639,9 @@ func (a *SlidesApiService) GetSpecialSlideParagraphs(name string, slideIndex int
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/paragraphs"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -17575,6 +17761,9 @@ func (a *SlidesApiService) GetSpecialSlidePortion(name string, slideIndex int32,
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}"
@@ -17707,6 +17896,9 @@ func (a *SlidesApiService) GetSpecialSlidePortions(name string, slideIndex int32
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -17831,6 +18023,9 @@ func (a *SlidesApiService) GetSpecialSlideShape(name string, slideIndex int32, s
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -17948,6 +18143,9 @@ func (a *SlidesApiService) GetSpecialSlideShapes(name string, slideIndex int32, 
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -18060,6 +18258,9 @@ func (a *SlidesApiService) GetSpecialSlideSubshape(name string, slideIndex int32
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -18189,6 +18390,9 @@ func (a *SlidesApiService) GetSpecialSlideSubshapeParagraph(name string, slideIn
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -18324,6 +18528,9 @@ func (a *SlidesApiService) GetSpecialSlideSubshapeParagraphs(name string, slideI
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
 	}
@@ -18453,6 +18660,9 @@ func (a *SlidesApiService) GetSpecialSlideSubshapePortion(name string, slideInde
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -18595,6 +18805,9 @@ func (a *SlidesApiService) GetSpecialSlideSubshapePortions(name string, slideInd
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
 	}
@@ -18727,6 +18940,9 @@ func (a *SlidesApiService) GetSpecialSlideSubshapes(name string, slideIndex int3
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -21534,6 +21750,9 @@ func (a *SlidesApiService) SavePresentation(name string, format string, outPath 
 	if len(format) == 0 {
 		return nil, reportError("Missing required parameter format")
 	}
+	if !ExportFormat_Validate(format) {
+		return nil, reportError("Invalid value for parameter format: " + format)
+	}
 	if len(outPath) == 0 {
 		return nil, reportError("Missing required parameter outPath")
 	}
@@ -21650,8 +21869,14 @@ func (a *SlidesApiService) SaveShape(name string, slideIndex int32, shapeIndex i
 	if len(format) == 0 {
 		return nil, reportError("Missing required parameter format")
 	}
+	if !ShapeExportFormat_Validate(format) {
+		return nil, reportError("Invalid value for parameter format: " + format)
+	}
 	if len(outPath) == 0 {
 		return nil, reportError("Missing required parameter outPath")
+	}
+	if len(bounds) != 0 && !ShapeThumbnailBounds_Validate(bounds) {
+		return nil, reportError("Invalid value for parameter bounds: " + bounds)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/{format}"
@@ -21793,8 +22018,14 @@ func (a *SlidesApiService) SaveShapeOnline(document []byte, slideIndex int32, sh
 	if len(format) == 0 {
 		return nil, reportError("Missing required parameter format")
 	}
+	if !ShapeExportFormat_Validate(format) {
+		return nil, reportError("Invalid value for parameter format: " + format)
+	}
 	if len(outPath) == 0 {
 		return nil, reportError("Missing required parameter outPath")
+	}
+	if len(bounds) != 0 && !ShapeThumbnailBounds_Validate(bounds) {
+		return nil, reportError("Invalid value for parameter bounds: " + bounds)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/slides/{slideIndex}/shapes/{shapeIndex}/{format}"
@@ -21926,6 +22157,9 @@ func (a *SlidesApiService) SaveSlide(name string, slideIndex int32, format strin
 	if len(format) == 0 {
 		return nil, reportError("Missing required parameter format")
 	}
+	if !SlideExportFormat_Validate(format) {
+		return nil, reportError("Invalid value for parameter format: " + format)
+	}
 	if len(outPath) == 0 {
 		return nil, reportError("Missing required parameter outPath")
 	}
@@ -22055,6 +22289,9 @@ func (a *SlidesApiService) SaveSlideOnline(document []byte, slideIndex int32, fo
 	if len(format) == 0 {
 		return nil, reportError("Missing required parameter format")
 	}
+	if !SlideExportFormat_Validate(format) {
+		return nil, reportError("Invalid value for parameter format: " + format)
+	}
 	if len(outPath) == 0 {
 		return nil, reportError("Missing required parameter outPath")
 	}
@@ -22179,11 +22416,20 @@ func (a *SlidesApiService) SaveSpecialSlideShape(name string, slideIndex int32, 
 	if len(slideType) == 0 {
 		return nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if len(format) == 0 {
 		return nil, reportError("Missing required parameter format")
 	}
+	if !ShapeExportFormat_Validate(format) {
+		return nil, reportError("Invalid value for parameter format: " + format)
+	}
 	if len(outPath) == 0 {
 		return nil, reportError("Missing required parameter outPath")
+	}
+	if len(bounds) != 0 && !ShapeThumbnailBounds_Validate(bounds) {
+		return nil, reportError("Invalid value for parameter bounds: " + bounds)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{shapeIndex}/{format}"
@@ -22334,14 +22580,23 @@ func (a *SlidesApiService) SaveSpecialSlideSubshape(name string, slideIndex int3
 	if len(slideType) == 0 {
 		return nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if len(path) == 0 {
 		return nil, reportError("Missing required parameter path")
 	}
 	if len(format) == 0 {
 		return nil, reportError("Missing required parameter format")
 	}
+	if !ShapeExportFormat_Validate(format) {
+		return nil, reportError("Invalid value for parameter format: " + format)
+	}
 	if len(outPath) == 0 {
 		return nil, reportError("Missing required parameter outPath")
+	}
+	if len(bounds) != 0 && !ShapeThumbnailBounds_Validate(bounds) {
+		return nil, reportError("Invalid value for parameter bounds: " + bounds)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/{slideType}/shapes/{path}/{shapeIndex}/{format}"
@@ -22500,8 +22755,14 @@ func (a *SlidesApiService) SaveSubshape(name string, slideIndex int32, path stri
 	if len(format) == 0 {
 		return nil, reportError("Missing required parameter format")
 	}
+	if !ShapeExportFormat_Validate(format) {
+		return nil, reportError("Invalid value for parameter format: " + format)
+	}
 	if len(outPath) == 0 {
 		return nil, reportError("Missing required parameter outPath")
+	}
+	if len(bounds) != 0 && !ShapeThumbnailBounds_Validate(bounds) {
+		return nil, reportError("Invalid value for parameter bounds: " + bounds)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{path}/{shapeIndex}/{format}"
@@ -23854,6 +24115,9 @@ func (a *SlidesApiService) SetSpecialSlideAnimation(name string, slideIndex int3
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if animation == nil {
 		return successPayload, nil, reportError("Missing required parameter animation")
 	}
@@ -24071,6 +24335,9 @@ func (a *SlidesApiService) Split(name string, options IExportOptions, format str
 	if len(name) == 0 {
 		return successPayload, nil, reportError("Missing required parameter name")
 	}
+	if len(format) != 0 && !SlideExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/split"
 	namePathStringValue := fmt.Sprintf("%v", name)
@@ -24225,6 +24492,9 @@ func (a *SlidesApiService) SplitAndSaveOnline(document []byte, format string, de
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
 	}
+	if !SlideExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/split/{format}"
 	formatPathStringValue := fmt.Sprintf("%v", format)
@@ -24367,6 +24637,9 @@ func (a *SlidesApiService) SplitOnline(document []byte, format string, width *in
 	}
 	if len(format) == 0 {
 		return successPayload, nil, reportError("Missing required parameter format")
+	}
+	if !SlideExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/split/{format}"
@@ -25953,6 +26226,9 @@ func (a *SlidesApiService) UpdateSpecialSlideAnimationEffect(name string, slideI
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if effect == nil {
 		return successPayload, nil, reportError("Missing required parameter effect")
 	}
@@ -26076,6 +26352,9 @@ func (a *SlidesApiService) UpdateSpecialSlideAnimationInteractiveSequenceEffect(
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if effect == nil {
 		return successPayload, nil, reportError("Missing required parameter effect")
@@ -26207,6 +26486,9 @@ func (a *SlidesApiService) UpdateSpecialSlideParagraph(name string, slideIndex i
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if dto == nil {
 		return successPayload, nil, reportError("Missing required parameter dto")
 	}
@@ -26337,6 +26619,9 @@ func (a *SlidesApiService) UpdateSpecialSlidePortion(name string, slideIndex int
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if dto == nil {
 		return successPayload, nil, reportError("Missing required parameter dto")
@@ -26473,6 +26758,9 @@ func (a *SlidesApiService) UpdateSpecialSlideShape(name string, slideIndex int32
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
 	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
+	}
 	if dto == nil {
 		return successPayload, nil, reportError("Missing required parameter dto")
 	}
@@ -26596,6 +26884,9 @@ func (a *SlidesApiService) UpdateSpecialSlideSubshape(name string, slideIndex in
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -26730,6 +27021,9 @@ func (a *SlidesApiService) UpdateSpecialSlideSubshapeParagraph(name string, slid
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")
@@ -26871,6 +27165,9 @@ func (a *SlidesApiService) UpdateSpecialSlideSubshapePortion(name string, slideI
 	}
 	if len(slideType) == 0 {
 		return successPayload, nil, reportError("Missing required parameter slideType")
+	}
+	if !SpecialSlideType_Validate(slideType) {
+		return successPayload, nil, reportError("Invalid value for parameter slideType: " + slideType)
 	}
 	if len(path) == 0 {
 		return successPayload, nil, reportError("Missing required parameter path")

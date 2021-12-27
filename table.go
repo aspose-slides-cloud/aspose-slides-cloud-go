@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -89,6 +88,10 @@ type ITable interface {
 	// Gets or sets the effect format.
 	getEffectFormat() IEffectFormat
 	setEffectFormat(newValue IEffectFormat)
+
+	// Gets or sets the 3D format
+	getThreeDFormat() IThreeDFormat
+	setThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
 	getLineFormat() ILineFormat
@@ -182,6 +185,9 @@ type Table struct {
 
 	// Gets or sets the effect format.
 	EffectFormat IEffectFormat `json:"EffectFormat,omitempty"`
+
+	// Gets or sets the 3D format
+	ThreeDFormat IThreeDFormat `json:"ThreeDFormat,omitempty"`
 
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
@@ -325,6 +331,13 @@ func (this *Table) getEffectFormat() IEffectFormat {
 func (this *Table) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
+func (this *Table) getThreeDFormat() IThreeDFormat {
+	return this.ThreeDFormat
+}
+
+func (this *Table) setThreeDFormat(newValue IThreeDFormat) {
+	this.ThreeDFormat = newValue
+}
 func (this *Table) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
@@ -440,28 +453,48 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
@@ -719,6 +752,27 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
+	if valThreeDFormat, ok := objMap["threeDFormat"]; ok {
+		if valThreeDFormat != nil {
+			var valueForThreeDFormat ThreeDFormat
+			err = json.Unmarshal(*valThreeDFormat, &valueForThreeDFormat)
+			if err != nil {
+				return err
+			}
+			this.ThreeDFormat = &valueForThreeDFormat
+		}
+	}
+	if valThreeDFormatCap, ok := objMap["ThreeDFormat"]; ok {
+		if valThreeDFormatCap != nil {
+			var valueForThreeDFormat ThreeDFormat
+			err = json.Unmarshal(*valThreeDFormatCap, &valueForThreeDFormat)
+			if err != nil {
+				return err
+			}
+			this.ThreeDFormat = &valueForThreeDFormat
+		}
+	}
+	
 	if valLineFormat, ok := objMap["lineFormat"]; ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
@@ -808,28 +862,48 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valRows, ok := objMap["rows"]; ok {
 		if valRows != nil {
-			var valueForRows []TableRow
+			var valueForRows []json.RawMessage
 			err = json.Unmarshal(*valRows, &valueForRows)
 			if err != nil {
 				return err
 			}
 			valueForIRows := make([]ITableRow, len(valueForRows))
 			for i, v := range valueForRows {
-				valueForIRows[i] = ITableRow(&v)
+				vObject, err := createObjectForType("TableRow", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIRows[i] = vObject.(ITableRow)
+				}
 			}
 			this.Rows = valueForIRows
 		}
 	}
 	if valRowsCap, ok := objMap["Rows"]; ok {
 		if valRowsCap != nil {
-			var valueForRows []TableRow
+			var valueForRows []json.RawMessage
 			err = json.Unmarshal(*valRowsCap, &valueForRows)
 			if err != nil {
 				return err
 			}
 			valueForIRows := make([]ITableRow, len(valueForRows))
 			for i, v := range valueForRows {
-				valueForIRows[i] = ITableRow(&v)
+				vObject, err := createObjectForType("TableRow", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIRows[i] = vObject.(ITableRow)
+				}
 			}
 			this.Rows = valueForIRows
 		}
@@ -837,28 +911,48 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valColumns, ok := objMap["columns"]; ok {
 		if valColumns != nil {
-			var valueForColumns []TableColumn
+			var valueForColumns []json.RawMessage
 			err = json.Unmarshal(*valColumns, &valueForColumns)
 			if err != nil {
 				return err
 			}
 			valueForIColumns := make([]ITableColumn, len(valueForColumns))
 			for i, v := range valueForColumns {
-				valueForIColumns[i] = ITableColumn(&v)
+				vObject, err := createObjectForType("TableColumn", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIColumns[i] = vObject.(ITableColumn)
+				}
 			}
 			this.Columns = valueForIColumns
 		}
 	}
 	if valColumnsCap, ok := objMap["Columns"]; ok {
 		if valColumnsCap != nil {
-			var valueForColumns []TableColumn
+			var valueForColumns []json.RawMessage
 			err = json.Unmarshal(*valColumnsCap, &valueForColumns)
 			if err != nil {
 				return err
 			}
 			valueForIColumns := make([]ITableColumn, len(valueForColumns))
 			for i, v := range valueForColumns {
-				valueForIColumns[i] = ITableColumn(&v)
+				vObject, err := createObjectForType("TableColumn", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIColumns[i] = vObject.(ITableColumn)
+				}
 			}
 			this.Columns = valueForIColumns
 		}
@@ -1011,5 +1105,5 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

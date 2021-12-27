@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -102,32 +101,52 @@ func (this *Pipeline) UnmarshalJSON(b []byte) error {
 	
 	if valTasks, ok := objMap["tasks"]; ok {
 		if valTasks != nil {
-			var valueForTasks []Task
+			var valueForTasks []json.RawMessage
 			err = json.Unmarshal(*valTasks, &valueForTasks)
 			if err != nil {
 				return err
 			}
 			valueForITasks := make([]ITask, len(valueForTasks))
 			for i, v := range valueForTasks {
-				valueForITasks[i] = ITask(&v)
+				vObject, err := createObjectForType("Task", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForITasks[i] = vObject.(ITask)
+				}
 			}
 			this.Tasks = valueForITasks
 		}
 	}
 	if valTasksCap, ok := objMap["Tasks"]; ok {
 		if valTasksCap != nil {
-			var valueForTasks []Task
+			var valueForTasks []json.RawMessage
 			err = json.Unmarshal(*valTasksCap, &valueForTasks)
 			if err != nil {
 				return err
 			}
 			valueForITasks := make([]ITask, len(valueForTasks))
 			for i, v := range valueForTasks {
-				valueForITasks[i] = ITask(&v)
+				vObject, err := createObjectForType("Task", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForITasks[i] = vObject.(ITask)
+				}
 			}
 			this.Tasks = valueForITasks
 		}
 	}
 
-    return nil
+	return nil
 }

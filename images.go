@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -116,28 +115,48 @@ func (this *Images) UnmarshalJSON(b []byte) error {
 	
 	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
@@ -145,32 +164,52 @@ func (this *Images) UnmarshalJSON(b []byte) error {
 	
 	if valList, ok := objMap["list"]; ok {
 		if valList != nil {
-			var valueForList []Image
+			var valueForList []json.RawMessage
 			err = json.Unmarshal(*valList, &valueForList)
 			if err != nil {
 				return err
 			}
 			valueForIList := make([]IImage, len(valueForList))
 			for i, v := range valueForList {
-				valueForIList[i] = IImage(&v)
+				vObject, err := createObjectForType("Image", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIList[i] = vObject.(IImage)
+				}
 			}
 			this.List = valueForIList
 		}
 	}
 	if valListCap, ok := objMap["List"]; ok {
 		if valListCap != nil {
-			var valueForList []Image
+			var valueForList []json.RawMessage
 			err = json.Unmarshal(*valListCap, &valueForList)
 			if err != nil {
 				return err
 			}
 			valueForIList := make([]IImage, len(valueForList))
 			for i, v := range valueForList {
-				valueForIList[i] = IImage(&v)
+				vObject, err := createObjectForType("Image", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIList[i] = vObject.(IImage)
+				}
 			}
 			this.List = valueForIList
 		}
 	}
 
-    return nil
+	return nil
 }

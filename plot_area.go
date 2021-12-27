@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -344,5 +343,5 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

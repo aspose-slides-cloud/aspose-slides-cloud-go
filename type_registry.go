@@ -51,6 +51,9 @@ func init() {
 	typeRegistry["BlurEffect"] = reflect.TypeOf(BlurEffect{})
 	
 	typeDeterminers["BlurEffect"] = make(map[string]string)
+	typeRegistry["Camera"] = reflect.TypeOf(Camera{})
+	
+	typeDeterminers["Camera"] = make(map[string]string)
 	typeRegistry["ChartCategory"] = reflect.TypeOf(ChartCategory{})
 	
 	typeDeterminers["ChartCategory"] = make(map[string]string)
@@ -129,6 +132,9 @@ func init() {
 	typeRegistry["Legend"] = reflect.TypeOf(Legend{})
 	
 	typeDeterminers["Legend"] = make(map[string]string)
+	typeRegistry["LightRig"] = reflect.TypeOf(LightRig{})
+	
+	typeDeterminers["LightRig"] = make(map[string]string)
 	typeRegistry["LineFormat"] = reflect.TypeOf(LineFormat{})
 	
 	typeDeterminers["LineFormat"] = make(map[string]string)
@@ -183,6 +189,9 @@ func init() {
 	typeRegistry["SeriesMarker"] = reflect.TypeOf(SeriesMarker{})
 	
 	typeDeterminers["SeriesMarker"] = make(map[string]string)
+	typeRegistry["ShapeBevel"] = reflect.TypeOf(ShapeBevel{})
+	
+	typeDeterminers["ShapeBevel"] = make(map[string]string)
 	typeRegistry["ShapeImageExportOptions"] = reflect.TypeOf(ShapeImageExportOptions{})
 	
 	typeDeterminers["ShapeImageExportOptions"] = make(map[string]string)
@@ -216,6 +225,9 @@ func init() {
 	typeRegistry["TextItem"] = reflect.TypeOf(TextItem{})
 	
 	typeDeterminers["TextItem"] = make(map[string]string)
+	typeRegistry["ThreeDFormat"] = reflect.TypeOf(ThreeDFormat{})
+	
+	typeDeterminers["ThreeDFormat"] = make(map[string]string)
 	typeRegistry["AddLayoutSlide"] = reflect.TypeOf(AddLayoutSlide{})
 	derivedTypes["AddLayoutSlide"] = "Task"
 	typeDeterminers["AddLayoutSlide"] = make(map[string]string)
@@ -268,6 +280,9 @@ func init() {
 	typeRegistry["HeaderFooter"] = reflect.TypeOf(HeaderFooter{})
 	derivedTypes["HeaderFooter"] = "ResourceBase"
 	typeDeterminers["HeaderFooter"] = make(map[string]string)
+	typeRegistry["Html5ExportOptions"] = reflect.TypeOf(Html5ExportOptions{})
+	derivedTypes["Html5ExportOptions"] = "ExportOptions"
+	typeDeterminers["Html5ExportOptions"] = make(map[string]string)
 	typeRegistry["HtmlExportOptions"] = reflect.TypeOf(HtmlExportOptions{})
 	derivedTypes["HtmlExportOptions"] = "ExportOptions"
 	typeDeterminers["HtmlExportOptions"] = make(map[string]string)

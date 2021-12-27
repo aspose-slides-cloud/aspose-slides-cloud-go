@@ -26,6 +26,10 @@
  */
 
 package asposeslidescloud
+import (
+	"strings"
+)
+
 // SlideExportFormat : Slide Export Format
 type SlideExportFormat string
 
@@ -53,3 +57,7 @@ const (
 	SlideExportFormat_Svg SlideExportFormat = "Svg"
 	SlideExportFormat_Fodp SlideExportFormat = "Fodp"
 )
+
+func SlideExportFormat_Validate(value string) (bool) {
+	return strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Jpeg)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Png)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Gif)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Bmp)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Tiff)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Html)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Pdf)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Xps)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Pptx)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Odp)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Otp)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Ppt)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Pps)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Ppsx)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Pptm)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Ppsm)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Potx)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Pot)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Potm)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Svg)) || strings.ToLower(value) == strings.ToLower(string(SlideExportFormat_Fodp))
+}

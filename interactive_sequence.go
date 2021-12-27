@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -81,28 +80,48 @@ func (this *InteractiveSequence) UnmarshalJSON(b []byte) error {
 	
 	if valEffects, ok := objMap["effects"]; ok {
 		if valEffects != nil {
-			var valueForEffects []Effect
+			var valueForEffects []json.RawMessage
 			err = json.Unmarshal(*valEffects, &valueForEffects)
 			if err != nil {
 				return err
 			}
 			valueForIEffects := make([]IEffect, len(valueForEffects))
 			for i, v := range valueForEffects {
-				valueForIEffects[i] = IEffect(&v)
+				vObject, err := createObjectForType("Effect", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIEffects[i] = vObject.(IEffect)
+				}
 			}
 			this.Effects = valueForIEffects
 		}
 	}
 	if valEffectsCap, ok := objMap["Effects"]; ok {
 		if valEffectsCap != nil {
-			var valueForEffects []Effect
+			var valueForEffects []json.RawMessage
 			err = json.Unmarshal(*valEffectsCap, &valueForEffects)
 			if err != nil {
 				return err
 			}
 			valueForIEffects := make([]IEffect, len(valueForEffects))
 			for i, v := range valueForEffects {
-				valueForIEffects[i] = IEffect(&v)
+				vObject, err := createObjectForType("Effect", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIEffects[i] = vObject.(IEffect)
+				}
 			}
 			this.Effects = valueForIEffects
 		}
@@ -129,5 +148,5 @@ func (this *InteractiveSequence) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

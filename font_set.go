@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -156,5 +155,5 @@ func (this *FontSet) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

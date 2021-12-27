@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -67,32 +66,52 @@ func (this *FileVersions) UnmarshalJSON(b []byte) error {
 	
 	if valValue, ok := objMap["value"]; ok {
 		if valValue != nil {
-			var valueForValue []FileVersion
+			var valueForValue []json.RawMessage
 			err = json.Unmarshal(*valValue, &valueForValue)
 			if err != nil {
 				return err
 			}
 			valueForIValue := make([]IFileVersion, len(valueForValue))
 			for i, v := range valueForValue {
-				valueForIValue[i] = IFileVersion(&v)
+				vObject, err := createObjectForType("FileVersion", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIValue[i] = vObject.(IFileVersion)
+				}
 			}
 			this.Value = valueForIValue
 		}
 	}
 	if valValueCap, ok := objMap["Value"]; ok {
 		if valValueCap != nil {
-			var valueForValue []FileVersion
+			var valueForValue []json.RawMessage
 			err = json.Unmarshal(*valValueCap, &valueForValue)
 			if err != nil {
 				return err
 			}
 			valueForIValue := make([]IFileVersion, len(valueForValue))
 			for i, v := range valueForValue {
-				valueForIValue[i] = IFileVersion(&v)
+				vObject, err := createObjectForType("FileVersion", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIValue[i] = vObject.(IFileVersion)
+				}
 			}
 			this.Value = valueForIValue
 		}
 	}
 
-    return nil
+	return nil
 }

@@ -26,6 +26,10 @@
  */
 
 package asposeslidescloud
+import (
+	"strings"
+)
+
 // ShapeThumbnailBounds : Represents thumnail bounds settings.
 type ShapeThumbnailBounds string
 
@@ -35,3 +39,7 @@ const (
 	ShapeThumbnailBounds_Shape ShapeThumbnailBounds = "Shape"
 	ShapeThumbnailBounds_Appearance ShapeThumbnailBounds = "Appearance"
 )
+
+func ShapeThumbnailBounds_Validate(value string) (bool) {
+	return strings.ToLower(value) == strings.ToLower(string(ShapeThumbnailBounds_Slide)) || strings.ToLower(value) == strings.ToLower(string(ShapeThumbnailBounds_Shape)) || strings.ToLower(value) == strings.ToLower(string(ShapeThumbnailBounds_Appearance))
+}

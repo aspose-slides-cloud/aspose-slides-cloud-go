@@ -26,6 +26,10 @@
  */
 
 package asposeslidescloud
+import (
+	"strings"
+)
+
 // ShapesAlignmentType : 
 type ShapesAlignmentType string
 
@@ -40,3 +44,7 @@ const (
 	ShapesAlignmentType_DistributeHorizontally ShapesAlignmentType = "DistributeHorizontally"
 	ShapesAlignmentType_DistributeVertically ShapesAlignmentType = "DistributeVertically"
 )
+
+func ShapesAlignmentType_Validate(value string) (bool) {
+	return strings.ToLower(value) == strings.ToLower(string(ShapesAlignmentType_AlignLeft)) || strings.ToLower(value) == strings.ToLower(string(ShapesAlignmentType_AlignRight)) || strings.ToLower(value) == strings.ToLower(string(ShapesAlignmentType_AlignCenter)) || strings.ToLower(value) == strings.ToLower(string(ShapesAlignmentType_AlignTop)) || strings.ToLower(value) == strings.ToLower(string(ShapesAlignmentType_AlignMiddle)) || strings.ToLower(value) == strings.ToLower(string(ShapesAlignmentType_AlignBottom)) || strings.ToLower(value) == strings.ToLower(string(ShapesAlignmentType_DistributeHorizontally)) || strings.ToLower(value) == strings.ToLower(string(ShapesAlignmentType_DistributeVertically))
+}

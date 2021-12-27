@@ -26,6 +26,10 @@
  */
 
 package asposeslidescloud
+import (
+	"strings"
+)
+
 // ShapeExportFormat : Represents a format for individual shape export.
 type ShapeExportFormat string
 
@@ -38,3 +42,7 @@ const (
 	ShapeExportFormat_Tiff ShapeExportFormat = "Tiff"
 	ShapeExportFormat_Svg ShapeExportFormat = "Svg"
 )
+
+func ShapeExportFormat_Validate(value string) (bool) {
+	return strings.ToLower(value) == strings.ToLower(string(ShapeExportFormat_Jpeg)) || strings.ToLower(value) == strings.ToLower(string(ShapeExportFormat_Png)) || strings.ToLower(value) == strings.ToLower(string(ShapeExportFormat_Gif)) || strings.ToLower(value) == strings.ToLower(string(ShapeExportFormat_Bmp)) || strings.ToLower(value) == strings.ToLower(string(ShapeExportFormat_Tiff)) || strings.ToLower(value) == strings.ToLower(string(ShapeExportFormat_Svg))
+}

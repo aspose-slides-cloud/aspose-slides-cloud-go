@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -54,13 +53,13 @@ type IShapeImageExportOptions interface {
 type ShapeImageExportOptions struct {
 
 	// Get or sets scaling ratio by X axis.
-	ScaleX float64 `json:"ScaleX"`
+	ScaleX float64 `json:"ScaleX,omitempty"`
 
 	// Get or sets scaling ratio by Y axis.
-	ScaleY float64 `json:"ScaleY"`
+	ScaleY float64 `json:"ScaleY,omitempty"`
 
 	// Get or sets thumbnail bounds
-	ThumbnailBounds string `json:"ThumbnailBounds"`
+	ThumbnailBounds string `json:"ThumbnailBounds,omitempty"`
 
 	// Gets export format.
 	Format string `json:"Format,omitempty"`
@@ -68,7 +67,7 @@ type ShapeImageExportOptions struct {
 
 func NewShapeImageExportOptions() *ShapeImageExportOptions {
 	instance := new(ShapeImageExportOptions)
-	instance.ThumbnailBounds = "Slide"
+	instance.ThumbnailBounds = ""
 	return instance
 }
 
@@ -149,7 +148,7 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 			this.ScaleY = valueForScaleY
 		}
 	}
-	this.ThumbnailBounds = "Slide"
+	this.ThumbnailBounds = ""
 	if valThumbnailBounds, ok := objMap["thumbnailBounds"]; ok {
 		if valThumbnailBounds != nil {
 			var valueForThumbnailBounds string
@@ -204,5 +203,5 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

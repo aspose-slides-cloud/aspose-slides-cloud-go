@@ -26,6 +26,10 @@
  */
 
 package asposeslidescloud
+import (
+	"strings"
+)
+
 // NotesSlideExportFormat : Represents a format for notes slide export.
 type NotesSlideExportFormat string
 
@@ -37,3 +41,7 @@ const (
 	NotesSlideExportFormat_Bmp NotesSlideExportFormat = "Bmp"
 	NotesSlideExportFormat_Tiff NotesSlideExportFormat = "Tiff"
 )
+
+func NotesSlideExportFormat_Validate(value string) (bool) {
+	return strings.ToLower(value) == strings.ToLower(string(NotesSlideExportFormat_Jpeg)) || strings.ToLower(value) == strings.ToLower(string(NotesSlideExportFormat_Png)) || strings.ToLower(value) == strings.ToLower(string(NotesSlideExportFormat_Gif)) || strings.ToLower(value) == strings.ToLower(string(NotesSlideExportFormat_Bmp)) || strings.ToLower(value) == strings.ToLower(string(NotesSlideExportFormat_Tiff))
+}

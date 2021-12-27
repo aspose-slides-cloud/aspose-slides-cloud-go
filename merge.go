@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -115,32 +114,52 @@ func (this *Merge) UnmarshalJSON(b []byte) error {
 	
 	if valPresentations, ok := objMap["presentations"]; ok {
 		if valPresentations != nil {
-			var valueForPresentations []MergingSource
+			var valueForPresentations []json.RawMessage
 			err = json.Unmarshal(*valPresentations, &valueForPresentations)
 			if err != nil {
 				return err
 			}
 			valueForIPresentations := make([]IMergingSource, len(valueForPresentations))
 			for i, v := range valueForPresentations {
-				valueForIPresentations[i] = IMergingSource(&v)
+				vObject, err := createObjectForType("MergingSource", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIPresentations[i] = vObject.(IMergingSource)
+				}
 			}
 			this.Presentations = valueForIPresentations
 		}
 	}
 	if valPresentationsCap, ok := objMap["Presentations"]; ok {
 		if valPresentationsCap != nil {
-			var valueForPresentations []MergingSource
+			var valueForPresentations []json.RawMessage
 			err = json.Unmarshal(*valPresentationsCap, &valueForPresentations)
 			if err != nil {
 				return err
 			}
 			valueForIPresentations := make([]IMergingSource, len(valueForPresentations))
 			for i, v := range valueForPresentations {
-				valueForIPresentations[i] = IMergingSource(&v)
+				vObject, err := createObjectForType("MergingSource", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIPresentations[i] = vObject.(IMergingSource)
+				}
 			}
 			this.Presentations = valueForIPresentations
 		}
 	}
 
-    return nil
+	return nil
 }

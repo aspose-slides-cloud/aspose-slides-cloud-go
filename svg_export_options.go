@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -38,7 +37,15 @@ type ISvgExportOptions interface {
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
-	// Export format.
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getHeight() int32
+	setHeight(newValue int32)
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getWidth() int32
+	setWidth(newValue int32)
+
+	//          Export format.          
 	getFormat() string
 	setFormat(newValue string)
 
@@ -84,14 +91,20 @@ type SvgExportOptions struct {
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
-	// Export format.
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Height int32 `json:"Height,omitempty"`
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Width int32 `json:"Width,omitempty"`
+
+	//          Export format.          
 	Format string `json:"Format,omitempty"`
 
 	// Determines whether the text on a slide will be saved as graphics.
 	VectorizeText bool `json:"VectorizeText"`
 
 	// Returns or sets the lower resolution limit for metafile rasterization.
-	MetafileRasterizationDpi int32 `json:"MetafileRasterizationDpi"`
+	MetafileRasterizationDpi int32 `json:"MetafileRasterizationDpi,omitempty"`
 
 	// Determines whether the 3D text is disabled in SVG.
 	Disable3DText bool `json:"Disable3DText"`
@@ -103,22 +116,22 @@ type SvgExportOptions struct {
 	DisableLineEndCropping bool `json:"DisableLineEndCropping"`
 
 	// Determines JPEG encoding quality.
-	JpegQuality int32 `json:"JpegQuality"`
+	JpegQuality int32 `json:"JpegQuality,omitempty"`
 
 	// Represents the pictures compression level
-	PicturesCompression string `json:"PicturesCompression"`
+	PicturesCompression string `json:"PicturesCompression,omitempty"`
 
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
 	DeletePicturesCroppedAreas bool `json:"DeletePicturesCroppedAreas"`
 
 	// Determines a way of handling externally loaded fonts.
-	ExternalFontsHandling string `json:"ExternalFontsHandling"`
+	ExternalFontsHandling string `json:"ExternalFontsHandling,omitempty"`
 }
 
 func NewSvgExportOptions() *SvgExportOptions {
 	instance := new(SvgExportOptions)
-	instance.PicturesCompression = "Dpi330"
-	instance.ExternalFontsHandling = "AddLinksToFontFiles"
+	instance.PicturesCompression = ""
+	instance.ExternalFontsHandling = ""
 	return instance
 }
 
@@ -128,6 +141,20 @@ func (this *SvgExportOptions) getDefaultRegularFont() string {
 
 func (this *SvgExportOptions) setDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *SvgExportOptions) getHeight() int32 {
+	return this.Height
+}
+
+func (this *SvgExportOptions) setHeight(newValue int32) {
+	this.Height = newValue
+}
+func (this *SvgExportOptions) getWidth() int32 {
+	return this.Width
+}
+
+func (this *SvgExportOptions) setWidth(newValue int32) {
+	this.Width = newValue
 }
 func (this *SvgExportOptions) getFormat() string {
 	return this.Format
@@ -225,6 +252,48 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.DefaultRegularFont = valueForDefaultRegularFont
+		}
+	}
+	
+	if valHeight, ok := objMap["height"]; ok {
+		if valHeight != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeight, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	
+	if valWidth, ok := objMap["width"]; ok {
+		if valWidth != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidth, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
 		}
 	}
 	
@@ -374,7 +443,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.JpegQuality = valueForJpegQuality
 		}
 	}
-	this.PicturesCompression = "Dpi330"
+	this.PicturesCompression = ""
 	if valPicturesCompression, ok := objMap["picturesCompression"]; ok {
 		if valPicturesCompression != nil {
 			var valueForPicturesCompression string
@@ -428,7 +497,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 			this.DeletePicturesCroppedAreas = valueForDeletePicturesCroppedAreas
 		}
 	}
-	this.ExternalFontsHandling = "AddLinksToFontFiles"
+	this.ExternalFontsHandling = ""
 	if valExternalFontsHandling, ok := objMap["externalFontsHandling"]; ok {
 		if valExternalFontsHandling != nil {
 			var valueForExternalFontsHandling string
@@ -462,5 +531,5 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

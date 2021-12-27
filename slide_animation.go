@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -130,28 +129,48 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 	
 	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
@@ -159,28 +178,48 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 	
 	if valMainSequence, ok := objMap["mainSequence"]; ok {
 		if valMainSequence != nil {
-			var valueForMainSequence []Effect
+			var valueForMainSequence []json.RawMessage
 			err = json.Unmarshal(*valMainSequence, &valueForMainSequence)
 			if err != nil {
 				return err
 			}
 			valueForIMainSequence := make([]IEffect, len(valueForMainSequence))
 			for i, v := range valueForMainSequence {
-				valueForIMainSequence[i] = IEffect(&v)
+				vObject, err := createObjectForType("Effect", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIMainSequence[i] = vObject.(IEffect)
+				}
 			}
 			this.MainSequence = valueForIMainSequence
 		}
 	}
 	if valMainSequenceCap, ok := objMap["MainSequence"]; ok {
 		if valMainSequenceCap != nil {
-			var valueForMainSequence []Effect
+			var valueForMainSequence []json.RawMessage
 			err = json.Unmarshal(*valMainSequenceCap, &valueForMainSequence)
 			if err != nil {
 				return err
 			}
 			valueForIMainSequence := make([]IEffect, len(valueForMainSequence))
 			for i, v := range valueForMainSequence {
-				valueForIMainSequence[i] = IEffect(&v)
+				vObject, err := createObjectForType("Effect", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIMainSequence[i] = vObject.(IEffect)
+				}
 			}
 			this.MainSequence = valueForIMainSequence
 		}
@@ -188,32 +227,52 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 	
 	if valInteractiveSequences, ok := objMap["interactiveSequences"]; ok {
 		if valInteractiveSequences != nil {
-			var valueForInteractiveSequences []InteractiveSequence
+			var valueForInteractiveSequences []json.RawMessage
 			err = json.Unmarshal(*valInteractiveSequences, &valueForInteractiveSequences)
 			if err != nil {
 				return err
 			}
 			valueForIInteractiveSequences := make([]IInteractiveSequence, len(valueForInteractiveSequences))
 			for i, v := range valueForInteractiveSequences {
-				valueForIInteractiveSequences[i] = IInteractiveSequence(&v)
+				vObject, err := createObjectForType("InteractiveSequence", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIInteractiveSequences[i] = vObject.(IInteractiveSequence)
+				}
 			}
 			this.InteractiveSequences = valueForIInteractiveSequences
 		}
 	}
 	if valInteractiveSequencesCap, ok := objMap["InteractiveSequences"]; ok {
 		if valInteractiveSequencesCap != nil {
-			var valueForInteractiveSequences []InteractiveSequence
+			var valueForInteractiveSequences []json.RawMessage
 			err = json.Unmarshal(*valInteractiveSequencesCap, &valueForInteractiveSequences)
 			if err != nil {
 				return err
 			}
 			valueForIInteractiveSequences := make([]IInteractiveSequence, len(valueForInteractiveSequences))
 			for i, v := range valueForInteractiveSequences {
-				valueForIInteractiveSequences[i] = IInteractiveSequence(&v)
+				vObject, err := createObjectForType("InteractiveSequence", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIInteractiveSequences[i] = vObject.(IInteractiveSequence)
+				}
 			}
 			this.InteractiveSequences = valueForIInteractiveSequences
 		}
 	}
 
-    return nil
+	return nil
 }

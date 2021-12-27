@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -331,5 +330,5 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

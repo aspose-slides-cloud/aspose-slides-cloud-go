@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -124,28 +123,48 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 	
 	if valNodes, ok := objMap["nodes"]; ok {
 		if valNodes != nil {
-			var valueForNodes []SmartArtNode
+			var valueForNodes []json.RawMessage
 			err = json.Unmarshal(*valNodes, &valueForNodes)
 			if err != nil {
 				return err
 			}
 			valueForINodes := make([]ISmartArtNode, len(valueForNodes))
 			for i, v := range valueForNodes {
-				valueForINodes[i] = ISmartArtNode(&v)
+				vObject, err := createObjectForType("SmartArtNode", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForINodes[i] = vObject.(ISmartArtNode)
+				}
 			}
 			this.Nodes = valueForINodes
 		}
 	}
 	if valNodesCap, ok := objMap["Nodes"]; ok {
 		if valNodesCap != nil {
-			var valueForNodes []SmartArtNode
+			var valueForNodes []json.RawMessage
 			err = json.Unmarshal(*valNodesCap, &valueForNodes)
 			if err != nil {
 				return err
 			}
 			valueForINodes := make([]ISmartArtNode, len(valueForNodes))
 			for i, v := range valueForNodes {
-				valueForINodes[i] = ISmartArtNode(&v)
+				vObject, err := createObjectForType("SmartArtNode", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForINodes[i] = vObject.(ISmartArtNode)
+				}
 			}
 			this.Nodes = valueForINodes
 		}
@@ -247,5 +266,5 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

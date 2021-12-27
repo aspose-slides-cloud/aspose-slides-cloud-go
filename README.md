@@ -23,8 +23,18 @@ You may want to check out Aspose free [[PowerPoint to Word Converter]](https://p
 
 **Fixed Layout:** PDF, PDF/A, XPS
 **Images:** JPEG, PNG, BMP, TIFF, SVG
-**Web:** HTML
+**Web:** HTML/HTML5
 **Other:** SWF (export whole presentations)
+
+## Enhancements in Version 21.12
+* New **ThreeDFormat**, **Camera**, **LightRig** and **ShapeBevel** classes allow to get and set 3D effects for shapes. New **ThreeDFormat** property of **ShapeBase** class allows to access those objects.
+* The declaration of **GetAnimation** and  **GetSpecialSlideAnimation** methods is changed. New **paragraphIndex** parameter allows to get effects for a specific paragraph. New **ParagraphIndex** property of **Effect** class allows to set effects for a specific paragraph.
+* You can now use **Html5** value for **format** parameter in conversion methods and export presentations to HTML5 format.
+* New **Width** and **Height** parameters were added to **ExportOptions** class. You can now set custom size when convertion your documents.
+
+## Enhancements in Version 21.9
+* New **options** parameter for **Convert**, **ConvertAndSave**, **DownloadSlideOnline**, **SaveSlideOnline**, **DownloadShapeOnline** and **SaveShapeOnline** methods that allows to specify options when converting presentations from request body.
+* New methods to manage shapes and animation for special slide types: master, layout and notes slides. The new methods are **GetSpecialSlideShapes**, **GetSpecialSlideSubshapes, **GetSpecialSlideShape**, **GetSpecialSlideSubshape**, **GetSpecialSlideParagraphs**, **GetSpecialSlideSubshapeParagraphs**, **GetSpecialSlideParagraph**, **GetSpecialSlideSubshapeParagraph**, **GetSpecialSlidePortions**, **GetSpecialSlideSubshapePortions**, **GetSpecialSlidePortion**, **GetSpecialSlideSubshapePortion**, **CreateSpecialSlideShape**, **CreateSpecialSlideSubshape**, **CreateSpecialSlideParagraph**, **CreateSpecialSlideSubshapeParagraph**, **CreateSpecialSlidePortion**, **CreateSpecialSlideSubshapePortion**, **UpdateSpecialSlideShape**, **UpdateSpecialSlideSubshape**, **UpdateSpecialSlideParagraph**, **UpdateSpecialSlideSubshapeParagraph**, **UpdateSpecialSlidePortion**, **UpdateSpecialSlideSubshapePortion**, **DeleteSpecialSlideShapes**, **DeleteSpecialSlideSubshapes**, **DeleteSpecialSlideShape**, **DeleteSpecialSlideSubshape**, **DeleteSpecialSlideParagraphs**, **DeleteSpecialSlideSubshapeParagraphs**, **DeleteSpecialSlideParagraph**, **DeleteSpecialSlideSubshapeParagraph**, **DeleteSpecialSlidePortions**, **DeleteSpecialSlideSubshapePortions**, **DeleteSpecialSlidePortion**, **DeleteSpecialSlideSubshapePortion**, **DownloadSpecialSlideShape**, **DownloadSpecialSlideSubshape**, **SaveSpecialSlideShape**, **SaveSpecialSlideSubshape**, **AlignSpecialSlideShapes**, **GetSpecialSlideAnimation**, **SetSpecialSlideAnimation**, **CreateSpecialSlideAnimationInteractiveSequence**, **CreateSpecialSlideAnimationEffect**, **CreateSpecialSlideAnimationInteractiveSequenceEffect**, **UpdateSpecialSlideAnimationEffect**, **UpdateSpecialSlideAnimationInteractiveSequenceEffect**, **DeleteSpecialSlideAnimation**, **DeleteSpecialSlideAnimationMainSequence**, **DeleteSpecialSlideAnimationInteractiveSequences**, **DeleteSpecialSlideAnimationInteractiveSequence**, **DeleteSpecialSlideAnimationEffect**, **DeleteSpecialSlideAnimationInteractiveSequenceEffect**.
 
 ## Enhancements in Version 21.8
 * New **slides** parameter for **Convert**, **ConvertAndSave**, **DownloadPresentation** and **SavePresentation** methods that allows to convert a specified set of slides in the presentation.
@@ -79,7 +89,7 @@ The example code below converts a PowerPoint document to PDF format using aspose
 	cfg.AppKey = "MyClientSecret"
        	apiClient := asposeslidescloud.NewAPIClient(cfg)
         file, _ := ioutil.ReadFile("MyPresentation.pptx")
-	r, _, _ := apiClient.SlidesApi.PostSlidesConvert(file, "pdf")
+	r, _, _ := apiClient.SlidesApi.Convert(file, "pdf")
 	fmt.Printf("My PDF was saved to %s", r.Name())
 ```
 

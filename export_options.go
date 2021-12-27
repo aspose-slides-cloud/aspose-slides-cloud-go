@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -38,6 +37,14 @@ type IExportOptions interface {
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getHeight() int32
+	setHeight(newValue int32)
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getWidth() int32
+	setWidth(newValue int32)
+
 	getFormat() string
 	setFormat(newValue string)
 }
@@ -46,6 +53,12 @@ type ExportOptions struct {
 
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Height int32 `json:"Height,omitempty"`
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Width int32 `json:"Width,omitempty"`
 
 	Format string `json:"Format,omitempty"`
 }
@@ -61,6 +74,20 @@ func (this *ExportOptions) getDefaultRegularFont() string {
 
 func (this *ExportOptions) setDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *ExportOptions) getHeight() int32 {
+	return this.Height
+}
+
+func (this *ExportOptions) setHeight(newValue int32) {
+	this.Height = newValue
+}
+func (this *ExportOptions) getWidth() int32 {
+	return this.Width
+}
+
+func (this *ExportOptions) setWidth(newValue int32) {
+	this.Width = newValue
 }
 func (this *ExportOptions) getFormat() string {
 	return this.Format
@@ -98,6 +125,48 @@ func (this *ExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
+	if valHeight, ok := objMap["height"]; ok {
+		if valHeight != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeight, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	
+	if valWidth, ok := objMap["width"]; ok {
+		if valWidth != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidth, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	
 	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
@@ -119,5 +188,5 @@ func (this *ExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

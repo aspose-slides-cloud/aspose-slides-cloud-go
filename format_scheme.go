@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -158,28 +157,48 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 	
 	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
@@ -187,28 +206,48 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 	
 	if valBackgroundStyles, ok := objMap["backgroundStyles"]; ok {
 		if valBackgroundStyles != nil {
-			var valueForBackgroundStyles []ResourceUri
+			var valueForBackgroundStyles []json.RawMessage
 			err = json.Unmarshal(*valBackgroundStyles, &valueForBackgroundStyles)
 			if err != nil {
 				return err
 			}
 			valueForIBackgroundStyles := make([]IResourceUri, len(valueForBackgroundStyles))
 			for i, v := range valueForBackgroundStyles {
-				valueForIBackgroundStyles[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIBackgroundStyles[i] = vObject.(IResourceUri)
+				}
 			}
 			this.BackgroundStyles = valueForIBackgroundStyles
 		}
 	}
 	if valBackgroundStylesCap, ok := objMap["BackgroundStyles"]; ok {
 		if valBackgroundStylesCap != nil {
-			var valueForBackgroundStyles []ResourceUri
+			var valueForBackgroundStyles []json.RawMessage
 			err = json.Unmarshal(*valBackgroundStylesCap, &valueForBackgroundStyles)
 			if err != nil {
 				return err
 			}
 			valueForIBackgroundStyles := make([]IResourceUri, len(valueForBackgroundStyles))
 			for i, v := range valueForBackgroundStyles {
-				valueForIBackgroundStyles[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIBackgroundStyles[i] = vObject.(IResourceUri)
+				}
 			}
 			this.BackgroundStyles = valueForIBackgroundStyles
 		}
@@ -216,28 +255,48 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 	
 	if valEffectStyles, ok := objMap["effectStyles"]; ok {
 		if valEffectStyles != nil {
-			var valueForEffectStyles []ResourceUri
+			var valueForEffectStyles []json.RawMessage
 			err = json.Unmarshal(*valEffectStyles, &valueForEffectStyles)
 			if err != nil {
 				return err
 			}
 			valueForIEffectStyles := make([]IResourceUri, len(valueForEffectStyles))
 			for i, v := range valueForEffectStyles {
-				valueForIEffectStyles[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIEffectStyles[i] = vObject.(IResourceUri)
+				}
 			}
 			this.EffectStyles = valueForIEffectStyles
 		}
 	}
 	if valEffectStylesCap, ok := objMap["EffectStyles"]; ok {
 		if valEffectStylesCap != nil {
-			var valueForEffectStyles []ResourceUri
+			var valueForEffectStyles []json.RawMessage
 			err = json.Unmarshal(*valEffectStylesCap, &valueForEffectStyles)
 			if err != nil {
 				return err
 			}
 			valueForIEffectStyles := make([]IResourceUri, len(valueForEffectStyles))
 			for i, v := range valueForEffectStyles {
-				valueForIEffectStyles[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIEffectStyles[i] = vObject.(IResourceUri)
+				}
 			}
 			this.EffectStyles = valueForIEffectStyles
 		}
@@ -245,28 +304,48 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 	
 	if valFillStyles, ok := objMap["fillStyles"]; ok {
 		if valFillStyles != nil {
-			var valueForFillStyles []ResourceUri
+			var valueForFillStyles []json.RawMessage
 			err = json.Unmarshal(*valFillStyles, &valueForFillStyles)
 			if err != nil {
 				return err
 			}
 			valueForIFillStyles := make([]IResourceUri, len(valueForFillStyles))
 			for i, v := range valueForFillStyles {
-				valueForIFillStyles[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIFillStyles[i] = vObject.(IResourceUri)
+				}
 			}
 			this.FillStyles = valueForIFillStyles
 		}
 	}
 	if valFillStylesCap, ok := objMap["FillStyles"]; ok {
 		if valFillStylesCap != nil {
-			var valueForFillStyles []ResourceUri
+			var valueForFillStyles []json.RawMessage
 			err = json.Unmarshal(*valFillStylesCap, &valueForFillStyles)
 			if err != nil {
 				return err
 			}
 			valueForIFillStyles := make([]IResourceUri, len(valueForFillStyles))
 			for i, v := range valueForFillStyles {
-				valueForIFillStyles[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIFillStyles[i] = vObject.(IResourceUri)
+				}
 			}
 			this.FillStyles = valueForIFillStyles
 		}
@@ -274,32 +353,52 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 	
 	if valLineStyles, ok := objMap["lineStyles"]; ok {
 		if valLineStyles != nil {
-			var valueForLineStyles []ResourceUri
+			var valueForLineStyles []json.RawMessage
 			err = json.Unmarshal(*valLineStyles, &valueForLineStyles)
 			if err != nil {
 				return err
 			}
 			valueForILineStyles := make([]IResourceUri, len(valueForLineStyles))
 			for i, v := range valueForLineStyles {
-				valueForILineStyles[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForILineStyles[i] = vObject.(IResourceUri)
+				}
 			}
 			this.LineStyles = valueForILineStyles
 		}
 	}
 	if valLineStylesCap, ok := objMap["LineStyles"]; ok {
 		if valLineStylesCap != nil {
-			var valueForLineStyles []ResourceUri
+			var valueForLineStyles []json.RawMessage
 			err = json.Unmarshal(*valLineStylesCap, &valueForLineStyles)
 			if err != nil {
 				return err
 			}
 			valueForILineStyles := make([]IResourceUri, len(valueForLineStyles))
 			for i, v := range valueForLineStyles {
-				valueForILineStyles[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForILineStyles[i] = vObject.(IResourceUri)
+				}
 			}
 			this.LineStyles = valueForILineStyles
 		}
 	}
 
-    return nil
+	return nil
 }

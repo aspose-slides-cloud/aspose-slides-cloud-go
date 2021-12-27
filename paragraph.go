@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -390,28 +389,48 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 	
 	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
@@ -914,32 +933,52 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 	
 	if valPortionList, ok := objMap["portionList"]; ok {
 		if valPortionList != nil {
-			var valueForPortionList []Portion
+			var valueForPortionList []json.RawMessage
 			err = json.Unmarshal(*valPortionList, &valueForPortionList)
 			if err != nil {
 				return err
 			}
 			valueForIPortionList := make([]IPortion, len(valueForPortionList))
 			for i, v := range valueForPortionList {
-				valueForIPortionList[i] = IPortion(&v)
+				vObject, err := createObjectForType("Portion", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIPortionList[i] = vObject.(IPortion)
+				}
 			}
 			this.PortionList = valueForIPortionList
 		}
 	}
 	if valPortionListCap, ok := objMap["PortionList"]; ok {
 		if valPortionListCap != nil {
-			var valueForPortionList []Portion
+			var valueForPortionList []json.RawMessage
 			err = json.Unmarshal(*valPortionListCap, &valueForPortionList)
 			if err != nil {
 				return err
 			}
 			valueForIPortionList := make([]IPortion, len(valueForPortionList))
 			for i, v := range valueForPortionList {
-				valueForIPortionList[i] = IPortion(&v)
+				vObject, err := createObjectForType("Portion", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIPortionList[i] = vObject.(IPortion)
+				}
 			}
 			this.PortionList = valueForIPortionList
 		}
 	}
 
-    return nil
+	return nil
 }

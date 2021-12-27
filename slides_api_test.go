@@ -33209,6 +33209,12 @@ func TestGetAnimation(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetAnimation", "storage", "string").(string)
@@ -33218,7 +33224,7 @@ func TestGetAnimation(t *testing.T) {
        return
     }
     c := getTestApiClient()
-    _, _, e = c.SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    _, _, e = c.SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -33237,6 +33243,12 @@ func TestGetAnimationInvalidName(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetAnimation", "storage", "string").(string)
@@ -33254,7 +33266,7 @@ func TestGetAnimationInvalidName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -33274,6 +33286,12 @@ func TestGetAnimationInvalidSlideIndex(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetAnimation", "storage", "string").(string)
@@ -33291,7 +33309,7 @@ func TestGetAnimationInvalidSlideIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -33311,6 +33329,12 @@ func TestGetAnimationInvalidShapeIndex(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetAnimation", "storage", "string").(string)
@@ -33329,12 +33353,56 @@ func TestGetAnimationInvalidShapeIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "GetAnimation", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide animation effects.
+   Test for SlidesApi.GetAnimation method with invalid paragraphIndex
+*/
+func TestGetAnimationInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetAnimation", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetAnimation", "slideIndex", "int32").(int32)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("GetAnimation", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("GetAnimation", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetAnimation", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetAnimation", "storage", "string").(string)
+    testparagraphIndex = new(int32)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "GetAnimation", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        testparagraphIndex = nullValue
+    } else {
+        *testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetAnimation", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetAnimation", "paragraphIndex", testparagraphIndex, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read slide animation effects.
@@ -33348,6 +33416,12 @@ func TestGetAnimationInvalidPassword(t *testing.T) {
     if (testshapeIndexValue != nil) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
     }
     testpassword, _ := createTestParamValue("GetAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetAnimation", "folder", "string").(string)
@@ -33366,7 +33440,7 @@ func TestGetAnimationInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -33386,6 +33460,12 @@ func TestGetAnimationInvalidFolder(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetAnimation", "storage", "string").(string)
@@ -33403,7 +33483,7 @@ func TestGetAnimationInvalidFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -33423,6 +33503,12 @@ func TestGetAnimationInvalidStorage(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetAnimation", "storage", "string").(string)
@@ -33440,7 +33526,7 @@ func TestGetAnimationInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetAnimation(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39614,6 +39700,12 @@ func TestGetSpecialSlideAnimation(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetSpecialSlideAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetSpecialSlideAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetSpecialSlideAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetSpecialSlideAnimation", "storage", "string").(string)
@@ -39623,7 +39715,7 @@ func TestGetSpecialSlideAnimation(t *testing.T) {
        return
     }
     c := getTestApiClient()
-    _, _, e = c.SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testpassword, testfolder, teststorage)
+    _, _, e = c.SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -39643,6 +39735,12 @@ func TestGetSpecialSlideAnimationInvalidName(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetSpecialSlideAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetSpecialSlideAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetSpecialSlideAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetSpecialSlideAnimation", "storage", "string").(string)
@@ -39660,7 +39758,7 @@ func TestGetSpecialSlideAnimationInvalidName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39681,6 +39779,12 @@ func TestGetSpecialSlideAnimationInvalidSlideIndex(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetSpecialSlideAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetSpecialSlideAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetSpecialSlideAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetSpecialSlideAnimation", "storage", "string").(string)
@@ -39698,7 +39802,7 @@ func TestGetSpecialSlideAnimationInvalidSlideIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39719,6 +39823,12 @@ func TestGetSpecialSlideAnimationInvalidSlideType(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetSpecialSlideAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetSpecialSlideAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetSpecialSlideAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetSpecialSlideAnimation", "storage", "string").(string)
@@ -39736,7 +39846,7 @@ func TestGetSpecialSlideAnimationInvalidSlideType(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39757,6 +39867,12 @@ func TestGetSpecialSlideAnimationInvalidShapeIndex(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetSpecialSlideAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetSpecialSlideAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetSpecialSlideAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetSpecialSlideAnimation", "storage", "string").(string)
@@ -39775,12 +39891,57 @@ func TestGetSpecialSlideAnimationInvalidShapeIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "GetSpecialSlideAnimation", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read special slide (master, layout, notes) animation effects.
+   Test for SlidesApi.GetSpecialSlideAnimation method with invalid paragraphIndex
+*/
+func TestGetSpecialSlideAnimationInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetSpecialSlideAnimation", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSpecialSlideAnimation", "slideIndex", "int32").(int32)
+    testslideType, _ := createTestParamValue("GetSpecialSlideAnimation", "slideType", "string").(string)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("GetSpecialSlideAnimation", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetSpecialSlideAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("GetSpecialSlideAnimation", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSpecialSlideAnimation", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSpecialSlideAnimation", "storage", "string").(string)
+    testparagraphIndex = new(int32)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "GetSpecialSlideAnimation", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        testparagraphIndex = nullValue
+    } else {
+        *testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSpecialSlideAnimation", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSpecialSlideAnimation", "paragraphIndex", testparagraphIndex, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read special slide (master, layout, notes) animation effects.
@@ -39795,6 +39956,12 @@ func TestGetSpecialSlideAnimationInvalidPassword(t *testing.T) {
     if (testshapeIndexValue != nil) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetSpecialSlideAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
     }
     testpassword, _ := createTestParamValue("GetSpecialSlideAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetSpecialSlideAnimation", "folder", "string").(string)
@@ -39813,7 +39980,7 @@ func TestGetSpecialSlideAnimationInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39834,6 +40001,12 @@ func TestGetSpecialSlideAnimationInvalidFolder(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetSpecialSlideAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetSpecialSlideAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetSpecialSlideAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetSpecialSlideAnimation", "storage", "string").(string)
@@ -39851,7 +40024,7 @@ func TestGetSpecialSlideAnimationInvalidFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39872,6 +40045,12 @@ func TestGetSpecialSlideAnimationInvalidStorage(t *testing.T) {
         testshapeIndex = new(int32)
         *testshapeIndex, _ = testshapeIndexValue.(int32)
     }
+    var testparagraphIndex *int32
+    testparagraphIndexValue := createTestParamValue("GetSpecialSlideAnimation", "paragraphIndex", "int32")
+    if (testparagraphIndexValue != nil) {
+        testparagraphIndex = new(int32)
+        *testparagraphIndex, _ = testparagraphIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("GetSpecialSlideAnimation", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetSpecialSlideAnimation", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetSpecialSlideAnimation", "storage", "string").(string)
@@ -39889,7 +40068,7 @@ func TestGetSpecialSlideAnimationInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetSpecialSlideAnimation(testname, testslideIndex, testslideType, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode

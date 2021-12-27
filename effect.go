@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -49,6 +48,10 @@ type IEffect interface {
 	// Shape index.
 	getShapeIndex() int32
 	setShapeIndex(newValue int32)
+
+	// Paragraph index.
+	getParagraphIndex() int32
+	setParagraphIndex(newValue int32)
 
 	// Effect trigger type.
 	getTriggerType() string
@@ -104,6 +107,9 @@ type Effect struct {
 
 	// Shape index.
 	ShapeIndex int32 `json:"ShapeIndex"`
+
+	// Paragraph index.
+	ParagraphIndex int32 `json:"ParagraphIndex,omitempty"`
 
 	// Effect trigger type.
 	TriggerType string `json:"TriggerType,omitempty"`
@@ -173,6 +179,13 @@ func (this *Effect) getShapeIndex() int32 {
 
 func (this *Effect) setShapeIndex(newValue int32) {
 	this.ShapeIndex = newValue
+}
+func (this *Effect) getParagraphIndex() int32 {
+	return this.ParagraphIndex
+}
+
+func (this *Effect) setParagraphIndex(newValue int32) {
+	this.ParagraphIndex = newValue
 }
 func (this *Effect) getTriggerType() string {
 	return this.TriggerType
@@ -369,6 +382,27 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.ShapeIndex = valueForShapeIndex
+		}
+	}
+	
+	if valParagraphIndex, ok := objMap["paragraphIndex"]; ok {
+		if valParagraphIndex != nil {
+			var valueForParagraphIndex int32
+			err = json.Unmarshal(*valParagraphIndex, &valueForParagraphIndex)
+			if err != nil {
+				return err
+			}
+			this.ParagraphIndex = valueForParagraphIndex
+		}
+	}
+	if valParagraphIndexCap, ok := objMap["ParagraphIndex"]; ok {
+		if valParagraphIndexCap != nil {
+			var valueForParagraphIndex int32
+			err = json.Unmarshal(*valParagraphIndexCap, &valueForParagraphIndex)
+			if err != nil {
+				return err
+			}
+			this.ParagraphIndex = valueForParagraphIndex
 		}
 	}
 	this.TriggerType = ""
@@ -606,5 +640,5 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

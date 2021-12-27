@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -37,6 +36,14 @@ type IPdfExportOptions interface {
 	// Default regular font for rendering the presentation. 
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getHeight() int32
+	setHeight(newValue int32)
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getWidth() int32
+	setWidth(newValue int32)
 
 	// Export format.
 	getFormat() string
@@ -124,23 +131,29 @@ type PdfExportOptions struct {
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Height int32 `json:"Height,omitempty"`
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Width int32 `json:"Width,omitempty"`
+
 	// Export format.
 	Format string `json:"Format,omitempty"`
 
 	// Specifies compression type to be used for all textual content in the document.
-	TextCompression string `json:"TextCompression"`
+	TextCompression string `json:"TextCompression,omitempty"`
 
 	// Determines if all characters of font should be embedded or only used subset.
 	EmbedFullFonts bool `json:"EmbedFullFonts"`
 
 	// Desired conformance level for generated PDF document.
-	Compliance string `json:"Compliance"`
+	Compliance string `json:"Compliance,omitempty"`
 
 	// Returns or sets a value determining resolution of images inside PDF document.  Property affects on file size, time of export and image quality. The default value is 96.
-	SufficientResolution float64 `json:"SufficientResolution"`
+	SufficientResolution float64 `json:"SufficientResolution,omitempty"`
 
 	// Returns or sets a value determining the quality of the JPEG images inside PDF document.
-	JpegQuality int32 `json:"JpegQuality"`
+	JpegQuality int32 `json:"JpegQuality,omitempty"`
 
 	// True to draw black frame around each slide.
 	DrawSlidesFrame bool `json:"DrawSlidesFrame"`
@@ -161,13 +174,13 @@ type PdfExportOptions struct {
 	AdditionalCommonFontFamilies []string `json:"AdditionalCommonFontFamilies,omitempty"`
 
 	// Gets or sets the position of the notes on the page.
-	NotesPosition string `json:"NotesPosition"`
+	NotesPosition string `json:"NotesPosition,omitempty"`
 
 	// Gets or sets the position of the comments on the page.
-	CommentsPosition string `json:"CommentsPosition"`
+	CommentsPosition string `json:"CommentsPosition,omitempty"`
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	CommentsAreaWidth int32 `json:"CommentsAreaWidth"`
+	CommentsAreaWidth int32 `json:"CommentsAreaWidth,omitempty"`
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
@@ -182,16 +195,16 @@ type PdfExportOptions struct {
 	ApplyImageTransparent bool `json:"ApplyImageTransparent"`
 
 	// Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.             
-	AccessPermissions string `json:"AccessPermissions"`
+	AccessPermissions string `json:"AccessPermissions,omitempty"`
 }
 
 func NewPdfExportOptions() *PdfExportOptions {
 	instance := new(PdfExportOptions)
-	instance.TextCompression = "None"
-	instance.Compliance = "Pdf15"
-	instance.NotesPosition = "None"
-	instance.CommentsPosition = "None"
-	instance.AccessPermissions = "None"
+	instance.TextCompression = ""
+	instance.Compliance = ""
+	instance.NotesPosition = ""
+	instance.CommentsPosition = ""
+	instance.AccessPermissions = ""
 	return instance
 }
 
@@ -201,6 +214,20 @@ func (this *PdfExportOptions) getDefaultRegularFont() string {
 
 func (this *PdfExportOptions) setDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *PdfExportOptions) getHeight() int32 {
+	return this.Height
+}
+
+func (this *PdfExportOptions) setHeight(newValue int32) {
+	this.Height = newValue
+}
+func (this *PdfExportOptions) getWidth() int32 {
+	return this.Width
+}
+
+func (this *PdfExportOptions) setWidth(newValue int32) {
+	this.Width = newValue
 }
 func (this *PdfExportOptions) getFormat() string {
 	return this.Format
@@ -371,6 +398,48 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
+	if valHeight, ok := objMap["height"]; ok {
+		if valHeight != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeight, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	
+	if valWidth, ok := objMap["width"]; ok {
+		if valWidth != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidth, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	
 	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
@@ -391,7 +460,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-	this.TextCompression = "None"
+	this.TextCompression = ""
 	if valTextCompression, ok := objMap["textCompression"]; ok {
 		if valTextCompression != nil {
 			var valueForTextCompression string
@@ -445,7 +514,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.EmbedFullFonts = valueForEmbedFullFonts
 		}
 	}
-	this.Compliance = "Pdf15"
+	this.Compliance = ""
 	if valCompliance, ok := objMap["compliance"]; ok {
 		if valCompliance != nil {
 			var valueForCompliance string
@@ -646,7 +715,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.AdditionalCommonFontFamilies = valueForAdditionalCommonFontFamilies
 		}
 	}
-	this.NotesPosition = "None"
+	this.NotesPosition = ""
 	if valNotesPosition, ok := objMap["notesPosition"]; ok {
 		if valNotesPosition != nil {
 			var valueForNotesPosition string
@@ -679,7 +748,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.CommentsPosition = "None"
+	this.CommentsPosition = ""
 	if valCommentsPosition, ok := objMap["commentsPosition"]; ok {
 		if valCommentsPosition != nil {
 			var valueForCommentsPosition string
@@ -817,7 +886,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.ApplyImageTransparent = valueForApplyImageTransparent
 		}
 	}
-	this.AccessPermissions = "None"
+	this.AccessPermissions = ""
 	if valAccessPermissions, ok := objMap["accessPermissions"]; ok {
 		if valAccessPermissions != nil {
 			var valueForAccessPermissions string
@@ -851,5 +920,5 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

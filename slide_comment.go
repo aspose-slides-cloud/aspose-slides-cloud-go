@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -172,32 +171,52 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 	
 	if valChildComments, ok := objMap["childComments"]; ok {
 		if valChildComments != nil {
-			var valueForChildComments []SlideComment
+			var valueForChildComments []json.RawMessage
 			err = json.Unmarshal(*valChildComments, &valueForChildComments)
 			if err != nil {
 				return err
 			}
 			valueForIChildComments := make([]ISlideComment, len(valueForChildComments))
 			for i, v := range valueForChildComments {
-				valueForIChildComments[i] = ISlideComment(&v)
+				vObject, err := createObjectForType("SlideComment", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIChildComments[i] = vObject.(ISlideComment)
+				}
 			}
 			this.ChildComments = valueForIChildComments
 		}
 	}
 	if valChildCommentsCap, ok := objMap["ChildComments"]; ok {
 		if valChildCommentsCap != nil {
-			var valueForChildComments []SlideComment
+			var valueForChildComments []json.RawMessage
 			err = json.Unmarshal(*valChildCommentsCap, &valueForChildComments)
 			if err != nil {
 				return err
 			}
 			valueForIChildComments := make([]ISlideComment, len(valueForChildComments))
 			for i, v := range valueForChildComments {
-				valueForIChildComments[i] = ISlideComment(&v)
+				vObject, err := createObjectForType("SlideComment", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIChildComments[i] = vObject.(ISlideComment)
+				}
 			}
 			this.ChildComments = valueForIChildComments
 		}
 	}
 
-    return nil
+	return nil
 }

@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -89,6 +88,10 @@ type IAudioFrame interface {
 	// Gets or sets the effect format.
 	getEffectFormat() IEffectFormat
 	setEffectFormat(newValue IEffectFormat)
+
+	// Gets or sets the 3D format
+	getThreeDFormat() IThreeDFormat
+	setThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
 	getLineFormat() ILineFormat
@@ -186,6 +189,9 @@ type AudioFrame struct {
 
 	// Gets or sets the effect format.
 	EffectFormat IEffectFormat `json:"EffectFormat,omitempty"`
+
+	// Gets or sets the 3D format
+	ThreeDFormat IThreeDFormat `json:"ThreeDFormat,omitempty"`
 
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
@@ -334,6 +340,13 @@ func (this *AudioFrame) getEffectFormat() IEffectFormat {
 func (this *AudioFrame) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
+func (this *AudioFrame) getThreeDFormat() IThreeDFormat {
+	return this.ThreeDFormat
+}
+
+func (this *AudioFrame) setThreeDFormat(newValue IThreeDFormat) {
+	this.ThreeDFormat = newValue
+}
 func (this *AudioFrame) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
@@ -456,28 +469,48 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	
 	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
@@ -732,6 +765,27 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.EffectFormat = &valueForEffectFormat
+		}
+	}
+	
+	if valThreeDFormat, ok := objMap["threeDFormat"]; ok {
+		if valThreeDFormat != nil {
+			var valueForThreeDFormat ThreeDFormat
+			err = json.Unmarshal(*valThreeDFormat, &valueForThreeDFormat)
+			if err != nil {
+				return err
+			}
+			this.ThreeDFormat = &valueForThreeDFormat
+		}
+	}
+	if valThreeDFormatCap, ok := objMap["ThreeDFormat"]; ok {
+		if valThreeDFormatCap != nil {
+			var valueForThreeDFormat ThreeDFormat
+			err = json.Unmarshal(*valThreeDFormatCap, &valueForThreeDFormat)
+			if err != nil {
+				return err
+			}
+			this.ThreeDFormat = &valueForThreeDFormat
 		}
 	}
 	
@@ -1056,5 +1110,5 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -252,5 +251,5 @@ func (this *SaveShape) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

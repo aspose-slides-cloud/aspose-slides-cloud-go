@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -723,32 +722,52 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 	
 	if valDataPoints, ok := objMap["dataPoints"]; ok {
 		if valDataPoints != nil {
-			var valueForDataPoints []BubbleChartDataPoint
+			var valueForDataPoints []json.RawMessage
 			err = json.Unmarshal(*valDataPoints, &valueForDataPoints)
 			if err != nil {
 				return err
 			}
 			valueForIDataPoints := make([]IBubbleChartDataPoint, len(valueForDataPoints))
 			for i, v := range valueForDataPoints {
-				valueForIDataPoints[i] = IBubbleChartDataPoint(&v)
+				vObject, err := createObjectForType("BubbleChartDataPoint", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIDataPoints[i] = vObject.(IBubbleChartDataPoint)
+				}
 			}
 			this.DataPoints = valueForIDataPoints
 		}
 	}
 	if valDataPointsCap, ok := objMap["DataPoints"]; ok {
 		if valDataPointsCap != nil {
-			var valueForDataPoints []BubbleChartDataPoint
+			var valueForDataPoints []json.RawMessage
 			err = json.Unmarshal(*valDataPointsCap, &valueForDataPoints)
 			if err != nil {
 				return err
 			}
 			valueForIDataPoints := make([]IBubbleChartDataPoint, len(valueForDataPoints))
 			for i, v := range valueForDataPoints {
-				valueForIDataPoints[i] = IBubbleChartDataPoint(&v)
+				vObject, err := createObjectForType("BubbleChartDataPoint", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIDataPoints[i] = vObject.(IBubbleChartDataPoint)
+				}
 			}
 			this.DataPoints = valueForIDataPoints
 		}
 	}
 
-    return nil
+	return nil
 }

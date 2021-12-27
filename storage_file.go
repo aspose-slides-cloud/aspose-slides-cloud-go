@@ -26,12 +26,8 @@
  */
 
 package asposeslidescloud
-
 import (
 	"time"
-)
-
-import (
 	"encoding/json"
 )
 
@@ -228,5 +224,5 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

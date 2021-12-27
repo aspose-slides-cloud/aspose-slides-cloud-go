@@ -26,6 +26,10 @@
  */
 
 package asposeslidescloud
+import (
+	"strings"
+)
+
 // ImageExportFormat : Represents a format for image export.
 type ImageExportFormat string
 
@@ -37,3 +41,7 @@ const (
 	ImageExportFormat_Bmp ImageExportFormat = "Bmp"
 	ImageExportFormat_Tiff ImageExportFormat = "Tiff"
 )
+
+func ImageExportFormat_Validate(value string) (bool) {
+	return strings.ToLower(value) == strings.ToLower(string(ImageExportFormat_Jpeg)) || strings.ToLower(value) == strings.ToLower(string(ImageExportFormat_Png)) || strings.ToLower(value) == strings.ToLower(string(ImageExportFormat_Gif)) || strings.ToLower(value) == strings.ToLower(string(ImageExportFormat_Bmp)) || strings.ToLower(value) == strings.ToLower(string(ImageExportFormat_Tiff))
+}

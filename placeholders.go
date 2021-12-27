@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -116,28 +115,48 @@ func (this *Placeholders) UnmarshalJSON(b []byte) error {
 	
 	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
 		if valAlternateLinks != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
 		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []ResourceUri
+			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
 			if err != nil {
 				return err
 			}
 			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
 			for i, v := range valueForAlternateLinks {
-				valueForIAlternateLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIAlternateLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.AlternateLinks = valueForIAlternateLinks
 		}
@@ -145,32 +164,52 @@ func (this *Placeholders) UnmarshalJSON(b []byte) error {
 	
 	if valPlaceholderLinks, ok := objMap["placeholderLinks"]; ok {
 		if valPlaceholderLinks != nil {
-			var valueForPlaceholderLinks []ResourceUri
+			var valueForPlaceholderLinks []json.RawMessage
 			err = json.Unmarshal(*valPlaceholderLinks, &valueForPlaceholderLinks)
 			if err != nil {
 				return err
 			}
 			valueForIPlaceholderLinks := make([]IResourceUri, len(valueForPlaceholderLinks))
 			for i, v := range valueForPlaceholderLinks {
-				valueForIPlaceholderLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIPlaceholderLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.PlaceholderLinks = valueForIPlaceholderLinks
 		}
 	}
 	if valPlaceholderLinksCap, ok := objMap["PlaceholderLinks"]; ok {
 		if valPlaceholderLinksCap != nil {
-			var valueForPlaceholderLinks []ResourceUri
+			var valueForPlaceholderLinks []json.RawMessage
 			err = json.Unmarshal(*valPlaceholderLinksCap, &valueForPlaceholderLinks)
 			if err != nil {
 				return err
 			}
 			valueForIPlaceholderLinks := make([]IResourceUri, len(valueForPlaceholderLinks))
 			for i, v := range valueForPlaceholderLinks {
-				valueForIPlaceholderLinks[i] = IResourceUri(&v)
+				vObject, err := createObjectForType("ResourceUri", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIPlaceholderLinks[i] = vObject.(IResourceUri)
+				}
 			}
 			this.PlaceholderLinks = valueForIPlaceholderLinks
 		}
 	}
 
-    return nil
+	return nil
 }

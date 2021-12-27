@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -38,6 +37,14 @@ type ITiffExportOptions interface {
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getHeight() int32
+	setHeight(newValue int32)
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getWidth() int32
+	setWidth(newValue int32)
+
 	// Export format.
 	getFormat() string
 	setFormat(newValue string)
@@ -45,14 +52,6 @@ type ITiffExportOptions interface {
 	// Compression type.
 	getCompression() string
 	setCompression(newValue string)
-
-	// Width.
-	getWidth() int32
-	setWidth(newValue int32)
-
-	// Height.
-	getHeight() int32
-	setHeight(newValue int32)
 
 	// Horizontal resolution, in dots per inch.
 	getDpiX() int32
@@ -96,17 +95,17 @@ type TiffExportOptions struct {
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Height int32 `json:"Height,omitempty"`
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Width int32 `json:"Width,omitempty"`
+
 	// Export format.
 	Format string `json:"Format,omitempty"`
 
 	// Compression type.
-	Compression string `json:"Compression"`
-
-	// Width.
-	Width int32 `json:"Width,omitempty"`
-
-	// Height.
-	Height int32 `json:"Height,omitempty"`
+	Compression string `json:"Compression,omitempty"`
 
 	// Horizontal resolution, in dots per inch.
 	DpiX int32 `json:"DpiX,omitempty"`
@@ -118,16 +117,16 @@ type TiffExportOptions struct {
 	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
 
 	// Specifies the pixel format for the generated images. Read/write ImagePixelFormat.
-	PixelFormat string `json:"PixelFormat"`
+	PixelFormat string `json:"PixelFormat,omitempty"`
 
 	// Gets or sets the position of the notes on the page.
-	NotesPosition string `json:"NotesPosition"`
+	NotesPosition string `json:"NotesPosition,omitempty"`
 
 	// Gets or sets the position of the comments on the page.
-	CommentsPosition string `json:"CommentsPosition"`
+	CommentsPosition string `json:"CommentsPosition,omitempty"`
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	CommentsAreaWidth int32 `json:"CommentsAreaWidth"`
+	CommentsAreaWidth int32 `json:"CommentsAreaWidth,omitempty"`
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
@@ -138,10 +137,10 @@ type TiffExportOptions struct {
 
 func NewTiffExportOptions() *TiffExportOptions {
 	instance := new(TiffExportOptions)
-	instance.Compression = "Default"
-	instance.PixelFormat = "Format1bppIndexed"
-	instance.NotesPosition = "None"
-	instance.CommentsPosition = "None"
+	instance.Compression = ""
+	instance.PixelFormat = ""
+	instance.NotesPosition = ""
+	instance.CommentsPosition = ""
 	return instance
 }
 
@@ -151,6 +150,20 @@ func (this *TiffExportOptions) getDefaultRegularFont() string {
 
 func (this *TiffExportOptions) setDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *TiffExportOptions) getHeight() int32 {
+	return this.Height
+}
+
+func (this *TiffExportOptions) setHeight(newValue int32) {
+	this.Height = newValue
+}
+func (this *TiffExportOptions) getWidth() int32 {
+	return this.Width
+}
+
+func (this *TiffExportOptions) setWidth(newValue int32) {
+	this.Width = newValue
 }
 func (this *TiffExportOptions) getFormat() string {
 	return this.Format
@@ -165,20 +178,6 @@ func (this *TiffExportOptions) getCompression() string {
 
 func (this *TiffExportOptions) setCompression(newValue string) {
 	this.Compression = newValue
-}
-func (this *TiffExportOptions) getWidth() int32 {
-	return this.Width
-}
-
-func (this *TiffExportOptions) setWidth(newValue int32) {
-	this.Width = newValue
-}
-func (this *TiffExportOptions) getHeight() int32 {
-	return this.Height
-}
-
-func (this *TiffExportOptions) setHeight(newValue int32) {
-	this.Height = newValue
 }
 func (this *TiffExportOptions) getDpiX() int32 {
 	return this.DpiX
@@ -272,6 +271,48 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
+	if valHeight, ok := objMap["height"]; ok {
+		if valHeight != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeight, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	
+	if valWidth, ok := objMap["width"]; ok {
+		if valWidth != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidth, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	
 	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
@@ -292,7 +333,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-	this.Compression = "Default"
+	this.Compression = ""
 	if valCompression, ok := objMap["compression"]; ok {
 		if valCompression != nil {
 			var valueForCompression string
@@ -323,48 +364,6 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			} else {
 				this.Compression = valueForCompression
 			}
-		}
-	}
-	
-	if valWidth, ok := objMap["width"]; ok {
-		if valWidth != nil {
-			var valueForWidth int32
-			err = json.Unmarshal(*valWidth, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth int32
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
-	
-	if valHeight, ok := objMap["height"]; ok {
-		if valHeight != nil {
-			var valueForHeight int32
-			err = json.Unmarshal(*valHeight, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight int32
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
 		}
 	}
 	
@@ -430,7 +429,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			this.ShowHiddenSlides = valueForShowHiddenSlides
 		}
 	}
-	this.PixelFormat = "Format1bppIndexed"
+	this.PixelFormat = ""
 	if valPixelFormat, ok := objMap["pixelFormat"]; ok {
 		if valPixelFormat != nil {
 			var valueForPixelFormat string
@@ -463,7 +462,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.NotesPosition = "None"
+	this.NotesPosition = ""
 	if valNotesPosition, ok := objMap["notesPosition"]; ok {
 		if valNotesPosition != nil {
 			var valueForNotesPosition string
@@ -496,7 +495,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.CommentsPosition = "None"
+	this.CommentsPosition = ""
 	if valCommentsPosition, ok := objMap["commentsPosition"]; ok {
 		if valCommentsPosition != nil {
 			var valueForCommentsPosition string
@@ -593,5 +592,5 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

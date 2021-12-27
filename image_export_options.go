@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -37,6 +36,14 @@ type IImageExportOptions interface {
 	// Default regular font for rendering the presentation. 
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getHeight() int32
+	setHeight(newValue int32)
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getWidth() int32
+	setWidth(newValue int32)
 
 	// Export format.
 	getFormat() string
@@ -64,17 +71,23 @@ type ImageExportOptions struct {
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Height int32 `json:"Height,omitempty"`
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Width int32 `json:"Width,omitempty"`
+
 	// Export format.
 	Format string `json:"Format,omitempty"`
 
 	// Gets or sets the position of the notes on the page.
-	NotesPosition string `json:"NotesPosition"`
+	NotesPosition string `json:"NotesPosition,omitempty"`
 
 	// Gets or sets the position of the comments on the page.
-	CommentsPosition string `json:"CommentsPosition"`
+	CommentsPosition string `json:"CommentsPosition,omitempty"`
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	CommentsAreaWidth int32 `json:"CommentsAreaWidth"`
+	CommentsAreaWidth int32 `json:"CommentsAreaWidth,omitempty"`
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
@@ -82,8 +95,8 @@ type ImageExportOptions struct {
 
 func NewImageExportOptions() *ImageExportOptions {
 	instance := new(ImageExportOptions)
-	instance.NotesPosition = "None"
-	instance.CommentsPosition = "None"
+	instance.NotesPosition = ""
+	instance.CommentsPosition = ""
 	return instance
 }
 
@@ -93,6 +106,20 @@ func (this *ImageExportOptions) getDefaultRegularFont() string {
 
 func (this *ImageExportOptions) setDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *ImageExportOptions) getHeight() int32 {
+	return this.Height
+}
+
+func (this *ImageExportOptions) setHeight(newValue int32) {
+	this.Height = newValue
+}
+func (this *ImageExportOptions) getWidth() int32 {
+	return this.Width
+}
+
+func (this *ImageExportOptions) setWidth(newValue int32) {
+	this.Width = newValue
 }
 func (this *ImageExportOptions) getFormat() string {
 	return this.Format
@@ -158,6 +185,48 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
+	if valHeight, ok := objMap["height"]; ok {
+		if valHeight != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeight, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	
+	if valWidth, ok := objMap["width"]; ok {
+		if valWidth != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidth, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	
 	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
@@ -178,7 +247,7 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-	this.NotesPosition = "None"
+	this.NotesPosition = ""
 	if valNotesPosition, ok := objMap["notesPosition"]; ok {
 		if valNotesPosition != nil {
 			var valueForNotesPosition string
@@ -211,7 +280,7 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.CommentsPosition = "None"
+	this.CommentsPosition = ""
 	if valCommentsPosition, ok := objMap["commentsPosition"]; ok {
 		if valCommentsPosition != nil {
 			var valueForCommentsPosition string
@@ -287,5 +356,5 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

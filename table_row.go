@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -95,28 +94,48 @@ func (this *TableRow) UnmarshalJSON(b []byte) error {
 	
 	if valCells, ok := objMap["cells"]; ok {
 		if valCells != nil {
-			var valueForCells []TableCell
+			var valueForCells []json.RawMessage
 			err = json.Unmarshal(*valCells, &valueForCells)
 			if err != nil {
 				return err
 			}
 			valueForICells := make([]ITableCell, len(valueForCells))
 			for i, v := range valueForCells {
-				valueForICells[i] = ITableCell(&v)
+				vObject, err := createObjectForType("TableCell", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForICells[i] = vObject.(ITableCell)
+				}
 			}
 			this.Cells = valueForICells
 		}
 	}
 	if valCellsCap, ok := objMap["Cells"]; ok {
 		if valCellsCap != nil {
-			var valueForCells []TableCell
+			var valueForCells []json.RawMessage
 			err = json.Unmarshal(*valCellsCap, &valueForCells)
 			if err != nil {
 				return err
 			}
 			valueForICells := make([]ITableCell, len(valueForCells))
 			for i, v := range valueForCells {
-				valueForICells[i] = ITableCell(&v)
+				vObject, err := createObjectForType("TableCell", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForICells[i] = vObject.(ITableCell)
+				}
 			}
 			this.Cells = valueForICells
 		}
@@ -164,5 +183,5 @@ func (this *TableRow) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

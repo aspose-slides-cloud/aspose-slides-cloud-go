@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -254,28 +253,48 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 	
 	if valStops, ok := objMap["stops"]; ok {
 		if valStops != nil {
-			var valueForStops []GradientFillStop
+			var valueForStops []json.RawMessage
 			err = json.Unmarshal(*valStops, &valueForStops)
 			if err != nil {
 				return err
 			}
 			valueForIStops := make([]IGradientFillStop, len(valueForStops))
 			for i, v := range valueForStops {
-				valueForIStops[i] = IGradientFillStop(&v)
+				vObject, err := createObjectForType("GradientFillStop", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIStops[i] = vObject.(IGradientFillStop)
+				}
 			}
 			this.Stops = valueForIStops
 		}
 	}
 	if valStopsCap, ok := objMap["Stops"]; ok {
 		if valStopsCap != nil {
-			var valueForStops []GradientFillStop
+			var valueForStops []json.RawMessage
 			err = json.Unmarshal(*valStopsCap, &valueForStops)
 			if err != nil {
 				return err
 			}
 			valueForIStops := make([]IGradientFillStop, len(valueForStops))
 			for i, v := range valueForStops {
-				valueForIStops[i] = IGradientFillStop(&v)
+				vObject, err := createObjectForType("GradientFillStop", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIStops[i] = vObject.(IGradientFillStop)
+				}
 			}
 			this.Stops = valueForIStops
 		}
@@ -356,5 +375,5 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

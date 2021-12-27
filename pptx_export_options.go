@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -37,6 +36,14 @@ type IPptxExportOptions interface {
 	// Default regular font for rendering the presentation. 
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getHeight() int32
+	setHeight(newValue int32)
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	getWidth() int32
+	setWidth(newValue int32)
 
 	// Export format.
 	getFormat() string
@@ -52,16 +59,22 @@ type PptxExportOptions struct {
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Height int32 `json:"Height,omitempty"`
+
+	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
+	Width int32 `json:"Width,omitempty"`
+
 	// Export format.
 	Format string `json:"Format,omitempty"`
 
 	// The conformance class to which the PresentationML document conforms. Read/write Conformance.
-	Conformance string `json:"Conformance"`
+	Conformance string `json:"Conformance,omitempty"`
 }
 
 func NewPptxExportOptions() *PptxExportOptions {
 	instance := new(PptxExportOptions)
-	instance.Conformance = "Ecma376_2006"
+	instance.Conformance = ""
 	return instance
 }
 
@@ -71,6 +84,20 @@ func (this *PptxExportOptions) getDefaultRegularFont() string {
 
 func (this *PptxExportOptions) setDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *PptxExportOptions) getHeight() int32 {
+	return this.Height
+}
+
+func (this *PptxExportOptions) setHeight(newValue int32) {
+	this.Height = newValue
+}
+func (this *PptxExportOptions) getWidth() int32 {
+	return this.Width
+}
+
+func (this *PptxExportOptions) setWidth(newValue int32) {
+	this.Width = newValue
 }
 func (this *PptxExportOptions) getFormat() string {
 	return this.Format
@@ -115,6 +142,48 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
+	if valHeight, ok := objMap["height"]; ok {
+		if valHeight != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeight, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	
+	if valWidth, ok := objMap["width"]; ok {
+		if valWidth != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidth, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	
 	if valFormat, ok := objMap["format"]; ok {
 		if valFormat != nil {
 			var valueForFormat string
@@ -135,7 +204,7 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-	this.Conformance = "Ecma376_2006"
+	this.Conformance = ""
 	if valConformance, ok := objMap["conformance"]; ok {
 		if valConformance != nil {
 			var valueForConformance string
@@ -169,5 +238,5 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }

@@ -26,7 +26,6 @@
  */
 
 package asposeslidescloud
-
 import (
 	"encoding/json"
 )
@@ -239,5 +238,5 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 		}
 	}
 
-    return nil
+	return nil
 }
