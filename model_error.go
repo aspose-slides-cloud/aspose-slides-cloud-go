@@ -176,7 +176,18 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.InnerError = &valueForInnerError
+			vObject, err := createObjectForType("ErrorDetails", *valInnerError)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valInnerError, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IErrorDetails)
+			if ok {
+				this.InnerError = vInterfaceObject
+			}
 		}
 	}
 	if valInnerErrorCap, ok := objMap["InnerError"]; ok {
@@ -186,7 +197,18 @@ func (this *ModelError) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.InnerError = &valueForInnerError
+			vObject, err := createObjectForType("ErrorDetails", *valInnerErrorCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valInnerErrorCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IErrorDetails)
+			if ok {
+				this.InnerError = vInterfaceObject
+			}
 		}
 	}
 

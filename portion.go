@@ -45,6 +45,10 @@ type IPortion interface {
 	getText() string
 	setText(newValue string)
 
+	// Math paragraph.
+	getMathParagraph() IMathParagraph
+	setMathParagraph(newValue IMathParagraph)
+
 	// True for bold font.
 	getFontBold() string
 	setFontBold(newValue string)
@@ -140,6 +144,14 @@ type IPortion interface {
 	// Underline line format.
 	getUnderlineLineFormat() ILineFormat
 	setUnderlineLineFormat(newValue ILineFormat)
+
+	// Hyperlink defined for mouse click.
+	getHyperlinkClick() IHyperlink
+	setHyperlinkClick(newValue IHyperlink)
+
+	// Hyperlink defined for mouse over.
+	getHyperlinkMouseOver() IHyperlink
+	setHyperlinkMouseOver(newValue IHyperlink)
 }
 
 type Portion struct {
@@ -152,6 +164,9 @@ type Portion struct {
 
 	// Text.
 	Text string `json:"Text,omitempty"`
+
+	// Math paragraph.
+	MathParagraph IMathParagraph `json:"MathParagraph,omitempty"`
 
 	// True for bold font.
 	FontBold string `json:"FontBold,omitempty"`
@@ -224,6 +239,12 @@ type Portion struct {
 
 	// Underline line format.
 	UnderlineLineFormat ILineFormat `json:"UnderlineLineFormat,omitempty"`
+
+	// Hyperlink defined for mouse click.
+	HyperlinkClick IHyperlink `json:"HyperlinkClick,omitempty"`
+
+	// Hyperlink defined for mouse over.
+	HyperlinkMouseOver IHyperlink `json:"HyperlinkMouseOver,omitempty"`
 }
 
 func NewPortion() *Portion {
@@ -261,6 +282,13 @@ func (this *Portion) getText() string {
 
 func (this *Portion) setText(newValue string) {
 	this.Text = newValue
+}
+func (this *Portion) getMathParagraph() IMathParagraph {
+	return this.MathParagraph
+}
+
+func (this *Portion) setMathParagraph(newValue IMathParagraph) {
+	this.MathParagraph = newValue
 }
 func (this *Portion) getFontBold() string {
 	return this.FontBold
@@ -430,6 +458,20 @@ func (this *Portion) getUnderlineLineFormat() ILineFormat {
 func (this *Portion) setUnderlineLineFormat(newValue ILineFormat) {
 	this.UnderlineLineFormat = newValue
 }
+func (this *Portion) getHyperlinkClick() IHyperlink {
+	return this.HyperlinkClick
+}
+
+func (this *Portion) setHyperlinkClick(newValue IHyperlink) {
+	this.HyperlinkClick = newValue
+}
+func (this *Portion) getHyperlinkMouseOver() IHyperlink {
+	return this.HyperlinkMouseOver
+}
+
+func (this *Portion) setHyperlinkMouseOver(newValue IHyperlink) {
+	this.HyperlinkMouseOver = newValue
+}
 
 func (this *Portion) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
@@ -445,7 +487,18 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUri)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUri, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -455,7 +508,18 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUriCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	
@@ -526,6 +590,49 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Text = valueForText
+		}
+	}
+	
+	if valMathParagraph, ok := objMap["mathParagraph"]; ok {
+		if valMathParagraph != nil {
+			var valueForMathParagraph MathParagraph
+			err = json.Unmarshal(*valMathParagraph, &valueForMathParagraph)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("MathParagraph", *valMathParagraph)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMathParagraph, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IMathParagraph)
+			if ok {
+				this.MathParagraph = vInterfaceObject
+			}
+		}
+	}
+	if valMathParagraphCap, ok := objMap["MathParagraph"]; ok {
+		if valMathParagraphCap != nil {
+			var valueForMathParagraph MathParagraph
+			err = json.Unmarshal(*valMathParagraphCap, &valueForMathParagraph)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("MathParagraph", *valMathParagraphCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMathParagraphCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IMathParagraph)
+			if ok {
+				this.MathParagraph = vInterfaceObject
+			}
 		}
 	}
 	this.FontBold = ""
@@ -1055,7 +1162,18 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -1065,7 +1183,18 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -1076,7 +1205,18 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = &valueForEffectFormat
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -1086,7 +1226,18 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = &valueForEffectFormat
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -1097,7 +1248,18 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = &valueForLineFormat
+			vObject, err := createObjectForType("LineFormat", *valLineFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLineFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.LineFormat = vInterfaceObject
+			}
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -1107,7 +1269,18 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = &valueForLineFormat
+			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLineFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.LineFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -1118,7 +1291,18 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.UnderlineFillFormat = &valueForUnderlineFillFormat
+			vObject, err := createObjectForType("FillFormat", *valUnderlineFillFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valUnderlineFillFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.UnderlineFillFormat = vInterfaceObject
+			}
 		}
 	}
 	if valUnderlineFillFormatCap, ok := objMap["UnderlineFillFormat"]; ok {
@@ -1128,7 +1312,18 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.UnderlineFillFormat = &valueForUnderlineFillFormat
+			vObject, err := createObjectForType("FillFormat", *valUnderlineFillFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valUnderlineFillFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.UnderlineFillFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -1139,7 +1334,18 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.UnderlineLineFormat = &valueForUnderlineLineFormat
+			vObject, err := createObjectForType("LineFormat", *valUnderlineLineFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valUnderlineLineFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.UnderlineLineFormat = vInterfaceObject
+			}
 		}
 	}
 	if valUnderlineLineFormatCap, ok := objMap["UnderlineLineFormat"]; ok {
@@ -1149,7 +1355,104 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.UnderlineLineFormat = &valueForUnderlineLineFormat
+			vObject, err := createObjectForType("LineFormat", *valUnderlineLineFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valUnderlineLineFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.UnderlineLineFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valHyperlinkClick, ok := objMap["hyperlinkClick"]; ok {
+		if valHyperlinkClick != nil {
+			var valueForHyperlinkClick Hyperlink
+			err = json.Unmarshal(*valHyperlinkClick, &valueForHyperlinkClick)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkClick)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkClick, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkClick = vInterfaceObject
+			}
+		}
+	}
+	if valHyperlinkClickCap, ok := objMap["HyperlinkClick"]; ok {
+		if valHyperlinkClickCap != nil {
+			var valueForHyperlinkClick Hyperlink
+			err = json.Unmarshal(*valHyperlinkClickCap, &valueForHyperlinkClick)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkClickCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkClickCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkClick = vInterfaceObject
+			}
+		}
+	}
+	
+	if valHyperlinkMouseOver, ok := objMap["hyperlinkMouseOver"]; ok {
+		if valHyperlinkMouseOver != nil {
+			var valueForHyperlinkMouseOver Hyperlink
+			err = json.Unmarshal(*valHyperlinkMouseOver, &valueForHyperlinkMouseOver)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkMouseOver)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkMouseOver, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkMouseOver = vInterfaceObject
+			}
+		}
+	}
+	if valHyperlinkMouseOverCap, ok := objMap["HyperlinkMouseOver"]; ok {
+		if valHyperlinkMouseOverCap != nil {
+			var valueForHyperlinkMouseOver Hyperlink
+			err = json.Unmarshal(*valHyperlinkMouseOverCap, &valueForHyperlinkMouseOver)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkMouseOverCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkMouseOverCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkMouseOver = vInterfaceObject
+			}
 		}
 	}
 

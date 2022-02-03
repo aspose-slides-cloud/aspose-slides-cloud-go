@@ -429,7 +429,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BeginArrowHead = &valueForBeginArrowHead
+			vObject, err := createObjectForType("ArrowHeadProperties", *valBeginArrowHead)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valBeginArrowHead, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IArrowHeadProperties)
+			if ok {
+				this.BeginArrowHead = vInterfaceObject
+			}
 		}
 	}
 	if valBeginArrowHeadCap, ok := objMap["BeginArrowHead"]; ok {
@@ -439,7 +450,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BeginArrowHead = &valueForBeginArrowHead
+			vObject, err := createObjectForType("ArrowHeadProperties", *valBeginArrowHeadCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valBeginArrowHeadCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IArrowHeadProperties)
+			if ok {
+				this.BeginArrowHead = vInterfaceObject
+			}
 		}
 	}
 	
@@ -450,7 +472,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EndArrowHead = &valueForEndArrowHead
+			vObject, err := createObjectForType("ArrowHeadProperties", *valEndArrowHead)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEndArrowHead, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IArrowHeadProperties)
+			if ok {
+				this.EndArrowHead = vInterfaceObject
+			}
 		}
 	}
 	if valEndArrowHeadCap, ok := objMap["EndArrowHead"]; ok {
@@ -460,7 +493,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EndArrowHead = &valueForEndArrowHead
+			vObject, err := createObjectForType("ArrowHeadProperties", *valEndArrowHeadCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEndArrowHeadCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IArrowHeadProperties)
+			if ok {
+				this.EndArrowHead = vInterfaceObject
+			}
 		}
 	}
 	
@@ -471,7 +515,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CustomDashPattern = &valueForCustomDashPattern
+			vObject, err := createObjectForType("CustomDashPattern", *valCustomDashPattern)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valCustomDashPattern, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ICustomDashPattern)
+			if ok {
+				this.CustomDashPattern = vInterfaceObject
+			}
 		}
 	}
 	if valCustomDashPatternCap, ok := objMap["CustomDashPattern"]; ok {
@@ -481,7 +536,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CustomDashPattern = &valueForCustomDashPattern
+			vObject, err := createObjectForType("CustomDashPattern", *valCustomDashPatternCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valCustomDashPatternCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ICustomDashPattern)
+			if ok {
+				this.CustomDashPattern = vInterfaceObject
+			}
 		}
 	}
 	
@@ -492,7 +558,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -502,7 +579,18 @@ func (this *LineFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	

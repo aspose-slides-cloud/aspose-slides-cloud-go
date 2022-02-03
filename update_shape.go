@@ -133,7 +133,18 @@ func (this *UpdateShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shape = &valueForShape
+			vObject, err := createObjectForType("ShapeBase", *valShape)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valShape, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IShapeBase)
+			if ok {
+				this.Shape = vInterfaceObject
+			}
 		}
 	}
 	if valShapeCap, ok := objMap["Shape"]; ok {
@@ -143,7 +154,18 @@ func (this *UpdateShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shape = &valueForShape
+			vObject, err := createObjectForType("ShapeBase", *valShapeCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valShapeCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IShapeBase)
+			if ok {
+				this.Shape = vInterfaceObject
+			}
 		}
 	}
 	

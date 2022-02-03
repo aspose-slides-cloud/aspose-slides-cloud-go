@@ -216,7 +216,18 @@ func (this *SaveShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Output = &valueForOutput
+			vObject, err := createObjectForType("OutputFile", *valOutput)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valOutput, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IOutputFile)
+			if ok {
+				this.Output = vInterfaceObject
+			}
 		}
 	}
 	if valOutputCap, ok := objMap["Output"]; ok {
@@ -226,7 +237,18 @@ func (this *SaveShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Output = &valueForOutput
+			vObject, err := createObjectForType("OutputFile", *valOutputCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valOutputCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IOutputFile)
+			if ok {
+				this.Output = vInterfaceObject
+			}
 		}
 	}
 	
@@ -237,7 +259,18 @@ func (this *SaveShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Options = &valueForOptions
+			vObject, err := createObjectForType("IShapeExportOptions", *valOptions)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valOptions, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IIShapeExportOptions)
+			if ok {
+				this.Options = vInterfaceObject
+			}
 		}
 	}
 	if valOptionsCap, ok := objMap["Options"]; ok {
@@ -247,7 +280,18 @@ func (this *SaveShape) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Options = &valueForOptions
+			vObject, err := createObjectForType("IShapeExportOptions", *valOptionsCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valOptionsCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IIShapeExportOptions)
+			if ok {
+				this.Options = vInterfaceObject
+			}
 		}
 	}
 

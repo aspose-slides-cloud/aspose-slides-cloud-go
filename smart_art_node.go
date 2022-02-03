@@ -177,7 +177,18 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = &valueForShapes
+			vObject, err := createObjectForType("ResourceUri", *valShapes)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valShapes, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Shapes = vInterfaceObject
+			}
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -187,7 +198,18 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = &valueForShapes
+			vObject, err := createObjectForType("ResourceUri", *valShapesCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valShapesCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Shapes = vInterfaceObject
+			}
 		}
 	}
 	

@@ -127,7 +127,18 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUri)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUri, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -137,7 +148,18 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUriCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	
@@ -197,7 +219,18 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Major = &valueForMajor
+			vObject, err := createObjectForType("FontSet", *valMajor)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMajor, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFontSet)
+			if ok {
+				this.Major = vInterfaceObject
+			}
 		}
 	}
 	if valMajorCap, ok := objMap["Major"]; ok {
@@ -207,7 +240,18 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Major = &valueForMajor
+			vObject, err := createObjectForType("FontSet", *valMajorCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMajorCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFontSet)
+			if ok {
+				this.Major = vInterfaceObject
+			}
 		}
 	}
 	
@@ -218,7 +262,18 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Minor = &valueForMinor
+			vObject, err := createObjectForType("FontSet", *valMinor)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMinor, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFontSet)
+			if ok {
+				this.Minor = vInterfaceObject
+			}
 		}
 	}
 	if valMinorCap, ok := objMap["Minor"]; ok {
@@ -228,7 +283,18 @@ func (this *FontScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Minor = &valueForMinor
+			vObject, err := createObjectForType("FontSet", *valMinorCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMinorCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFontSet)
+			if ok {
+				this.Minor = vInterfaceObject
+			}
 		}
 	}
 	

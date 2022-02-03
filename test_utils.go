@@ -160,7 +160,11 @@ func createTestParamValue(functionName string, paramName string, paramType strin
 	for _, rule := range getRules(getTestRules().Values, functionName, paramName) {
 		valueRule := rule.(ValueRule)
 		if valueRule.ValueSet {
-			value = valueRule.Value
+			if valueRule.Type == "" {
+				value = valueRule.Value
+			} else if isSubclass(valueRule.Type, paramType) {
+				value = valueRule.Value
+			}
 		}
 	}
 	return undefaultize(value, paramType)
@@ -300,6 +304,12 @@ func undefaultize(value interface{}, paramType string) interface{} {
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)
         slide.Type_ = value.(map[string]interface{})["Type"].(string)
+        return &slide
+    }
+    if paramType == "GeometryPaths" {
+        var slide GeometryPaths
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &slide)
         return &slide
     }
     if paramType == "DocumentProperties" {

@@ -766,6 +766,398 @@ func TestAlignSpecialSlideShapesInvalidStorage(t *testing.T) {
     assertError(t, "AlignSpecialSlideShapes", "storage", teststorage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Changes the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or aligns them relative to each other (for group shapes only).
+   Test for SlidesApi.AlignSubshapes method
+*/
+func TestAlignSubshapes(t *testing.T) {
+    testname, _ := createTestParamValue("AlignSubshapes", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("AlignSubshapes", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("AlignSubshapes", "path", "string").(string)
+    testalignmentType, _ := createTestParamValue("AlignSubshapes", "alignmentType", "string").(string)
+    var testalignToSlide *bool
+    testalignToSlideValue := createTestParamValue("AlignSubshapes", "alignToSlide", "bool")
+    if (testalignToSlideValue != nil) {
+        testalignToSlide = new(bool)
+        *testalignToSlide, _ = testalignToSlideValue.(bool)
+    }
+    testshapes, _ := createTestParamValue("AlignSubshapes", "shapes", "[]int32").([]int32)
+    testpassword, _ := createTestParamValue("AlignSubshapes", "password", "string").(string)
+    testfolder, _ := createTestParamValue("AlignSubshapes", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("AlignSubshapes", "storage", "string").(string)
+    e := initializeTest("AlignSubshapes", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.AlignSubshapes(testname, testslideIndex, testpath, testalignmentType, testalignToSlide, testshapes, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Changes the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or aligns them relative to each other (for group shapes only).
+   Test for SlidesApi.AlignSubshapes method with invalid name
+*/
+func TestAlignSubshapesInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("AlignSubshapes", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("AlignSubshapes", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("AlignSubshapes", "path", "string").(string)
+    testalignmentType, _ := createTestParamValue("AlignSubshapes", "alignmentType", "string").(string)
+    var testalignToSlide *bool
+    testalignToSlideValue := createTestParamValue("AlignSubshapes", "alignToSlide", "bool")
+    if (testalignToSlideValue != nil) {
+        testalignToSlide = new(bool)
+        *testalignToSlide, _ = testalignToSlideValue.(bool)
+    }
+    testshapes, _ := createTestParamValue("AlignSubshapes", "shapes", "[]int32").([]int32)
+    testpassword, _ := createTestParamValue("AlignSubshapes", "password", "string").(string)
+    testfolder, _ := createTestParamValue("AlignSubshapes", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("AlignSubshapes", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "AlignSubshapes", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("AlignSubshapes", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.AlignSubshapes(testname, testslideIndex, testpath, testalignmentType, testalignToSlide, testshapes, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "AlignSubshapes", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Changes the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or aligns them relative to each other (for group shapes only).
+   Test for SlidesApi.AlignSubshapes method with invalid slideIndex
+*/
+func TestAlignSubshapesInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("AlignSubshapes", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("AlignSubshapes", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("AlignSubshapes", "path", "string").(string)
+    testalignmentType, _ := createTestParamValue("AlignSubshapes", "alignmentType", "string").(string)
+    var testalignToSlide *bool
+    testalignToSlideValue := createTestParamValue("AlignSubshapes", "alignToSlide", "bool")
+    if (testalignToSlideValue != nil) {
+        testalignToSlide = new(bool)
+        *testalignToSlide, _ = testalignToSlideValue.(bool)
+    }
+    testshapes, _ := createTestParamValue("AlignSubshapes", "shapes", "[]int32").([]int32)
+    testpassword, _ := createTestParamValue("AlignSubshapes", "password", "string").(string)
+    testfolder, _ := createTestParamValue("AlignSubshapes", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("AlignSubshapes", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "AlignSubshapes", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("AlignSubshapes", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.AlignSubshapes(testname, testslideIndex, testpath, testalignmentType, testalignToSlide, testshapes, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "AlignSubshapes", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Changes the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or aligns them relative to each other (for group shapes only).
+   Test for SlidesApi.AlignSubshapes method with invalid path
+*/
+func TestAlignSubshapesInvalidPath(t *testing.T) {
+    testname, _ := createTestParamValue("AlignSubshapes", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("AlignSubshapes", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("AlignSubshapes", "path", "string").(string)
+    testalignmentType, _ := createTestParamValue("AlignSubshapes", "alignmentType", "string").(string)
+    var testalignToSlide *bool
+    testalignToSlideValue := createTestParamValue("AlignSubshapes", "alignToSlide", "bool")
+    if (testalignToSlideValue != nil) {
+        testalignToSlide = new(bool)
+        *testalignToSlide, _ = testalignToSlideValue.(bool)
+    }
+    testshapes, _ := createTestParamValue("AlignSubshapes", "shapes", "[]int32").([]int32)
+    testpassword, _ := createTestParamValue("AlignSubshapes", "password", "string").(string)
+    testfolder, _ := createTestParamValue("AlignSubshapes", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("AlignSubshapes", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpath, "AlignSubshapes", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpath = nullValue
+    } else {
+        testpath, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("AlignSubshapes", "path", testpath)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.AlignSubshapes(testname, testslideIndex, testpath, testalignmentType, testalignToSlide, testshapes, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "AlignSubshapes", "path", testpath, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Changes the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or aligns them relative to each other (for group shapes only).
+   Test for SlidesApi.AlignSubshapes method with invalid alignmentType
+*/
+func TestAlignSubshapesInvalidAlignmentType(t *testing.T) {
+    testname, _ := createTestParamValue("AlignSubshapes", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("AlignSubshapes", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("AlignSubshapes", "path", "string").(string)
+    testalignmentType, _ := createTestParamValue("AlignSubshapes", "alignmentType", "string").(string)
+    var testalignToSlide *bool
+    testalignToSlideValue := createTestParamValue("AlignSubshapes", "alignToSlide", "bool")
+    if (testalignToSlideValue != nil) {
+        testalignToSlide = new(bool)
+        *testalignToSlide, _ = testalignToSlideValue.(bool)
+    }
+    testshapes, _ := createTestParamValue("AlignSubshapes", "shapes", "[]int32").([]int32)
+    testpassword, _ := createTestParamValue("AlignSubshapes", "password", "string").(string)
+    testfolder, _ := createTestParamValue("AlignSubshapes", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("AlignSubshapes", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testalignmentType, "AlignSubshapes", "alignmentType", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testalignmentType = nullValue
+    } else {
+        testalignmentType, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("AlignSubshapes", "alignmentType", testalignmentType)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.AlignSubshapes(testname, testslideIndex, testpath, testalignmentType, testalignToSlide, testshapes, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "AlignSubshapes", "alignmentType", testalignmentType, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Changes the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or aligns them relative to each other (for group shapes only).
+   Test for SlidesApi.AlignSubshapes method with invalid alignToSlide
+*/
+func TestAlignSubshapesInvalidAlignToSlide(t *testing.T) {
+    testname, _ := createTestParamValue("AlignSubshapes", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("AlignSubshapes", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("AlignSubshapes", "path", "string").(string)
+    testalignmentType, _ := createTestParamValue("AlignSubshapes", "alignmentType", "string").(string)
+    var testalignToSlide *bool
+    testalignToSlideValue := createTestParamValue("AlignSubshapes", "alignToSlide", "bool")
+    if (testalignToSlideValue != nil) {
+        testalignToSlide = new(bool)
+        *testalignToSlide, _ = testalignToSlideValue.(bool)
+    }
+    testshapes, _ := createTestParamValue("AlignSubshapes", "shapes", "[]int32").([]int32)
+    testpassword, _ := createTestParamValue("AlignSubshapes", "password", "string").(string)
+    testfolder, _ := createTestParamValue("AlignSubshapes", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("AlignSubshapes", "storage", "string").(string)
+    testalignToSlide = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testalignToSlide, "AlignSubshapes", "alignToSlide", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testalignToSlide = nullValue
+    } else {
+        *testalignToSlide, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("AlignSubshapes", "alignToSlide", testalignToSlide)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.AlignSubshapes(testname, testslideIndex, testpath, testalignmentType, testalignToSlide, testshapes, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "AlignSubshapes", "alignToSlide", testalignToSlide, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Changes the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or aligns them relative to each other (for group shapes only).
+   Test for SlidesApi.AlignSubshapes method with invalid shapes
+*/
+func TestAlignSubshapesInvalidShapes(t *testing.T) {
+    testname, _ := createTestParamValue("AlignSubshapes", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("AlignSubshapes", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("AlignSubshapes", "path", "string").(string)
+    testalignmentType, _ := createTestParamValue("AlignSubshapes", "alignmentType", "string").(string)
+    var testalignToSlide *bool
+    testalignToSlideValue := createTestParamValue("AlignSubshapes", "alignToSlide", "bool")
+    if (testalignToSlideValue != nil) {
+        testalignToSlide = new(bool)
+        *testalignToSlide, _ = testalignToSlideValue.(bool)
+    }
+    testshapes, _ := createTestParamValue("AlignSubshapes", "shapes", "[]int32").([]int32)
+    testpassword, _ := createTestParamValue("AlignSubshapes", "password", "string").(string)
+    testfolder, _ := createTestParamValue("AlignSubshapes", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("AlignSubshapes", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapes, "AlignSubshapes", "shapes", "[]int32")
+    if (invalidValue == nil) {
+        var nullValue []int32
+        testshapes = nullValue
+    } else {
+        testshapes, _ = invalidValue.([]int32)
+    }
+
+    e := initializeTest("AlignSubshapes", "shapes", testshapes)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.AlignSubshapes(testname, testslideIndex, testpath, testalignmentType, testalignToSlide, testshapes, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "AlignSubshapes", "shapes", testshapes, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Changes the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or aligns them relative to each other (for group shapes only).
+   Test for SlidesApi.AlignSubshapes method with invalid password
+*/
+func TestAlignSubshapesInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("AlignSubshapes", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("AlignSubshapes", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("AlignSubshapes", "path", "string").(string)
+    testalignmentType, _ := createTestParamValue("AlignSubshapes", "alignmentType", "string").(string)
+    var testalignToSlide *bool
+    testalignToSlideValue := createTestParamValue("AlignSubshapes", "alignToSlide", "bool")
+    if (testalignToSlideValue != nil) {
+        testalignToSlide = new(bool)
+        *testalignToSlide, _ = testalignToSlideValue.(bool)
+    }
+    testshapes, _ := createTestParamValue("AlignSubshapes", "shapes", "[]int32").([]int32)
+    testpassword, _ := createTestParamValue("AlignSubshapes", "password", "string").(string)
+    testfolder, _ := createTestParamValue("AlignSubshapes", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("AlignSubshapes", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "AlignSubshapes", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("AlignSubshapes", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.AlignSubshapes(testname, testslideIndex, testpath, testalignmentType, testalignToSlide, testshapes, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "AlignSubshapes", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Changes the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or aligns them relative to each other (for group shapes only).
+   Test for SlidesApi.AlignSubshapes method with invalid folder
+*/
+func TestAlignSubshapesInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("AlignSubshapes", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("AlignSubshapes", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("AlignSubshapes", "path", "string").(string)
+    testalignmentType, _ := createTestParamValue("AlignSubshapes", "alignmentType", "string").(string)
+    var testalignToSlide *bool
+    testalignToSlideValue := createTestParamValue("AlignSubshapes", "alignToSlide", "bool")
+    if (testalignToSlideValue != nil) {
+        testalignToSlide = new(bool)
+        *testalignToSlide, _ = testalignToSlideValue.(bool)
+    }
+    testshapes, _ := createTestParamValue("AlignSubshapes", "shapes", "[]int32").([]int32)
+    testpassword, _ := createTestParamValue("AlignSubshapes", "password", "string").(string)
+    testfolder, _ := createTestParamValue("AlignSubshapes", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("AlignSubshapes", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "AlignSubshapes", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("AlignSubshapes", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.AlignSubshapes(testname, testslideIndex, testpath, testalignmentType, testalignToSlide, testshapes, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "AlignSubshapes", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Changes the placement of selected shapes on the slide. Aligns shapes to the margins or the edge of the slide or aligns them relative to each other (for group shapes only).
+   Test for SlidesApi.AlignSubshapes method with invalid storage
+*/
+func TestAlignSubshapesInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("AlignSubshapes", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("AlignSubshapes", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("AlignSubshapes", "path", "string").(string)
+    testalignmentType, _ := createTestParamValue("AlignSubshapes", "alignmentType", "string").(string)
+    var testalignToSlide *bool
+    testalignToSlideValue := createTestParamValue("AlignSubshapes", "alignToSlide", "bool")
+    if (testalignToSlideValue != nil) {
+        testalignToSlide = new(bool)
+        *testalignToSlide, _ = testalignToSlideValue.(bool)
+    }
+    testshapes, _ := createTestParamValue("AlignSubshapes", "shapes", "[]int32").([]int32)
+    testpassword, _ := createTestParamValue("AlignSubshapes", "password", "string").(string)
+    testfolder, _ := createTestParamValue("AlignSubshapes", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("AlignSubshapes", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "AlignSubshapes", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("AlignSubshapes", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.AlignSubshapes(testname, testslideIndex, testpath, testalignmentType, testalignToSlide, testshapes, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "AlignSubshapes", "storage", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Convert presentation from request content to format specified.
    Test for SlidesApi.Convert method
 */
@@ -28685,6 +29077,304 @@ func TestDownloadNotesSlideOnlineInvalidFontsFolder(t *testing.T) {
     assertError(t, "DownloadNotesSlideOnline", "fontsFolder", testfontsFolder, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
+   Test for SlidesApi.DownloadPortionAsMathMl method
+*/
+func TestDownloadPortionAsMathMl(t *testing.T) {
+    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
+    e := initializeTest("DownloadPortionAsMathMl", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    r, _, e := c.SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
+   Test for SlidesApi.DownloadPortionAsMathMl method with invalid name
+*/
+func TestDownloadPortionAsMathMlInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "DownloadPortionAsMathMl", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DownloadPortionAsMathMl", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DownloadPortionAsMathMl", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
+   Test for SlidesApi.DownloadPortionAsMathMl method with invalid slideIndex
+*/
+func TestDownloadPortionAsMathMlInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "DownloadPortionAsMathMl", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("DownloadPortionAsMathMl", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DownloadPortionAsMathMl", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
+   Test for SlidesApi.DownloadPortionAsMathMl method with invalid shapeIndex
+*/
+func TestDownloadPortionAsMathMlInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "DownloadPortionAsMathMl", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("DownloadPortionAsMathMl", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DownloadPortionAsMathMl", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
+   Test for SlidesApi.DownloadPortionAsMathMl method with invalid paragraphIndex
+*/
+func TestDownloadPortionAsMathMlInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "DownloadPortionAsMathMl", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("DownloadPortionAsMathMl", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DownloadPortionAsMathMl", "paragraphIndex", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
+   Test for SlidesApi.DownloadPortionAsMathMl method with invalid portionIndex
+*/
+func TestDownloadPortionAsMathMlInvalidPortionIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testportionIndex, "DownloadPortionAsMathMl", "portionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testportionIndex = nullValue
+    } else {
+        testportionIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("DownloadPortionAsMathMl", "portionIndex", testportionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DownloadPortionAsMathMl", "portionIndex", testportionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
+   Test for SlidesApi.DownloadPortionAsMathMl method with invalid password
+*/
+func TestDownloadPortionAsMathMlInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DownloadPortionAsMathMl", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DownloadPortionAsMathMl", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DownloadPortionAsMathMl", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
+   Test for SlidesApi.DownloadPortionAsMathMl method with invalid folder
+*/
+func TestDownloadPortionAsMathMlInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "DownloadPortionAsMathMl", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DownloadPortionAsMathMl", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DownloadPortionAsMathMl", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
+   Test for SlidesApi.DownloadPortionAsMathMl method with invalid storage
+*/
+func TestDownloadPortionAsMathMlInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "DownloadPortionAsMathMl", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DownloadPortionAsMathMl", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DownloadPortionAsMathMl", "storage", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Save a presentation to a specified format.
    Test for SlidesApi.DownloadPresentation method
 */
@@ -38267,6 +38957,221 @@ func TestGetShapeInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetShape", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns geometry path of the shape
+   Test for SlidesApi.GetShapeGeometryPath method
+*/
+func TestGetShapeGeometryPath(t *testing.T) {
+    testname, _ := createTestParamValue("GetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetShapeGeometryPath", "storage", "string").(string)
+    e := initializeTest("GetShapeGeometryPath", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Returns geometry path of the shape
+   Test for SlidesApi.GetShapeGeometryPath method with invalid name
+*/
+func TestGetShapeGeometryPathInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetShapeGeometryPath", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetShapeGeometryPath", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetShapeGeometryPath", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns geometry path of the shape
+   Test for SlidesApi.GetShapeGeometryPath method with invalid slideIndex
+*/
+func TestGetShapeGeometryPathInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "GetShapeGeometryPath", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetShapeGeometryPath", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetShapeGeometryPath", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns geometry path of the shape
+   Test for SlidesApi.GetShapeGeometryPath method with invalid shapeIndex
+*/
+func TestGetShapeGeometryPathInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "GetShapeGeometryPath", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetShapeGeometryPath", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetShapeGeometryPath", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns geometry path of the shape
+   Test for SlidesApi.GetShapeGeometryPath method with invalid password
+*/
+func TestGetShapeGeometryPathInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetShapeGeometryPath", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetShapeGeometryPath", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetShapeGeometryPath", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns geometry path of the shape
+   Test for SlidesApi.GetShapeGeometryPath method with invalid folder
+*/
+func TestGetShapeGeometryPathInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetShapeGeometryPath", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetShapeGeometryPath", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetShapeGeometryPath", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns geometry path of the shape
+   Test for SlidesApi.GetShapeGeometryPath method with invalid storage
+*/
+func TestGetShapeGeometryPathInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetShapeGeometryPath", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetShapeGeometryPath", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetShapeGeometryPath", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read slide shapes info.
@@ -49107,6 +50012,347 @@ func TestReplaceSlideTextOnlineInvalidPassword(t *testing.T) {
     assertError(t, "ReplaceSlideTextOnline", "password", testpassword, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
+   Test for SlidesApi.SavePortionAsMathMl method
+*/
+func TestSavePortionAsMathMl(t *testing.T) {
+    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
+    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
+    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
+    e := initializeTest("SavePortionAsMathMl", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, e = c.SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
+   Test for SlidesApi.SavePortionAsMathMl method with invalid name
+*/
+func TestSavePortionAsMathMlInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
+    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
+    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "SavePortionAsMathMl", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SavePortionAsMathMl", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SavePortionAsMathMl", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
+   Test for SlidesApi.SavePortionAsMathMl method with invalid slideIndex
+*/
+func TestSavePortionAsMathMlInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
+    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
+    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "SavePortionAsMathMl", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SavePortionAsMathMl", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SavePortionAsMathMl", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
+   Test for SlidesApi.SavePortionAsMathMl method with invalid shapeIndex
+*/
+func TestSavePortionAsMathMlInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
+    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
+    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "SavePortionAsMathMl", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SavePortionAsMathMl", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SavePortionAsMathMl", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
+   Test for SlidesApi.SavePortionAsMathMl method with invalid paragraphIndex
+*/
+func TestSavePortionAsMathMlInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
+    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
+    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "SavePortionAsMathMl", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SavePortionAsMathMl", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SavePortionAsMathMl", "paragraphIndex", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
+   Test for SlidesApi.SavePortionAsMathMl method with invalid portionIndex
+*/
+func TestSavePortionAsMathMlInvalidPortionIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
+    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
+    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testportionIndex, "SavePortionAsMathMl", "portionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testportionIndex = nullValue
+    } else {
+        testportionIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SavePortionAsMathMl", "portionIndex", testportionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SavePortionAsMathMl", "portionIndex", testportionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
+   Test for SlidesApi.SavePortionAsMathMl method with invalid outPath
+*/
+func TestSavePortionAsMathMlInvalidOutPath(t *testing.T) {
+    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
+    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
+    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testoutPath, "SavePortionAsMathMl", "outPath", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testoutPath = nullValue
+    } else {
+        testoutPath, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SavePortionAsMathMl", "outPath", testoutPath)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SavePortionAsMathMl", "outPath", testoutPath, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
+   Test for SlidesApi.SavePortionAsMathMl method with invalid password
+*/
+func TestSavePortionAsMathMlInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
+    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
+    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "SavePortionAsMathMl", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SavePortionAsMathMl", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SavePortionAsMathMl", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
+   Test for SlidesApi.SavePortionAsMathMl method with invalid folder
+*/
+func TestSavePortionAsMathMlInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
+    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
+    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "SavePortionAsMathMl", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SavePortionAsMathMl", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SavePortionAsMathMl", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
+   Test for SlidesApi.SavePortionAsMathMl method with invalid storage
+*/
+func TestSavePortionAsMathMlInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
+    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
+    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "SavePortionAsMathMl", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SavePortionAsMathMl", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := getTestApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SavePortionAsMathMl", "storage", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Save a presentation to a specified format.
    Test for SlidesApi.SavePresentation method
 */
@@ -55964,6 +57210,260 @@ func TestSetSectionsInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "SetSections", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Sets geometry path to the shape
+   Test for SlidesApi.SetShapeGeometryPath method
+*/
+func TestSetShapeGeometryPath(t *testing.T) {
+    testname, _ := createTestParamValue("SetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("SetShapeGeometryPath", "dto", "GeometryPaths").(IGeometryPaths)
+    testpassword, _ := createTestParamValue("SetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetShapeGeometryPath", "storage", "string").(string)
+    e := initializeTest("SetShapeGeometryPath", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.SetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testdto, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Sets geometry path to the shape
+   Test for SlidesApi.SetShapeGeometryPath method with invalid name
+*/
+func TestSetShapeGeometryPathInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("SetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("SetShapeGeometryPath", "dto", "GeometryPaths").(IGeometryPaths)
+    testpassword, _ := createTestParamValue("SetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "SetShapeGeometryPath", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetShapeGeometryPath", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetShapeGeometryPath", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Sets geometry path to the shape
+   Test for SlidesApi.SetShapeGeometryPath method with invalid slideIndex
+*/
+func TestSetShapeGeometryPathInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("SetShapeGeometryPath", "dto", "GeometryPaths").(IGeometryPaths)
+    testpassword, _ := createTestParamValue("SetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "SetShapeGeometryPath", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SetShapeGeometryPath", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetShapeGeometryPath", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Sets geometry path to the shape
+   Test for SlidesApi.SetShapeGeometryPath method with invalid shapeIndex
+*/
+func TestSetShapeGeometryPathInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("SetShapeGeometryPath", "dto", "GeometryPaths").(IGeometryPaths)
+    testpassword, _ := createTestParamValue("SetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "SetShapeGeometryPath", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SetShapeGeometryPath", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetShapeGeometryPath", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Sets geometry path to the shape
+   Test for SlidesApi.SetShapeGeometryPath method with invalid dto
+*/
+func TestSetShapeGeometryPathInvalidDto(t *testing.T) {
+    testname, _ := createTestParamValue("SetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("SetShapeGeometryPath", "dto", "GeometryPaths").(IGeometryPaths)
+    testpassword, _ := createTestParamValue("SetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdto, "SetShapeGeometryPath", "dto", "GeometryPaths")
+    if (invalidValue == nil) {
+        testdto = nil
+    } else {
+        testdto, _ = invalidValue.(IGeometryPaths)
+    }
+
+    e := initializeTest("SetShapeGeometryPath", "dto", testdto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetShapeGeometryPath", "dto", testdto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Sets geometry path to the shape
+   Test for SlidesApi.SetShapeGeometryPath method with invalid password
+*/
+func TestSetShapeGeometryPathInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("SetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("SetShapeGeometryPath", "dto", "GeometryPaths").(IGeometryPaths)
+    testpassword, _ := createTestParamValue("SetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "SetShapeGeometryPath", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetShapeGeometryPath", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetShapeGeometryPath", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Sets geometry path to the shape
+   Test for SlidesApi.SetShapeGeometryPath method with invalid folder
+*/
+func TestSetShapeGeometryPathInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("SetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("SetShapeGeometryPath", "dto", "GeometryPaths").(IGeometryPaths)
+    testpassword, _ := createTestParamValue("SetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "SetShapeGeometryPath", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetShapeGeometryPath", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetShapeGeometryPath", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Sets geometry path to the shape
+   Test for SlidesApi.SetShapeGeometryPath method with invalid storage
+*/
+func TestSetShapeGeometryPathInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("SetShapeGeometryPath", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetShapeGeometryPath", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetShapeGeometryPath", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("SetShapeGeometryPath", "dto", "GeometryPaths").(IGeometryPaths)
+    testpassword, _ := createTestParamValue("SetShapeGeometryPath", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetShapeGeometryPath", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetShapeGeometryPath", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "SetShapeGeometryPath", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetShapeGeometryPath", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetShapeGeometryPath(testname, testslideIndex, testshapeIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetShapeGeometryPath", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Set footer the slide.

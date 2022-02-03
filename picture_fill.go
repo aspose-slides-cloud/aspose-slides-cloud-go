@@ -337,7 +337,18 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Image = &valueForImage
+			vObject, err := createObjectForType("ResourceUri", *valImage)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valImage, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Image = vInterfaceObject
+			}
 		}
 	}
 	if valImageCap, ok := objMap["Image"]; ok {
@@ -347,7 +358,18 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Image = &valueForImage
+			vObject, err := createObjectForType("ResourceUri", *valImageCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valImageCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Image = vInterfaceObject
+			}
 		}
 	}
 	

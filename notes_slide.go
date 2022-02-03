@@ -113,7 +113,18 @@ func (this *NotesSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUri)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUri, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -123,7 +134,18 @@ func (this *NotesSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUriCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	
@@ -204,7 +226,18 @@ func (this *NotesSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = &valueForShapes
+			vObject, err := createObjectForType("ResourceUri", *valShapes)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valShapes, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Shapes = vInterfaceObject
+			}
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -214,7 +247,18 @@ func (this *NotesSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = &valueForShapes
+			vObject, err := createObjectForType("ResourceUri", *valShapesCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valShapesCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Shapes = vInterfaceObject
+			}
 		}
 	}
 

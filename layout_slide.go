@@ -142,7 +142,18 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUri)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUri, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -152,7 +163,18 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUriCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	
@@ -266,7 +288,18 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.MasterSlide = &valueForMasterSlide
+			vObject, err := createObjectForType("ResourceUri", *valMasterSlide)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMasterSlide, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.MasterSlide = vInterfaceObject
+			}
 		}
 	}
 	if valMasterSlideCap, ok := objMap["MasterSlide"]; ok {
@@ -276,7 +309,18 @@ func (this *LayoutSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.MasterSlide = &valueForMasterSlide
+			vObject, err := createObjectForType("ResourceUri", *valMasterSlideCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMasterSlideCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.MasterSlide = vInterfaceObject
+			}
 		}
 	}
 	

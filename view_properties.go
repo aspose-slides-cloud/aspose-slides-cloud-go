@@ -215,7 +215,18 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUri)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUri, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -225,7 +236,18 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUriCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	
@@ -405,7 +427,18 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.RestoredLeft = &valueForRestoredLeft
+			vObject, err := createObjectForType("NormalViewRestoredProperties", *valRestoredLeft)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valRestoredLeft, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(INormalViewRestoredProperties)
+			if ok {
+				this.RestoredLeft = vInterfaceObject
+			}
 		}
 	}
 	if valRestoredLeftCap, ok := objMap["RestoredLeft"]; ok {
@@ -415,7 +448,18 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.RestoredLeft = &valueForRestoredLeft
+			vObject, err := createObjectForType("NormalViewRestoredProperties", *valRestoredLeftCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valRestoredLeftCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(INormalViewRestoredProperties)
+			if ok {
+				this.RestoredLeft = vInterfaceObject
+			}
 		}
 	}
 	
@@ -426,7 +470,18 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.RestoredTop = &valueForRestoredTop
+			vObject, err := createObjectForType("NormalViewRestoredProperties", *valRestoredTop)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valRestoredTop, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(INormalViewRestoredProperties)
+			if ok {
+				this.RestoredTop = vInterfaceObject
+			}
 		}
 	}
 	if valRestoredTopCap, ok := objMap["RestoredTop"]; ok {
@@ -436,7 +491,18 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.RestoredTop = &valueForRestoredTop
+			vObject, err := createObjectForType("NormalViewRestoredProperties", *valRestoredTopCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valRestoredTopCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(INormalViewRestoredProperties)
+			if ok {
+				this.RestoredTop = vInterfaceObject
+			}
 		}
 	}
 	
@@ -447,7 +513,18 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SlideViewProperties = &valueForSlideViewProperties
+			vObject, err := createObjectForType("CommonSlideViewProperties", *valSlideViewProperties)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSlideViewProperties, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ICommonSlideViewProperties)
+			if ok {
+				this.SlideViewProperties = vInterfaceObject
+			}
 		}
 	}
 	if valSlideViewPropertiesCap, ok := objMap["SlideViewProperties"]; ok {
@@ -457,7 +534,18 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SlideViewProperties = &valueForSlideViewProperties
+			vObject, err := createObjectForType("CommonSlideViewProperties", *valSlideViewPropertiesCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSlideViewPropertiesCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ICommonSlideViewProperties)
+			if ok {
+				this.SlideViewProperties = vInterfaceObject
+			}
 		}
 	}
 	
@@ -468,7 +556,18 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.NotesViewProperties = &valueForNotesViewProperties
+			vObject, err := createObjectForType("CommonSlideViewProperties", *valNotesViewProperties)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valNotesViewProperties, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ICommonSlideViewProperties)
+			if ok {
+				this.NotesViewProperties = vInterfaceObject
+			}
 		}
 	}
 	if valNotesViewPropertiesCap, ok := objMap["NotesViewProperties"]; ok {
@@ -478,7 +577,18 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.NotesViewProperties = &valueForNotesViewProperties
+			vObject, err := createObjectForType("CommonSlideViewProperties", *valNotesViewPropertiesCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valNotesViewPropertiesCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ICommonSlideViewProperties)
+			if ok {
+				this.NotesViewProperties = vInterfaceObject
+			}
 		}
 	}
 	this.ShowComments = ""

@@ -97,6 +97,14 @@ type IAudioFrame interface {
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
 
+	// Hyperlink defined for mouse click.
+	getHyperlinkClick() IHyperlink
+	setHyperlinkClick(newValue IHyperlink)
+
+	// Hyperlink defined for mouse over.
+	getHyperlinkMouseOver() IHyperlink
+	setHyperlinkMouseOver(newValue IHyperlink)
+
 	// Shape type.
 	getType() string
 	setType(newValue string)
@@ -144,6 +152,14 @@ type IAudioFrame interface {
 	// Audio data encoded in base64.
 	getBase64Data() string
 	setBase64Data(newValue string)
+
+	// Determines whether an audio is playing across the slides.
+	getPlayAcrossSlides() bool
+	setPlayAcrossSlides(newValue bool)
+
+	// Determines whether audio is automatically rewound to start after playing.
+	getRewindAudio() bool
+	setRewindAudio(newValue bool)
 }
 
 type AudioFrame struct {
@@ -196,6 +212,12 @@ type AudioFrame struct {
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
+	// Hyperlink defined for mouse click.
+	HyperlinkClick IHyperlink `json:"HyperlinkClick,omitempty"`
+
+	// Hyperlink defined for mouse over.
+	HyperlinkMouseOver IHyperlink `json:"HyperlinkMouseOver,omitempty"`
+
 	// Shape type.
 	Type_ string `json:"Type"`
 
@@ -231,6 +253,12 @@ type AudioFrame struct {
 
 	// Audio data encoded in base64.
 	Base64Data string `json:"Base64Data,omitempty"`
+
+	// Determines whether an audio is playing across the slides.
+	PlayAcrossSlides bool `json:"PlayAcrossSlides"`
+
+	// Determines whether audio is automatically rewound to start after playing.
+	RewindAudio bool `json:"RewindAudio"`
 }
 
 func NewAudioFrame() *AudioFrame {
@@ -354,6 +382,20 @@ func (this *AudioFrame) getLineFormat() ILineFormat {
 func (this *AudioFrame) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
+func (this *AudioFrame) getHyperlinkClick() IHyperlink {
+	return this.HyperlinkClick
+}
+
+func (this *AudioFrame) setHyperlinkClick(newValue IHyperlink) {
+	this.HyperlinkClick = newValue
+}
+func (this *AudioFrame) getHyperlinkMouseOver() IHyperlink {
+	return this.HyperlinkMouseOver
+}
+
+func (this *AudioFrame) setHyperlinkMouseOver(newValue IHyperlink) {
+	this.HyperlinkMouseOver = newValue
+}
 func (this *AudioFrame) getType() string {
 	return this.Type_
 }
@@ -438,6 +480,20 @@ func (this *AudioFrame) getBase64Data() string {
 func (this *AudioFrame) setBase64Data(newValue string) {
 	this.Base64Data = newValue
 }
+func (this *AudioFrame) getPlayAcrossSlides() bool {
+	return this.PlayAcrossSlides
+}
+
+func (this *AudioFrame) setPlayAcrossSlides(newValue bool) {
+	this.PlayAcrossSlides = newValue
+}
+func (this *AudioFrame) getRewindAudio() bool {
+	return this.RewindAudio
+}
+
+func (this *AudioFrame) setRewindAudio(newValue bool) {
+	this.RewindAudio = newValue
+}
 
 func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
@@ -453,7 +509,18 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUri)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUri, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -463,7 +530,18 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUriCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	
@@ -712,7 +790,18 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = &valueForShapes
+			vObject, err := createObjectForType("ResourceUri", *valShapes)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valShapes, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Shapes = vInterfaceObject
+			}
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -722,7 +811,18 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = &valueForShapes
+			vObject, err := createObjectForType("ResourceUri", *valShapesCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valShapesCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Shapes = vInterfaceObject
+			}
 		}
 	}
 	
@@ -733,7 +833,18 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -743,7 +854,18 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -754,7 +876,18 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = &valueForEffectFormat
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -764,7 +897,18 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = &valueForEffectFormat
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -775,7 +919,18 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ThreeDFormat = &valueForThreeDFormat
+			vObject, err := createObjectForType("ThreeDFormat", *valThreeDFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valThreeDFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IThreeDFormat)
+			if ok {
+				this.ThreeDFormat = vInterfaceObject
+			}
 		}
 	}
 	if valThreeDFormatCap, ok := objMap["ThreeDFormat"]; ok {
@@ -785,7 +940,18 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ThreeDFormat = &valueForThreeDFormat
+			vObject, err := createObjectForType("ThreeDFormat", *valThreeDFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valThreeDFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IThreeDFormat)
+			if ok {
+				this.ThreeDFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -796,7 +962,18 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = &valueForLineFormat
+			vObject, err := createObjectForType("LineFormat", *valLineFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLineFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.LineFormat = vInterfaceObject
+			}
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -806,7 +983,104 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = &valueForLineFormat
+			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLineFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.LineFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valHyperlinkClick, ok := objMap["hyperlinkClick"]; ok {
+		if valHyperlinkClick != nil {
+			var valueForHyperlinkClick Hyperlink
+			err = json.Unmarshal(*valHyperlinkClick, &valueForHyperlinkClick)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkClick)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkClick, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkClick = vInterfaceObject
+			}
+		}
+	}
+	if valHyperlinkClickCap, ok := objMap["HyperlinkClick"]; ok {
+		if valHyperlinkClickCap != nil {
+			var valueForHyperlinkClick Hyperlink
+			err = json.Unmarshal(*valHyperlinkClickCap, &valueForHyperlinkClick)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkClickCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkClickCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkClick = vInterfaceObject
+			}
+		}
+	}
+	
+	if valHyperlinkMouseOver, ok := objMap["hyperlinkMouseOver"]; ok {
+		if valHyperlinkMouseOver != nil {
+			var valueForHyperlinkMouseOver Hyperlink
+			err = json.Unmarshal(*valHyperlinkMouseOver, &valueForHyperlinkMouseOver)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkMouseOver)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkMouseOver, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkMouseOver = vInterfaceObject
+			}
+		}
+	}
+	if valHyperlinkMouseOverCap, ok := objMap["HyperlinkMouseOver"]; ok {
+		if valHyperlinkMouseOverCap != nil {
+			var valueForHyperlinkMouseOver Hyperlink
+			err = json.Unmarshal(*valHyperlinkMouseOverCap, &valueForHyperlinkMouseOver)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkMouseOverCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkMouseOverCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkMouseOver = vInterfaceObject
+			}
 		}
 	}
 	this.Type_ = "AudioFrame"
@@ -1107,6 +1381,48 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Base64Data = valueForBase64Data
+		}
+	}
+	
+	if valPlayAcrossSlides, ok := objMap["playAcrossSlides"]; ok {
+		if valPlayAcrossSlides != nil {
+			var valueForPlayAcrossSlides bool
+			err = json.Unmarshal(*valPlayAcrossSlides, &valueForPlayAcrossSlides)
+			if err != nil {
+				return err
+			}
+			this.PlayAcrossSlides = valueForPlayAcrossSlides
+		}
+	}
+	if valPlayAcrossSlidesCap, ok := objMap["PlayAcrossSlides"]; ok {
+		if valPlayAcrossSlidesCap != nil {
+			var valueForPlayAcrossSlides bool
+			err = json.Unmarshal(*valPlayAcrossSlidesCap, &valueForPlayAcrossSlides)
+			if err != nil {
+				return err
+			}
+			this.PlayAcrossSlides = valueForPlayAcrossSlides
+		}
+	}
+	
+	if valRewindAudio, ok := objMap["rewindAudio"]; ok {
+		if valRewindAudio != nil {
+			var valueForRewindAudio bool
+			err = json.Unmarshal(*valRewindAudio, &valueForRewindAudio)
+			if err != nil {
+				return err
+			}
+			this.RewindAudio = valueForRewindAudio
+		}
+	}
+	if valRewindAudioCap, ok := objMap["RewindAudio"]; ok {
+		if valRewindAudioCap != nil {
+			var valueForRewindAudio bool
+			err = json.Unmarshal(*valRewindAudioCap, &valueForRewindAudio)
+			if err != nil {
+				return err
+			}
+			this.RewindAudio = valueForRewindAudio
 		}
 	}
 

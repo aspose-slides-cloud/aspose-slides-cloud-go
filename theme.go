@@ -141,7 +141,18 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUri)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUri, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -151,7 +162,18 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUriCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	
@@ -232,7 +254,18 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ColorScheme = &valueForColorScheme
+			vObject, err := createObjectForType("ResourceUri", *valColorScheme)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valColorScheme, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.ColorScheme = vInterfaceObject
+			}
 		}
 	}
 	if valColorSchemeCap, ok := objMap["ColorScheme"]; ok {
@@ -242,7 +275,18 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ColorScheme = &valueForColorScheme
+			vObject, err := createObjectForType("ResourceUri", *valColorSchemeCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valColorSchemeCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.ColorScheme = vInterfaceObject
+			}
 		}
 	}
 	
@@ -253,7 +297,18 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FontScheme = &valueForFontScheme
+			vObject, err := createObjectForType("ResourceUri", *valFontScheme)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFontScheme, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.FontScheme = vInterfaceObject
+			}
 		}
 	}
 	if valFontSchemeCap, ok := objMap["FontScheme"]; ok {
@@ -263,7 +318,18 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FontScheme = &valueForFontScheme
+			vObject, err := createObjectForType("ResourceUri", *valFontSchemeCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFontSchemeCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.FontScheme = vInterfaceObject
+			}
 		}
 	}
 	
@@ -274,7 +340,18 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FormatScheme = &valueForFormatScheme
+			vObject, err := createObjectForType("ResourceUri", *valFormatScheme)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFormatScheme, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.FormatScheme = vInterfaceObject
+			}
 		}
 	}
 	if valFormatSchemeCap, ok := objMap["FormatScheme"]; ok {
@@ -284,7 +361,18 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FormatScheme = &valueForFormatScheme
+			vObject, err := createObjectForType("ResourceUri", *valFormatSchemeCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFormatSchemeCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.FormatScheme = vInterfaceObject
+			}
 		}
 	}
 

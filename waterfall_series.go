@@ -624,7 +624,18 @@ func (this *WaterfallSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Marker = &valueForMarker
+			vObject, err := createObjectForType("SeriesMarker", *valMarker)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMarker, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISeriesMarker)
+			if ok {
+				this.Marker = vInterfaceObject
+			}
 		}
 	}
 	if valMarkerCap, ok := objMap["Marker"]; ok {
@@ -634,7 +645,18 @@ func (this *WaterfallSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Marker = &valueForMarker
+			vObject, err := createObjectForType("SeriesMarker", *valMarkerCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMarkerCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISeriesMarker)
+			if ok {
+				this.Marker = vInterfaceObject
+			}
 		}
 	}
 	
@@ -645,7 +667,18 @@ func (this *WaterfallSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -655,7 +688,18 @@ func (this *WaterfallSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -666,7 +710,18 @@ func (this *WaterfallSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = &valueForEffectFormat
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -676,7 +731,18 @@ func (this *WaterfallSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = &valueForEffectFormat
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -687,7 +753,18 @@ func (this *WaterfallSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = &valueForLineFormat
+			vObject, err := createObjectForType("LineFormat", *valLineFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLineFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.LineFormat = vInterfaceObject
+			}
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -697,7 +774,18 @@ func (this *WaterfallSeries) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = &valueForLineFormat
+			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLineFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.LineFormat = vInterfaceObject
+			}
 		}
 	}
 	this.DataPointType = "OneValue"

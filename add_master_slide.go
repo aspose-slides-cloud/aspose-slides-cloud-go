@@ -147,7 +147,18 @@ func (this *AddMasterSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CloneFromFile = &valueForCloneFromFile
+			vObject, err := createObjectForType("InputFile", *valCloneFromFile)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valCloneFromFile, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IInputFile)
+			if ok {
+				this.CloneFromFile = vInterfaceObject
+			}
 		}
 	}
 	if valCloneFromFileCap, ok := objMap["CloneFromFile"]; ok {
@@ -157,7 +168,18 @@ func (this *AddMasterSlide) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.CloneFromFile = &valueForCloneFromFile
+			vObject, err := createObjectForType("InputFile", *valCloneFromFileCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valCloneFromFileCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IInputFile)
+			if ok {
+				this.CloneFromFile = vInterfaceObject
+			}
 		}
 	}
 	

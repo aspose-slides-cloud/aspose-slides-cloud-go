@@ -108,12 +108,21 @@ func init() {
 	typeRegistry["FontSet"] = reflect.TypeOf(FontSet{})
 	
 	typeDeterminers["FontSet"] = make(map[string]string)
+	typeRegistry["GeometryPath"] = reflect.TypeOf(GeometryPath{})
+	
+	typeDeterminers["GeometryPath"] = make(map[string]string)
+	typeRegistry["GeometryPaths"] = reflect.TypeOf(GeometryPaths{})
+	
+	typeDeterminers["GeometryPaths"] = make(map[string]string)
 	typeRegistry["GlowEffect"] = reflect.TypeOf(GlowEffect{})
 	
 	typeDeterminers["GlowEffect"] = make(map[string]string)
 	typeRegistry["GradientFillStop"] = reflect.TypeOf(GradientFillStop{})
 	
 	typeDeterminers["GradientFillStop"] = make(map[string]string)
+	typeRegistry["Hyperlink"] = reflect.TypeOf(Hyperlink{})
+	
+	typeDeterminers["Hyperlink"] = make(map[string]string)
 	typeRegistry["IShapeExportOptions"] = reflect.TypeOf(IShapeExportOptions{})
 	
 	typeDeterminers["IShapeExportOptions"] = make(map[string]string)
@@ -138,6 +147,12 @@ func init() {
 	typeRegistry["LineFormat"] = reflect.TypeOf(LineFormat{})
 	
 	typeDeterminers["LineFormat"] = make(map[string]string)
+	typeRegistry["MathElement"] = reflect.TypeOf(MathElement{})
+	
+	typeDeterminers["MathElement"] = make(map[string]string)
+	typeRegistry["MathParagraph"] = reflect.TypeOf(MathParagraph{})
+	
+	typeDeterminers["MathParagraph"] = make(map[string]string)
 	typeRegistry["MergingSource"] = reflect.TypeOf(MergingSource{})
 	
 	typeDeterminers["MergingSource"] = make(map[string]string)
@@ -159,6 +174,9 @@ func init() {
 	typeRegistry["OutputFile"] = reflect.TypeOf(OutputFile{})
 	
 	typeDeterminers["OutputFile"] = make(map[string]string)
+	typeRegistry["PathSegment"] = reflect.TypeOf(PathSegment{})
+	
+	typeDeterminers["PathSegment"] = make(map[string]string)
 	typeRegistry["Pipeline"] = reflect.TypeOf(Pipeline{})
 	
 	typeDeterminers["Pipeline"] = make(map[string]string)
@@ -228,6 +246,10 @@ func init() {
 	typeRegistry["ThreeDFormat"] = reflect.TypeOf(ThreeDFormat{})
 	
 	typeDeterminers["ThreeDFormat"] = make(map[string]string)
+	typeRegistry["AccentElement"] = reflect.TypeOf(AccentElement{})
+	derivedTypes["AccentElement"] = "MathElement"
+	typeDeterminers["AccentElement"] = make(map[string]string)
+	typeDeterminers["AccentElement"]["Type"] = "Accent"
 	typeRegistry["AddLayoutSlide"] = reflect.TypeOf(AddLayoutSlide{})
 	derivedTypes["AddLayoutSlide"] = "Task"
 	typeDeterminers["AddLayoutSlide"] = make(map[string]string)
@@ -244,17 +266,53 @@ func init() {
 	derivedTypes["AddSlide"] = "Task"
 	typeDeterminers["AddSlide"] = make(map[string]string)
 	typeDeterminers["AddSlide"]["Type"] = "AddSlide"
+	typeRegistry["ArcToPathSegment"] = reflect.TypeOf(ArcToPathSegment{})
+	derivedTypes["ArcToPathSegment"] = "PathSegment"
+	typeDeterminers["ArcToPathSegment"] = make(map[string]string)
+	typeDeterminers["ArcToPathSegment"]["Type"] = "ArcTo"
+	typeRegistry["ArrayElement"] = reflect.TypeOf(ArrayElement{})
+	derivedTypes["ArrayElement"] = "MathElement"
+	typeDeterminers["ArrayElement"] = make(map[string]string)
+	typeDeterminers["ArrayElement"]["Type"] = "Array"
+	typeRegistry["BarElement"] = reflect.TypeOf(BarElement{})
+	derivedTypes["BarElement"] = "MathElement"
+	typeDeterminers["BarElement"] = make(map[string]string)
+	typeDeterminers["BarElement"]["Type"] = "Bar"
 	typeRegistry["Base64InputFile"] = reflect.TypeOf(Base64InputFile{})
 	derivedTypes["Base64InputFile"] = "InputFile"
 	typeDeterminers["Base64InputFile"] = make(map[string]string)
 	typeDeterminers["Base64InputFile"]["Type"] = "Base64"
+	typeRegistry["BlockElement"] = reflect.TypeOf(BlockElement{})
+	derivedTypes["BlockElement"] = "MathElement"
+	typeDeterminers["BlockElement"] = make(map[string]string)
+	typeDeterminers["BlockElement"]["Type"] = "Block"
+	typeRegistry["BorderBoxElement"] = reflect.TypeOf(BorderBoxElement{})
+	derivedTypes["BorderBoxElement"] = "MathElement"
+	typeDeterminers["BorderBoxElement"] = make(map[string]string)
+	typeDeterminers["BorderBoxElement"]["Type"] = "BorderBox"
+	typeRegistry["BoxElement"] = reflect.TypeOf(BoxElement{})
+	derivedTypes["BoxElement"] = "MathElement"
+	typeDeterminers["BoxElement"] = make(map[string]string)
+	typeDeterminers["BoxElement"]["Type"] = "Box"
 	typeRegistry["BubbleSeries"] = reflect.TypeOf(BubbleSeries{})
 	derivedTypes["BubbleSeries"] = "Series"
 	typeDeterminers["BubbleSeries"] = make(map[string]string)
 	typeDeterminers["BubbleSeries"]["DataPointType"] = "Bubble"
+	typeRegistry["ClosePathSegment"] = reflect.TypeOf(ClosePathSegment{})
+	derivedTypes["ClosePathSegment"] = "PathSegment"
+	typeDeterminers["ClosePathSegment"] = make(map[string]string)
+	typeDeterminers["ClosePathSegment"]["Type"] = "Close"
 	typeRegistry["ColorScheme"] = reflect.TypeOf(ColorScheme{})
 	derivedTypes["ColorScheme"] = "ResourceBase"
 	typeDeterminers["ColorScheme"] = make(map[string]string)
+	typeRegistry["CubicBezierToPathSegment"] = reflect.TypeOf(CubicBezierToPathSegment{})
+	derivedTypes["CubicBezierToPathSegment"] = "PathSegment"
+	typeDeterminers["CubicBezierToPathSegment"] = make(map[string]string)
+	typeDeterminers["CubicBezierToPathSegment"]["Type"] = "CubicBezierTo"
+	typeRegistry["DelimiterElement"] = reflect.TypeOf(DelimiterElement{})
+	derivedTypes["DelimiterElement"] = "MathElement"
+	typeDeterminers["DelimiterElement"] = make(map[string]string)
+	typeDeterminers["DelimiterElement"]["Type"] = "Delimiter"
 	typeRegistry["Document"] = reflect.TypeOf(Document{})
 	derivedTypes["Document"] = "ResourceBase"
 	typeDeterminers["Document"] = make(map[string]string)
@@ -273,10 +331,25 @@ func init() {
 	typeRegistry["FormatScheme"] = reflect.TypeOf(FormatScheme{})
 	derivedTypes["FormatScheme"] = "ResourceBase"
 	typeDeterminers["FormatScheme"] = make(map[string]string)
+	typeRegistry["FractionElement"] = reflect.TypeOf(FractionElement{})
+	derivedTypes["FractionElement"] = "MathElement"
+	typeDeterminers["FractionElement"] = make(map[string]string)
+	typeDeterminers["FractionElement"]["Type"] = "Fraction"
+	typeRegistry["FunctionElement"] = reflect.TypeOf(FunctionElement{})
+	derivedTypes["FunctionElement"] = "MathElement"
+	typeDeterminers["FunctionElement"] = make(map[string]string)
+	typeDeterminers["FunctionElement"]["Type"] = "Function"
+	typeRegistry["GifExportOptions"] = reflect.TypeOf(GifExportOptions{})
+	derivedTypes["GifExportOptions"] = "ExportOptions"
+	typeDeterminers["GifExportOptions"] = make(map[string]string)
 	typeRegistry["GradientFill"] = reflect.TypeOf(GradientFill{})
 	derivedTypes["GradientFill"] = "FillFormat"
 	typeDeterminers["GradientFill"] = make(map[string]string)
 	typeDeterminers["GradientFill"]["Type"] = "Gradient"
+	typeRegistry["GroupingCharacterElement"] = reflect.TypeOf(GroupingCharacterElement{})
+	derivedTypes["GroupingCharacterElement"] = "MathElement"
+	typeDeterminers["GroupingCharacterElement"] = make(map[string]string)
+	typeDeterminers["GroupingCharacterElement"]["Type"] = "GroupingCharacter"
 	typeRegistry["HeaderFooter"] = reflect.TypeOf(HeaderFooter{})
 	derivedTypes["HeaderFooter"] = "ResourceBase"
 	typeDeterminers["HeaderFooter"] = make(map[string]string)
@@ -301,16 +374,40 @@ func init() {
 	typeRegistry["LayoutSlides"] = reflect.TypeOf(LayoutSlides{})
 	derivedTypes["LayoutSlides"] = "ResourceBase"
 	typeDeterminers["LayoutSlides"] = make(map[string]string)
+	typeRegistry["LeftSubSuperscriptElement"] = reflect.TypeOf(LeftSubSuperscriptElement{})
+	derivedTypes["LeftSubSuperscriptElement"] = "MathElement"
+	typeDeterminers["LeftSubSuperscriptElement"] = make(map[string]string)
+	typeDeterminers["LeftSubSuperscriptElement"]["Type"] = "LeftSubSuperscriptElement"
+	typeRegistry["LimitElement"] = reflect.TypeOf(LimitElement{})
+	derivedTypes["LimitElement"] = "MathElement"
+	typeDeterminers["LimitElement"] = make(map[string]string)
+	typeDeterminers["LimitElement"]["Type"] = "Limit"
+	typeRegistry["LineToPathSegment"] = reflect.TypeOf(LineToPathSegment{})
+	derivedTypes["LineToPathSegment"] = "PathSegment"
+	typeDeterminers["LineToPathSegment"] = make(map[string]string)
+	typeDeterminers["LineToPathSegment"]["Type"] = "LineTo"
 	typeRegistry["MasterSlide"] = reflect.TypeOf(MasterSlide{})
 	derivedTypes["MasterSlide"] = "ResourceBase"
 	typeDeterminers["MasterSlide"] = make(map[string]string)
 	typeRegistry["MasterSlides"] = reflect.TypeOf(MasterSlides{})
 	derivedTypes["MasterSlides"] = "ResourceBase"
 	typeDeterminers["MasterSlides"] = make(map[string]string)
+	typeRegistry["MatrixElement"] = reflect.TypeOf(MatrixElement{})
+	derivedTypes["MatrixElement"] = "MathElement"
+	typeDeterminers["MatrixElement"] = make(map[string]string)
+	typeDeterminers["MatrixElement"]["Type"] = "Matrix"
 	typeRegistry["Merge"] = reflect.TypeOf(Merge{})
 	derivedTypes["Merge"] = "Task"
 	typeDeterminers["Merge"] = make(map[string]string)
 	typeDeterminers["Merge"]["Type"] = "Merge"
+	typeRegistry["MoveToPathSegment"] = reflect.TypeOf(MoveToPathSegment{})
+	derivedTypes["MoveToPathSegment"] = "PathSegment"
+	typeDeterminers["MoveToPathSegment"] = make(map[string]string)
+	typeDeterminers["MoveToPathSegment"]["Type"] = "MoveTo"
+	typeRegistry["NaryOperatorElement"] = reflect.TypeOf(NaryOperatorElement{})
+	derivedTypes["NaryOperatorElement"] = "MathElement"
+	typeDeterminers["NaryOperatorElement"] = make(map[string]string)
+	typeDeterminers["NaryOperatorElement"]["Type"] = "NaryOperator"
 	typeRegistry["NoFill"] = reflect.TypeOf(NoFill{})
 	derivedTypes["NoFill"] = "FillFormat"
 	typeDeterminers["NoFill"] = make(map[string]string)
@@ -371,6 +468,14 @@ func init() {
 	typeRegistry["ProtectionProperties"] = reflect.TypeOf(ProtectionProperties{})
 	derivedTypes["ProtectionProperties"] = "ResourceBase"
 	typeDeterminers["ProtectionProperties"] = make(map[string]string)
+	typeRegistry["QuadraticBezierToPathSegment"] = reflect.TypeOf(QuadraticBezierToPathSegment{})
+	derivedTypes["QuadraticBezierToPathSegment"] = "PathSegment"
+	typeDeterminers["QuadraticBezierToPathSegment"] = make(map[string]string)
+	typeDeterminers["QuadraticBezierToPathSegment"]["Type"] = "QuadBezierTo"
+	typeRegistry["RadicalElement"] = reflect.TypeOf(RadicalElement{})
+	derivedTypes["RadicalElement"] = "MathElement"
+	typeDeterminers["RadicalElement"] = make(map[string]string)
+	typeDeterminers["RadicalElement"]["Type"] = "Radical"
 	typeRegistry["RemoveShape"] = reflect.TypeOf(RemoveShape{})
 	derivedTypes["RemoveShape"] = "Task"
 	typeDeterminers["RemoveShape"] = make(map[string]string)
@@ -399,6 +504,10 @@ func init() {
 	derivedTypes["ResponseOutputFile"] = "OutputFile"
 	typeDeterminers["ResponseOutputFile"] = make(map[string]string)
 	typeDeterminers["ResponseOutputFile"]["Type"] = "Response"
+	typeRegistry["RightSubSuperscriptElement"] = reflect.TypeOf(RightSubSuperscriptElement{})
+	derivedTypes["RightSubSuperscriptElement"] = "MathElement"
+	typeDeterminers["RightSubSuperscriptElement"] = make(map[string]string)
+	typeDeterminers["RightSubSuperscriptElement"]["Type"] = "RightSubSuperscriptElement"
 	typeRegistry["Save"] = reflect.TypeOf(Save{})
 	derivedTypes["Save"] = "Task"
 	typeDeterminers["Save"] = make(map[string]string)
@@ -455,12 +564,24 @@ func init() {
 	typeRegistry["SplitDocumentResult"] = reflect.TypeOf(SplitDocumentResult{})
 	derivedTypes["SplitDocumentResult"] = "ResourceBase"
 	typeDeterminers["SplitDocumentResult"] = make(map[string]string)
+	typeRegistry["SubscriptElement"] = reflect.TypeOf(SubscriptElement{})
+	derivedTypes["SubscriptElement"] = "MathElement"
+	typeDeterminers["SubscriptElement"] = make(map[string]string)
+	typeDeterminers["SubscriptElement"]["Type"] = "SubscriptElement"
+	typeRegistry["SuperscriptElement"] = reflect.TypeOf(SuperscriptElement{})
+	derivedTypes["SuperscriptElement"] = "MathElement"
+	typeDeterminers["SuperscriptElement"] = make(map[string]string)
+	typeDeterminers["SuperscriptElement"]["Type"] = "SuperscriptElement"
 	typeRegistry["SvgExportOptions"] = reflect.TypeOf(SvgExportOptions{})
 	derivedTypes["SvgExportOptions"] = "ExportOptions"
 	typeDeterminers["SvgExportOptions"] = make(map[string]string)
 	typeRegistry["SwfExportOptions"] = reflect.TypeOf(SwfExportOptions{})
 	derivedTypes["SwfExportOptions"] = "ExportOptions"
 	typeDeterminers["SwfExportOptions"] = make(map[string]string)
+	typeRegistry["TextElement"] = reflect.TypeOf(TextElement{})
+	derivedTypes["TextElement"] = "MathElement"
+	typeDeterminers["TextElement"] = make(map[string]string)
+	typeDeterminers["TextElement"]["Type"] = "Text"
 	typeRegistry["TextItems"] = reflect.TypeOf(TextItems{})
 	derivedTypes["TextItems"] = "ResourceBase"
 	typeDeterminers["TextItems"] = make(map[string]string)
@@ -481,6 +602,9 @@ func init() {
 	typeRegistry["ViewProperties"] = reflect.TypeOf(ViewProperties{})
 	derivedTypes["ViewProperties"] = "ResourceBase"
 	typeDeterminers["ViewProperties"] = make(map[string]string)
+	typeRegistry["XamlExportOptions"] = reflect.TypeOf(XamlExportOptions{})
+	derivedTypes["XamlExportOptions"] = "ExportOptions"
+	typeDeterminers["XamlExportOptions"] = make(map[string]string)
 	typeRegistry["XpsExportOptions"] = reflect.TypeOf(XpsExportOptions{})
 	derivedTypes["XpsExportOptions"] = "ExportOptions"
 	typeDeterminers["XpsExportOptions"] = make(map[string]string)
@@ -555,6 +679,18 @@ func init() {
 	derivedTypes["VideoFrame"] = "GeometryShape"
 	typeDeterminers["VideoFrame"] = make(map[string]string)
 	typeDeterminers["VideoFrame"]["Type"] = "VideoFrame"
+}
+
+func isSubclass(typeName string, baseTypeName string) bool {
+	if typeName == baseTypeName {
+		return true
+	}
+	for k, v := range derivedTypes {
+		if v == baseTypeName && isSubclass(typeName, k) {
+			return true
+		}
+	}
+	return false
 }
 
 func createObjectForType(typeName string, data []byte) (interface{}, error) {

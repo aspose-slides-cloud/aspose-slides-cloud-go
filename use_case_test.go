@@ -1628,7 +1628,7 @@ func TestLayoutSlideShapes(t *testing.T) {
         fileName := "test.pptx"
         password := "password"
         var slideIndex int32 = 1
-        var shapeCount int32 = 5
+        var shapeCount int32 = 6
         c := getTestApiClient()
         _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
 	if e != nil {
@@ -1916,8 +1916,8 @@ func TestLayoutSlideAnimation(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if len(animation.getMainSequence()) != 0 {
-		t.Errorf("Wrong effect count. Expected %v but was %v.", 0, len(animation.getMainSequence()))
+	if len(animation.getMainSequence()) != 1 {
+		t.Errorf("Wrong effect count. Expected %v but was %v.", 1, len(animation.getMainSequence()))
 		return
 	}
 
@@ -2510,13 +2510,14 @@ func TestGroupShapeEmpty(t *testing.T) {
 	}
 
         dto := NewGroupShape()
-        _, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, "password", folderName, "")
-	if e == nil {
-		t.Errorf("GroupShape should not have been created.")
+        result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
 		return
 	}
-	if response.StatusCode != 400 {
-		t.Errorf("Wrong status code. Expected 400 but was %v.", response.StatusCode)
+        _, ok := result.(IGroupShape)
+        if !ok {
+		t.Errorf("Wrong shape type.")
 		return
 	}
 }
@@ -2652,6 +2653,97 @@ func TestShapesAlign(t *testing.T) {
 		return
 	}
         shape32, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape2Index, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if math.Abs(shape31.getX() - shape32.getX()) >= 1 {
+		t.Errorf("Wrong X value. Expected %v but was %v.", shape31.getX(), shape32.getX())
+		return
+	}
+	if math.Abs(shape31.getX()) >= 1 {
+		t.Errorf("Wrong X value. Expected %v but was %v.", 0, shape31.getX())
+		return
+	}
+	if math.Abs(shape31.getY() - shape32.getY()) >= 1 {
+		t.Errorf("Wrong Y value. Expected %v but was %v.", shape31.getY(), shape32.getY())
+		return
+	}
+}
+
+/* 
+   Test for align shapes in group
+*/
+func TestShapesAlignGroup(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        password := "password"
+        var slideIndex int32 = 1
+        var path string = "4/shapes"
+        var shape1Index int32 = 1
+        var shape2Index int32 = 2
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        shape11, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape1Index, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+        shape12, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape2Index, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if shape11.getX() == shape12.getX() {
+		t.Errorf("Wrong X value. Expected not %v but was %v.", shape11.getX(), shape12.getX())
+		return
+	}
+	if shape11.getY() == shape12.getY() {
+		t.Errorf("Wrong Y value. Expected not %v but was %v.", shape11.getY(), shape12.getY())
+		return
+	}
+
+        _, _, e = c.SlidesApi.AlignSubshapes(fileName, slideIndex, path, "AlignTop", nil, nil, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+        shape21, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape1Index, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+        shape22, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape2Index, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if shape21.getX() == shape22.getX() {
+		t.Errorf("Wrong X value. Expected not %v but was %v.", shape21.getX(), shape22.getX())
+		return
+	}
+	if math.Abs(shape21.getY() - shape22.getY()) >= 1 {
+		t.Errorf("Wrong Y value. Expected %v but was %v.", shape21.getY(), shape22.getY())
+		return
+	}
+
+	var alignToSlide bool = true
+        _, _, e = c.SlidesApi.AlignSubshapes(fileName, slideIndex, path, "AlignLeft", &alignToSlide, []int32 { 1, 2 }, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+        shape31, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape1Index, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+        shape32, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape2Index, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -3286,7 +3378,6 @@ func TestShapeFormatFill(t *testing.T) {
 		t.Errorf("Wrong shape type.")
 		return
 	}
-	/* SLIDESCLOUD-1355
         _, ok = result.getFillFormat().(ISolidFill)
         if !ok {
 		t.Errorf("Wrong fill type.")
@@ -3296,7 +3387,6 @@ func TestShapeFormatFill(t *testing.T) {
 		t.Errorf("Wrong fill color. Expected %v but was %v.", dto.getFillFormat().(ISolidFill).getColor(), result.getFillFormat().(ISolidFill).getColor())
 		return
 	}
-	*/
 }
 
 /* 
@@ -3407,6 +3497,534 @@ func TestShapeFormat3D(t *testing.T) {
 	}
 	if result.getThreeDFormat().getDepth() != dto.getThreeDFormat().getDepth() {
 		t.Errorf("Wrong 3D depth. Expected %v but was %v.", dto.getThreeDFormat().getDepth(), result.getThreeDFormat().getDepth())
+		return
+	}
+}
+
+/* 
+   Test for get shape geometry paths
+*/
+func TestShapeGeometryGet(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        paths, _, e := c.SlidesApi.GetShapeGeometryPath(fileName, 4, 2, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if paths.getPaths() == nil {
+		t.Errorf("Error: paths should not be nil.")
+		return
+	}
+	if len(paths.getPaths()) != 1 {
+		t.Errorf("Wrong paths count. Expected %v but was %v.", 1, len(paths.getPaths()))
+		return
+	}
+}
+
+/* 
+   Test for set shape geometry paths
+*/
+func TestShapeGeometrySet(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        dto := NewGeometryPaths()
+        path := NewGeometryPath()
+        startSegment := NewMoveToPathSegment()
+        startSegment.X = 0
+        startSegment.Y = 0
+        line1 := NewLineToPathSegment()
+        line1.X = 0
+        line1.Y = 200
+        line2 := NewLineToPathSegment()
+        line2.X = 200
+        line2.Y = 300
+        line3 := NewLineToPathSegment()
+        line3.X = 400
+        line3.Y = 200
+        line4 := NewLineToPathSegment()
+        line4.X = 400
+        line4.Y = 0
+        endSegment := NewClosePathSegment()
+        path.PathData = []IPathSegment { startSegment, line1, line2, line3, line4, endSegment }
+        dto.Paths = []IGeometryPath { path }
+        shape, _, e := c.SlidesApi.SetShapeGeometryPath(fileName, 4, 1, dto, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if shape == nil {
+		t.Errorf("Error: shape should not be nil.")
+		return
+	}
+}
+
+/* 
+   Test for get hyperlink for shape
+*/
+func TestHyperlinkGetShape(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        shape, _, e := c.SlidesApi.GetShape(fileName, 2, 2, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if shape.getHyperlinkClick() == nil {
+		t.Errorf("Error: click hyperlink should not be nil.")
+		return
+	}
+	if shape.getHyperlinkClick().getActionType() != "Hyperlink" {
+		t.Errorf("Wrong action type. Expected %v but was %v.", "Hyperlink", shape.getHyperlinkClick().getActionType())
+		return
+	}
+	if shape.getHyperlinkMouseOver() != nil {
+		t.Errorf("Error: mouse over hyperlink should be nil.")
+		return
+	}
+}
+
+/*
+   Test for get hyperlink for portion
+*/
+func TestHyperlinkGetPortion(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        portion, _, e := c.SlidesApi.GetPortion(fileName, 2, 1, 1, 2, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if portion.getHyperlinkClick() != nil {
+		t.Errorf("Error: click hyperlink should be nil.")
+		return
+	}
+	if portion.getHyperlinkMouseOver() == nil {
+		t.Errorf("Error: mouse over hyperlink should not be nil.")
+		return
+	}
+	if portion.getHyperlinkMouseOver().getActionType() != "JumpLastSlide" {
+		t.Errorf("Wrong action type. Expected not %v but was %v.", "JumpLastSlide", portion.getHyperlinkMouseOver().getActionType())
+		return
+	}
+}
+
+/* 
+   Test for create hyperlink for shape
+*/
+func TestHyperlinkCreateShape(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        shape := NewShape()
+        hyperlink := NewHyperlink()
+        hyperlink.ActionType = "Hyperlink"
+        hyperlink.ExternalUrl = "https://docs.aspose.cloud/slides"
+        shape.HyperlinkClick = hyperlink
+        updatedShape, _, e := c.SlidesApi.UpdateShape(fileName, 1, 1, shape, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if updatedShape.getHyperlinkClick() == nil {
+		t.Errorf("Error: click hyperlink should not be nil.")
+		return
+	}
+	if updatedShape.getHyperlinkClick().getExternalUrl() != shape.getHyperlinkClick().getExternalUrl() {
+		t.Errorf("Wrong URL. Expected %v but was %v.", shape.getHyperlinkClick().getExternalUrl(), updatedShape.getHyperlinkClick().getExternalUrl())
+		return
+	}
+}
+
+/* 
+   Test for create hyperlink for portion
+*/
+func TestHyperlinkCreatePortion(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        dto := NewPortion()
+        dto.Text = "Link text"
+        hyperlink := NewHyperlink()
+        hyperlink.ActionType = "JumpLastSlide"
+        dto.HyperlinkMouseOver = hyperlink
+        updatedPortion, _, e := c.SlidesApi.CreatePortion(fileName, 1, 1, 1, dto, nil, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if updatedPortion.getHyperlinkMouseOver() == nil {
+		t.Errorf("Error: mouse over hyperlink should not be nil.")
+		return
+	}
+	if updatedPortion.getHyperlinkMouseOver().getActionType() != "JumpLastSlide" {
+		t.Errorf("Wrong action type. Expected %v but was %v.", dto.getHyperlinkMouseOver().getActionType(), updatedPortion.getHyperlinkMouseOver().getActionType())
+		return
+	}
+}
+
+/* 
+   Test for delete hyperlink
+*/
+func TestHyperlinkDelete(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        shape := NewPictureFrame()
+        hyperlink := NewHyperlink()
+        hyperlink.IsDisabled = true
+        shape.HyperlinkClick = hyperlink
+        updatedShape, _, e := c.SlidesApi.UpdateShape(fileName, 1, 1, shape, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if updatedShape.getHyperlinkClick() != nil {
+		t.Errorf("Error: click hyperlink should be nil.")
+		return
+	}
+}
+
+/* 
+   Test for get math
+*/
+func TestMathGet(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        portion, _, e := c.SlidesApi.GetPortion(fileName, 2, 3, 1, 1, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if portion.getMathParagraph() == nil {
+		t.Errorf("Error: math paragraph should not be nil.")
+		return
+	}
+	if portion.getMathParagraph().getMathBlockList() == nil {
+		t.Errorf("Error: math block list should not be nil.")
+		return
+	}
+	if len(portion.getMathParagraph().getMathBlockList()) != 1 {
+		t.Errorf("Wrong math block list count. Expected %v but was %v.", 1, len(portion.getMathParagraph().getMathBlockList()))
+		return
+	}
+	if portion.getMathParagraph().getMathBlockList()[0].getMathElementList() == nil {
+		t.Errorf("Error: math element list should not be nil.")
+		return
+	}
+	if len(portion.getMathParagraph().getMathBlockList()[0].getMathElementList()) != 3 {
+		t.Errorf("Wrong math element list count. Expected %v but was %v.", 3, len(portion.getMathParagraph().getMathBlockList()[0].getMathElementList()))
+		return
+	}
+        _, ok := portion.getMathParagraph().getMathBlockList()[0].getMathElementList()[2].(IFractionElement)
+        if !ok {
+		t.Errorf("Wrong math element type.")
+		return
+	}
+}
+
+/* 
+   Test for get empty math
+*/
+func TestMathGetNull(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        portion, _, e := c.SlidesApi.GetPortion(fileName, 2, 1, 1, 1, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if portion.getMathParagraph() != nil {
+		t.Errorf("Error: math paragraph should be nil.")
+		return
+	}
+}
+
+/* 
+   Test for create math
+*/
+func TestMathCreate(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        dto := NewPortion()
+        mathParagraph := NewMathParagraph()
+        blockElement := NewBlockElement()
+        functionElement := NewFunctionElement()
+        limitElement := NewLimitElement()
+        text1 := NewTextElement()
+        text1.Value = "lim"
+        limitElement.Base = text1
+        text2 := NewTextElement()
+        text2.Value = "x->0"
+        limitElement.Limit = text2
+        functionElement.Name = limitElement
+        fractionElement := NewFractionElement()
+        sinusElement := NewFunctionElement()
+        text3 := NewTextElement()
+        text3.Value = "sin"
+        sinusElement.Name = text3
+        text4 := NewTextElement()
+        text4.Value = "x"
+        sinusElement.Base = text4
+        fractionElement.Numerator = sinusElement
+        text5 := NewTextElement()
+        text5.Value = "x"
+        fractionElement.Denominator = text5
+        functionElement.Base = fractionElement
+        blockElement.MathElementList = []IMathElement { functionElement }
+        mathParagraph.MathBlockList = []IBlockElement { blockElement }
+        dto.MathParagraph = mathParagraph
+        portion, _, e := c.SlidesApi.CreatePortion(fileName, 1, 1, 1, dto, nil, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if portion.getMathParagraph() == nil {
+		t.Errorf("Error: math paragraph should not be nil.")
+		return
+	}
+	if portion.getMathParagraph().getMathBlockList() == nil {
+		t.Errorf("Error: math block list should not be nil.")
+		return
+	}
+	if len(portion.getMathParagraph().getMathBlockList()) != 1 {
+		t.Errorf("Wrong math block list count. Expected %v but was %v.", 1, len(portion.getMathParagraph().getMathBlockList()))
+		return
+	}
+	if portion.getMathParagraph().getMathBlockList()[0].getMathElementList() == nil {
+		t.Errorf("Error: math element list should not be nil.")
+		return
+	}
+	if len(portion.getMathParagraph().getMathBlockList()[0].getMathElementList()) != 1 {
+		t.Errorf("Wrong math element list count. Expected %v but was %v.", 1, len(portion.getMathParagraph().getMathBlockList()[0].getMathElementList()))
+		return
+	}
+        _, ok := portion.getMathParagraph().getMathBlockList()[0].getMathElementList()[0].(IFunctionElement)
+        if !ok {
+		t.Errorf("Wrong math element type.")
+		return
+	}
+}
+
+/* 
+   Test for update math
+*/
+func TestMathUpdate(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        dto := NewPortion()
+        mathParagraph := NewMathParagraph()
+        blockElement := NewBlockElement()
+        functionElement := NewFunctionElement()
+        limitElement := NewLimitElement()
+        text1 := NewTextElement()
+        text1.Value = "lim"
+        limitElement.Base = text1
+        text2 := NewTextElement()
+        text2.Value = "x->0"
+        limitElement.Limit = text2
+        functionElement.Name = limitElement
+        fractionElement := NewFractionElement()
+        sinusElement := NewFunctionElement()
+        text3 := NewTextElement()
+        text3.Value = "sin"
+        sinusElement.Name = text3
+        text4 := NewTextElement()
+        text4.Value = "x"
+        sinusElement.Base = text4
+        fractionElement.Numerator = sinusElement
+        text5 := NewTextElement()
+        text5.Value = "x"
+        fractionElement.Denominator = text5
+        functionElement.Base = fractionElement
+        blockElement.MathElementList = []IMathElement { functionElement }
+        mathParagraph.MathBlockList = []IBlockElement { blockElement }
+        dto.MathParagraph = mathParagraph
+        portion, _, e := c.SlidesApi.UpdatePortion(fileName, 2, 3, 1, 1, dto, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if portion.getMathParagraph() == nil {
+		t.Errorf("Error: math paragraph should not be nil.")
+		return
+	}
+	if portion.getMathParagraph().getMathBlockList() == nil {
+		t.Errorf("Error: math block list should not be nil.")
+		return
+	}
+	if len(portion.getMathParagraph().getMathBlockList()) != 1 {
+		t.Errorf("Wrong math block list count. Expected %v but was %v.", 1, len(portion.getMathParagraph().getMathBlockList()))
+		return
+	}
+	if portion.getMathParagraph().getMathBlockList()[0].getMathElementList() == nil {
+		t.Errorf("Error: math element list should not be nil.")
+		return
+	}
+	if len(portion.getMathParagraph().getMathBlockList()[0].getMathElementList()) != 1 {
+		t.Errorf("Wrong math element list count. Expected %v but was %v.", 1, len(portion.getMathParagraph().getMathBlockList()[0].getMathElementList()))
+		return
+	}
+        _, ok := portion.getMathParagraph().getMathBlockList()[0].getMathElementList()[0].(IFunctionElement)
+        if !ok {
+		t.Errorf("Wrong math element type.")
+		return
+	}
+}
+
+/* 
+   Test for download math
+*/
+func TestMathDownload(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        mathMl, _, e := c.SlidesApi.DownloadPortionAsMathMl(fileName, 2, 3, 1, 1, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+        mathMlStat, e := os.Stat(mathMl.Name())
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if mathMlStat.Size() <= 0 {
+		t.Errorf("Wrong response size. Expected greater than %v but was %v.", 0, mathMlStat.Size())
+		return
+	}
+}
+
+/* 
+   Test for download empty math
+*/
+func TestMathDownloadNull(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        _, response, e := c.SlidesApi.DownloadPortionAsMathMl(fileName, 2, 1, 1, 1, "password", folderName, "")
+	if e == nil {
+		t.Errorf("An ordinary paragraph should not have been converted to MathML.")
+		return
+	}
+	if response.StatusCode != 400 {
+		t.Errorf("Wrong status code. Expected 400 but was %v.", response.StatusCode)
+		return
+	}
+}
+
+/* 
+   Test for save math
+*/
+func TestMathSave(t *testing.T) {
+        folderName := "TempSlidesSDK"
+        fileName := "test.pptx"
+        outPath := folderName + "/mathml.xml"
+        c := getTestApiClient()
+        _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        _, e = c.SlidesApi.SavePortionAsMathMl(fileName, 2, 3, 1, 1, outPath, "password", folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+        resultExists, _, e := c.SlidesApi.ObjectExists(outPath, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if !resultExists.getExists() {
+		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
 }
@@ -4504,6 +5122,7 @@ func TestMergeStorage(t *testing.T) {
         folderName := "TempSlidesSDK"
         fileName := "test.pptx"
         fileName2 := "test-unprotected.pptx"
+        fileNamePdf := "test.pdf"
         c := getTestApiClient()
         _, e := c.SlidesApi.CopyFile("TempTests/" + fileName, folderName + "/" + fileName, "", "", "")
 	if e != nil {
@@ -4515,9 +5134,14 @@ func TestMergeStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
+        _, e = c.SlidesApi.CopyFile("TempTests/" + fileNamePdf, folderName + "/" + fileNamePdf, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
         request := NewPresentationsMergeRequest()
-        request.PresentationPaths = []string { folderName + "/" + fileName2 }
+        request.PresentationPaths = []string { folderName + "/" + fileName2, folderName + "/" + fileNamePdf }
         _, _, e = c.SlidesApi.Merge(fileName, request, "password", folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

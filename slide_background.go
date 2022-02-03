@@ -128,7 +128,18 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUri)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUri, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -138,7 +149,18 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUriCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	
@@ -231,7 +253,18 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -241,7 +274,18 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -252,7 +296,18 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = &valueForEffectFormat
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -262,7 +317,18 @@ func (this *SlideBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = &valueForEffectFormat
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
 		}
 	}
 

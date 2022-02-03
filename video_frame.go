@@ -97,6 +97,14 @@ type IVideoFrame interface {
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
 
+	// Hyperlink defined for mouse click.
+	getHyperlinkClick() IHyperlink
+	setHyperlinkClick(newValue IHyperlink)
+
+	// Hyperlink defined for mouse over.
+	getHyperlinkMouseOver() IHyperlink
+	setHyperlinkMouseOver(newValue IHyperlink)
+
 	// Shape type.
 	getType() string
 	setType(newValue string)
@@ -183,6 +191,12 @@ type VideoFrame struct {
 
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
+
+	// Hyperlink defined for mouse click.
+	HyperlinkClick IHyperlink `json:"HyperlinkClick,omitempty"`
+
+	// Hyperlink defined for mouse over.
+	HyperlinkMouseOver IHyperlink `json:"HyperlinkMouseOver,omitempty"`
 
 	// Shape type.
 	Type_ string `json:"Type"`
@@ -333,6 +347,20 @@ func (this *VideoFrame) getLineFormat() ILineFormat {
 func (this *VideoFrame) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
+func (this *VideoFrame) getHyperlinkClick() IHyperlink {
+	return this.HyperlinkClick
+}
+
+func (this *VideoFrame) setHyperlinkClick(newValue IHyperlink) {
+	this.HyperlinkClick = newValue
+}
+func (this *VideoFrame) getHyperlinkMouseOver() IHyperlink {
+	return this.HyperlinkMouseOver
+}
+
+func (this *VideoFrame) setHyperlinkMouseOver(newValue IHyperlink) {
+	this.HyperlinkMouseOver = newValue
+}
 func (this *VideoFrame) getType() string {
 	return this.Type_
 }
@@ -411,7 +439,18 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUri)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUri, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
@@ -421,7 +460,18 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.SelfUri = &valueForSelfUri
+			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSelfUriCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.SelfUri = vInterfaceObject
+			}
 		}
 	}
 	
@@ -670,7 +720,18 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = &valueForShapes
+			vObject, err := createObjectForType("ResourceUri", *valShapes)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valShapes, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Shapes = vInterfaceObject
+			}
 		}
 	}
 	if valShapesCap, ok := objMap["Shapes"]; ok {
@@ -680,7 +741,18 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Shapes = &valueForShapes
+			vObject, err := createObjectForType("ResourceUri", *valShapesCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valShapesCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Shapes = vInterfaceObject
+			}
 		}
 	}
 	
@@ -691,7 +763,18 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
@@ -701,7 +784,18 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.FillFormat = &valueForFillFormat
+			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -712,7 +806,18 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = &valueForEffectFormat
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
 		}
 	}
 	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
@@ -722,7 +827,18 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.EffectFormat = &valueForEffectFormat
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -733,7 +849,18 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ThreeDFormat = &valueForThreeDFormat
+			vObject, err := createObjectForType("ThreeDFormat", *valThreeDFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valThreeDFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IThreeDFormat)
+			if ok {
+				this.ThreeDFormat = vInterfaceObject
+			}
 		}
 	}
 	if valThreeDFormatCap, ok := objMap["ThreeDFormat"]; ok {
@@ -743,7 +870,18 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.ThreeDFormat = &valueForThreeDFormat
+			vObject, err := createObjectForType("ThreeDFormat", *valThreeDFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valThreeDFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IThreeDFormat)
+			if ok {
+				this.ThreeDFormat = vInterfaceObject
+			}
 		}
 	}
 	
@@ -754,7 +892,18 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = &valueForLineFormat
+			vObject, err := createObjectForType("LineFormat", *valLineFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLineFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.LineFormat = vInterfaceObject
+			}
 		}
 	}
 	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
@@ -764,7 +913,104 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LineFormat = &valueForLineFormat
+			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLineFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.LineFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valHyperlinkClick, ok := objMap["hyperlinkClick"]; ok {
+		if valHyperlinkClick != nil {
+			var valueForHyperlinkClick Hyperlink
+			err = json.Unmarshal(*valHyperlinkClick, &valueForHyperlinkClick)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkClick)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkClick, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkClick = vInterfaceObject
+			}
+		}
+	}
+	if valHyperlinkClickCap, ok := objMap["HyperlinkClick"]; ok {
+		if valHyperlinkClickCap != nil {
+			var valueForHyperlinkClick Hyperlink
+			err = json.Unmarshal(*valHyperlinkClickCap, &valueForHyperlinkClick)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkClickCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkClickCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkClick = vInterfaceObject
+			}
+		}
+	}
+	
+	if valHyperlinkMouseOver, ok := objMap["hyperlinkMouseOver"]; ok {
+		if valHyperlinkMouseOver != nil {
+			var valueForHyperlinkMouseOver Hyperlink
+			err = json.Unmarshal(*valHyperlinkMouseOver, &valueForHyperlinkMouseOver)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkMouseOver)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkMouseOver, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkMouseOver = vInterfaceObject
+			}
+		}
+	}
+	if valHyperlinkMouseOverCap, ok := objMap["HyperlinkMouseOver"]; ok {
+		if valHyperlinkMouseOverCap != nil {
+			var valueForHyperlinkMouseOver Hyperlink
+			err = json.Unmarshal(*valHyperlinkMouseOverCap, &valueForHyperlinkMouseOver)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("Hyperlink", *valHyperlinkMouseOverCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valHyperlinkMouseOverCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IHyperlink)
+			if ok {
+				this.HyperlinkMouseOver = vInterfaceObject
+			}
 		}
 	}
 	this.Type_ = "VideoFrame"

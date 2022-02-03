@@ -198,7 +198,18 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BevelBottom = &valueForBevelBottom
+			vObject, err := createObjectForType("ShapeBevel", *valBevelBottom)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valBevelBottom, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IShapeBevel)
+			if ok {
+				this.BevelBottom = vInterfaceObject
+			}
 		}
 	}
 	if valBevelBottomCap, ok := objMap["BevelBottom"]; ok {
@@ -208,7 +219,18 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BevelBottom = &valueForBevelBottom
+			vObject, err := createObjectForType("ShapeBevel", *valBevelBottomCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valBevelBottomCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IShapeBevel)
+			if ok {
+				this.BevelBottom = vInterfaceObject
+			}
 		}
 	}
 	
@@ -219,7 +241,18 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BevelTop = &valueForBevelTop
+			vObject, err := createObjectForType("ShapeBevel", *valBevelTop)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valBevelTop, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IShapeBevel)
+			if ok {
+				this.BevelTop = vInterfaceObject
+			}
 		}
 	}
 	if valBevelTopCap, ok := objMap["BevelTop"]; ok {
@@ -229,7 +262,18 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.BevelTop = &valueForBevelTop
+			vObject, err := createObjectForType("ShapeBevel", *valBevelTopCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valBevelTopCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IShapeBevel)
+			if ok {
+				this.BevelTop = vInterfaceObject
+			}
 		}
 	}
 	
@@ -240,7 +284,18 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Camera = &valueForCamera
+			vObject, err := createObjectForType("Camera", *valCamera)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valCamera, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ICamera)
+			if ok {
+				this.Camera = vInterfaceObject
+			}
 		}
 	}
 	if valCameraCap, ok := objMap["Camera"]; ok {
@@ -250,7 +305,18 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Camera = &valueForCamera
+			vObject, err := createObjectForType("Camera", *valCameraCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valCameraCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ICamera)
+			if ok {
+				this.Camera = vInterfaceObject
+			}
 		}
 	}
 	
@@ -366,7 +432,18 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LightRig = &valueForLightRig
+			vObject, err := createObjectForType("LightRig", *valLightRig)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLightRig, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILightRig)
+			if ok {
+				this.LightRig = vInterfaceObject
+			}
 		}
 	}
 	if valLightRigCap, ok := objMap["LightRig"]; ok {
@@ -376,7 +453,18 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.LightRig = &valueForLightRig
+			vObject, err := createObjectForType("LightRig", *valLightRigCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLightRigCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILightRig)
+			if ok {
+				this.LightRig = vInterfaceObject
+			}
 		}
 	}
 	this.Material = ""

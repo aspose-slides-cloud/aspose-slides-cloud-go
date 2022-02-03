@@ -85,7 +85,18 @@ func (this *MergingSource) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Input = &valueForInput
+			vObject, err := createObjectForType("InputFile", *valInput)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valInput, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IInputFile)
+			if ok {
+				this.Input = vInterfaceObject
+			}
 		}
 	}
 	if valInputCap, ok := objMap["Input"]; ok {
@@ -95,7 +106,18 @@ func (this *MergingSource) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Input = &valueForInput
+			vObject, err := createObjectForType("InputFile", *valInputCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valInputCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IInputFile)
+			if ok {
+				this.Input = vInterfaceObject
+			}
 		}
 	}
 	

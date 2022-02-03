@@ -154,7 +154,18 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Background = &valueForBackground
+			vObject, err := createObjectForType("SlideBackground", *valBackground)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valBackground, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISlideBackground)
+			if ok {
+				this.Background = vInterfaceObject
+			}
 		}
 	}
 	if valBackgroundCap, ok := objMap["Background"]; ok {
@@ -164,7 +175,18 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			this.Background = &valueForBackground
+			vObject, err := createObjectForType("SlideBackground", *valBackgroundCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valBackgroundCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISlideBackground)
+			if ok {
+				this.Background = vInterfaceObject
+			}
 		}
 	}
 
