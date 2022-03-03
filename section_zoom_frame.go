@@ -30,8 +30,8 @@ import (
 	"encoding/json"
 )
 
-// Represents AutoShape resource.
-type IShape interface {
+// Section zoom frame.             
+type ISectionZoomFrame interface {
 
 	// Gets or sets the link to this resource.
 	getSelfUri() IResourceUri
@@ -109,24 +109,32 @@ type IShape interface {
 	getType() string
 	setType(newValue string)
 
-	// Combined shape type.
-	getShapeType() string
-	setShapeType(newValue string)
+	// Image type of a zoom object. 
+	getImageType() string
+	setImageType(newValue string)
 
-	// Gets or sets the text.
-	getText() string
-	setText(newValue string)
+	// Navigation behavior in slideshow. 
+	getReturnToParent() bool
+	setReturnToParent(newValue bool)
 
-	// Get or sets list to paragraphs list
-	getParagraphs() IResourceUri
-	setParagraphs(newValue IResourceUri)
+	// Specifies whether the Zoom will use the background of the destination slide.
+	getShowBackground() bool
+	setShowBackground(newValue bool)
 
-	// Returns TextFrame's formatting properties.
-	getTextFrameFormat() ITextFrameFormat
-	setTextFrameFormat(newValue ITextFrameFormat)
+	// Internal image link for zoom object
+	getImage() IResourceUri
+	setImage(newValue IResourceUri)
+
+	// Duration of the transition between Zoom and slide.
+	getTransitionDuration() float64
+	setTransitionDuration(newValue float64)
+
+	// Index of the target section
+	getTargetSectionIndex() int32
+	setTargetSectionIndex(newValue int32)
 }
 
-type Shape struct {
+type SectionZoomFrame struct {
 
 	// Gets or sets the link to this resource.
 	SelfUri IResourceUri `json:"SelfUri,omitempty"`
@@ -185,189 +193,209 @@ type Shape struct {
 	// Shape type.
 	Type_ string `json:"Type"`
 
-	// Combined shape type.
-	ShapeType string `json:"ShapeType"`
+	// Image type of a zoom object. 
+	ImageType string `json:"ImageType,omitempty"`
 
-	// Gets or sets the text.
-	Text string `json:"Text,omitempty"`
+	// Navigation behavior in slideshow. 
+	ReturnToParent bool `json:"ReturnToParent"`
 
-	// Get or sets list to paragraphs list
-	Paragraphs IResourceUri `json:"Paragraphs,omitempty"`
+	// Specifies whether the Zoom will use the background of the destination slide.
+	ShowBackground bool `json:"ShowBackground"`
 
-	// Returns TextFrame's formatting properties.
-	TextFrameFormat ITextFrameFormat `json:"TextFrameFormat,omitempty"`
+	// Internal image link for zoom object
+	Image IResourceUri `json:"Image,omitempty"`
+
+	// Duration of the transition between Zoom and slide.
+	TransitionDuration float64 `json:"TransitionDuration,omitempty"`
+
+	// Index of the target section
+	TargetSectionIndex int32 `json:"TargetSectionIndex,omitempty"`
 }
 
-func NewShape() *Shape {
-	instance := new(Shape)
-	instance.Type_ = "Shape"
-	instance.ShapeType = "Custom"
+func NewSectionZoomFrame() *SectionZoomFrame {
+	instance := new(SectionZoomFrame)
+	instance.Type_ = "SectionZoomFrame"
+	instance.ImageType = ""
 	return instance
 }
 
-func (this *Shape) getSelfUri() IResourceUri {
+func (this *SectionZoomFrame) getSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Shape) setSelfUri(newValue IResourceUri) {
+func (this *SectionZoomFrame) setSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Shape) getAlternateLinks() []IResourceUri {
+func (this *SectionZoomFrame) getAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Shape) setAlternateLinks(newValue []IResourceUri) {
+func (this *SectionZoomFrame) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Shape) getName() string {
+func (this *SectionZoomFrame) getName() string {
 	return this.Name
 }
 
-func (this *Shape) setName(newValue string) {
+func (this *SectionZoomFrame) setName(newValue string) {
 	this.Name = newValue
 }
-func (this *Shape) getWidth() float64 {
+func (this *SectionZoomFrame) getWidth() float64 {
 	return this.Width
 }
 
-func (this *Shape) setWidth(newValue float64) {
+func (this *SectionZoomFrame) setWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *Shape) getHeight() float64 {
+func (this *SectionZoomFrame) getHeight() float64 {
 	return this.Height
 }
 
-func (this *Shape) setHeight(newValue float64) {
+func (this *SectionZoomFrame) setHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *Shape) getAlternativeText() string {
+func (this *SectionZoomFrame) getAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *Shape) setAlternativeText(newValue string) {
+func (this *SectionZoomFrame) setAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *Shape) getAlternativeTextTitle() string {
+func (this *SectionZoomFrame) getAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *Shape) setAlternativeTextTitle(newValue string) {
+func (this *SectionZoomFrame) setAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *Shape) getHidden() bool {
+func (this *SectionZoomFrame) getHidden() bool {
 	return this.Hidden
 }
 
-func (this *Shape) setHidden(newValue bool) {
+func (this *SectionZoomFrame) setHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *Shape) getX() float64 {
+func (this *SectionZoomFrame) getX() float64 {
 	return this.X
 }
 
-func (this *Shape) setX(newValue float64) {
+func (this *SectionZoomFrame) setX(newValue float64) {
 	this.X = newValue
 }
-func (this *Shape) getY() float64 {
+func (this *SectionZoomFrame) getY() float64 {
 	return this.Y
 }
 
-func (this *Shape) setY(newValue float64) {
+func (this *SectionZoomFrame) setY(newValue float64) {
 	this.Y = newValue
 }
-func (this *Shape) getZOrderPosition() int32 {
+func (this *SectionZoomFrame) getZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *Shape) setZOrderPosition(newValue int32) {
+func (this *SectionZoomFrame) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *Shape) getShapes() IResourceUri {
+func (this *SectionZoomFrame) getShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *Shape) setShapes(newValue IResourceUri) {
+func (this *SectionZoomFrame) setShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
-func (this *Shape) getFillFormat() IFillFormat {
+func (this *SectionZoomFrame) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *Shape) setFillFormat(newValue IFillFormat) {
+func (this *SectionZoomFrame) setFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *Shape) getEffectFormat() IEffectFormat {
+func (this *SectionZoomFrame) getEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *Shape) setEffectFormat(newValue IEffectFormat) {
+func (this *SectionZoomFrame) setEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *Shape) getThreeDFormat() IThreeDFormat {
+func (this *SectionZoomFrame) getThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *Shape) setThreeDFormat(newValue IThreeDFormat) {
+func (this *SectionZoomFrame) setThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *Shape) getLineFormat() ILineFormat {
+func (this *SectionZoomFrame) getLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *Shape) setLineFormat(newValue ILineFormat) {
+func (this *SectionZoomFrame) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *Shape) getHyperlinkClick() IHyperlink {
+func (this *SectionZoomFrame) getHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *Shape) setHyperlinkClick(newValue IHyperlink) {
+func (this *SectionZoomFrame) setHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *Shape) getHyperlinkMouseOver() IHyperlink {
+func (this *SectionZoomFrame) getHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *Shape) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *SectionZoomFrame) setHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *Shape) getType() string {
+func (this *SectionZoomFrame) getType() string {
 	return this.Type_
 }
 
-func (this *Shape) setType(newValue string) {
+func (this *SectionZoomFrame) setType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *Shape) getShapeType() string {
-	return this.ShapeType
+func (this *SectionZoomFrame) getImageType() string {
+	return this.ImageType
 }
 
-func (this *Shape) setShapeType(newValue string) {
-	this.ShapeType = newValue
+func (this *SectionZoomFrame) setImageType(newValue string) {
+	this.ImageType = newValue
 }
-func (this *Shape) getText() string {
-	return this.Text
-}
-
-func (this *Shape) setText(newValue string) {
-	this.Text = newValue
-}
-func (this *Shape) getParagraphs() IResourceUri {
-	return this.Paragraphs
+func (this *SectionZoomFrame) getReturnToParent() bool {
+	return this.ReturnToParent
 }
 
-func (this *Shape) setParagraphs(newValue IResourceUri) {
-	this.Paragraphs = newValue
+func (this *SectionZoomFrame) setReturnToParent(newValue bool) {
+	this.ReturnToParent = newValue
 }
-func (this *Shape) getTextFrameFormat() ITextFrameFormat {
-	return this.TextFrameFormat
-}
-
-func (this *Shape) setTextFrameFormat(newValue ITextFrameFormat) {
-	this.TextFrameFormat = newValue
+func (this *SectionZoomFrame) getShowBackground() bool {
+	return this.ShowBackground
 }
 
-func (this *Shape) UnmarshalJSON(b []byte) error {
+func (this *SectionZoomFrame) setShowBackground(newValue bool) {
+	this.ShowBackground = newValue
+}
+func (this *SectionZoomFrame) getImage() IResourceUri {
+	return this.Image
+}
+
+func (this *SectionZoomFrame) setImage(newValue IResourceUri) {
+	this.Image = newValue
+}
+func (this *SectionZoomFrame) getTransitionDuration() float64 {
+	return this.TransitionDuration
+}
+
+func (this *SectionZoomFrame) setTransitionDuration(newValue float64) {
+	this.TransitionDuration = newValue
+}
+func (this *SectionZoomFrame) getTargetSectionIndex() int32 {
+	return this.TargetSectionIndex
+}
+
+func (this *SectionZoomFrame) setTargetSectionIndex(newValue int32) {
+	this.TargetSectionIndex = newValue
+}
+
+func (this *SectionZoomFrame) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
@@ -955,7 +983,7 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.Type_ = "Shape"
+	this.Type_ = "SectionZoomFrame"
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -988,144 +1016,164 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	this.ShapeType = "Custom"
-	if valShapeType, ok := objMap["shapeType"]; ok {
-		if valShapeType != nil {
-			var valueForShapeType string
-			err = json.Unmarshal(*valShapeType, &valueForShapeType)
+	this.ImageType = ""
+	if valImageType, ok := objMap["imageType"]; ok {
+		if valImageType != nil {
+			var valueForImageType string
+			err = json.Unmarshal(*valImageType, &valueForImageType)
 			if err != nil {
-				var valueForShapeTypeInt int32
-				err = json.Unmarshal(*valShapeType, &valueForShapeTypeInt)
+				var valueForImageTypeInt int32
+				err = json.Unmarshal(*valImageType, &valueForImageTypeInt)
 				if err != nil {
 					return err
 				}
-				this.ShapeType = string(valueForShapeTypeInt)
+				this.ImageType = string(valueForImageTypeInt)
 			} else {
-				this.ShapeType = valueForShapeType
+				this.ImageType = valueForImageType
 			}
 		}
 	}
-	if valShapeTypeCap, ok := objMap["ShapeType"]; ok {
-		if valShapeTypeCap != nil {
-			var valueForShapeType string
-			err = json.Unmarshal(*valShapeTypeCap, &valueForShapeType)
+	if valImageTypeCap, ok := objMap["ImageType"]; ok {
+		if valImageTypeCap != nil {
+			var valueForImageType string
+			err = json.Unmarshal(*valImageTypeCap, &valueForImageType)
 			if err != nil {
-				var valueForShapeTypeInt int32
-				err = json.Unmarshal(*valShapeTypeCap, &valueForShapeTypeInt)
+				var valueForImageTypeInt int32
+				err = json.Unmarshal(*valImageTypeCap, &valueForImageTypeInt)
 				if err != nil {
 					return err
 				}
-				this.ShapeType = string(valueForShapeTypeInt)
+				this.ImageType = string(valueForImageTypeInt)
 			} else {
-				this.ShapeType = valueForShapeType
+				this.ImageType = valueForImageType
 			}
 		}
 	}
 	
-	if valText, ok := objMap["text"]; ok {
-		if valText != nil {
-			var valueForText string
-			err = json.Unmarshal(*valText, &valueForText)
+	if valReturnToParent, ok := objMap["returnToParent"]; ok {
+		if valReturnToParent != nil {
+			var valueForReturnToParent bool
+			err = json.Unmarshal(*valReturnToParent, &valueForReturnToParent)
 			if err != nil {
 				return err
 			}
-			this.Text = valueForText
+			this.ReturnToParent = valueForReturnToParent
 		}
 	}
-	if valTextCap, ok := objMap["Text"]; ok {
-		if valTextCap != nil {
-			var valueForText string
-			err = json.Unmarshal(*valTextCap, &valueForText)
+	if valReturnToParentCap, ok := objMap["ReturnToParent"]; ok {
+		if valReturnToParentCap != nil {
+			var valueForReturnToParent bool
+			err = json.Unmarshal(*valReturnToParentCap, &valueForReturnToParent)
 			if err != nil {
 				return err
 			}
-			this.Text = valueForText
+			this.ReturnToParent = valueForReturnToParent
 		}
 	}
 	
-	if valParagraphs, ok := objMap["paragraphs"]; ok {
-		if valParagraphs != nil {
-			var valueForParagraphs ResourceUri
-			err = json.Unmarshal(*valParagraphs, &valueForParagraphs)
+	if valShowBackground, ok := objMap["showBackground"]; ok {
+		if valShowBackground != nil {
+			var valueForShowBackground bool
+			err = json.Unmarshal(*valShowBackground, &valueForShowBackground)
 			if err != nil {
 				return err
 			}
-			vObject, err := createObjectForType("ResourceUri", *valParagraphs)
+			this.ShowBackground = valueForShowBackground
+		}
+	}
+	if valShowBackgroundCap, ok := objMap["ShowBackground"]; ok {
+		if valShowBackgroundCap != nil {
+			var valueForShowBackground bool
+			err = json.Unmarshal(*valShowBackgroundCap, &valueForShowBackground)
 			if err != nil {
 				return err
 			}
-			err = json.Unmarshal(*valParagraphs, &vObject)
+			this.ShowBackground = valueForShowBackground
+		}
+	}
+	
+	if valImage, ok := objMap["image"]; ok {
+		if valImage != nil {
+			var valueForImage ResourceUri
+			err = json.Unmarshal(*valImage, &valueForImage)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ResourceUri", *valImage)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valImage, &vObject)
 			if err != nil {
 				return err
 			}
 			vInterfaceObject, ok := vObject.(IResourceUri)
 			if ok {
-				this.Paragraphs = vInterfaceObject
+				this.Image = vInterfaceObject
 			}
 		}
 	}
-	if valParagraphsCap, ok := objMap["Paragraphs"]; ok {
-		if valParagraphsCap != nil {
-			var valueForParagraphs ResourceUri
-			err = json.Unmarshal(*valParagraphsCap, &valueForParagraphs)
+	if valImageCap, ok := objMap["Image"]; ok {
+		if valImageCap != nil {
+			var valueForImage ResourceUri
+			err = json.Unmarshal(*valImageCap, &valueForImage)
 			if err != nil {
 				return err
 			}
-			vObject, err := createObjectForType("ResourceUri", *valParagraphsCap)
+			vObject, err := createObjectForType("ResourceUri", *valImageCap)
 			if err != nil {
 				return err
 			}
-			err = json.Unmarshal(*valParagraphsCap, &vObject)
+			err = json.Unmarshal(*valImageCap, &vObject)
 			if err != nil {
 				return err
 			}
 			vInterfaceObject, ok := vObject.(IResourceUri)
 			if ok {
-				this.Paragraphs = vInterfaceObject
+				this.Image = vInterfaceObject
 			}
 		}
 	}
 	
-	if valTextFrameFormat, ok := objMap["textFrameFormat"]; ok {
-		if valTextFrameFormat != nil {
-			var valueForTextFrameFormat TextFrameFormat
-			err = json.Unmarshal(*valTextFrameFormat, &valueForTextFrameFormat)
+	if valTransitionDuration, ok := objMap["transitionDuration"]; ok {
+		if valTransitionDuration != nil {
+			var valueForTransitionDuration float64
+			err = json.Unmarshal(*valTransitionDuration, &valueForTransitionDuration)
 			if err != nil {
 				return err
 			}
-			vObject, err := createObjectForType("TextFrameFormat", *valTextFrameFormat)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valTextFrameFormat, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ITextFrameFormat)
-			if ok {
-				this.TextFrameFormat = vInterfaceObject
-			}
+			this.TransitionDuration = valueForTransitionDuration
 		}
 	}
-	if valTextFrameFormatCap, ok := objMap["TextFrameFormat"]; ok {
-		if valTextFrameFormatCap != nil {
-			var valueForTextFrameFormat TextFrameFormat
-			err = json.Unmarshal(*valTextFrameFormatCap, &valueForTextFrameFormat)
+	if valTransitionDurationCap, ok := objMap["TransitionDuration"]; ok {
+		if valTransitionDurationCap != nil {
+			var valueForTransitionDuration float64
+			err = json.Unmarshal(*valTransitionDurationCap, &valueForTransitionDuration)
 			if err != nil {
 				return err
 			}
-			vObject, err := createObjectForType("TextFrameFormat", *valTextFrameFormatCap)
+			this.TransitionDuration = valueForTransitionDuration
+		}
+	}
+	
+	if valTargetSectionIndex, ok := objMap["targetSectionIndex"]; ok {
+		if valTargetSectionIndex != nil {
+			var valueForTargetSectionIndex int32
+			err = json.Unmarshal(*valTargetSectionIndex, &valueForTargetSectionIndex)
 			if err != nil {
 				return err
 			}
-			err = json.Unmarshal(*valTextFrameFormatCap, &vObject)
+			this.TargetSectionIndex = valueForTargetSectionIndex
+		}
+	}
+	if valTargetSectionIndexCap, ok := objMap["TargetSectionIndex"]; ok {
+		if valTargetSectionIndexCap != nil {
+			var valueForTargetSectionIndex int32
+			err = json.Unmarshal(*valTargetSectionIndexCap, &valueForTargetSectionIndex)
 			if err != nil {
 				return err
 			}
-			vInterfaceObject, ok := vObject.(ITextFrameFormat)
-			if ok {
-				this.TextFrameFormat = vInterfaceObject
-			}
+			this.TargetSectionIndex = valueForTargetSectionIndex
 		}
 	}
 

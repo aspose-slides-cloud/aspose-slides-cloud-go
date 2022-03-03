@@ -240,6 +240,9 @@ func init() {
 	typeRegistry["Task"] = reflect.TypeOf(Task{})
 	
 	typeDeterminers["Task"] = make(map[string]string)
+	typeRegistry["TextFrameFormat"] = reflect.TypeOf(TextFrameFormat{})
+	
+	typeDeterminers["TextFrameFormat"] = make(map[string]string)
 	typeRegistry["TextItem"] = reflect.TypeOf(TextItem{})
 	
 	typeDeterminers["TextItem"] = make(map[string]string)
@@ -294,10 +297,6 @@ func init() {
 	derivedTypes["BoxElement"] = "MathElement"
 	typeDeterminers["BoxElement"] = make(map[string]string)
 	typeDeterminers["BoxElement"]["Type"] = "Box"
-	typeRegistry["BubbleSeries"] = reflect.TypeOf(BubbleSeries{})
-	derivedTypes["BubbleSeries"] = "Series"
-	typeDeterminers["BubbleSeries"] = make(map[string]string)
-	typeDeterminers["BubbleSeries"]["DataPointType"] = "Bubble"
 	typeRegistry["ClosePathSegment"] = reflect.TypeOf(ClosePathSegment{})
 	derivedTypes["ClosePathSegment"] = "PathSegment"
 	typeDeterminers["ClosePathSegment"] = make(map[string]string)
@@ -523,10 +522,6 @@ func init() {
 	typeRegistry["ScatterChartDataPoint"] = reflect.TypeOf(ScatterChartDataPoint{})
 	derivedTypes["ScatterChartDataPoint"] = "DataPoint"
 	typeDeterminers["ScatterChartDataPoint"] = make(map[string]string)
-	typeRegistry["ScatterSeries"] = reflect.TypeOf(ScatterSeries{})
-	derivedTypes["ScatterSeries"] = "Series"
-	typeDeterminers["ScatterSeries"] = make(map[string]string)
-	typeDeterminers["ScatterSeries"]["DataPointType"] = "Scatter"
 	typeRegistry["Section"] = reflect.TypeOf(Section{})
 	derivedTypes["Section"] = "ResourceBase"
 	typeDeterminers["Section"] = make(map[string]string)
@@ -599,9 +594,15 @@ func init() {
 	derivedTypes["UpdateShape"] = "Task"
 	typeDeterminers["UpdateShape"] = make(map[string]string)
 	typeDeterminers["UpdateShape"]["Type"] = "UpdateShape"
+	typeRegistry["VideoExportOptions"] = reflect.TypeOf(VideoExportOptions{})
+	derivedTypes["VideoExportOptions"] = "ExportOptions"
+	typeDeterminers["VideoExportOptions"] = make(map[string]string)
 	typeRegistry["ViewProperties"] = reflect.TypeOf(ViewProperties{})
 	derivedTypes["ViewProperties"] = "ResourceBase"
 	typeDeterminers["ViewProperties"] = make(map[string]string)
+	typeRegistry["XYSeries"] = reflect.TypeOf(XYSeries{})
+	derivedTypes["XYSeries"] = "Series"
+	typeDeterminers["XYSeries"] = make(map[string]string)
 	typeRegistry["XamlExportOptions"] = reflect.TypeOf(XamlExportOptions{})
 	derivedTypes["XamlExportOptions"] = "ExportOptions"
 	typeDeterminers["XamlExportOptions"] = make(map[string]string)
@@ -615,6 +616,10 @@ func init() {
 	typeRegistry["BubbleChartDataPoint"] = reflect.TypeOf(BubbleChartDataPoint{})
 	derivedTypes["BubbleChartDataPoint"] = "ScatterChartDataPoint"
 	typeDeterminers["BubbleChartDataPoint"] = make(map[string]string)
+	typeRegistry["BubbleSeries"] = reflect.TypeOf(BubbleSeries{})
+	derivedTypes["BubbleSeries"] = "XYSeries"
+	typeDeterminers["BubbleSeries"] = make(map[string]string)
+	typeDeterminers["BubbleSeries"]["DataPointType"] = "Bubble"
 	typeRegistry["Chart"] = reflect.TypeOf(Chart{})
 	derivedTypes["Chart"] = "ShapeBase"
 	typeDeterminers["Chart"] = make(map[string]string)
@@ -637,6 +642,10 @@ func init() {
 	derivedTypes["OleObjectFrame"] = "ShapeBase"
 	typeDeterminers["OleObjectFrame"] = make(map[string]string)
 	typeDeterminers["OleObjectFrame"]["Type"] = "OleObjectFrame"
+	typeRegistry["ScatterSeries"] = reflect.TypeOf(ScatterSeries{})
+	derivedTypes["ScatterSeries"] = "XYSeries"
+	typeDeterminers["ScatterSeries"] = make(map[string]string)
+	typeDeterminers["ScatterSeries"]["DataPointType"] = "Scatter"
 	typeRegistry["SlideReplaceResult"] = reflect.TypeOf(SlideReplaceResult{})
 	derivedTypes["SlideReplaceResult"] = "Slide"
 	typeDeterminers["SlideReplaceResult"] = make(map[string]string)
@@ -644,6 +653,10 @@ func init() {
 	derivedTypes["SmartArt"] = "ShapeBase"
 	typeDeterminers["SmartArt"] = make(map[string]string)
 	typeDeterminers["SmartArt"]["Type"] = "SmartArt"
+	typeRegistry["SummaryZoomFrame"] = reflect.TypeOf(SummaryZoomFrame{})
+	derivedTypes["SummaryZoomFrame"] = "ShapeBase"
+	typeDeterminers["SummaryZoomFrame"] = make(map[string]string)
+	typeDeterminers["SummaryZoomFrame"]["Type"] = "SummaryZoomFrame"
 	typeRegistry["Table"] = reflect.TypeOf(Table{})
 	derivedTypes["Table"] = "ShapeBase"
 	typeDeterminers["Table"] = make(map[string]string)
@@ -655,6 +668,9 @@ func init() {
 	derivedTypes["WaterfallSeries"] = "OneValueSeries"
 	typeDeterminers["WaterfallSeries"] = make(map[string]string)
 	typeDeterminers["WaterfallSeries"]["DataPointType"] = "OneValue"
+	typeRegistry["ZoomObject"] = reflect.TypeOf(ZoomObject{})
+	derivedTypes["ZoomObject"] = "ShapeBase"
+	typeDeterminers["ZoomObject"] = make(map[string]string)
 	typeRegistry["AudioFrame"] = reflect.TypeOf(AudioFrame{})
 	derivedTypes["AudioFrame"] = "GeometryShape"
 	typeDeterminers["AudioFrame"] = make(map[string]string)
@@ -667,6 +683,10 @@ func init() {
 	derivedTypes["PictureFrame"] = "GeometryShape"
 	typeDeterminers["PictureFrame"] = make(map[string]string)
 	typeDeterminers["PictureFrame"]["Type"] = "PictureFrame"
+	typeRegistry["SectionZoomFrame"] = reflect.TypeOf(SectionZoomFrame{})
+	derivedTypes["SectionZoomFrame"] = "ZoomObject"
+	typeDeterminers["SectionZoomFrame"] = make(map[string]string)
+	typeDeterminers["SectionZoomFrame"]["Type"] = "SectionZoomFrame"
 	typeRegistry["Shape"] = reflect.TypeOf(Shape{})
 	derivedTypes["Shape"] = "GeometryShape"
 	typeDeterminers["Shape"] = make(map[string]string)
@@ -679,6 +699,14 @@ func init() {
 	derivedTypes["VideoFrame"] = "GeometryShape"
 	typeDeterminers["VideoFrame"] = make(map[string]string)
 	typeDeterminers["VideoFrame"]["Type"] = "VideoFrame"
+	typeRegistry["ZoomFrame"] = reflect.TypeOf(ZoomFrame{})
+	derivedTypes["ZoomFrame"] = "ZoomObject"
+	typeDeterminers["ZoomFrame"] = make(map[string]string)
+	typeDeterminers["ZoomFrame"]["Type"] = "ZoomFrame"
+	typeRegistry["SummaryZoomSection"] = reflect.TypeOf(SummaryZoomSection{})
+	derivedTypes["SummaryZoomSection"] = "SectionZoomFrame"
+	typeDeterminers["SummaryZoomSection"] = make(map[string]string)
+	typeDeterminers["SummaryZoomSection"]["Type"] = "SummaryZoomSection"
 }
 
 func isSubclass(typeName string, baseTypeName string) bool {

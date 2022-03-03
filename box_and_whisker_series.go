@@ -61,22 +61,6 @@ type IBoxAndWhiskerSeries interface {
 	getOrder() int32
 	setOrder(newValue int32)
 
-	// The number format for the series y values.
-	getNumberFormatOfYValues() string
-	setNumberFormatOfYValues(newValue string)
-
-	// The number format for the series x values.
-	getNumberFormatOfXValues() string
-	setNumberFormatOfXValues(newValue string)
-
-	// The number format for the series values.
-	getNumberFormatOfValues() string
-	setNumberFormatOfValues(newValue string)
-
-	// The number format for the series bubble sizes.
-	getNumberFormatOfBubbleSizes() string
-	setNumberFormatOfBubbleSizes(newValue string)
-
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
 	getInvertIfNegative() bool
 	setInvertIfNegative(newValue bool)
@@ -108,6 +92,10 @@ type IBoxAndWhiskerSeries interface {
 	// Gets or sets the values.
 	getDataPoints() []IOneValueChartDataPoint
 	setDataPoints(newValue []IOneValueChartDataPoint)
+
+	// The number format for the series values.
+	getNumberFormatOfValues() string
+	setNumberFormatOfValues(newValue string)
 
 	// Quartile method.
 	getQuartileMethod() string
@@ -153,18 +141,6 @@ type BoxAndWhiskerSeries struct {
 	// Series order.
 	Order int32 `json:"Order,omitempty"`
 
-	// The number format for the series y values.
-	NumberFormatOfYValues string `json:"NumberFormatOfYValues,omitempty"`
-
-	// The number format for the series x values.
-	NumberFormatOfXValues string `json:"NumberFormatOfXValues,omitempty"`
-
-	// The number format for the series values.
-	NumberFormatOfValues string `json:"NumberFormatOfValues,omitempty"`
-
-	// The number format for the series bubble sizes.
-	NumberFormatOfBubbleSizes string `json:"NumberFormatOfBubbleSizes,omitempty"`
-
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
 	InvertIfNegative bool `json:"InvertIfNegative"`
 
@@ -188,6 +164,9 @@ type BoxAndWhiskerSeries struct {
 
 	// Gets or sets the values.
 	DataPoints []IOneValueChartDataPoint `json:"DataPoints,omitempty"`
+
+	// The number format for the series values.
+	NumberFormatOfValues string `json:"NumberFormatOfValues,omitempty"`
 
 	// Quartile method.
 	QuartileMethod string `json:"QuartileMethod,omitempty"`
@@ -262,34 +241,6 @@ func (this *BoxAndWhiskerSeries) getOrder() int32 {
 func (this *BoxAndWhiskerSeries) setOrder(newValue int32) {
 	this.Order = newValue
 }
-func (this *BoxAndWhiskerSeries) getNumberFormatOfYValues() string {
-	return this.NumberFormatOfYValues
-}
-
-func (this *BoxAndWhiskerSeries) setNumberFormatOfYValues(newValue string) {
-	this.NumberFormatOfYValues = newValue
-}
-func (this *BoxAndWhiskerSeries) getNumberFormatOfXValues() string {
-	return this.NumberFormatOfXValues
-}
-
-func (this *BoxAndWhiskerSeries) setNumberFormatOfXValues(newValue string) {
-	this.NumberFormatOfXValues = newValue
-}
-func (this *BoxAndWhiskerSeries) getNumberFormatOfValues() string {
-	return this.NumberFormatOfValues
-}
-
-func (this *BoxAndWhiskerSeries) setNumberFormatOfValues(newValue string) {
-	this.NumberFormatOfValues = newValue
-}
-func (this *BoxAndWhiskerSeries) getNumberFormatOfBubbleSizes() string {
-	return this.NumberFormatOfBubbleSizes
-}
-
-func (this *BoxAndWhiskerSeries) setNumberFormatOfBubbleSizes(newValue string) {
-	this.NumberFormatOfBubbleSizes = newValue
-}
 func (this *BoxAndWhiskerSeries) getInvertIfNegative() bool {
 	return this.InvertIfNegative
 }
@@ -345,6 +296,13 @@ func (this *BoxAndWhiskerSeries) getDataPoints() []IOneValueChartDataPoint {
 
 func (this *BoxAndWhiskerSeries) setDataPoints(newValue []IOneValueChartDataPoint) {
 	this.DataPoints = newValue
+}
+func (this *BoxAndWhiskerSeries) getNumberFormatOfValues() string {
+	return this.NumberFormatOfValues
+}
+
+func (this *BoxAndWhiskerSeries) setNumberFormatOfValues(newValue string) {
+	this.NumberFormatOfValues = newValue
 }
 func (this *BoxAndWhiskerSeries) getQuartileMethod() string {
 	return this.QuartileMethod
@@ -545,90 +503,6 @@ func (this *BoxAndWhiskerSeries) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Order = valueForOrder
-		}
-	}
-	
-	if valNumberFormatOfYValues, ok := objMap["numberFormatOfYValues"]; ok {
-		if valNumberFormatOfYValues != nil {
-			var valueForNumberFormatOfYValues string
-			err = json.Unmarshal(*valNumberFormatOfYValues, &valueForNumberFormatOfYValues)
-			if err != nil {
-				return err
-			}
-			this.NumberFormatOfYValues = valueForNumberFormatOfYValues
-		}
-	}
-	if valNumberFormatOfYValuesCap, ok := objMap["NumberFormatOfYValues"]; ok {
-		if valNumberFormatOfYValuesCap != nil {
-			var valueForNumberFormatOfYValues string
-			err = json.Unmarshal(*valNumberFormatOfYValuesCap, &valueForNumberFormatOfYValues)
-			if err != nil {
-				return err
-			}
-			this.NumberFormatOfYValues = valueForNumberFormatOfYValues
-		}
-	}
-	
-	if valNumberFormatOfXValues, ok := objMap["numberFormatOfXValues"]; ok {
-		if valNumberFormatOfXValues != nil {
-			var valueForNumberFormatOfXValues string
-			err = json.Unmarshal(*valNumberFormatOfXValues, &valueForNumberFormatOfXValues)
-			if err != nil {
-				return err
-			}
-			this.NumberFormatOfXValues = valueForNumberFormatOfXValues
-		}
-	}
-	if valNumberFormatOfXValuesCap, ok := objMap["NumberFormatOfXValues"]; ok {
-		if valNumberFormatOfXValuesCap != nil {
-			var valueForNumberFormatOfXValues string
-			err = json.Unmarshal(*valNumberFormatOfXValuesCap, &valueForNumberFormatOfXValues)
-			if err != nil {
-				return err
-			}
-			this.NumberFormatOfXValues = valueForNumberFormatOfXValues
-		}
-	}
-	
-	if valNumberFormatOfValues, ok := objMap["numberFormatOfValues"]; ok {
-		if valNumberFormatOfValues != nil {
-			var valueForNumberFormatOfValues string
-			err = json.Unmarshal(*valNumberFormatOfValues, &valueForNumberFormatOfValues)
-			if err != nil {
-				return err
-			}
-			this.NumberFormatOfValues = valueForNumberFormatOfValues
-		}
-	}
-	if valNumberFormatOfValuesCap, ok := objMap["NumberFormatOfValues"]; ok {
-		if valNumberFormatOfValuesCap != nil {
-			var valueForNumberFormatOfValues string
-			err = json.Unmarshal(*valNumberFormatOfValuesCap, &valueForNumberFormatOfValues)
-			if err != nil {
-				return err
-			}
-			this.NumberFormatOfValues = valueForNumberFormatOfValues
-		}
-	}
-	
-	if valNumberFormatOfBubbleSizes, ok := objMap["numberFormatOfBubbleSizes"]; ok {
-		if valNumberFormatOfBubbleSizes != nil {
-			var valueForNumberFormatOfBubbleSizes string
-			err = json.Unmarshal(*valNumberFormatOfBubbleSizes, &valueForNumberFormatOfBubbleSizes)
-			if err != nil {
-				return err
-			}
-			this.NumberFormatOfBubbleSizes = valueForNumberFormatOfBubbleSizes
-		}
-	}
-	if valNumberFormatOfBubbleSizesCap, ok := objMap["NumberFormatOfBubbleSizes"]; ok {
-		if valNumberFormatOfBubbleSizesCap != nil {
-			var valueForNumberFormatOfBubbleSizes string
-			err = json.Unmarshal(*valNumberFormatOfBubbleSizesCap, &valueForNumberFormatOfBubbleSizes)
-			if err != nil {
-				return err
-			}
-			this.NumberFormatOfBubbleSizes = valueForNumberFormatOfBubbleSizes
 		}
 	}
 	
@@ -925,6 +799,27 @@ func (this *BoxAndWhiskerSeries) UnmarshalJSON(b []byte) error {
 				}
 			}
 			this.DataPoints = valueForIDataPoints
+		}
+	}
+	
+	if valNumberFormatOfValues, ok := objMap["numberFormatOfValues"]; ok {
+		if valNumberFormatOfValues != nil {
+			var valueForNumberFormatOfValues string
+			err = json.Unmarshal(*valNumberFormatOfValues, &valueForNumberFormatOfValues)
+			if err != nil {
+				return err
+			}
+			this.NumberFormatOfValues = valueForNumberFormatOfValues
+		}
+	}
+	if valNumberFormatOfValuesCap, ok := objMap["NumberFormatOfValues"]; ok {
+		if valNumberFormatOfValuesCap != nil {
+			var valueForNumberFormatOfValues string
+			err = json.Unmarshal(*valNumberFormatOfValuesCap, &valueForNumberFormatOfValues)
+			if err != nil {
+				return err
+			}
+			this.NumberFormatOfValues = valueForNumberFormatOfValues
 		}
 	}
 	this.QuartileMethod = ""

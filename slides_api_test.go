@@ -26760,6 +26760,222 @@ func TestDeleteSubshapesInvalidStorage(t *testing.T) {
     assertError(t, "DeleteSubshapes", "storage", teststorage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Removes unused layout slides.
+   Test for SlidesApi.DeleteUnusedLayoutSlides method
+*/
+func TestDeleteUnusedLayoutSlides(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteUnusedLayoutSlides", "name", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteUnusedLayoutSlides", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteUnusedLayoutSlides", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteUnusedLayoutSlides", "storage", "string").(string)
+    e := initializeTest("DeleteUnusedLayoutSlides", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteUnusedLayoutSlides(testname, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Removes unused layout slides.
+   Test for SlidesApi.DeleteUnusedLayoutSlides method with invalid name
+*/
+func TestDeleteUnusedLayoutSlidesInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteUnusedLayoutSlides", "name", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteUnusedLayoutSlides", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteUnusedLayoutSlides", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteUnusedLayoutSlides", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "DeleteUnusedLayoutSlides", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteUnusedLayoutSlides", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedLayoutSlides(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedLayoutSlides", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused layout slides.
+   Test for SlidesApi.DeleteUnusedLayoutSlides method with invalid password
+*/
+func TestDeleteUnusedLayoutSlidesInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteUnusedLayoutSlides", "name", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteUnusedLayoutSlides", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteUnusedLayoutSlides", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteUnusedLayoutSlides", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteUnusedLayoutSlides", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteUnusedLayoutSlides", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedLayoutSlides(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedLayoutSlides", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused layout slides.
+   Test for SlidesApi.DeleteUnusedLayoutSlides method with invalid folder
+*/
+func TestDeleteUnusedLayoutSlidesInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteUnusedLayoutSlides", "name", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteUnusedLayoutSlides", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteUnusedLayoutSlides", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteUnusedLayoutSlides", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "DeleteUnusedLayoutSlides", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteUnusedLayoutSlides", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedLayoutSlides(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedLayoutSlides", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused layout slides.
+   Test for SlidesApi.DeleteUnusedLayoutSlides method with invalid storage
+*/
+func TestDeleteUnusedLayoutSlidesInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteUnusedLayoutSlides", "name", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteUnusedLayoutSlides", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteUnusedLayoutSlides", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteUnusedLayoutSlides", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "DeleteUnusedLayoutSlides", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteUnusedLayoutSlides", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedLayoutSlides(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedLayoutSlides", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused layout slides.
+   Test for SlidesApi.DeleteUnusedLayoutSlidesOnline method
+*/
+func TestDeleteUnusedLayoutSlidesOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("DeleteUnusedLayoutSlidesOnline", "document", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("DeleteUnusedLayoutSlidesOnline", "password", "string").(string)
+    e := initializeTest("DeleteUnusedLayoutSlidesOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    r, _, e := c.SlidesApi.DeleteUnusedLayoutSlidesOnline(testdocument, testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Removes unused layout slides.
+   Test for SlidesApi.DeleteUnusedLayoutSlidesOnline method with invalid document
+*/
+func TestDeleteUnusedLayoutSlidesOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("DeleteUnusedLayoutSlidesOnline", "document", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("DeleteUnusedLayoutSlidesOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "DeleteUnusedLayoutSlidesOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("DeleteUnusedLayoutSlidesOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedLayoutSlidesOnline(testdocument, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedLayoutSlidesOnline", "document", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused layout slides.
+   Test for SlidesApi.DeleteUnusedLayoutSlidesOnline method with invalid password
+*/
+func TestDeleteUnusedLayoutSlidesOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("DeleteUnusedLayoutSlidesOnline", "document", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("DeleteUnusedLayoutSlidesOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteUnusedLayoutSlidesOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteUnusedLayoutSlidesOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedLayoutSlidesOnline(testdocument, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedLayoutSlidesOnline", "password", testpassword, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
    Test for SlidesApi.DeleteWatermark method
 */
@@ -46535,6 +46751,1004 @@ func TestGetViewPropertiesInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetViewProperties", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeRegex method
+*/
+func TestHighlightShapeRegex(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeRegex", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeRegex", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeRegex", "shapeIndex", "int32").(int32)
+    testregex, _ := createTestParamValue("HighlightShapeRegex", "regex", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeRegex", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeRegex", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeRegex", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeRegex", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeRegex", "storage", "string").(string)
+    e := initializeTest("HighlightShapeRegex", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.HighlightShapeRegex(testname, testslideIndex, testshapeIndex, testregex, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeRegex method with invalid name
+*/
+func TestHighlightShapeRegexInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeRegex", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeRegex", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeRegex", "shapeIndex", "int32").(int32)
+    testregex, _ := createTestParamValue("HighlightShapeRegex", "regex", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeRegex", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeRegex", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeRegex", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeRegex", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeRegex", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "HighlightShapeRegex", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeRegex", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeRegex(testname, testslideIndex, testshapeIndex, testregex, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeRegex", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeRegex method with invalid slideIndex
+*/
+func TestHighlightShapeRegexInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeRegex", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeRegex", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeRegex", "shapeIndex", "int32").(int32)
+    testregex, _ := createTestParamValue("HighlightShapeRegex", "regex", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeRegex", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeRegex", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeRegex", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeRegex", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeRegex", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "HighlightShapeRegex", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("HighlightShapeRegex", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeRegex(testname, testslideIndex, testshapeIndex, testregex, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeRegex", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeRegex method with invalid shapeIndex
+*/
+func TestHighlightShapeRegexInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeRegex", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeRegex", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeRegex", "shapeIndex", "int32").(int32)
+    testregex, _ := createTestParamValue("HighlightShapeRegex", "regex", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeRegex", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeRegex", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeRegex", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeRegex", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeRegex", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "HighlightShapeRegex", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("HighlightShapeRegex", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeRegex(testname, testslideIndex, testshapeIndex, testregex, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeRegex", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeRegex method with invalid regex
+*/
+func TestHighlightShapeRegexInvalidRegex(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeRegex", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeRegex", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeRegex", "shapeIndex", "int32").(int32)
+    testregex, _ := createTestParamValue("HighlightShapeRegex", "regex", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeRegex", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeRegex", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeRegex", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeRegex", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeRegex", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testregex, "HighlightShapeRegex", "regex", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testregex = nullValue
+    } else {
+        testregex, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeRegex", "regex", testregex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeRegex(testname, testslideIndex, testshapeIndex, testregex, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeRegex", "regex", testregex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeRegex method with invalid color
+*/
+func TestHighlightShapeRegexInvalidColor(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeRegex", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeRegex", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeRegex", "shapeIndex", "int32").(int32)
+    testregex, _ := createTestParamValue("HighlightShapeRegex", "regex", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeRegex", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeRegex", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeRegex", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeRegex", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeRegex", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcolor, "HighlightShapeRegex", "color", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testcolor = nullValue
+    } else {
+        testcolor, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeRegex", "color", testcolor)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeRegex(testname, testslideIndex, testshapeIndex, testregex, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeRegex", "color", testcolor, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeRegex method with invalid wholeWordsOnly
+*/
+func TestHighlightShapeRegexInvalidWholeWordsOnly(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeRegex", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeRegex", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeRegex", "shapeIndex", "int32").(int32)
+    testregex, _ := createTestParamValue("HighlightShapeRegex", "regex", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeRegex", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeRegex", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeRegex", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeRegex", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeRegex", "storage", "string").(string)
+    testwholeWordsOnly = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testwholeWordsOnly, "HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testwholeWordsOnly = nullValue
+    } else {
+        *testwholeWordsOnly, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("HighlightShapeRegex", "wholeWordsOnly", testwholeWordsOnly)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeRegex(testname, testslideIndex, testshapeIndex, testregex, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeRegex", "wholeWordsOnly", testwholeWordsOnly, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeRegex method with invalid ignoreCase
+*/
+func TestHighlightShapeRegexInvalidIgnoreCase(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeRegex", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeRegex", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeRegex", "shapeIndex", "int32").(int32)
+    testregex, _ := createTestParamValue("HighlightShapeRegex", "regex", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeRegex", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeRegex", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeRegex", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeRegex", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeRegex", "storage", "string").(string)
+    testignoreCase = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testignoreCase, "HighlightShapeRegex", "ignoreCase", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testignoreCase = nullValue
+    } else {
+        *testignoreCase, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("HighlightShapeRegex", "ignoreCase", testignoreCase)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeRegex(testname, testslideIndex, testshapeIndex, testregex, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeRegex", "ignoreCase", testignoreCase, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeRegex method with invalid password
+*/
+func TestHighlightShapeRegexInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeRegex", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeRegex", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeRegex", "shapeIndex", "int32").(int32)
+    testregex, _ := createTestParamValue("HighlightShapeRegex", "regex", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeRegex", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeRegex", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeRegex", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeRegex", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeRegex", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "HighlightShapeRegex", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeRegex", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeRegex(testname, testslideIndex, testshapeIndex, testregex, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeRegex", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeRegex method with invalid folder
+*/
+func TestHighlightShapeRegexInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeRegex", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeRegex", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeRegex", "shapeIndex", "int32").(int32)
+    testregex, _ := createTestParamValue("HighlightShapeRegex", "regex", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeRegex", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeRegex", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeRegex", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeRegex", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeRegex", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "HighlightShapeRegex", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeRegex", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeRegex(testname, testslideIndex, testshapeIndex, testregex, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeRegex", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeRegex method with invalid storage
+*/
+func TestHighlightShapeRegexInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeRegex", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeRegex", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeRegex", "shapeIndex", "int32").(int32)
+    testregex, _ := createTestParamValue("HighlightShapeRegex", "regex", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeRegex", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeRegex", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeRegex", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeRegex", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeRegex", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeRegex", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "HighlightShapeRegex", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeRegex", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeRegex(testname, testslideIndex, testshapeIndex, testregex, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeRegex", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeText method
+*/
+func TestHighlightShapeText(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeText", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeText", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeText", "shapeIndex", "int32").(int32)
+    testtext, _ := createTestParamValue("HighlightShapeText", "text", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeText", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeText", "storage", "string").(string)
+    e := initializeTest("HighlightShapeText", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.HighlightShapeText(testname, testslideIndex, testshapeIndex, testtext, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeText method with invalid name
+*/
+func TestHighlightShapeTextInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeText", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeText", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeText", "shapeIndex", "int32").(int32)
+    testtext, _ := createTestParamValue("HighlightShapeText", "text", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeText", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeText", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "HighlightShapeText", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeText", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeText(testname, testslideIndex, testshapeIndex, testtext, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeText", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeText method with invalid slideIndex
+*/
+func TestHighlightShapeTextInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeText", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeText", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeText", "shapeIndex", "int32").(int32)
+    testtext, _ := createTestParamValue("HighlightShapeText", "text", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeText", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeText", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "HighlightShapeText", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("HighlightShapeText", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeText(testname, testslideIndex, testshapeIndex, testtext, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeText", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeText method with invalid shapeIndex
+*/
+func TestHighlightShapeTextInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeText", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeText", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeText", "shapeIndex", "int32").(int32)
+    testtext, _ := createTestParamValue("HighlightShapeText", "text", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeText", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeText", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "HighlightShapeText", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("HighlightShapeText", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeText(testname, testslideIndex, testshapeIndex, testtext, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeText", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeText method with invalid text
+*/
+func TestHighlightShapeTextInvalidText(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeText", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeText", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeText", "shapeIndex", "int32").(int32)
+    testtext, _ := createTestParamValue("HighlightShapeText", "text", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeText", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeText", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testtext, "HighlightShapeText", "text", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testtext = nullValue
+    } else {
+        testtext, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeText", "text", testtext)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeText(testname, testslideIndex, testshapeIndex, testtext, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeText", "text", testtext, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeText method with invalid color
+*/
+func TestHighlightShapeTextInvalidColor(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeText", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeText", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeText", "shapeIndex", "int32").(int32)
+    testtext, _ := createTestParamValue("HighlightShapeText", "text", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeText", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeText", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcolor, "HighlightShapeText", "color", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testcolor = nullValue
+    } else {
+        testcolor, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeText", "color", testcolor)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeText(testname, testslideIndex, testshapeIndex, testtext, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeText", "color", testcolor, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeText method with invalid wholeWordsOnly
+*/
+func TestHighlightShapeTextInvalidWholeWordsOnly(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeText", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeText", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeText", "shapeIndex", "int32").(int32)
+    testtext, _ := createTestParamValue("HighlightShapeText", "text", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeText", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeText", "storage", "string").(string)
+    testwholeWordsOnly = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testwholeWordsOnly, "HighlightShapeText", "wholeWordsOnly", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testwholeWordsOnly = nullValue
+    } else {
+        *testwholeWordsOnly, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("HighlightShapeText", "wholeWordsOnly", testwholeWordsOnly)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeText(testname, testslideIndex, testshapeIndex, testtext, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeText", "wholeWordsOnly", testwholeWordsOnly, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeText method with invalid ignoreCase
+*/
+func TestHighlightShapeTextInvalidIgnoreCase(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeText", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeText", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeText", "shapeIndex", "int32").(int32)
+    testtext, _ := createTestParamValue("HighlightShapeText", "text", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeText", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeText", "storage", "string").(string)
+    testignoreCase = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testignoreCase, "HighlightShapeText", "ignoreCase", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testignoreCase = nullValue
+    } else {
+        *testignoreCase, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("HighlightShapeText", "ignoreCase", testignoreCase)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeText(testname, testslideIndex, testshapeIndex, testtext, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeText", "ignoreCase", testignoreCase, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeText method with invalid password
+*/
+func TestHighlightShapeTextInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeText", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeText", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeText", "shapeIndex", "int32").(int32)
+    testtext, _ := createTestParamValue("HighlightShapeText", "text", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeText", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeText", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "HighlightShapeText", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeText", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeText(testname, testslideIndex, testshapeIndex, testtext, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeText", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeText method with invalid folder
+*/
+func TestHighlightShapeTextInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeText", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeText", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeText", "shapeIndex", "int32").(int32)
+    testtext, _ := createTestParamValue("HighlightShapeText", "text", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeText", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeText", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "HighlightShapeText", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeText", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeText(testname, testslideIndex, testshapeIndex, testtext, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeText", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Highlight all matches of sample in text frame text using specified color.
+   Test for SlidesApi.HighlightShapeText method with invalid storage
+*/
+func TestHighlightShapeTextInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("HighlightShapeText", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("HighlightShapeText", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("HighlightShapeText", "shapeIndex", "int32").(int32)
+    testtext, _ := createTestParamValue("HighlightShapeText", "text", "string").(string)
+    testcolor, _ := createTestParamValue("HighlightShapeText", "color", "string").(string)
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("HighlightShapeText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("HighlightShapeText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("HighlightShapeText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("HighlightShapeText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("HighlightShapeText", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "HighlightShapeText", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("HighlightShapeText", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.HighlightShapeText(testname, testslideIndex, testshapeIndex, testtext, testcolor, testwholeWordsOnly, testignoreCase, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "HighlightShapeText", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Create presentation document from html.
