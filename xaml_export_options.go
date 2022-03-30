@@ -45,6 +45,10 @@ type IXamlExportOptions interface {
 	getWidth() int32
 	setWidth(newValue int32)
 
+	// Gets of sets list of font fallback rules.
+	getFontFallbackRules() []IFontFallbackRule
+	setFontFallbackRules(newValue []IFontFallbackRule)
+
 	// Export format.
 	getFormat() string
 	setFormat(newValue string)
@@ -64,6 +68,9 @@ type XamlExportOptions struct {
 
 	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
 	Width int32 `json:"Width,omitempty"`
+
+	// Gets of sets list of font fallback rules.
+	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
 
 	// Export format.
 	Format string `json:"Format,omitempty"`
@@ -97,6 +104,13 @@ func (this *XamlExportOptions) getWidth() int32 {
 
 func (this *XamlExportOptions) setWidth(newValue int32) {
 	this.Width = newValue
+}
+func (this *XamlExportOptions) getFontFallbackRules() []IFontFallbackRule {
+	return this.FontFallbackRules
+}
+
+func (this *XamlExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+	this.FontFallbackRules = newValue
 }
 func (this *XamlExportOptions) getFormat() string {
 	return this.Format
@@ -180,6 +194,55 @@ func (this *XamlExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Width = valueForWidth
+		}
+	}
+	
+	if valFontFallbackRules, ok := objMap["fontFallbackRules"]; ok {
+		if valFontFallbackRules != nil {
+			var valueForFontFallbackRules []json.RawMessage
+			err = json.Unmarshal(*valFontFallbackRules, &valueForFontFallbackRules)
+			if err != nil {
+				return err
+			}
+			valueForIFontFallbackRules := make([]IFontFallbackRule, len(valueForFontFallbackRules))
+			for i, v := range valueForFontFallbackRules {
+				vObject, err := createObjectForType("FontFallbackRule", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIFontFallbackRules[i] = vObject.(IFontFallbackRule)
+				}
+			}
+			this.FontFallbackRules = valueForIFontFallbackRules
+		}
+	}
+	if valFontFallbackRulesCap, ok := objMap["FontFallbackRules"]; ok {
+		if valFontFallbackRulesCap != nil {
+			var valueForFontFallbackRules []json.RawMessage
+			err = json.Unmarshal(*valFontFallbackRulesCap, &valueForFontFallbackRules)
+			if err != nil {
+				return err
+			}
+			valueForIFontFallbackRules := make([]IFontFallbackRule, len(valueForFontFallbackRules))
+			for i, v := range valueForFontFallbackRules {
+				vObject, err := createObjectForType("FontFallbackRule", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIFontFallbackRules[i] = vObject.(IFontFallbackRule)
+				}
+			}
+			this.FontFallbackRules = valueForIFontFallbackRules
 		}
 	}
 	

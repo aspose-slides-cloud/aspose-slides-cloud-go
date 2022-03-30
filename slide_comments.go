@@ -42,8 +42,8 @@ type ISlideComments interface {
 	setAlternateLinks(newValue []IResourceUri)
 
 	// Slide comment list.
-	getList() []ISlideComment
-	setList(newValue []ISlideComment)
+	getList() []ISlideCommentBase
+	setList(newValue []ISlideCommentBase)
 }
 
 type SlideComments struct {
@@ -55,7 +55,7 @@ type SlideComments struct {
 	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Slide comment list.
-	List []ISlideComment `json:"List,omitempty"`
+	List []ISlideCommentBase `json:"List,omitempty"`
 }
 
 func NewSlideComments() *SlideComments {
@@ -77,11 +77,11 @@ func (this *SlideComments) getAlternateLinks() []IResourceUri {
 func (this *SlideComments) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *SlideComments) getList() []ISlideComment {
+func (this *SlideComments) getList() []ISlideCommentBase {
 	return this.List
 }
 
-func (this *SlideComments) setList(newValue []ISlideComment) {
+func (this *SlideComments) setList(newValue []ISlideCommentBase) {
 	this.List = newValue
 }
 
@@ -191,9 +191,9 @@ func (this *SlideComments) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			valueForIList := make([]ISlideComment, len(valueForList))
+			valueForIList := make([]ISlideCommentBase, len(valueForList))
 			for i, v := range valueForList {
-				vObject, err := createObjectForType("SlideComment", v)
+				vObject, err := createObjectForType("SlideCommentBase", v)
 				if err != nil {
 					return err
 				}
@@ -202,7 +202,7 @@ func (this *SlideComments) UnmarshalJSON(b []byte) error {
 					return err
 				}
 				if vObject != nil {
-					valueForIList[i] = vObject.(ISlideComment)
+					valueForIList[i] = vObject.(ISlideCommentBase)
 				}
 			}
 			this.List = valueForIList
@@ -215,9 +215,9 @@ func (this *SlideComments) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			valueForIList := make([]ISlideComment, len(valueForList))
+			valueForIList := make([]ISlideCommentBase, len(valueForList))
 			for i, v := range valueForList {
-				vObject, err := createObjectForType("SlideComment", v)
+				vObject, err := createObjectForType("SlideCommentBase", v)
 				if err != nil {
 					return err
 				}
@@ -226,7 +226,7 @@ func (this *SlideComments) UnmarshalJSON(b []byte) error {
 					return err
 				}
 				if vObject != nil {
-					valueForIList[i] = vObject.(ISlideComment)
+					valueForIList[i] = vObject.(ISlideCommentBase)
 				}
 			}
 			this.List = valueForIList

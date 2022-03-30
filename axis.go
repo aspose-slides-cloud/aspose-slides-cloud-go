@@ -176,6 +176,14 @@ type IAxis interface {
 	// Get or sets the line format.
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
+
+	// Get or sets the format of major grid lines.
+	getMajorGridLinesFormat() IChartLinesFormat
+	setMajorGridLinesFormat(newValue IChartLinesFormat)
+
+	// Get or sets the format of major grid lines.
+	getMinorGridLinesFormat() IChartLinesFormat
+	setMinorGridLinesFormat(newValue IChartLinesFormat)
 }
 
 type Axis struct {
@@ -287,6 +295,12 @@ type Axis struct {
 
 	// Get or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
+
+	// Get or sets the format of major grid lines.
+	MajorGridLinesFormat IChartLinesFormat `json:"MajorGridLinesFormat,omitempty"`
+
+	// Get or sets the format of major grid lines.
+	MinorGridLinesFormat IChartLinesFormat `json:"MinorGridLinesFormat,omitempty"`
 }
 
 func NewAxis() *Axis {
@@ -555,6 +569,20 @@ func (this *Axis) getLineFormat() ILineFormat {
 
 func (this *Axis) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
+}
+func (this *Axis) getMajorGridLinesFormat() IChartLinesFormat {
+	return this.MajorGridLinesFormat
+}
+
+func (this *Axis) setMajorGridLinesFormat(newValue IChartLinesFormat) {
+	this.MajorGridLinesFormat = newValue
+}
+func (this *Axis) getMinorGridLinesFormat() IChartLinesFormat {
+	return this.MinorGridLinesFormat
+}
+
+func (this *Axis) setMinorGridLinesFormat(newValue IChartLinesFormat) {
+	this.MinorGridLinesFormat = newValue
 }
 
 func (this *Axis) UnmarshalJSON(b []byte) error {
@@ -1502,6 +1530,92 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			vInterfaceObject, ok := vObject.(ILineFormat)
 			if ok {
 				this.LineFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valMajorGridLinesFormat, ok := objMap["majorGridLinesFormat"]; ok {
+		if valMajorGridLinesFormat != nil {
+			var valueForMajorGridLinesFormat ChartLinesFormat
+			err = json.Unmarshal(*valMajorGridLinesFormat, &valueForMajorGridLinesFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ChartLinesFormat", *valMajorGridLinesFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMajorGridLinesFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IChartLinesFormat)
+			if ok {
+				this.MajorGridLinesFormat = vInterfaceObject
+			}
+		}
+	}
+	if valMajorGridLinesFormatCap, ok := objMap["MajorGridLinesFormat"]; ok {
+		if valMajorGridLinesFormatCap != nil {
+			var valueForMajorGridLinesFormat ChartLinesFormat
+			err = json.Unmarshal(*valMajorGridLinesFormatCap, &valueForMajorGridLinesFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ChartLinesFormat", *valMajorGridLinesFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMajorGridLinesFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IChartLinesFormat)
+			if ok {
+				this.MajorGridLinesFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valMinorGridLinesFormat, ok := objMap["minorGridLinesFormat"]; ok {
+		if valMinorGridLinesFormat != nil {
+			var valueForMinorGridLinesFormat ChartLinesFormat
+			err = json.Unmarshal(*valMinorGridLinesFormat, &valueForMinorGridLinesFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ChartLinesFormat", *valMinorGridLinesFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMinorGridLinesFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IChartLinesFormat)
+			if ok {
+				this.MinorGridLinesFormat = vInterfaceObject
+			}
+		}
+	}
+	if valMinorGridLinesFormatCap, ok := objMap["MinorGridLinesFormat"]; ok {
+		if valMinorGridLinesFormatCap != nil {
+			var valueForMinorGridLinesFormat ChartLinesFormat
+			err = json.Unmarshal(*valMinorGridLinesFormatCap, &valueForMinorGridLinesFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ChartLinesFormat", *valMinorGridLinesFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMinorGridLinesFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IChartLinesFormat)
+			if ok {
+				this.MinorGridLinesFormat = vInterfaceObject
 			}
 		}
 	}

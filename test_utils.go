@@ -275,7 +275,7 @@ func undefaultize(value interface{}, paramType string) interface{} {
         json.Unmarshal(b, &slide)
         return &slide
     }
-    if paramType == "SlideComment" {
+    if paramType == "SlideCommentBase" {
         var slide SlideComment
         b, _ := json.Marshal(value)
         json.Unmarshal(b, &slide)

@@ -30,8 +30,8 @@ import (
 	"encoding/json"
 )
 
-// Represents comment of slide
-type ISlideComment interface {
+// Represents slide comment
+type ISlideCommentBase interface {
 
 	// Author.
 	getAuthor() string
@@ -49,12 +49,11 @@ type ISlideComment interface {
 	getChildComments() []ISlideCommentBase
 	setChildComments(newValue []ISlideCommentBase)
 
-	// Slide comment type. 
 	getType() string
 	setType(newValue string)
 }
 
-type SlideComment struct {
+type SlideCommentBase struct {
 
 	// Author.
 	Author string `json:"Author,omitempty"`
@@ -68,53 +67,52 @@ type SlideComment struct {
 	// Child comments.
 	ChildComments []ISlideCommentBase `json:"ChildComments,omitempty"`
 
-	// Slide comment type. 
-	Type_ string `json:"Type"`
+	Type_ string `json:"Type,omitempty"`
 }
 
-func NewSlideComment() *SlideComment {
-	instance := new(SlideComment)
-	instance.Type_ = "Regular"
+func NewSlideCommentBase() *SlideCommentBase {
+	instance := new(SlideCommentBase)
+	instance.Type_ = ""
 	return instance
 }
 
-func (this *SlideComment) getAuthor() string {
+func (this *SlideCommentBase) getAuthor() string {
 	return this.Author
 }
 
-func (this *SlideComment) setAuthor(newValue string) {
+func (this *SlideCommentBase) setAuthor(newValue string) {
 	this.Author = newValue
 }
-func (this *SlideComment) getText() string {
+func (this *SlideCommentBase) getText() string {
 	return this.Text
 }
 
-func (this *SlideComment) setText(newValue string) {
+func (this *SlideCommentBase) setText(newValue string) {
 	this.Text = newValue
 }
-func (this *SlideComment) getCreatedTime() string {
+func (this *SlideCommentBase) getCreatedTime() string {
 	return this.CreatedTime
 }
 
-func (this *SlideComment) setCreatedTime(newValue string) {
+func (this *SlideCommentBase) setCreatedTime(newValue string) {
 	this.CreatedTime = newValue
 }
-func (this *SlideComment) getChildComments() []ISlideCommentBase {
+func (this *SlideCommentBase) getChildComments() []ISlideCommentBase {
 	return this.ChildComments
 }
 
-func (this *SlideComment) setChildComments(newValue []ISlideCommentBase) {
+func (this *SlideCommentBase) setChildComments(newValue []ISlideCommentBase) {
 	this.ChildComments = newValue
 }
-func (this *SlideComment) getType() string {
+func (this *SlideCommentBase) getType() string {
 	return this.Type_
 }
 
-func (this *SlideComment) setType(newValue string) {
+func (this *SlideCommentBase) setType(newValue string) {
 	this.Type_ = newValue
 }
 
-func (this *SlideComment) UnmarshalJSON(b []byte) error {
+func (this *SlideCommentBase) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
@@ -232,7 +230,7 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 			this.ChildComments = valueForIChildComments
 		}
 	}
-	this.Type_ = "Regular"
+	this.Type_ = ""
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string

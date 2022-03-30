@@ -57,6 +57,9 @@ func init() {
 	typeRegistry["ChartCategory"] = reflect.TypeOf(ChartCategory{})
 	
 	typeDeterminers["ChartCategory"] = make(map[string]string)
+	typeRegistry["ChartLinesFormat"] = reflect.TypeOf(ChartLinesFormat{})
+	
+	typeDeterminers["ChartLinesFormat"] = make(map[string]string)
 	typeRegistry["ChartTitle"] = reflect.TypeOf(ChartTitle{})
 	
 	typeDeterminers["ChartTitle"] = make(map[string]string)
@@ -105,6 +108,9 @@ func init() {
 	typeRegistry["FillOverlayEffect"] = reflect.TypeOf(FillOverlayEffect{})
 	
 	typeDeterminers["FillOverlayEffect"] = make(map[string]string)
+	typeRegistry["FontFallbackRule"] = reflect.TypeOf(FontFallbackRule{})
+	
+	typeDeterminers["FontFallbackRule"] = make(map[string]string)
 	typeRegistry["FontSet"] = reflect.TypeOf(FontSet{})
 	
 	typeDeterminers["FontSet"] = make(map[string]string)
@@ -213,9 +219,9 @@ func init() {
 	typeRegistry["ShapeImageExportOptions"] = reflect.TypeOf(ShapeImageExportOptions{})
 	
 	typeDeterminers["ShapeImageExportOptions"] = make(map[string]string)
-	typeRegistry["SlideComment"] = reflect.TypeOf(SlideComment{})
+	typeRegistry["SlideCommentBase"] = reflect.TypeOf(SlideCommentBase{})
 	
-	typeDeterminers["SlideComment"] = make(map[string]string)
+	typeDeterminers["SlideCommentBase"] = make(map[string]string)
 	typeRegistry["SmartArtNode"] = reflect.TypeOf(SmartArtNode{})
 	
 	typeDeterminers["SmartArtNode"] = make(map[string]string)
@@ -240,6 +246,9 @@ func init() {
 	typeRegistry["Task"] = reflect.TypeOf(Task{})
 	
 	typeDeterminers["Task"] = make(map[string]string)
+	typeRegistry["TextBounds"] = reflect.TypeOf(TextBounds{})
+	
+	typeDeterminers["TextBounds"] = make(map[string]string)
 	typeRegistry["TextFrameFormat"] = reflect.TypeOf(TextFrameFormat{})
 	
 	typeDeterminers["TextFrameFormat"] = make(map[string]string)
@@ -543,9 +552,17 @@ func init() {
 	typeRegistry["SlideBackground"] = reflect.TypeOf(SlideBackground{})
 	derivedTypes["SlideBackground"] = "ResourceBase"
 	typeDeterminers["SlideBackground"] = make(map[string]string)
+	typeRegistry["SlideComment"] = reflect.TypeOf(SlideComment{})
+	derivedTypes["SlideComment"] = "SlideCommentBase"
+	typeDeterminers["SlideComment"] = make(map[string]string)
+	typeDeterminers["SlideComment"]["Type"] = "Regular"
 	typeRegistry["SlideComments"] = reflect.TypeOf(SlideComments{})
 	derivedTypes["SlideComments"] = "ResourceBase"
 	typeDeterminers["SlideComments"] = make(map[string]string)
+	typeRegistry["SlideModernComment"] = reflect.TypeOf(SlideModernComment{})
+	derivedTypes["SlideModernComment"] = "SlideCommentBase"
+	typeDeterminers["SlideModernComment"] = make(map[string]string)
+	typeDeterminers["SlideModernComment"]["Type"] = "Modern"
 	typeRegistry["SlideProperties"] = reflect.TypeOf(SlideProperties{})
 	derivedTypes["SlideProperties"] = "ResourceBase"
 	typeDeterminers["SlideProperties"] = make(map[string]string)

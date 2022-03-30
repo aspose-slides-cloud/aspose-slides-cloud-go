@@ -5655,7 +5655,7 @@ func TestWatermarkTextStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -5667,7 +5667,7 @@ func TestWatermarkTextStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -5695,7 +5695,7 @@ func TestWatermarkTextStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -5721,7 +5721,7 @@ func TestWatermarkTextDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -5735,7 +5735,7 @@ func TestWatermarkTextDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -5763,7 +5763,7 @@ func TestWatermarkTextDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -5788,7 +5788,7 @@ func TestWatermarkImageStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -5805,7 +5805,7 @@ func TestWatermarkImageStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -5829,7 +5829,7 @@ func TestWatermarkImageStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -5855,7 +5855,7 @@ func TestWatermarkImageDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -5877,7 +5877,7 @@ func TestWatermarkImageDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -5901,7 +5901,7 @@ func TestWatermarkImageDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "")
+        getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

@@ -68,6 +68,10 @@ type ILegend interface {
 	// Get or sets the line format.
 	getLineFormat() ILineFormat
 	setLineFormat(newValue ILineFormat)
+
+	// Get or sets value determines the visibility of legend
+	getHasLegend() bool
+	setHasLegend(newValue bool)
 }
 
 type Legend struct {
@@ -98,6 +102,9 @@ type Legend struct {
 
 	// Get or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
+
+	// Get or sets value determines the visibility of legend
+	HasLegend bool `json:"HasLegend"`
 }
 
 func NewLegend() *Legend {
@@ -168,6 +175,13 @@ func (this *Legend) getLineFormat() ILineFormat {
 
 func (this *Legend) setLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
+}
+func (this *Legend) getHasLegend() bool {
+	return this.HasLegend
+}
+
+func (this *Legend) setHasLegend(newValue bool) {
+	this.HasLegend = newValue
 }
 
 func (this *Legend) UnmarshalJSON(b []byte) error {
@@ -441,6 +455,27 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 			if ok {
 				this.LineFormat = vInterfaceObject
 			}
+		}
+	}
+	
+	if valHasLegend, ok := objMap["hasLegend"]; ok {
+		if valHasLegend != nil {
+			var valueForHasLegend bool
+			err = json.Unmarshal(*valHasLegend, &valueForHasLegend)
+			if err != nil {
+				return err
+			}
+			this.HasLegend = valueForHasLegend
+		}
+	}
+	if valHasLegendCap, ok := objMap["HasLegend"]; ok {
+		if valHasLegendCap != nil {
+			var valueForHasLegend bool
+			err = json.Unmarshal(*valHasLegendCap, &valueForHasLegend)
+			if err != nil {
+				return err
+			}
+			this.HasLegend = valueForHasLegend
 		}
 	}
 

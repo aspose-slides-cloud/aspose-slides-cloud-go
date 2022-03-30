@@ -4598,7 +4598,13 @@ func TestCreateChartSeriesInvalidStorage(t *testing.T) {
 func TestCreateComment(t *testing.T) {
     testname, _ := createTestParamValue("CreateComment", "name", "string").(string)
     testslideIndex, _ := createTestParamValue("CreateComment", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateComment", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateComment", "password", "string").(string)
     testfolder, _ := createTestParamValue("CreateComment", "folder", "string").(string)
     teststorage, _ := createTestParamValue("CreateComment", "storage", "string").(string)
@@ -4608,7 +4614,7 @@ func TestCreateComment(t *testing.T) {
        return
     }
     c := getTestApiClient()
-    _, _, e = c.SlidesApi.CreateComment(testname, testslideIndex, testdto, testpassword, testfolder, teststorage)
+    _, _, e = c.SlidesApi.CreateComment(testname, testslideIndex, testdto, testshapeIndex, testpassword, testfolder, teststorage)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -4621,7 +4627,13 @@ func TestCreateComment(t *testing.T) {
 func TestCreateCommentInvalidName(t *testing.T) {
     testname, _ := createTestParamValue("CreateComment", "name", "string").(string)
     testslideIndex, _ := createTestParamValue("CreateComment", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateComment", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateComment", "password", "string").(string)
     testfolder, _ := createTestParamValue("CreateComment", "folder", "string").(string)
     teststorage, _ := createTestParamValue("CreateComment", "storage", "string").(string)
@@ -4639,7 +4651,7 @@ func TestCreateCommentInvalidName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testshapeIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -4653,7 +4665,13 @@ func TestCreateCommentInvalidName(t *testing.T) {
 func TestCreateCommentInvalidSlideIndex(t *testing.T) {
     testname, _ := createTestParamValue("CreateComment", "name", "string").(string)
     testslideIndex, _ := createTestParamValue("CreateComment", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateComment", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateComment", "password", "string").(string)
     testfolder, _ := createTestParamValue("CreateComment", "folder", "string").(string)
     teststorage, _ := createTestParamValue("CreateComment", "storage", "string").(string)
@@ -4671,7 +4689,7 @@ func TestCreateCommentInvalidSlideIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testshapeIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -4685,16 +4703,22 @@ func TestCreateCommentInvalidSlideIndex(t *testing.T) {
 func TestCreateCommentInvalidDto(t *testing.T) {
     testname, _ := createTestParamValue("CreateComment", "name", "string").(string)
     testslideIndex, _ := createTestParamValue("CreateComment", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateComment", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateComment", "password", "string").(string)
     testfolder, _ := createTestParamValue("CreateComment", "folder", "string").(string)
     teststorage, _ := createTestParamValue("CreateComment", "storage", "string").(string)
 
-    invalidValue := invalidizeTestParamValue(testdto, "CreateComment", "dto", "SlideComment")
+    invalidValue := invalidizeTestParamValue(testdto, "CreateComment", "dto", "SlideCommentBase")
     if (invalidValue == nil) {
         testdto = nil
     } else {
-        testdto, _ = invalidValue.(ISlideComment)
+        testdto, _ = invalidValue.(ISlideCommentBase)
     }
 
     e := initializeTest("CreateComment", "dto", testdto)
@@ -4702,7 +4726,7 @@ func TestCreateCommentInvalidDto(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testshapeIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -4711,12 +4735,57 @@ func TestCreateCommentInvalidDto(t *testing.T) {
 }
 
 /* SlidesApiServiceTests Adds the comment on the slide.
+   Test for SlidesApi.CreateComment method with invalid shapeIndex
+*/
+func TestCreateCommentInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateComment", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateComment", "slideIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateComment", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateComment", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateComment", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateComment", "storage", "string").(string)
+    testshapeIndex = new(int32)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "CreateComment", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        testshapeIndex = nullValue
+    } else {
+        *testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("CreateComment", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateComment", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds the comment on the slide.
    Test for SlidesApi.CreateComment method with invalid password
 */
 func TestCreateCommentInvalidPassword(t *testing.T) {
     testname, _ := createTestParamValue("CreateComment", "name", "string").(string)
     testslideIndex, _ := createTestParamValue("CreateComment", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateComment", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateComment", "password", "string").(string)
     testfolder, _ := createTestParamValue("CreateComment", "folder", "string").(string)
     teststorage, _ := createTestParamValue("CreateComment", "storage", "string").(string)
@@ -4734,7 +4803,7 @@ func TestCreateCommentInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testshapeIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -4748,7 +4817,13 @@ func TestCreateCommentInvalidPassword(t *testing.T) {
 func TestCreateCommentInvalidFolder(t *testing.T) {
     testname, _ := createTestParamValue("CreateComment", "name", "string").(string)
     testslideIndex, _ := createTestParamValue("CreateComment", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateComment", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateComment", "password", "string").(string)
     testfolder, _ := createTestParamValue("CreateComment", "folder", "string").(string)
     teststorage, _ := createTestParamValue("CreateComment", "storage", "string").(string)
@@ -4766,7 +4841,7 @@ func TestCreateCommentInvalidFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testshapeIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -4780,7 +4855,13 @@ func TestCreateCommentInvalidFolder(t *testing.T) {
 func TestCreateCommentInvalidStorage(t *testing.T) {
     testname, _ := createTestParamValue("CreateComment", "name", "string").(string)
     testslideIndex, _ := createTestParamValue("CreateComment", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateComment", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateComment", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateComment", "password", "string").(string)
     testfolder, _ := createTestParamValue("CreateComment", "folder", "string").(string)
     teststorage, _ := createTestParamValue("CreateComment", "storage", "string").(string)
@@ -4798,7 +4879,7 @@ func TestCreateCommentInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.CreateComment(testname, testslideIndex, testdto, testshapeIndex, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -4812,7 +4893,13 @@ func TestCreateCommentInvalidStorage(t *testing.T) {
 func TestCreateCommentOnline(t *testing.T) {
     testdocument, _ := createTestParamValue("CreateCommentOnline", "document", "[]byte").([]byte)
     testslideIndex, _ := createTestParamValue("CreateCommentOnline", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateCommentOnline", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateCommentOnline", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateCommentOnline", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateCommentOnline", "password", "string").(string)
     e := initializeTest("CreateCommentOnline", "", "")
     if e != nil {
@@ -4820,7 +4907,7 @@ func TestCreateCommentOnline(t *testing.T) {
        return
     }
     c := getTestApiClient()
-    r, _, e := c.SlidesApi.CreateCommentOnline(testdocument, testslideIndex, testdto, testpassword)
+    r, _, e := c.SlidesApi.CreateCommentOnline(testdocument, testslideIndex, testdto, testshapeIndex, testpassword)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -4834,7 +4921,13 @@ func TestCreateCommentOnline(t *testing.T) {
 func TestCreateCommentOnlineInvalidDocument(t *testing.T) {
     testdocument, _ := createTestParamValue("CreateCommentOnline", "document", "[]byte").([]byte)
     testslideIndex, _ := createTestParamValue("CreateCommentOnline", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateCommentOnline", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateCommentOnline", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateCommentOnline", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateCommentOnline", "password", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testdocument, "CreateCommentOnline", "document", "[]byte")
@@ -4849,7 +4942,7 @@ func TestCreateCommentOnlineInvalidDocument(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.CreateCommentOnline(testdocument, testslideIndex, testdto, testpassword)
+    _, r, e := getTestApiClient().SlidesApi.CreateCommentOnline(testdocument, testslideIndex, testdto, testshapeIndex, testpassword)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -4863,7 +4956,13 @@ func TestCreateCommentOnlineInvalidDocument(t *testing.T) {
 func TestCreateCommentOnlineInvalidSlideIndex(t *testing.T) {
     testdocument, _ := createTestParamValue("CreateCommentOnline", "document", "[]byte").([]byte)
     testslideIndex, _ := createTestParamValue("CreateCommentOnline", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateCommentOnline", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateCommentOnline", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateCommentOnline", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateCommentOnline", "password", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testslideIndex, "CreateCommentOnline", "slideIndex", "int32")
@@ -4879,7 +4978,7 @@ func TestCreateCommentOnlineInvalidSlideIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.CreateCommentOnline(testdocument, testslideIndex, testdto, testpassword)
+    _, r, e := getTestApiClient().SlidesApi.CreateCommentOnline(testdocument, testslideIndex, testdto, testshapeIndex, testpassword)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -4893,14 +4992,20 @@ func TestCreateCommentOnlineInvalidSlideIndex(t *testing.T) {
 func TestCreateCommentOnlineInvalidDto(t *testing.T) {
     testdocument, _ := createTestParamValue("CreateCommentOnline", "document", "[]byte").([]byte)
     testslideIndex, _ := createTestParamValue("CreateCommentOnline", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateCommentOnline", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateCommentOnline", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateCommentOnline", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateCommentOnline", "password", "string").(string)
 
-    invalidValue := invalidizeTestParamValue(testdto, "CreateCommentOnline", "dto", "SlideComment")
+    invalidValue := invalidizeTestParamValue(testdto, "CreateCommentOnline", "dto", "SlideCommentBase")
     if (invalidValue == nil) {
         testdto = nil
     } else {
-        testdto, _ = invalidValue.(ISlideComment)
+        testdto, _ = invalidValue.(ISlideCommentBase)
     }
 
     e := initializeTest("CreateCommentOnline", "dto", testdto)
@@ -4908,7 +5013,7 @@ func TestCreateCommentOnlineInvalidDto(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.CreateCommentOnline(testdocument, testslideIndex, testdto, testpassword)
+    _, r, e := getTestApiClient().SlidesApi.CreateCommentOnline(testdocument, testslideIndex, testdto, testshapeIndex, testpassword)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -4917,12 +5022,55 @@ func TestCreateCommentOnlineInvalidDto(t *testing.T) {
 }
 
 /* SlidesApiServiceTests Adds the comment on the slide.
+   Test for SlidesApi.CreateCommentOnline method with invalid shapeIndex
+*/
+func TestCreateCommentOnlineInvalidShapeIndex(t *testing.T) {
+    testdocument, _ := createTestParamValue("CreateCommentOnline", "document", "[]byte").([]byte)
+    testslideIndex, _ := createTestParamValue("CreateCommentOnline", "slideIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateCommentOnline", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateCommentOnline", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateCommentOnline", "password", "string").(string)
+    testshapeIndex = new(int32)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "CreateCommentOnline", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        testshapeIndex = nullValue
+    } else {
+        *testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("CreateCommentOnline", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.CreateCommentOnline(testdocument, testslideIndex, testdto, testshapeIndex, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateCommentOnline", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Adds the comment on the slide.
    Test for SlidesApi.CreateCommentOnline method with invalid password
 */
 func TestCreateCommentOnlineInvalidPassword(t *testing.T) {
     testdocument, _ := createTestParamValue("CreateCommentOnline", "document", "[]byte").([]byte)
     testslideIndex, _ := createTestParamValue("CreateCommentOnline", "slideIndex", "int32").(int32)
-    testdto, _ := createTestParamValue("CreateCommentOnline", "dto", "SlideComment").(ISlideComment)
+    testdto, _ := createTestParamValue("CreateCommentOnline", "dto", "SlideCommentBase").(ISlideCommentBase)
+    var testshapeIndex *int32
+    testshapeIndexValue := createTestParamValue("CreateCommentOnline", "shapeIndex", "int32")
+    if (testshapeIndexValue != nil) {
+        testshapeIndex = new(int32)
+        *testshapeIndex, _ = testshapeIndexValue.(int32)
+    }
     testpassword, _ := createTestParamValue("CreateCommentOnline", "password", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testpassword, "CreateCommentOnline", "password", "string")
@@ -4938,7 +5086,7 @@ func TestCreateCommentOnlineInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.CreateCommentOnline(testdocument, testslideIndex, testdto, testpassword)
+    _, r, e := getTestApiClient().SlidesApi.CreateCommentOnline(testdocument, testslideIndex, testdto, testshapeIndex, testpassword)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -37029,6 +37177,261 @@ func TestGetParagraphInvalidStorage(t *testing.T) {
     assertError(t, "GetParagraph", "storage", teststorage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetParagraphRectangle method
+*/
+func TestGetParagraphRectangle(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphRectangle", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphRectangle", "storage", "string").(string)
+    e := initializeTest("GetParagraphRectangle", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetParagraphRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetParagraphRectangle method with invalid name
+*/
+func TestGetParagraphRectangleInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphRectangle", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetParagraphRectangle", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetParagraphRectangle", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphRectangle", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetParagraphRectangle method with invalid slideIndex
+*/
+func TestGetParagraphRectangleInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphRectangle", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "GetParagraphRectangle", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetParagraphRectangle", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphRectangle", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetParagraphRectangle method with invalid shapeIndex
+*/
+func TestGetParagraphRectangleInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphRectangle", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "GetParagraphRectangle", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetParagraphRectangle", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphRectangle", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetParagraphRectangle method with invalid paragraphIndex
+*/
+func TestGetParagraphRectangleInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphRectangle", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "GetParagraphRectangle", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetParagraphRectangle", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphRectangle", "paragraphIndex", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetParagraphRectangle method with invalid password
+*/
+func TestGetParagraphRectangleInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphRectangle", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetParagraphRectangle", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetParagraphRectangle", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphRectangle", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetParagraphRectangle method with invalid folder
+*/
+func TestGetParagraphRectangleInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphRectangle", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetParagraphRectangle", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetParagraphRectangle", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphRectangle", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetParagraphRectangle method with invalid storage
+*/
+func TestGetParagraphRectangleInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphRectangle", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetParagraphRectangle", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetParagraphRectangle", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphRectangle", "storage", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Read shape paragraphs info.
    Test for SlidesApi.GetParagraphs method
 */
@@ -37931,6 +38334,303 @@ func TestGetPortionInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetPortion", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetPortionRectangle method
+*/
+func TestGetPortionRectangle(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionRectangle", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionRectangle", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionRectangle", "storage", "string").(string)
+    e := initializeTest("GetPortionRectangle", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetPortionRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetPortionRectangle method with invalid name
+*/
+func TestGetPortionRectangleInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionRectangle", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionRectangle", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetPortionRectangle", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetPortionRectangle", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionRectangle", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetPortionRectangle method with invalid slideIndex
+*/
+func TestGetPortionRectangleInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionRectangle", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionRectangle", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "GetPortionRectangle", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetPortionRectangle", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionRectangle", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetPortionRectangle method with invalid shapeIndex
+*/
+func TestGetPortionRectangleInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionRectangle", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionRectangle", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "GetPortionRectangle", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetPortionRectangle", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionRectangle", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetPortionRectangle method with invalid paragraphIndex
+*/
+func TestGetPortionRectangleInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionRectangle", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionRectangle", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "GetPortionRectangle", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetPortionRectangle", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionRectangle", "paragraphIndex", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetPortionRectangle method with invalid portionIndex
+*/
+func TestGetPortionRectangleInvalidPortionIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionRectangle", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionRectangle", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testportionIndex, "GetPortionRectangle", "portionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testportionIndex = nullValue
+    } else {
+        testportionIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetPortionRectangle", "portionIndex", testportionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionRectangle", "portionIndex", testportionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetPortionRectangle method with invalid password
+*/
+func TestGetPortionRectangleInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionRectangle", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionRectangle", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetPortionRectangle", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetPortionRectangle", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionRectangle", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetPortionRectangle method with invalid folder
+*/
+func TestGetPortionRectangleInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionRectangle", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionRectangle", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetPortionRectangle", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetPortionRectangle", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionRectangle", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
+   Test for SlidesApi.GetPortionRectangle method with invalid storage
+*/
+func TestGetPortionRectangleInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionRectangle", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionRectangle", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionRectangle", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionRectangle", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionRectangle", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionRectangle", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionRectangle", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionRectangle", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetPortionRectangle", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetPortionRectangle", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionRectangle(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionRectangle", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read paragraph portions info.
@@ -39399,13 +40099,14 @@ func TestGetShapes(t *testing.T) {
     testpassword, _ := createTestParamValue("GetShapes", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetShapes", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetShapes", "storage", "string").(string)
+    testshapeType, _ := createTestParamValue("GetShapes", "shapeType", "string").(string)
     e := initializeTest("GetShapes", "", "")
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
     }
     c := getTestApiClient()
-    _, _, e = c.SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage)
+    _, _, e = c.SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage, testshapeType)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -39421,6 +40122,7 @@ func TestGetShapesInvalidName(t *testing.T) {
     testpassword, _ := createTestParamValue("GetShapes", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetShapes", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetShapes", "storage", "string").(string)
+    testshapeType, _ := createTestParamValue("GetShapes", "shapeType", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testname, "GetShapes", "name", "string")
     if (invalidValue == nil) {
@@ -39435,7 +40137,7 @@ func TestGetShapesInvalidName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage, testshapeType)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39452,6 +40154,7 @@ func TestGetShapesInvalidSlideIndex(t *testing.T) {
     testpassword, _ := createTestParamValue("GetShapes", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetShapes", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetShapes", "storage", "string").(string)
+    testshapeType, _ := createTestParamValue("GetShapes", "shapeType", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testslideIndex, "GetShapes", "slideIndex", "int32")
     if (invalidValue == nil) {
@@ -39466,7 +40169,7 @@ func TestGetShapesInvalidSlideIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage, testshapeType)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39483,6 +40186,7 @@ func TestGetShapesInvalidPassword(t *testing.T) {
     testpassword, _ := createTestParamValue("GetShapes", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetShapes", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetShapes", "storage", "string").(string)
+    testshapeType, _ := createTestParamValue("GetShapes", "shapeType", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testpassword, "GetShapes", "password", "string")
     if (invalidValue == nil) {
@@ -39497,7 +40201,7 @@ func TestGetShapesInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage, testshapeType)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39514,6 +40218,7 @@ func TestGetShapesInvalidFolder(t *testing.T) {
     testpassword, _ := createTestParamValue("GetShapes", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetShapes", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetShapes", "storage", "string").(string)
+    testshapeType, _ := createTestParamValue("GetShapes", "shapeType", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testfolder, "GetShapes", "folder", "string")
     if (invalidValue == nil) {
@@ -39528,7 +40233,7 @@ func TestGetShapesInvalidFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage, testshapeType)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -39545,6 +40250,7 @@ func TestGetShapesInvalidStorage(t *testing.T) {
     testpassword, _ := createTestParamValue("GetShapes", "password", "string").(string)
     testfolder, _ := createTestParamValue("GetShapes", "folder", "string").(string)
     teststorage, _ := createTestParamValue("GetShapes", "storage", "string").(string)
+    testshapeType, _ := createTestParamValue("GetShapes", "shapeType", "string").(string)
 
     invalidValue := invalidizeTestParamValue(teststorage, "GetShapes", "storage", "string")
     if (invalidValue == nil) {
@@ -39559,12 +40265,44 @@ func TestGetShapesInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := getTestApiClient().SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage)
+    _, r, e := getTestApiClient().SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage, testshapeType)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "GetShapes", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read slide shapes info.
+   Test for SlidesApi.GetShapes method with invalid shapeType
+*/
+func TestGetShapesInvalidShapeType(t *testing.T) {
+    testname, _ := createTestParamValue("GetShapes", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetShapes", "slideIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetShapes", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetShapes", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetShapes", "storage", "string").(string)
+    testshapeType, _ := createTestParamValue("GetShapes", "shapeType", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeType, "GetShapes", "shapeType", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testshapeType = nullValue
+    } else {
+        testshapeType, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetShapes", "shapeType", testshapeType)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetShapes(testname, testslideIndex, testpassword, testfolder, teststorage, testshapeType)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetShapes", "shapeType", testshapeType, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read presentation slide info.

@@ -30,8 +30,8 @@ import (
 	"encoding/json"
 )
 
-// Represents comment of slide
-type ISlideComment interface {
+// Represents modern comment of slide
+type ISlideModernComment interface {
 
 	// Author.
 	getAuthor() string
@@ -49,12 +49,24 @@ type ISlideComment interface {
 	getChildComments() []ISlideCommentBase
 	setChildComments(newValue []ISlideCommentBase)
 
-	// Slide comment type. 
+	// Slide modern comment type. 
 	getType() string
 	setType(newValue string)
+
+	// Returns or sets starting position of text selection in text frame if the comment associated with AutoShape. Read/write Int32.
+	getTextSelectionStart() int32
+	setTextSelectionStart(newValue int32)
+
+	// Returns or sets text selection length in text frame if the comment associated with AutoShape. Read/write Int32.
+	getTextSelectionLength() int32
+	setTextSelectionLength(newValue int32)
+
+	// Returns or sets the status of the comment. Read/write ModernCommentStatus.
+	getStatus() string
+	setStatus(newValue string)
 }
 
-type SlideComment struct {
+type SlideModernComment struct {
 
 	// Author.
 	Author string `json:"Author,omitempty"`
@@ -68,53 +80,84 @@ type SlideComment struct {
 	// Child comments.
 	ChildComments []ISlideCommentBase `json:"ChildComments,omitempty"`
 
-	// Slide comment type. 
+	// Slide modern comment type. 
 	Type_ string `json:"Type"`
+
+	// Returns or sets starting position of text selection in text frame if the comment associated with AutoShape. Read/write Int32.
+	TextSelectionStart int32 `json:"TextSelectionStart,omitempty"`
+
+	// Returns or sets text selection length in text frame if the comment associated with AutoShape. Read/write Int32.
+	TextSelectionLength int32 `json:"TextSelectionLength,omitempty"`
+
+	// Returns or sets the status of the comment. Read/write ModernCommentStatus.
+	Status string `json:"Status,omitempty"`
 }
 
-func NewSlideComment() *SlideComment {
-	instance := new(SlideComment)
-	instance.Type_ = "Regular"
+func NewSlideModernComment() *SlideModernComment {
+	instance := new(SlideModernComment)
+	instance.Type_ = "Modern"
+	instance.Status = ""
 	return instance
 }
 
-func (this *SlideComment) getAuthor() string {
+func (this *SlideModernComment) getAuthor() string {
 	return this.Author
 }
 
-func (this *SlideComment) setAuthor(newValue string) {
+func (this *SlideModernComment) setAuthor(newValue string) {
 	this.Author = newValue
 }
-func (this *SlideComment) getText() string {
+func (this *SlideModernComment) getText() string {
 	return this.Text
 }
 
-func (this *SlideComment) setText(newValue string) {
+func (this *SlideModernComment) setText(newValue string) {
 	this.Text = newValue
 }
-func (this *SlideComment) getCreatedTime() string {
+func (this *SlideModernComment) getCreatedTime() string {
 	return this.CreatedTime
 }
 
-func (this *SlideComment) setCreatedTime(newValue string) {
+func (this *SlideModernComment) setCreatedTime(newValue string) {
 	this.CreatedTime = newValue
 }
-func (this *SlideComment) getChildComments() []ISlideCommentBase {
+func (this *SlideModernComment) getChildComments() []ISlideCommentBase {
 	return this.ChildComments
 }
 
-func (this *SlideComment) setChildComments(newValue []ISlideCommentBase) {
+func (this *SlideModernComment) setChildComments(newValue []ISlideCommentBase) {
 	this.ChildComments = newValue
 }
-func (this *SlideComment) getType() string {
+func (this *SlideModernComment) getType() string {
 	return this.Type_
 }
 
-func (this *SlideComment) setType(newValue string) {
+func (this *SlideModernComment) setType(newValue string) {
 	this.Type_ = newValue
 }
+func (this *SlideModernComment) getTextSelectionStart() int32 {
+	return this.TextSelectionStart
+}
 
-func (this *SlideComment) UnmarshalJSON(b []byte) error {
+func (this *SlideModernComment) setTextSelectionStart(newValue int32) {
+	this.TextSelectionStart = newValue
+}
+func (this *SlideModernComment) getTextSelectionLength() int32 {
+	return this.TextSelectionLength
+}
+
+func (this *SlideModernComment) setTextSelectionLength(newValue int32) {
+	this.TextSelectionLength = newValue
+}
+func (this *SlideModernComment) getStatus() string {
+	return this.Status
+}
+
+func (this *SlideModernComment) setStatus(newValue string) {
+	this.Status = newValue
+}
+
+func (this *SlideModernComment) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
@@ -232,7 +275,7 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 			this.ChildComments = valueForIChildComments
 		}
 	}
-	this.Type_ = "Regular"
+	this.Type_ = "Modern"
 	if valType, ok := objMap["type"]; ok {
 		if valType != nil {
 			var valueForType string
@@ -262,6 +305,81 @@ func (this *SlideComment) UnmarshalJSON(b []byte) error {
 				this.Type_ = string(valueForTypeInt)
 			} else {
 				this.Type_ = valueForType
+			}
+		}
+	}
+	
+	if valTextSelectionStart, ok := objMap["textSelectionStart"]; ok {
+		if valTextSelectionStart != nil {
+			var valueForTextSelectionStart int32
+			err = json.Unmarshal(*valTextSelectionStart, &valueForTextSelectionStart)
+			if err != nil {
+				return err
+			}
+			this.TextSelectionStart = valueForTextSelectionStart
+		}
+	}
+	if valTextSelectionStartCap, ok := objMap["TextSelectionStart"]; ok {
+		if valTextSelectionStartCap != nil {
+			var valueForTextSelectionStart int32
+			err = json.Unmarshal(*valTextSelectionStartCap, &valueForTextSelectionStart)
+			if err != nil {
+				return err
+			}
+			this.TextSelectionStart = valueForTextSelectionStart
+		}
+	}
+	
+	if valTextSelectionLength, ok := objMap["textSelectionLength"]; ok {
+		if valTextSelectionLength != nil {
+			var valueForTextSelectionLength int32
+			err = json.Unmarshal(*valTextSelectionLength, &valueForTextSelectionLength)
+			if err != nil {
+				return err
+			}
+			this.TextSelectionLength = valueForTextSelectionLength
+		}
+	}
+	if valTextSelectionLengthCap, ok := objMap["TextSelectionLength"]; ok {
+		if valTextSelectionLengthCap != nil {
+			var valueForTextSelectionLength int32
+			err = json.Unmarshal(*valTextSelectionLengthCap, &valueForTextSelectionLength)
+			if err != nil {
+				return err
+			}
+			this.TextSelectionLength = valueForTextSelectionLength
+		}
+	}
+	this.Status = ""
+	if valStatus, ok := objMap["status"]; ok {
+		if valStatus != nil {
+			var valueForStatus string
+			err = json.Unmarshal(*valStatus, &valueForStatus)
+			if err != nil {
+				var valueForStatusInt int32
+				err = json.Unmarshal(*valStatus, &valueForStatusInt)
+				if err != nil {
+					return err
+				}
+				this.Status = string(valueForStatusInt)
+			} else {
+				this.Status = valueForStatus
+			}
+		}
+	}
+	if valStatusCap, ok := objMap["Status"]; ok {
+		if valStatusCap != nil {
+			var valueForStatus string
+			err = json.Unmarshal(*valStatusCap, &valueForStatus)
+			if err != nil {
+				var valueForStatusInt int32
+				err = json.Unmarshal(*valStatusCap, &valueForStatusInt)
+				if err != nil {
+					return err
+				}
+				this.Status = string(valueForStatusInt)
+			} else {
+				this.Status = valueForStatus
 			}
 		}
 	}

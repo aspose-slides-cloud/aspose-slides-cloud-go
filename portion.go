@@ -152,6 +152,18 @@ type IPortion interface {
 	// Hyperlink defined for mouse over.
 	getHyperlinkMouseOver() IHyperlink
 	setHyperlinkMouseOver(newValue IHyperlink)
+
+	// Returns or sets the Latin font info.
+	getLatinFont() string
+	setLatinFont(newValue string)
+
+	// Returns or sets the East Asian font info.
+	getEastAsianFont() string
+	setEastAsianFont(newValue string)
+
+	// Returns or sets the complex script font info.
+	getComplexScriptFont() string
+	setComplexScriptFont(newValue string)
 }
 
 type Portion struct {
@@ -245,6 +257,15 @@ type Portion struct {
 
 	// Hyperlink defined for mouse over.
 	HyperlinkMouseOver IHyperlink `json:"HyperlinkMouseOver,omitempty"`
+
+	// Returns or sets the Latin font info.
+	LatinFont string `json:"LatinFont,omitempty"`
+
+	// Returns or sets the East Asian font info.
+	EastAsianFont string `json:"EastAsianFont,omitempty"`
+
+	// Returns or sets the complex script font info.
+	ComplexScriptFont string `json:"ComplexScriptFont,omitempty"`
 }
 
 func NewPortion() *Portion {
@@ -471,6 +492,27 @@ func (this *Portion) getHyperlinkMouseOver() IHyperlink {
 
 func (this *Portion) setHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
+}
+func (this *Portion) getLatinFont() string {
+	return this.LatinFont
+}
+
+func (this *Portion) setLatinFont(newValue string) {
+	this.LatinFont = newValue
+}
+func (this *Portion) getEastAsianFont() string {
+	return this.EastAsianFont
+}
+
+func (this *Portion) setEastAsianFont(newValue string) {
+	this.EastAsianFont = newValue
+}
+func (this *Portion) getComplexScriptFont() string {
+	return this.ComplexScriptFont
+}
+
+func (this *Portion) setComplexScriptFont(newValue string) {
+	this.ComplexScriptFont = newValue
 }
 
 func (this *Portion) UnmarshalJSON(b []byte) error {
@@ -1453,6 +1495,69 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 			if ok {
 				this.HyperlinkMouseOver = vInterfaceObject
 			}
+		}
+	}
+	
+	if valLatinFont, ok := objMap["latinFont"]; ok {
+		if valLatinFont != nil {
+			var valueForLatinFont string
+			err = json.Unmarshal(*valLatinFont, &valueForLatinFont)
+			if err != nil {
+				return err
+			}
+			this.LatinFont = valueForLatinFont
+		}
+	}
+	if valLatinFontCap, ok := objMap["LatinFont"]; ok {
+		if valLatinFontCap != nil {
+			var valueForLatinFont string
+			err = json.Unmarshal(*valLatinFontCap, &valueForLatinFont)
+			if err != nil {
+				return err
+			}
+			this.LatinFont = valueForLatinFont
+		}
+	}
+	
+	if valEastAsianFont, ok := objMap["eastAsianFont"]; ok {
+		if valEastAsianFont != nil {
+			var valueForEastAsianFont string
+			err = json.Unmarshal(*valEastAsianFont, &valueForEastAsianFont)
+			if err != nil {
+				return err
+			}
+			this.EastAsianFont = valueForEastAsianFont
+		}
+	}
+	if valEastAsianFontCap, ok := objMap["EastAsianFont"]; ok {
+		if valEastAsianFontCap != nil {
+			var valueForEastAsianFont string
+			err = json.Unmarshal(*valEastAsianFontCap, &valueForEastAsianFont)
+			if err != nil {
+				return err
+			}
+			this.EastAsianFont = valueForEastAsianFont
+		}
+	}
+	
+	if valComplexScriptFont, ok := objMap["complexScriptFont"]; ok {
+		if valComplexScriptFont != nil {
+			var valueForComplexScriptFont string
+			err = json.Unmarshal(*valComplexScriptFont, &valueForComplexScriptFont)
+			if err != nil {
+				return err
+			}
+			this.ComplexScriptFont = valueForComplexScriptFont
+		}
+	}
+	if valComplexScriptFontCap, ok := objMap["ComplexScriptFont"]; ok {
+		if valComplexScriptFontCap != nil {
+			var valueForComplexScriptFont string
+			err = json.Unmarshal(*valComplexScriptFontCap, &valueForComplexScriptFont)
+			if err != nil {
+				return err
+			}
+			this.ComplexScriptFont = valueForComplexScriptFont
 		}
 	}
 

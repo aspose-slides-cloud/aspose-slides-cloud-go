@@ -105,6 +105,7 @@ type IZoomFrame interface {
 	getHyperlinkMouseOver() IHyperlink
 	setHyperlinkMouseOver(newValue IHyperlink)
 
+	// Shape type.
 	getType() string
 	setType(newValue string)
 
@@ -189,6 +190,7 @@ type ZoomFrame struct {
 	// Hyperlink defined for mouse over.
 	HyperlinkMouseOver IHyperlink `json:"HyperlinkMouseOver,omitempty"`
 
+	// Shape type.
 	Type_ string `json:"Type"`
 
 	// Image type of a zoom object. 

@@ -30,7 +30,7 @@ import (
 	"encoding/json"
 )
 
-
+// Zoom object.
 type IZoomObject interface {
 
 	// Gets or sets the link to this resource.
