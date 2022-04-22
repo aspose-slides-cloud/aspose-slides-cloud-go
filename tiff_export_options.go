@@ -37,14 +37,6 @@ type ITiffExportOptions interface {
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	getHeight() int32
-	setHeight(newValue int32)
-
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	getWidth() int32
-	setWidth(newValue int32)
-
 	// Gets of sets list of font fallback rules.
 	getFontFallbackRules() []IFontFallbackRule
 	setFontFallbackRules(newValue []IFontFallbackRule)
@@ -52,6 +44,14 @@ type ITiffExportOptions interface {
 	// Export format.
 	getFormat() string
 	setFormat(newValue string)
+
+	// Gets or sets the height of slides in the output image format.
+	getHeight() int32
+	setHeight(newValue int32)
+
+	// Gets or sets the height of slides in the output the output image format.
+	getWidth() int32
+	setWidth(newValue int32)
 
 	// Compression type.
 	getCompression() string
@@ -99,17 +99,17 @@ type TiffExportOptions struct {
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	Height int32 `json:"Height,omitempty"`
-
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	Width int32 `json:"Width,omitempty"`
-
 	// Gets of sets list of font fallback rules.
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
 
 	// Export format.
 	Format string `json:"Format,omitempty"`
+
+	// Gets or sets the height of slides in the output image format.
+	Height int32 `json:"Height,omitempty"`
+
+	// Gets or sets the height of slides in the output the output image format.
+	Width int32 `json:"Width,omitempty"`
 
 	// Compression type.
 	Compression string `json:"Compression,omitempty"`
@@ -158,20 +158,6 @@ func (this *TiffExportOptions) getDefaultRegularFont() string {
 func (this *TiffExportOptions) setDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *TiffExportOptions) getHeight() int32 {
-	return this.Height
-}
-
-func (this *TiffExportOptions) setHeight(newValue int32) {
-	this.Height = newValue
-}
-func (this *TiffExportOptions) getWidth() int32 {
-	return this.Width
-}
-
-func (this *TiffExportOptions) setWidth(newValue int32) {
-	this.Width = newValue
-}
 func (this *TiffExportOptions) getFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
@@ -185,6 +171,20 @@ func (this *TiffExportOptions) getFormat() string {
 
 func (this *TiffExportOptions) setFormat(newValue string) {
 	this.Format = newValue
+}
+func (this *TiffExportOptions) getHeight() int32 {
+	return this.Height
+}
+
+func (this *TiffExportOptions) setHeight(newValue int32) {
+	this.Height = newValue
+}
+func (this *TiffExportOptions) getWidth() int32 {
+	return this.Width
+}
+
+func (this *TiffExportOptions) setWidth(newValue int32) {
+	this.Width = newValue
 }
 func (this *TiffExportOptions) getCompression() string {
 	return this.Compression
@@ -285,48 +285,6 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
-	if valHeight, ok := objMap["height"]; ok {
-		if valHeight != nil {
-			var valueForHeight int32
-			err = json.Unmarshal(*valHeight, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight int32
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	
-	if valWidth, ok := objMap["width"]; ok {
-		if valWidth != nil {
-			var valueForWidth int32
-			err = json.Unmarshal(*valWidth, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth int32
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
-	
 	if valFontFallbackRules, ok := objMap["fontFallbackRules"]; ok {
 		if valFontFallbackRules != nil {
 			var valueForFontFallbackRules []json.RawMessage
@@ -394,6 +352,48 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Format = valueForFormat
+		}
+	}
+	
+	if valHeight, ok := objMap["height"]; ok {
+		if valHeight != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeight, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	
+	if valWidth, ok := objMap["width"]; ok {
+		if valWidth != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidth, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
 		}
 	}
 	this.Compression = ""

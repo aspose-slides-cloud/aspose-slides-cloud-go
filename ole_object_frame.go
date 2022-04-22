@@ -77,10 +77,6 @@ type IOleObjectFrame interface {
 	getZOrderPosition() int32
 	setZOrderPosition(newValue int32)
 
-	// Gets or sets the link to shapes.
-	getShapes() IResourceUri
-	setShapes(newValue IResourceUri)
-
 	// Gets or sets the fill format.
 	getFillFormat() IFillFormat
 	setFillFormat(newValue IFillFormat)
@@ -116,6 +112,34 @@ type IOleObjectFrame interface {
 	// The title for OleObject icon.             
 	getSubstitutePictureTitle() string
 	setSubstitutePictureTitle(newValue string)
+
+	// OleObject image fill properties.
+	getSubstitutePictureFormat() IPictureFill
+	setSubstitutePictureFormat(newValue IPictureFill)
+
+	// Returns or sets the name of an object.
+	getObjectName() string
+	setObjectName(newValue string)
+
+	// File data of embedded OLE object. 
+	getEmbeddedFileBase64Data() string
+	setEmbeddedFileBase64Data(newValue string)
+
+	// File extension for the current embedded OLE object
+	getEmbeddedFileExtension() string
+	setEmbeddedFileExtension(newValue string)
+
+	// ProgID of an object.
+	getObjectProgId() string
+	setObjectProgId(newValue string)
+
+	// Full path to a linked file.
+	getLinkPath() string
+	setLinkPath(newValue string)
+
+	// Determines if the linked embedded object is automatically updated when the presentation is opened or printed. Read/write Boolean.
+	getUpdateAutomatic() bool
+	setUpdateAutomatic(newValue bool)
 }
 
 type OleObjectFrame struct {
@@ -153,9 +177,6 @@ type OleObjectFrame struct {
 	// Gets z-order position of shape
 	ZOrderPosition int32 `json:"ZOrderPosition"`
 
-	// Gets or sets the link to shapes.
-	Shapes IResourceUri `json:"Shapes,omitempty"`
-
 	// Gets or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
 
@@ -182,6 +203,27 @@ type OleObjectFrame struct {
 
 	// The title for OleObject icon.             
 	SubstitutePictureTitle string `json:"SubstitutePictureTitle,omitempty"`
+
+	// OleObject image fill properties.
+	SubstitutePictureFormat IPictureFill `json:"SubstitutePictureFormat,omitempty"`
+
+	// Returns or sets the name of an object.
+	ObjectName string `json:"ObjectName,omitempty"`
+
+	// File data of embedded OLE object. 
+	EmbeddedFileBase64Data string `json:"EmbeddedFileBase64Data,omitempty"`
+
+	// File extension for the current embedded OLE object
+	EmbeddedFileExtension string `json:"EmbeddedFileExtension,omitempty"`
+
+	// ProgID of an object.
+	ObjectProgId string `json:"ObjectProgId,omitempty"`
+
+	// Full path to a linked file.
+	LinkPath string `json:"LinkPath,omitempty"`
+
+	// Determines if the linked embedded object is automatically updated when the presentation is opened or printed. Read/write Boolean.
+	UpdateAutomatic bool `json:"UpdateAutomatic"`
 }
 
 func NewOleObjectFrame() *OleObjectFrame {
@@ -267,13 +309,6 @@ func (this *OleObjectFrame) getZOrderPosition() int32 {
 func (this *OleObjectFrame) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *OleObjectFrame) getShapes() IResourceUri {
-	return this.Shapes
-}
-
-func (this *OleObjectFrame) setShapes(newValue IResourceUri) {
-	this.Shapes = newValue
-}
 func (this *OleObjectFrame) getFillFormat() IFillFormat {
 	return this.FillFormat
 }
@@ -336,6 +371,55 @@ func (this *OleObjectFrame) getSubstitutePictureTitle() string {
 
 func (this *OleObjectFrame) setSubstitutePictureTitle(newValue string) {
 	this.SubstitutePictureTitle = newValue
+}
+func (this *OleObjectFrame) getSubstitutePictureFormat() IPictureFill {
+	return this.SubstitutePictureFormat
+}
+
+func (this *OleObjectFrame) setSubstitutePictureFormat(newValue IPictureFill) {
+	this.SubstitutePictureFormat = newValue
+}
+func (this *OleObjectFrame) getObjectName() string {
+	return this.ObjectName
+}
+
+func (this *OleObjectFrame) setObjectName(newValue string) {
+	this.ObjectName = newValue
+}
+func (this *OleObjectFrame) getEmbeddedFileBase64Data() string {
+	return this.EmbeddedFileBase64Data
+}
+
+func (this *OleObjectFrame) setEmbeddedFileBase64Data(newValue string) {
+	this.EmbeddedFileBase64Data = newValue
+}
+func (this *OleObjectFrame) getEmbeddedFileExtension() string {
+	return this.EmbeddedFileExtension
+}
+
+func (this *OleObjectFrame) setEmbeddedFileExtension(newValue string) {
+	this.EmbeddedFileExtension = newValue
+}
+func (this *OleObjectFrame) getObjectProgId() string {
+	return this.ObjectProgId
+}
+
+func (this *OleObjectFrame) setObjectProgId(newValue string) {
+	this.ObjectProgId = newValue
+}
+func (this *OleObjectFrame) getLinkPath() string {
+	return this.LinkPath
+}
+
+func (this *OleObjectFrame) setLinkPath(newValue string) {
+	this.LinkPath = newValue
+}
+func (this *OleObjectFrame) getUpdateAutomatic() bool {
+	return this.UpdateAutomatic
+}
+
+func (this *OleObjectFrame) setUpdateAutomatic(newValue bool) {
+	this.UpdateAutomatic = newValue
 }
 
 func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
@@ -623,49 +707,6 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.ZOrderPosition = valueForZOrderPosition
-		}
-	}
-	
-	if valShapes, ok := objMap["shapes"]; ok {
-		if valShapes != nil {
-			var valueForShapes ResourceUri
-			err = json.Unmarshal(*valShapes, &valueForShapes)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valShapes)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valShapes, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Shapes = vInterfaceObject
-			}
-		}
-	}
-	if valShapesCap, ok := objMap["Shapes"]; ok {
-		if valShapesCap != nil {
-			var valueForShapes ResourceUri
-			err = json.Unmarshal(*valShapesCap, &valueForShapes)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valShapesCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valShapesCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Shapes = vInterfaceObject
-			}
 		}
 	}
 	
@@ -999,6 +1040,175 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.SubstitutePictureTitle = valueForSubstitutePictureTitle
+		}
+	}
+	
+	if valSubstitutePictureFormat, ok := objMap["substitutePictureFormat"]; ok {
+		if valSubstitutePictureFormat != nil {
+			var valueForSubstitutePictureFormat PictureFill
+			err = json.Unmarshal(*valSubstitutePictureFormat, &valueForSubstitutePictureFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("PictureFill", *valSubstitutePictureFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSubstitutePictureFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IPictureFill)
+			if ok {
+				this.SubstitutePictureFormat = vInterfaceObject
+			}
+		}
+	}
+	if valSubstitutePictureFormatCap, ok := objMap["SubstitutePictureFormat"]; ok {
+		if valSubstitutePictureFormatCap != nil {
+			var valueForSubstitutePictureFormat PictureFill
+			err = json.Unmarshal(*valSubstitutePictureFormatCap, &valueForSubstitutePictureFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("PictureFill", *valSubstitutePictureFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSubstitutePictureFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IPictureFill)
+			if ok {
+				this.SubstitutePictureFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valObjectName, ok := objMap["objectName"]; ok {
+		if valObjectName != nil {
+			var valueForObjectName string
+			err = json.Unmarshal(*valObjectName, &valueForObjectName)
+			if err != nil {
+				return err
+			}
+			this.ObjectName = valueForObjectName
+		}
+	}
+	if valObjectNameCap, ok := objMap["ObjectName"]; ok {
+		if valObjectNameCap != nil {
+			var valueForObjectName string
+			err = json.Unmarshal(*valObjectNameCap, &valueForObjectName)
+			if err != nil {
+				return err
+			}
+			this.ObjectName = valueForObjectName
+		}
+	}
+	
+	if valEmbeddedFileBase64Data, ok := objMap["embeddedFileBase64Data"]; ok {
+		if valEmbeddedFileBase64Data != nil {
+			var valueForEmbeddedFileBase64Data string
+			err = json.Unmarshal(*valEmbeddedFileBase64Data, &valueForEmbeddedFileBase64Data)
+			if err != nil {
+				return err
+			}
+			this.EmbeddedFileBase64Data = valueForEmbeddedFileBase64Data
+		}
+	}
+	if valEmbeddedFileBase64DataCap, ok := objMap["EmbeddedFileBase64Data"]; ok {
+		if valEmbeddedFileBase64DataCap != nil {
+			var valueForEmbeddedFileBase64Data string
+			err = json.Unmarshal(*valEmbeddedFileBase64DataCap, &valueForEmbeddedFileBase64Data)
+			if err != nil {
+				return err
+			}
+			this.EmbeddedFileBase64Data = valueForEmbeddedFileBase64Data
+		}
+	}
+	
+	if valEmbeddedFileExtension, ok := objMap["embeddedFileExtension"]; ok {
+		if valEmbeddedFileExtension != nil {
+			var valueForEmbeddedFileExtension string
+			err = json.Unmarshal(*valEmbeddedFileExtension, &valueForEmbeddedFileExtension)
+			if err != nil {
+				return err
+			}
+			this.EmbeddedFileExtension = valueForEmbeddedFileExtension
+		}
+	}
+	if valEmbeddedFileExtensionCap, ok := objMap["EmbeddedFileExtension"]; ok {
+		if valEmbeddedFileExtensionCap != nil {
+			var valueForEmbeddedFileExtension string
+			err = json.Unmarshal(*valEmbeddedFileExtensionCap, &valueForEmbeddedFileExtension)
+			if err != nil {
+				return err
+			}
+			this.EmbeddedFileExtension = valueForEmbeddedFileExtension
+		}
+	}
+	
+	if valObjectProgId, ok := objMap["objectProgId"]; ok {
+		if valObjectProgId != nil {
+			var valueForObjectProgId string
+			err = json.Unmarshal(*valObjectProgId, &valueForObjectProgId)
+			if err != nil {
+				return err
+			}
+			this.ObjectProgId = valueForObjectProgId
+		}
+	}
+	if valObjectProgIdCap, ok := objMap["ObjectProgId"]; ok {
+		if valObjectProgIdCap != nil {
+			var valueForObjectProgId string
+			err = json.Unmarshal(*valObjectProgIdCap, &valueForObjectProgId)
+			if err != nil {
+				return err
+			}
+			this.ObjectProgId = valueForObjectProgId
+		}
+	}
+	
+	if valLinkPath, ok := objMap["linkPath"]; ok {
+		if valLinkPath != nil {
+			var valueForLinkPath string
+			err = json.Unmarshal(*valLinkPath, &valueForLinkPath)
+			if err != nil {
+				return err
+			}
+			this.LinkPath = valueForLinkPath
+		}
+	}
+	if valLinkPathCap, ok := objMap["LinkPath"]; ok {
+		if valLinkPathCap != nil {
+			var valueForLinkPath string
+			err = json.Unmarshal(*valLinkPathCap, &valueForLinkPath)
+			if err != nil {
+				return err
+			}
+			this.LinkPath = valueForLinkPath
+		}
+	}
+	
+	if valUpdateAutomatic, ok := objMap["updateAutomatic"]; ok {
+		if valUpdateAutomatic != nil {
+			var valueForUpdateAutomatic bool
+			err = json.Unmarshal(*valUpdateAutomatic, &valueForUpdateAutomatic)
+			if err != nil {
+				return err
+			}
+			this.UpdateAutomatic = valueForUpdateAutomatic
+		}
+	}
+	if valUpdateAutomaticCap, ok := objMap["UpdateAutomatic"]; ok {
+		if valUpdateAutomaticCap != nil {
+			var valueForUpdateAutomatic bool
+			err = json.Unmarshal(*valUpdateAutomaticCap, &valueForUpdateAutomatic)
+			if err != nil {
+				return err
+			}
+			this.UpdateAutomatic = valueForUpdateAutomatic
 		}
 	}
 

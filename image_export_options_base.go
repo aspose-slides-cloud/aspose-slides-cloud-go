@@ -30,8 +30,8 @@ import (
 	"encoding/json"
 )
 
-// Represents export options for whole presentation.
-type IExportOptions interface {
+// The class provides shared options for image formats.
+type IImageExportOptionsBase interface {
 
 	// Default regular font for rendering the presentation. 
 	getDefaultRegularFont() string
@@ -43,9 +43,17 @@ type IExportOptions interface {
 
 	getFormat() string
 	setFormat(newValue string)
+
+	// Gets or sets the height of slides in the output image format.
+	getHeight() int32
+	setHeight(newValue int32)
+
+	// Gets or sets the height of slides in the output the output image format.
+	getWidth() int32
+	setWidth(newValue int32)
 }
 
-type ExportOptions struct {
+type ImageExportOptionsBase struct {
 
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
@@ -54,36 +62,56 @@ type ExportOptions struct {
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
 
 	Format string `json:"Format,omitempty"`
+
+	// Gets or sets the height of slides in the output image format.
+	Height int32 `json:"Height,omitempty"`
+
+	// Gets or sets the height of slides in the output the output image format.
+	Width int32 `json:"Width,omitempty"`
 }
 
-func NewExportOptions() *ExportOptions {
-	instance := new(ExportOptions)
+func NewImageExportOptionsBase() *ImageExportOptionsBase {
+	instance := new(ImageExportOptionsBase)
 	return instance
 }
 
-func (this *ExportOptions) getDefaultRegularFont() string {
+func (this *ImageExportOptionsBase) getDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *ExportOptions) setDefaultRegularFont(newValue string) {
+func (this *ImageExportOptionsBase) setDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *ExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *ImageExportOptionsBase) getFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *ExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *ImageExportOptionsBase) setFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *ExportOptions) getFormat() string {
+func (this *ImageExportOptionsBase) getFormat() string {
 	return this.Format
 }
 
-func (this *ExportOptions) setFormat(newValue string) {
+func (this *ImageExportOptionsBase) setFormat(newValue string) {
 	this.Format = newValue
 }
+func (this *ImageExportOptionsBase) getHeight() int32 {
+	return this.Height
+}
 
-func (this *ExportOptions) UnmarshalJSON(b []byte) error {
+func (this *ImageExportOptionsBase) setHeight(newValue int32) {
+	this.Height = newValue
+}
+func (this *ImageExportOptionsBase) getWidth() int32 {
+	return this.Width
+}
+
+func (this *ImageExportOptionsBase) setWidth(newValue int32) {
+	this.Width = newValue
+}
+
+func (this *ImageExportOptionsBase) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
@@ -178,6 +206,48 @@ func (this *ExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Format = valueForFormat
+		}
+	}
+	
+	if valHeight, ok := objMap["height"]; ok {
+		if valHeight != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeight, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	if valHeightCap, ok := objMap["Height"]; ok {
+		if valHeightCap != nil {
+			var valueForHeight int32
+			err = json.Unmarshal(*valHeightCap, &valueForHeight)
+			if err != nil {
+				return err
+			}
+			this.Height = valueForHeight
+		}
+	}
+	
+	if valWidth, ok := objMap["width"]; ok {
+		if valWidth != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidth, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
+		}
+	}
+	if valWidthCap, ok := objMap["Width"]; ok {
+		if valWidthCap != nil {
+			var valueForWidth int32
+			err = json.Unmarshal(*valWidthCap, &valueForWidth)
+			if err != nil {
+				return err
+			}
+			this.Width = valueForWidth
 		}
 	}
 

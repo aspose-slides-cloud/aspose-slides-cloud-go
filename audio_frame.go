@@ -77,10 +77,6 @@ type IAudioFrame interface {
 	getZOrderPosition() int32
 	setZOrderPosition(newValue int32)
 
-	// Gets or sets the link to shapes.
-	getShapes() IResourceUri
-	setShapes(newValue IResourceUri)
-
 	// Gets or sets the fill format.
 	getFillFormat() IFillFormat
 	setFillFormat(newValue IFillFormat)
@@ -160,6 +156,10 @@ type IAudioFrame interface {
 	// Determines whether audio is automatically rewound to start after playing.
 	getRewindAudio() bool
 	setRewindAudio(newValue bool)
+
+	// Picture fill format.
+	getPictureFillFormat() IPictureFill
+	setPictureFillFormat(newValue IPictureFill)
 }
 
 type AudioFrame struct {
@@ -196,9 +196,6 @@ type AudioFrame struct {
 
 	// Gets z-order position of shape
 	ZOrderPosition int32 `json:"ZOrderPosition"`
-
-	// Gets or sets the link to shapes.
-	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// Gets or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -259,6 +256,9 @@ type AudioFrame struct {
 
 	// Determines whether audio is automatically rewound to start after playing.
 	RewindAudio bool `json:"RewindAudio"`
+
+	// Picture fill format.
+	PictureFillFormat IPictureFill `json:"PictureFillFormat,omitempty"`
 }
 
 func NewAudioFrame() *AudioFrame {
@@ -346,13 +346,6 @@ func (this *AudioFrame) getZOrderPosition() int32 {
 
 func (this *AudioFrame) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
-}
-func (this *AudioFrame) getShapes() IResourceUri {
-	return this.Shapes
-}
-
-func (this *AudioFrame) setShapes(newValue IResourceUri) {
-	this.Shapes = newValue
 }
 func (this *AudioFrame) getFillFormat() IFillFormat {
 	return this.FillFormat
@@ -493,6 +486,13 @@ func (this *AudioFrame) getRewindAudio() bool {
 
 func (this *AudioFrame) setRewindAudio(newValue bool) {
 	this.RewindAudio = newValue
+}
+func (this *AudioFrame) getPictureFillFormat() IPictureFill {
+	return this.PictureFillFormat
+}
+
+func (this *AudioFrame) setPictureFillFormat(newValue IPictureFill) {
+	this.PictureFillFormat = newValue
 }
 
 func (this *AudioFrame) UnmarshalJSON(b []byte) error {
@@ -780,49 +780,6 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.ZOrderPosition = valueForZOrderPosition
-		}
-	}
-	
-	if valShapes, ok := objMap["shapes"]; ok {
-		if valShapes != nil {
-			var valueForShapes ResourceUri
-			err = json.Unmarshal(*valShapes, &valueForShapes)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valShapes)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valShapes, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Shapes = vInterfaceObject
-			}
-		}
-	}
-	if valShapesCap, ok := objMap["Shapes"]; ok {
-		if valShapesCap != nil {
-			var valueForShapes ResourceUri
-			err = json.Unmarshal(*valShapesCap, &valueForShapes)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valShapesCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valShapesCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Shapes = vInterfaceObject
-			}
 		}
 	}
 	
@@ -1423,6 +1380,49 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.RewindAudio = valueForRewindAudio
+		}
+	}
+	
+	if valPictureFillFormat, ok := objMap["pictureFillFormat"]; ok {
+		if valPictureFillFormat != nil {
+			var valueForPictureFillFormat PictureFill
+			err = json.Unmarshal(*valPictureFillFormat, &valueForPictureFillFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("PictureFill", *valPictureFillFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valPictureFillFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IPictureFill)
+			if ok {
+				this.PictureFillFormat = vInterfaceObject
+			}
+		}
+	}
+	if valPictureFillFormatCap, ok := objMap["PictureFillFormat"]; ok {
+		if valPictureFillFormatCap != nil {
+			var valueForPictureFillFormat PictureFill
+			err = json.Unmarshal(*valPictureFillFormatCap, &valueForPictureFillFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("PictureFill", *valPictureFillFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valPictureFillFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IPictureFill)
+			if ok {
+				this.PictureFillFormat = vInterfaceObject
+			}
 		}
 	}
 

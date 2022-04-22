@@ -96,6 +96,14 @@ type ITableCell interface {
 	// Line properties set for the diagonal down border of the cell.
 	getBorderDiagonalDown() ILineFormat
 	setBorderDiagonalDown(newValue ILineFormat)
+
+	// Cell column index
+	getColumnIndex() int32
+	setColumnIndex(newValue int32)
+
+	// Cell row index
+	getRowIndex() int32
+	setRowIndex(newValue int32)
 }
 
 type TableCell struct {
@@ -147,6 +155,12 @@ type TableCell struct {
 
 	// Line properties set for the diagonal down border of the cell.
 	BorderDiagonalDown ILineFormat `json:"BorderDiagonalDown,omitempty"`
+
+	// Cell column index
+	ColumnIndex int32 `json:"ColumnIndex,omitempty"`
+
+	// Cell row index
+	RowIndex int32 `json:"RowIndex,omitempty"`
 }
 
 func NewTableCell() *TableCell {
@@ -267,6 +281,20 @@ func (this *TableCell) getBorderDiagonalDown() ILineFormat {
 
 func (this *TableCell) setBorderDiagonalDown(newValue ILineFormat) {
 	this.BorderDiagonalDown = newValue
+}
+func (this *TableCell) getColumnIndex() int32 {
+	return this.ColumnIndex
+}
+
+func (this *TableCell) setColumnIndex(newValue int32) {
+	this.ColumnIndex = newValue
+}
+func (this *TableCell) getRowIndex() int32 {
+	return this.RowIndex
+}
+
+func (this *TableCell) setRowIndex(newValue int32) {
+	this.RowIndex = newValue
 }
 
 func (this *TableCell) UnmarshalJSON(b []byte) error {
@@ -787,6 +815,48 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			if ok {
 				this.BorderDiagonalDown = vInterfaceObject
 			}
+		}
+	}
+	
+	if valColumnIndex, ok := objMap["columnIndex"]; ok {
+		if valColumnIndex != nil {
+			var valueForColumnIndex int32
+			err = json.Unmarshal(*valColumnIndex, &valueForColumnIndex)
+			if err != nil {
+				return err
+			}
+			this.ColumnIndex = valueForColumnIndex
+		}
+	}
+	if valColumnIndexCap, ok := objMap["ColumnIndex"]; ok {
+		if valColumnIndexCap != nil {
+			var valueForColumnIndex int32
+			err = json.Unmarshal(*valColumnIndexCap, &valueForColumnIndex)
+			if err != nil {
+				return err
+			}
+			this.ColumnIndex = valueForColumnIndex
+		}
+	}
+	
+	if valRowIndex, ok := objMap["rowIndex"]; ok {
+		if valRowIndex != nil {
+			var valueForRowIndex int32
+			err = json.Unmarshal(*valRowIndex, &valueForRowIndex)
+			if err != nil {
+				return err
+			}
+			this.RowIndex = valueForRowIndex
+		}
+	}
+	if valRowIndexCap, ok := objMap["RowIndex"]; ok {
+		if valRowIndexCap != nil {
+			var valueForRowIndex int32
+			err = json.Unmarshal(*valRowIndexCap, &valueForRowIndex)
+			if err != nil {
+				return err
+			}
+			this.RowIndex = valueForRowIndex
 		}
 	}
 

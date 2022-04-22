@@ -120,6 +120,10 @@ type IParagraph interface {
 	// List of portion links.
 	getPortionList() []IPortion
 	setPortionList(newValue []IPortion)
+
+	// Default portion format.
+	getDefaultPortionFormat() IPortionFormat
+	setDefaultPortionFormat(newValue IPortionFormat)
 }
 
 type Paragraph struct {
@@ -189,6 +193,9 @@ type Paragraph struct {
 
 	// List of portion links.
 	PortionList []IPortion `json:"PortionList,omitempty"`
+
+	// Default portion format.
+	DefaultPortionFormat IPortionFormat `json:"DefaultPortionFormat,omitempty"`
 }
 
 func NewParagraph() *Paragraph {
@@ -357,6 +364,13 @@ func (this *Paragraph) getPortionList() []IPortion {
 
 func (this *Paragraph) setPortionList(newValue []IPortion) {
 	this.PortionList = newValue
+}
+func (this *Paragraph) getDefaultPortionFormat() IPortionFormat {
+	return this.DefaultPortionFormat
+}
+
+func (this *Paragraph) setDefaultPortionFormat(newValue IPortionFormat) {
+	this.DefaultPortionFormat = newValue
 }
 
 func (this *Paragraph) UnmarshalJSON(b []byte) error {
@@ -999,6 +1013,49 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 				}
 			}
 			this.PortionList = valueForIPortionList
+		}
+	}
+	
+	if valDefaultPortionFormat, ok := objMap["defaultPortionFormat"]; ok {
+		if valDefaultPortionFormat != nil {
+			var valueForDefaultPortionFormat PortionFormat
+			err = json.Unmarshal(*valDefaultPortionFormat, &valueForDefaultPortionFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("PortionFormat", *valDefaultPortionFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valDefaultPortionFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IPortionFormat)
+			if ok {
+				this.DefaultPortionFormat = vInterfaceObject
+			}
+		}
+	}
+	if valDefaultPortionFormatCap, ok := objMap["DefaultPortionFormat"]; ok {
+		if valDefaultPortionFormatCap != nil {
+			var valueForDefaultPortionFormat PortionFormat
+			err = json.Unmarshal(*valDefaultPortionFormatCap, &valueForDefaultPortionFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("PortionFormat", *valDefaultPortionFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valDefaultPortionFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IPortionFormat)
+			if ok {
+				this.DefaultPortionFormat = vInterfaceObject
+			}
 		}
 	}
 

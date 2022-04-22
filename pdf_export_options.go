@@ -37,14 +37,6 @@ type IPdfExportOptions interface {
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	getHeight() int32
-	setHeight(newValue int32)
-
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	getWidth() int32
-	setWidth(newValue int32)
-
 	// Gets of sets list of font fallback rules.
 	getFontFallbackRules() []IFontFallbackRule
 	setFontFallbackRules(newValue []IFontFallbackRule)
@@ -126,20 +118,14 @@ type IPdfExportOptions interface {
 	setApplyImageTransparent(newValue bool)
 
 	// Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.             
-	getAccessPermissions() string
-	setAccessPermissions(newValue string)
+	getAccessPermissions() IAccessPermissions
+	setAccessPermissions(newValue IAccessPermissions)
 }
 
 type PdfExportOptions struct {
 
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
-
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	Height int32 `json:"Height,omitempty"`
-
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	Width int32 `json:"Width,omitempty"`
 
 	// Gets of sets list of font fallback rules.
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
@@ -202,7 +188,7 @@ type PdfExportOptions struct {
 	ApplyImageTransparent bool `json:"ApplyImageTransparent"`
 
 	// Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.             
-	AccessPermissions string `json:"AccessPermissions,omitempty"`
+	AccessPermissions IAccessPermissions `json:"AccessPermissions,omitempty"`
 }
 
 func NewPdfExportOptions() *PdfExportOptions {
@@ -211,7 +197,6 @@ func NewPdfExportOptions() *PdfExportOptions {
 	instance.Compliance = ""
 	instance.NotesPosition = ""
 	instance.CommentsPosition = ""
-	instance.AccessPermissions = ""
 	return instance
 }
 
@@ -221,20 +206,6 @@ func (this *PdfExportOptions) getDefaultRegularFont() string {
 
 func (this *PdfExportOptions) setDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
-}
-func (this *PdfExportOptions) getHeight() int32 {
-	return this.Height
-}
-
-func (this *PdfExportOptions) setHeight(newValue int32) {
-	this.Height = newValue
-}
-func (this *PdfExportOptions) getWidth() int32 {
-	return this.Width
-}
-
-func (this *PdfExportOptions) setWidth(newValue int32) {
-	this.Width = newValue
 }
 func (this *PdfExportOptions) getFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
@@ -376,11 +347,11 @@ func (this *PdfExportOptions) getApplyImageTransparent() bool {
 func (this *PdfExportOptions) setApplyImageTransparent(newValue bool) {
 	this.ApplyImageTransparent = newValue
 }
-func (this *PdfExportOptions) getAccessPermissions() string {
+func (this *PdfExportOptions) getAccessPermissions() IAccessPermissions {
 	return this.AccessPermissions
 }
 
-func (this *PdfExportOptions) setAccessPermissions(newValue string) {
+func (this *PdfExportOptions) setAccessPermissions(newValue IAccessPermissions) {
 	this.AccessPermissions = newValue
 }
 
@@ -409,48 +380,6 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.DefaultRegularFont = valueForDefaultRegularFont
-		}
-	}
-	
-	if valHeight, ok := objMap["height"]; ok {
-		if valHeight != nil {
-			var valueForHeight int32
-			err = json.Unmarshal(*valHeight, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight int32
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	
-	if valWidth, ok := objMap["width"]; ok {
-		if valWidth != nil {
-			var valueForWidth int32
-			err = json.Unmarshal(*valWidth, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth int32
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
 		}
 	}
 	
@@ -949,36 +878,46 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.ApplyImageTransparent = valueForApplyImageTransparent
 		}
 	}
-	this.AccessPermissions = ""
+	
 	if valAccessPermissions, ok := objMap["accessPermissions"]; ok {
 		if valAccessPermissions != nil {
-			var valueForAccessPermissions string
+			var valueForAccessPermissions AccessPermissions
 			err = json.Unmarshal(*valAccessPermissions, &valueForAccessPermissions)
 			if err != nil {
-				var valueForAccessPermissionsInt int32
-				err = json.Unmarshal(*valAccessPermissions, &valueForAccessPermissionsInt)
-				if err != nil {
-					return err
-				}
-				this.AccessPermissions = string(valueForAccessPermissionsInt)
-			} else {
-				this.AccessPermissions = valueForAccessPermissions
+				return err
+			}
+			vObject, err := createObjectForType("AccessPermissions", *valAccessPermissions)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valAccessPermissions, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IAccessPermissions)
+			if ok {
+				this.AccessPermissions = vInterfaceObject
 			}
 		}
 	}
 	if valAccessPermissionsCap, ok := objMap["AccessPermissions"]; ok {
 		if valAccessPermissionsCap != nil {
-			var valueForAccessPermissions string
+			var valueForAccessPermissions AccessPermissions
 			err = json.Unmarshal(*valAccessPermissionsCap, &valueForAccessPermissions)
 			if err != nil {
-				var valueForAccessPermissionsInt int32
-				err = json.Unmarshal(*valAccessPermissionsCap, &valueForAccessPermissionsInt)
-				if err != nil {
-					return err
-				}
-				this.AccessPermissions = string(valueForAccessPermissionsInt)
-			} else {
-				this.AccessPermissions = valueForAccessPermissions
+				return err
+			}
+			vObject, err := createObjectForType("AccessPermissions", *valAccessPermissionsCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valAccessPermissionsCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IAccessPermissions)
+			if ok {
+				this.AccessPermissions = vInterfaceObject
 			}
 		}
 	}

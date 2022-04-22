@@ -37,14 +37,6 @@ type IVideoExportOptions interface {
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	getHeight() int32
-	setHeight(newValue int32)
-
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	getWidth() int32
-	setWidth(newValue int32)
-
 	// Gets of sets list of font fallback rules.
 	getFontFallbackRules() []IFontFallbackRule
 	setFontFallbackRules(newValue []IFontFallbackRule)
@@ -53,7 +45,15 @@ type IVideoExportOptions interface {
 	getFormat() string
 	setFormat(newValue string)
 
-	// Transition duration.
+	// Slides transition duration.
+	getSlidesTransitionDuration() int32
+	setSlidesTransitionDuration(newValue int32)
+
+	// Video transition type
+	getTransitionType() string
+	setTransitionType(newValue string)
+
+	// Duration of transition defined in TransitionType property.
 	getTransitionDuration() int32
 	setTransitionDuration(newValue int32)
 
@@ -67,19 +67,19 @@ type VideoExportOptions struct {
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	Height int32 `json:"Height,omitempty"`
-
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	Width int32 `json:"Width,omitempty"`
-
 	// Gets of sets list of font fallback rules.
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
 
 	// Export format.
 	Format string `json:"Format,omitempty"`
 
-	// Transition duration.
+	// Slides transition duration.
+	SlidesTransitionDuration int32 `json:"SlidesTransitionDuration,omitempty"`
+
+	// Video transition type
+	TransitionType string `json:"TransitionType,omitempty"`
+
+	// Duration of transition defined in TransitionType property.
 	TransitionDuration int32 `json:"TransitionDuration,omitempty"`
 
 	// Video resolution type
@@ -88,6 +88,7 @@ type VideoExportOptions struct {
 
 func NewVideoExportOptions() *VideoExportOptions {
 	instance := new(VideoExportOptions)
+	instance.TransitionType = ""
 	instance.VideoResolutionType = ""
 	return instance
 }
@@ -98,20 +99,6 @@ func (this *VideoExportOptions) getDefaultRegularFont() string {
 
 func (this *VideoExportOptions) setDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
-}
-func (this *VideoExportOptions) getHeight() int32 {
-	return this.Height
-}
-
-func (this *VideoExportOptions) setHeight(newValue int32) {
-	this.Height = newValue
-}
-func (this *VideoExportOptions) getWidth() int32 {
-	return this.Width
-}
-
-func (this *VideoExportOptions) setWidth(newValue int32) {
-	this.Width = newValue
 }
 func (this *VideoExportOptions) getFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
@@ -126,6 +113,20 @@ func (this *VideoExportOptions) getFormat() string {
 
 func (this *VideoExportOptions) setFormat(newValue string) {
 	this.Format = newValue
+}
+func (this *VideoExportOptions) getSlidesTransitionDuration() int32 {
+	return this.SlidesTransitionDuration
+}
+
+func (this *VideoExportOptions) setSlidesTransitionDuration(newValue int32) {
+	this.SlidesTransitionDuration = newValue
+}
+func (this *VideoExportOptions) getTransitionType() string {
+	return this.TransitionType
+}
+
+func (this *VideoExportOptions) setTransitionType(newValue string) {
+	this.TransitionType = newValue
 }
 func (this *VideoExportOptions) getTransitionDuration() int32 {
 	return this.TransitionDuration
@@ -167,48 +168,6 @@ func (this *VideoExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.DefaultRegularFont = valueForDefaultRegularFont
-		}
-	}
-	
-	if valHeight, ok := objMap["height"]; ok {
-		if valHeight != nil {
-			var valueForHeight int32
-			err = json.Unmarshal(*valHeight, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight int32
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	
-	if valWidth, ok := objMap["width"]; ok {
-		if valWidth != nil {
-			var valueForWidth int32
-			err = json.Unmarshal(*valWidth, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth int32
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
 		}
 	}
 	
@@ -279,6 +238,60 @@ func (this *VideoExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Format = valueForFormat
+		}
+	}
+	
+	if valSlidesTransitionDuration, ok := objMap["slidesTransitionDuration"]; ok {
+		if valSlidesTransitionDuration != nil {
+			var valueForSlidesTransitionDuration int32
+			err = json.Unmarshal(*valSlidesTransitionDuration, &valueForSlidesTransitionDuration)
+			if err != nil {
+				return err
+			}
+			this.SlidesTransitionDuration = valueForSlidesTransitionDuration
+		}
+	}
+	if valSlidesTransitionDurationCap, ok := objMap["SlidesTransitionDuration"]; ok {
+		if valSlidesTransitionDurationCap != nil {
+			var valueForSlidesTransitionDuration int32
+			err = json.Unmarshal(*valSlidesTransitionDurationCap, &valueForSlidesTransitionDuration)
+			if err != nil {
+				return err
+			}
+			this.SlidesTransitionDuration = valueForSlidesTransitionDuration
+		}
+	}
+	this.TransitionType = ""
+	if valTransitionType, ok := objMap["transitionType"]; ok {
+		if valTransitionType != nil {
+			var valueForTransitionType string
+			err = json.Unmarshal(*valTransitionType, &valueForTransitionType)
+			if err != nil {
+				var valueForTransitionTypeInt int32
+				err = json.Unmarshal(*valTransitionType, &valueForTransitionTypeInt)
+				if err != nil {
+					return err
+				}
+				this.TransitionType = string(valueForTransitionTypeInt)
+			} else {
+				this.TransitionType = valueForTransitionType
+			}
+		}
+	}
+	if valTransitionTypeCap, ok := objMap["TransitionType"]; ok {
+		if valTransitionTypeCap != nil {
+			var valueForTransitionType string
+			err = json.Unmarshal(*valTransitionTypeCap, &valueForTransitionType)
+			if err != nil {
+				var valueForTransitionTypeInt int32
+				err = json.Unmarshal(*valTransitionTypeCap, &valueForTransitionTypeInt)
+				if err != nil {
+					return err
+				}
+				this.TransitionType = string(valueForTransitionTypeInt)
+			} else {
+				this.TransitionType = valueForTransitionType
+			}
 		}
 	}
 	

@@ -36,6 +36,9 @@ var derivedTypes = make(map[string]string)
 var typeDeterminers = make(map[string]map[string]string)
 
 func init() {
+	typeRegistry["AccessPermissions"] = reflect.TypeOf(AccessPermissions{})
+	
+	typeDeterminers["AccessPermissions"] = make(map[string]string)
 	typeRegistry["ApiInfo"] = reflect.TypeOf(ApiInfo{})
 	
 	typeDeterminers["ApiInfo"] = make(map[string]string)
@@ -189,6 +192,9 @@ func init() {
 	typeRegistry["PlotArea"] = reflect.TypeOf(PlotArea{})
 	
 	typeDeterminers["PlotArea"] = make(map[string]string)
+	typeRegistry["PortionFormat"] = reflect.TypeOf(PortionFormat{})
+	
+	typeDeterminers["PortionFormat"] = make(map[string]string)
 	typeRegistry["PresentationToMerge"] = reflect.TypeOf(PresentationToMerge{})
 	
 	typeDeterminers["PresentationToMerge"] = make(map[string]string)
@@ -347,9 +353,6 @@ func init() {
 	derivedTypes["FunctionElement"] = "MathElement"
 	typeDeterminers["FunctionElement"] = make(map[string]string)
 	typeDeterminers["FunctionElement"]["Type"] = "Function"
-	typeRegistry["GifExportOptions"] = reflect.TypeOf(GifExportOptions{})
-	derivedTypes["GifExportOptions"] = "ExportOptions"
-	typeDeterminers["GifExportOptions"] = make(map[string]string)
 	typeRegistry["GradientFill"] = reflect.TypeOf(GradientFill{})
 	derivedTypes["GradientFill"] = "FillFormat"
 	typeDeterminers["GradientFill"] = make(map[string]string)
@@ -370,9 +373,9 @@ func init() {
 	typeRegistry["Image"] = reflect.TypeOf(Image{})
 	derivedTypes["Image"] = "ResourceBase"
 	typeDeterminers["Image"] = make(map[string]string)
-	typeRegistry["ImageExportOptions"] = reflect.TypeOf(ImageExportOptions{})
-	derivedTypes["ImageExportOptions"] = "ExportOptions"
-	typeDeterminers["ImageExportOptions"] = make(map[string]string)
+	typeRegistry["ImageExportOptionsBase"] = reflect.TypeOf(ImageExportOptionsBase{})
+	derivedTypes["ImageExportOptionsBase"] = "ExportOptions"
+	typeDeterminers["ImageExportOptionsBase"] = make(map[string]string)
 	typeRegistry["Images"] = reflect.TypeOf(Images{})
 	derivedTypes["Images"] = "ResourceBase"
 	typeDeterminers["Images"] = make(map[string]string)
@@ -600,9 +603,6 @@ func init() {
 	typeRegistry["Theme"] = reflect.TypeOf(Theme{})
 	derivedTypes["Theme"] = "ResourceBase"
 	typeDeterminers["Theme"] = make(map[string]string)
-	typeRegistry["TiffExportOptions"] = reflect.TypeOf(TiffExportOptions{})
-	derivedTypes["TiffExportOptions"] = "ExportOptions"
-	typeDeterminers["TiffExportOptions"] = make(map[string]string)
 	typeRegistry["UpdateBackground"] = reflect.TypeOf(UpdateBackground{})
 	derivedTypes["UpdateBackground"] = "Task"
 	typeDeterminers["UpdateBackground"] = make(map[string]string)
@@ -647,6 +647,9 @@ func init() {
 	typeRegistry["GeometryShape"] = reflect.TypeOf(GeometryShape{})
 	derivedTypes["GeometryShape"] = "ShapeBase"
 	typeDeterminers["GeometryShape"] = make(map[string]string)
+	typeRegistry["GifExportOptions"] = reflect.TypeOf(GifExportOptions{})
+	derivedTypes["GifExportOptions"] = "ImageExportOptionsBase"
+	typeDeterminers["GifExportOptions"] = make(map[string]string)
 	typeRegistry["GraphicalObject"] = reflect.TypeOf(GraphicalObject{})
 	derivedTypes["GraphicalObject"] = "ShapeBase"
 	typeDeterminers["GraphicalObject"] = make(map[string]string)
@@ -655,6 +658,9 @@ func init() {
 	derivedTypes["GroupShape"] = "ShapeBase"
 	typeDeterminers["GroupShape"] = make(map[string]string)
 	typeDeterminers["GroupShape"]["Type"] = "GroupShape"
+	typeRegistry["ImageExportOptions"] = reflect.TypeOf(ImageExportOptions{})
+	derivedTypes["ImageExportOptions"] = "ImageExportOptionsBase"
+	typeDeterminers["ImageExportOptions"] = make(map[string]string)
 	typeRegistry["OleObjectFrame"] = reflect.TypeOf(OleObjectFrame{})
 	derivedTypes["OleObjectFrame"] = "ShapeBase"
 	typeDeterminers["OleObjectFrame"] = make(map[string]string)
@@ -678,6 +684,9 @@ func init() {
 	derivedTypes["Table"] = "ShapeBase"
 	typeDeterminers["Table"] = make(map[string]string)
 	typeDeterminers["Table"]["Type"] = "Table"
+	typeRegistry["TiffExportOptions"] = reflect.TypeOf(TiffExportOptions{})
+	derivedTypes["TiffExportOptions"] = "ImageExportOptionsBase"
+	typeDeterminers["TiffExportOptions"] = make(map[string]string)
 	typeRegistry["WaterfallChartDataPoint"] = reflect.TypeOf(WaterfallChartDataPoint{})
 	derivedTypes["WaterfallChartDataPoint"] = "OneValueChartDataPoint"
 	typeDeterminers["WaterfallChartDataPoint"] = make(map[string]string)

@@ -37,14 +37,6 @@ type IPptxExportOptions interface {
 	getDefaultRegularFont() string
 	setDefaultRegularFont(newValue string)
 
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	getHeight() int32
-	setHeight(newValue int32)
-
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	getWidth() int32
-	setWidth(newValue int32)
-
 	// Gets of sets list of font fallback rules.
 	getFontFallbackRules() []IFontFallbackRule
 	setFontFallbackRules(newValue []IFontFallbackRule)
@@ -62,12 +54,6 @@ type PptxExportOptions struct {
 
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
-
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	Height int32 `json:"Height,omitempty"`
-
-	// Gets or sets the height of slides in the output format, e.g. image size, pdf page size etc.
-	Width int32 `json:"Width,omitempty"`
 
 	// Gets of sets list of font fallback rules.
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
@@ -91,20 +77,6 @@ func (this *PptxExportOptions) getDefaultRegularFont() string {
 
 func (this *PptxExportOptions) setDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
-}
-func (this *PptxExportOptions) getHeight() int32 {
-	return this.Height
-}
-
-func (this *PptxExportOptions) setHeight(newValue int32) {
-	this.Height = newValue
-}
-func (this *PptxExportOptions) getWidth() int32 {
-	return this.Width
-}
-
-func (this *PptxExportOptions) setWidth(newValue int32) {
-	this.Width = newValue
 }
 func (this *PptxExportOptions) getFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
@@ -153,48 +125,6 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.DefaultRegularFont = valueForDefaultRegularFont
-		}
-	}
-	
-	if valHeight, ok := objMap["height"]; ok {
-		if valHeight != nil {
-			var valueForHeight int32
-			err = json.Unmarshal(*valHeight, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight int32
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	
-	if valWidth, ok := objMap["width"]; ok {
-		if valWidth != nil {
-			var valueForWidth int32
-			err = json.Unmarshal(*valWidth, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth int32
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
 		}
 	}
 	

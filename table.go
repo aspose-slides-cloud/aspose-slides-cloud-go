@@ -77,10 +77,6 @@ type ITable interface {
 	getZOrderPosition() int32
 	setZOrderPosition(newValue int32)
 
-	// Gets or sets the link to shapes.
-	getShapes() IResourceUri
-	setShapes(newValue IResourceUri)
-
 	// Gets or sets the fill format.
 	getFillFormat() IFillFormat
 	setFillFormat(newValue IFillFormat)
@@ -184,9 +180,6 @@ type Table struct {
 
 	// Gets z-order position of shape
 	ZOrderPosition int32 `json:"ZOrderPosition"`
-
-	// Gets or sets the link to shapes.
-	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// Gets or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -323,13 +316,6 @@ func (this *Table) getZOrderPosition() int32 {
 
 func (this *Table) setZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
-}
-func (this *Table) getShapes() IResourceUri {
-	return this.Shapes
-}
-
-func (this *Table) setShapes(newValue IResourceUri) {
-	this.Shapes = newValue
 }
 func (this *Table) getFillFormat() IFillFormat {
 	return this.FillFormat
@@ -736,49 +722,6 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.ZOrderPosition = valueForZOrderPosition
-		}
-	}
-	
-	if valShapes, ok := objMap["shapes"]; ok {
-		if valShapes != nil {
-			var valueForShapes ResourceUri
-			err = json.Unmarshal(*valShapes, &valueForShapes)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valShapes)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valShapes, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Shapes = vInterfaceObject
-			}
-		}
-	}
-	if valShapesCap, ok := objMap["Shapes"]; ok {
-		if valShapesCap != nil {
-			var valueForShapes ResourceUri
-			err = json.Unmarshal(*valShapesCap, &valueForShapes)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valShapesCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valShapesCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Shapes = vInterfaceObject
-			}
 		}
 	}
 	
