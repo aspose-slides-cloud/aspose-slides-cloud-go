@@ -52,6 +52,10 @@ type ISmartArtNode interface {
 	// Organization chart layout type associated with current node.
 	getOrgChartLayout() string
 	setOrgChartLayout(newValue string)
+
+	// Get or sets list to paragraphs list
+	getParagraphs() IResourceUri
+	setParagraphs(newValue IResourceUri)
 }
 
 type SmartArtNode struct {
@@ -70,6 +74,9 @@ type SmartArtNode struct {
 
 	// Organization chart layout type associated with current node.
 	OrgChartLayout string `json:"OrgChartLayout"`
+
+	// Get or sets list to paragraphs list
+	Paragraphs IResourceUri `json:"Paragraphs,omitempty"`
 }
 
 func NewSmartArtNode() *SmartArtNode {
@@ -112,6 +119,13 @@ func (this *SmartArtNode) getOrgChartLayout() string {
 
 func (this *SmartArtNode) setOrgChartLayout(newValue string) {
 	this.OrgChartLayout = newValue
+}
+func (this *SmartArtNode) getParagraphs() IResourceUri {
+	return this.Paragraphs
+}
+
+func (this *SmartArtNode) setParagraphs(newValue IResourceUri) {
+	this.Paragraphs = newValue
 }
 
 func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
@@ -284,6 +298,49 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 				this.OrgChartLayout = string(valueForOrgChartLayoutInt)
 			} else {
 				this.OrgChartLayout = valueForOrgChartLayout
+			}
+		}
+	}
+	
+	if valParagraphs, ok := objMap["paragraphs"]; ok {
+		if valParagraphs != nil {
+			var valueForParagraphs ResourceUri
+			err = json.Unmarshal(*valParagraphs, &valueForParagraphs)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ResourceUri", *valParagraphs)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valParagraphs, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Paragraphs = vInterfaceObject
+			}
+		}
+	}
+	if valParagraphsCap, ok := objMap["Paragraphs"]; ok {
+		if valParagraphsCap != nil {
+			var valueForParagraphs ResourceUri
+			err = json.Unmarshal(*valParagraphsCap, &valueForParagraphs)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ResourceUri", *valParagraphsCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valParagraphsCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Paragraphs = vInterfaceObject
 			}
 		}
 	}

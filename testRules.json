@@ -203,7 +203,7 @@
 		{ "Value": { "Type": "Regular", "Author": "Caesar", "Text": "Veni vidi vici" }, "InvalidValue": null, "Type": "SlideComment", "Parameter": "DTO", "Method": "CreateComment" },
 		{ "Value": { "Type": "Regular", "Author": "Caesar", "Text": "Veni vidi vici" }, "InvalidValue": null, "Type": "SlideComment", "Parameter": "DTO", "Method": "CreateCommentOnline" },
 		{ "Value": { "MasterSlide": { "Href": "masterSlides/2" } }, "InvalidValue": null, "Type": "LayoutSlide", "Parameter": "SlideDTO" },
-		{ "Value": { "LayoutSlide": { "Uri": { "Href": "TitleOnly" } } }, "InvalidValue": null, "Type": "Slide", "Parameter": "SlideDTO", "Method": "UpdateSlide" },
+		{ "Value": { "LayoutSlide": { "Href": "TitleOnly" } }, "InvalidValue": null, "Type": "Slide", "Parameter": "SlideDTO", "Method": "UpdateSlide" },
 		{ "Value": { "List": [{ "Name": "Prop001", "Value": "Value001" }] }, "InvalidValue": null, "Type": "DocumentProperties", "Parameter": "Properties" },
 		{
 			"Value": { "Name": "testProperty001", "Value": "testValue002" },

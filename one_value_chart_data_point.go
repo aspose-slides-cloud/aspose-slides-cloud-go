@@ -36,12 +36,19 @@ type IOneValueChartDataPoint interface {
 	// Value.
 	getValue() float64
 	setValue(newValue float64)
+
+	// SetAsTotal. Applied to Waterfall data points only.
+	getSetAsTotal() bool
+	setSetAsTotal(newValue bool)
 }
 
 type OneValueChartDataPoint struct {
 
 	// Value.
 	Value float64 `json:"Value"`
+
+	// SetAsTotal. Applied to Waterfall data points only.
+	SetAsTotal bool `json:"SetAsTotal"`
 }
 
 func NewOneValueChartDataPoint() *OneValueChartDataPoint {
@@ -55,6 +62,13 @@ func (this *OneValueChartDataPoint) getValue() float64 {
 
 func (this *OneValueChartDataPoint) setValue(newValue float64) {
 	this.Value = newValue
+}
+func (this *OneValueChartDataPoint) getSetAsTotal() bool {
+	return this.SetAsTotal
+}
+
+func (this *OneValueChartDataPoint) setSetAsTotal(newValue bool) {
+	this.SetAsTotal = newValue
 }
 
 func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
@@ -82,6 +96,27 @@ func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Value = valueForValue
+		}
+	}
+	
+	if valSetAsTotal, ok := objMap["setAsTotal"]; ok {
+		if valSetAsTotal != nil {
+			var valueForSetAsTotal bool
+			err = json.Unmarshal(*valSetAsTotal, &valueForSetAsTotal)
+			if err != nil {
+				return err
+			}
+			this.SetAsTotal = valueForSetAsTotal
+		}
+	}
+	if valSetAsTotalCap, ok := objMap["SetAsTotal"]; ok {
+		if valSetAsTotalCap != nil {
+			var valueForSetAsTotal bool
+			err = json.Unmarshal(*valSetAsTotalCap, &valueForSetAsTotal)
+			if err != nil {
+				return err
+			}
+			this.SetAsTotal = valueForSetAsTotal
 		}
 	}
 

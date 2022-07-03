@@ -96,6 +96,30 @@ type IOneValueSeries interface {
 	// The number format for the series values.
 	getNumberFormatOfValues() string
 	setNumberFormatOfValues(newValue string)
+
+	// True if inner points are shown. Applied to Waterfall series only.
+	getShowConnectorLines() bool
+	setShowConnectorLines(newValue bool)
+
+	// Quartile method. Applied to BoxAndWhisker series only.
+	getQuartileMethod() string
+	setQuartileMethod(newValue string)
+
+	// True if inner points are shown. Applied to BoxAndWhisker series only.
+	getShowInnerPoints() bool
+	setShowInnerPoints(newValue bool)
+
+	// True if mean line is shown. Applied to BoxAndWhisker series only.
+	getShowMeanLine() bool
+	setShowMeanLine(newValue bool)
+
+	// True if mean markers are shown. Applied to BoxAndWhisker series only.
+	getShowMeanMarkers() bool
+	setShowMeanMarkers(newValue bool)
+
+	// True if outlier points are shown. Applied to BoxAndWhisker series only.
+	getShowOutlierPoints() bool
+	setShowOutlierPoints(newValue bool)
 }
 
 type OneValueSeries struct {
@@ -147,12 +171,31 @@ type OneValueSeries struct {
 
 	// The number format for the series values.
 	NumberFormatOfValues string `json:"NumberFormatOfValues,omitempty"`
+
+	// True if inner points are shown. Applied to Waterfall series only.
+	ShowConnectorLines bool `json:"ShowConnectorLines"`
+
+	// Quartile method. Applied to BoxAndWhisker series only.
+	QuartileMethod string `json:"QuartileMethod,omitempty"`
+
+	// True if inner points are shown. Applied to BoxAndWhisker series only.
+	ShowInnerPoints bool `json:"ShowInnerPoints"`
+
+	// True if mean line is shown. Applied to BoxAndWhisker series only.
+	ShowMeanLine bool `json:"ShowMeanLine"`
+
+	// True if mean markers are shown. Applied to BoxAndWhisker series only.
+	ShowMeanMarkers bool `json:"ShowMeanMarkers"`
+
+	// True if outlier points are shown. Applied to BoxAndWhisker series only.
+	ShowOutlierPoints bool `json:"ShowOutlierPoints"`
 }
 
 func NewOneValueSeries() *OneValueSeries {
 	instance := new(OneValueSeries)
 	instance.Type_ = ""
 	instance.DataPointType = "OneValue"
+	instance.QuartileMethod = ""
 	return instance
 }
 
@@ -267,6 +310,48 @@ func (this *OneValueSeries) getNumberFormatOfValues() string {
 
 func (this *OneValueSeries) setNumberFormatOfValues(newValue string) {
 	this.NumberFormatOfValues = newValue
+}
+func (this *OneValueSeries) getShowConnectorLines() bool {
+	return this.ShowConnectorLines
+}
+
+func (this *OneValueSeries) setShowConnectorLines(newValue bool) {
+	this.ShowConnectorLines = newValue
+}
+func (this *OneValueSeries) getQuartileMethod() string {
+	return this.QuartileMethod
+}
+
+func (this *OneValueSeries) setQuartileMethod(newValue string) {
+	this.QuartileMethod = newValue
+}
+func (this *OneValueSeries) getShowInnerPoints() bool {
+	return this.ShowInnerPoints
+}
+
+func (this *OneValueSeries) setShowInnerPoints(newValue bool) {
+	this.ShowInnerPoints = newValue
+}
+func (this *OneValueSeries) getShowMeanLine() bool {
+	return this.ShowMeanLine
+}
+
+func (this *OneValueSeries) setShowMeanLine(newValue bool) {
+	this.ShowMeanLine = newValue
+}
+func (this *OneValueSeries) getShowMeanMarkers() bool {
+	return this.ShowMeanMarkers
+}
+
+func (this *OneValueSeries) setShowMeanMarkers(newValue bool) {
+	this.ShowMeanMarkers = newValue
+}
+func (this *OneValueSeries) getShowOutlierPoints() bool {
+	return this.ShowOutlierPoints
+}
+
+func (this *OneValueSeries) setShowOutlierPoints(newValue bool) {
+	this.ShowOutlierPoints = newValue
 }
 
 func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
@@ -749,6 +834,144 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.NumberFormatOfValues = valueForNumberFormatOfValues
+		}
+	}
+	
+	if valShowConnectorLines, ok := objMap["showConnectorLines"]; ok {
+		if valShowConnectorLines != nil {
+			var valueForShowConnectorLines bool
+			err = json.Unmarshal(*valShowConnectorLines, &valueForShowConnectorLines)
+			if err != nil {
+				return err
+			}
+			this.ShowConnectorLines = valueForShowConnectorLines
+		}
+	}
+	if valShowConnectorLinesCap, ok := objMap["ShowConnectorLines"]; ok {
+		if valShowConnectorLinesCap != nil {
+			var valueForShowConnectorLines bool
+			err = json.Unmarshal(*valShowConnectorLinesCap, &valueForShowConnectorLines)
+			if err != nil {
+				return err
+			}
+			this.ShowConnectorLines = valueForShowConnectorLines
+		}
+	}
+	this.QuartileMethod = ""
+	if valQuartileMethod, ok := objMap["quartileMethod"]; ok {
+		if valQuartileMethod != nil {
+			var valueForQuartileMethod string
+			err = json.Unmarshal(*valQuartileMethod, &valueForQuartileMethod)
+			if err != nil {
+				var valueForQuartileMethodInt int32
+				err = json.Unmarshal(*valQuartileMethod, &valueForQuartileMethodInt)
+				if err != nil {
+					return err
+				}
+				this.QuartileMethod = string(valueForQuartileMethodInt)
+			} else {
+				this.QuartileMethod = valueForQuartileMethod
+			}
+		}
+	}
+	if valQuartileMethodCap, ok := objMap["QuartileMethod"]; ok {
+		if valQuartileMethodCap != nil {
+			var valueForQuartileMethod string
+			err = json.Unmarshal(*valQuartileMethodCap, &valueForQuartileMethod)
+			if err != nil {
+				var valueForQuartileMethodInt int32
+				err = json.Unmarshal(*valQuartileMethodCap, &valueForQuartileMethodInt)
+				if err != nil {
+					return err
+				}
+				this.QuartileMethod = string(valueForQuartileMethodInt)
+			} else {
+				this.QuartileMethod = valueForQuartileMethod
+			}
+		}
+	}
+	
+	if valShowInnerPoints, ok := objMap["showInnerPoints"]; ok {
+		if valShowInnerPoints != nil {
+			var valueForShowInnerPoints bool
+			err = json.Unmarshal(*valShowInnerPoints, &valueForShowInnerPoints)
+			if err != nil {
+				return err
+			}
+			this.ShowInnerPoints = valueForShowInnerPoints
+		}
+	}
+	if valShowInnerPointsCap, ok := objMap["ShowInnerPoints"]; ok {
+		if valShowInnerPointsCap != nil {
+			var valueForShowInnerPoints bool
+			err = json.Unmarshal(*valShowInnerPointsCap, &valueForShowInnerPoints)
+			if err != nil {
+				return err
+			}
+			this.ShowInnerPoints = valueForShowInnerPoints
+		}
+	}
+	
+	if valShowMeanLine, ok := objMap["showMeanLine"]; ok {
+		if valShowMeanLine != nil {
+			var valueForShowMeanLine bool
+			err = json.Unmarshal(*valShowMeanLine, &valueForShowMeanLine)
+			if err != nil {
+				return err
+			}
+			this.ShowMeanLine = valueForShowMeanLine
+		}
+	}
+	if valShowMeanLineCap, ok := objMap["ShowMeanLine"]; ok {
+		if valShowMeanLineCap != nil {
+			var valueForShowMeanLine bool
+			err = json.Unmarshal(*valShowMeanLineCap, &valueForShowMeanLine)
+			if err != nil {
+				return err
+			}
+			this.ShowMeanLine = valueForShowMeanLine
+		}
+	}
+	
+	if valShowMeanMarkers, ok := objMap["showMeanMarkers"]; ok {
+		if valShowMeanMarkers != nil {
+			var valueForShowMeanMarkers bool
+			err = json.Unmarshal(*valShowMeanMarkers, &valueForShowMeanMarkers)
+			if err != nil {
+				return err
+			}
+			this.ShowMeanMarkers = valueForShowMeanMarkers
+		}
+	}
+	if valShowMeanMarkersCap, ok := objMap["ShowMeanMarkers"]; ok {
+		if valShowMeanMarkersCap != nil {
+			var valueForShowMeanMarkers bool
+			err = json.Unmarshal(*valShowMeanMarkersCap, &valueForShowMeanMarkers)
+			if err != nil {
+				return err
+			}
+			this.ShowMeanMarkers = valueForShowMeanMarkers
+		}
+	}
+	
+	if valShowOutlierPoints, ok := objMap["showOutlierPoints"]; ok {
+		if valShowOutlierPoints != nil {
+			var valueForShowOutlierPoints bool
+			err = json.Unmarshal(*valShowOutlierPoints, &valueForShowOutlierPoints)
+			if err != nil {
+				return err
+			}
+			this.ShowOutlierPoints = valueForShowOutlierPoints
+		}
+	}
+	if valShowOutlierPointsCap, ok := objMap["ShowOutlierPoints"]; ok {
+		if valShowOutlierPointsCap != nil {
+			var valueForShowOutlierPoints bool
+			err = json.Unmarshal(*valShowOutlierPointsCap, &valueForShowOutlierPoints)
+			if err != nil {
+				return err
+			}
+			this.ShowOutlierPoints = valueForShowOutlierPoints
 		}
 	}
 

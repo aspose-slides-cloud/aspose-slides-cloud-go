@@ -136,6 +136,10 @@ type IVideoFrame interface {
 	// Video data encoded in base64.
 	getBase64Data() string
 	setBase64Data(newValue string)
+
+	// Picture fill format.
+	getPictureFillFormat() IPictureFill
+	setPictureFillFormat(newValue IPictureFill)
 }
 
 type VideoFrame struct {
@@ -217,6 +221,9 @@ type VideoFrame struct {
 
 	// Video data encoded in base64.
 	Base64Data string `json:"Base64Data,omitempty"`
+
+	// Picture fill format.
+	PictureFillFormat IPictureFill `json:"PictureFillFormat,omitempty"`
 }
 
 func NewVideoFrame() *VideoFrame {
@@ -409,6 +416,13 @@ func (this *VideoFrame) getBase64Data() string {
 
 func (this *VideoFrame) setBase64Data(newValue string) {
 	this.Base64Data = newValue
+}
+func (this *VideoFrame) getPictureFillFormat() IPictureFill {
+	return this.PictureFillFormat
+}
+
+func (this *VideoFrame) setPictureFillFormat(newValue IPictureFill) {
+	this.PictureFillFormat = newValue
 }
 
 func (this *VideoFrame) UnmarshalJSON(b []byte) error {
@@ -1191,6 +1205,49 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Base64Data = valueForBase64Data
+		}
+	}
+	
+	if valPictureFillFormat, ok := objMap["pictureFillFormat"]; ok {
+		if valPictureFillFormat != nil {
+			var valueForPictureFillFormat PictureFill
+			err = json.Unmarshal(*valPictureFillFormat, &valueForPictureFillFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("PictureFill", *valPictureFillFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valPictureFillFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IPictureFill)
+			if ok {
+				this.PictureFillFormat = vInterfaceObject
+			}
+		}
+	}
+	if valPictureFillFormatCap, ok := objMap["PictureFillFormat"]; ok {
+		if valPictureFillFormatCap != nil {
+			var valueForPictureFillFormat PictureFill
+			err = json.Unmarshal(*valPictureFillFormatCap, &valueForPictureFillFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("PictureFill", *valPictureFillFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valPictureFillFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IPictureFill)
+			if ok {
+				this.PictureFillFormat = vInterfaceObject
+			}
 		}
 	}
 

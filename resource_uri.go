@@ -48,6 +48,14 @@ type IResourceUri interface {
 	// Gets or sets the title of link.
 	getTitle() string
 	setTitle(newValue string)
+
+	// Resource slide index.
+	getSlideIndex() int32
+	setSlideIndex(newValue int32)
+
+	// Resource shape index.
+	getShapeIndex() int32
+	setShapeIndex(newValue int32)
 }
 
 type ResourceUri struct {
@@ -63,6 +71,12 @@ type ResourceUri struct {
 
 	// Gets or sets the title of link.
 	Title string `json:"Title,omitempty"`
+
+	// Resource slide index.
+	SlideIndex int32 `json:"SlideIndex,omitempty"`
+
+	// Resource shape index.
+	ShapeIndex int32 `json:"ShapeIndex,omitempty"`
 }
 
 func NewResourceUri() *ResourceUri {
@@ -97,6 +111,20 @@ func (this *ResourceUri) getTitle() string {
 
 func (this *ResourceUri) setTitle(newValue string) {
 	this.Title = newValue
+}
+func (this *ResourceUri) getSlideIndex() int32 {
+	return this.SlideIndex
+}
+
+func (this *ResourceUri) setSlideIndex(newValue int32) {
+	this.SlideIndex = newValue
+}
+func (this *ResourceUri) getShapeIndex() int32 {
+	return this.ShapeIndex
+}
+
+func (this *ResourceUri) setShapeIndex(newValue int32) {
+	this.ShapeIndex = newValue
 }
 
 func (this *ResourceUri) UnmarshalJSON(b []byte) error {
@@ -187,6 +215,48 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Title = valueForTitle
+		}
+	}
+	
+	if valSlideIndex, ok := objMap["slideIndex"]; ok {
+		if valSlideIndex != nil {
+			var valueForSlideIndex int32
+			err = json.Unmarshal(*valSlideIndex, &valueForSlideIndex)
+			if err != nil {
+				return err
+			}
+			this.SlideIndex = valueForSlideIndex
+		}
+	}
+	if valSlideIndexCap, ok := objMap["SlideIndex"]; ok {
+		if valSlideIndexCap != nil {
+			var valueForSlideIndex int32
+			err = json.Unmarshal(*valSlideIndexCap, &valueForSlideIndex)
+			if err != nil {
+				return err
+			}
+			this.SlideIndex = valueForSlideIndex
+		}
+	}
+	
+	if valShapeIndex, ok := objMap["shapeIndex"]; ok {
+		if valShapeIndex != nil {
+			var valueForShapeIndex int32
+			err = json.Unmarshal(*valShapeIndex, &valueForShapeIndex)
+			if err != nil {
+				return err
+			}
+			this.ShapeIndex = valueForShapeIndex
+		}
+	}
+	if valShapeIndexCap, ok := objMap["ShapeIndex"]; ok {
+		if valShapeIndexCap != nil {
+			var valueForShapeIndex int32
+			err = json.Unmarshal(*valShapeIndexCap, &valueForShapeIndex)
+			if err != nil {
+				return err
+			}
+			this.ShapeIndex = valueForShapeIndex
 		}
 	}
 

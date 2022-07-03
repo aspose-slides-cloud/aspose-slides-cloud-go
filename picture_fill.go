@@ -72,6 +72,10 @@ type IPictureFill interface {
 	// Fill mode.
 	getPictureFillMode() string
 	setPictureFillMode(newValue string)
+
+	// Image transform effects.
+	getImageTransformList() []IImageTransformEffect
+	setImageTransformList(newValue []IImageTransformEffect)
 }
 
 type PictureFill struct {
@@ -105,6 +109,9 @@ type PictureFill struct {
 
 	// Fill mode.
 	PictureFillMode string `json:"PictureFillMode"`
+
+	// Image transform effects.
+	ImageTransformList []IImageTransformEffect `json:"ImageTransformList,omitempty"`
 }
 
 func NewPictureFill() *PictureFill {
@@ -183,6 +190,13 @@ func (this *PictureFill) getPictureFillMode() string {
 
 func (this *PictureFill) setPictureFillMode(newValue string) {
 	this.PictureFillMode = newValue
+}
+func (this *PictureFill) getImageTransformList() []IImageTransformEffect {
+	return this.ImageTransformList
+}
+
+func (this *PictureFill) setImageTransformList(newValue []IImageTransformEffect) {
+	this.ImageTransformList = newValue
 }
 
 func (this *PictureFill) UnmarshalJSON(b []byte) error {
@@ -445,6 +459,55 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			} else {
 				this.PictureFillMode = valueForPictureFillMode
 			}
+		}
+	}
+	
+	if valImageTransformList, ok := objMap["imageTransformList"]; ok {
+		if valImageTransformList != nil {
+			var valueForImageTransformList []json.RawMessage
+			err = json.Unmarshal(*valImageTransformList, &valueForImageTransformList)
+			if err != nil {
+				return err
+			}
+			valueForIImageTransformList := make([]IImageTransformEffect, len(valueForImageTransformList))
+			for i, v := range valueForImageTransformList {
+				vObject, err := createObjectForType("ImageTransformEffect", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIImageTransformList[i] = vObject.(IImageTransformEffect)
+				}
+			}
+			this.ImageTransformList = valueForIImageTransformList
+		}
+	}
+	if valImageTransformListCap, ok := objMap["ImageTransformList"]; ok {
+		if valImageTransformListCap != nil {
+			var valueForImageTransformList []json.RawMessage
+			err = json.Unmarshal(*valImageTransformListCap, &valueForImageTransformList)
+			if err != nil {
+				return err
+			}
+			valueForIImageTransformList := make([]IImageTransformEffect, len(valueForImageTransformList))
+			for i, v := range valueForImageTransformList {
+				vObject, err := createObjectForType("ImageTransformEffect", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIImageTransformList[i] = vObject.(IImageTransformEffect)
+				}
+			}
+			this.ImageTransformList = valueForIImageTransformList
 		}
 	}
 
