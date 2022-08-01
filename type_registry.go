@@ -63,6 +63,9 @@ func init() {
 	typeRegistry["ChartLinesFormat"] = reflect.TypeOf(ChartLinesFormat{})
 	
 	typeDeterminers["ChartLinesFormat"] = make(map[string]string)
+	typeRegistry["ChartSeriesGroup"] = reflect.TypeOf(ChartSeriesGroup{})
+	
+	typeDeterminers["ChartSeriesGroup"] = make(map[string]string)
 	typeRegistry["ChartTitle"] = reflect.TypeOf(ChartTitle{})
 	
 	typeDeterminers["ChartTitle"] = make(map[string]string)

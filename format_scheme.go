@@ -41,21 +41,21 @@ type IFormatScheme interface {
 	getAlternateLinks() []IResourceUri
 	setAlternateLinks(newValue []IResourceUri)
 
-	// Background style links.
-	getBackgroundStyles() []IResourceUri
-	setBackgroundStyles(newValue []IResourceUri)
+	// Background styles.
+	getBackgroundStyles() []IFillFormat
+	setBackgroundStyles(newValue []IFillFormat)
 
-	// Effect style links.
-	getEffectStyles() []IResourceUri
-	setEffectStyles(newValue []IResourceUri)
+	// Effect styles.
+	getEffectStyles() []IEffectFormat
+	setEffectStyles(newValue []IEffectFormat)
 
-	// Fill style links.
-	getFillStyles() []IResourceUri
-	setFillStyles(newValue []IResourceUri)
+	// Fill styles.
+	getFillStyles() []IFillFormat
+	setFillStyles(newValue []IFillFormat)
 
-	// Line style links.
-	getLineStyles() []IResourceUri
-	setLineStyles(newValue []IResourceUri)
+	// Line style.
+	getLineStyles() []ILineFormat
+	setLineStyles(newValue []ILineFormat)
 }
 
 type FormatScheme struct {
@@ -66,17 +66,17 @@ type FormatScheme struct {
 	// List of alternate links.
 	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
-	// Background style links.
-	BackgroundStyles []IResourceUri `json:"BackgroundStyles,omitempty"`
+	// Background styles.
+	BackgroundStyles []IFillFormat `json:"BackgroundStyles,omitempty"`
 
-	// Effect style links.
-	EffectStyles []IResourceUri `json:"EffectStyles,omitempty"`
+	// Effect styles.
+	EffectStyles []IEffectFormat `json:"EffectStyles,omitempty"`
 
-	// Fill style links.
-	FillStyles []IResourceUri `json:"FillStyles,omitempty"`
+	// Fill styles.
+	FillStyles []IFillFormat `json:"FillStyles,omitempty"`
 
-	// Line style links.
-	LineStyles []IResourceUri `json:"LineStyles,omitempty"`
+	// Line style.
+	LineStyles []ILineFormat `json:"LineStyles,omitempty"`
 }
 
 func NewFormatScheme() *FormatScheme {
@@ -98,32 +98,32 @@ func (this *FormatScheme) getAlternateLinks() []IResourceUri {
 func (this *FormatScheme) setAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *FormatScheme) getBackgroundStyles() []IResourceUri {
+func (this *FormatScheme) getBackgroundStyles() []IFillFormat {
 	return this.BackgroundStyles
 }
 
-func (this *FormatScheme) setBackgroundStyles(newValue []IResourceUri) {
+func (this *FormatScheme) setBackgroundStyles(newValue []IFillFormat) {
 	this.BackgroundStyles = newValue
 }
-func (this *FormatScheme) getEffectStyles() []IResourceUri {
+func (this *FormatScheme) getEffectStyles() []IEffectFormat {
 	return this.EffectStyles
 }
 
-func (this *FormatScheme) setEffectStyles(newValue []IResourceUri) {
+func (this *FormatScheme) setEffectStyles(newValue []IEffectFormat) {
 	this.EffectStyles = newValue
 }
-func (this *FormatScheme) getFillStyles() []IResourceUri {
+func (this *FormatScheme) getFillStyles() []IFillFormat {
 	return this.FillStyles
 }
 
-func (this *FormatScheme) setFillStyles(newValue []IResourceUri) {
+func (this *FormatScheme) setFillStyles(newValue []IFillFormat) {
 	this.FillStyles = newValue
 }
-func (this *FormatScheme) getLineStyles() []IResourceUri {
+func (this *FormatScheme) getLineStyles() []ILineFormat {
 	return this.LineStyles
 }
 
-func (this *FormatScheme) setLineStyles(newValue []IResourceUri) {
+func (this *FormatScheme) setLineStyles(newValue []ILineFormat) {
 	this.LineStyles = newValue
 }
 
@@ -233,9 +233,9 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			valueForIBackgroundStyles := make([]IResourceUri, len(valueForBackgroundStyles))
+			valueForIBackgroundStyles := make([]IFillFormat, len(valueForBackgroundStyles))
 			for i, v := range valueForBackgroundStyles {
-				vObject, err := createObjectForType("ResourceUri", v)
+				vObject, err := createObjectForType("FillFormat", v)
 				if err != nil {
 					return err
 				}
@@ -244,7 +244,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 					return err
 				}
 				if vObject != nil {
-					valueForIBackgroundStyles[i] = vObject.(IResourceUri)
+					valueForIBackgroundStyles[i] = vObject.(IFillFormat)
 				}
 			}
 			this.BackgroundStyles = valueForIBackgroundStyles
@@ -257,9 +257,9 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			valueForIBackgroundStyles := make([]IResourceUri, len(valueForBackgroundStyles))
+			valueForIBackgroundStyles := make([]IFillFormat, len(valueForBackgroundStyles))
 			for i, v := range valueForBackgroundStyles {
-				vObject, err := createObjectForType("ResourceUri", v)
+				vObject, err := createObjectForType("FillFormat", v)
 				if err != nil {
 					return err
 				}
@@ -268,7 +268,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 					return err
 				}
 				if vObject != nil {
-					valueForIBackgroundStyles[i] = vObject.(IResourceUri)
+					valueForIBackgroundStyles[i] = vObject.(IFillFormat)
 				}
 			}
 			this.BackgroundStyles = valueForIBackgroundStyles
@@ -282,9 +282,9 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			valueForIEffectStyles := make([]IResourceUri, len(valueForEffectStyles))
+			valueForIEffectStyles := make([]IEffectFormat, len(valueForEffectStyles))
 			for i, v := range valueForEffectStyles {
-				vObject, err := createObjectForType("ResourceUri", v)
+				vObject, err := createObjectForType("EffectFormat", v)
 				if err != nil {
 					return err
 				}
@@ -293,7 +293,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 					return err
 				}
 				if vObject != nil {
-					valueForIEffectStyles[i] = vObject.(IResourceUri)
+					valueForIEffectStyles[i] = vObject.(IEffectFormat)
 				}
 			}
 			this.EffectStyles = valueForIEffectStyles
@@ -306,9 +306,9 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			valueForIEffectStyles := make([]IResourceUri, len(valueForEffectStyles))
+			valueForIEffectStyles := make([]IEffectFormat, len(valueForEffectStyles))
 			for i, v := range valueForEffectStyles {
-				vObject, err := createObjectForType("ResourceUri", v)
+				vObject, err := createObjectForType("EffectFormat", v)
 				if err != nil {
 					return err
 				}
@@ -317,7 +317,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 					return err
 				}
 				if vObject != nil {
-					valueForIEffectStyles[i] = vObject.(IResourceUri)
+					valueForIEffectStyles[i] = vObject.(IEffectFormat)
 				}
 			}
 			this.EffectStyles = valueForIEffectStyles
@@ -331,9 +331,9 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			valueForIFillStyles := make([]IResourceUri, len(valueForFillStyles))
+			valueForIFillStyles := make([]IFillFormat, len(valueForFillStyles))
 			for i, v := range valueForFillStyles {
-				vObject, err := createObjectForType("ResourceUri", v)
+				vObject, err := createObjectForType("FillFormat", v)
 				if err != nil {
 					return err
 				}
@@ -342,7 +342,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 					return err
 				}
 				if vObject != nil {
-					valueForIFillStyles[i] = vObject.(IResourceUri)
+					valueForIFillStyles[i] = vObject.(IFillFormat)
 				}
 			}
 			this.FillStyles = valueForIFillStyles
@@ -355,9 +355,9 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			valueForIFillStyles := make([]IResourceUri, len(valueForFillStyles))
+			valueForIFillStyles := make([]IFillFormat, len(valueForFillStyles))
 			for i, v := range valueForFillStyles {
-				vObject, err := createObjectForType("ResourceUri", v)
+				vObject, err := createObjectForType("FillFormat", v)
 				if err != nil {
 					return err
 				}
@@ -366,7 +366,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 					return err
 				}
 				if vObject != nil {
-					valueForIFillStyles[i] = vObject.(IResourceUri)
+					valueForIFillStyles[i] = vObject.(IFillFormat)
 				}
 			}
 			this.FillStyles = valueForIFillStyles
@@ -380,9 +380,9 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			valueForILineStyles := make([]IResourceUri, len(valueForLineStyles))
+			valueForILineStyles := make([]ILineFormat, len(valueForLineStyles))
 			for i, v := range valueForLineStyles {
-				vObject, err := createObjectForType("ResourceUri", v)
+				vObject, err := createObjectForType("LineFormat", v)
 				if err != nil {
 					return err
 				}
@@ -391,7 +391,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 					return err
 				}
 				if vObject != nil {
-					valueForILineStyles[i] = vObject.(IResourceUri)
+					valueForILineStyles[i] = vObject.(ILineFormat)
 				}
 			}
 			this.LineStyles = valueForILineStyles
@@ -404,9 +404,9 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 			if err != nil {
 				return err
 			}
-			valueForILineStyles := make([]IResourceUri, len(valueForLineStyles))
+			valueForILineStyles := make([]ILineFormat, len(valueForLineStyles))
 			for i, v := range valueForLineStyles {
-				vObject, err := createObjectForType("ResourceUri", v)
+				vObject, err := createObjectForType("LineFormat", v)
 				if err != nil {
 					return err
 				}
@@ -415,7 +415,7 @@ func (this *FormatScheme) UnmarshalJSON(b []byte) error {
 					return err
 				}
 				if vObject != nil {
-					valueForILineStyles[i] = vObject.(IResourceUri)
+					valueForILineStyles[i] = vObject.(ILineFormat)
 				}
 			}
 			this.LineStyles = valueForILineStyles

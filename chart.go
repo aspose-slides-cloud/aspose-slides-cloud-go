@@ -148,6 +148,14 @@ type IChart interface {
 	// Gets or sets the plot area.
 	getPlotArea() IPlotArea
 	setPlotArea(newValue IPlotArea)
+
+	// Specifies the chart area shall have rounded corners.
+	getHasRoundedCorners() bool
+	setHasRoundedCorners(newValue bool)
+
+	// Gets groups of series. 
+	getSeriesGroups() []IChartSeriesGroup
+	setSeriesGroups(newValue []IChartSeriesGroup)
 }
 
 type Chart struct {
@@ -238,6 +246,12 @@ type Chart struct {
 
 	// Gets or sets the plot area.
 	PlotArea IPlotArea `json:"PlotArea,omitempty"`
+
+	// Specifies the chart area shall have rounded corners.
+	HasRoundedCorners bool `json:"HasRoundedCorners"`
+
+	// Gets groups of series. 
+	SeriesGroups []IChartSeriesGroup `json:"SeriesGroups,omitempty"`
 }
 
 func NewChart() *Chart {
@@ -449,6 +463,20 @@ func (this *Chart) getPlotArea() IPlotArea {
 
 func (this *Chart) setPlotArea(newValue IPlotArea) {
 	this.PlotArea = newValue
+}
+func (this *Chart) getHasRoundedCorners() bool {
+	return this.HasRoundedCorners
+}
+
+func (this *Chart) setHasRoundedCorners(newValue bool) {
+	this.HasRoundedCorners = newValue
+}
+func (this *Chart) getSeriesGroups() []IChartSeriesGroup {
+	return this.SeriesGroups
+}
+
+func (this *Chart) setSeriesGroups(newValue []IChartSeriesGroup) {
+	this.SeriesGroups = newValue
 }
 
 func (this *Chart) UnmarshalJSON(b []byte) error {
@@ -1480,6 +1508,76 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if ok {
 				this.PlotArea = vInterfaceObject
 			}
+		}
+	}
+	
+	if valHasRoundedCorners, ok := objMap["hasRoundedCorners"]; ok {
+		if valHasRoundedCorners != nil {
+			var valueForHasRoundedCorners bool
+			err = json.Unmarshal(*valHasRoundedCorners, &valueForHasRoundedCorners)
+			if err != nil {
+				return err
+			}
+			this.HasRoundedCorners = valueForHasRoundedCorners
+		}
+	}
+	if valHasRoundedCornersCap, ok := objMap["HasRoundedCorners"]; ok {
+		if valHasRoundedCornersCap != nil {
+			var valueForHasRoundedCorners bool
+			err = json.Unmarshal(*valHasRoundedCornersCap, &valueForHasRoundedCorners)
+			if err != nil {
+				return err
+			}
+			this.HasRoundedCorners = valueForHasRoundedCorners
+		}
+	}
+	
+	if valSeriesGroups, ok := objMap["seriesGroups"]; ok {
+		if valSeriesGroups != nil {
+			var valueForSeriesGroups []json.RawMessage
+			err = json.Unmarshal(*valSeriesGroups, &valueForSeriesGroups)
+			if err != nil {
+				return err
+			}
+			valueForISeriesGroups := make([]IChartSeriesGroup, len(valueForSeriesGroups))
+			for i, v := range valueForSeriesGroups {
+				vObject, err := createObjectForType("ChartSeriesGroup", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForISeriesGroups[i] = vObject.(IChartSeriesGroup)
+				}
+			}
+			this.SeriesGroups = valueForISeriesGroups
+		}
+	}
+	if valSeriesGroupsCap, ok := objMap["SeriesGroups"]; ok {
+		if valSeriesGroupsCap != nil {
+			var valueForSeriesGroups []json.RawMessage
+			err = json.Unmarshal(*valSeriesGroupsCap, &valueForSeriesGroups)
+			if err != nil {
+				return err
+			}
+			valueForISeriesGroups := make([]IChartSeriesGroup, len(valueForSeriesGroups))
+			for i, v := range valueForSeriesGroups {
+				vObject, err := createObjectForType("ChartSeriesGroup", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForISeriesGroups[i] = vObject.(IChartSeriesGroup)
+				}
+			}
+			this.SeriesGroups = valueForISeriesGroups
 		}
 	}
 

@@ -360,6 +360,30 @@ func undefaultize(value interface{}, paramType string) interface{} {
         json.Unmarshal(b, &vp)
         return &vp
     }
+    if paramType == "ChartSeriesGroup" {
+        var vp ChartSeriesGroup
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &vp)
+        return &vp
+    }
+    if paramType == "Axis" {
+        var vp Axis
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &vp)
+        return &vp
+    }
+    if paramType == "Legend" {
+        var vp Legend
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &vp)
+        return &vp
+    }
+    if paramType == "ChartWall" {
+        var vp ChartWall
+        b, _ := json.Marshal(value)
+        json.Unmarshal(b, &vp)
+        return &vp
+    }
     return value
 }
 

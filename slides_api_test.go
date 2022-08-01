@@ -27124,6 +27124,342 @@ func TestDeleteUnusedLayoutSlidesOnlineInvalidPassword(t *testing.T) {
     assertError(t, "DeleteUnusedLayoutSlidesOnline", "password", testpassword, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Removes unused master slides.
+   Test for SlidesApi.DeleteUnusedMasterSlides method
+*/
+func TestDeleteUnusedMasterSlides(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteUnusedMasterSlides", "name", "string").(string)
+    var testignorePreserveField *bool
+    testignorePreserveFieldValue := createTestParamValue("DeleteUnusedMasterSlides", "ignorePreserveField", "bool")
+    if (testignorePreserveFieldValue != nil) {
+        testignorePreserveField = new(bool)
+        *testignorePreserveField, _ = testignorePreserveFieldValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteUnusedMasterSlides", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteUnusedMasterSlides", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteUnusedMasterSlides", "storage", "string").(string)
+    e := initializeTest("DeleteUnusedMasterSlides", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.DeleteUnusedMasterSlides(testname, testignorePreserveField, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Removes unused master slides.
+   Test for SlidesApi.DeleteUnusedMasterSlides method with invalid name
+*/
+func TestDeleteUnusedMasterSlidesInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteUnusedMasterSlides", "name", "string").(string)
+    var testignorePreserveField *bool
+    testignorePreserveFieldValue := createTestParamValue("DeleteUnusedMasterSlides", "ignorePreserveField", "bool")
+    if (testignorePreserveFieldValue != nil) {
+        testignorePreserveField = new(bool)
+        *testignorePreserveField, _ = testignorePreserveFieldValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteUnusedMasterSlides", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteUnusedMasterSlides", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteUnusedMasterSlides", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "DeleteUnusedMasterSlides", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteUnusedMasterSlides", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedMasterSlides(testname, testignorePreserveField, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedMasterSlides", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused master slides.
+   Test for SlidesApi.DeleteUnusedMasterSlides method with invalid ignorePreserveField
+*/
+func TestDeleteUnusedMasterSlidesInvalidIgnorePreserveField(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteUnusedMasterSlides", "name", "string").(string)
+    var testignorePreserveField *bool
+    testignorePreserveFieldValue := createTestParamValue("DeleteUnusedMasterSlides", "ignorePreserveField", "bool")
+    if (testignorePreserveFieldValue != nil) {
+        testignorePreserveField = new(bool)
+        *testignorePreserveField, _ = testignorePreserveFieldValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteUnusedMasterSlides", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteUnusedMasterSlides", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteUnusedMasterSlides", "storage", "string").(string)
+    testignorePreserveField = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testignorePreserveField, "DeleteUnusedMasterSlides", "ignorePreserveField", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testignorePreserveField = nullValue
+    } else {
+        *testignorePreserveField, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("DeleteUnusedMasterSlides", "ignorePreserveField", testignorePreserveField)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedMasterSlides(testname, testignorePreserveField, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedMasterSlides", "ignorePreserveField", testignorePreserveField, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused master slides.
+   Test for SlidesApi.DeleteUnusedMasterSlides method with invalid password
+*/
+func TestDeleteUnusedMasterSlidesInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteUnusedMasterSlides", "name", "string").(string)
+    var testignorePreserveField *bool
+    testignorePreserveFieldValue := createTestParamValue("DeleteUnusedMasterSlides", "ignorePreserveField", "bool")
+    if (testignorePreserveFieldValue != nil) {
+        testignorePreserveField = new(bool)
+        *testignorePreserveField, _ = testignorePreserveFieldValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteUnusedMasterSlides", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteUnusedMasterSlides", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteUnusedMasterSlides", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteUnusedMasterSlides", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteUnusedMasterSlides", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedMasterSlides(testname, testignorePreserveField, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedMasterSlides", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused master slides.
+   Test for SlidesApi.DeleteUnusedMasterSlides method with invalid folder
+*/
+func TestDeleteUnusedMasterSlidesInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteUnusedMasterSlides", "name", "string").(string)
+    var testignorePreserveField *bool
+    testignorePreserveFieldValue := createTestParamValue("DeleteUnusedMasterSlides", "ignorePreserveField", "bool")
+    if (testignorePreserveFieldValue != nil) {
+        testignorePreserveField = new(bool)
+        *testignorePreserveField, _ = testignorePreserveFieldValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteUnusedMasterSlides", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteUnusedMasterSlides", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteUnusedMasterSlides", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "DeleteUnusedMasterSlides", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteUnusedMasterSlides", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedMasterSlides(testname, testignorePreserveField, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedMasterSlides", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused master slides.
+   Test for SlidesApi.DeleteUnusedMasterSlides method with invalid storage
+*/
+func TestDeleteUnusedMasterSlidesInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteUnusedMasterSlides", "name", "string").(string)
+    var testignorePreserveField *bool
+    testignorePreserveFieldValue := createTestParamValue("DeleteUnusedMasterSlides", "ignorePreserveField", "bool")
+    if (testignorePreserveFieldValue != nil) {
+        testignorePreserveField = new(bool)
+        *testignorePreserveField, _ = testignorePreserveFieldValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteUnusedMasterSlides", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteUnusedMasterSlides", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteUnusedMasterSlides", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "DeleteUnusedMasterSlides", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteUnusedMasterSlides", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedMasterSlides(testname, testignorePreserveField, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedMasterSlides", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused master slides.
+   Test for SlidesApi.DeleteUnusedMasterSlidesOnline method
+*/
+func TestDeleteUnusedMasterSlidesOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("DeleteUnusedMasterSlidesOnline", "document", "[]byte").([]byte)
+    var testignorePreserveField *bool
+    testignorePreserveFieldValue := createTestParamValue("DeleteUnusedMasterSlidesOnline", "ignorePreserveField", "bool")
+    if (testignorePreserveFieldValue != nil) {
+        testignorePreserveField = new(bool)
+        *testignorePreserveField, _ = testignorePreserveFieldValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteUnusedMasterSlidesOnline", "password", "string").(string)
+    e := initializeTest("DeleteUnusedMasterSlidesOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    r, _, e := c.SlidesApi.DeleteUnusedMasterSlidesOnline(testdocument, testignorePreserveField, testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Removes unused master slides.
+   Test for SlidesApi.DeleteUnusedMasterSlidesOnline method with invalid document
+*/
+func TestDeleteUnusedMasterSlidesOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("DeleteUnusedMasterSlidesOnline", "document", "[]byte").([]byte)
+    var testignorePreserveField *bool
+    testignorePreserveFieldValue := createTestParamValue("DeleteUnusedMasterSlidesOnline", "ignorePreserveField", "bool")
+    if (testignorePreserveFieldValue != nil) {
+        testignorePreserveField = new(bool)
+        *testignorePreserveField, _ = testignorePreserveFieldValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteUnusedMasterSlidesOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "DeleteUnusedMasterSlidesOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("DeleteUnusedMasterSlidesOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedMasterSlidesOnline(testdocument, testignorePreserveField, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedMasterSlidesOnline", "document", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused master slides.
+   Test for SlidesApi.DeleteUnusedMasterSlidesOnline method with invalid ignorePreserveField
+*/
+func TestDeleteUnusedMasterSlidesOnlineInvalidIgnorePreserveField(t *testing.T) {
+    testdocument, _ := createTestParamValue("DeleteUnusedMasterSlidesOnline", "document", "[]byte").([]byte)
+    var testignorePreserveField *bool
+    testignorePreserveFieldValue := createTestParamValue("DeleteUnusedMasterSlidesOnline", "ignorePreserveField", "bool")
+    if (testignorePreserveFieldValue != nil) {
+        testignorePreserveField = new(bool)
+        *testignorePreserveField, _ = testignorePreserveFieldValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteUnusedMasterSlidesOnline", "password", "string").(string)
+    testignorePreserveField = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testignorePreserveField, "DeleteUnusedMasterSlidesOnline", "ignorePreserveField", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testignorePreserveField = nullValue
+    } else {
+        *testignorePreserveField, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("DeleteUnusedMasterSlidesOnline", "ignorePreserveField", testignorePreserveField)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedMasterSlidesOnline(testdocument, testignorePreserveField, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedMasterSlidesOnline", "ignorePreserveField", testignorePreserveField, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Removes unused master slides.
+   Test for SlidesApi.DeleteUnusedMasterSlidesOnline method with invalid password
+*/
+func TestDeleteUnusedMasterSlidesOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("DeleteUnusedMasterSlidesOnline", "document", "[]byte").([]byte)
+    var testignorePreserveField *bool
+    testignorePreserveFieldValue := createTestParamValue("DeleteUnusedMasterSlidesOnline", "ignorePreserveField", "bool")
+    if (testignorePreserveFieldValue != nil) {
+        testignorePreserveField = new(bool)
+        *testignorePreserveField, _ = testignorePreserveFieldValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteUnusedMasterSlidesOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteUnusedMasterSlidesOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteUnusedMasterSlidesOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.DeleteUnusedMasterSlidesOnline(testdocument, testignorePreserveField, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteUnusedMasterSlidesOnline", "password", testpassword, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
    Test for SlidesApi.DeleteWatermark method
 */
@@ -37177,6 +37513,261 @@ func TestGetParagraphInvalidStorage(t *testing.T) {
     assertError(t, "GetParagraph", "storage", teststorage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Read effective paragraph info.
+   Test for SlidesApi.GetParagraphEffective method
+*/
+func TestGetParagraphEffective(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphEffective", "storage", "string").(string)
+    e := initializeTest("GetParagraphEffective", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetParagraphEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Read effective paragraph info.
+   Test for SlidesApi.GetParagraphEffective method with invalid name
+*/
+func TestGetParagraphEffectiveInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetParagraphEffective", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetParagraphEffective", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphEffective", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info.
+   Test for SlidesApi.GetParagraphEffective method with invalid slideIndex
+*/
+func TestGetParagraphEffectiveInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "GetParagraphEffective", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetParagraphEffective", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphEffective", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info.
+   Test for SlidesApi.GetParagraphEffective method with invalid shapeIndex
+*/
+func TestGetParagraphEffectiveInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "GetParagraphEffective", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetParagraphEffective", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphEffective", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info.
+   Test for SlidesApi.GetParagraphEffective method with invalid paragraphIndex
+*/
+func TestGetParagraphEffectiveInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "GetParagraphEffective", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetParagraphEffective", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphEffective", "paragraphIndex", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info.
+   Test for SlidesApi.GetParagraphEffective method with invalid password
+*/
+func TestGetParagraphEffectiveInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetParagraphEffective", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetParagraphEffective", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphEffective", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info.
+   Test for SlidesApi.GetParagraphEffective method with invalid folder
+*/
+func TestGetParagraphEffectiveInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetParagraphEffective", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetParagraphEffective", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphEffective", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info.
+   Test for SlidesApi.GetParagraphEffective method with invalid storage
+*/
+func TestGetParagraphEffectiveInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetParagraphEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetParagraphEffective", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetParagraphEffective", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetParagraphEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetParagraphEffective", "storage", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
    Test for SlidesApi.GetParagraphRectangle method
 */
@@ -38334,6 +38925,303 @@ func TestGetPortionInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetPortion", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info.
+   Test for SlidesApi.GetPortionEffective method
+*/
+func TestGetPortionEffective(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionEffective", "storage", "string").(string)
+    e := initializeTest("GetPortionEffective", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetPortionEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Read effective portion info.
+   Test for SlidesApi.GetPortionEffective method with invalid name
+*/
+func TestGetPortionEffectiveInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetPortionEffective", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetPortionEffective", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionEffective", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info.
+   Test for SlidesApi.GetPortionEffective method with invalid slideIndex
+*/
+func TestGetPortionEffectiveInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "GetPortionEffective", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetPortionEffective", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionEffective", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info.
+   Test for SlidesApi.GetPortionEffective method with invalid shapeIndex
+*/
+func TestGetPortionEffectiveInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "GetPortionEffective", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetPortionEffective", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionEffective", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info.
+   Test for SlidesApi.GetPortionEffective method with invalid paragraphIndex
+*/
+func TestGetPortionEffectiveInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "GetPortionEffective", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetPortionEffective", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionEffective", "paragraphIndex", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info.
+   Test for SlidesApi.GetPortionEffective method with invalid portionIndex
+*/
+func TestGetPortionEffectiveInvalidPortionIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testportionIndex, "GetPortionEffective", "portionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testportionIndex = nullValue
+    } else {
+        testportionIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetPortionEffective", "portionIndex", testportionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionEffective", "portionIndex", testportionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info.
+   Test for SlidesApi.GetPortionEffective method with invalid password
+*/
+func TestGetPortionEffectiveInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetPortionEffective", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetPortionEffective", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionEffective", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info.
+   Test for SlidesApi.GetPortionEffective method with invalid folder
+*/
+func TestGetPortionEffectiveInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetPortionEffective", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetPortionEffective", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionEffective", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info.
+   Test for SlidesApi.GetPortionEffective method with invalid storage
+*/
+func TestGetPortionEffectiveInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetPortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetPortionEffective", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetPortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetPortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetPortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetPortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetPortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetPortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetPortionEffective", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetPortionEffective", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetPortionEffective(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetPortionEffective", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Return coordinates of rect that bounds paragraph. The rect includes all the lines of text in paragraph, including empty ones.
@@ -46065,6 +46953,303 @@ func TestGetSubshapeParagraphInvalidStorage(t *testing.T) {
     assertError(t, "GetSubshapeParagraph", "storage", teststorage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Read effective paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphEffective method
+*/
+func TestGetSubshapeParagraphEffective(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapeParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapeParagraphEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapeParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapeParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapeParagraphEffective", "storage", "string").(string)
+    e := initializeTest("GetSubshapeParagraphEffective", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSubshapeParagraphEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Read effective paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphEffective method with invalid name
+*/
+func TestGetSubshapeParagraphEffectiveInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapeParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapeParagraphEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapeParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapeParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapeParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetSubshapeParagraphEffective", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphEffective", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphEffective", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphEffective method with invalid slideIndex
+*/
+func TestGetSubshapeParagraphEffectiveInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapeParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapeParagraphEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapeParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapeParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapeParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "GetSubshapeParagraphEffective", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapeParagraphEffective", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphEffective", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphEffective method with invalid path
+*/
+func TestGetSubshapeParagraphEffectiveInvalidPath(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapeParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapeParagraphEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapeParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapeParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapeParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpath, "GetSubshapeParagraphEffective", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpath = nullValue
+    } else {
+        testpath, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphEffective", "path", testpath)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphEffective", "path", testpath, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphEffective method with invalid shapeIndex
+*/
+func TestGetSubshapeParagraphEffectiveInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapeParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapeParagraphEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapeParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapeParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapeParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "GetSubshapeParagraphEffective", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapeParagraphEffective", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphEffective", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphEffective method with invalid paragraphIndex
+*/
+func TestGetSubshapeParagraphEffectiveInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapeParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapeParagraphEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapeParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapeParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapeParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "GetSubshapeParagraphEffective", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapeParagraphEffective", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphEffective", "paragraphIndex", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphEffective method with invalid password
+*/
+func TestGetSubshapeParagraphEffectiveInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapeParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapeParagraphEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapeParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapeParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapeParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetSubshapeParagraphEffective", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphEffective", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphEffective", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphEffective method with invalid folder
+*/
+func TestGetSubshapeParagraphEffectiveInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapeParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapeParagraphEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapeParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapeParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapeParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetSubshapeParagraphEffective", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphEffective", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphEffective", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective paragraph info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapeParagraphEffective method with invalid storage
+*/
+func TestGetSubshapeParagraphEffectiveInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapeParagraphEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapeParagraphEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapeParagraphEffective", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapeParagraphEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapeParagraphEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapeParagraphEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetSubshapeParagraphEffective", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapeParagraphEffective", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapeParagraphEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapeParagraphEffective", "storage", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Read shape paragraphs info (for smart art and group shapes).
    Test for SlidesApi.GetSubshapeParagraphs method
 */
@@ -46659,6 +47844,347 @@ func TestGetSubshapePortionInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetSubshapePortion", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapePortionEffective method
+*/
+func TestGetSubshapePortionEffective(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapePortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapePortionEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapePortionEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapePortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapePortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetSubshapePortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapePortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapePortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapePortionEffective", "storage", "string").(string)
+    e := initializeTest("GetSubshapePortionEffective", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.GetSubshapePortionEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Read effective portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapePortionEffective method with invalid name
+*/
+func TestGetSubshapePortionEffectiveInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapePortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapePortionEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapePortionEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapePortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapePortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetSubshapePortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapePortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapePortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapePortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetSubshapePortionEffective", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapePortionEffective", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapePortionEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapePortionEffective", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapePortionEffective method with invalid slideIndex
+*/
+func TestGetSubshapePortionEffectiveInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapePortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapePortionEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapePortionEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapePortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapePortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetSubshapePortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapePortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapePortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapePortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "GetSubshapePortionEffective", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapePortionEffective", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapePortionEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapePortionEffective", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapePortionEffective method with invalid path
+*/
+func TestGetSubshapePortionEffectiveInvalidPath(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapePortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapePortionEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapePortionEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapePortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapePortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetSubshapePortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapePortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapePortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapePortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpath, "GetSubshapePortionEffective", "path", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpath = nullValue
+    } else {
+        testpath, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapePortionEffective", "path", testpath)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapePortionEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapePortionEffective", "path", testpath, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapePortionEffective method with invalid shapeIndex
+*/
+func TestGetSubshapePortionEffectiveInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapePortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapePortionEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapePortionEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapePortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapePortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetSubshapePortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapePortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapePortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapePortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "GetSubshapePortionEffective", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapePortionEffective", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapePortionEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapePortionEffective", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapePortionEffective method with invalid paragraphIndex
+*/
+func TestGetSubshapePortionEffectiveInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapePortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapePortionEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapePortionEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapePortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapePortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetSubshapePortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapePortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapePortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapePortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "GetSubshapePortionEffective", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapePortionEffective", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapePortionEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapePortionEffective", "paragraphIndex", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapePortionEffective method with invalid portionIndex
+*/
+func TestGetSubshapePortionEffectiveInvalidPortionIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapePortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapePortionEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapePortionEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapePortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapePortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetSubshapePortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapePortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapePortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapePortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testportionIndex, "GetSubshapePortionEffective", "portionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testportionIndex = nullValue
+    } else {
+        testportionIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("GetSubshapePortionEffective", "portionIndex", testportionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapePortionEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapePortionEffective", "portionIndex", testportionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapePortionEffective method with invalid password
+*/
+func TestGetSubshapePortionEffectiveInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapePortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapePortionEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapePortionEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapePortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapePortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetSubshapePortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapePortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapePortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapePortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetSubshapePortionEffective", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapePortionEffective", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapePortionEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapePortionEffective", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapePortionEffective method with invalid folder
+*/
+func TestGetSubshapePortionEffectiveInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapePortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapePortionEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapePortionEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapePortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapePortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetSubshapePortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapePortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapePortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapePortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetSubshapePortionEffective", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapePortionEffective", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapePortionEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapePortionEffective", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Read effective portion info (for smart art and group shapes).
+   Test for SlidesApi.GetSubshapePortionEffective method with invalid storage
+*/
+func TestGetSubshapePortionEffectiveInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetSubshapePortionEffective", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetSubshapePortionEffective", "slideIndex", "int32").(int32)
+    testpath, _ := createTestParamValue("GetSubshapePortionEffective", "path", "string").(string)
+    testshapeIndex, _ := createTestParamValue("GetSubshapePortionEffective", "shapeIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetSubshapePortionEffective", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetSubshapePortionEffective", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetSubshapePortionEffective", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetSubshapePortionEffective", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetSubshapePortionEffective", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetSubshapePortionEffective", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("GetSubshapePortionEffective", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.GetSubshapePortionEffective(testname, testslideIndex, testpath, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetSubshapePortionEffective", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read paragraph portions info (for smart art and group shapes).
@@ -57924,6 +59450,1148 @@ func TestSetBackgroundColorInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "SetBackgroundColor", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartAxis method
+*/
+func TestSetChartAxis(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartAxis", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartAxis", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartAxis", "shapeIndex", "int32").(int32)
+    testaxisType, _ := createTestParamValue("SetChartAxis", "axisType", "string").(string)
+    testaxis, _ := createTestParamValue("SetChartAxis", "axis", "Axis").(IAxis)
+    testpassword, _ := createTestParamValue("SetChartAxis", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartAxis", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartAxis", "storage", "string").(string)
+    e := initializeTest("SetChartAxis", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.SetChartAxis(testname, testslideIndex, testshapeIndex, testaxisType, testaxis, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartAxis method with invalid name
+*/
+func TestSetChartAxisInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartAxis", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartAxis", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartAxis", "shapeIndex", "int32").(int32)
+    testaxisType, _ := createTestParamValue("SetChartAxis", "axisType", "string").(string)
+    testaxis, _ := createTestParamValue("SetChartAxis", "axis", "Axis").(IAxis)
+    testpassword, _ := createTestParamValue("SetChartAxis", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartAxis", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartAxis", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "SetChartAxis", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartAxis", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartAxis(testname, testslideIndex, testshapeIndex, testaxisType, testaxis, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartAxis", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartAxis method with invalid slideIndex
+*/
+func TestSetChartAxisInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartAxis", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartAxis", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartAxis", "shapeIndex", "int32").(int32)
+    testaxisType, _ := createTestParamValue("SetChartAxis", "axisType", "string").(string)
+    testaxis, _ := createTestParamValue("SetChartAxis", "axis", "Axis").(IAxis)
+    testpassword, _ := createTestParamValue("SetChartAxis", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartAxis", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartAxis", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "SetChartAxis", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SetChartAxis", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartAxis(testname, testslideIndex, testshapeIndex, testaxisType, testaxis, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartAxis", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartAxis method with invalid shapeIndex
+*/
+func TestSetChartAxisInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartAxis", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartAxis", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartAxis", "shapeIndex", "int32").(int32)
+    testaxisType, _ := createTestParamValue("SetChartAxis", "axisType", "string").(string)
+    testaxis, _ := createTestParamValue("SetChartAxis", "axis", "Axis").(IAxis)
+    testpassword, _ := createTestParamValue("SetChartAxis", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartAxis", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartAxis", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "SetChartAxis", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SetChartAxis", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartAxis(testname, testslideIndex, testshapeIndex, testaxisType, testaxis, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartAxis", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartAxis method with invalid axisType
+*/
+func TestSetChartAxisInvalidAxisType(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartAxis", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartAxis", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartAxis", "shapeIndex", "int32").(int32)
+    testaxisType, _ := createTestParamValue("SetChartAxis", "axisType", "string").(string)
+    testaxis, _ := createTestParamValue("SetChartAxis", "axis", "Axis").(IAxis)
+    testpassword, _ := createTestParamValue("SetChartAxis", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartAxis", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartAxis", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testaxisType, "SetChartAxis", "axisType", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testaxisType = nullValue
+    } else {
+        testaxisType, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartAxis", "axisType", testaxisType)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartAxis(testname, testslideIndex, testshapeIndex, testaxisType, testaxis, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartAxis", "axisType", testaxisType, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartAxis method with invalid axis
+*/
+func TestSetChartAxisInvalidAxis(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartAxis", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartAxis", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartAxis", "shapeIndex", "int32").(int32)
+    testaxisType, _ := createTestParamValue("SetChartAxis", "axisType", "string").(string)
+    testaxis, _ := createTestParamValue("SetChartAxis", "axis", "Axis").(IAxis)
+    testpassword, _ := createTestParamValue("SetChartAxis", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartAxis", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartAxis", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testaxis, "SetChartAxis", "axis", "Axis")
+    if (invalidValue == nil) {
+        testaxis = nil
+    } else {
+        testaxis, _ = invalidValue.(IAxis)
+    }
+
+    e := initializeTest("SetChartAxis", "axis", testaxis)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartAxis(testname, testslideIndex, testshapeIndex, testaxisType, testaxis, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartAxis", "axis", testaxis, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartAxis method with invalid password
+*/
+func TestSetChartAxisInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartAxis", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartAxis", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartAxis", "shapeIndex", "int32").(int32)
+    testaxisType, _ := createTestParamValue("SetChartAxis", "axisType", "string").(string)
+    testaxis, _ := createTestParamValue("SetChartAxis", "axis", "Axis").(IAxis)
+    testpassword, _ := createTestParamValue("SetChartAxis", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartAxis", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartAxis", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "SetChartAxis", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartAxis", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartAxis(testname, testslideIndex, testshapeIndex, testaxisType, testaxis, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartAxis", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartAxis method with invalid folder
+*/
+func TestSetChartAxisInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartAxis", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartAxis", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartAxis", "shapeIndex", "int32").(int32)
+    testaxisType, _ := createTestParamValue("SetChartAxis", "axisType", "string").(string)
+    testaxis, _ := createTestParamValue("SetChartAxis", "axis", "Axis").(IAxis)
+    testpassword, _ := createTestParamValue("SetChartAxis", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartAxis", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartAxis", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "SetChartAxis", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartAxis", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartAxis(testname, testslideIndex, testshapeIndex, testaxisType, testaxis, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartAxis", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartAxis method with invalid storage
+*/
+func TestSetChartAxisInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartAxis", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartAxis", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartAxis", "shapeIndex", "int32").(int32)
+    testaxisType, _ := createTestParamValue("SetChartAxis", "axisType", "string").(string)
+    testaxis, _ := createTestParamValue("SetChartAxis", "axis", "Axis").(IAxis)
+    testpassword, _ := createTestParamValue("SetChartAxis", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartAxis", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartAxis", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "SetChartAxis", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartAxis", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartAxis(testname, testslideIndex, testshapeIndex, testaxisType, testaxis, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartAxis", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartLegend method
+*/
+func TestSetChartLegend(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartLegend", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartLegend", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartLegend", "shapeIndex", "int32").(int32)
+    testlegend, _ := createTestParamValue("SetChartLegend", "legend", "Legend").(ILegend)
+    testpassword, _ := createTestParamValue("SetChartLegend", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartLegend", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartLegend", "storage", "string").(string)
+    e := initializeTest("SetChartLegend", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.SetChartLegend(testname, testslideIndex, testshapeIndex, testlegend, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartLegend method with invalid name
+*/
+func TestSetChartLegendInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartLegend", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartLegend", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartLegend", "shapeIndex", "int32").(int32)
+    testlegend, _ := createTestParamValue("SetChartLegend", "legend", "Legend").(ILegend)
+    testpassword, _ := createTestParamValue("SetChartLegend", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartLegend", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartLegend", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "SetChartLegend", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartLegend", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartLegend(testname, testslideIndex, testshapeIndex, testlegend, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartLegend", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartLegend method with invalid slideIndex
+*/
+func TestSetChartLegendInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartLegend", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartLegend", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartLegend", "shapeIndex", "int32").(int32)
+    testlegend, _ := createTestParamValue("SetChartLegend", "legend", "Legend").(ILegend)
+    testpassword, _ := createTestParamValue("SetChartLegend", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartLegend", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartLegend", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "SetChartLegend", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SetChartLegend", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartLegend(testname, testslideIndex, testshapeIndex, testlegend, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartLegend", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartLegend method with invalid shapeIndex
+*/
+func TestSetChartLegendInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartLegend", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartLegend", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartLegend", "shapeIndex", "int32").(int32)
+    testlegend, _ := createTestParamValue("SetChartLegend", "legend", "Legend").(ILegend)
+    testpassword, _ := createTestParamValue("SetChartLegend", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartLegend", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartLegend", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "SetChartLegend", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SetChartLegend", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartLegend(testname, testslideIndex, testshapeIndex, testlegend, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartLegend", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartLegend method with invalid legend
+*/
+func TestSetChartLegendInvalidLegend(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartLegend", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartLegend", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartLegend", "shapeIndex", "int32").(int32)
+    testlegend, _ := createTestParamValue("SetChartLegend", "legend", "Legend").(ILegend)
+    testpassword, _ := createTestParamValue("SetChartLegend", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartLegend", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartLegend", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testlegend, "SetChartLegend", "legend", "Legend")
+    if (invalidValue == nil) {
+        testlegend = nil
+    } else {
+        testlegend, _ = invalidValue.(ILegend)
+    }
+
+    e := initializeTest("SetChartLegend", "legend", testlegend)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartLegend(testname, testslideIndex, testshapeIndex, testlegend, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartLegend", "legend", testlegend, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartLegend method with invalid password
+*/
+func TestSetChartLegendInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartLegend", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartLegend", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartLegend", "shapeIndex", "int32").(int32)
+    testlegend, _ := createTestParamValue("SetChartLegend", "legend", "Legend").(ILegend)
+    testpassword, _ := createTestParamValue("SetChartLegend", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartLegend", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartLegend", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "SetChartLegend", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartLegend", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartLegend(testname, testslideIndex, testshapeIndex, testlegend, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartLegend", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartLegend method with invalid folder
+*/
+func TestSetChartLegendInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartLegend", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartLegend", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartLegend", "shapeIndex", "int32").(int32)
+    testlegend, _ := createTestParamValue("SetChartLegend", "legend", "Legend").(ILegend)
+    testpassword, _ := createTestParamValue("SetChartLegend", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartLegend", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartLegend", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "SetChartLegend", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartLegend", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartLegend(testname, testslideIndex, testshapeIndex, testlegend, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartLegend", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set chart axis.
+   Test for SlidesApi.SetChartLegend method with invalid storage
+*/
+func TestSetChartLegendInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartLegend", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartLegend", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartLegend", "shapeIndex", "int32").(int32)
+    testlegend, _ := createTestParamValue("SetChartLegend", "legend", "Legend").(ILegend)
+    testpassword, _ := createTestParamValue("SetChartLegend", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartLegend", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartLegend", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "SetChartLegend", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartLegend", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartLegend(testname, testslideIndex, testshapeIndex, testlegend, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartLegend", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set a series group in a chart.
+   Test for SlidesApi.SetChartSeriesGroup method
+*/
+func TestSetChartSeriesGroup(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartSeriesGroup", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartSeriesGroup", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartSeriesGroup", "shapeIndex", "int32").(int32)
+    testseriesGroupIndex, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroupIndex", "int32").(int32)
+    testseriesGroup, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroup", "ChartSeriesGroup").(IChartSeriesGroup)
+    testpassword, _ := createTestParamValue("SetChartSeriesGroup", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartSeriesGroup", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartSeriesGroup", "storage", "string").(string)
+    e := initializeTest("SetChartSeriesGroup", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.SetChartSeriesGroup(testname, testslideIndex, testshapeIndex, testseriesGroupIndex, testseriesGroup, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Set a series group in a chart.
+   Test for SlidesApi.SetChartSeriesGroup method with invalid name
+*/
+func TestSetChartSeriesGroupInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartSeriesGroup", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartSeriesGroup", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartSeriesGroup", "shapeIndex", "int32").(int32)
+    testseriesGroupIndex, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroupIndex", "int32").(int32)
+    testseriesGroup, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroup", "ChartSeriesGroup").(IChartSeriesGroup)
+    testpassword, _ := createTestParamValue("SetChartSeriesGroup", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartSeriesGroup", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartSeriesGroup", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "SetChartSeriesGroup", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartSeriesGroup", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartSeriesGroup(testname, testslideIndex, testshapeIndex, testseriesGroupIndex, testseriesGroup, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartSeriesGroup", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set a series group in a chart.
+   Test for SlidesApi.SetChartSeriesGroup method with invalid slideIndex
+*/
+func TestSetChartSeriesGroupInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartSeriesGroup", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartSeriesGroup", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartSeriesGroup", "shapeIndex", "int32").(int32)
+    testseriesGroupIndex, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroupIndex", "int32").(int32)
+    testseriesGroup, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroup", "ChartSeriesGroup").(IChartSeriesGroup)
+    testpassword, _ := createTestParamValue("SetChartSeriesGroup", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartSeriesGroup", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartSeriesGroup", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "SetChartSeriesGroup", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SetChartSeriesGroup", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartSeriesGroup(testname, testslideIndex, testshapeIndex, testseriesGroupIndex, testseriesGroup, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartSeriesGroup", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set a series group in a chart.
+   Test for SlidesApi.SetChartSeriesGroup method with invalid shapeIndex
+*/
+func TestSetChartSeriesGroupInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartSeriesGroup", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartSeriesGroup", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartSeriesGroup", "shapeIndex", "int32").(int32)
+    testseriesGroupIndex, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroupIndex", "int32").(int32)
+    testseriesGroup, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroup", "ChartSeriesGroup").(IChartSeriesGroup)
+    testpassword, _ := createTestParamValue("SetChartSeriesGroup", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartSeriesGroup", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartSeriesGroup", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "SetChartSeriesGroup", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SetChartSeriesGroup", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartSeriesGroup(testname, testslideIndex, testshapeIndex, testseriesGroupIndex, testseriesGroup, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartSeriesGroup", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set a series group in a chart.
+   Test for SlidesApi.SetChartSeriesGroup method with invalid seriesGroupIndex
+*/
+func TestSetChartSeriesGroupInvalidSeriesGroupIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartSeriesGroup", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartSeriesGroup", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartSeriesGroup", "shapeIndex", "int32").(int32)
+    testseriesGroupIndex, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroupIndex", "int32").(int32)
+    testseriesGroup, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroup", "ChartSeriesGroup").(IChartSeriesGroup)
+    testpassword, _ := createTestParamValue("SetChartSeriesGroup", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartSeriesGroup", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartSeriesGroup", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testseriesGroupIndex, "SetChartSeriesGroup", "seriesGroupIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testseriesGroupIndex = nullValue
+    } else {
+        testseriesGroupIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SetChartSeriesGroup", "seriesGroupIndex", testseriesGroupIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartSeriesGroup(testname, testslideIndex, testshapeIndex, testseriesGroupIndex, testseriesGroup, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartSeriesGroup", "seriesGroupIndex", testseriesGroupIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set a series group in a chart.
+   Test for SlidesApi.SetChartSeriesGroup method with invalid seriesGroup
+*/
+func TestSetChartSeriesGroupInvalidSeriesGroup(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartSeriesGroup", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartSeriesGroup", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartSeriesGroup", "shapeIndex", "int32").(int32)
+    testseriesGroupIndex, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroupIndex", "int32").(int32)
+    testseriesGroup, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroup", "ChartSeriesGroup").(IChartSeriesGroup)
+    testpassword, _ := createTestParamValue("SetChartSeriesGroup", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartSeriesGroup", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartSeriesGroup", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testseriesGroup, "SetChartSeriesGroup", "seriesGroup", "ChartSeriesGroup")
+    if (invalidValue == nil) {
+        testseriesGroup = nil
+    } else {
+        testseriesGroup, _ = invalidValue.(IChartSeriesGroup)
+    }
+
+    e := initializeTest("SetChartSeriesGroup", "seriesGroup", testseriesGroup)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartSeriesGroup(testname, testslideIndex, testshapeIndex, testseriesGroupIndex, testseriesGroup, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartSeriesGroup", "seriesGroup", testseriesGroup, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set a series group in a chart.
+   Test for SlidesApi.SetChartSeriesGroup method with invalid password
+*/
+func TestSetChartSeriesGroupInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartSeriesGroup", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartSeriesGroup", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartSeriesGroup", "shapeIndex", "int32").(int32)
+    testseriesGroupIndex, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroupIndex", "int32").(int32)
+    testseriesGroup, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroup", "ChartSeriesGroup").(IChartSeriesGroup)
+    testpassword, _ := createTestParamValue("SetChartSeriesGroup", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartSeriesGroup", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartSeriesGroup", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "SetChartSeriesGroup", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartSeriesGroup", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartSeriesGroup(testname, testslideIndex, testshapeIndex, testseriesGroupIndex, testseriesGroup, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartSeriesGroup", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set a series group in a chart.
+   Test for SlidesApi.SetChartSeriesGroup method with invalid folder
+*/
+func TestSetChartSeriesGroupInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartSeriesGroup", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartSeriesGroup", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartSeriesGroup", "shapeIndex", "int32").(int32)
+    testseriesGroupIndex, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroupIndex", "int32").(int32)
+    testseriesGroup, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroup", "ChartSeriesGroup").(IChartSeriesGroup)
+    testpassword, _ := createTestParamValue("SetChartSeriesGroup", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartSeriesGroup", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartSeriesGroup", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "SetChartSeriesGroup", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartSeriesGroup", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartSeriesGroup(testname, testslideIndex, testshapeIndex, testseriesGroupIndex, testseriesGroup, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartSeriesGroup", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set a series group in a chart.
+   Test for SlidesApi.SetChartSeriesGroup method with invalid storage
+*/
+func TestSetChartSeriesGroupInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartSeriesGroup", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartSeriesGroup", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartSeriesGroup", "shapeIndex", "int32").(int32)
+    testseriesGroupIndex, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroupIndex", "int32").(int32)
+    testseriesGroup, _ := createTestParamValue("SetChartSeriesGroup", "seriesGroup", "ChartSeriesGroup").(IChartSeriesGroup)
+    testpassword, _ := createTestParamValue("SetChartSeriesGroup", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartSeriesGroup", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartSeriesGroup", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "SetChartSeriesGroup", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartSeriesGroup", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartSeriesGroup(testname, testslideIndex, testshapeIndex, testseriesGroupIndex, testseriesGroup, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartSeriesGroup", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set 3D chart wall.
+   Test for SlidesApi.SetChartWall method
+*/
+func TestSetChartWall(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartWall", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartWall", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartWall", "shapeIndex", "int32").(int32)
+    testchartWallType, _ := createTestParamValue("SetChartWall", "chartWallType", "string").(string)
+    testchartWall, _ := createTestParamValue("SetChartWall", "chartWall", "ChartWall").(IChartWall)
+    testpassword, _ := createTestParamValue("SetChartWall", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartWall", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartWall", "storage", "string").(string)
+    e := initializeTest("SetChartWall", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := getTestApiClient()
+    _, _, e = c.SlidesApi.SetChartWall(testname, testslideIndex, testshapeIndex, testchartWallType, testchartWall, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Set 3D chart wall.
+   Test for SlidesApi.SetChartWall method with invalid name
+*/
+func TestSetChartWallInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartWall", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartWall", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartWall", "shapeIndex", "int32").(int32)
+    testchartWallType, _ := createTestParamValue("SetChartWall", "chartWallType", "string").(string)
+    testchartWall, _ := createTestParamValue("SetChartWall", "chartWall", "ChartWall").(IChartWall)
+    testpassword, _ := createTestParamValue("SetChartWall", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartWall", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartWall", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "SetChartWall", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartWall", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartWall(testname, testslideIndex, testshapeIndex, testchartWallType, testchartWall, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartWall", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set 3D chart wall.
+   Test for SlidesApi.SetChartWall method with invalid slideIndex
+*/
+func TestSetChartWallInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartWall", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartWall", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartWall", "shapeIndex", "int32").(int32)
+    testchartWallType, _ := createTestParamValue("SetChartWall", "chartWallType", "string").(string)
+    testchartWall, _ := createTestParamValue("SetChartWall", "chartWall", "ChartWall").(IChartWall)
+    testpassword, _ := createTestParamValue("SetChartWall", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartWall", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartWall", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "SetChartWall", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SetChartWall", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartWall(testname, testslideIndex, testshapeIndex, testchartWallType, testchartWall, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartWall", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set 3D chart wall.
+   Test for SlidesApi.SetChartWall method with invalid shapeIndex
+*/
+func TestSetChartWallInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartWall", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartWall", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartWall", "shapeIndex", "int32").(int32)
+    testchartWallType, _ := createTestParamValue("SetChartWall", "chartWallType", "string").(string)
+    testchartWall, _ := createTestParamValue("SetChartWall", "chartWall", "ChartWall").(IChartWall)
+    testpassword, _ := createTestParamValue("SetChartWall", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartWall", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartWall", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "SetChartWall", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("SetChartWall", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartWall(testname, testslideIndex, testshapeIndex, testchartWallType, testchartWall, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartWall", "shapeIndex", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set 3D chart wall.
+   Test for SlidesApi.SetChartWall method with invalid chartWallType
+*/
+func TestSetChartWallInvalidChartWallType(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartWall", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartWall", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartWall", "shapeIndex", "int32").(int32)
+    testchartWallType, _ := createTestParamValue("SetChartWall", "chartWallType", "string").(string)
+    testchartWall, _ := createTestParamValue("SetChartWall", "chartWall", "ChartWall").(IChartWall)
+    testpassword, _ := createTestParamValue("SetChartWall", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartWall", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartWall", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testchartWallType, "SetChartWall", "chartWallType", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testchartWallType = nullValue
+    } else {
+        testchartWallType, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartWall", "chartWallType", testchartWallType)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartWall(testname, testslideIndex, testshapeIndex, testchartWallType, testchartWall, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartWall", "chartWallType", testchartWallType, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set 3D chart wall.
+   Test for SlidesApi.SetChartWall method with invalid chartWall
+*/
+func TestSetChartWallInvalidChartWall(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartWall", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartWall", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartWall", "shapeIndex", "int32").(int32)
+    testchartWallType, _ := createTestParamValue("SetChartWall", "chartWallType", "string").(string)
+    testchartWall, _ := createTestParamValue("SetChartWall", "chartWall", "ChartWall").(IChartWall)
+    testpassword, _ := createTestParamValue("SetChartWall", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartWall", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartWall", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testchartWall, "SetChartWall", "chartWall", "ChartWall")
+    if (invalidValue == nil) {
+        testchartWall = nil
+    } else {
+        testchartWall, _ = invalidValue.(IChartWall)
+    }
+
+    e := initializeTest("SetChartWall", "chartWall", testchartWall)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartWall(testname, testslideIndex, testshapeIndex, testchartWallType, testchartWall, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartWall", "chartWall", testchartWall, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set 3D chart wall.
+   Test for SlidesApi.SetChartWall method with invalid password
+*/
+func TestSetChartWallInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartWall", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartWall", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartWall", "shapeIndex", "int32").(int32)
+    testchartWallType, _ := createTestParamValue("SetChartWall", "chartWallType", "string").(string)
+    testchartWall, _ := createTestParamValue("SetChartWall", "chartWall", "ChartWall").(IChartWall)
+    testpassword, _ := createTestParamValue("SetChartWall", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartWall", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartWall", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "SetChartWall", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartWall", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartWall(testname, testslideIndex, testshapeIndex, testchartWallType, testchartWall, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartWall", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set 3D chart wall.
+   Test for SlidesApi.SetChartWall method with invalid folder
+*/
+func TestSetChartWallInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartWall", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartWall", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartWall", "shapeIndex", "int32").(int32)
+    testchartWallType, _ := createTestParamValue("SetChartWall", "chartWallType", "string").(string)
+    testchartWall, _ := createTestParamValue("SetChartWall", "chartWall", "ChartWall").(IChartWall)
+    testpassword, _ := createTestParamValue("SetChartWall", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartWall", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartWall", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "SetChartWall", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartWall", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartWall(testname, testslideIndex, testshapeIndex, testchartWallType, testchartWall, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartWall", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Set 3D chart wall.
+   Test for SlidesApi.SetChartWall method with invalid storage
+*/
+func TestSetChartWallInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("SetChartWall", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SetChartWall", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SetChartWall", "shapeIndex", "int32").(int32)
+    testchartWallType, _ := createTestParamValue("SetChartWall", "chartWallType", "string").(string)
+    testchartWall, _ := createTestParamValue("SetChartWall", "chartWall", "ChartWall").(IChartWall)
+    testpassword, _ := createTestParamValue("SetChartWall", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetChartWall", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetChartWall", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "SetChartWall", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetChartWall", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := getTestApiClient().SlidesApi.SetChartWall(testname, testslideIndex, testshapeIndex, testchartWallType, testchartWall, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetChartWall", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Set document properties.

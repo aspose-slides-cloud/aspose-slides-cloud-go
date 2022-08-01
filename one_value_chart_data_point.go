@@ -40,6 +40,10 @@ type IOneValueChartDataPoint interface {
 	// SetAsTotal. Applied to Waterfall data points only.
 	getSetAsTotal() bool
 	setSetAsTotal(newValue bool)
+
+	// True if the data point shall invert its colors if the value is negative. Applies to bar, column and bubble series.
+	getInvertIfNegative() bool
+	setInvertIfNegative(newValue bool)
 }
 
 type OneValueChartDataPoint struct {
@@ -49,6 +53,9 @@ type OneValueChartDataPoint struct {
 
 	// SetAsTotal. Applied to Waterfall data points only.
 	SetAsTotal bool `json:"SetAsTotal"`
+
+	// True if the data point shall invert its colors if the value is negative. Applies to bar, column and bubble series.
+	InvertIfNegative bool `json:"InvertIfNegative"`
 }
 
 func NewOneValueChartDataPoint() *OneValueChartDataPoint {
@@ -69,6 +76,13 @@ func (this *OneValueChartDataPoint) getSetAsTotal() bool {
 
 func (this *OneValueChartDataPoint) setSetAsTotal(newValue bool) {
 	this.SetAsTotal = newValue
+}
+func (this *OneValueChartDataPoint) getInvertIfNegative() bool {
+	return this.InvertIfNegative
+}
+
+func (this *OneValueChartDataPoint) setInvertIfNegative(newValue bool) {
+	this.InvertIfNegative = newValue
 }
 
 func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
@@ -117,6 +131,27 @@ func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.SetAsTotal = valueForSetAsTotal
+		}
+	}
+	
+	if valInvertIfNegative, ok := objMap["invertIfNegative"]; ok {
+		if valInvertIfNegative != nil {
+			var valueForInvertIfNegative bool
+			err = json.Unmarshal(*valInvertIfNegative, &valueForInvertIfNegative)
+			if err != nil {
+				return err
+			}
+			this.InvertIfNegative = valueForInvertIfNegative
+		}
+	}
+	if valInvertIfNegativeCap, ok := objMap["InvertIfNegative"]; ok {
+		if valInvertIfNegativeCap != nil {
+			var valueForInvertIfNegative bool
+			err = json.Unmarshal(*valInvertIfNegativeCap, &valueForInvertIfNegative)
+			if err != nil {
+				return err
+			}
+			this.InvertIfNegative = valueForInvertIfNegative
 		}
 	}
 
