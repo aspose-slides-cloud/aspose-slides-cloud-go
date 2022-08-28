@@ -34,100 +34,100 @@ import (
 type IZoomFrame interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Image type of a zoom object. 
-	getImageType() string
-	setImageType(newValue string)
+	GetImageType() string
+	SetImageType(newValue string)
 
 	// Navigation behavior in slideshow. 
-	getReturnToParent() bool
-	setReturnToParent(newValue bool)
+	GetReturnToParent() bool
+	SetReturnToParent(newValue bool)
 
 	// Specifies whether the Zoom will use the background of the destination slide.
-	getShowBackground() bool
-	setShowBackground(newValue bool)
+	GetShowBackground() bool
+	SetShowBackground(newValue bool)
 
 	// Internal image link for zoom object
-	getImage() IResourceUri
-	setImage(newValue IResourceUri)
+	GetImage() IResourceUri
+	SetImage(newValue IResourceUri)
 
 	// Duration of the transition between Zoom and slide.
-	getTransitionDuration() float64
-	setTransitionDuration(newValue float64)
+	GetTransitionDuration() float64
+	SetTransitionDuration(newValue float64)
 
 	// Links to the target slide
-	getTargetSlideIndex() int32
-	setTargetSlideIndex(newValue int32)
+	GetTargetSlideIndex() int32
+	SetTargetSlideIndex(newValue int32)
 }
 
 type ZoomFrame struct {
@@ -212,172 +212,172 @@ func NewZoomFrame() *ZoomFrame {
 	return instance
 }
 
-func (this *ZoomFrame) getSelfUri() IResourceUri {
+func (this *ZoomFrame) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *ZoomFrame) setSelfUri(newValue IResourceUri) {
+func (this *ZoomFrame) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *ZoomFrame) getAlternateLinks() []IResourceUri {
+func (this *ZoomFrame) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *ZoomFrame) setAlternateLinks(newValue []IResourceUri) {
+func (this *ZoomFrame) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *ZoomFrame) getName() string {
+func (this *ZoomFrame) GetName() string {
 	return this.Name
 }
 
-func (this *ZoomFrame) setName(newValue string) {
+func (this *ZoomFrame) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *ZoomFrame) getWidth() float64 {
+func (this *ZoomFrame) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *ZoomFrame) setWidth(newValue float64) {
+func (this *ZoomFrame) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *ZoomFrame) getHeight() float64 {
+func (this *ZoomFrame) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *ZoomFrame) setHeight(newValue float64) {
+func (this *ZoomFrame) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *ZoomFrame) getAlternativeText() string {
+func (this *ZoomFrame) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *ZoomFrame) setAlternativeText(newValue string) {
+func (this *ZoomFrame) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *ZoomFrame) getAlternativeTextTitle() string {
+func (this *ZoomFrame) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *ZoomFrame) setAlternativeTextTitle(newValue string) {
+func (this *ZoomFrame) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *ZoomFrame) getHidden() bool {
+func (this *ZoomFrame) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *ZoomFrame) setHidden(newValue bool) {
+func (this *ZoomFrame) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *ZoomFrame) getX() float64 {
+func (this *ZoomFrame) GetX() float64 {
 	return this.X
 }
 
-func (this *ZoomFrame) setX(newValue float64) {
+func (this *ZoomFrame) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *ZoomFrame) getY() float64 {
+func (this *ZoomFrame) GetY() float64 {
 	return this.Y
 }
 
-func (this *ZoomFrame) setY(newValue float64) {
+func (this *ZoomFrame) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *ZoomFrame) getZOrderPosition() int32 {
+func (this *ZoomFrame) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *ZoomFrame) setZOrderPosition(newValue int32) {
+func (this *ZoomFrame) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *ZoomFrame) getFillFormat() IFillFormat {
+func (this *ZoomFrame) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *ZoomFrame) setFillFormat(newValue IFillFormat) {
+func (this *ZoomFrame) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *ZoomFrame) getEffectFormat() IEffectFormat {
+func (this *ZoomFrame) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *ZoomFrame) setEffectFormat(newValue IEffectFormat) {
+func (this *ZoomFrame) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *ZoomFrame) getThreeDFormat() IThreeDFormat {
+func (this *ZoomFrame) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *ZoomFrame) setThreeDFormat(newValue IThreeDFormat) {
+func (this *ZoomFrame) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *ZoomFrame) getLineFormat() ILineFormat {
+func (this *ZoomFrame) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *ZoomFrame) setLineFormat(newValue ILineFormat) {
+func (this *ZoomFrame) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *ZoomFrame) getHyperlinkClick() IHyperlink {
+func (this *ZoomFrame) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *ZoomFrame) setHyperlinkClick(newValue IHyperlink) {
+func (this *ZoomFrame) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *ZoomFrame) getHyperlinkMouseOver() IHyperlink {
+func (this *ZoomFrame) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *ZoomFrame) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *ZoomFrame) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *ZoomFrame) getType() string {
+func (this *ZoomFrame) GetType() string {
 	return this.Type_
 }
 
-func (this *ZoomFrame) setType(newValue string) {
+func (this *ZoomFrame) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *ZoomFrame) getImageType() string {
+func (this *ZoomFrame) GetImageType() string {
 	return this.ImageType
 }
 
-func (this *ZoomFrame) setImageType(newValue string) {
+func (this *ZoomFrame) SetImageType(newValue string) {
 	this.ImageType = newValue
 }
-func (this *ZoomFrame) getReturnToParent() bool {
+func (this *ZoomFrame) GetReturnToParent() bool {
 	return this.ReturnToParent
 }
 
-func (this *ZoomFrame) setReturnToParent(newValue bool) {
+func (this *ZoomFrame) SetReturnToParent(newValue bool) {
 	this.ReturnToParent = newValue
 }
-func (this *ZoomFrame) getShowBackground() bool {
+func (this *ZoomFrame) GetShowBackground() bool {
 	return this.ShowBackground
 }
 
-func (this *ZoomFrame) setShowBackground(newValue bool) {
+func (this *ZoomFrame) SetShowBackground(newValue bool) {
 	this.ShowBackground = newValue
 }
-func (this *ZoomFrame) getImage() IResourceUri {
+func (this *ZoomFrame) GetImage() IResourceUri {
 	return this.Image
 }
 
-func (this *ZoomFrame) setImage(newValue IResourceUri) {
+func (this *ZoomFrame) SetImage(newValue IResourceUri) {
 	this.Image = newValue
 }
-func (this *ZoomFrame) getTransitionDuration() float64 {
+func (this *ZoomFrame) GetTransitionDuration() float64 {
 	return this.TransitionDuration
 }
 
-func (this *ZoomFrame) setTransitionDuration(newValue float64) {
+func (this *ZoomFrame) SetTransitionDuration(newValue float64) {
 	this.TransitionDuration = newValue
 }
-func (this *ZoomFrame) getTargetSlideIndex() int32 {
+func (this *ZoomFrame) GetTargetSlideIndex() int32 {
 	return this.TargetSlideIndex
 }
 
-func (this *ZoomFrame) setTargetSlideIndex(newValue int32) {
+func (this *ZoomFrame) SetTargetSlideIndex(newValue int32) {
 	this.TargetSlideIndex = newValue
 }
 

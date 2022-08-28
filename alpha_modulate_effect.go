@@ -34,8 +34,8 @@ import (
 type IAlphaModulateEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type AlphaModulateEffect struct {
@@ -50,11 +50,11 @@ func NewAlphaModulateEffect() *AlphaModulateEffect {
 	return instance
 }
 
-func (this *AlphaModulateEffect) getType() string {
+func (this *AlphaModulateEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *AlphaModulateEffect) setType(newValue string) {
+func (this *AlphaModulateEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

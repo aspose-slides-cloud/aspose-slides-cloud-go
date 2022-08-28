@@ -34,16 +34,16 @@ import (
 type IPlaceholders interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// List for placeholder links.
-	getPlaceholderLinks() []IResourceUri
-	setPlaceholderLinks(newValue []IResourceUri)
+	GetPlaceholderLinks() []IResourceUri
+	SetPlaceholderLinks(newValue []IResourceUri)
 }
 
 type Placeholders struct {
@@ -63,25 +63,25 @@ func NewPlaceholders() *Placeholders {
 	return instance
 }
 
-func (this *Placeholders) getSelfUri() IResourceUri {
+func (this *Placeholders) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Placeholders) setSelfUri(newValue IResourceUri) {
+func (this *Placeholders) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Placeholders) getAlternateLinks() []IResourceUri {
+func (this *Placeholders) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Placeholders) setAlternateLinks(newValue []IResourceUri) {
+func (this *Placeholders) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Placeholders) getPlaceholderLinks() []IResourceUri {
+func (this *Placeholders) GetPlaceholderLinks() []IResourceUri {
 	return this.PlaceholderLinks
 }
 
-func (this *Placeholders) setPlaceholderLinks(newValue []IResourceUri) {
+func (this *Placeholders) SetPlaceholderLinks(newValue []IResourceUri) {
 	this.PlaceholderLinks = newValue
 }
 

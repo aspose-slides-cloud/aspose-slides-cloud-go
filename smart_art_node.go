@@ -34,28 +34,28 @@ import (
 type ISmartArtNode interface {
 
 	// Node list.
-	getNodes() []ISmartArtNode
-	setNodes(newValue []ISmartArtNode)
+	GetNodes() []ISmartArtNode
+	SetNodes(newValue []ISmartArtNode)
 
 	// Gets or sets the link to shapes.
-	getShapes() IResourceUri
-	setShapes(newValue IResourceUri)
+	GetShapes() IResourceUri
+	SetShapes(newValue IResourceUri)
 
 	// True for and assistant node.
-	getIsAssistant() bool
-	setIsAssistant(newValue bool)
+	GetIsAssistant() bool
+	SetIsAssistant(newValue bool)
 
 	// Node text.
-	getText() string
-	setText(newValue string)
+	GetText() string
+	SetText(newValue string)
 
 	// Organization chart layout type associated with current node.
-	getOrgChartLayout() string
-	setOrgChartLayout(newValue string)
+	GetOrgChartLayout() string
+	SetOrgChartLayout(newValue string)
 
 	// Get or sets list to paragraphs list
-	getParagraphs() IResourceUri
-	setParagraphs(newValue IResourceUri)
+	GetParagraphs() IResourceUri
+	SetParagraphs(newValue IResourceUri)
 }
 
 type SmartArtNode struct {
@@ -85,46 +85,46 @@ func NewSmartArtNode() *SmartArtNode {
 	return instance
 }
 
-func (this *SmartArtNode) getNodes() []ISmartArtNode {
+func (this *SmartArtNode) GetNodes() []ISmartArtNode {
 	return this.Nodes
 }
 
-func (this *SmartArtNode) setNodes(newValue []ISmartArtNode) {
+func (this *SmartArtNode) SetNodes(newValue []ISmartArtNode) {
 	this.Nodes = newValue
 }
-func (this *SmartArtNode) getShapes() IResourceUri {
+func (this *SmartArtNode) GetShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *SmartArtNode) setShapes(newValue IResourceUri) {
+func (this *SmartArtNode) SetShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
-func (this *SmartArtNode) getIsAssistant() bool {
+func (this *SmartArtNode) GetIsAssistant() bool {
 	return this.IsAssistant
 }
 
-func (this *SmartArtNode) setIsAssistant(newValue bool) {
+func (this *SmartArtNode) SetIsAssistant(newValue bool) {
 	this.IsAssistant = newValue
 }
-func (this *SmartArtNode) getText() string {
+func (this *SmartArtNode) GetText() string {
 	return this.Text
 }
 
-func (this *SmartArtNode) setText(newValue string) {
+func (this *SmartArtNode) SetText(newValue string) {
 	this.Text = newValue
 }
-func (this *SmartArtNode) getOrgChartLayout() string {
+func (this *SmartArtNode) GetOrgChartLayout() string {
 	return this.OrgChartLayout
 }
 
-func (this *SmartArtNode) setOrgChartLayout(newValue string) {
+func (this *SmartArtNode) SetOrgChartLayout(newValue string) {
 	this.OrgChartLayout = newValue
 }
-func (this *SmartArtNode) getParagraphs() IResourceUri {
+func (this *SmartArtNode) GetParagraphs() IResourceUri {
 	return this.Paragraphs
 }
 
-func (this *SmartArtNode) setParagraphs(newValue IResourceUri) {
+func (this *SmartArtNode) SetParagraphs(newValue IResourceUri) {
 	this.Paragraphs = newValue
 }
 

@@ -34,16 +34,16 @@ import (
 type IDocumentProperties interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Document property list.
-	getList() []IDocumentProperty
-	setList(newValue []IDocumentProperty)
+	GetList() []IDocumentProperty
+	SetList(newValue []IDocumentProperty)
 }
 
 type DocumentProperties struct {
@@ -63,25 +63,25 @@ func NewDocumentProperties() *DocumentProperties {
 	return instance
 }
 
-func (this *DocumentProperties) getSelfUri() IResourceUri {
+func (this *DocumentProperties) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *DocumentProperties) setSelfUri(newValue IResourceUri) {
+func (this *DocumentProperties) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *DocumentProperties) getAlternateLinks() []IResourceUri {
+func (this *DocumentProperties) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *DocumentProperties) setAlternateLinks(newValue []IResourceUri) {
+func (this *DocumentProperties) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *DocumentProperties) getList() []IDocumentProperty {
+func (this *DocumentProperties) GetList() []IDocumentProperty {
 	return this.List
 }
 
-func (this *DocumentProperties) setList(newValue []IDocumentProperty) {
+func (this *DocumentProperties) SetList(newValue []IDocumentProperty) {
 	this.List = newValue
 }
 

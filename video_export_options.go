@@ -34,32 +34,32 @@ import (
 type IVideoExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	// Export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Slides transition duration.
-	getSlidesTransitionDuration() int32
-	setSlidesTransitionDuration(newValue int32)
+	GetSlidesTransitionDuration() int32
+	SetSlidesTransitionDuration(newValue int32)
 
 	// Video transition type
-	getTransitionType() string
-	setTransitionType(newValue string)
+	GetTransitionType() string
+	SetTransitionType(newValue string)
 
 	// Duration of transition defined in TransitionType property.
-	getTransitionDuration() int32
-	setTransitionDuration(newValue int32)
+	GetTransitionDuration() int32
+	SetTransitionDuration(newValue int32)
 
 	// Video resolution type
-	getVideoResolutionType() string
-	setVideoResolutionType(newValue string)
+	GetVideoResolutionType() string
+	SetVideoResolutionType(newValue string)
 }
 
 type VideoExportOptions struct {
@@ -93,53 +93,53 @@ func NewVideoExportOptions() *VideoExportOptions {
 	return instance
 }
 
-func (this *VideoExportOptions) getDefaultRegularFont() string {
+func (this *VideoExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *VideoExportOptions) setDefaultRegularFont(newValue string) {
+func (this *VideoExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *VideoExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *VideoExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *VideoExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *VideoExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *VideoExportOptions) getFormat() string {
+func (this *VideoExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *VideoExportOptions) setFormat(newValue string) {
+func (this *VideoExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *VideoExportOptions) getSlidesTransitionDuration() int32 {
+func (this *VideoExportOptions) GetSlidesTransitionDuration() int32 {
 	return this.SlidesTransitionDuration
 }
 
-func (this *VideoExportOptions) setSlidesTransitionDuration(newValue int32) {
+func (this *VideoExportOptions) SetSlidesTransitionDuration(newValue int32) {
 	this.SlidesTransitionDuration = newValue
 }
-func (this *VideoExportOptions) getTransitionType() string {
+func (this *VideoExportOptions) GetTransitionType() string {
 	return this.TransitionType
 }
 
-func (this *VideoExportOptions) setTransitionType(newValue string) {
+func (this *VideoExportOptions) SetTransitionType(newValue string) {
 	this.TransitionType = newValue
 }
-func (this *VideoExportOptions) getTransitionDuration() int32 {
+func (this *VideoExportOptions) GetTransitionDuration() int32 {
 	return this.TransitionDuration
 }
 
-func (this *VideoExportOptions) setTransitionDuration(newValue int32) {
+func (this *VideoExportOptions) SetTransitionDuration(newValue int32) {
 	this.TransitionDuration = newValue
 }
-func (this *VideoExportOptions) getVideoResolutionType() string {
+func (this *VideoExportOptions) GetVideoResolutionType() string {
 	return this.VideoResolutionType
 }
 
-func (this *VideoExportOptions) setVideoResolutionType(newValue string) {
+func (this *VideoExportOptions) SetVideoResolutionType(newValue string) {
 	this.VideoResolutionType = newValue
 }
 

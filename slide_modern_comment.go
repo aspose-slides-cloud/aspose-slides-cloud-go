@@ -34,36 +34,36 @@ import (
 type ISlideModernComment interface {
 
 	// Author.
-	getAuthor() string
-	setAuthor(newValue string)
+	GetAuthor() string
+	SetAuthor(newValue string)
 
 	// Text.
-	getText() string
-	setText(newValue string)
+	GetText() string
+	SetText(newValue string)
 
 	// Creation time.
-	getCreatedTime() string
-	setCreatedTime(newValue string)
+	GetCreatedTime() string
+	SetCreatedTime(newValue string)
 
 	// Child comments.
-	getChildComments() []ISlideCommentBase
-	setChildComments(newValue []ISlideCommentBase)
+	GetChildComments() []ISlideCommentBase
+	SetChildComments(newValue []ISlideCommentBase)
 
 	// Slide modern comment type. 
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Returns or sets starting position of text selection in text frame if the comment associated with AutoShape. Read/write Int32.
-	getTextSelectionStart() int32
-	setTextSelectionStart(newValue int32)
+	GetTextSelectionStart() int32
+	SetTextSelectionStart(newValue int32)
 
 	// Returns or sets text selection length in text frame if the comment associated with AutoShape. Read/write Int32.
-	getTextSelectionLength() int32
-	setTextSelectionLength(newValue int32)
+	GetTextSelectionLength() int32
+	SetTextSelectionLength(newValue int32)
 
 	// Returns or sets the status of the comment. Read/write ModernCommentStatus.
-	getStatus() string
-	setStatus(newValue string)
+	GetStatus() string
+	SetStatus(newValue string)
 }
 
 type SlideModernComment struct {
@@ -100,60 +100,60 @@ func NewSlideModernComment() *SlideModernComment {
 	return instance
 }
 
-func (this *SlideModernComment) getAuthor() string {
+func (this *SlideModernComment) GetAuthor() string {
 	return this.Author
 }
 
-func (this *SlideModernComment) setAuthor(newValue string) {
+func (this *SlideModernComment) SetAuthor(newValue string) {
 	this.Author = newValue
 }
-func (this *SlideModernComment) getText() string {
+func (this *SlideModernComment) GetText() string {
 	return this.Text
 }
 
-func (this *SlideModernComment) setText(newValue string) {
+func (this *SlideModernComment) SetText(newValue string) {
 	this.Text = newValue
 }
-func (this *SlideModernComment) getCreatedTime() string {
+func (this *SlideModernComment) GetCreatedTime() string {
 	return this.CreatedTime
 }
 
-func (this *SlideModernComment) setCreatedTime(newValue string) {
+func (this *SlideModernComment) SetCreatedTime(newValue string) {
 	this.CreatedTime = newValue
 }
-func (this *SlideModernComment) getChildComments() []ISlideCommentBase {
+func (this *SlideModernComment) GetChildComments() []ISlideCommentBase {
 	return this.ChildComments
 }
 
-func (this *SlideModernComment) setChildComments(newValue []ISlideCommentBase) {
+func (this *SlideModernComment) SetChildComments(newValue []ISlideCommentBase) {
 	this.ChildComments = newValue
 }
-func (this *SlideModernComment) getType() string {
+func (this *SlideModernComment) GetType() string {
 	return this.Type_
 }
 
-func (this *SlideModernComment) setType(newValue string) {
+func (this *SlideModernComment) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *SlideModernComment) getTextSelectionStart() int32 {
+func (this *SlideModernComment) GetTextSelectionStart() int32 {
 	return this.TextSelectionStart
 }
 
-func (this *SlideModernComment) setTextSelectionStart(newValue int32) {
+func (this *SlideModernComment) SetTextSelectionStart(newValue int32) {
 	this.TextSelectionStart = newValue
 }
-func (this *SlideModernComment) getTextSelectionLength() int32 {
+func (this *SlideModernComment) GetTextSelectionLength() int32 {
 	return this.TextSelectionLength
 }
 
-func (this *SlideModernComment) setTextSelectionLength(newValue int32) {
+func (this *SlideModernComment) SetTextSelectionLength(newValue int32) {
 	this.TextSelectionLength = newValue
 }
-func (this *SlideModernComment) getStatus() string {
+func (this *SlideModernComment) GetStatus() string {
 	return this.Status
 }
 
-func (this *SlideModernComment) setStatus(newValue string) {
+func (this *SlideModernComment) SetStatus(newValue string) {
 	this.Status = newValue
 }
 

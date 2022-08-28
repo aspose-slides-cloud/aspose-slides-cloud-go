@@ -34,24 +34,24 @@ import (
 type IQuadraticBezierToPathSegment interface {
 
 	// Quadratic Bezier curve segment
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// X coordinate of direction point
-	getX1() float64
-	setX1(newValue float64)
+	GetX1() float64
+	SetX1(newValue float64)
 
 	// Y coordinate of direction point
-	getY1() float64
-	setY1(newValue float64)
+	GetY1() float64
+	SetY1(newValue float64)
 
 	// X coordinate of end point
-	getX2() float64
-	setX2(newValue float64)
+	GetX2() float64
+	SetX2(newValue float64)
 
 	// Y coordinate of end point
-	getY2() float64
-	setY2(newValue float64)
+	GetY2() float64
+	SetY2(newValue float64)
 }
 
 type QuadraticBezierToPathSegment struct {
@@ -78,39 +78,39 @@ func NewQuadraticBezierToPathSegment() *QuadraticBezierToPathSegment {
 	return instance
 }
 
-func (this *QuadraticBezierToPathSegment) getType() string {
+func (this *QuadraticBezierToPathSegment) GetType() string {
 	return this.Type_
 }
 
-func (this *QuadraticBezierToPathSegment) setType(newValue string) {
+func (this *QuadraticBezierToPathSegment) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *QuadraticBezierToPathSegment) getX1() float64 {
+func (this *QuadraticBezierToPathSegment) GetX1() float64 {
 	return this.X1
 }
 
-func (this *QuadraticBezierToPathSegment) setX1(newValue float64) {
+func (this *QuadraticBezierToPathSegment) SetX1(newValue float64) {
 	this.X1 = newValue
 }
-func (this *QuadraticBezierToPathSegment) getY1() float64 {
+func (this *QuadraticBezierToPathSegment) GetY1() float64 {
 	return this.Y1
 }
 
-func (this *QuadraticBezierToPathSegment) setY1(newValue float64) {
+func (this *QuadraticBezierToPathSegment) SetY1(newValue float64) {
 	this.Y1 = newValue
 }
-func (this *QuadraticBezierToPathSegment) getX2() float64 {
+func (this *QuadraticBezierToPathSegment) GetX2() float64 {
 	return this.X2
 }
 
-func (this *QuadraticBezierToPathSegment) setX2(newValue float64) {
+func (this *QuadraticBezierToPathSegment) SetX2(newValue float64) {
 	this.X2 = newValue
 }
-func (this *QuadraticBezierToPathSegment) getY2() float64 {
+func (this *QuadraticBezierToPathSegment) GetY2() float64 {
 	return this.Y2
 }
 
-func (this *QuadraticBezierToPathSegment) setY2(newValue float64) {
+func (this *QuadraticBezierToPathSegment) SetY2(newValue float64) {
 	this.Y2 = newValue
 }
 

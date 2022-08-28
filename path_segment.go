@@ -33,8 +33,8 @@ import (
 // Represents segment of geometry path
 type IPathSegment interface {
 
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type PathSegment struct {
@@ -48,11 +48,11 @@ func NewPathSegment() *PathSegment {
 	return instance
 }
 
-func (this *PathSegment) getType() string {
+func (this *PathSegment) GetType() string {
 	return this.Type_
 }
 
-func (this *PathSegment) setType(newValue string) {
+func (this *PathSegment) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

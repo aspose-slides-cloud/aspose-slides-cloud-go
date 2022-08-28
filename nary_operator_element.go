@@ -34,40 +34,40 @@ import (
 type INaryOperatorElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Base argument
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Subscript argument
-	getSubscript() IMathElement
-	setSubscript(newValue IMathElement)
+	GetSubscript() IMathElement
+	SetSubscript(newValue IMathElement)
 
 	// Superscript argument
-	getSuperscript() IMathElement
-	setSuperscript(newValue IMathElement)
+	GetSuperscript() IMathElement
+	SetSuperscript(newValue IMathElement)
 
 	// Nary Operator Character
-	getOperator() string
-	setOperator(newValue string)
+	GetOperator() string
+	SetOperator(newValue string)
 
 	// The location of limits (subscript and superscript)
-	getLimitLocation() string
-	setLimitLocation(newValue string)
+	GetLimitLocation() string
+	SetLimitLocation(newValue string)
 
 	// Operator Character grows vertically to match its operand height
-	getGrowToMatchOperandHeight() bool
-	setGrowToMatchOperandHeight(newValue bool)
+	GetGrowToMatchOperandHeight() bool
+	SetGrowToMatchOperandHeight(newValue bool)
 
 	// Hide Subscript
-	getHideSubscript() bool
-	setHideSubscript(newValue bool)
+	GetHideSubscript() bool
+	SetHideSubscript(newValue bool)
 
 	// Hide Superscript
-	getHideSuperscript() bool
-	setHideSuperscript(newValue bool)
+	GetHideSuperscript() bool
+	SetHideSuperscript(newValue bool)
 }
 
 type NaryOperatorElement struct {
@@ -107,67 +107,67 @@ func NewNaryOperatorElement() *NaryOperatorElement {
 	return instance
 }
 
-func (this *NaryOperatorElement) getType() string {
+func (this *NaryOperatorElement) GetType() string {
 	return this.Type_
 }
 
-func (this *NaryOperatorElement) setType(newValue string) {
+func (this *NaryOperatorElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *NaryOperatorElement) getBase() IMathElement {
+func (this *NaryOperatorElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *NaryOperatorElement) setBase(newValue IMathElement) {
+func (this *NaryOperatorElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *NaryOperatorElement) getSubscript() IMathElement {
+func (this *NaryOperatorElement) GetSubscript() IMathElement {
 	return this.Subscript
 }
 
-func (this *NaryOperatorElement) setSubscript(newValue IMathElement) {
+func (this *NaryOperatorElement) SetSubscript(newValue IMathElement) {
 	this.Subscript = newValue
 }
-func (this *NaryOperatorElement) getSuperscript() IMathElement {
+func (this *NaryOperatorElement) GetSuperscript() IMathElement {
 	return this.Superscript
 }
 
-func (this *NaryOperatorElement) setSuperscript(newValue IMathElement) {
+func (this *NaryOperatorElement) SetSuperscript(newValue IMathElement) {
 	this.Superscript = newValue
 }
-func (this *NaryOperatorElement) getOperator() string {
+func (this *NaryOperatorElement) GetOperator() string {
 	return this.Operator
 }
 
-func (this *NaryOperatorElement) setOperator(newValue string) {
+func (this *NaryOperatorElement) SetOperator(newValue string) {
 	this.Operator = newValue
 }
-func (this *NaryOperatorElement) getLimitLocation() string {
+func (this *NaryOperatorElement) GetLimitLocation() string {
 	return this.LimitLocation
 }
 
-func (this *NaryOperatorElement) setLimitLocation(newValue string) {
+func (this *NaryOperatorElement) SetLimitLocation(newValue string) {
 	this.LimitLocation = newValue
 }
-func (this *NaryOperatorElement) getGrowToMatchOperandHeight() bool {
+func (this *NaryOperatorElement) GetGrowToMatchOperandHeight() bool {
 	return this.GrowToMatchOperandHeight
 }
 
-func (this *NaryOperatorElement) setGrowToMatchOperandHeight(newValue bool) {
+func (this *NaryOperatorElement) SetGrowToMatchOperandHeight(newValue bool) {
 	this.GrowToMatchOperandHeight = newValue
 }
-func (this *NaryOperatorElement) getHideSubscript() bool {
+func (this *NaryOperatorElement) GetHideSubscript() bool {
 	return this.HideSubscript
 }
 
-func (this *NaryOperatorElement) setHideSubscript(newValue bool) {
+func (this *NaryOperatorElement) SetHideSubscript(newValue bool) {
 	this.HideSubscript = newValue
 }
-func (this *NaryOperatorElement) getHideSuperscript() bool {
+func (this *NaryOperatorElement) GetHideSuperscript() bool {
 	return this.HideSuperscript
 }
 
-func (this *NaryOperatorElement) setHideSuperscript(newValue bool) {
+func (this *NaryOperatorElement) SetHideSuperscript(newValue bool) {
 	this.HideSuperscript = newValue
 }
 

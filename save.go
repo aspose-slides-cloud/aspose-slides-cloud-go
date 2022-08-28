@@ -34,20 +34,20 @@ import (
 type ISave interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Output file.
-	getOutput() IOutputFile
-	setOutput(newValue IOutputFile)
+	GetOutput() IOutputFile
+	SetOutput(newValue IOutputFile)
 
 	// Save options.
-	getOptions() IExportOptions
-	setOptions(newValue IExportOptions)
+	GetOptions() IExportOptions
+	SetOptions(newValue IExportOptions)
 }
 
 type Save struct {
@@ -72,32 +72,32 @@ func NewSave() *Save {
 	return instance
 }
 
-func (this *Save) getType() string {
+func (this *Save) GetType() string {
 	return this.Type_
 }
 
-func (this *Save) setType(newValue string) {
+func (this *Save) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *Save) getFormat() string {
+func (this *Save) GetFormat() string {
 	return this.Format
 }
 
-func (this *Save) setFormat(newValue string) {
+func (this *Save) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *Save) getOutput() IOutputFile {
+func (this *Save) GetOutput() IOutputFile {
 	return this.Output
 }
 
-func (this *Save) setOutput(newValue IOutputFile) {
+func (this *Save) SetOutput(newValue IOutputFile) {
 	this.Output = newValue
 }
-func (this *Save) getOptions() IExportOptions {
+func (this *Save) GetOptions() IExportOptions {
 	return this.Options
 }
 
-func (this *Save) setOptions(newValue IExportOptions) {
+func (this *Save) SetOptions(newValue IExportOptions) {
 	this.Options = newValue
 }
 

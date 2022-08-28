@@ -34,16 +34,16 @@ import (
 type ILuminanceEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Brightness
-	getBrightness() float64
-	setBrightness(newValue float64)
+	GetBrightness() float64
+	SetBrightness(newValue float64)
 
 	// Contrast
-	getContrast() float64
-	setContrast(newValue float64)
+	GetContrast() float64
+	SetContrast(newValue float64)
 }
 
 type LuminanceEffect struct {
@@ -64,25 +64,25 @@ func NewLuminanceEffect() *LuminanceEffect {
 	return instance
 }
 
-func (this *LuminanceEffect) getType() string {
+func (this *LuminanceEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *LuminanceEffect) setType(newValue string) {
+func (this *LuminanceEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *LuminanceEffect) getBrightness() float64 {
+func (this *LuminanceEffect) GetBrightness() float64 {
 	return this.Brightness
 }
 
-func (this *LuminanceEffect) setBrightness(newValue float64) {
+func (this *LuminanceEffect) SetBrightness(newValue float64) {
 	this.Brightness = newValue
 }
-func (this *LuminanceEffect) getContrast() float64 {
+func (this *LuminanceEffect) GetContrast() float64 {
 	return this.Contrast
 }
 
-func (this *LuminanceEffect) setContrast(newValue float64) {
+func (this *LuminanceEffect) SetContrast(newValue float64) {
 	this.Contrast = newValue
 }
 

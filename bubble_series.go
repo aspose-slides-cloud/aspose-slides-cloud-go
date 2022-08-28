@@ -34,76 +34,76 @@ import (
 type IBubbleSeries interface {
 
 	// Series type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Series name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// True if each data marker in the series has a different color.
-	getIsColorVaried() bool
-	setIsColorVaried(newValue bool)
+	GetIsColorVaried() bool
+	SetIsColorVaried(newValue bool)
 
 	// Invert solid color for the series.
-	getInvertedSolidFillColor() string
-	setInvertedSolidFillColor(newValue string)
+	GetInvertedSolidFillColor() string
+	SetInvertedSolidFillColor(newValue string)
 
 	// True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.
-	getSmooth() bool
-	setSmooth(newValue bool)
+	GetSmooth() bool
+	SetSmooth(newValue bool)
 
 	// True if the series is plotted on second value axis.
-	getPlotOnSecondAxis() bool
-	setPlotOnSecondAxis(newValue bool)
+	GetPlotOnSecondAxis() bool
+	SetPlotOnSecondAxis(newValue bool)
 
 	// Series order.
-	getOrder() int32
-	setOrder(newValue int32)
+	GetOrder() int32
+	SetOrder(newValue int32)
 
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	getInvertIfNegative() bool
-	setInvertIfNegative(newValue bool)
+	GetInvertIfNegative() bool
+	SetInvertIfNegative(newValue bool)
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
-	getExplosion() int32
-	setExplosion(newValue int32)
+	GetExplosion() int32
+	SetExplosion(newValue int32)
 
 	// Series marker.
-	getMarker() ISeriesMarker
-	setMarker(newValue ISeriesMarker)
+	GetMarker() ISeriesMarker
+	SetMarker(newValue ISeriesMarker)
 
 	// Fill properties set for the series.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Effect properties set for the series.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Line properties set for the series.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Data point type.
-	getDataPointType() string
-	setDataPointType(newValue string)
+	GetDataPointType() string
+	SetDataPointType(newValue string)
 
 	// The number format for the series y values.
-	getNumberFormatOfYValues() string
-	setNumberFormatOfYValues(newValue string)
+	GetNumberFormatOfYValues() string
+	SetNumberFormatOfYValues(newValue string)
 
 	// The number format for the series x values.
-	getNumberFormatOfXValues() string
-	setNumberFormatOfXValues(newValue string)
+	GetNumberFormatOfXValues() string
+	SetNumberFormatOfXValues(newValue string)
 
 	// Gets or sets the values.
-	getDataPoints() []IBubbleChartDataPoint
-	setDataPoints(newValue []IBubbleChartDataPoint)
+	GetDataPoints() []IBubbleChartDataPoint
+	SetDataPoints(newValue []IBubbleChartDataPoint)
 
 	// The number format for the series bubble sizes.
-	getNumberFormatOfBubbleSizes() string
-	setNumberFormatOfBubbleSizes(newValue string)
+	GetNumberFormatOfBubbleSizes() string
+	SetNumberFormatOfBubbleSizes(newValue string)
 }
 
 type BubbleSeries struct {
@@ -170,130 +170,130 @@ func NewBubbleSeries() *BubbleSeries {
 	return instance
 }
 
-func (this *BubbleSeries) getType() string {
+func (this *BubbleSeries) GetType() string {
 	return this.Type_
 }
 
-func (this *BubbleSeries) setType(newValue string) {
+func (this *BubbleSeries) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *BubbleSeries) getName() string {
+func (this *BubbleSeries) GetName() string {
 	return this.Name
 }
 
-func (this *BubbleSeries) setName(newValue string) {
+func (this *BubbleSeries) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *BubbleSeries) getIsColorVaried() bool {
+func (this *BubbleSeries) GetIsColorVaried() bool {
 	return this.IsColorVaried
 }
 
-func (this *BubbleSeries) setIsColorVaried(newValue bool) {
+func (this *BubbleSeries) SetIsColorVaried(newValue bool) {
 	this.IsColorVaried = newValue
 }
-func (this *BubbleSeries) getInvertedSolidFillColor() string {
+func (this *BubbleSeries) GetInvertedSolidFillColor() string {
 	return this.InvertedSolidFillColor
 }
 
-func (this *BubbleSeries) setInvertedSolidFillColor(newValue string) {
+func (this *BubbleSeries) SetInvertedSolidFillColor(newValue string) {
 	this.InvertedSolidFillColor = newValue
 }
-func (this *BubbleSeries) getSmooth() bool {
+func (this *BubbleSeries) GetSmooth() bool {
 	return this.Smooth
 }
 
-func (this *BubbleSeries) setSmooth(newValue bool) {
+func (this *BubbleSeries) SetSmooth(newValue bool) {
 	this.Smooth = newValue
 }
-func (this *BubbleSeries) getPlotOnSecondAxis() bool {
+func (this *BubbleSeries) GetPlotOnSecondAxis() bool {
 	return this.PlotOnSecondAxis
 }
 
-func (this *BubbleSeries) setPlotOnSecondAxis(newValue bool) {
+func (this *BubbleSeries) SetPlotOnSecondAxis(newValue bool) {
 	this.PlotOnSecondAxis = newValue
 }
-func (this *BubbleSeries) getOrder() int32 {
+func (this *BubbleSeries) GetOrder() int32 {
 	return this.Order
 }
 
-func (this *BubbleSeries) setOrder(newValue int32) {
+func (this *BubbleSeries) SetOrder(newValue int32) {
 	this.Order = newValue
 }
-func (this *BubbleSeries) getInvertIfNegative() bool {
+func (this *BubbleSeries) GetInvertIfNegative() bool {
 	return this.InvertIfNegative
 }
 
-func (this *BubbleSeries) setInvertIfNegative(newValue bool) {
+func (this *BubbleSeries) SetInvertIfNegative(newValue bool) {
 	this.InvertIfNegative = newValue
 }
-func (this *BubbleSeries) getExplosion() int32 {
+func (this *BubbleSeries) GetExplosion() int32 {
 	return this.Explosion
 }
 
-func (this *BubbleSeries) setExplosion(newValue int32) {
+func (this *BubbleSeries) SetExplosion(newValue int32) {
 	this.Explosion = newValue
 }
-func (this *BubbleSeries) getMarker() ISeriesMarker {
+func (this *BubbleSeries) GetMarker() ISeriesMarker {
 	return this.Marker
 }
 
-func (this *BubbleSeries) setMarker(newValue ISeriesMarker) {
+func (this *BubbleSeries) SetMarker(newValue ISeriesMarker) {
 	this.Marker = newValue
 }
-func (this *BubbleSeries) getFillFormat() IFillFormat {
+func (this *BubbleSeries) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *BubbleSeries) setFillFormat(newValue IFillFormat) {
+func (this *BubbleSeries) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *BubbleSeries) getEffectFormat() IEffectFormat {
+func (this *BubbleSeries) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *BubbleSeries) setEffectFormat(newValue IEffectFormat) {
+func (this *BubbleSeries) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *BubbleSeries) getLineFormat() ILineFormat {
+func (this *BubbleSeries) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *BubbleSeries) setLineFormat(newValue ILineFormat) {
+func (this *BubbleSeries) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *BubbleSeries) getDataPointType() string {
+func (this *BubbleSeries) GetDataPointType() string {
 	return this.DataPointType
 }
 
-func (this *BubbleSeries) setDataPointType(newValue string) {
+func (this *BubbleSeries) SetDataPointType(newValue string) {
 	this.DataPointType = newValue
 }
-func (this *BubbleSeries) getNumberFormatOfYValues() string {
+func (this *BubbleSeries) GetNumberFormatOfYValues() string {
 	return this.NumberFormatOfYValues
 }
 
-func (this *BubbleSeries) setNumberFormatOfYValues(newValue string) {
+func (this *BubbleSeries) SetNumberFormatOfYValues(newValue string) {
 	this.NumberFormatOfYValues = newValue
 }
-func (this *BubbleSeries) getNumberFormatOfXValues() string {
+func (this *BubbleSeries) GetNumberFormatOfXValues() string {
 	return this.NumberFormatOfXValues
 }
 
-func (this *BubbleSeries) setNumberFormatOfXValues(newValue string) {
+func (this *BubbleSeries) SetNumberFormatOfXValues(newValue string) {
 	this.NumberFormatOfXValues = newValue
 }
-func (this *BubbleSeries) getDataPoints() []IBubbleChartDataPoint {
+func (this *BubbleSeries) GetDataPoints() []IBubbleChartDataPoint {
 	return this.DataPoints
 }
 
-func (this *BubbleSeries) setDataPoints(newValue []IBubbleChartDataPoint) {
+func (this *BubbleSeries) SetDataPoints(newValue []IBubbleChartDataPoint) {
 	this.DataPoints = newValue
 }
-func (this *BubbleSeries) getNumberFormatOfBubbleSizes() string {
+func (this *BubbleSeries) GetNumberFormatOfBubbleSizes() string {
 	return this.NumberFormatOfBubbleSizes
 }
 
-func (this *BubbleSeries) setNumberFormatOfBubbleSizes(newValue string) {
+func (this *BubbleSeries) SetNumberFormatOfBubbleSizes(newValue string) {
 	this.NumberFormatOfBubbleSizes = newValue
 }
 

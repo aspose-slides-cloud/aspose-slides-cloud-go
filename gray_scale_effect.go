@@ -34,8 +34,8 @@ import (
 type IGrayScaleEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type GrayScaleEffect struct {
@@ -50,11 +50,11 @@ func NewGrayScaleEffect() *GrayScaleEffect {
 	return instance
 }
 
-func (this *GrayScaleEffect) getType() string {
+func (this *GrayScaleEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *GrayScaleEffect) setType(newValue string) {
+func (this *GrayScaleEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

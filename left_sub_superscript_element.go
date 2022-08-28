@@ -34,20 +34,20 @@ import (
 type ILeftSubSuperscriptElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Base argument
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Subscript
-	getSubscript() IMathElement
-	setSubscript(newValue IMathElement)
+	GetSubscript() IMathElement
+	SetSubscript(newValue IMathElement)
 
 	// Superscript
-	getSuperscript() IMathElement
-	setSuperscript(newValue IMathElement)
+	GetSuperscript() IMathElement
+	SetSuperscript(newValue IMathElement)
 }
 
 type LeftSubSuperscriptElement struct {
@@ -71,32 +71,32 @@ func NewLeftSubSuperscriptElement() *LeftSubSuperscriptElement {
 	return instance
 }
 
-func (this *LeftSubSuperscriptElement) getType() string {
+func (this *LeftSubSuperscriptElement) GetType() string {
 	return this.Type_
 }
 
-func (this *LeftSubSuperscriptElement) setType(newValue string) {
+func (this *LeftSubSuperscriptElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *LeftSubSuperscriptElement) getBase() IMathElement {
+func (this *LeftSubSuperscriptElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *LeftSubSuperscriptElement) setBase(newValue IMathElement) {
+func (this *LeftSubSuperscriptElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *LeftSubSuperscriptElement) getSubscript() IMathElement {
+func (this *LeftSubSuperscriptElement) GetSubscript() IMathElement {
 	return this.Subscript
 }
 
-func (this *LeftSubSuperscriptElement) setSubscript(newValue IMathElement) {
+func (this *LeftSubSuperscriptElement) SetSubscript(newValue IMathElement) {
 	this.Subscript = newValue
 }
-func (this *LeftSubSuperscriptElement) getSuperscript() IMathElement {
+func (this *LeftSubSuperscriptElement) GetSuperscript() IMathElement {
 	return this.Superscript
 }
 
-func (this *LeftSubSuperscriptElement) setSuperscript(newValue IMathElement) {
+func (this *LeftSubSuperscriptElement) SetSuperscript(newValue IMathElement) {
 	this.Superscript = newValue
 }
 

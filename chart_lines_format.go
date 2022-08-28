@@ -34,12 +34,12 @@ import (
 type IChartLinesFormat interface {
 
 	// Get or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Get or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 }
 
 type ChartLinesFormat struct {
@@ -56,18 +56,18 @@ func NewChartLinesFormat() *ChartLinesFormat {
 	return instance
 }
 
-func (this *ChartLinesFormat) getEffectFormat() IEffectFormat {
+func (this *ChartLinesFormat) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *ChartLinesFormat) setEffectFormat(newValue IEffectFormat) {
+func (this *ChartLinesFormat) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *ChartLinesFormat) getLineFormat() ILineFormat {
+func (this *ChartLinesFormat) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *ChartLinesFormat) setLineFormat(newValue ILineFormat) {
+func (this *ChartLinesFormat) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
 

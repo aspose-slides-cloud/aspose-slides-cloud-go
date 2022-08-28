@@ -34,16 +34,16 @@ import (
 type IPortions interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// List of portion links.
-	getItems() []IPortion
-	setItems(newValue []IPortion)
+	GetItems() []IPortion
+	SetItems(newValue []IPortion)
 }
 
 type Portions struct {
@@ -63,25 +63,25 @@ func NewPortions() *Portions {
 	return instance
 }
 
-func (this *Portions) getSelfUri() IResourceUri {
+func (this *Portions) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Portions) setSelfUri(newValue IResourceUri) {
+func (this *Portions) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Portions) getAlternateLinks() []IResourceUri {
+func (this *Portions) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Portions) setAlternateLinks(newValue []IResourceUri) {
+func (this *Portions) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Portions) getItems() []IPortion {
+func (this *Portions) GetItems() []IPortion {
 	return this.Items
 }
 
-func (this *Portions) setItems(newValue []IPortion) {
+func (this *Portions) SetItems(newValue []IPortion) {
 	this.Items = newValue
 }
 

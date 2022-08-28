@@ -34,40 +34,40 @@ import (
 type INotesSlideHeaderFooter interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// True if date is displayed in the footer
-	getIsDateTimeVisible() bool
-	setIsDateTimeVisible(newValue bool)
+	GetIsDateTimeVisible() bool
+	SetIsDateTimeVisible(newValue bool)
 
 	// Text to be displayed as date in the footer
-	getDateTimeText() string
-	setDateTimeText(newValue string)
+	GetDateTimeText() string
+	SetDateTimeText(newValue string)
 
 	// True if footer is displayed
-	getIsFooterVisible() bool
-	setIsFooterVisible(newValue bool)
+	GetIsFooterVisible() bool
+	SetIsFooterVisible(newValue bool)
 
 	// Text to be displayed in the footer
-	getFooterText() string
-	setFooterText(newValue string)
+	GetFooterText() string
+	SetFooterText(newValue string)
 
 	// True if header is displayed
-	getIsHeaderVisible() bool
-	setIsHeaderVisible(newValue bool)
+	GetIsHeaderVisible() bool
+	SetIsHeaderVisible(newValue bool)
 
 	// Text to be displayed in the header
-	getHeaderText() string
-	setHeaderText(newValue string)
+	GetHeaderText() string
+	SetHeaderText(newValue string)
 
 	// True if slide number is displayed in the footer
-	getIsSlideNumberVisible() bool
-	setIsSlideNumberVisible(newValue bool)
+	GetIsSlideNumberVisible() bool
+	SetIsSlideNumberVisible(newValue bool)
 }
 
 type NotesSlideHeaderFooter struct {
@@ -105,67 +105,67 @@ func NewNotesSlideHeaderFooter() *NotesSlideHeaderFooter {
 	return instance
 }
 
-func (this *NotesSlideHeaderFooter) getSelfUri() IResourceUri {
+func (this *NotesSlideHeaderFooter) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *NotesSlideHeaderFooter) setSelfUri(newValue IResourceUri) {
+func (this *NotesSlideHeaderFooter) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *NotesSlideHeaderFooter) getAlternateLinks() []IResourceUri {
+func (this *NotesSlideHeaderFooter) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *NotesSlideHeaderFooter) setAlternateLinks(newValue []IResourceUri) {
+func (this *NotesSlideHeaderFooter) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *NotesSlideHeaderFooter) getIsDateTimeVisible() bool {
+func (this *NotesSlideHeaderFooter) GetIsDateTimeVisible() bool {
 	return this.IsDateTimeVisible
 }
 
-func (this *NotesSlideHeaderFooter) setIsDateTimeVisible(newValue bool) {
+func (this *NotesSlideHeaderFooter) SetIsDateTimeVisible(newValue bool) {
 	this.IsDateTimeVisible = newValue
 }
-func (this *NotesSlideHeaderFooter) getDateTimeText() string {
+func (this *NotesSlideHeaderFooter) GetDateTimeText() string {
 	return this.DateTimeText
 }
 
-func (this *NotesSlideHeaderFooter) setDateTimeText(newValue string) {
+func (this *NotesSlideHeaderFooter) SetDateTimeText(newValue string) {
 	this.DateTimeText = newValue
 }
-func (this *NotesSlideHeaderFooter) getIsFooterVisible() bool {
+func (this *NotesSlideHeaderFooter) GetIsFooterVisible() bool {
 	return this.IsFooterVisible
 }
 
-func (this *NotesSlideHeaderFooter) setIsFooterVisible(newValue bool) {
+func (this *NotesSlideHeaderFooter) SetIsFooterVisible(newValue bool) {
 	this.IsFooterVisible = newValue
 }
-func (this *NotesSlideHeaderFooter) getFooterText() string {
+func (this *NotesSlideHeaderFooter) GetFooterText() string {
 	return this.FooterText
 }
 
-func (this *NotesSlideHeaderFooter) setFooterText(newValue string) {
+func (this *NotesSlideHeaderFooter) SetFooterText(newValue string) {
 	this.FooterText = newValue
 }
-func (this *NotesSlideHeaderFooter) getIsHeaderVisible() bool {
+func (this *NotesSlideHeaderFooter) GetIsHeaderVisible() bool {
 	return this.IsHeaderVisible
 }
 
-func (this *NotesSlideHeaderFooter) setIsHeaderVisible(newValue bool) {
+func (this *NotesSlideHeaderFooter) SetIsHeaderVisible(newValue bool) {
 	this.IsHeaderVisible = newValue
 }
-func (this *NotesSlideHeaderFooter) getHeaderText() string {
+func (this *NotesSlideHeaderFooter) GetHeaderText() string {
 	return this.HeaderText
 }
 
-func (this *NotesSlideHeaderFooter) setHeaderText(newValue string) {
+func (this *NotesSlideHeaderFooter) SetHeaderText(newValue string) {
 	this.HeaderText = newValue
 }
-func (this *NotesSlideHeaderFooter) getIsSlideNumberVisible() bool {
+func (this *NotesSlideHeaderFooter) GetIsSlideNumberVisible() bool {
 	return this.IsSlideNumberVisible
 }
 
-func (this *NotesSlideHeaderFooter) setIsSlideNumberVisible(newValue bool) {
+func (this *NotesSlideHeaderFooter) SetIsSlideNumberVisible(newValue bool) {
 	this.IsSlideNumberVisible = newValue
 }
 

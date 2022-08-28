@@ -34,20 +34,20 @@ import (
 type IXamlExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	// Export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Export hidden slides
-	getExportHiddenSlides() bool
-	setExportHiddenSlides(newValue bool)
+	GetExportHiddenSlides() bool
+	SetExportHiddenSlides(newValue bool)
 }
 
 type XamlExportOptions struct {
@@ -70,32 +70,32 @@ func NewXamlExportOptions() *XamlExportOptions {
 	return instance
 }
 
-func (this *XamlExportOptions) getDefaultRegularFont() string {
+func (this *XamlExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *XamlExportOptions) setDefaultRegularFont(newValue string) {
+func (this *XamlExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *XamlExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *XamlExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *XamlExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *XamlExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *XamlExportOptions) getFormat() string {
+func (this *XamlExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *XamlExportOptions) setFormat(newValue string) {
+func (this *XamlExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *XamlExportOptions) getExportHiddenSlides() bool {
+func (this *XamlExportOptions) GetExportHiddenSlides() bool {
 	return this.ExportHiddenSlides
 }
 
-func (this *XamlExportOptions) setExportHiddenSlides(newValue bool) {
+func (this *XamlExportOptions) SetExportHiddenSlides(newValue bool) {
 	this.ExportHiddenSlides = newValue
 }
 

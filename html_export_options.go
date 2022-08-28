@@ -34,64 +34,64 @@ import (
 type IHtmlExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	// Export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Get or sets flag for save presentation as zip file
-	getSaveAsZip() bool
-	setSaveAsZip(newValue bool)
+	GetSaveAsZip() bool
+	SetSaveAsZip(newValue bool)
 
 	// Get or set name of subdirectory in zip-file for store external files
-	getSubDirectoryName() string
-	setSubDirectoryName(newValue string)
+	GetSubDirectoryName() string
+	SetSubDirectoryName(newValue string)
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	getShowHiddenSlides() bool
-	setShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() bool
+	SetShowHiddenSlides(newValue bool)
 
 	// True to make layout responsive by excluding width and height attributes from svg container.
-	getSvgResponsiveLayout() bool
-	setSvgResponsiveLayout(newValue bool)
+	GetSvgResponsiveLayout() bool
+	SetSvgResponsiveLayout(newValue bool)
 
 	// Returns or sets a value determining the quality of the JPEG images inside PDF document.
-	getJpegQuality() int32
-	setJpegQuality(newValue int32)
+	GetJpegQuality() int32
+	SetJpegQuality(newValue int32)
 
 	// Represents the pictures compression level
-	getPicturesCompression() string
-	setPicturesCompression(newValue string)
+	GetPicturesCompression() string
+	SetPicturesCompression(newValue string)
 
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
-	getDeletePicturesCroppedAreas() bool
-	setDeletePicturesCroppedAreas(newValue bool)
+	GetDeletePicturesCroppedAreas() bool
+	SetDeletePicturesCroppedAreas(newValue bool)
 
 	// Gets or sets the position of the notes on the page.
-	getNotesPosition() string
-	setNotesPosition(newValue string)
+	GetNotesPosition() string
+	SetNotesPosition(newValue string)
 
 	// Gets or sets the position of the comments on the page.
-	getCommentsPosition() string
-	setCommentsPosition(newValue string)
+	GetCommentsPosition() string
+	SetCommentsPosition(newValue string)
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	getCommentsAreaWidth() int32
-	setCommentsAreaWidth(newValue int32)
+	GetCommentsAreaWidth() int32
+	SetCommentsAreaWidth(newValue int32)
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
-	getCommentsAreaColor() string
-	setCommentsAreaColor(newValue string)
+	GetCommentsAreaColor() string
+	SetCommentsAreaColor(newValue string)
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	getShowCommentsByNoAuthor() bool
-	setShowCommentsByNoAuthor(newValue bool)
+	GetShowCommentsByNoAuthor() bool
+	SetShowCommentsByNoAuthor(newValue bool)
 }
 
 type HtmlExportOptions struct {
@@ -150,109 +150,109 @@ func NewHtmlExportOptions() *HtmlExportOptions {
 	return instance
 }
 
-func (this *HtmlExportOptions) getDefaultRegularFont() string {
+func (this *HtmlExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *HtmlExportOptions) setDefaultRegularFont(newValue string) {
+func (this *HtmlExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *HtmlExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *HtmlExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *HtmlExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *HtmlExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *HtmlExportOptions) getFormat() string {
+func (this *HtmlExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *HtmlExportOptions) setFormat(newValue string) {
+func (this *HtmlExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *HtmlExportOptions) getSaveAsZip() bool {
+func (this *HtmlExportOptions) GetSaveAsZip() bool {
 	return this.SaveAsZip
 }
 
-func (this *HtmlExportOptions) setSaveAsZip(newValue bool) {
+func (this *HtmlExportOptions) SetSaveAsZip(newValue bool) {
 	this.SaveAsZip = newValue
 }
-func (this *HtmlExportOptions) getSubDirectoryName() string {
+func (this *HtmlExportOptions) GetSubDirectoryName() string {
 	return this.SubDirectoryName
 }
 
-func (this *HtmlExportOptions) setSubDirectoryName(newValue string) {
+func (this *HtmlExportOptions) SetSubDirectoryName(newValue string) {
 	this.SubDirectoryName = newValue
 }
-func (this *HtmlExportOptions) getShowHiddenSlides() bool {
+func (this *HtmlExportOptions) GetShowHiddenSlides() bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *HtmlExportOptions) setShowHiddenSlides(newValue bool) {
+func (this *HtmlExportOptions) SetShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this *HtmlExportOptions) getSvgResponsiveLayout() bool {
+func (this *HtmlExportOptions) GetSvgResponsiveLayout() bool {
 	return this.SvgResponsiveLayout
 }
 
-func (this *HtmlExportOptions) setSvgResponsiveLayout(newValue bool) {
+func (this *HtmlExportOptions) SetSvgResponsiveLayout(newValue bool) {
 	this.SvgResponsiveLayout = newValue
 }
-func (this *HtmlExportOptions) getJpegQuality() int32 {
+func (this *HtmlExportOptions) GetJpegQuality() int32 {
 	return this.JpegQuality
 }
 
-func (this *HtmlExportOptions) setJpegQuality(newValue int32) {
+func (this *HtmlExportOptions) SetJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this *HtmlExportOptions) getPicturesCompression() string {
+func (this *HtmlExportOptions) GetPicturesCompression() string {
 	return this.PicturesCompression
 }
 
-func (this *HtmlExportOptions) setPicturesCompression(newValue string) {
+func (this *HtmlExportOptions) SetPicturesCompression(newValue string) {
 	this.PicturesCompression = newValue
 }
-func (this *HtmlExportOptions) getDeletePicturesCroppedAreas() bool {
+func (this *HtmlExportOptions) GetDeletePicturesCroppedAreas() bool {
 	return this.DeletePicturesCroppedAreas
 }
 
-func (this *HtmlExportOptions) setDeletePicturesCroppedAreas(newValue bool) {
+func (this *HtmlExportOptions) SetDeletePicturesCroppedAreas(newValue bool) {
 	this.DeletePicturesCroppedAreas = newValue
 }
-func (this *HtmlExportOptions) getNotesPosition() string {
+func (this *HtmlExportOptions) GetNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this *HtmlExportOptions) setNotesPosition(newValue string) {
+func (this *HtmlExportOptions) SetNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this *HtmlExportOptions) getCommentsPosition() string {
+func (this *HtmlExportOptions) GetCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this *HtmlExportOptions) setCommentsPosition(newValue string) {
+func (this *HtmlExportOptions) SetCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
-func (this *HtmlExportOptions) getCommentsAreaWidth() int32 {
+func (this *HtmlExportOptions) GetCommentsAreaWidth() int32 {
 	return this.CommentsAreaWidth
 }
 
-func (this *HtmlExportOptions) setCommentsAreaWidth(newValue int32) {
+func (this *HtmlExportOptions) SetCommentsAreaWidth(newValue int32) {
 	this.CommentsAreaWidth = newValue
 }
-func (this *HtmlExportOptions) getCommentsAreaColor() string {
+func (this *HtmlExportOptions) GetCommentsAreaColor() string {
 	return this.CommentsAreaColor
 }
 
-func (this *HtmlExportOptions) setCommentsAreaColor(newValue string) {
+func (this *HtmlExportOptions) SetCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
-func (this *HtmlExportOptions) getShowCommentsByNoAuthor() bool {
+func (this *HtmlExportOptions) GetShowCommentsByNoAuthor() bool {
 	return this.ShowCommentsByNoAuthor
 }
 
-func (this *HtmlExportOptions) setShowCommentsByNoAuthor(newValue bool) {
+func (this *HtmlExportOptions) SetShowCommentsByNoAuthor(newValue bool) {
 	this.ShowCommentsByNoAuthor = newValue
 }
 

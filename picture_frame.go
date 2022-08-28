@@ -34,84 +34,84 @@ import (
 type IPictureFrame interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Combined shape type.
-	getShapeType() string
-	setShapeType(newValue string)
+	GetShapeType() string
+	SetShapeType(newValue string)
 
 	// Fill format.
-	getPictureFillFormat() IPictureFill
-	setPictureFillFormat(newValue IPictureFill)
+	GetPictureFillFormat() IPictureFill
+	SetPictureFillFormat(newValue IPictureFill)
 }
 
 type PictureFrame struct {
@@ -184,144 +184,144 @@ func NewPictureFrame() *PictureFrame {
 	return instance
 }
 
-func (this *PictureFrame) getSelfUri() IResourceUri {
+func (this *PictureFrame) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *PictureFrame) setSelfUri(newValue IResourceUri) {
+func (this *PictureFrame) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *PictureFrame) getAlternateLinks() []IResourceUri {
+func (this *PictureFrame) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *PictureFrame) setAlternateLinks(newValue []IResourceUri) {
+func (this *PictureFrame) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *PictureFrame) getName() string {
+func (this *PictureFrame) GetName() string {
 	return this.Name
 }
 
-func (this *PictureFrame) setName(newValue string) {
+func (this *PictureFrame) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *PictureFrame) getWidth() float64 {
+func (this *PictureFrame) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *PictureFrame) setWidth(newValue float64) {
+func (this *PictureFrame) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *PictureFrame) getHeight() float64 {
+func (this *PictureFrame) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *PictureFrame) setHeight(newValue float64) {
+func (this *PictureFrame) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *PictureFrame) getAlternativeText() string {
+func (this *PictureFrame) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *PictureFrame) setAlternativeText(newValue string) {
+func (this *PictureFrame) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *PictureFrame) getAlternativeTextTitle() string {
+func (this *PictureFrame) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *PictureFrame) setAlternativeTextTitle(newValue string) {
+func (this *PictureFrame) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *PictureFrame) getHidden() bool {
+func (this *PictureFrame) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *PictureFrame) setHidden(newValue bool) {
+func (this *PictureFrame) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *PictureFrame) getX() float64 {
+func (this *PictureFrame) GetX() float64 {
 	return this.X
 }
 
-func (this *PictureFrame) setX(newValue float64) {
+func (this *PictureFrame) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *PictureFrame) getY() float64 {
+func (this *PictureFrame) GetY() float64 {
 	return this.Y
 }
 
-func (this *PictureFrame) setY(newValue float64) {
+func (this *PictureFrame) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *PictureFrame) getZOrderPosition() int32 {
+func (this *PictureFrame) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *PictureFrame) setZOrderPosition(newValue int32) {
+func (this *PictureFrame) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *PictureFrame) getFillFormat() IFillFormat {
+func (this *PictureFrame) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *PictureFrame) setFillFormat(newValue IFillFormat) {
+func (this *PictureFrame) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *PictureFrame) getEffectFormat() IEffectFormat {
+func (this *PictureFrame) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *PictureFrame) setEffectFormat(newValue IEffectFormat) {
+func (this *PictureFrame) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *PictureFrame) getThreeDFormat() IThreeDFormat {
+func (this *PictureFrame) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *PictureFrame) setThreeDFormat(newValue IThreeDFormat) {
+func (this *PictureFrame) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *PictureFrame) getLineFormat() ILineFormat {
+func (this *PictureFrame) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *PictureFrame) setLineFormat(newValue ILineFormat) {
+func (this *PictureFrame) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *PictureFrame) getHyperlinkClick() IHyperlink {
+func (this *PictureFrame) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *PictureFrame) setHyperlinkClick(newValue IHyperlink) {
+func (this *PictureFrame) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *PictureFrame) getHyperlinkMouseOver() IHyperlink {
+func (this *PictureFrame) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *PictureFrame) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *PictureFrame) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *PictureFrame) getType() string {
+func (this *PictureFrame) GetType() string {
 	return this.Type_
 }
 
-func (this *PictureFrame) setType(newValue string) {
+func (this *PictureFrame) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *PictureFrame) getShapeType() string {
+func (this *PictureFrame) GetShapeType() string {
 	return this.ShapeType
 }
 
-func (this *PictureFrame) setShapeType(newValue string) {
+func (this *PictureFrame) SetShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this *PictureFrame) getPictureFillFormat() IPictureFill {
+func (this *PictureFrame) GetPictureFillFormat() IPictureFill {
 	return this.PictureFillFormat
 }
 
-func (this *PictureFrame) setPictureFillFormat(newValue IPictureFill) {
+func (this *PictureFrame) SetPictureFillFormat(newValue IPictureFill) {
 	this.PictureFillFormat = newValue
 }
 

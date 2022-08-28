@@ -34,36 +34,36 @@ import (
 type ISlideProperties interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// First slide number.
-	getFirstSlideNumber() int32
-	setFirstSlideNumber(newValue int32)
+	GetFirstSlideNumber() int32
+	SetFirstSlideNumber(newValue int32)
 
 	// Slide orientation.
-	getOrientation() string
-	setOrientation(newValue string)
+	GetOrientation() string
+	SetOrientation(newValue string)
 
 	// Scale type.
-	getScaleType() string
-	setScaleType(newValue string)
+	GetScaleType() string
+	SetScaleType(newValue string)
 
 	// Size type.
-	getSizeType() string
-	setSizeType(newValue string)
+	GetSizeType() string
+	SetSizeType(newValue string)
 
 	// Width.
-	getWidth() int32
-	setWidth(newValue int32)
+	GetWidth() int32
+	SetWidth(newValue int32)
 
 	// Height.
-	getHeight() int32
-	setHeight(newValue int32)
+	GetHeight() int32
+	SetHeight(newValue int32)
 }
 
 type SlideProperties struct {
@@ -101,60 +101,60 @@ func NewSlideProperties() *SlideProperties {
 	return instance
 }
 
-func (this *SlideProperties) getSelfUri() IResourceUri {
+func (this *SlideProperties) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *SlideProperties) setSelfUri(newValue IResourceUri) {
+func (this *SlideProperties) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *SlideProperties) getAlternateLinks() []IResourceUri {
+func (this *SlideProperties) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *SlideProperties) setAlternateLinks(newValue []IResourceUri) {
+func (this *SlideProperties) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *SlideProperties) getFirstSlideNumber() int32 {
+func (this *SlideProperties) GetFirstSlideNumber() int32 {
 	return this.FirstSlideNumber
 }
 
-func (this *SlideProperties) setFirstSlideNumber(newValue int32) {
+func (this *SlideProperties) SetFirstSlideNumber(newValue int32) {
 	this.FirstSlideNumber = newValue
 }
-func (this *SlideProperties) getOrientation() string {
+func (this *SlideProperties) GetOrientation() string {
 	return this.Orientation
 }
 
-func (this *SlideProperties) setOrientation(newValue string) {
+func (this *SlideProperties) SetOrientation(newValue string) {
 	this.Orientation = newValue
 }
-func (this *SlideProperties) getScaleType() string {
+func (this *SlideProperties) GetScaleType() string {
 	return this.ScaleType
 }
 
-func (this *SlideProperties) setScaleType(newValue string) {
+func (this *SlideProperties) SetScaleType(newValue string) {
 	this.ScaleType = newValue
 }
-func (this *SlideProperties) getSizeType() string {
+func (this *SlideProperties) GetSizeType() string {
 	return this.SizeType
 }
 
-func (this *SlideProperties) setSizeType(newValue string) {
+func (this *SlideProperties) SetSizeType(newValue string) {
 	this.SizeType = newValue
 }
-func (this *SlideProperties) getWidth() int32 {
+func (this *SlideProperties) GetWidth() int32 {
 	return this.Width
 }
 
-func (this *SlideProperties) setWidth(newValue int32) {
+func (this *SlideProperties) SetWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this *SlideProperties) getHeight() int32 {
+func (this *SlideProperties) GetHeight() int32 {
 	return this.Height
 }
 
-func (this *SlideProperties) setHeight(newValue int32) {
+func (this *SlideProperties) SetHeight(newValue int32) {
 	this.Height = newValue
 }
 

@@ -35,24 +35,24 @@ import (
 type IStorageFile interface {
 
 	// File or folder name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// True if it is a folder.
-	getIsFolder() bool
-	setIsFolder(newValue bool)
+	GetIsFolder() bool
+	SetIsFolder(newValue bool)
 
 	// File or folder last modified DateTime.
-	getModifiedDate() time.Time
-	setModifiedDate(newValue time.Time)
+	GetModifiedDate() time.Time
+	SetModifiedDate(newValue time.Time)
 
 	// File or folder size.
-	getSize() int64
-	setSize(newValue int64)
+	GetSize() int64
+	SetSize(newValue int64)
 
 	// File or folder path.
-	getPath() string
-	setPath(newValue string)
+	GetPath() string
+	SetPath(newValue string)
 }
 
 type StorageFile struct {
@@ -78,39 +78,39 @@ func NewStorageFile() *StorageFile {
 	return instance
 }
 
-func (this *StorageFile) getName() string {
+func (this *StorageFile) GetName() string {
 	return this.Name
 }
 
-func (this *StorageFile) setName(newValue string) {
+func (this *StorageFile) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *StorageFile) getIsFolder() bool {
+func (this *StorageFile) GetIsFolder() bool {
 	return this.IsFolder
 }
 
-func (this *StorageFile) setIsFolder(newValue bool) {
+func (this *StorageFile) SetIsFolder(newValue bool) {
 	this.IsFolder = newValue
 }
-func (this *StorageFile) getModifiedDate() time.Time {
+func (this *StorageFile) GetModifiedDate() time.Time {
 	return this.ModifiedDate
 }
 
-func (this *StorageFile) setModifiedDate(newValue time.Time) {
+func (this *StorageFile) SetModifiedDate(newValue time.Time) {
 	this.ModifiedDate = newValue
 }
-func (this *StorageFile) getSize() int64 {
+func (this *StorageFile) GetSize() int64 {
 	return this.Size
 }
 
-func (this *StorageFile) setSize(newValue int64) {
+func (this *StorageFile) SetSize(newValue int64) {
 	this.Size = newValue
 }
-func (this *StorageFile) getPath() string {
+func (this *StorageFile) GetPath() string {
 	return this.Path
 }
 
-func (this *StorageFile) setPath(newValue string) {
+func (this *StorageFile) SetPath(newValue string) {
 	this.Path = newValue
 }
 

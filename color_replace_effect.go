@@ -34,12 +34,12 @@ import (
 type IColorReplaceEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Returns color format which will replace color of every pixel.
-	getColor() string
-	setColor(newValue string)
+	GetColor() string
+	SetColor(newValue string)
 }
 
 type ColorReplaceEffect struct {
@@ -57,18 +57,18 @@ func NewColorReplaceEffect() *ColorReplaceEffect {
 	return instance
 }
 
-func (this *ColorReplaceEffect) getType() string {
+func (this *ColorReplaceEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *ColorReplaceEffect) setType(newValue string) {
+func (this *ColorReplaceEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *ColorReplaceEffect) getColor() string {
+func (this *ColorReplaceEffect) GetColor() string {
 	return this.Color
 }
 
-func (this *ColorReplaceEffect) setColor(newValue string) {
+func (this *ColorReplaceEffect) SetColor(newValue string) {
 	this.Color = newValue
 }
 

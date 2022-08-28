@@ -34,40 +34,40 @@ import (
 type IImageExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	// Export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Gets or sets the height of slides in the output image format.
-	getHeight() int32
-	setHeight(newValue int32)
+	GetHeight() int32
+	SetHeight(newValue int32)
 
 	// Gets or sets the height of slides in the output the output image format.
-	getWidth() int32
-	setWidth(newValue int32)
+	GetWidth() int32
+	SetWidth(newValue int32)
 
 	// Gets or sets the position of the notes on the page.
-	getNotesPosition() string
-	setNotesPosition(newValue string)
+	GetNotesPosition() string
+	SetNotesPosition(newValue string)
 
 	// Gets or sets the position of the comments on the page.
-	getCommentsPosition() string
-	setCommentsPosition(newValue string)
+	GetCommentsPosition() string
+	SetCommentsPosition(newValue string)
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	getCommentsAreaWidth() int32
-	setCommentsAreaWidth(newValue int32)
+	GetCommentsAreaWidth() int32
+	SetCommentsAreaWidth(newValue int32)
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
-	getCommentsAreaColor() string
-	setCommentsAreaColor(newValue string)
+	GetCommentsAreaColor() string
+	SetCommentsAreaColor(newValue string)
 }
 
 type ImageExportOptions struct {
@@ -107,67 +107,67 @@ func NewImageExportOptions() *ImageExportOptions {
 	return instance
 }
 
-func (this *ImageExportOptions) getDefaultRegularFont() string {
+func (this *ImageExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *ImageExportOptions) setDefaultRegularFont(newValue string) {
+func (this *ImageExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *ImageExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *ImageExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *ImageExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *ImageExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *ImageExportOptions) getFormat() string {
+func (this *ImageExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *ImageExportOptions) setFormat(newValue string) {
+func (this *ImageExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *ImageExportOptions) getHeight() int32 {
+func (this *ImageExportOptions) GetHeight() int32 {
 	return this.Height
 }
 
-func (this *ImageExportOptions) setHeight(newValue int32) {
+func (this *ImageExportOptions) SetHeight(newValue int32) {
 	this.Height = newValue
 }
-func (this *ImageExportOptions) getWidth() int32 {
+func (this *ImageExportOptions) GetWidth() int32 {
 	return this.Width
 }
 
-func (this *ImageExportOptions) setWidth(newValue int32) {
+func (this *ImageExportOptions) SetWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this *ImageExportOptions) getNotesPosition() string {
+func (this *ImageExportOptions) GetNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this *ImageExportOptions) setNotesPosition(newValue string) {
+func (this *ImageExportOptions) SetNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this *ImageExportOptions) getCommentsPosition() string {
+func (this *ImageExportOptions) GetCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this *ImageExportOptions) setCommentsPosition(newValue string) {
+func (this *ImageExportOptions) SetCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
-func (this *ImageExportOptions) getCommentsAreaWidth() int32 {
+func (this *ImageExportOptions) GetCommentsAreaWidth() int32 {
 	return this.CommentsAreaWidth
 }
 
-func (this *ImageExportOptions) setCommentsAreaWidth(newValue int32) {
+func (this *ImageExportOptions) SetCommentsAreaWidth(newValue int32) {
 	this.CommentsAreaWidth = newValue
 }
-func (this *ImageExportOptions) getCommentsAreaColor() string {
+func (this *ImageExportOptions) GetCommentsAreaColor() string {
 	return this.CommentsAreaColor
 }
 
-func (this *ImageExportOptions) setCommentsAreaColor(newValue string) {
+func (this *ImageExportOptions) SetCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
 

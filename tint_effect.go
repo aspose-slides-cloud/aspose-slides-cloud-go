@@ -34,16 +34,16 @@ import (
 type ITintEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Hue
-	getHue() float64
-	setHue(newValue float64)
+	GetHue() float64
+	SetHue(newValue float64)
 
 	// Amount
-	getAmount() float64
-	setAmount(newValue float64)
+	GetAmount() float64
+	SetAmount(newValue float64)
 }
 
 type TintEffect struct {
@@ -64,25 +64,25 @@ func NewTintEffect() *TintEffect {
 	return instance
 }
 
-func (this *TintEffect) getType() string {
+func (this *TintEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *TintEffect) setType(newValue string) {
+func (this *TintEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *TintEffect) getHue() float64 {
+func (this *TintEffect) GetHue() float64 {
 	return this.Hue
 }
 
-func (this *TintEffect) setHue(newValue float64) {
+func (this *TintEffect) SetHue(newValue float64) {
 	this.Hue = newValue
 }
-func (this *TintEffect) getAmount() float64 {
+func (this *TintEffect) GetAmount() float64 {
 	return this.Amount
 }
 
-func (this *TintEffect) setAmount(newValue float64) {
+func (this *TintEffect) SetAmount(newValue float64) {
 	this.Amount = newValue
 }
 

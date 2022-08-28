@@ -34,36 +34,36 @@ import (
 type IPlotArea interface {
 
 	// the X location
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// the Y location
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Width
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Height
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// If layout of the plot area is defined manually specifies whether to layout the plot area by its inside (not including axis and axis labels) or outside.
-	getLayoutTargetType() string
-	setLayoutTargetType(newValue string)
+	GetLayoutTargetType() string
+	SetLayoutTargetType(newValue string)
 
 	// Get or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Get or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Get or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 }
 
 type PlotArea struct {
@@ -99,60 +99,60 @@ func NewPlotArea() *PlotArea {
 	return instance
 }
 
-func (this *PlotArea) getX() float64 {
+func (this *PlotArea) GetX() float64 {
 	return this.X
 }
 
-func (this *PlotArea) setX(newValue float64) {
+func (this *PlotArea) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *PlotArea) getY() float64 {
+func (this *PlotArea) GetY() float64 {
 	return this.Y
 }
 
-func (this *PlotArea) setY(newValue float64) {
+func (this *PlotArea) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *PlotArea) getWidth() float64 {
+func (this *PlotArea) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *PlotArea) setWidth(newValue float64) {
+func (this *PlotArea) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *PlotArea) getHeight() float64 {
+func (this *PlotArea) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *PlotArea) setHeight(newValue float64) {
+func (this *PlotArea) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *PlotArea) getLayoutTargetType() string {
+func (this *PlotArea) GetLayoutTargetType() string {
 	return this.LayoutTargetType
 }
 
-func (this *PlotArea) setLayoutTargetType(newValue string) {
+func (this *PlotArea) SetLayoutTargetType(newValue string) {
 	this.LayoutTargetType = newValue
 }
-func (this *PlotArea) getFillFormat() IFillFormat {
+func (this *PlotArea) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *PlotArea) setFillFormat(newValue IFillFormat) {
+func (this *PlotArea) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *PlotArea) getEffectFormat() IEffectFormat {
+func (this *PlotArea) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *PlotArea) setEffectFormat(newValue IEffectFormat) {
+func (this *PlotArea) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *PlotArea) getLineFormat() ILineFormat {
+func (this *PlotArea) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *PlotArea) setLineFormat(newValue ILineFormat) {
+func (this *PlotArea) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
 

@@ -34,16 +34,16 @@ import (
 type IFillOverlayImageEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// FillBlendMode.
-	getBlend() string
-	setBlend(newValue string)
+	GetBlend() string
+	SetBlend(newValue string)
 
 	// Fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 }
 
 type FillOverlayImageEffect struct {
@@ -65,25 +65,25 @@ func NewFillOverlayImageEffect() *FillOverlayImageEffect {
 	return instance
 }
 
-func (this *FillOverlayImageEffect) getType() string {
+func (this *FillOverlayImageEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *FillOverlayImageEffect) setType(newValue string) {
+func (this *FillOverlayImageEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *FillOverlayImageEffect) getBlend() string {
+func (this *FillOverlayImageEffect) GetBlend() string {
 	return this.Blend
 }
 
-func (this *FillOverlayImageEffect) setBlend(newValue string) {
+func (this *FillOverlayImageEffect) SetBlend(newValue string) {
 	this.Blend = newValue
 }
-func (this *FillOverlayImageEffect) getFillFormat() IFillFormat {
+func (this *FillOverlayImageEffect) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *FillOverlayImageEffect) setFillFormat(newValue IFillFormat) {
+func (this *FillOverlayImageEffect) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
 

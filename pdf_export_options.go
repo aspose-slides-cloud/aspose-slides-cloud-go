@@ -34,92 +34,92 @@ import (
 type IPdfExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	// Export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Specifies compression type to be used for all textual content in the document.
-	getTextCompression() string
-	setTextCompression(newValue string)
+	GetTextCompression() string
+	SetTextCompression(newValue string)
 
 	// Determines if all characters of font should be embedded or only used subset.
-	getEmbedFullFonts() bool
-	setEmbedFullFonts(newValue bool)
+	GetEmbedFullFonts() bool
+	SetEmbedFullFonts(newValue bool)
 
 	// Desired conformance level for generated PDF document.
-	getCompliance() string
-	setCompliance(newValue string)
+	GetCompliance() string
+	SetCompliance(newValue string)
 
 	// Returns or sets a value determining resolution of images inside PDF document.  Property affects on file size, time of export and image quality. The default value is 96.
-	getSufficientResolution() float64
-	setSufficientResolution(newValue float64)
+	GetSufficientResolution() float64
+	SetSufficientResolution(newValue float64)
 
 	// Returns or sets a value determining the quality of the JPEG images inside PDF document.
-	getJpegQuality() int32
-	setJpegQuality(newValue int32)
+	GetJpegQuality() int32
+	SetJpegQuality(newValue int32)
 
 	// True to draw black frame around each slide.
-	getDrawSlidesFrame() bool
-	setDrawSlidesFrame(newValue bool)
+	GetDrawSlidesFrame() bool
+	SetDrawSlidesFrame(newValue bool)
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	getShowHiddenSlides() bool
-	setShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() bool
+	SetShowHiddenSlides(newValue bool)
 
 	// True to convert all metafiles used in a presentation to the PNG images.
-	getSaveMetafilesAsPng() bool
-	setSaveMetafilesAsPng(newValue bool)
+	GetSaveMetafilesAsPng() bool
+	SetSaveMetafilesAsPng(newValue bool)
 
 	// Setting user password to protect the PDF document. 
-	getPassword() string
-	setPassword(newValue string)
+	GetPassword() string
+	SetPassword(newValue string)
 
 	// Determines if Aspose.Slides will embed common fonts for ASCII (33..127 code range) text. Fonts for character codes greater than 127 are always embedded. Common fonts list includes PDF's base 14 fonts and additional user specified fonts.
-	getEmbedTrueTypeFontsForASCII() bool
-	setEmbedTrueTypeFontsForASCII(newValue bool)
+	GetEmbedTrueTypeFontsForASCII() bool
+	SetEmbedTrueTypeFontsForASCII(newValue bool)
 
 	// Returns or sets an array of user-defined names of font families which Aspose.Slides should consider common.
-	getAdditionalCommonFontFamilies() []string
-	setAdditionalCommonFontFamilies(newValue []string)
+	GetAdditionalCommonFontFamilies() []string
+	SetAdditionalCommonFontFamilies(newValue []string)
 
 	// Gets or sets the position of the notes on the page.
-	getNotesPosition() string
-	setNotesPosition(newValue string)
+	GetNotesPosition() string
+	SetNotesPosition(newValue string)
 
 	// Gets or sets the position of the comments on the page.
-	getCommentsPosition() string
-	setCommentsPosition(newValue string)
+	GetCommentsPosition() string
+	SetCommentsPosition(newValue string)
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	getCommentsAreaWidth() int32
-	setCommentsAreaWidth(newValue int32)
+	GetCommentsAreaWidth() int32
+	SetCommentsAreaWidth(newValue int32)
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
-	getCommentsAreaColor() string
-	setCommentsAreaColor(newValue string)
+	GetCommentsAreaColor() string
+	SetCommentsAreaColor(newValue string)
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	getShowCommentsByNoAuthor() bool
-	setShowCommentsByNoAuthor(newValue bool)
+	GetShowCommentsByNoAuthor() bool
+	SetShowCommentsByNoAuthor(newValue bool)
 
 	// Image transparent color.
-	getImageTransparentColor() string
-	setImageTransparentColor(newValue string)
+	GetImageTransparentColor() string
+	SetImageTransparentColor(newValue string)
 
 	// True to apply specified ImageTransparentColor  to an image.
-	getApplyImageTransparent() bool
-	setApplyImageTransparent(newValue bool)
+	GetApplyImageTransparent() bool
+	SetApplyImageTransparent(newValue bool)
 
 	// Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.             
-	getAccessPermissions() IAccessPermissions
-	setAccessPermissions(newValue IAccessPermissions)
+	GetAccessPermissions() IAccessPermissions
+	SetAccessPermissions(newValue IAccessPermissions)
 }
 
 type PdfExportOptions struct {
@@ -200,158 +200,158 @@ func NewPdfExportOptions() *PdfExportOptions {
 	return instance
 }
 
-func (this *PdfExportOptions) getDefaultRegularFont() string {
+func (this *PdfExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *PdfExportOptions) setDefaultRegularFont(newValue string) {
+func (this *PdfExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *PdfExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *PdfExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *PdfExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *PdfExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *PdfExportOptions) getFormat() string {
+func (this *PdfExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *PdfExportOptions) setFormat(newValue string) {
+func (this *PdfExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *PdfExportOptions) getTextCompression() string {
+func (this *PdfExportOptions) GetTextCompression() string {
 	return this.TextCompression
 }
 
-func (this *PdfExportOptions) setTextCompression(newValue string) {
+func (this *PdfExportOptions) SetTextCompression(newValue string) {
 	this.TextCompression = newValue
 }
-func (this *PdfExportOptions) getEmbedFullFonts() bool {
+func (this *PdfExportOptions) GetEmbedFullFonts() bool {
 	return this.EmbedFullFonts
 }
 
-func (this *PdfExportOptions) setEmbedFullFonts(newValue bool) {
+func (this *PdfExportOptions) SetEmbedFullFonts(newValue bool) {
 	this.EmbedFullFonts = newValue
 }
-func (this *PdfExportOptions) getCompliance() string {
+func (this *PdfExportOptions) GetCompliance() string {
 	return this.Compliance
 }
 
-func (this *PdfExportOptions) setCompliance(newValue string) {
+func (this *PdfExportOptions) SetCompliance(newValue string) {
 	this.Compliance = newValue
 }
-func (this *PdfExportOptions) getSufficientResolution() float64 {
+func (this *PdfExportOptions) GetSufficientResolution() float64 {
 	return this.SufficientResolution
 }
 
-func (this *PdfExportOptions) setSufficientResolution(newValue float64) {
+func (this *PdfExportOptions) SetSufficientResolution(newValue float64) {
 	this.SufficientResolution = newValue
 }
-func (this *PdfExportOptions) getJpegQuality() int32 {
+func (this *PdfExportOptions) GetJpegQuality() int32 {
 	return this.JpegQuality
 }
 
-func (this *PdfExportOptions) setJpegQuality(newValue int32) {
+func (this *PdfExportOptions) SetJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this *PdfExportOptions) getDrawSlidesFrame() bool {
+func (this *PdfExportOptions) GetDrawSlidesFrame() bool {
 	return this.DrawSlidesFrame
 }
 
-func (this *PdfExportOptions) setDrawSlidesFrame(newValue bool) {
+func (this *PdfExportOptions) SetDrawSlidesFrame(newValue bool) {
 	this.DrawSlidesFrame = newValue
 }
-func (this *PdfExportOptions) getShowHiddenSlides() bool {
+func (this *PdfExportOptions) GetShowHiddenSlides() bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *PdfExportOptions) setShowHiddenSlides(newValue bool) {
+func (this *PdfExportOptions) SetShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this *PdfExportOptions) getSaveMetafilesAsPng() bool {
+func (this *PdfExportOptions) GetSaveMetafilesAsPng() bool {
 	return this.SaveMetafilesAsPng
 }
 
-func (this *PdfExportOptions) setSaveMetafilesAsPng(newValue bool) {
+func (this *PdfExportOptions) SetSaveMetafilesAsPng(newValue bool) {
 	this.SaveMetafilesAsPng = newValue
 }
-func (this *PdfExportOptions) getPassword() string {
+func (this *PdfExportOptions) GetPassword() string {
 	return this.Password
 }
 
-func (this *PdfExportOptions) setPassword(newValue string) {
+func (this *PdfExportOptions) SetPassword(newValue string) {
 	this.Password = newValue
 }
-func (this *PdfExportOptions) getEmbedTrueTypeFontsForASCII() bool {
+func (this *PdfExportOptions) GetEmbedTrueTypeFontsForASCII() bool {
 	return this.EmbedTrueTypeFontsForASCII
 }
 
-func (this *PdfExportOptions) setEmbedTrueTypeFontsForASCII(newValue bool) {
+func (this *PdfExportOptions) SetEmbedTrueTypeFontsForASCII(newValue bool) {
 	this.EmbedTrueTypeFontsForASCII = newValue
 }
-func (this *PdfExportOptions) getAdditionalCommonFontFamilies() []string {
+func (this *PdfExportOptions) GetAdditionalCommonFontFamilies() []string {
 	return this.AdditionalCommonFontFamilies
 }
 
-func (this *PdfExportOptions) setAdditionalCommonFontFamilies(newValue []string) {
+func (this *PdfExportOptions) SetAdditionalCommonFontFamilies(newValue []string) {
 	this.AdditionalCommonFontFamilies = newValue
 }
-func (this *PdfExportOptions) getNotesPosition() string {
+func (this *PdfExportOptions) GetNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this *PdfExportOptions) setNotesPosition(newValue string) {
+func (this *PdfExportOptions) SetNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this *PdfExportOptions) getCommentsPosition() string {
+func (this *PdfExportOptions) GetCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this *PdfExportOptions) setCommentsPosition(newValue string) {
+func (this *PdfExportOptions) SetCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
-func (this *PdfExportOptions) getCommentsAreaWidth() int32 {
+func (this *PdfExportOptions) GetCommentsAreaWidth() int32 {
 	return this.CommentsAreaWidth
 }
 
-func (this *PdfExportOptions) setCommentsAreaWidth(newValue int32) {
+func (this *PdfExportOptions) SetCommentsAreaWidth(newValue int32) {
 	this.CommentsAreaWidth = newValue
 }
-func (this *PdfExportOptions) getCommentsAreaColor() string {
+func (this *PdfExportOptions) GetCommentsAreaColor() string {
 	return this.CommentsAreaColor
 }
 
-func (this *PdfExportOptions) setCommentsAreaColor(newValue string) {
+func (this *PdfExportOptions) SetCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
-func (this *PdfExportOptions) getShowCommentsByNoAuthor() bool {
+func (this *PdfExportOptions) GetShowCommentsByNoAuthor() bool {
 	return this.ShowCommentsByNoAuthor
 }
 
-func (this *PdfExportOptions) setShowCommentsByNoAuthor(newValue bool) {
+func (this *PdfExportOptions) SetShowCommentsByNoAuthor(newValue bool) {
 	this.ShowCommentsByNoAuthor = newValue
 }
-func (this *PdfExportOptions) getImageTransparentColor() string {
+func (this *PdfExportOptions) GetImageTransparentColor() string {
 	return this.ImageTransparentColor
 }
 
-func (this *PdfExportOptions) setImageTransparentColor(newValue string) {
+func (this *PdfExportOptions) SetImageTransparentColor(newValue string) {
 	this.ImageTransparentColor = newValue
 }
-func (this *PdfExportOptions) getApplyImageTransparent() bool {
+func (this *PdfExportOptions) GetApplyImageTransparent() bool {
 	return this.ApplyImageTransparent
 }
 
-func (this *PdfExportOptions) setApplyImageTransparent(newValue bool) {
+func (this *PdfExportOptions) SetApplyImageTransparent(newValue bool) {
 	this.ApplyImageTransparent = newValue
 }
-func (this *PdfExportOptions) getAccessPermissions() IAccessPermissions {
+func (this *PdfExportOptions) GetAccessPermissions() IAccessPermissions {
 	return this.AccessPermissions
 }
 
-func (this *PdfExportOptions) setAccessPermissions(newValue IAccessPermissions) {
+func (this *PdfExportOptions) SetAccessPermissions(newValue IAccessPermissions) {
 	this.AccessPermissions = newValue
 }
 

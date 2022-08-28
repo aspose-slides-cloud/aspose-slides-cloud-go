@@ -34,12 +34,12 @@ import (
 type IResetSlide interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Slide position.
-	getPosition() int32
-	setPosition(newValue int32)
+	GetPosition() int32
+	SetPosition(newValue int32)
 }
 
 type ResetSlide struct {
@@ -57,18 +57,18 @@ func NewResetSlide() *ResetSlide {
 	return instance
 }
 
-func (this *ResetSlide) getType() string {
+func (this *ResetSlide) GetType() string {
 	return this.Type_
 }
 
-func (this *ResetSlide) setType(newValue string) {
+func (this *ResetSlide) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *ResetSlide) getPosition() int32 {
+func (this *ResetSlide) GetPosition() int32 {
 	return this.Position
 }
 
-func (this *ResetSlide) setPosition(newValue int32) {
+func (this *ResetSlide) SetPosition(newValue int32) {
 	this.Position = newValue
 }
 

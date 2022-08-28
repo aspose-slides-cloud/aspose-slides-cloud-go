@@ -34,96 +34,96 @@ import (
 type ISmartArt interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Layout type.
-	getLayout() string
-	setLayout(newValue string)
+	GetLayout() string
+	SetLayout(newValue string)
 
 	// Quick style.
-	getQuickStyle() string
-	setQuickStyle(newValue string)
+	GetQuickStyle() string
+	SetQuickStyle(newValue string)
 
 	// Color style.
-	getColorStyle() string
-	setColorStyle(newValue string)
+	GetColorStyle() string
+	SetColorStyle(newValue string)
 
 	// Collection of nodes in SmartArt object.             
-	getNodes() []ISmartArtNode
-	setNodes(newValue []ISmartArtNode)
+	GetNodes() []ISmartArtNode
+	SetNodes(newValue []ISmartArtNode)
 
 	// The state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
-	getIsReversed() bool
-	setIsReversed(newValue bool)
+	GetIsReversed() bool
+	SetIsReversed(newValue bool)
 }
 
 type SmartArt struct {
@@ -207,165 +207,165 @@ func NewSmartArt() *SmartArt {
 	return instance
 }
 
-func (this *SmartArt) getSelfUri() IResourceUri {
+func (this *SmartArt) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *SmartArt) setSelfUri(newValue IResourceUri) {
+func (this *SmartArt) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *SmartArt) getAlternateLinks() []IResourceUri {
+func (this *SmartArt) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *SmartArt) setAlternateLinks(newValue []IResourceUri) {
+func (this *SmartArt) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *SmartArt) getName() string {
+func (this *SmartArt) GetName() string {
 	return this.Name
 }
 
-func (this *SmartArt) setName(newValue string) {
+func (this *SmartArt) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *SmartArt) getWidth() float64 {
+func (this *SmartArt) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *SmartArt) setWidth(newValue float64) {
+func (this *SmartArt) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *SmartArt) getHeight() float64 {
+func (this *SmartArt) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *SmartArt) setHeight(newValue float64) {
+func (this *SmartArt) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *SmartArt) getAlternativeText() string {
+func (this *SmartArt) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *SmartArt) setAlternativeText(newValue string) {
+func (this *SmartArt) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *SmartArt) getAlternativeTextTitle() string {
+func (this *SmartArt) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *SmartArt) setAlternativeTextTitle(newValue string) {
+func (this *SmartArt) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *SmartArt) getHidden() bool {
+func (this *SmartArt) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *SmartArt) setHidden(newValue bool) {
+func (this *SmartArt) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *SmartArt) getX() float64 {
+func (this *SmartArt) GetX() float64 {
 	return this.X
 }
 
-func (this *SmartArt) setX(newValue float64) {
+func (this *SmartArt) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *SmartArt) getY() float64 {
+func (this *SmartArt) GetY() float64 {
 	return this.Y
 }
 
-func (this *SmartArt) setY(newValue float64) {
+func (this *SmartArt) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *SmartArt) getZOrderPosition() int32 {
+func (this *SmartArt) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *SmartArt) setZOrderPosition(newValue int32) {
+func (this *SmartArt) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *SmartArt) getFillFormat() IFillFormat {
+func (this *SmartArt) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *SmartArt) setFillFormat(newValue IFillFormat) {
+func (this *SmartArt) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *SmartArt) getEffectFormat() IEffectFormat {
+func (this *SmartArt) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *SmartArt) setEffectFormat(newValue IEffectFormat) {
+func (this *SmartArt) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *SmartArt) getThreeDFormat() IThreeDFormat {
+func (this *SmartArt) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *SmartArt) setThreeDFormat(newValue IThreeDFormat) {
+func (this *SmartArt) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *SmartArt) getLineFormat() ILineFormat {
+func (this *SmartArt) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *SmartArt) setLineFormat(newValue ILineFormat) {
+func (this *SmartArt) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *SmartArt) getHyperlinkClick() IHyperlink {
+func (this *SmartArt) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *SmartArt) setHyperlinkClick(newValue IHyperlink) {
+func (this *SmartArt) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *SmartArt) getHyperlinkMouseOver() IHyperlink {
+func (this *SmartArt) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *SmartArt) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *SmartArt) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *SmartArt) getType() string {
+func (this *SmartArt) GetType() string {
 	return this.Type_
 }
 
-func (this *SmartArt) setType(newValue string) {
+func (this *SmartArt) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *SmartArt) getLayout() string {
+func (this *SmartArt) GetLayout() string {
 	return this.Layout
 }
 
-func (this *SmartArt) setLayout(newValue string) {
+func (this *SmartArt) SetLayout(newValue string) {
 	this.Layout = newValue
 }
-func (this *SmartArt) getQuickStyle() string {
+func (this *SmartArt) GetQuickStyle() string {
 	return this.QuickStyle
 }
 
-func (this *SmartArt) setQuickStyle(newValue string) {
+func (this *SmartArt) SetQuickStyle(newValue string) {
 	this.QuickStyle = newValue
 }
-func (this *SmartArt) getColorStyle() string {
+func (this *SmartArt) GetColorStyle() string {
 	return this.ColorStyle
 }
 
-func (this *SmartArt) setColorStyle(newValue string) {
+func (this *SmartArt) SetColorStyle(newValue string) {
 	this.ColorStyle = newValue
 }
-func (this *SmartArt) getNodes() []ISmartArtNode {
+func (this *SmartArt) GetNodes() []ISmartArtNode {
 	return this.Nodes
 }
 
-func (this *SmartArt) setNodes(newValue []ISmartArtNode) {
+func (this *SmartArt) SetNodes(newValue []ISmartArtNode) {
 	this.Nodes = newValue
 }
-func (this *SmartArt) getIsReversed() bool {
+func (this *SmartArt) GetIsReversed() bool {
 	return this.IsReversed
 }
 
-func (this *SmartArt) setIsReversed(newValue bool) {
+func (this *SmartArt) SetIsReversed(newValue bool) {
 	this.IsReversed = newValue
 }
 

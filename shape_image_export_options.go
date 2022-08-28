@@ -34,20 +34,20 @@ import (
 type IShapeImageExportOptions interface {
 
 	// Get or sets scaling ratio by X axis.
-	getScaleX() float64
-	setScaleX(newValue float64)
+	GetScaleX() float64
+	SetScaleX(newValue float64)
 
 	// Get or sets scaling ratio by Y axis.
-	getScaleY() float64
-	setScaleY(newValue float64)
+	GetScaleY() float64
+	SetScaleY(newValue float64)
 
 	// Get or sets thumbnail bounds
-	getThumbnailBounds() string
-	setThumbnailBounds(newValue string)
+	GetThumbnailBounds() string
+	SetThumbnailBounds(newValue string)
 
 	// Gets export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 }
 
 type ShapeImageExportOptions struct {
@@ -71,32 +71,32 @@ func NewShapeImageExportOptions() *ShapeImageExportOptions {
 	return instance
 }
 
-func (this *ShapeImageExportOptions) getScaleX() float64 {
+func (this *ShapeImageExportOptions) GetScaleX() float64 {
 	return this.ScaleX
 }
 
-func (this *ShapeImageExportOptions) setScaleX(newValue float64) {
+func (this *ShapeImageExportOptions) SetScaleX(newValue float64) {
 	this.ScaleX = newValue
 }
-func (this *ShapeImageExportOptions) getScaleY() float64 {
+func (this *ShapeImageExportOptions) GetScaleY() float64 {
 	return this.ScaleY
 }
 
-func (this *ShapeImageExportOptions) setScaleY(newValue float64) {
+func (this *ShapeImageExportOptions) SetScaleY(newValue float64) {
 	this.ScaleY = newValue
 }
-func (this *ShapeImageExportOptions) getThumbnailBounds() string {
+func (this *ShapeImageExportOptions) GetThumbnailBounds() string {
 	return this.ThumbnailBounds
 }
 
-func (this *ShapeImageExportOptions) setThumbnailBounds(newValue string) {
+func (this *ShapeImageExportOptions) SetThumbnailBounds(newValue string) {
 	this.ThumbnailBounds = newValue
 }
-func (this *ShapeImageExportOptions) getFormat() string {
+func (this *ShapeImageExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *ShapeImageExportOptions) setFormat(newValue string) {
+func (this *ShapeImageExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
 

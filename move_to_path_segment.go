@@ -34,16 +34,16 @@ import (
 type IMoveToPathSegment interface {
 
 	// Move segment
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// X coordinate of the point.
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Y coordinate of the point.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 }
 
 type MoveToPathSegment struct {
@@ -64,25 +64,25 @@ func NewMoveToPathSegment() *MoveToPathSegment {
 	return instance
 }
 
-func (this *MoveToPathSegment) getType() string {
+func (this *MoveToPathSegment) GetType() string {
 	return this.Type_
 }
 
-func (this *MoveToPathSegment) setType(newValue string) {
+func (this *MoveToPathSegment) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *MoveToPathSegment) getX() float64 {
+func (this *MoveToPathSegment) GetX() float64 {
 	return this.X
 }
 
-func (this *MoveToPathSegment) setX(newValue float64) {
+func (this *MoveToPathSegment) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *MoveToPathSegment) getY() float64 {
+func (this *MoveToPathSegment) GetY() float64 {
 	return this.Y
 }
 
-func (this *MoveToPathSegment) setY(newValue float64) {
+func (this *MoveToPathSegment) SetY(newValue float64) {
 	this.Y = newValue
 }
 

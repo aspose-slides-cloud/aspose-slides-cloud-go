@@ -34,32 +34,32 @@ import (
 type IBoxElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Base
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Operator emulator
-	getOperatorEmulator() bool
-	setOperatorEmulator(newValue bool)
+	GetOperatorEmulator() bool
+	SetOperatorEmulator(newValue bool)
 
 	// No break
-	getNoBreak() bool
-	setNoBreak(newValue bool)
+	GetNoBreak() bool
+	SetNoBreak(newValue bool)
 
 	// Differential
-	getDifferential() bool
-	setDifferential(newValue bool)
+	GetDifferential() bool
+	SetDifferential(newValue bool)
 
 	// Alignment point
-	getAlignmentPoint() bool
-	setAlignmentPoint(newValue bool)
+	GetAlignmentPoint() bool
+	SetAlignmentPoint(newValue bool)
 
 	// Explicit break
-	getExplicitBreak() int32
-	setExplicitBreak(newValue int32)
+	GetExplicitBreak() int32
+	SetExplicitBreak(newValue int32)
 }
 
 type BoxElement struct {
@@ -92,53 +92,53 @@ func NewBoxElement() *BoxElement {
 	return instance
 }
 
-func (this *BoxElement) getType() string {
+func (this *BoxElement) GetType() string {
 	return this.Type_
 }
 
-func (this *BoxElement) setType(newValue string) {
+func (this *BoxElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *BoxElement) getBase() IMathElement {
+func (this *BoxElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *BoxElement) setBase(newValue IMathElement) {
+func (this *BoxElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *BoxElement) getOperatorEmulator() bool {
+func (this *BoxElement) GetOperatorEmulator() bool {
 	return this.OperatorEmulator
 }
 
-func (this *BoxElement) setOperatorEmulator(newValue bool) {
+func (this *BoxElement) SetOperatorEmulator(newValue bool) {
 	this.OperatorEmulator = newValue
 }
-func (this *BoxElement) getNoBreak() bool {
+func (this *BoxElement) GetNoBreak() bool {
 	return this.NoBreak
 }
 
-func (this *BoxElement) setNoBreak(newValue bool) {
+func (this *BoxElement) SetNoBreak(newValue bool) {
 	this.NoBreak = newValue
 }
-func (this *BoxElement) getDifferential() bool {
+func (this *BoxElement) GetDifferential() bool {
 	return this.Differential
 }
 
-func (this *BoxElement) setDifferential(newValue bool) {
+func (this *BoxElement) SetDifferential(newValue bool) {
 	this.Differential = newValue
 }
-func (this *BoxElement) getAlignmentPoint() bool {
+func (this *BoxElement) GetAlignmentPoint() bool {
 	return this.AlignmentPoint
 }
 
-func (this *BoxElement) setAlignmentPoint(newValue bool) {
+func (this *BoxElement) SetAlignmentPoint(newValue bool) {
 	this.AlignmentPoint = newValue
 }
-func (this *BoxElement) getExplicitBreak() int32 {
+func (this *BoxElement) GetExplicitBreak() int32 {
 	return this.ExplicitBreak
 }
 
-func (this *BoxElement) setExplicitBreak(newValue int32) {
+func (this *BoxElement) SetExplicitBreak(newValue int32) {
 	this.ExplicitBreak = newValue
 }
 

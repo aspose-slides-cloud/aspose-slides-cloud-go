@@ -34,12 +34,12 @@ import (
 type IDiscUsage interface {
 
 	// Application used disc space.
-	getUsedSize() int64
-	setUsedSize(newValue int64)
+	GetUsedSize() int64
+	SetUsedSize(newValue int64)
 
 	// Total disc space.
-	getTotalSize() int64
-	setTotalSize(newValue int64)
+	GetTotalSize() int64
+	SetTotalSize(newValue int64)
 }
 
 type DiscUsage struct {
@@ -56,18 +56,18 @@ func NewDiscUsage() *DiscUsage {
 	return instance
 }
 
-func (this *DiscUsage) getUsedSize() int64 {
+func (this *DiscUsage) GetUsedSize() int64 {
 	return this.UsedSize
 }
 
-func (this *DiscUsage) setUsedSize(newValue int64) {
+func (this *DiscUsage) SetUsedSize(newValue int64) {
 	this.UsedSize = newValue
 }
-func (this *DiscUsage) getTotalSize() int64 {
+func (this *DiscUsage) GetTotalSize() int64 {
 	return this.TotalSize
 }
 
-func (this *DiscUsage) setTotalSize(newValue int64) {
+func (this *DiscUsage) SetTotalSize(newValue int64) {
 	this.TotalSize = newValue
 }
 

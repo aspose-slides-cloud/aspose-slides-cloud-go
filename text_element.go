@@ -34,12 +34,12 @@ import (
 type ITextElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Value
-	getValue() string
-	setValue(newValue string)
+	GetValue() string
+	SetValue(newValue string)
 }
 
 type TextElement struct {
@@ -57,18 +57,18 @@ func NewTextElement() *TextElement {
 	return instance
 }
 
-func (this *TextElement) getType() string {
+func (this *TextElement) GetType() string {
 	return this.Type_
 }
 
-func (this *TextElement) setType(newValue string) {
+func (this *TextElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *TextElement) getValue() string {
+func (this *TextElement) GetValue() string {
 	return this.Value
 }
 
-func (this *TextElement) setValue(newValue string) {
+func (this *TextElement) SetValue(newValue string) {
 	this.Value = newValue
 }
 

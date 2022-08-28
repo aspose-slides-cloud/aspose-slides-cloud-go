@@ -34,24 +34,24 @@ import (
 type IAddSlide interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// File to clone a slide from.
-	getCloneFromFile() IInputFile
-	setCloneFromFile(newValue IInputFile)
+	GetCloneFromFile() IInputFile
+	SetCloneFromFile(newValue IInputFile)
 
 	// Position of the slide to clone.
-	getCloneFromPosition() int32
-	setCloneFromPosition(newValue int32)
+	GetCloneFromPosition() int32
+	SetCloneFromPosition(newValue int32)
 
 	// Position at which to insert the slide.
-	getPosition() int32
-	setPosition(newValue int32)
+	GetPosition() int32
+	SetPosition(newValue int32)
 
 	// Alias of layout (href, index or type). If value is null a blank slide is added.
-	getLayoutAlias() string
-	setLayoutAlias(newValue string)
+	GetLayoutAlias() string
+	SetLayoutAlias(newValue string)
 }
 
 type AddSlide struct {
@@ -78,39 +78,39 @@ func NewAddSlide() *AddSlide {
 	return instance
 }
 
-func (this *AddSlide) getType() string {
+func (this *AddSlide) GetType() string {
 	return this.Type_
 }
 
-func (this *AddSlide) setType(newValue string) {
+func (this *AddSlide) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *AddSlide) getCloneFromFile() IInputFile {
+func (this *AddSlide) GetCloneFromFile() IInputFile {
 	return this.CloneFromFile
 }
 
-func (this *AddSlide) setCloneFromFile(newValue IInputFile) {
+func (this *AddSlide) SetCloneFromFile(newValue IInputFile) {
 	this.CloneFromFile = newValue
 }
-func (this *AddSlide) getCloneFromPosition() int32 {
+func (this *AddSlide) GetCloneFromPosition() int32 {
 	return this.CloneFromPosition
 }
 
-func (this *AddSlide) setCloneFromPosition(newValue int32) {
+func (this *AddSlide) SetCloneFromPosition(newValue int32) {
 	this.CloneFromPosition = newValue
 }
-func (this *AddSlide) getPosition() int32 {
+func (this *AddSlide) GetPosition() int32 {
 	return this.Position
 }
 
-func (this *AddSlide) setPosition(newValue int32) {
+func (this *AddSlide) SetPosition(newValue int32) {
 	this.Position = newValue
 }
-func (this *AddSlide) getLayoutAlias() string {
+func (this *AddSlide) GetLayoutAlias() string {
 	return this.LayoutAlias
 }
 
-func (this *AddSlide) setLayoutAlias(newValue string) {
+func (this *AddSlide) SetLayoutAlias(newValue string) {
 	this.LayoutAlias = newValue
 }
 

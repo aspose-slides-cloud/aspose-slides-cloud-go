@@ -30,93 +30,93 @@ import (
 	"encoding/json"
 )
 
-// Object exists
-type IObjectExist interface {
+// Represents font info.
+type IFontData interface {
 
-	// Indicates that the file or folder exists.
-	GetExists() bool
-	SetExists(newValue bool)
+	// Font name
+	GetFontName() string
+	SetFontName(newValue string)
 
-	// True if it is a folder, false if it is a file.
-	GetIsFolder() bool
-	SetIsFolder(newValue bool)
+	// Returns true if font is embedded.
+	GetIsEmbedded() bool
+	SetIsEmbedded(newValue bool)
 }
 
-type ObjectExist struct {
+type FontData struct {
 
-	// Indicates that the file or folder exists.
-	Exists bool `json:"Exists"`
+	// Font name
+	FontName string `json:"FontName,omitempty"`
 
-	// True if it is a folder, false if it is a file.
-	IsFolder bool `json:"IsFolder"`
+	// Returns true if font is embedded.
+	IsEmbedded bool `json:"IsEmbedded"`
 }
 
-func NewObjectExist() *ObjectExist {
-	instance := new(ObjectExist)
+func NewFontData() *FontData {
+	instance := new(FontData)
 	return instance
 }
 
-func (this *ObjectExist) GetExists() bool {
-	return this.Exists
+func (this *FontData) GetFontName() string {
+	return this.FontName
 }
 
-func (this *ObjectExist) SetExists(newValue bool) {
-	this.Exists = newValue
+func (this *FontData) SetFontName(newValue string) {
+	this.FontName = newValue
 }
-func (this *ObjectExist) GetIsFolder() bool {
-	return this.IsFolder
-}
-
-func (this *ObjectExist) SetIsFolder(newValue bool) {
-	this.IsFolder = newValue
+func (this *FontData) GetIsEmbedded() bool {
+	return this.IsEmbedded
 }
 
-func (this *ObjectExist) UnmarshalJSON(b []byte) error {
+func (this *FontData) SetIsEmbedded(newValue bool) {
+	this.IsEmbedded = newValue
+}
+
+func (this *FontData) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
 		return err
 	}
 	
-	if valExists, ok := objMap["exists"]; ok {
-		if valExists != nil {
-			var valueForExists bool
-			err = json.Unmarshal(*valExists, &valueForExists)
+	if valFontName, ok := objMap["fontName"]; ok {
+		if valFontName != nil {
+			var valueForFontName string
+			err = json.Unmarshal(*valFontName, &valueForFontName)
 			if err != nil {
 				return err
 			}
-			this.Exists = valueForExists
+			this.FontName = valueForFontName
 		}
 	}
-	if valExistsCap, ok := objMap["Exists"]; ok {
-		if valExistsCap != nil {
-			var valueForExists bool
-			err = json.Unmarshal(*valExistsCap, &valueForExists)
+	if valFontNameCap, ok := objMap["FontName"]; ok {
+		if valFontNameCap != nil {
+			var valueForFontName string
+			err = json.Unmarshal(*valFontNameCap, &valueForFontName)
 			if err != nil {
 				return err
 			}
-			this.Exists = valueForExists
+			this.FontName = valueForFontName
 		}
 	}
 	
-	if valIsFolder, ok := objMap["isFolder"]; ok {
-		if valIsFolder != nil {
-			var valueForIsFolder bool
-			err = json.Unmarshal(*valIsFolder, &valueForIsFolder)
+	if valIsEmbedded, ok := objMap["isEmbedded"]; ok {
+		if valIsEmbedded != nil {
+			var valueForIsEmbedded bool
+			err = json.Unmarshal(*valIsEmbedded, &valueForIsEmbedded)
 			if err != nil {
 				return err
 			}
-			this.IsFolder = valueForIsFolder
+			this.IsEmbedded = valueForIsEmbedded
 		}
 	}
-	if valIsFolderCap, ok := objMap["IsFolder"]; ok {
-		if valIsFolderCap != nil {
-			var valueForIsFolder bool
-			err = json.Unmarshal(*valIsFolderCap, &valueForIsFolder)
+	if valIsEmbeddedCap, ok := objMap["IsEmbedded"]; ok {
+		if valIsEmbeddedCap != nil {
+			var valueForIsEmbedded bool
+			err = json.Unmarshal(*valIsEmbeddedCap, &valueForIsEmbedded)
 			if err != nil {
 				return err
 			}
-			this.IsFolder = valueForIsFolder
+			this.IsEmbedded = valueForIsEmbedded
 		}
 	}
 

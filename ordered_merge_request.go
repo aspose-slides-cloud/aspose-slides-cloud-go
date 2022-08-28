@@ -34,8 +34,8 @@ import (
 type IOrderedMergeRequest interface {
 
 	// Gets or sets the presentation paths.
-	getPresentations() []IPresentationToMerge
-	setPresentations(newValue []IPresentationToMerge)
+	GetPresentations() []IPresentationToMerge
+	SetPresentations(newValue []IPresentationToMerge)
 }
 
 type OrderedMergeRequest struct {
@@ -49,11 +49,11 @@ func NewOrderedMergeRequest() *OrderedMergeRequest {
 	return instance
 }
 
-func (this *OrderedMergeRequest) getPresentations() []IPresentationToMerge {
+func (this *OrderedMergeRequest) GetPresentations() []IPresentationToMerge {
 	return this.Presentations
 }
 
-func (this *OrderedMergeRequest) setPresentations(newValue []IPresentationToMerge) {
+func (this *OrderedMergeRequest) SetPresentations(newValue []IPresentationToMerge) {
 	this.Presentations = newValue
 }
 

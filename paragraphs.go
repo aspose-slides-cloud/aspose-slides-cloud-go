@@ -34,16 +34,16 @@ import (
 type IParagraphs interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// List of paragraph links.
-	getParagraphLinks() []IResourceUri
-	setParagraphLinks(newValue []IResourceUri)
+	GetParagraphLinks() []IResourceUri
+	SetParagraphLinks(newValue []IResourceUri)
 }
 
 type Paragraphs struct {
@@ -63,25 +63,25 @@ func NewParagraphs() *Paragraphs {
 	return instance
 }
 
-func (this *Paragraphs) getSelfUri() IResourceUri {
+func (this *Paragraphs) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Paragraphs) setSelfUri(newValue IResourceUri) {
+func (this *Paragraphs) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Paragraphs) getAlternateLinks() []IResourceUri {
+func (this *Paragraphs) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Paragraphs) setAlternateLinks(newValue []IResourceUri) {
+func (this *Paragraphs) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Paragraphs) getParagraphLinks() []IResourceUri {
+func (this *Paragraphs) GetParagraphLinks() []IResourceUri {
 	return this.ParagraphLinks
 }
 
-func (this *Paragraphs) setParagraphLinks(newValue []IResourceUri) {
+func (this *Paragraphs) SetParagraphLinks(newValue []IResourceUri) {
 	this.ParagraphLinks = newValue
 }
 

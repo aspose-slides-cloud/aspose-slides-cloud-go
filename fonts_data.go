@@ -30,69 +30,86 @@ import (
 	"encoding/json"
 )
 
-// Represents task for pipeline.
-type ITask interface {
+// List of fonts data
+type IFontsData interface {
 
-	GetType() string
-	SetType(newValue string)
+	// Fonts data list.
+	GetList() []IFontData
+	SetList(newValue []IFontData)
 }
 
-type Task struct {
+type FontsData struct {
 
-	Type_ string `json:"Type,omitempty"`
+	// Fonts data list.
+	List []IFontData `json:"List,omitempty"`
 }
 
-func NewTask() *Task {
-	instance := new(Task)
-	instance.Type_ = ""
+func NewFontsData() *FontsData {
+	instance := new(FontsData)
 	return instance
 }
 
-func (this *Task) GetType() string {
-	return this.Type_
+func (this *FontsData) GetList() []IFontData {
+	return this.List
 }
 
-func (this *Task) SetType(newValue string) {
-	this.Type_ = newValue
+func (this *FontsData) SetList(newValue []IFontData) {
+	this.List = newValue
 }
 
-func (this *Task) UnmarshalJSON(b []byte) error {
+func (this *FontsData) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
 		return err
 	}
-	this.Type_ = ""
-	if valType, ok := objMap["type"]; ok {
-		if valType != nil {
-			var valueForType string
-			err = json.Unmarshal(*valType, &valueForType)
+	
+	if valList, ok := objMap["list"]; ok {
+		if valList != nil {
+			var valueForList []json.RawMessage
+			err = json.Unmarshal(*valList, &valueForList)
 			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valType, &valueForTypeInt)
+				return err
+			}
+			valueForIList := make([]IFontData, len(valueForList))
+			for i, v := range valueForList {
+				vObject, err := createObjectForType("FontData", v)
 				if err != nil {
 					return err
 				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIList[i] = vObject.(IFontData)
+				}
 			}
+			this.List = valueForIList
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
+	if valListCap, ok := objMap["List"]; ok {
+		if valListCap != nil {
+			var valueForList []json.RawMessage
+			err = json.Unmarshal(*valListCap, &valueForList)
 			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				return err
+			}
+			valueForIList := make([]IFontData, len(valueForList))
+			for i, v := range valueForList {
+				vObject, err := createObjectForType("FontData", v)
 				if err != nil {
 					return err
 				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIList[i] = vObject.(IFontData)
+				}
 			}
+			this.List = valueForIList
 		}
 	}
 

@@ -34,32 +34,32 @@ import (
 type IPlaceholder interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Index.
-	getIndex() int32
-	setIndex(newValue int32)
+	GetIndex() int32
+	SetIndex(newValue int32)
 
 	// Orientation.
-	getOrientation() string
-	setOrientation(newValue string)
+	GetOrientation() string
+	SetOrientation(newValue string)
 
 	// Size.
-	getSize() string
-	setSize(newValue string)
+	GetSize() string
+	SetSize(newValue string)
 
 	// Placeholder type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Shape link.
-	getShape() IResourceUri
-	setShape(newValue IResourceUri)
+	GetShape() IResourceUri
+	SetShape(newValue IResourceUri)
 }
 
 type Placeholder struct {
@@ -94,53 +94,53 @@ func NewPlaceholder() *Placeholder {
 	return instance
 }
 
-func (this *Placeholder) getSelfUri() IResourceUri {
+func (this *Placeholder) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Placeholder) setSelfUri(newValue IResourceUri) {
+func (this *Placeholder) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Placeholder) getAlternateLinks() []IResourceUri {
+func (this *Placeholder) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Placeholder) setAlternateLinks(newValue []IResourceUri) {
+func (this *Placeholder) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Placeholder) getIndex() int32 {
+func (this *Placeholder) GetIndex() int32 {
 	return this.Index
 }
 
-func (this *Placeholder) setIndex(newValue int32) {
+func (this *Placeholder) SetIndex(newValue int32) {
 	this.Index = newValue
 }
-func (this *Placeholder) getOrientation() string {
+func (this *Placeholder) GetOrientation() string {
 	return this.Orientation
 }
 
-func (this *Placeholder) setOrientation(newValue string) {
+func (this *Placeholder) SetOrientation(newValue string) {
 	this.Orientation = newValue
 }
-func (this *Placeholder) getSize() string {
+func (this *Placeholder) GetSize() string {
 	return this.Size
 }
 
-func (this *Placeholder) setSize(newValue string) {
+func (this *Placeholder) SetSize(newValue string) {
 	this.Size = newValue
 }
-func (this *Placeholder) getType() string {
+func (this *Placeholder) GetType() string {
 	return this.Type_
 }
 
-func (this *Placeholder) setType(newValue string) {
+func (this *Placeholder) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *Placeholder) getShape() IResourceUri {
+func (this *Placeholder) GetShape() IResourceUri {
 	return this.Shape
 }
 
-func (this *Placeholder) setShape(newValue IResourceUri) {
+func (this *Placeholder) SetShape(newValue IResourceUri) {
 	this.Shape = newValue
 }
 

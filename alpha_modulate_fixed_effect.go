@@ -34,12 +34,12 @@ import (
 type IAlphaModulateFixedEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Returns an amount of effect in percents.    
-	getAmount() float64
-	setAmount(newValue float64)
+	GetAmount() float64
+	SetAmount(newValue float64)
 }
 
 type AlphaModulateFixedEffect struct {
@@ -57,18 +57,18 @@ func NewAlphaModulateFixedEffect() *AlphaModulateFixedEffect {
 	return instance
 }
 
-func (this *AlphaModulateFixedEffect) getType() string {
+func (this *AlphaModulateFixedEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *AlphaModulateFixedEffect) setType(newValue string) {
+func (this *AlphaModulateFixedEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *AlphaModulateFixedEffect) getAmount() float64 {
+func (this *AlphaModulateFixedEffect) GetAmount() float64 {
 	return this.Amount
 }
 
-func (this *AlphaModulateFixedEffect) setAmount(newValue float64) {
+func (this *AlphaModulateFixedEffect) SetAmount(newValue float64) {
 	this.Amount = newValue
 }
 

@@ -33,8 +33,8 @@ import (
 // Image transform effect
 type IImageTransformEffect interface {
 
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type ImageTransformEffect struct {
@@ -48,11 +48,11 @@ func NewImageTransformEffect() *ImageTransformEffect {
 	return instance
 }
 
-func (this *ImageTransformEffect) getType() string {
+func (this *ImageTransformEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *ImageTransformEffect) setType(newValue string) {
+func (this *ImageTransformEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

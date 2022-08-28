@@ -34,16 +34,16 @@ import (
 type IImages interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Image list.
-	getList() []IImage
-	setList(newValue []IImage)
+	GetList() []IImage
+	SetList(newValue []IImage)
 }
 
 type Images struct {
@@ -63,25 +63,25 @@ func NewImages() *Images {
 	return instance
 }
 
-func (this *Images) getSelfUri() IResourceUri {
+func (this *Images) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Images) setSelfUri(newValue IResourceUri) {
+func (this *Images) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Images) getAlternateLinks() []IResourceUri {
+func (this *Images) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Images) setAlternateLinks(newValue []IResourceUri) {
+func (this *Images) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Images) getList() []IImage {
+func (this *Images) GetList() []IImage {
 	return this.List
 }
 
-func (this *Images) setList(newValue []IImage) {
+func (this *Images) SetList(newValue []IImage) {
 	this.List = newValue
 }
 

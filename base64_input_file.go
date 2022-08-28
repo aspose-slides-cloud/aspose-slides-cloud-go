@@ -34,16 +34,16 @@ import (
 type IBase64InputFile interface {
 
 	// Get or sets password to open document.
-	getPassword() string
-	setPassword(newValue string)
+	GetPassword() string
+	SetPassword(newValue string)
 
 	// File type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Get or sets base64 data.
-	getData() string
-	setData(newValue string)
+	GetData() string
+	SetData(newValue string)
 }
 
 type Base64InputFile struct {
@@ -64,25 +64,25 @@ func NewBase64InputFile() *Base64InputFile {
 	return instance
 }
 
-func (this *Base64InputFile) getPassword() string {
+func (this *Base64InputFile) GetPassword() string {
 	return this.Password
 }
 
-func (this *Base64InputFile) setPassword(newValue string) {
+func (this *Base64InputFile) SetPassword(newValue string) {
 	this.Password = newValue
 }
-func (this *Base64InputFile) getType() string {
+func (this *Base64InputFile) GetType() string {
 	return this.Type_
 }
 
-func (this *Base64InputFile) setType(newValue string) {
+func (this *Base64InputFile) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *Base64InputFile) getData() string {
+func (this *Base64InputFile) GetData() string {
 	return this.Data
 }
 
-func (this *Base64InputFile) setData(newValue string) {
+func (this *Base64InputFile) SetData(newValue string) {
 	this.Data = newValue
 }
 

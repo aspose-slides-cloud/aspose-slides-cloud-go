@@ -34,20 +34,20 @@ import (
 type ITextBounds interface {
 
 	// X coordinate of the text bounds.
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// X coordinate of the text bounds.             
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Width of the text bounds.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Height of the text bounds.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 }
 
 type TextBounds struct {
@@ -70,32 +70,32 @@ func NewTextBounds() *TextBounds {
 	return instance
 }
 
-func (this *TextBounds) getX() float64 {
+func (this *TextBounds) GetX() float64 {
 	return this.X
 }
 
-func (this *TextBounds) setX(newValue float64) {
+func (this *TextBounds) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *TextBounds) getY() float64 {
+func (this *TextBounds) GetY() float64 {
 	return this.Y
 }
 
-func (this *TextBounds) setY(newValue float64) {
+func (this *TextBounds) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *TextBounds) getWidth() float64 {
+func (this *TextBounds) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *TextBounds) setWidth(newValue float64) {
+func (this *TextBounds) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *TextBounds) getHeight() float64 {
+func (this *TextBounds) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *TextBounds) setHeight(newValue float64) {
+func (this *TextBounds) SetHeight(newValue float64) {
 	this.Height = newValue
 }
 

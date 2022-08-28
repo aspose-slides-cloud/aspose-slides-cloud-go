@@ -34,16 +34,16 @@ import (
 type IReorderSlide interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Old position.
-	getOldPosition() int32
-	setOldPosition(newValue int32)
+	GetOldPosition() int32
+	SetOldPosition(newValue int32)
 
 	// New position.
-	getNewPosition() int32
-	setNewPosition(newValue int32)
+	GetNewPosition() int32
+	SetNewPosition(newValue int32)
 }
 
 type ReorderSlide struct {
@@ -64,25 +64,25 @@ func NewReorderSlide() *ReorderSlide {
 	return instance
 }
 
-func (this *ReorderSlide) getType() string {
+func (this *ReorderSlide) GetType() string {
 	return this.Type_
 }
 
-func (this *ReorderSlide) setType(newValue string) {
+func (this *ReorderSlide) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *ReorderSlide) getOldPosition() int32 {
+func (this *ReorderSlide) GetOldPosition() int32 {
 	return this.OldPosition
 }
 
-func (this *ReorderSlide) setOldPosition(newValue int32) {
+func (this *ReorderSlide) SetOldPosition(newValue int32) {
 	this.OldPosition = newValue
 }
-func (this *ReorderSlide) getNewPosition() int32 {
+func (this *ReorderSlide) GetNewPosition() int32 {
 	return this.NewPosition
 }
 
-func (this *ReorderSlide) setNewPosition(newValue int32) {
+func (this *ReorderSlide) SetNewPosition(newValue int32) {
 	this.NewPosition = newValue
 }
 

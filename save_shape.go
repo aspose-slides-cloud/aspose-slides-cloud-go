@@ -34,24 +34,24 @@ import (
 type ISaveShape interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Shape path.
-	getShapePath() string
-	setShapePath(newValue string)
+	GetShapePath() string
+	SetShapePath(newValue string)
 
 	// Output file.
-	getOutput() IOutputFile
-	setOutput(newValue IOutputFile)
+	GetOutput() IOutputFile
+	SetOutput(newValue IOutputFile)
 
 	// Save options.
-	getOptions() IIShapeExportOptions
-	setOptions(newValue IIShapeExportOptions)
+	GetOptions() IIShapeExportOptions
+	SetOptions(newValue IIShapeExportOptions)
 }
 
 type SaveShape struct {
@@ -79,39 +79,39 @@ func NewSaveShape() *SaveShape {
 	return instance
 }
 
-func (this *SaveShape) getType() string {
+func (this *SaveShape) GetType() string {
 	return this.Type_
 }
 
-func (this *SaveShape) setType(newValue string) {
+func (this *SaveShape) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *SaveShape) getFormat() string {
+func (this *SaveShape) GetFormat() string {
 	return this.Format
 }
 
-func (this *SaveShape) setFormat(newValue string) {
+func (this *SaveShape) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *SaveShape) getShapePath() string {
+func (this *SaveShape) GetShapePath() string {
 	return this.ShapePath
 }
 
-func (this *SaveShape) setShapePath(newValue string) {
+func (this *SaveShape) SetShapePath(newValue string) {
 	this.ShapePath = newValue
 }
-func (this *SaveShape) getOutput() IOutputFile {
+func (this *SaveShape) GetOutput() IOutputFile {
 	return this.Output
 }
 
-func (this *SaveShape) setOutput(newValue IOutputFile) {
+func (this *SaveShape) SetOutput(newValue IOutputFile) {
 	this.Output = newValue
 }
-func (this *SaveShape) getOptions() IIShapeExportOptions {
+func (this *SaveShape) GetOptions() IIShapeExportOptions {
 	return this.Options
 }
 
-func (this *SaveShape) setOptions(newValue IIShapeExportOptions) {
+func (this *SaveShape) SetOptions(newValue IIShapeExportOptions) {
 	this.Options = newValue
 }
 

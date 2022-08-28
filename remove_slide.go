@@ -34,12 +34,12 @@ import (
 type IRemoveSlide interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Position of slide to be removed.
-	getPosition() int32
-	setPosition(newValue int32)
+	GetPosition() int32
+	SetPosition(newValue int32)
 }
 
 type RemoveSlide struct {
@@ -57,18 +57,18 @@ func NewRemoveSlide() *RemoveSlide {
 	return instance
 }
 
-func (this *RemoveSlide) getType() string {
+func (this *RemoveSlide) GetType() string {
 	return this.Type_
 }
 
-func (this *RemoveSlide) setType(newValue string) {
+func (this *RemoveSlide) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *RemoveSlide) getPosition() int32 {
+func (this *RemoveSlide) GetPosition() int32 {
 	return this.Position
 }
 
-func (this *RemoveSlide) setPosition(newValue int32) {
+func (this *RemoveSlide) SetPosition(newValue int32) {
 	this.Position = newValue
 }
 

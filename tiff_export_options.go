@@ -34,64 +34,64 @@ import (
 type ITiffExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	// Export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Gets or sets the height of slides in the output image format.
-	getHeight() int32
-	setHeight(newValue int32)
+	GetHeight() int32
+	SetHeight(newValue int32)
 
 	// Gets or sets the height of slides in the output the output image format.
-	getWidth() int32
-	setWidth(newValue int32)
+	GetWidth() int32
+	SetWidth(newValue int32)
 
 	// Compression type.
-	getCompression() string
-	setCompression(newValue string)
+	GetCompression() string
+	SetCompression(newValue string)
 
 	// Horizontal resolution, in dots per inch.
-	getDpiX() int32
-	setDpiX(newValue int32)
+	GetDpiX() int32
+	SetDpiX(newValue int32)
 
 	// Vertical resolution, in dots per inch.
-	getDpiY() int32
-	setDpiY(newValue int32)
+	GetDpiY() int32
+	SetDpiY(newValue int32)
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	getShowHiddenSlides() bool
-	setShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() bool
+	SetShowHiddenSlides(newValue bool)
 
 	// Specifies the pixel format for the generated images. Read/write ImagePixelFormat.
-	getPixelFormat() string
-	setPixelFormat(newValue string)
+	GetPixelFormat() string
+	SetPixelFormat(newValue string)
 
 	// Gets or sets the position of the notes on the page.
-	getNotesPosition() string
-	setNotesPosition(newValue string)
+	GetNotesPosition() string
+	SetNotesPosition(newValue string)
 
 	// Gets or sets the position of the comments on the page.
-	getCommentsPosition() string
-	setCommentsPosition(newValue string)
+	GetCommentsPosition() string
+	SetCommentsPosition(newValue string)
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	getCommentsAreaWidth() int32
-	setCommentsAreaWidth(newValue int32)
+	GetCommentsAreaWidth() int32
+	SetCommentsAreaWidth(newValue int32)
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
-	getCommentsAreaColor() string
-	setCommentsAreaColor(newValue string)
+	GetCommentsAreaColor() string
+	SetCommentsAreaColor(newValue string)
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	getShowCommentsByNoAuthor() bool
-	setShowCommentsByNoAuthor(newValue bool)
+	GetShowCommentsByNoAuthor() bool
+	SetShowCommentsByNoAuthor(newValue bool)
 }
 
 type TiffExportOptions struct {
@@ -151,109 +151,109 @@ func NewTiffExportOptions() *TiffExportOptions {
 	return instance
 }
 
-func (this *TiffExportOptions) getDefaultRegularFont() string {
+func (this *TiffExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *TiffExportOptions) setDefaultRegularFont(newValue string) {
+func (this *TiffExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *TiffExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *TiffExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *TiffExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *TiffExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *TiffExportOptions) getFormat() string {
+func (this *TiffExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *TiffExportOptions) setFormat(newValue string) {
+func (this *TiffExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *TiffExportOptions) getHeight() int32 {
+func (this *TiffExportOptions) GetHeight() int32 {
 	return this.Height
 }
 
-func (this *TiffExportOptions) setHeight(newValue int32) {
+func (this *TiffExportOptions) SetHeight(newValue int32) {
 	this.Height = newValue
 }
-func (this *TiffExportOptions) getWidth() int32 {
+func (this *TiffExportOptions) GetWidth() int32 {
 	return this.Width
 }
 
-func (this *TiffExportOptions) setWidth(newValue int32) {
+func (this *TiffExportOptions) SetWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this *TiffExportOptions) getCompression() string {
+func (this *TiffExportOptions) GetCompression() string {
 	return this.Compression
 }
 
-func (this *TiffExportOptions) setCompression(newValue string) {
+func (this *TiffExportOptions) SetCompression(newValue string) {
 	this.Compression = newValue
 }
-func (this *TiffExportOptions) getDpiX() int32 {
+func (this *TiffExportOptions) GetDpiX() int32 {
 	return this.DpiX
 }
 
-func (this *TiffExportOptions) setDpiX(newValue int32) {
+func (this *TiffExportOptions) SetDpiX(newValue int32) {
 	this.DpiX = newValue
 }
-func (this *TiffExportOptions) getDpiY() int32 {
+func (this *TiffExportOptions) GetDpiY() int32 {
 	return this.DpiY
 }
 
-func (this *TiffExportOptions) setDpiY(newValue int32) {
+func (this *TiffExportOptions) SetDpiY(newValue int32) {
 	this.DpiY = newValue
 }
-func (this *TiffExportOptions) getShowHiddenSlides() bool {
+func (this *TiffExportOptions) GetShowHiddenSlides() bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *TiffExportOptions) setShowHiddenSlides(newValue bool) {
+func (this *TiffExportOptions) SetShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this *TiffExportOptions) getPixelFormat() string {
+func (this *TiffExportOptions) GetPixelFormat() string {
 	return this.PixelFormat
 }
 
-func (this *TiffExportOptions) setPixelFormat(newValue string) {
+func (this *TiffExportOptions) SetPixelFormat(newValue string) {
 	this.PixelFormat = newValue
 }
-func (this *TiffExportOptions) getNotesPosition() string {
+func (this *TiffExportOptions) GetNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this *TiffExportOptions) setNotesPosition(newValue string) {
+func (this *TiffExportOptions) SetNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this *TiffExportOptions) getCommentsPosition() string {
+func (this *TiffExportOptions) GetCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this *TiffExportOptions) setCommentsPosition(newValue string) {
+func (this *TiffExportOptions) SetCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
-func (this *TiffExportOptions) getCommentsAreaWidth() int32 {
+func (this *TiffExportOptions) GetCommentsAreaWidth() int32 {
 	return this.CommentsAreaWidth
 }
 
-func (this *TiffExportOptions) setCommentsAreaWidth(newValue int32) {
+func (this *TiffExportOptions) SetCommentsAreaWidth(newValue int32) {
 	this.CommentsAreaWidth = newValue
 }
-func (this *TiffExportOptions) getCommentsAreaColor() string {
+func (this *TiffExportOptions) GetCommentsAreaColor() string {
 	return this.CommentsAreaColor
 }
 
-func (this *TiffExportOptions) setCommentsAreaColor(newValue string) {
+func (this *TiffExportOptions) SetCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
-func (this *TiffExportOptions) getShowCommentsByNoAuthor() bool {
+func (this *TiffExportOptions) GetShowCommentsByNoAuthor() bool {
 	return this.ShowCommentsByNoAuthor
 }
 
-func (this *TiffExportOptions) setShowCommentsByNoAuthor(newValue bool) {
+func (this *TiffExportOptions) SetShowCommentsByNoAuthor(newValue bool) {
 	this.ShowCommentsByNoAuthor = newValue
 }
 

@@ -34,20 +34,20 @@ import (
 type IInnerShadowEffect interface {
 
 	// direction
-	getDirection() float64
-	setDirection(newValue float64)
+	GetDirection() float64
+	SetDirection(newValue float64)
 
 	// distance
-	getDistance() float64
-	setDistance(newValue float64)
+	GetDistance() float64
+	SetDistance(newValue float64)
 
 	// blur radius
-	getBlurRadius() float64
-	setBlurRadius(newValue float64)
+	GetBlurRadius() float64
+	SetBlurRadius(newValue float64)
 
 	// shadow color
-	getShadowColor() string
-	setShadowColor(newValue string)
+	GetShadowColor() string
+	SetShadowColor(newValue string)
 }
 
 type InnerShadowEffect struct {
@@ -70,32 +70,32 @@ func NewInnerShadowEffect() *InnerShadowEffect {
 	return instance
 }
 
-func (this *InnerShadowEffect) getDirection() float64 {
+func (this *InnerShadowEffect) GetDirection() float64 {
 	return this.Direction
 }
 
-func (this *InnerShadowEffect) setDirection(newValue float64) {
+func (this *InnerShadowEffect) SetDirection(newValue float64) {
 	this.Direction = newValue
 }
-func (this *InnerShadowEffect) getDistance() float64 {
+func (this *InnerShadowEffect) GetDistance() float64 {
 	return this.Distance
 }
 
-func (this *InnerShadowEffect) setDistance(newValue float64) {
+func (this *InnerShadowEffect) SetDistance(newValue float64) {
 	this.Distance = newValue
 }
-func (this *InnerShadowEffect) getBlurRadius() float64 {
+func (this *InnerShadowEffect) GetBlurRadius() float64 {
 	return this.BlurRadius
 }
 
-func (this *InnerShadowEffect) setBlurRadius(newValue float64) {
+func (this *InnerShadowEffect) SetBlurRadius(newValue float64) {
 	this.BlurRadius = newValue
 }
-func (this *InnerShadowEffect) getShadowColor() string {
+func (this *InnerShadowEffect) GetShadowColor() string {
 	return this.ShadowColor
 }
 
-func (this *InnerShadowEffect) setShadowColor(newValue string) {
+func (this *InnerShadowEffect) SetShadowColor(newValue string) {
 	this.ShadowColor = newValue
 }
 

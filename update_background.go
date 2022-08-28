@@ -34,16 +34,16 @@ import (
 type IUpdateBackground interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// List of slide indices.
-	getSlides() []int32
-	setSlides(newValue []int32)
+	GetSlides() []int32
+	SetSlides(newValue []int32)
 
 	// Background DTO.
-	getBackground() ISlideBackground
-	setBackground(newValue ISlideBackground)
+	GetBackground() ISlideBackground
+	SetBackground(newValue ISlideBackground)
 }
 
 type UpdateBackground struct {
@@ -64,25 +64,25 @@ func NewUpdateBackground() *UpdateBackground {
 	return instance
 }
 
-func (this *UpdateBackground) getType() string {
+func (this *UpdateBackground) GetType() string {
 	return this.Type_
 }
 
-func (this *UpdateBackground) setType(newValue string) {
+func (this *UpdateBackground) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *UpdateBackground) getSlides() []int32 {
+func (this *UpdateBackground) GetSlides() []int32 {
 	return this.Slides
 }
 
-func (this *UpdateBackground) setSlides(newValue []int32) {
+func (this *UpdateBackground) SetSlides(newValue []int32) {
 	this.Slides = newValue
 }
-func (this *UpdateBackground) getBackground() ISlideBackground {
+func (this *UpdateBackground) GetBackground() ISlideBackground {
 	return this.Background
 }
 
-func (this *UpdateBackground) setBackground(newValue ISlideBackground) {
+func (this *UpdateBackground) SetBackground(newValue ISlideBackground) {
 	this.Background = newValue
 }
 

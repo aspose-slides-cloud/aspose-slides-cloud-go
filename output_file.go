@@ -33,8 +33,8 @@ import (
 // Represents output file destination in pipeline.
 type IOutputFile interface {
 
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type OutputFile struct {
@@ -48,11 +48,11 @@ func NewOutputFile() *OutputFile {
 	return instance
 }
 
-func (this *OutputFile) getType() string {
+func (this *OutputFile) GetType() string {
 	return this.Type_
 }
 
-func (this *OutputFile) setType(newValue string) {
+func (this *OutputFile) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

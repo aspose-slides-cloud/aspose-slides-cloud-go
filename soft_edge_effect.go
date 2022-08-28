@@ -34,8 +34,8 @@ import (
 type ISoftEdgeEffect interface {
 
 	// radius
-	getRadius() float64
-	setRadius(newValue float64)
+	GetRadius() float64
+	SetRadius(newValue float64)
 }
 
 type SoftEdgeEffect struct {
@@ -49,11 +49,11 @@ func NewSoftEdgeEffect() *SoftEdgeEffect {
 	return instance
 }
 
-func (this *SoftEdgeEffect) getRadius() float64 {
+func (this *SoftEdgeEffect) GetRadius() float64 {
 	return this.Radius
 }
 
-func (this *SoftEdgeEffect) setRadius(newValue float64) {
+func (this *SoftEdgeEffect) SetRadius(newValue float64) {
 	this.Radius = newValue
 }
 

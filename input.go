@@ -34,16 +34,16 @@ import (
 type IInput interface {
 
 	// Get or sets template document. If property is null new empty presentation will be created.
-	getTemplate() IInputFile
-	setTemplate(newValue IInputFile)
+	GetTemplate() IInputFile
+	SetTemplate(newValue IInputFile)
 
 	// Get or sets html data for generate new presentation.
-	getHtmlData() IInputFile
-	setHtmlData(newValue IInputFile)
+	GetHtmlData() IInputFile
+	SetHtmlData(newValue IInputFile)
 
 	// Get or sets data for template engine.
-	getTemplateData() IInputFile
-	setTemplateData(newValue IInputFile)
+	GetTemplateData() IInputFile
+	SetTemplateData(newValue IInputFile)
 }
 
 type Input struct {
@@ -63,25 +63,25 @@ func NewInput() *Input {
 	return instance
 }
 
-func (this *Input) getTemplate() IInputFile {
+func (this *Input) GetTemplate() IInputFile {
 	return this.Template
 }
 
-func (this *Input) setTemplate(newValue IInputFile) {
+func (this *Input) SetTemplate(newValue IInputFile) {
 	this.Template = newValue
 }
-func (this *Input) getHtmlData() IInputFile {
+func (this *Input) GetHtmlData() IInputFile {
 	return this.HtmlData
 }
 
-func (this *Input) setHtmlData(newValue IInputFile) {
+func (this *Input) SetHtmlData(newValue IInputFile) {
 	this.HtmlData = newValue
 }
-func (this *Input) getTemplateData() IInputFile {
+func (this *Input) GetTemplateData() IInputFile {
 	return this.TemplateData
 }
 
-func (this *Input) setTemplateData(newValue IInputFile) {
+func (this *Input) SetTemplateData(newValue IInputFile) {
 	this.TemplateData = newValue
 }
 

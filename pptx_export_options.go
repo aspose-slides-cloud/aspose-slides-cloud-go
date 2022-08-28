@@ -34,20 +34,20 @@ import (
 type IPptxExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	// Export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// The conformance class to which the PresentationML document conforms. Read/write Conformance.
-	getConformance() string
-	setConformance(newValue string)
+	GetConformance() string
+	SetConformance(newValue string)
 }
 
 type PptxExportOptions struct {
@@ -71,32 +71,32 @@ func NewPptxExportOptions() *PptxExportOptions {
 	return instance
 }
 
-func (this *PptxExportOptions) getDefaultRegularFont() string {
+func (this *PptxExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *PptxExportOptions) setDefaultRegularFont(newValue string) {
+func (this *PptxExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *PptxExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *PptxExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *PptxExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *PptxExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *PptxExportOptions) getFormat() string {
+func (this *PptxExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *PptxExportOptions) setFormat(newValue string) {
+func (this *PptxExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *PptxExportOptions) getConformance() string {
+func (this *PptxExportOptions) GetConformance() string {
 	return this.Conformance
 }
 
-func (this *PptxExportOptions) setConformance(newValue string) {
+func (this *PptxExportOptions) SetConformance(newValue string) {
 	this.Conformance = newValue
 }
 

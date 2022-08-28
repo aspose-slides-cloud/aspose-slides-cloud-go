@@ -34,12 +34,12 @@ import (
 type IMerge interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Information about documents and slides being merging sources.
-	getPresentations() []IMergingSource
-	setPresentations(newValue []IMergingSource)
+	GetPresentations() []IMergingSource
+	SetPresentations(newValue []IMergingSource)
 }
 
 type Merge struct {
@@ -57,18 +57,18 @@ func NewMerge() *Merge {
 	return instance
 }
 
-func (this *Merge) getType() string {
+func (this *Merge) GetType() string {
 	return this.Type_
 }
 
-func (this *Merge) setType(newValue string) {
+func (this *Merge) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *Merge) getPresentations() []IMergingSource {
+func (this *Merge) GetPresentations() []IMergingSource {
 	return this.Presentations
 }
 
-func (this *Merge) setPresentations(newValue []IMergingSource) {
+func (this *Merge) SetPresentations(newValue []IMergingSource) {
 	this.Presentations = newValue
 }
 

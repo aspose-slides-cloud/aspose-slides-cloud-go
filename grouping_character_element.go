@@ -34,24 +34,24 @@ import (
 type IGroupingCharacterElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Base
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Grouping character
-	getCharacter() string
-	setCharacter(newValue string)
+	GetCharacter() string
+	SetCharacter(newValue string)
 
 	// Position of grouping character.
-	getPosition() string
-	setPosition(newValue string)
+	GetPosition() string
+	SetPosition(newValue string)
 
 	// Vertical justification of group character.
-	getVerticalJustification() string
-	setVerticalJustification(newValue string)
+	GetVerticalJustification() string
+	SetVerticalJustification(newValue string)
 }
 
 type GroupingCharacterElement struct {
@@ -80,39 +80,39 @@ func NewGroupingCharacterElement() *GroupingCharacterElement {
 	return instance
 }
 
-func (this *GroupingCharacterElement) getType() string {
+func (this *GroupingCharacterElement) GetType() string {
 	return this.Type_
 }
 
-func (this *GroupingCharacterElement) setType(newValue string) {
+func (this *GroupingCharacterElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *GroupingCharacterElement) getBase() IMathElement {
+func (this *GroupingCharacterElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *GroupingCharacterElement) setBase(newValue IMathElement) {
+func (this *GroupingCharacterElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *GroupingCharacterElement) getCharacter() string {
+func (this *GroupingCharacterElement) GetCharacter() string {
 	return this.Character
 }
 
-func (this *GroupingCharacterElement) setCharacter(newValue string) {
+func (this *GroupingCharacterElement) SetCharacter(newValue string) {
 	this.Character = newValue
 }
-func (this *GroupingCharacterElement) getPosition() string {
+func (this *GroupingCharacterElement) GetPosition() string {
 	return this.Position
 }
 
-func (this *GroupingCharacterElement) setPosition(newValue string) {
+func (this *GroupingCharacterElement) SetPosition(newValue string) {
 	this.Position = newValue
 }
-func (this *GroupingCharacterElement) getVerticalJustification() string {
+func (this *GroupingCharacterElement) GetVerticalJustification() string {
 	return this.VerticalJustification
 }
 
-func (this *GroupingCharacterElement) setVerticalJustification(newValue string) {
+func (this *GroupingCharacterElement) SetVerticalJustification(newValue string) {
 	this.VerticalJustification = newValue
 }
 

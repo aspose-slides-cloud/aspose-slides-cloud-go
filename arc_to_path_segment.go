@@ -34,24 +34,24 @@ import (
 type IArcToPathSegment interface {
 
 	// Arc segment
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Width of the rectangle
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Height of the rectangle
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Start angle
-	getStartAngle() float64
-	setStartAngle(newValue float64)
+	GetStartAngle() float64
+	SetStartAngle(newValue float64)
 
 	// Sweep angle
-	getSweepAngle() float64
-	setSweepAngle(newValue float64)
+	GetSweepAngle() float64
+	SetSweepAngle(newValue float64)
 }
 
 type ArcToPathSegment struct {
@@ -78,39 +78,39 @@ func NewArcToPathSegment() *ArcToPathSegment {
 	return instance
 }
 
-func (this *ArcToPathSegment) getType() string {
+func (this *ArcToPathSegment) GetType() string {
 	return this.Type_
 }
 
-func (this *ArcToPathSegment) setType(newValue string) {
+func (this *ArcToPathSegment) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *ArcToPathSegment) getWidth() float64 {
+func (this *ArcToPathSegment) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *ArcToPathSegment) setWidth(newValue float64) {
+func (this *ArcToPathSegment) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *ArcToPathSegment) getHeight() float64 {
+func (this *ArcToPathSegment) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *ArcToPathSegment) setHeight(newValue float64) {
+func (this *ArcToPathSegment) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *ArcToPathSegment) getStartAngle() float64 {
+func (this *ArcToPathSegment) GetStartAngle() float64 {
 	return this.StartAngle
 }
 
-func (this *ArcToPathSegment) setStartAngle(newValue float64) {
+func (this *ArcToPathSegment) SetStartAngle(newValue float64) {
 	this.StartAngle = newValue
 }
-func (this *ArcToPathSegment) getSweepAngle() float64 {
+func (this *ArcToPathSegment) GetSweepAngle() float64 {
 	return this.SweepAngle
 }
 
-func (this *ArcToPathSegment) setSweepAngle(newValue float64) {
+func (this *ArcToPathSegment) SetSweepAngle(newValue float64) {
 	this.SweepAngle = newValue
 }
 

@@ -34,44 +34,44 @@ import (
 type IThreeDFormat interface {
 
 	// Type of a bottom 3D bevel.             
-	getBevelBottom() IShapeBevel
-	setBevelBottom(newValue IShapeBevel)
+	GetBevelBottom() IShapeBevel
+	SetBevelBottom(newValue IShapeBevel)
 
 	// Type of a top 3D bevel.             
-	getBevelTop() IShapeBevel
-	setBevelTop(newValue IShapeBevel)
+	GetBevelTop() IShapeBevel
+	SetBevelTop(newValue IShapeBevel)
 
 	// Camera
-	getCamera() ICamera
-	setCamera(newValue ICamera)
+	GetCamera() ICamera
+	SetCamera(newValue ICamera)
 
 	// Contour color
-	getContourColor() string
-	setContourColor(newValue string)
+	GetContourColor() string
+	SetContourColor(newValue string)
 
 	// Contour width
-	getContourWidth() float64
-	setContourWidth(newValue float64)
+	GetContourWidth() float64
+	SetContourWidth(newValue float64)
 
 	// Depth
-	getDepth() float64
-	setDepth(newValue float64)
+	GetDepth() float64
+	SetDepth(newValue float64)
 
 	// Extrusion color
-	getExtrusionColor() string
-	setExtrusionColor(newValue string)
+	GetExtrusionColor() string
+	SetExtrusionColor(newValue string)
 
 	// Extrusion height
-	getExtrusionHeight() float64
-	setExtrusionHeight(newValue float64)
+	GetExtrusionHeight() float64
+	SetExtrusionHeight(newValue float64)
 
 	// Light rig
-	getLightRig() ILightRig
-	setLightRig(newValue ILightRig)
+	GetLightRig() ILightRig
+	SetLightRig(newValue ILightRig)
 
 	// Material
-	getMaterial() string
-	setMaterial(newValue string)
+	GetMaterial() string
+	SetMaterial(newValue string)
 }
 
 type ThreeDFormat struct {
@@ -113,74 +113,74 @@ func NewThreeDFormat() *ThreeDFormat {
 	return instance
 }
 
-func (this *ThreeDFormat) getBevelBottom() IShapeBevel {
+func (this *ThreeDFormat) GetBevelBottom() IShapeBevel {
 	return this.BevelBottom
 }
 
-func (this *ThreeDFormat) setBevelBottom(newValue IShapeBevel) {
+func (this *ThreeDFormat) SetBevelBottom(newValue IShapeBevel) {
 	this.BevelBottom = newValue
 }
-func (this *ThreeDFormat) getBevelTop() IShapeBevel {
+func (this *ThreeDFormat) GetBevelTop() IShapeBevel {
 	return this.BevelTop
 }
 
-func (this *ThreeDFormat) setBevelTop(newValue IShapeBevel) {
+func (this *ThreeDFormat) SetBevelTop(newValue IShapeBevel) {
 	this.BevelTop = newValue
 }
-func (this *ThreeDFormat) getCamera() ICamera {
+func (this *ThreeDFormat) GetCamera() ICamera {
 	return this.Camera
 }
 
-func (this *ThreeDFormat) setCamera(newValue ICamera) {
+func (this *ThreeDFormat) SetCamera(newValue ICamera) {
 	this.Camera = newValue
 }
-func (this *ThreeDFormat) getContourColor() string {
+func (this *ThreeDFormat) GetContourColor() string {
 	return this.ContourColor
 }
 
-func (this *ThreeDFormat) setContourColor(newValue string) {
+func (this *ThreeDFormat) SetContourColor(newValue string) {
 	this.ContourColor = newValue
 }
-func (this *ThreeDFormat) getContourWidth() float64 {
+func (this *ThreeDFormat) GetContourWidth() float64 {
 	return this.ContourWidth
 }
 
-func (this *ThreeDFormat) setContourWidth(newValue float64) {
+func (this *ThreeDFormat) SetContourWidth(newValue float64) {
 	this.ContourWidth = newValue
 }
-func (this *ThreeDFormat) getDepth() float64 {
+func (this *ThreeDFormat) GetDepth() float64 {
 	return this.Depth
 }
 
-func (this *ThreeDFormat) setDepth(newValue float64) {
+func (this *ThreeDFormat) SetDepth(newValue float64) {
 	this.Depth = newValue
 }
-func (this *ThreeDFormat) getExtrusionColor() string {
+func (this *ThreeDFormat) GetExtrusionColor() string {
 	return this.ExtrusionColor
 }
 
-func (this *ThreeDFormat) setExtrusionColor(newValue string) {
+func (this *ThreeDFormat) SetExtrusionColor(newValue string) {
 	this.ExtrusionColor = newValue
 }
-func (this *ThreeDFormat) getExtrusionHeight() float64 {
+func (this *ThreeDFormat) GetExtrusionHeight() float64 {
 	return this.ExtrusionHeight
 }
 
-func (this *ThreeDFormat) setExtrusionHeight(newValue float64) {
+func (this *ThreeDFormat) SetExtrusionHeight(newValue float64) {
 	this.ExtrusionHeight = newValue
 }
-func (this *ThreeDFormat) getLightRig() ILightRig {
+func (this *ThreeDFormat) GetLightRig() ILightRig {
 	return this.LightRig
 }
 
-func (this *ThreeDFormat) setLightRig(newValue ILightRig) {
+func (this *ThreeDFormat) SetLightRig(newValue ILightRig) {
 	this.LightRig = newValue
 }
-func (this *ThreeDFormat) getMaterial() string {
+func (this *ThreeDFormat) GetMaterial() string {
 	return this.Material
 }
 
-func (this *ThreeDFormat) setMaterial(newValue string) {
+func (this *ThreeDFormat) SetMaterial(newValue string) {
 	this.Material = newValue
 }
 

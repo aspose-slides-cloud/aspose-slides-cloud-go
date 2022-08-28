@@ -34,24 +34,24 @@ import (
 type ILightRig interface {
 
 	// Light direction
-	getDirection() string
-	setDirection(newValue string)
+	GetDirection() string
+	SetDirection(newValue string)
 
 	// Light type
-	getLightType() string
-	setLightType(newValue string)
+	GetLightType() string
+	SetLightType(newValue string)
 
 	// XRotation
-	getXRotation() float64
-	setXRotation(newValue float64)
+	GetXRotation() float64
+	SetXRotation(newValue float64)
 
 	// YRotation
-	getYRotation() float64
-	setYRotation(newValue float64)
+	GetYRotation() float64
+	SetYRotation(newValue float64)
 
 	// ZRotation
-	getZRotation() float64
-	setZRotation(newValue float64)
+	GetZRotation() float64
+	SetZRotation(newValue float64)
 }
 
 type LightRig struct {
@@ -79,39 +79,39 @@ func NewLightRig() *LightRig {
 	return instance
 }
 
-func (this *LightRig) getDirection() string {
+func (this *LightRig) GetDirection() string {
 	return this.Direction
 }
 
-func (this *LightRig) setDirection(newValue string) {
+func (this *LightRig) SetDirection(newValue string) {
 	this.Direction = newValue
 }
-func (this *LightRig) getLightType() string {
+func (this *LightRig) GetLightType() string {
 	return this.LightType
 }
 
-func (this *LightRig) setLightType(newValue string) {
+func (this *LightRig) SetLightType(newValue string) {
 	this.LightType = newValue
 }
-func (this *LightRig) getXRotation() float64 {
+func (this *LightRig) GetXRotation() float64 {
 	return this.XRotation
 }
 
-func (this *LightRig) setXRotation(newValue float64) {
+func (this *LightRig) SetXRotation(newValue float64) {
 	this.XRotation = newValue
 }
-func (this *LightRig) getYRotation() float64 {
+func (this *LightRig) GetYRotation() float64 {
 	return this.YRotation
 }
 
-func (this *LightRig) setYRotation(newValue float64) {
+func (this *LightRig) SetYRotation(newValue float64) {
 	this.YRotation = newValue
 }
-func (this *LightRig) getZRotation() float64 {
+func (this *LightRig) GetZRotation() float64 {
 	return this.ZRotation
 }
 
-func (this *LightRig) setZRotation(newValue float64) {
+func (this *LightRig) SetZRotation(newValue float64) {
 	this.ZRotation = newValue
 }
 

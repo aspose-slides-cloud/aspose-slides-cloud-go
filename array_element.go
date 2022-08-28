@@ -34,32 +34,32 @@ import (
 type IArrayElement interface {
 
 	// Type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Arguments
-	getArguments() []IMathElement
-	setArguments(newValue []IMathElement)
+	GetArguments() []IMathElement
+	SetArguments(newValue []IMathElement)
 
 	// Specifies alignment of the array relative to surrounding text
-	getBaseJustification() string
-	setBaseJustification(newValue string)
+	GetBaseJustification() string
+	SetBaseJustification(newValue string)
 
 	// Maximum Distribution
-	getMaximumDistribution() bool
-	setMaximumDistribution(newValue bool)
+	GetMaximumDistribution() bool
+	SetMaximumDistribution(newValue bool)
 
 	// Object Distribution
-	getObjectDistribution() bool
-	setObjectDistribution(newValue bool)
+	GetObjectDistribution() bool
+	SetObjectDistribution(newValue bool)
 
 	// The type of vertical spacing between array elements
-	getRowSpacingRule() string
-	setRowSpacingRule(newValue string)
+	GetRowSpacingRule() string
+	SetRowSpacingRule(newValue string)
 
 	// Spacing between rows of an array
-	getRowSpacing() int32
-	setRowSpacing(newValue int32)
+	GetRowSpacing() int32
+	SetRowSpacing(newValue int32)
 }
 
 type ArrayElement struct {
@@ -94,53 +94,53 @@ func NewArrayElement() *ArrayElement {
 	return instance
 }
 
-func (this *ArrayElement) getType() string {
+func (this *ArrayElement) GetType() string {
 	return this.Type_
 }
 
-func (this *ArrayElement) setType(newValue string) {
+func (this *ArrayElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *ArrayElement) getArguments() []IMathElement {
+func (this *ArrayElement) GetArguments() []IMathElement {
 	return this.Arguments
 }
 
-func (this *ArrayElement) setArguments(newValue []IMathElement) {
+func (this *ArrayElement) SetArguments(newValue []IMathElement) {
 	this.Arguments = newValue
 }
-func (this *ArrayElement) getBaseJustification() string {
+func (this *ArrayElement) GetBaseJustification() string {
 	return this.BaseJustification
 }
 
-func (this *ArrayElement) setBaseJustification(newValue string) {
+func (this *ArrayElement) SetBaseJustification(newValue string) {
 	this.BaseJustification = newValue
 }
-func (this *ArrayElement) getMaximumDistribution() bool {
+func (this *ArrayElement) GetMaximumDistribution() bool {
 	return this.MaximumDistribution
 }
 
-func (this *ArrayElement) setMaximumDistribution(newValue bool) {
+func (this *ArrayElement) SetMaximumDistribution(newValue bool) {
 	this.MaximumDistribution = newValue
 }
-func (this *ArrayElement) getObjectDistribution() bool {
+func (this *ArrayElement) GetObjectDistribution() bool {
 	return this.ObjectDistribution
 }
 
-func (this *ArrayElement) setObjectDistribution(newValue bool) {
+func (this *ArrayElement) SetObjectDistribution(newValue bool) {
 	this.ObjectDistribution = newValue
 }
-func (this *ArrayElement) getRowSpacingRule() string {
+func (this *ArrayElement) GetRowSpacingRule() string {
 	return this.RowSpacingRule
 }
 
-func (this *ArrayElement) setRowSpacingRule(newValue string) {
+func (this *ArrayElement) SetRowSpacingRule(newValue string) {
 	this.RowSpacingRule = newValue
 }
-func (this *ArrayElement) getRowSpacing() int32 {
+func (this *ArrayElement) GetRowSpacing() int32 {
 	return this.RowSpacing
 }
 
-func (this *ArrayElement) setRowSpacing(newValue int32) {
+func (this *ArrayElement) SetRowSpacing(newValue int32) {
 	this.RowSpacing = newValue
 }
 

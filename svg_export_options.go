@@ -34,52 +34,52 @@ import (
 type ISvgExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	//          Export format.          
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Determines whether the text on a slide will be saved as graphics.
-	getVectorizeText() bool
-	setVectorizeText(newValue bool)
+	GetVectorizeText() bool
+	SetVectorizeText(newValue bool)
 
 	// Returns or sets the lower resolution limit for metafile rasterization.
-	getMetafileRasterizationDpi() int32
-	setMetafileRasterizationDpi(newValue int32)
+	GetMetafileRasterizationDpi() int32
+	SetMetafileRasterizationDpi(newValue int32)
 
 	// Determines whether the 3D text is disabled in SVG.
-	getDisable3DText() bool
-	setDisable3DText(newValue bool)
+	GetDisable3DText() bool
+	SetDisable3DText(newValue bool)
 
 	// Disables splitting FromCornerX and FromCenter gradients.
-	getDisableGradientSplit() bool
-	setDisableGradientSplit(newValue bool)
+	GetDisableGradientSplit() bool
+	SetDisableGradientSplit(newValue bool)
 
 	// SVG 1.1 lacks ability to define insets for markers. Aspose.Slides SVG writing engine has workaround for that problem: it crops end of line with arrow, so, line doesn't overlap markers. This option switches off such behavior.
-	getDisableLineEndCropping() bool
-	setDisableLineEndCropping(newValue bool)
+	GetDisableLineEndCropping() bool
+	SetDisableLineEndCropping(newValue bool)
 
 	// Determines JPEG encoding quality.
-	getJpegQuality() int32
-	setJpegQuality(newValue int32)
+	GetJpegQuality() int32
+	SetJpegQuality(newValue int32)
 
 	// Represents the pictures compression level
-	getPicturesCompression() string
-	setPicturesCompression(newValue string)
+	GetPicturesCompression() string
+	SetPicturesCompression(newValue string)
 
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
-	getDeletePicturesCroppedAreas() bool
-	setDeletePicturesCroppedAreas(newValue bool)
+	GetDeletePicturesCroppedAreas() bool
+	SetDeletePicturesCroppedAreas(newValue bool)
 
 	// Determines a way of handling externally loaded fonts.
-	getExternalFontsHandling() string
-	setExternalFontsHandling(newValue string)
+	GetExternalFontsHandling() string
+	SetExternalFontsHandling(newValue string)
 }
 
 type SvgExportOptions struct {
@@ -128,88 +128,88 @@ func NewSvgExportOptions() *SvgExportOptions {
 	return instance
 }
 
-func (this *SvgExportOptions) getDefaultRegularFont() string {
+func (this *SvgExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *SvgExportOptions) setDefaultRegularFont(newValue string) {
+func (this *SvgExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *SvgExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *SvgExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *SvgExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *SvgExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *SvgExportOptions) getFormat() string {
+func (this *SvgExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *SvgExportOptions) setFormat(newValue string) {
+func (this *SvgExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *SvgExportOptions) getVectorizeText() bool {
+func (this *SvgExportOptions) GetVectorizeText() bool {
 	return this.VectorizeText
 }
 
-func (this *SvgExportOptions) setVectorizeText(newValue bool) {
+func (this *SvgExportOptions) SetVectorizeText(newValue bool) {
 	this.VectorizeText = newValue
 }
-func (this *SvgExportOptions) getMetafileRasterizationDpi() int32 {
+func (this *SvgExportOptions) GetMetafileRasterizationDpi() int32 {
 	return this.MetafileRasterizationDpi
 }
 
-func (this *SvgExportOptions) setMetafileRasterizationDpi(newValue int32) {
+func (this *SvgExportOptions) SetMetafileRasterizationDpi(newValue int32) {
 	this.MetafileRasterizationDpi = newValue
 }
-func (this *SvgExportOptions) getDisable3DText() bool {
+func (this *SvgExportOptions) GetDisable3DText() bool {
 	return this.Disable3DText
 }
 
-func (this *SvgExportOptions) setDisable3DText(newValue bool) {
+func (this *SvgExportOptions) SetDisable3DText(newValue bool) {
 	this.Disable3DText = newValue
 }
-func (this *SvgExportOptions) getDisableGradientSplit() bool {
+func (this *SvgExportOptions) GetDisableGradientSplit() bool {
 	return this.DisableGradientSplit
 }
 
-func (this *SvgExportOptions) setDisableGradientSplit(newValue bool) {
+func (this *SvgExportOptions) SetDisableGradientSplit(newValue bool) {
 	this.DisableGradientSplit = newValue
 }
-func (this *SvgExportOptions) getDisableLineEndCropping() bool {
+func (this *SvgExportOptions) GetDisableLineEndCropping() bool {
 	return this.DisableLineEndCropping
 }
 
-func (this *SvgExportOptions) setDisableLineEndCropping(newValue bool) {
+func (this *SvgExportOptions) SetDisableLineEndCropping(newValue bool) {
 	this.DisableLineEndCropping = newValue
 }
-func (this *SvgExportOptions) getJpegQuality() int32 {
+func (this *SvgExportOptions) GetJpegQuality() int32 {
 	return this.JpegQuality
 }
 
-func (this *SvgExportOptions) setJpegQuality(newValue int32) {
+func (this *SvgExportOptions) SetJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this *SvgExportOptions) getPicturesCompression() string {
+func (this *SvgExportOptions) GetPicturesCompression() string {
 	return this.PicturesCompression
 }
 
-func (this *SvgExportOptions) setPicturesCompression(newValue string) {
+func (this *SvgExportOptions) SetPicturesCompression(newValue string) {
 	this.PicturesCompression = newValue
 }
-func (this *SvgExportOptions) getDeletePicturesCroppedAreas() bool {
+func (this *SvgExportOptions) GetDeletePicturesCroppedAreas() bool {
 	return this.DeletePicturesCroppedAreas
 }
 
-func (this *SvgExportOptions) setDeletePicturesCroppedAreas(newValue bool) {
+func (this *SvgExportOptions) SetDeletePicturesCroppedAreas(newValue bool) {
 	this.DeletePicturesCroppedAreas = newValue
 }
-func (this *SvgExportOptions) getExternalFontsHandling() string {
+func (this *SvgExportOptions) GetExternalFontsHandling() string {
 	return this.ExternalFontsHandling
 }
 
-func (this *SvgExportOptions) setExternalFontsHandling(newValue string) {
+func (this *SvgExportOptions) SetExternalFontsHandling(newValue string) {
 	this.ExternalFontsHandling = newValue
 }
 

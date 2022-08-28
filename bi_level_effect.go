@@ -34,12 +34,12 @@ import (
 type IBiLevelEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Returns effect threshold.
-	getThreshold() float64
-	setThreshold(newValue float64)
+	GetThreshold() float64
+	SetThreshold(newValue float64)
 }
 
 type BiLevelEffect struct {
@@ -57,18 +57,18 @@ func NewBiLevelEffect() *BiLevelEffect {
 	return instance
 }
 
-func (this *BiLevelEffect) getType() string {
+func (this *BiLevelEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *BiLevelEffect) setType(newValue string) {
+func (this *BiLevelEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *BiLevelEffect) getThreshold() float64 {
+func (this *BiLevelEffect) GetThreshold() float64 {
 	return this.Threshold
 }
 
-func (this *BiLevelEffect) setThreshold(newValue float64) {
+func (this *BiLevelEffect) SetThreshold(newValue float64) {
 	this.Threshold = newValue
 }
 

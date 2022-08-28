@@ -34,16 +34,16 @@ import (
 type IBlurImageEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Returns or sets blur radius.
-	getRadius() float64
-	setRadius(newValue float64)
+	GetRadius() float64
+	SetRadius(newValue float64)
 
 	// Determines whether the bounds of the object should be grown as a result of the blurring. True indicates the bounds are grown while false indicates that they are not.
-	getGrow() bool
-	setGrow(newValue bool)
+	GetGrow() bool
+	SetGrow(newValue bool)
 }
 
 type BlurImageEffect struct {
@@ -64,25 +64,25 @@ func NewBlurImageEffect() *BlurImageEffect {
 	return instance
 }
 
-func (this *BlurImageEffect) getType() string {
+func (this *BlurImageEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *BlurImageEffect) setType(newValue string) {
+func (this *BlurImageEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *BlurImageEffect) getRadius() float64 {
+func (this *BlurImageEffect) GetRadius() float64 {
 	return this.Radius
 }
 
-func (this *BlurImageEffect) setRadius(newValue float64) {
+func (this *BlurImageEffect) SetRadius(newValue float64) {
 	this.Radius = newValue
 }
-func (this *BlurImageEffect) getGrow() bool {
+func (this *BlurImageEffect) GetGrow() bool {
 	return this.Grow
 }
 
-func (this *BlurImageEffect) setGrow(newValue bool) {
+func (this *BlurImageEffect) SetGrow(newValue bool) {
 	this.Grow = newValue
 }
 

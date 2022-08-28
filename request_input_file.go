@@ -34,16 +34,16 @@ import (
 type IRequestInputFile interface {
 
 	// Get or sets password to open document.
-	getPassword() string
-	setPassword(newValue string)
+	GetPassword() string
+	SetPassword(newValue string)
 
 	// File type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Get or sets index of file from request.
-	getIndex() int32
-	setIndex(newValue int32)
+	GetIndex() int32
+	SetIndex(newValue int32)
 }
 
 type RequestInputFile struct {
@@ -64,25 +64,25 @@ func NewRequestInputFile() *RequestInputFile {
 	return instance
 }
 
-func (this *RequestInputFile) getPassword() string {
+func (this *RequestInputFile) GetPassword() string {
 	return this.Password
 }
 
-func (this *RequestInputFile) setPassword(newValue string) {
+func (this *RequestInputFile) SetPassword(newValue string) {
 	this.Password = newValue
 }
-func (this *RequestInputFile) getType() string {
+func (this *RequestInputFile) GetType() string {
 	return this.Type_
 }
 
-func (this *RequestInputFile) setType(newValue string) {
+func (this *RequestInputFile) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *RequestInputFile) getIndex() int32 {
+func (this *RequestInputFile) GetIndex() int32 {
 	return this.Index
 }
 
-func (this *RequestInputFile) setIndex(newValue int32) {
+func (this *RequestInputFile) SetIndex(newValue int32) {
 	this.Index = newValue
 }
 

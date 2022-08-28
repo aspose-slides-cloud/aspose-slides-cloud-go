@@ -34,32 +34,32 @@ import (
 type IGradientFill interface {
 
 	// Type of fill.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Gradient style.
-	getDirection() string
-	setDirection(newValue string)
+	GetDirection() string
+	SetDirection(newValue string)
 
 	// Gradient shape.
-	getShape() string
-	setShape(newValue string)
+	GetShape() string
+	SetShape(newValue string)
 
 	// Gradient stops.
-	getStops() []IGradientFillStop
-	setStops(newValue []IGradientFillStop)
+	GetStops() []IGradientFillStop
+	SetStops(newValue []IGradientFillStop)
 
 	// Gradient angle.
-	getLinearAngle() float64
-	setLinearAngle(newValue float64)
+	GetLinearAngle() float64
+	SetLinearAngle(newValue float64)
 
 	// True if the gradient is scaled.
-	getIsScaled() bool
-	setIsScaled(newValue bool)
+	GetIsScaled() bool
+	SetIsScaled(newValue bool)
 
 	// Gradient flipping mode.
-	getTileFlip() string
-	setTileFlip(newValue string)
+	GetTileFlip() string
+	SetTileFlip(newValue string)
 }
 
 type GradientFill struct {
@@ -95,53 +95,53 @@ func NewGradientFill() *GradientFill {
 	return instance
 }
 
-func (this *GradientFill) getType() string {
+func (this *GradientFill) GetType() string {
 	return this.Type_
 }
 
-func (this *GradientFill) setType(newValue string) {
+func (this *GradientFill) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *GradientFill) getDirection() string {
+func (this *GradientFill) GetDirection() string {
 	return this.Direction
 }
 
-func (this *GradientFill) setDirection(newValue string) {
+func (this *GradientFill) SetDirection(newValue string) {
 	this.Direction = newValue
 }
-func (this *GradientFill) getShape() string {
+func (this *GradientFill) GetShape() string {
 	return this.Shape
 }
 
-func (this *GradientFill) setShape(newValue string) {
+func (this *GradientFill) SetShape(newValue string) {
 	this.Shape = newValue
 }
-func (this *GradientFill) getStops() []IGradientFillStop {
+func (this *GradientFill) GetStops() []IGradientFillStop {
 	return this.Stops
 }
 
-func (this *GradientFill) setStops(newValue []IGradientFillStop) {
+func (this *GradientFill) SetStops(newValue []IGradientFillStop) {
 	this.Stops = newValue
 }
-func (this *GradientFill) getLinearAngle() float64 {
+func (this *GradientFill) GetLinearAngle() float64 {
 	return this.LinearAngle
 }
 
-func (this *GradientFill) setLinearAngle(newValue float64) {
+func (this *GradientFill) SetLinearAngle(newValue float64) {
 	this.LinearAngle = newValue
 }
-func (this *GradientFill) getIsScaled() bool {
+func (this *GradientFill) GetIsScaled() bool {
 	return this.IsScaled
 }
 
-func (this *GradientFill) setIsScaled(newValue bool) {
+func (this *GradientFill) SetIsScaled(newValue bool) {
 	this.IsScaled = newValue
 }
-func (this *GradientFill) getTileFlip() string {
+func (this *GradientFill) GetTileFlip() string {
 	return this.TileFlip
 }
 
-func (this *GradientFill) setTileFlip(newValue string) {
+func (this *GradientFill) SetTileFlip(newValue string) {
 	this.TileFlip = newValue
 }
 

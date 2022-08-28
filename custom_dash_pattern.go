@@ -34,8 +34,8 @@ import (
 type ICustomDashPattern interface {
 
 	// Pattern items.
-	getItems() []float64
-	setItems(newValue []float64)
+	GetItems() []float64
+	SetItems(newValue []float64)
 }
 
 type CustomDashPattern struct {
@@ -49,11 +49,11 @@ func NewCustomDashPattern() *CustomDashPattern {
 	return instance
 }
 
-func (this *CustomDashPattern) getItems() []float64 {
+func (this *CustomDashPattern) GetItems() []float64 {
 	return this.Items
 }
 
-func (this *CustomDashPattern) setItems(newValue []float64) {
+func (this *CustomDashPattern) SetItems(newValue []float64) {
 	this.Items = newValue
 }
 

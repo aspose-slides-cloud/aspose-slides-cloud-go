@@ -34,12 +34,12 @@ import (
 type IBlockElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// List of math elements.
-	getMathElementList() []IMathElement
-	setMathElementList(newValue []IMathElement)
+	GetMathElementList() []IMathElement
+	SetMathElementList(newValue []IMathElement)
 }
 
 type BlockElement struct {
@@ -57,18 +57,18 @@ func NewBlockElement() *BlockElement {
 	return instance
 }
 
-func (this *BlockElement) getType() string {
+func (this *BlockElement) GetType() string {
 	return this.Type_
 }
 
-func (this *BlockElement) setType(newValue string) {
+func (this *BlockElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *BlockElement) getMathElementList() []IMathElement {
+func (this *BlockElement) GetMathElementList() []IMathElement {
 	return this.MathElementList
 }
 
-func (this *BlockElement) setMathElementList(newValue []IMathElement) {
+func (this *BlockElement) SetMathElementList(newValue []IMathElement) {
 	this.MathElementList = newValue
 }
 

@@ -34,12 +34,12 @@ import (
 type IMergingSource interface {
 
 	// Source file.
-	getInput() IInputFile
-	setInput(newValue IInputFile)
+	GetInput() IInputFile
+	SetInput(newValue IInputFile)
 
 	// Indices of slides to be merged.
-	getSlides() []int32
-	setSlides(newValue []int32)
+	GetSlides() []int32
+	SetSlides(newValue []int32)
 }
 
 type MergingSource struct {
@@ -56,18 +56,18 @@ func NewMergingSource() *MergingSource {
 	return instance
 }
 
-func (this *MergingSource) getInput() IInputFile {
+func (this *MergingSource) GetInput() IInputFile {
 	return this.Input
 }
 
-func (this *MergingSource) setInput(newValue IInputFile) {
+func (this *MergingSource) SetInput(newValue IInputFile) {
 	this.Input = newValue
 }
-func (this *MergingSource) getSlides() []int32 {
+func (this *MergingSource) GetSlides() []int32 {
 	return this.Slides
 }
 
-func (this *MergingSource) setSlides(newValue []int32) {
+func (this *MergingSource) SetSlides(newValue []int32) {
 	this.Slides = newValue
 }
 

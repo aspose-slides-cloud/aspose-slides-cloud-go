@@ -34,20 +34,20 @@ import (
 type ILimitElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Base
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Limit
-	getLimit() IMathElement
-	setLimit(newValue IMathElement)
+	GetLimit() IMathElement
+	SetLimit(newValue IMathElement)
 
 	// Specifies upper or lower limit
-	getUpperLimit() bool
-	setUpperLimit(newValue bool)
+	GetUpperLimit() bool
+	SetUpperLimit(newValue bool)
 }
 
 type LimitElement struct {
@@ -71,32 +71,32 @@ func NewLimitElement() *LimitElement {
 	return instance
 }
 
-func (this *LimitElement) getType() string {
+func (this *LimitElement) GetType() string {
 	return this.Type_
 }
 
-func (this *LimitElement) setType(newValue string) {
+func (this *LimitElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *LimitElement) getBase() IMathElement {
+func (this *LimitElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *LimitElement) setBase(newValue IMathElement) {
+func (this *LimitElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *LimitElement) getLimit() IMathElement {
+func (this *LimitElement) GetLimit() IMathElement {
 	return this.Limit
 }
 
-func (this *LimitElement) setLimit(newValue IMathElement) {
+func (this *LimitElement) SetLimit(newValue IMathElement) {
 	this.Limit = newValue
 }
-func (this *LimitElement) getUpperLimit() bool {
+func (this *LimitElement) GetUpperLimit() bool {
 	return this.UpperLimit
 }
 
-func (this *LimitElement) setUpperLimit(newValue bool) {
+func (this *LimitElement) SetUpperLimit(newValue bool) {
 	this.UpperLimit = newValue
 }
 

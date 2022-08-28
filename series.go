@@ -34,59 +34,59 @@ import (
 type ISeries interface {
 
 	// Series type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Series name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// True if each data marker in the series has a different color.
-	getIsColorVaried() bool
-	setIsColorVaried(newValue bool)
+	GetIsColorVaried() bool
+	SetIsColorVaried(newValue bool)
 
 	// Invert solid color for the series.
-	getInvertedSolidFillColor() string
-	setInvertedSolidFillColor(newValue string)
+	GetInvertedSolidFillColor() string
+	SetInvertedSolidFillColor(newValue string)
 
 	// True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.
-	getSmooth() bool
-	setSmooth(newValue bool)
+	GetSmooth() bool
+	SetSmooth(newValue bool)
 
 	// True if the series is plotted on second value axis.
-	getPlotOnSecondAxis() bool
-	setPlotOnSecondAxis(newValue bool)
+	GetPlotOnSecondAxis() bool
+	SetPlotOnSecondAxis(newValue bool)
 
 	// Series order.
-	getOrder() int32
-	setOrder(newValue int32)
+	GetOrder() int32
+	SetOrder(newValue int32)
 
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	getInvertIfNegative() bool
-	setInvertIfNegative(newValue bool)
+	GetInvertIfNegative() bool
+	SetInvertIfNegative(newValue bool)
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
-	getExplosion() int32
-	setExplosion(newValue int32)
+	GetExplosion() int32
+	SetExplosion(newValue int32)
 
 	// Series marker.
-	getMarker() ISeriesMarker
-	setMarker(newValue ISeriesMarker)
+	GetMarker() ISeriesMarker
+	SetMarker(newValue ISeriesMarker)
 
 	// Fill properties set for the series.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Effect properties set for the series.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Line properties set for the series.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
-	getDataPointType() string
-	setDataPointType(newValue string)
+	GetDataPointType() string
+	SetDataPointType(newValue string)
 }
 
 type Series struct {
@@ -140,102 +140,102 @@ func NewSeries() *Series {
 	return instance
 }
 
-func (this *Series) getType() string {
+func (this *Series) GetType() string {
 	return this.Type_
 }
 
-func (this *Series) setType(newValue string) {
+func (this *Series) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *Series) getName() string {
+func (this *Series) GetName() string {
 	return this.Name
 }
 
-func (this *Series) setName(newValue string) {
+func (this *Series) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *Series) getIsColorVaried() bool {
+func (this *Series) GetIsColorVaried() bool {
 	return this.IsColorVaried
 }
 
-func (this *Series) setIsColorVaried(newValue bool) {
+func (this *Series) SetIsColorVaried(newValue bool) {
 	this.IsColorVaried = newValue
 }
-func (this *Series) getInvertedSolidFillColor() string {
+func (this *Series) GetInvertedSolidFillColor() string {
 	return this.InvertedSolidFillColor
 }
 
-func (this *Series) setInvertedSolidFillColor(newValue string) {
+func (this *Series) SetInvertedSolidFillColor(newValue string) {
 	this.InvertedSolidFillColor = newValue
 }
-func (this *Series) getSmooth() bool {
+func (this *Series) GetSmooth() bool {
 	return this.Smooth
 }
 
-func (this *Series) setSmooth(newValue bool) {
+func (this *Series) SetSmooth(newValue bool) {
 	this.Smooth = newValue
 }
-func (this *Series) getPlotOnSecondAxis() bool {
+func (this *Series) GetPlotOnSecondAxis() bool {
 	return this.PlotOnSecondAxis
 }
 
-func (this *Series) setPlotOnSecondAxis(newValue bool) {
+func (this *Series) SetPlotOnSecondAxis(newValue bool) {
 	this.PlotOnSecondAxis = newValue
 }
-func (this *Series) getOrder() int32 {
+func (this *Series) GetOrder() int32 {
 	return this.Order
 }
 
-func (this *Series) setOrder(newValue int32) {
+func (this *Series) SetOrder(newValue int32) {
 	this.Order = newValue
 }
-func (this *Series) getInvertIfNegative() bool {
+func (this *Series) GetInvertIfNegative() bool {
 	return this.InvertIfNegative
 }
 
-func (this *Series) setInvertIfNegative(newValue bool) {
+func (this *Series) SetInvertIfNegative(newValue bool) {
 	this.InvertIfNegative = newValue
 }
-func (this *Series) getExplosion() int32 {
+func (this *Series) GetExplosion() int32 {
 	return this.Explosion
 }
 
-func (this *Series) setExplosion(newValue int32) {
+func (this *Series) SetExplosion(newValue int32) {
 	this.Explosion = newValue
 }
-func (this *Series) getMarker() ISeriesMarker {
+func (this *Series) GetMarker() ISeriesMarker {
 	return this.Marker
 }
 
-func (this *Series) setMarker(newValue ISeriesMarker) {
+func (this *Series) SetMarker(newValue ISeriesMarker) {
 	this.Marker = newValue
 }
-func (this *Series) getFillFormat() IFillFormat {
+func (this *Series) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *Series) setFillFormat(newValue IFillFormat) {
+func (this *Series) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *Series) getEffectFormat() IEffectFormat {
+func (this *Series) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *Series) setEffectFormat(newValue IEffectFormat) {
+func (this *Series) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *Series) getLineFormat() ILineFormat {
+func (this *Series) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *Series) setLineFormat(newValue ILineFormat) {
+func (this *Series) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *Series) getDataPointType() string {
+func (this *Series) GetDataPointType() string {
 	return this.DataPointType
 }
 
-func (this *Series) setDataPointType(newValue string) {
+func (this *Series) SetDataPointType(newValue string) {
 	this.DataPointType = newValue
 }
 

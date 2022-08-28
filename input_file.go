@@ -34,11 +34,11 @@ import (
 type IInputFile interface {
 
 	// Get or sets password to open document.
-	getPassword() string
-	setPassword(newValue string)
+	GetPassword() string
+	SetPassword(newValue string)
 
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type InputFile struct {
@@ -55,18 +55,18 @@ func NewInputFile() *InputFile {
 	return instance
 }
 
-func (this *InputFile) getPassword() string {
+func (this *InputFile) GetPassword() string {
 	return this.Password
 }
 
-func (this *InputFile) setPassword(newValue string) {
+func (this *InputFile) SetPassword(newValue string) {
 	this.Password = newValue
 }
-func (this *InputFile) getType() string {
+func (this *InputFile) GetType() string {
 	return this.Type_
 }
 
-func (this *InputFile) setType(newValue string) {
+func (this *InputFile) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

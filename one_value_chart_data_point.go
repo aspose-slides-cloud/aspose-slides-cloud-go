@@ -34,16 +34,16 @@ import (
 type IOneValueChartDataPoint interface {
 
 	// Value.
-	getValue() float64
-	setValue(newValue float64)
+	GetValue() float64
+	SetValue(newValue float64)
 
 	// SetAsTotal. Applied to Waterfall data points only.
-	getSetAsTotal() bool
-	setSetAsTotal(newValue bool)
+	GetSetAsTotal() bool
+	SetSetAsTotal(newValue bool)
 
 	// True if the data point shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	getInvertIfNegative() bool
-	setInvertIfNegative(newValue bool)
+	GetInvertIfNegative() bool
+	SetInvertIfNegative(newValue bool)
 }
 
 type OneValueChartDataPoint struct {
@@ -63,25 +63,25 @@ func NewOneValueChartDataPoint() *OneValueChartDataPoint {
 	return instance
 }
 
-func (this *OneValueChartDataPoint) getValue() float64 {
+func (this *OneValueChartDataPoint) GetValue() float64 {
 	return this.Value
 }
 
-func (this *OneValueChartDataPoint) setValue(newValue float64) {
+func (this *OneValueChartDataPoint) SetValue(newValue float64) {
 	this.Value = newValue
 }
-func (this *OneValueChartDataPoint) getSetAsTotal() bool {
+func (this *OneValueChartDataPoint) GetSetAsTotal() bool {
 	return this.SetAsTotal
 }
 
-func (this *OneValueChartDataPoint) setSetAsTotal(newValue bool) {
+func (this *OneValueChartDataPoint) SetSetAsTotal(newValue bool) {
 	this.SetAsTotal = newValue
 }
-func (this *OneValueChartDataPoint) getInvertIfNegative() bool {
+func (this *OneValueChartDataPoint) GetInvertIfNegative() bool {
 	return this.InvertIfNegative
 }
 
-func (this *OneValueChartDataPoint) setInvertIfNegative(newValue bool) {
+func (this *OneValueChartDataPoint) SetInvertIfNegative(newValue bool) {
 	this.InvertIfNegative = newValue
 }
 

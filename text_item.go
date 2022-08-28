@@ -34,12 +34,12 @@ import (
 type ITextItem interface {
 
 	// Gets or sets the URI to resource that contains text
-	getUri() IResourceUri
-	setUri(newValue IResourceUri)
+	GetUri() IResourceUri
+	SetUri(newValue IResourceUri)
 
 	// Gets or sets the text.
-	getText() string
-	setText(newValue string)
+	GetText() string
+	SetText(newValue string)
 }
 
 type TextItem struct {
@@ -56,18 +56,18 @@ func NewTextItem() *TextItem {
 	return instance
 }
 
-func (this *TextItem) getUri() IResourceUri {
+func (this *TextItem) GetUri() IResourceUri {
 	return this.Uri
 }
 
-func (this *TextItem) setUri(newValue IResourceUri) {
+func (this *TextItem) SetUri(newValue IResourceUri) {
 	this.Uri = newValue
 }
-func (this *TextItem) getText() string {
+func (this *TextItem) GetText() string {
 	return this.Text
 }
 
-func (this *TextItem) setText(newValue string) {
+func (this *TextItem) SetText(newValue string) {
 	this.Text = newValue
 }
 

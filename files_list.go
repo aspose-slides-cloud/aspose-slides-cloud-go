@@ -34,8 +34,8 @@ import (
 type IFilesList interface {
 
 	// Files and folders contained by folder StorageFile.
-	getValue() []IStorageFile
-	setValue(newValue []IStorageFile)
+	GetValue() []IStorageFile
+	SetValue(newValue []IStorageFile)
 }
 
 type FilesList struct {
@@ -49,11 +49,11 @@ func NewFilesList() *FilesList {
 	return instance
 }
 
-func (this *FilesList) getValue() []IStorageFile {
+func (this *FilesList) GetValue() []IStorageFile {
 	return this.Value
 }
 
-func (this *FilesList) setValue(newValue []IStorageFile) {
+func (this *FilesList) SetValue(newValue []IStorageFile) {
 	this.Value = newValue
 }
 

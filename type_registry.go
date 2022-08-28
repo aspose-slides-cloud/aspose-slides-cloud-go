@@ -114,12 +114,18 @@ func init() {
 	typeRegistry["FillOverlayEffect"] = reflect.TypeOf(FillOverlayEffect{})
 	
 	typeDeterminers["FillOverlayEffect"] = make(map[string]string)
+	typeRegistry["FontData"] = reflect.TypeOf(FontData{})
+	
+	typeDeterminers["FontData"] = make(map[string]string)
 	typeRegistry["FontFallbackRule"] = reflect.TypeOf(FontFallbackRule{})
 	
 	typeDeterminers["FontFallbackRule"] = make(map[string]string)
 	typeRegistry["FontSet"] = reflect.TypeOf(FontSet{})
 	
 	typeDeterminers["FontSet"] = make(map[string]string)
+	typeRegistry["FontsData"] = reflect.TypeOf(FontsData{})
+	
+	typeDeterminers["FontsData"] = make(map[string]string)
 	typeRegistry["GeometryPath"] = reflect.TypeOf(GeometryPath{})
 	
 	typeDeterminers["GeometryPath"] = make(map[string]string)

@@ -34,20 +34,20 @@ import (
 type INotesSlide interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Get or sets text of notes slide.
-	getText() string
-	setText(newValue string)
+	GetText() string
+	SetText(newValue string)
 
 	// Get or sets the  link to list notes slide shapes.
-	getShapes() IResourceUri
-	setShapes(newValue IResourceUri)
+	GetShapes() IResourceUri
+	SetShapes(newValue IResourceUri)
 }
 
 type NotesSlide struct {
@@ -70,32 +70,32 @@ func NewNotesSlide() *NotesSlide {
 	return instance
 }
 
-func (this *NotesSlide) getSelfUri() IResourceUri {
+func (this *NotesSlide) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *NotesSlide) setSelfUri(newValue IResourceUri) {
+func (this *NotesSlide) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *NotesSlide) getAlternateLinks() []IResourceUri {
+func (this *NotesSlide) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *NotesSlide) setAlternateLinks(newValue []IResourceUri) {
+func (this *NotesSlide) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *NotesSlide) getText() string {
+func (this *NotesSlide) GetText() string {
 	return this.Text
 }
 
-func (this *NotesSlide) setText(newValue string) {
+func (this *NotesSlide) SetText(newValue string) {
 	this.Text = newValue
 }
-func (this *NotesSlide) getShapes() IResourceUri {
+func (this *NotesSlide) GetShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *NotesSlide) setShapes(newValue IResourceUri) {
+func (this *NotesSlide) SetShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
 

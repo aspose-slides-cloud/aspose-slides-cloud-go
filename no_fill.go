@@ -34,8 +34,8 @@ import (
 type INoFill interface {
 
 	// Fill type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type NoFill struct {
@@ -50,11 +50,11 @@ func NewNoFill() *NoFill {
 	return instance
 }
 
-func (this *NoFill) getType() string {
+func (this *NoFill) GetType() string {
 	return this.Type_
 }
 
-func (this *NoFill) setType(newValue string) {
+func (this *NoFill) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

@@ -34,24 +34,24 @@ import (
 type IFontScheme interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets fonts collection for a \"heading\" part of the slide.
-	getMajor() IFontSet
-	setMajor(newValue IFontSet)
+	GetMajor() IFontSet
+	SetMajor(newValue IFontSet)
 
 	// Gets or sets  the fonts collection for a \"body\" part of the slide.
-	getMinor() IFontSet
-	setMinor(newValue IFontSet)
+	GetMinor() IFontSet
+	SetMinor(newValue IFontSet)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 }
 
 type FontScheme struct {
@@ -77,39 +77,39 @@ func NewFontScheme() *FontScheme {
 	return instance
 }
 
-func (this *FontScheme) getSelfUri() IResourceUri {
+func (this *FontScheme) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *FontScheme) setSelfUri(newValue IResourceUri) {
+func (this *FontScheme) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *FontScheme) getAlternateLinks() []IResourceUri {
+func (this *FontScheme) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *FontScheme) setAlternateLinks(newValue []IResourceUri) {
+func (this *FontScheme) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *FontScheme) getMajor() IFontSet {
+func (this *FontScheme) GetMajor() IFontSet {
 	return this.Major
 }
 
-func (this *FontScheme) setMajor(newValue IFontSet) {
+func (this *FontScheme) SetMajor(newValue IFontSet) {
 	this.Major = newValue
 }
-func (this *FontScheme) getMinor() IFontSet {
+func (this *FontScheme) GetMinor() IFontSet {
 	return this.Minor
 }
 
-func (this *FontScheme) setMinor(newValue IFontSet) {
+func (this *FontScheme) SetMinor(newValue IFontSet) {
 	this.Minor = newValue
 }
-func (this *FontScheme) getName() string {
+func (this *FontScheme) GetName() string {
 	return this.Name
 }
 
-func (this *FontScheme) setName(newValue string) {
+func (this *FontScheme) SetName(newValue string) {
 	this.Name = newValue
 }
 

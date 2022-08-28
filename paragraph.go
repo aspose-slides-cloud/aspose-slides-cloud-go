@@ -34,96 +34,96 @@ import (
 type IParagraph interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Left margin.
-	getMarginLeft() float64
-	setMarginLeft(newValue float64)
+	GetMarginLeft() float64
+	SetMarginLeft(newValue float64)
 
 	// Right margin.
-	getMarginRight() float64
-	setMarginRight(newValue float64)
+	GetMarginRight() float64
+	SetMarginRight(newValue float64)
 
 	// Left spacing.
-	getSpaceBefore() float64
-	setSpaceBefore(newValue float64)
+	GetSpaceBefore() float64
+	SetSpaceBefore(newValue float64)
 
 	// Right spacing.
-	getSpaceAfter() float64
-	setSpaceAfter(newValue float64)
+	GetSpaceAfter() float64
+	SetSpaceAfter(newValue float64)
 
 	// Spacing between lines.
-	getSpaceWithin() float64
-	setSpaceWithin(newValue float64)
+	GetSpaceWithin() float64
+	SetSpaceWithin(newValue float64)
 
 	// First line indent.
-	getIndent() float64
-	setIndent(newValue float64)
+	GetIndent() float64
+	SetIndent(newValue float64)
 
 	// Text alignment.
-	getAlignment() string
-	setAlignment(newValue string)
+	GetAlignment() string
+	SetAlignment(newValue string)
 
 	// Font alignment.
-	getFontAlignment() string
-	setFontAlignment(newValue string)
+	GetFontAlignment() string
+	SetFontAlignment(newValue string)
 
 	// Default tabulation size.
-	getDefaultTabSize() float64
-	setDefaultTabSize(newValue float64)
+	GetDefaultTabSize() float64
+	SetDefaultTabSize(newValue float64)
 
 	// Depth.
-	getDepth() int32
-	setDepth(newValue int32)
+	GetDepth() int32
+	SetDepth(newValue int32)
 
 	// Bullet char.
-	getBulletChar() string
-	setBulletChar(newValue string)
+	GetBulletChar() string
+	SetBulletChar(newValue string)
 
 	// Bullet height.
-	getBulletHeight() float64
-	setBulletHeight(newValue float64)
+	GetBulletHeight() float64
+	SetBulletHeight(newValue float64)
 
 	// Bullet type.
-	getBulletType() string
-	setBulletType(newValue string)
+	GetBulletType() string
+	SetBulletType(newValue string)
 
 	// Starting number for a numbered bullet.
-	getNumberedBulletStartWith() int32
-	setNumberedBulletStartWith(newValue int32)
+	GetNumberedBulletStartWith() int32
+	SetNumberedBulletStartWith(newValue int32)
 
 	// Numbered bullet style.
-	getNumberedBulletStyle() string
-	setNumberedBulletStyle(newValue string)
+	GetNumberedBulletStyle() string
+	SetNumberedBulletStyle(newValue string)
 
 	// True if hanging punctuation is used with the paragraph.
-	getHangingPunctuation() string
-	setHangingPunctuation(newValue string)
+	GetHangingPunctuation() string
+	SetHangingPunctuation(newValue string)
 
 	// True if East Asian line break is used with the paragraph.
-	getEastAsianLineBreak() string
-	setEastAsianLineBreak(newValue string)
+	GetEastAsianLineBreak() string
+	SetEastAsianLineBreak(newValue string)
 
 	// True if Latin line break is used with the paragraph.
-	getLatinLineBreak() string
-	setLatinLineBreak(newValue string)
+	GetLatinLineBreak() string
+	SetLatinLineBreak(newValue string)
 
 	// True if right to left direction is used with the paragraph.
-	getRightToLeft() string
-	setRightToLeft(newValue string)
+	GetRightToLeft() string
+	SetRightToLeft(newValue string)
 
 	// List of portion links.
-	getPortionList() []IPortion
-	setPortionList(newValue []IPortion)
+	GetPortionList() []IPortion
+	SetPortionList(newValue []IPortion)
 
 	// Default portion format.
-	getDefaultPortionFormat() IPortionFormat
-	setDefaultPortionFormat(newValue IPortionFormat)
+	GetDefaultPortionFormat() IPortionFormat
+	SetDefaultPortionFormat(newValue IPortionFormat)
 }
 
 type Paragraph struct {
@@ -211,165 +211,165 @@ func NewParagraph() *Paragraph {
 	return instance
 }
 
-func (this *Paragraph) getSelfUri() IResourceUri {
+func (this *Paragraph) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Paragraph) setSelfUri(newValue IResourceUri) {
+func (this *Paragraph) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Paragraph) getAlternateLinks() []IResourceUri {
+func (this *Paragraph) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Paragraph) setAlternateLinks(newValue []IResourceUri) {
+func (this *Paragraph) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Paragraph) getMarginLeft() float64 {
+func (this *Paragraph) GetMarginLeft() float64 {
 	return this.MarginLeft
 }
 
-func (this *Paragraph) setMarginLeft(newValue float64) {
+func (this *Paragraph) SetMarginLeft(newValue float64) {
 	this.MarginLeft = newValue
 }
-func (this *Paragraph) getMarginRight() float64 {
+func (this *Paragraph) GetMarginRight() float64 {
 	return this.MarginRight
 }
 
-func (this *Paragraph) setMarginRight(newValue float64) {
+func (this *Paragraph) SetMarginRight(newValue float64) {
 	this.MarginRight = newValue
 }
-func (this *Paragraph) getSpaceBefore() float64 {
+func (this *Paragraph) GetSpaceBefore() float64 {
 	return this.SpaceBefore
 }
 
-func (this *Paragraph) setSpaceBefore(newValue float64) {
+func (this *Paragraph) SetSpaceBefore(newValue float64) {
 	this.SpaceBefore = newValue
 }
-func (this *Paragraph) getSpaceAfter() float64 {
+func (this *Paragraph) GetSpaceAfter() float64 {
 	return this.SpaceAfter
 }
 
-func (this *Paragraph) setSpaceAfter(newValue float64) {
+func (this *Paragraph) SetSpaceAfter(newValue float64) {
 	this.SpaceAfter = newValue
 }
-func (this *Paragraph) getSpaceWithin() float64 {
+func (this *Paragraph) GetSpaceWithin() float64 {
 	return this.SpaceWithin
 }
 
-func (this *Paragraph) setSpaceWithin(newValue float64) {
+func (this *Paragraph) SetSpaceWithin(newValue float64) {
 	this.SpaceWithin = newValue
 }
-func (this *Paragraph) getIndent() float64 {
+func (this *Paragraph) GetIndent() float64 {
 	return this.Indent
 }
 
-func (this *Paragraph) setIndent(newValue float64) {
+func (this *Paragraph) SetIndent(newValue float64) {
 	this.Indent = newValue
 }
-func (this *Paragraph) getAlignment() string {
+func (this *Paragraph) GetAlignment() string {
 	return this.Alignment
 }
 
-func (this *Paragraph) setAlignment(newValue string) {
+func (this *Paragraph) SetAlignment(newValue string) {
 	this.Alignment = newValue
 }
-func (this *Paragraph) getFontAlignment() string {
+func (this *Paragraph) GetFontAlignment() string {
 	return this.FontAlignment
 }
 
-func (this *Paragraph) setFontAlignment(newValue string) {
+func (this *Paragraph) SetFontAlignment(newValue string) {
 	this.FontAlignment = newValue
 }
-func (this *Paragraph) getDefaultTabSize() float64 {
+func (this *Paragraph) GetDefaultTabSize() float64 {
 	return this.DefaultTabSize
 }
 
-func (this *Paragraph) setDefaultTabSize(newValue float64) {
+func (this *Paragraph) SetDefaultTabSize(newValue float64) {
 	this.DefaultTabSize = newValue
 }
-func (this *Paragraph) getDepth() int32 {
+func (this *Paragraph) GetDepth() int32 {
 	return this.Depth
 }
 
-func (this *Paragraph) setDepth(newValue int32) {
+func (this *Paragraph) SetDepth(newValue int32) {
 	this.Depth = newValue
 }
-func (this *Paragraph) getBulletChar() string {
+func (this *Paragraph) GetBulletChar() string {
 	return this.BulletChar
 }
 
-func (this *Paragraph) setBulletChar(newValue string) {
+func (this *Paragraph) SetBulletChar(newValue string) {
 	this.BulletChar = newValue
 }
-func (this *Paragraph) getBulletHeight() float64 {
+func (this *Paragraph) GetBulletHeight() float64 {
 	return this.BulletHeight
 }
 
-func (this *Paragraph) setBulletHeight(newValue float64) {
+func (this *Paragraph) SetBulletHeight(newValue float64) {
 	this.BulletHeight = newValue
 }
-func (this *Paragraph) getBulletType() string {
+func (this *Paragraph) GetBulletType() string {
 	return this.BulletType
 }
 
-func (this *Paragraph) setBulletType(newValue string) {
+func (this *Paragraph) SetBulletType(newValue string) {
 	this.BulletType = newValue
 }
-func (this *Paragraph) getNumberedBulletStartWith() int32 {
+func (this *Paragraph) GetNumberedBulletStartWith() int32 {
 	return this.NumberedBulletStartWith
 }
 
-func (this *Paragraph) setNumberedBulletStartWith(newValue int32) {
+func (this *Paragraph) SetNumberedBulletStartWith(newValue int32) {
 	this.NumberedBulletStartWith = newValue
 }
-func (this *Paragraph) getNumberedBulletStyle() string {
+func (this *Paragraph) GetNumberedBulletStyle() string {
 	return this.NumberedBulletStyle
 }
 
-func (this *Paragraph) setNumberedBulletStyle(newValue string) {
+func (this *Paragraph) SetNumberedBulletStyle(newValue string) {
 	this.NumberedBulletStyle = newValue
 }
-func (this *Paragraph) getHangingPunctuation() string {
+func (this *Paragraph) GetHangingPunctuation() string {
 	return this.HangingPunctuation
 }
 
-func (this *Paragraph) setHangingPunctuation(newValue string) {
+func (this *Paragraph) SetHangingPunctuation(newValue string) {
 	this.HangingPunctuation = newValue
 }
-func (this *Paragraph) getEastAsianLineBreak() string {
+func (this *Paragraph) GetEastAsianLineBreak() string {
 	return this.EastAsianLineBreak
 }
 
-func (this *Paragraph) setEastAsianLineBreak(newValue string) {
+func (this *Paragraph) SetEastAsianLineBreak(newValue string) {
 	this.EastAsianLineBreak = newValue
 }
-func (this *Paragraph) getLatinLineBreak() string {
+func (this *Paragraph) GetLatinLineBreak() string {
 	return this.LatinLineBreak
 }
 
-func (this *Paragraph) setLatinLineBreak(newValue string) {
+func (this *Paragraph) SetLatinLineBreak(newValue string) {
 	this.LatinLineBreak = newValue
 }
-func (this *Paragraph) getRightToLeft() string {
+func (this *Paragraph) GetRightToLeft() string {
 	return this.RightToLeft
 }
 
-func (this *Paragraph) setRightToLeft(newValue string) {
+func (this *Paragraph) SetRightToLeft(newValue string) {
 	this.RightToLeft = newValue
 }
-func (this *Paragraph) getPortionList() []IPortion {
+func (this *Paragraph) GetPortionList() []IPortion {
 	return this.PortionList
 }
 
-func (this *Paragraph) setPortionList(newValue []IPortion) {
+func (this *Paragraph) SetPortionList(newValue []IPortion) {
 	this.PortionList = newValue
 }
-func (this *Paragraph) getDefaultPortionFormat() IPortionFormat {
+func (this *Paragraph) GetDefaultPortionFormat() IPortionFormat {
 	return this.DefaultPortionFormat
 }
 
-func (this *Paragraph) setDefaultPortionFormat(newValue IPortionFormat) {
+func (this *Paragraph) SetDefaultPortionFormat(newValue IPortionFormat) {
 	this.DefaultPortionFormat = newValue
 }
 

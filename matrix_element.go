@@ -34,40 +34,40 @@ import (
 type IMatrixElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Hide the placeholders for empty matrix elements
-	getHidePlaceholders() bool
-	setHidePlaceholders(newValue bool)
+	GetHidePlaceholders() bool
+	SetHidePlaceholders(newValue bool)
 
 	// Specifies the vertical justification respect to surrounding text. 
-	getBaseJustification() string
-	setBaseJustification(newValue string)
+	GetBaseJustification() string
+	SetBaseJustification(newValue string)
 
 	// Minimum column width in twips (1/20th of a point)
-	getMinColumnWidth() int32
-	setMinColumnWidth(newValue int32)
+	GetMinColumnWidth() int32
+	SetMinColumnWidth(newValue int32)
 
 	// The type of horizontal spacing between columns of a matrix.
-	getColumnGapRule() string
-	setColumnGapRule(newValue string)
+	GetColumnGapRule() string
+	SetColumnGapRule(newValue string)
 
 	// The value of horizontal spacing between columns of a matrix
-	getColumnGap() int32
-	setColumnGap(newValue int32)
+	GetColumnGap() int32
+	SetColumnGap(newValue int32)
 
 	// The type of vertical spacing between rows of a matrix
-	getRowGapRule() string
-	setRowGapRule(newValue string)
+	GetRowGapRule() string
+	SetRowGapRule(newValue string)
 
 	// The value of vertical spacing between rows of a matrix;             
-	getRowGap() int32
-	setRowGap(newValue int32)
+	GetRowGap() int32
+	SetRowGap(newValue int32)
 
 	// Matrix items
-	getItems() [][]IMathElement
-	setItems(newValue [][]IMathElement)
+	GetItems() [][]IMathElement
+	SetItems(newValue [][]IMathElement)
 }
 
 type MatrixElement struct {
@@ -109,67 +109,67 @@ func NewMatrixElement() *MatrixElement {
 	return instance
 }
 
-func (this *MatrixElement) getType() string {
+func (this *MatrixElement) GetType() string {
 	return this.Type_
 }
 
-func (this *MatrixElement) setType(newValue string) {
+func (this *MatrixElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *MatrixElement) getHidePlaceholders() bool {
+func (this *MatrixElement) GetHidePlaceholders() bool {
 	return this.HidePlaceholders
 }
 
-func (this *MatrixElement) setHidePlaceholders(newValue bool) {
+func (this *MatrixElement) SetHidePlaceholders(newValue bool) {
 	this.HidePlaceholders = newValue
 }
-func (this *MatrixElement) getBaseJustification() string {
+func (this *MatrixElement) GetBaseJustification() string {
 	return this.BaseJustification
 }
 
-func (this *MatrixElement) setBaseJustification(newValue string) {
+func (this *MatrixElement) SetBaseJustification(newValue string) {
 	this.BaseJustification = newValue
 }
-func (this *MatrixElement) getMinColumnWidth() int32 {
+func (this *MatrixElement) GetMinColumnWidth() int32 {
 	return this.MinColumnWidth
 }
 
-func (this *MatrixElement) setMinColumnWidth(newValue int32) {
+func (this *MatrixElement) SetMinColumnWidth(newValue int32) {
 	this.MinColumnWidth = newValue
 }
-func (this *MatrixElement) getColumnGapRule() string {
+func (this *MatrixElement) GetColumnGapRule() string {
 	return this.ColumnGapRule
 }
 
-func (this *MatrixElement) setColumnGapRule(newValue string) {
+func (this *MatrixElement) SetColumnGapRule(newValue string) {
 	this.ColumnGapRule = newValue
 }
-func (this *MatrixElement) getColumnGap() int32 {
+func (this *MatrixElement) GetColumnGap() int32 {
 	return this.ColumnGap
 }
 
-func (this *MatrixElement) setColumnGap(newValue int32) {
+func (this *MatrixElement) SetColumnGap(newValue int32) {
 	this.ColumnGap = newValue
 }
-func (this *MatrixElement) getRowGapRule() string {
+func (this *MatrixElement) GetRowGapRule() string {
 	return this.RowGapRule
 }
 
-func (this *MatrixElement) setRowGapRule(newValue string) {
+func (this *MatrixElement) SetRowGapRule(newValue string) {
 	this.RowGapRule = newValue
 }
-func (this *MatrixElement) getRowGap() int32 {
+func (this *MatrixElement) GetRowGap() int32 {
 	return this.RowGap
 }
 
-func (this *MatrixElement) setRowGap(newValue int32) {
+func (this *MatrixElement) SetRowGap(newValue int32) {
 	this.RowGap = newValue
 }
-func (this *MatrixElement) getItems() [][]IMathElement {
+func (this *MatrixElement) GetItems() [][]IMathElement {
 	return this.Items
 }
 
-func (this *MatrixElement) setItems(newValue [][]IMathElement) {
+func (this *MatrixElement) SetItems(newValue [][]IMathElement) {
 	this.Items = newValue
 }
 

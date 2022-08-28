@@ -34,24 +34,24 @@ import (
 type ISection interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// One-based index of slide with which the section starts.
-	getFirstSlideIndex() int32
-	setFirstSlideIndex(newValue int32)
+	GetFirstSlideIndex() int32
+	SetFirstSlideIndex(newValue int32)
 
 	// Links to the shapes contained in the section.
-	getSlideList() []IResourceUri
-	setSlideList(newValue []IResourceUri)
+	GetSlideList() []IResourceUri
+	SetSlideList(newValue []IResourceUri)
 }
 
 type Section struct {
@@ -77,39 +77,39 @@ func NewSection() *Section {
 	return instance
 }
 
-func (this *Section) getSelfUri() IResourceUri {
+func (this *Section) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Section) setSelfUri(newValue IResourceUri) {
+func (this *Section) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Section) getAlternateLinks() []IResourceUri {
+func (this *Section) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Section) setAlternateLinks(newValue []IResourceUri) {
+func (this *Section) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Section) getName() string {
+func (this *Section) GetName() string {
 	return this.Name
 }
 
-func (this *Section) setName(newValue string) {
+func (this *Section) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *Section) getFirstSlideIndex() int32 {
+func (this *Section) GetFirstSlideIndex() int32 {
 	return this.FirstSlideIndex
 }
 
-func (this *Section) setFirstSlideIndex(newValue int32) {
+func (this *Section) SetFirstSlideIndex(newValue int32) {
 	this.FirstSlideIndex = newValue
 }
-func (this *Section) getSlideList() []IResourceUri {
+func (this *Section) GetSlideList() []IResourceUri {
 	return this.SlideList
 }
 
-func (this *Section) setSlideList(newValue []IResourceUri) {
+func (this *Section) SetSlideList(newValue []IResourceUri) {
 	this.SlideList = newValue
 }
 

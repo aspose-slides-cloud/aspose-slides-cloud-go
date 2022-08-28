@@ -34,128 +34,128 @@ import (
 type IChart interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Gets or sets the type of the chart.
-	getChartType() string
-	setChartType(newValue string)
+	GetChartType() string
+	SetChartType(newValue string)
 
 	// True if data labels over the maximum of the chart shall be shown.
-	getShowDataLabelsOverMaximum() bool
-	setShowDataLabelsOverMaximum(newValue bool)
+	GetShowDataLabelsOverMaximum() bool
+	SetShowDataLabelsOverMaximum(newValue bool)
 
 	// Gets or sets the series of chart data values.
-	getSeries() []ISeries
-	setSeries(newValue []ISeries)
+	GetSeries() []ISeries
+	SetSeries(newValue []ISeries)
 
 	// Gets or sets the categories for chart data
-	getCategories() []IChartCategory
-	setCategories(newValue []IChartCategory)
+	GetCategories() []IChartCategory
+	SetCategories(newValue []IChartCategory)
 
 	// Gets or sets the title.
-	getTitle() IChartTitle
-	setTitle(newValue IChartTitle)
+	GetTitle() IChartTitle
+	SetTitle(newValue IChartTitle)
 
 	// Gets or sets the back wall.
-	getBackWall() IChartWall
-	setBackWall(newValue IChartWall)
+	GetBackWall() IChartWall
+	SetBackWall(newValue IChartWall)
 
 	// Gets or sets the side wall.
-	getSideWall() IChartWall
-	setSideWall(newValue IChartWall)
+	GetSideWall() IChartWall
+	SetSideWall(newValue IChartWall)
 
 	// Gets or sets the floor.
-	getFloor() IChartWall
-	setFloor(newValue IChartWall)
+	GetFloor() IChartWall
+	SetFloor(newValue IChartWall)
 
 	// Gets or sets the legend.
-	getLegend() ILegend
-	setLegend(newValue ILegend)
+	GetLegend() ILegend
+	SetLegend(newValue ILegend)
 
 	// Gets or sets the axes.
-	getAxes() IAxes
-	setAxes(newValue IAxes)
+	GetAxes() IAxes
+	SetAxes(newValue IAxes)
 
 	// Gets or sets the plot area.
-	getPlotArea() IPlotArea
-	setPlotArea(newValue IPlotArea)
+	GetPlotArea() IPlotArea
+	SetPlotArea(newValue IPlotArea)
 
 	// Specifies the chart area shall have rounded corners.
-	getHasRoundedCorners() bool
-	setHasRoundedCorners(newValue bool)
+	GetHasRoundedCorners() bool
+	SetHasRoundedCorners(newValue bool)
 
 	// Gets groups of series. 
-	getSeriesGroups() []IChartSeriesGroup
-	setSeriesGroups(newValue []IChartSeriesGroup)
+	GetSeriesGroups() []IChartSeriesGroup
+	SetSeriesGroups(newValue []IChartSeriesGroup)
 }
 
 type Chart struct {
@@ -261,221 +261,221 @@ func NewChart() *Chart {
 	return instance
 }
 
-func (this *Chart) getSelfUri() IResourceUri {
+func (this *Chart) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Chart) setSelfUri(newValue IResourceUri) {
+func (this *Chart) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Chart) getAlternateLinks() []IResourceUri {
+func (this *Chart) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Chart) setAlternateLinks(newValue []IResourceUri) {
+func (this *Chart) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Chart) getName() string {
+func (this *Chart) GetName() string {
 	return this.Name
 }
 
-func (this *Chart) setName(newValue string) {
+func (this *Chart) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *Chart) getWidth() float64 {
+func (this *Chart) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *Chart) setWidth(newValue float64) {
+func (this *Chart) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *Chart) getHeight() float64 {
+func (this *Chart) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *Chart) setHeight(newValue float64) {
+func (this *Chart) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *Chart) getAlternativeText() string {
+func (this *Chart) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *Chart) setAlternativeText(newValue string) {
+func (this *Chart) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *Chart) getAlternativeTextTitle() string {
+func (this *Chart) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *Chart) setAlternativeTextTitle(newValue string) {
+func (this *Chart) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *Chart) getHidden() bool {
+func (this *Chart) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *Chart) setHidden(newValue bool) {
+func (this *Chart) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *Chart) getX() float64 {
+func (this *Chart) GetX() float64 {
 	return this.X
 }
 
-func (this *Chart) setX(newValue float64) {
+func (this *Chart) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *Chart) getY() float64 {
+func (this *Chart) GetY() float64 {
 	return this.Y
 }
 
-func (this *Chart) setY(newValue float64) {
+func (this *Chart) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *Chart) getZOrderPosition() int32 {
+func (this *Chart) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *Chart) setZOrderPosition(newValue int32) {
+func (this *Chart) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *Chart) getFillFormat() IFillFormat {
+func (this *Chart) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *Chart) setFillFormat(newValue IFillFormat) {
+func (this *Chart) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *Chart) getEffectFormat() IEffectFormat {
+func (this *Chart) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *Chart) setEffectFormat(newValue IEffectFormat) {
+func (this *Chart) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *Chart) getThreeDFormat() IThreeDFormat {
+func (this *Chart) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *Chart) setThreeDFormat(newValue IThreeDFormat) {
+func (this *Chart) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *Chart) getLineFormat() ILineFormat {
+func (this *Chart) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *Chart) setLineFormat(newValue ILineFormat) {
+func (this *Chart) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *Chart) getHyperlinkClick() IHyperlink {
+func (this *Chart) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *Chart) setHyperlinkClick(newValue IHyperlink) {
+func (this *Chart) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *Chart) getHyperlinkMouseOver() IHyperlink {
+func (this *Chart) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *Chart) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *Chart) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *Chart) getType() string {
+func (this *Chart) GetType() string {
 	return this.Type_
 }
 
-func (this *Chart) setType(newValue string) {
+func (this *Chart) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *Chart) getChartType() string {
+func (this *Chart) GetChartType() string {
 	return this.ChartType
 }
 
-func (this *Chart) setChartType(newValue string) {
+func (this *Chart) SetChartType(newValue string) {
 	this.ChartType = newValue
 }
-func (this *Chart) getShowDataLabelsOverMaximum() bool {
+func (this *Chart) GetShowDataLabelsOverMaximum() bool {
 	return this.ShowDataLabelsOverMaximum
 }
 
-func (this *Chart) setShowDataLabelsOverMaximum(newValue bool) {
+func (this *Chart) SetShowDataLabelsOverMaximum(newValue bool) {
 	this.ShowDataLabelsOverMaximum = newValue
 }
-func (this *Chart) getSeries() []ISeries {
+func (this *Chart) GetSeries() []ISeries {
 	return this.Series
 }
 
-func (this *Chart) setSeries(newValue []ISeries) {
+func (this *Chart) SetSeries(newValue []ISeries) {
 	this.Series = newValue
 }
-func (this *Chart) getCategories() []IChartCategory {
+func (this *Chart) GetCategories() []IChartCategory {
 	return this.Categories
 }
 
-func (this *Chart) setCategories(newValue []IChartCategory) {
+func (this *Chart) SetCategories(newValue []IChartCategory) {
 	this.Categories = newValue
 }
-func (this *Chart) getTitle() IChartTitle {
+func (this *Chart) GetTitle() IChartTitle {
 	return this.Title
 }
 
-func (this *Chart) setTitle(newValue IChartTitle) {
+func (this *Chart) SetTitle(newValue IChartTitle) {
 	this.Title = newValue
 }
-func (this *Chart) getBackWall() IChartWall {
+func (this *Chart) GetBackWall() IChartWall {
 	return this.BackWall
 }
 
-func (this *Chart) setBackWall(newValue IChartWall) {
+func (this *Chart) SetBackWall(newValue IChartWall) {
 	this.BackWall = newValue
 }
-func (this *Chart) getSideWall() IChartWall {
+func (this *Chart) GetSideWall() IChartWall {
 	return this.SideWall
 }
 
-func (this *Chart) setSideWall(newValue IChartWall) {
+func (this *Chart) SetSideWall(newValue IChartWall) {
 	this.SideWall = newValue
 }
-func (this *Chart) getFloor() IChartWall {
+func (this *Chart) GetFloor() IChartWall {
 	return this.Floor
 }
 
-func (this *Chart) setFloor(newValue IChartWall) {
+func (this *Chart) SetFloor(newValue IChartWall) {
 	this.Floor = newValue
 }
-func (this *Chart) getLegend() ILegend {
+func (this *Chart) GetLegend() ILegend {
 	return this.Legend
 }
 
-func (this *Chart) setLegend(newValue ILegend) {
+func (this *Chart) SetLegend(newValue ILegend) {
 	this.Legend = newValue
 }
-func (this *Chart) getAxes() IAxes {
+func (this *Chart) GetAxes() IAxes {
 	return this.Axes
 }
 
-func (this *Chart) setAxes(newValue IAxes) {
+func (this *Chart) SetAxes(newValue IAxes) {
 	this.Axes = newValue
 }
-func (this *Chart) getPlotArea() IPlotArea {
+func (this *Chart) GetPlotArea() IPlotArea {
 	return this.PlotArea
 }
 
-func (this *Chart) setPlotArea(newValue IPlotArea) {
+func (this *Chart) SetPlotArea(newValue IPlotArea) {
 	this.PlotArea = newValue
 }
-func (this *Chart) getHasRoundedCorners() bool {
+func (this *Chart) GetHasRoundedCorners() bool {
 	return this.HasRoundedCorners
 }
 
-func (this *Chart) setHasRoundedCorners(newValue bool) {
+func (this *Chart) SetHasRoundedCorners(newValue bool) {
 	this.HasRoundedCorners = newValue
 }
-func (this *Chart) getSeriesGroups() []IChartSeriesGroup {
+func (this *Chart) GetSeriesGroups() []IChartSeriesGroup {
 	return this.SeriesGroups
 }
 
-func (this *Chart) setSeriesGroups(newValue []IChartSeriesGroup) {
+func (this *Chart) SetSeriesGroups(newValue []IChartSeriesGroup) {
 	this.SeriesGroups = newValue
 }
 

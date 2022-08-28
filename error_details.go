@@ -35,12 +35,12 @@ import (
 type IErrorDetails interface {
 
 	// The request id
-	getRequestId() string
-	setRequestId(newValue string)
+	GetRequestId() string
+	SetRequestId(newValue string)
 
 	// Date
-	getDate() time.Time
-	setDate(newValue time.Time)
+	GetDate() time.Time
+	SetDate(newValue time.Time)
 }
 
 type ErrorDetails struct {
@@ -57,18 +57,18 @@ func NewErrorDetails() *ErrorDetails {
 	return instance
 }
 
-func (this *ErrorDetails) getRequestId() string {
+func (this *ErrorDetails) GetRequestId() string {
 	return this.RequestId
 }
 
-func (this *ErrorDetails) setRequestId(newValue string) {
+func (this *ErrorDetails) SetRequestId(newValue string) {
 	this.RequestId = newValue
 }
-func (this *ErrorDetails) getDate() time.Time {
+func (this *ErrorDetails) GetDate() time.Time {
 	return this.Date
 }
 
-func (this *ErrorDetails) setDate(newValue time.Time) {
+func (this *ErrorDetails) SetDate(newValue time.Time) {
 	this.Date = newValue
 }
 

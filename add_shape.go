@@ -34,16 +34,16 @@ import (
 type IAddShape interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Shape DTO.
-	getShape() IShapeBase
-	setShape(newValue IShapeBase)
+	GetShape() IShapeBase
+	SetShape(newValue IShapeBase)
 
 	// Shape path for a grouped shape or smart art shape.
-	getShapePath() string
-	setShapePath(newValue string)
+	GetShapePath() string
+	SetShapePath(newValue string)
 }
 
 type AddShape struct {
@@ -64,25 +64,25 @@ func NewAddShape() *AddShape {
 	return instance
 }
 
-func (this *AddShape) getType() string {
+func (this *AddShape) GetType() string {
 	return this.Type_
 }
 
-func (this *AddShape) setType(newValue string) {
+func (this *AddShape) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *AddShape) getShape() IShapeBase {
+func (this *AddShape) GetShape() IShapeBase {
 	return this.Shape
 }
 
-func (this *AddShape) setShape(newValue IShapeBase) {
+func (this *AddShape) SetShape(newValue IShapeBase) {
 	this.Shape = newValue
 }
-func (this *AddShape) getShapePath() string {
+func (this *AddShape) GetShapePath() string {
 	return this.ShapePath
 }
 
-func (this *AddShape) setShapePath(newValue string) {
+func (this *AddShape) SetShapePath(newValue string) {
 	this.ShapePath = newValue
 }
 

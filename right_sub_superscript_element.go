@@ -34,24 +34,24 @@ import (
 type IRightSubSuperscriptElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Base argument
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Subscript
-	getSubscript() IMathElement
-	setSubscript(newValue IMathElement)
+	GetSubscript() IMathElement
+	SetSubscript(newValue IMathElement)
 
 	// Superscript
-	getSuperscript() IMathElement
-	setSuperscript(newValue IMathElement)
+	GetSuperscript() IMathElement
+	SetSuperscript(newValue IMathElement)
 
 	// Alignment of subscript/superscript.
-	getAlignScripts() bool
-	setAlignScripts(newValue bool)
+	GetAlignScripts() bool
+	SetAlignScripts(newValue bool)
 }
 
 type RightSubSuperscriptElement struct {
@@ -78,39 +78,39 @@ func NewRightSubSuperscriptElement() *RightSubSuperscriptElement {
 	return instance
 }
 
-func (this *RightSubSuperscriptElement) getType() string {
+func (this *RightSubSuperscriptElement) GetType() string {
 	return this.Type_
 }
 
-func (this *RightSubSuperscriptElement) setType(newValue string) {
+func (this *RightSubSuperscriptElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *RightSubSuperscriptElement) getBase() IMathElement {
+func (this *RightSubSuperscriptElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *RightSubSuperscriptElement) setBase(newValue IMathElement) {
+func (this *RightSubSuperscriptElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *RightSubSuperscriptElement) getSubscript() IMathElement {
+func (this *RightSubSuperscriptElement) GetSubscript() IMathElement {
 	return this.Subscript
 }
 
-func (this *RightSubSuperscriptElement) setSubscript(newValue IMathElement) {
+func (this *RightSubSuperscriptElement) SetSubscript(newValue IMathElement) {
 	this.Subscript = newValue
 }
-func (this *RightSubSuperscriptElement) getSuperscript() IMathElement {
+func (this *RightSubSuperscriptElement) GetSuperscript() IMathElement {
 	return this.Superscript
 }
 
-func (this *RightSubSuperscriptElement) setSuperscript(newValue IMathElement) {
+func (this *RightSubSuperscriptElement) SetSuperscript(newValue IMathElement) {
 	this.Superscript = newValue
 }
-func (this *RightSubSuperscriptElement) getAlignScripts() bool {
+func (this *RightSubSuperscriptElement) GetAlignScripts() bool {
 	return this.AlignScripts
 }
 
-func (this *RightSubSuperscriptElement) setAlignScripts(newValue bool) {
+func (this *RightSubSuperscriptElement) SetAlignScripts(newValue bool) {
 	this.AlignScripts = newValue
 }
 

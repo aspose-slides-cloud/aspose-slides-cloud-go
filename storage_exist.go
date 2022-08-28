@@ -34,8 +34,8 @@ import (
 type IStorageExist interface {
 
 	// Shows that the storage exists.             
-	getExists() bool
-	setExists(newValue bool)
+	GetExists() bool
+	SetExists(newValue bool)
 }
 
 type StorageExist struct {
@@ -49,11 +49,11 @@ func NewStorageExist() *StorageExist {
 	return instance
 }
 
-func (this *StorageExist) getExists() bool {
+func (this *StorageExist) GetExists() bool {
 	return this.Exists
 }
 
-func (this *StorageExist) setExists(newValue bool) {
+func (this *StorageExist) SetExists(newValue bool) {
 	this.Exists = newValue
 }
 

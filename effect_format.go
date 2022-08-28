@@ -34,36 +34,36 @@ import (
 type IEffectFormat interface {
 
 	// blur effect
-	getBlur() IBlurEffect
-	setBlur(newValue IBlurEffect)
+	GetBlur() IBlurEffect
+	SetBlur(newValue IBlurEffect)
 
 	// glow effect
-	getGlow() IGlowEffect
-	setGlow(newValue IGlowEffect)
+	GetGlow() IGlowEffect
+	SetGlow(newValue IGlowEffect)
 
 	// inner shadow effect
-	getInnerShadow() IInnerShadowEffect
-	setInnerShadow(newValue IInnerShadowEffect)
+	GetInnerShadow() IInnerShadowEffect
+	SetInnerShadow(newValue IInnerShadowEffect)
 
 	// outer shadow effect
-	getOuterShadow() IOuterShadowEffect
-	setOuterShadow(newValue IOuterShadowEffect)
+	GetOuterShadow() IOuterShadowEffect
+	SetOuterShadow(newValue IOuterShadowEffect)
 
 	// preset shadow effect
-	getPresetShadow() IPresetShadowEffect
-	setPresetShadow(newValue IPresetShadowEffect)
+	GetPresetShadow() IPresetShadowEffect
+	SetPresetShadow(newValue IPresetShadowEffect)
 
 	// soft edge effect
-	getSoftEdge() ISoftEdgeEffect
-	setSoftEdge(newValue ISoftEdgeEffect)
+	GetSoftEdge() ISoftEdgeEffect
+	SetSoftEdge(newValue ISoftEdgeEffect)
 
 	// reflection effect
-	getReflection() IReflectionEffect
-	setReflection(newValue IReflectionEffect)
+	GetReflection() IReflectionEffect
+	SetReflection(newValue IReflectionEffect)
 
 	// fill overlay effect
-	getFillOverlay() IFillOverlayEffect
-	setFillOverlay(newValue IFillOverlayEffect)
+	GetFillOverlay() IFillOverlayEffect
+	SetFillOverlay(newValue IFillOverlayEffect)
 }
 
 type EffectFormat struct {
@@ -98,60 +98,60 @@ func NewEffectFormat() *EffectFormat {
 	return instance
 }
 
-func (this *EffectFormat) getBlur() IBlurEffect {
+func (this *EffectFormat) GetBlur() IBlurEffect {
 	return this.Blur
 }
 
-func (this *EffectFormat) setBlur(newValue IBlurEffect) {
+func (this *EffectFormat) SetBlur(newValue IBlurEffect) {
 	this.Blur = newValue
 }
-func (this *EffectFormat) getGlow() IGlowEffect {
+func (this *EffectFormat) GetGlow() IGlowEffect {
 	return this.Glow
 }
 
-func (this *EffectFormat) setGlow(newValue IGlowEffect) {
+func (this *EffectFormat) SetGlow(newValue IGlowEffect) {
 	this.Glow = newValue
 }
-func (this *EffectFormat) getInnerShadow() IInnerShadowEffect {
+func (this *EffectFormat) GetInnerShadow() IInnerShadowEffect {
 	return this.InnerShadow
 }
 
-func (this *EffectFormat) setInnerShadow(newValue IInnerShadowEffect) {
+func (this *EffectFormat) SetInnerShadow(newValue IInnerShadowEffect) {
 	this.InnerShadow = newValue
 }
-func (this *EffectFormat) getOuterShadow() IOuterShadowEffect {
+func (this *EffectFormat) GetOuterShadow() IOuterShadowEffect {
 	return this.OuterShadow
 }
 
-func (this *EffectFormat) setOuterShadow(newValue IOuterShadowEffect) {
+func (this *EffectFormat) SetOuterShadow(newValue IOuterShadowEffect) {
 	this.OuterShadow = newValue
 }
-func (this *EffectFormat) getPresetShadow() IPresetShadowEffect {
+func (this *EffectFormat) GetPresetShadow() IPresetShadowEffect {
 	return this.PresetShadow
 }
 
-func (this *EffectFormat) setPresetShadow(newValue IPresetShadowEffect) {
+func (this *EffectFormat) SetPresetShadow(newValue IPresetShadowEffect) {
 	this.PresetShadow = newValue
 }
-func (this *EffectFormat) getSoftEdge() ISoftEdgeEffect {
+func (this *EffectFormat) GetSoftEdge() ISoftEdgeEffect {
 	return this.SoftEdge
 }
 
-func (this *EffectFormat) setSoftEdge(newValue ISoftEdgeEffect) {
+func (this *EffectFormat) SetSoftEdge(newValue ISoftEdgeEffect) {
 	this.SoftEdge = newValue
 }
-func (this *EffectFormat) getReflection() IReflectionEffect {
+func (this *EffectFormat) GetReflection() IReflectionEffect {
 	return this.Reflection
 }
 
-func (this *EffectFormat) setReflection(newValue IReflectionEffect) {
+func (this *EffectFormat) SetReflection(newValue IReflectionEffect) {
 	this.Reflection = newValue
 }
-func (this *EffectFormat) getFillOverlay() IFillOverlayEffect {
+func (this *EffectFormat) GetFillOverlay() IFillOverlayEffect {
 	return this.FillOverlay
 }
 
-func (this *EffectFormat) setFillOverlay(newValue IFillOverlayEffect) {
+func (this *EffectFormat) SetFillOverlay(newValue IFillOverlayEffect) {
 	this.FillOverlay = newValue
 }
 

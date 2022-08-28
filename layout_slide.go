@@ -34,28 +34,28 @@ import (
 type ILayoutSlide interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Layout slide type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Master slide link.
-	getMasterSlide() IResourceUri
-	setMasterSlide(newValue IResourceUri)
+	GetMasterSlide() IResourceUri
+	SetMasterSlide(newValue IResourceUri)
 
 	// List of depending slides.
-	getDependingSlides() []IResourceUri
-	setDependingSlides(newValue []IResourceUri)
+	GetDependingSlides() []IResourceUri
+	SetDependingSlides(newValue []IResourceUri)
 }
 
 type LayoutSlide struct {
@@ -85,46 +85,46 @@ func NewLayoutSlide() *LayoutSlide {
 	return instance
 }
 
-func (this *LayoutSlide) getSelfUri() IResourceUri {
+func (this *LayoutSlide) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *LayoutSlide) setSelfUri(newValue IResourceUri) {
+func (this *LayoutSlide) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *LayoutSlide) getAlternateLinks() []IResourceUri {
+func (this *LayoutSlide) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *LayoutSlide) setAlternateLinks(newValue []IResourceUri) {
+func (this *LayoutSlide) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *LayoutSlide) getName() string {
+func (this *LayoutSlide) GetName() string {
 	return this.Name
 }
 
-func (this *LayoutSlide) setName(newValue string) {
+func (this *LayoutSlide) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *LayoutSlide) getType() string {
+func (this *LayoutSlide) GetType() string {
 	return this.Type_
 }
 
-func (this *LayoutSlide) setType(newValue string) {
+func (this *LayoutSlide) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *LayoutSlide) getMasterSlide() IResourceUri {
+func (this *LayoutSlide) GetMasterSlide() IResourceUri {
 	return this.MasterSlide
 }
 
-func (this *LayoutSlide) setMasterSlide(newValue IResourceUri) {
+func (this *LayoutSlide) SetMasterSlide(newValue IResourceUri) {
 	this.MasterSlide = newValue
 }
-func (this *LayoutSlide) getDependingSlides() []IResourceUri {
+func (this *LayoutSlide) GetDependingSlides() []IResourceUri {
 	return this.DependingSlides
 }
 
-func (this *LayoutSlide) setDependingSlides(newValue []IResourceUri) {
+func (this *LayoutSlide) SetDependingSlides(newValue []IResourceUri) {
 	this.DependingSlides = newValue
 }
 

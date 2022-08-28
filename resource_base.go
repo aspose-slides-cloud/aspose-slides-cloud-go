@@ -34,12 +34,12 @@ import (
 type IResourceBase interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 }
 
 type ResourceBase struct {
@@ -56,18 +56,18 @@ func NewResourceBase() *ResourceBase {
 	return instance
 }
 
-func (this *ResourceBase) getSelfUri() IResourceUri {
+func (this *ResourceBase) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *ResourceBase) setSelfUri(newValue IResourceUri) {
+func (this *ResourceBase) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *ResourceBase) getAlternateLinks() []IResourceUri {
+func (this *ResourceBase) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *ResourceBase) setAlternateLinks(newValue []IResourceUri) {
+func (this *ResourceBase) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
 

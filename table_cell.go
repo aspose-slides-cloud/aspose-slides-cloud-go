@@ -34,76 +34,76 @@ import (
 type ITableCell interface {
 
 	// Cell text.
-	getText() string
-	setText(newValue string)
+	GetText() string
+	SetText(newValue string)
 
 	// The number of rows spanned by a merged cell.
-	getRowSpan() int32
-	setRowSpan(newValue int32)
+	GetRowSpan() int32
+	SetRowSpan(newValue int32)
 
 	// The number of columns spanned by a merged cell.
-	getColSpan() int32
-	setColSpan(newValue int32)
+	GetColSpan() int32
+	SetColSpan(newValue int32)
 
 	// The top margin of the cell.
-	getMarginTop() float64
-	setMarginTop(newValue float64)
+	GetMarginTop() float64
+	SetMarginTop(newValue float64)
 
 	// The right margin of the cell.
-	getMarginRight() float64
-	setMarginRight(newValue float64)
+	GetMarginRight() float64
+	SetMarginRight(newValue float64)
 
 	// The left margin of the cell.
-	getMarginLeft() float64
-	setMarginLeft(newValue float64)
+	GetMarginLeft() float64
+	SetMarginLeft(newValue float64)
 
 	// The bottom margin of the cell.
-	getMarginBottom() float64
-	setMarginBottom(newValue float64)
+	GetMarginBottom() float64
+	SetMarginBottom(newValue float64)
 
 	// Text anchor type.
-	getTextAnchorType() string
-	setTextAnchorType(newValue string)
+	GetTextAnchorType() string
+	SetTextAnchorType(newValue string)
 
 	// The type of vertical text.
-	getTextVerticalType() string
-	setTextVerticalType(newValue string)
+	GetTextVerticalType() string
+	SetTextVerticalType(newValue string)
 
 	// Fill properties set of the cell.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Line properties set for the top border of the cell.
-	getBorderTop() ILineFormat
-	setBorderTop(newValue ILineFormat)
+	GetBorderTop() ILineFormat
+	SetBorderTop(newValue ILineFormat)
 
 	// Line properties set for the right border of the cell.
-	getBorderRight() ILineFormat
-	setBorderRight(newValue ILineFormat)
+	GetBorderRight() ILineFormat
+	SetBorderRight(newValue ILineFormat)
 
 	// Line properties set for the left border of the cell.
-	getBorderLeft() ILineFormat
-	setBorderLeft(newValue ILineFormat)
+	GetBorderLeft() ILineFormat
+	SetBorderLeft(newValue ILineFormat)
 
 	// Line properties set for the bottom border of the cell.
-	getBorderBottom() ILineFormat
-	setBorderBottom(newValue ILineFormat)
+	GetBorderBottom() ILineFormat
+	SetBorderBottom(newValue ILineFormat)
 
 	// Line properties set for the diagonal up border of the cell.
-	getBorderDiagonalUp() ILineFormat
-	setBorderDiagonalUp(newValue ILineFormat)
+	GetBorderDiagonalUp() ILineFormat
+	SetBorderDiagonalUp(newValue ILineFormat)
 
 	// Line properties set for the diagonal down border of the cell.
-	getBorderDiagonalDown() ILineFormat
-	setBorderDiagonalDown(newValue ILineFormat)
+	GetBorderDiagonalDown() ILineFormat
+	SetBorderDiagonalDown(newValue ILineFormat)
 
 	// Cell column index
-	getColumnIndex() int32
-	setColumnIndex(newValue int32)
+	GetColumnIndex() int32
+	SetColumnIndex(newValue int32)
 
 	// Cell row index
-	getRowIndex() int32
-	setRowIndex(newValue int32)
+	GetRowIndex() int32
+	SetRowIndex(newValue int32)
 }
 
 type TableCell struct {
@@ -170,130 +170,130 @@ func NewTableCell() *TableCell {
 	return instance
 }
 
-func (this *TableCell) getText() string {
+func (this *TableCell) GetText() string {
 	return this.Text
 }
 
-func (this *TableCell) setText(newValue string) {
+func (this *TableCell) SetText(newValue string) {
 	this.Text = newValue
 }
-func (this *TableCell) getRowSpan() int32 {
+func (this *TableCell) GetRowSpan() int32 {
 	return this.RowSpan
 }
 
-func (this *TableCell) setRowSpan(newValue int32) {
+func (this *TableCell) SetRowSpan(newValue int32) {
 	this.RowSpan = newValue
 }
-func (this *TableCell) getColSpan() int32 {
+func (this *TableCell) GetColSpan() int32 {
 	return this.ColSpan
 }
 
-func (this *TableCell) setColSpan(newValue int32) {
+func (this *TableCell) SetColSpan(newValue int32) {
 	this.ColSpan = newValue
 }
-func (this *TableCell) getMarginTop() float64 {
+func (this *TableCell) GetMarginTop() float64 {
 	return this.MarginTop
 }
 
-func (this *TableCell) setMarginTop(newValue float64) {
+func (this *TableCell) SetMarginTop(newValue float64) {
 	this.MarginTop = newValue
 }
-func (this *TableCell) getMarginRight() float64 {
+func (this *TableCell) GetMarginRight() float64 {
 	return this.MarginRight
 }
 
-func (this *TableCell) setMarginRight(newValue float64) {
+func (this *TableCell) SetMarginRight(newValue float64) {
 	this.MarginRight = newValue
 }
-func (this *TableCell) getMarginLeft() float64 {
+func (this *TableCell) GetMarginLeft() float64 {
 	return this.MarginLeft
 }
 
-func (this *TableCell) setMarginLeft(newValue float64) {
+func (this *TableCell) SetMarginLeft(newValue float64) {
 	this.MarginLeft = newValue
 }
-func (this *TableCell) getMarginBottom() float64 {
+func (this *TableCell) GetMarginBottom() float64 {
 	return this.MarginBottom
 }
 
-func (this *TableCell) setMarginBottom(newValue float64) {
+func (this *TableCell) SetMarginBottom(newValue float64) {
 	this.MarginBottom = newValue
 }
-func (this *TableCell) getTextAnchorType() string {
+func (this *TableCell) GetTextAnchorType() string {
 	return this.TextAnchorType
 }
 
-func (this *TableCell) setTextAnchorType(newValue string) {
+func (this *TableCell) SetTextAnchorType(newValue string) {
 	this.TextAnchorType = newValue
 }
-func (this *TableCell) getTextVerticalType() string {
+func (this *TableCell) GetTextVerticalType() string {
 	return this.TextVerticalType
 }
 
-func (this *TableCell) setTextVerticalType(newValue string) {
+func (this *TableCell) SetTextVerticalType(newValue string) {
 	this.TextVerticalType = newValue
 }
-func (this *TableCell) getFillFormat() IFillFormat {
+func (this *TableCell) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *TableCell) setFillFormat(newValue IFillFormat) {
+func (this *TableCell) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *TableCell) getBorderTop() ILineFormat {
+func (this *TableCell) GetBorderTop() ILineFormat {
 	return this.BorderTop
 }
 
-func (this *TableCell) setBorderTop(newValue ILineFormat) {
+func (this *TableCell) SetBorderTop(newValue ILineFormat) {
 	this.BorderTop = newValue
 }
-func (this *TableCell) getBorderRight() ILineFormat {
+func (this *TableCell) GetBorderRight() ILineFormat {
 	return this.BorderRight
 }
 
-func (this *TableCell) setBorderRight(newValue ILineFormat) {
+func (this *TableCell) SetBorderRight(newValue ILineFormat) {
 	this.BorderRight = newValue
 }
-func (this *TableCell) getBorderLeft() ILineFormat {
+func (this *TableCell) GetBorderLeft() ILineFormat {
 	return this.BorderLeft
 }
 
-func (this *TableCell) setBorderLeft(newValue ILineFormat) {
+func (this *TableCell) SetBorderLeft(newValue ILineFormat) {
 	this.BorderLeft = newValue
 }
-func (this *TableCell) getBorderBottom() ILineFormat {
+func (this *TableCell) GetBorderBottom() ILineFormat {
 	return this.BorderBottom
 }
 
-func (this *TableCell) setBorderBottom(newValue ILineFormat) {
+func (this *TableCell) SetBorderBottom(newValue ILineFormat) {
 	this.BorderBottom = newValue
 }
-func (this *TableCell) getBorderDiagonalUp() ILineFormat {
+func (this *TableCell) GetBorderDiagonalUp() ILineFormat {
 	return this.BorderDiagonalUp
 }
 
-func (this *TableCell) setBorderDiagonalUp(newValue ILineFormat) {
+func (this *TableCell) SetBorderDiagonalUp(newValue ILineFormat) {
 	this.BorderDiagonalUp = newValue
 }
-func (this *TableCell) getBorderDiagonalDown() ILineFormat {
+func (this *TableCell) GetBorderDiagonalDown() ILineFormat {
 	return this.BorderDiagonalDown
 }
 
-func (this *TableCell) setBorderDiagonalDown(newValue ILineFormat) {
+func (this *TableCell) SetBorderDiagonalDown(newValue ILineFormat) {
 	this.BorderDiagonalDown = newValue
 }
-func (this *TableCell) getColumnIndex() int32 {
+func (this *TableCell) GetColumnIndex() int32 {
 	return this.ColumnIndex
 }
 
-func (this *TableCell) setColumnIndex(newValue int32) {
+func (this *TableCell) SetColumnIndex(newValue int32) {
 	this.ColumnIndex = newValue
 }
-func (this *TableCell) getRowIndex() int32 {
+func (this *TableCell) GetRowIndex() int32 {
 	return this.RowIndex
 }
 
-func (this *TableCell) setRowIndex(newValue int32) {
+func (this *TableCell) SetRowIndex(newValue int32) {
 	this.RowIndex = newValue
 }
 

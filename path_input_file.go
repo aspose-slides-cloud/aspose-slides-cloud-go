@@ -34,20 +34,20 @@ import (
 type IPathInputFile interface {
 
 	// Get or sets password to open document.
-	getPassword() string
-	setPassword(newValue string)
+	GetPassword() string
+	SetPassword(newValue string)
 
 	// File type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Get or sets path to file.
-	getPath() string
-	setPath(newValue string)
+	GetPath() string
+	SetPath(newValue string)
 
 	// Get or sets name of storage.
-	getStorage() string
-	setStorage(newValue string)
+	GetStorage() string
+	SetStorage(newValue string)
 }
 
 type PathInputFile struct {
@@ -71,32 +71,32 @@ func NewPathInputFile() *PathInputFile {
 	return instance
 }
 
-func (this *PathInputFile) getPassword() string {
+func (this *PathInputFile) GetPassword() string {
 	return this.Password
 }
 
-func (this *PathInputFile) setPassword(newValue string) {
+func (this *PathInputFile) SetPassword(newValue string) {
 	this.Password = newValue
 }
-func (this *PathInputFile) getType() string {
+func (this *PathInputFile) GetType() string {
 	return this.Type_
 }
 
-func (this *PathInputFile) setType(newValue string) {
+func (this *PathInputFile) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *PathInputFile) getPath() string {
+func (this *PathInputFile) GetPath() string {
 	return this.Path
 }
 
-func (this *PathInputFile) setPath(newValue string) {
+func (this *PathInputFile) SetPath(newValue string) {
 	this.Path = newValue
 }
-func (this *PathInputFile) getStorage() string {
+func (this *PathInputFile) GetStorage() string {
 	return this.Storage
 }
 
-func (this *PathInputFile) setStorage(newValue string) {
+func (this *PathInputFile) SetStorage(newValue string) {
 	this.Storage = newValue
 }
 

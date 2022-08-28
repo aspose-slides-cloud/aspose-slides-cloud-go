@@ -34,92 +34,92 @@ import (
 type IOneValueSeries interface {
 
 	// Series type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Series name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// True if each data marker in the series has a different color.
-	getIsColorVaried() bool
-	setIsColorVaried(newValue bool)
+	GetIsColorVaried() bool
+	SetIsColorVaried(newValue bool)
 
 	// Invert solid color for the series.
-	getInvertedSolidFillColor() string
-	setInvertedSolidFillColor(newValue string)
+	GetInvertedSolidFillColor() string
+	SetInvertedSolidFillColor(newValue string)
 
 	// True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.
-	getSmooth() bool
-	setSmooth(newValue bool)
+	GetSmooth() bool
+	SetSmooth(newValue bool)
 
 	// True if the series is plotted on second value axis.
-	getPlotOnSecondAxis() bool
-	setPlotOnSecondAxis(newValue bool)
+	GetPlotOnSecondAxis() bool
+	SetPlotOnSecondAxis(newValue bool)
 
 	// Series order.
-	getOrder() int32
-	setOrder(newValue int32)
+	GetOrder() int32
+	SetOrder(newValue int32)
 
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	getInvertIfNegative() bool
-	setInvertIfNegative(newValue bool)
+	GetInvertIfNegative() bool
+	SetInvertIfNegative(newValue bool)
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
-	getExplosion() int32
-	setExplosion(newValue int32)
+	GetExplosion() int32
+	SetExplosion(newValue int32)
 
 	// Series marker.
-	getMarker() ISeriesMarker
-	setMarker(newValue ISeriesMarker)
+	GetMarker() ISeriesMarker
+	SetMarker(newValue ISeriesMarker)
 
 	// Fill properties set for the series.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Effect properties set for the series.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Line properties set for the series.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Data point type.
-	getDataPointType() string
-	setDataPointType(newValue string)
+	GetDataPointType() string
+	SetDataPointType(newValue string)
 
 	// Gets or sets the values.
-	getDataPoints() []IOneValueChartDataPoint
-	setDataPoints(newValue []IOneValueChartDataPoint)
+	GetDataPoints() []IOneValueChartDataPoint
+	SetDataPoints(newValue []IOneValueChartDataPoint)
 
 	// The number format for the series values.
-	getNumberFormatOfValues() string
-	setNumberFormatOfValues(newValue string)
+	GetNumberFormatOfValues() string
+	SetNumberFormatOfValues(newValue string)
 
 	// True if inner points are shown. Applied to Waterfall series only.
-	getShowConnectorLines() bool
-	setShowConnectorLines(newValue bool)
+	GetShowConnectorLines() bool
+	SetShowConnectorLines(newValue bool)
 
 	// Quartile method. Applied to BoxAndWhisker series only.
-	getQuartileMethod() string
-	setQuartileMethod(newValue string)
+	GetQuartileMethod() string
+	SetQuartileMethod(newValue string)
 
 	// True if inner points are shown. Applied to BoxAndWhisker series only.
-	getShowInnerPoints() bool
-	setShowInnerPoints(newValue bool)
+	GetShowInnerPoints() bool
+	SetShowInnerPoints(newValue bool)
 
 	// True if mean line is shown. Applied to BoxAndWhisker series only.
-	getShowMeanLine() bool
-	setShowMeanLine(newValue bool)
+	GetShowMeanLine() bool
+	SetShowMeanLine(newValue bool)
 
 	// True if mean markers are shown. Applied to BoxAndWhisker series only.
-	getShowMeanMarkers() bool
-	setShowMeanMarkers(newValue bool)
+	GetShowMeanMarkers() bool
+	SetShowMeanMarkers(newValue bool)
 
 	// True if outlier points are shown. Applied to BoxAndWhisker series only.
-	getShowOutlierPoints() bool
-	setShowOutlierPoints(newValue bool)
+	GetShowOutlierPoints() bool
+	SetShowOutlierPoints(newValue bool)
 }
 
 type OneValueSeries struct {
@@ -199,158 +199,158 @@ func NewOneValueSeries() *OneValueSeries {
 	return instance
 }
 
-func (this *OneValueSeries) getType() string {
+func (this *OneValueSeries) GetType() string {
 	return this.Type_
 }
 
-func (this *OneValueSeries) setType(newValue string) {
+func (this *OneValueSeries) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *OneValueSeries) getName() string {
+func (this *OneValueSeries) GetName() string {
 	return this.Name
 }
 
-func (this *OneValueSeries) setName(newValue string) {
+func (this *OneValueSeries) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *OneValueSeries) getIsColorVaried() bool {
+func (this *OneValueSeries) GetIsColorVaried() bool {
 	return this.IsColorVaried
 }
 
-func (this *OneValueSeries) setIsColorVaried(newValue bool) {
+func (this *OneValueSeries) SetIsColorVaried(newValue bool) {
 	this.IsColorVaried = newValue
 }
-func (this *OneValueSeries) getInvertedSolidFillColor() string {
+func (this *OneValueSeries) GetInvertedSolidFillColor() string {
 	return this.InvertedSolidFillColor
 }
 
-func (this *OneValueSeries) setInvertedSolidFillColor(newValue string) {
+func (this *OneValueSeries) SetInvertedSolidFillColor(newValue string) {
 	this.InvertedSolidFillColor = newValue
 }
-func (this *OneValueSeries) getSmooth() bool {
+func (this *OneValueSeries) GetSmooth() bool {
 	return this.Smooth
 }
 
-func (this *OneValueSeries) setSmooth(newValue bool) {
+func (this *OneValueSeries) SetSmooth(newValue bool) {
 	this.Smooth = newValue
 }
-func (this *OneValueSeries) getPlotOnSecondAxis() bool {
+func (this *OneValueSeries) GetPlotOnSecondAxis() bool {
 	return this.PlotOnSecondAxis
 }
 
-func (this *OneValueSeries) setPlotOnSecondAxis(newValue bool) {
+func (this *OneValueSeries) SetPlotOnSecondAxis(newValue bool) {
 	this.PlotOnSecondAxis = newValue
 }
-func (this *OneValueSeries) getOrder() int32 {
+func (this *OneValueSeries) GetOrder() int32 {
 	return this.Order
 }
 
-func (this *OneValueSeries) setOrder(newValue int32) {
+func (this *OneValueSeries) SetOrder(newValue int32) {
 	this.Order = newValue
 }
-func (this *OneValueSeries) getInvertIfNegative() bool {
+func (this *OneValueSeries) GetInvertIfNegative() bool {
 	return this.InvertIfNegative
 }
 
-func (this *OneValueSeries) setInvertIfNegative(newValue bool) {
+func (this *OneValueSeries) SetInvertIfNegative(newValue bool) {
 	this.InvertIfNegative = newValue
 }
-func (this *OneValueSeries) getExplosion() int32 {
+func (this *OneValueSeries) GetExplosion() int32 {
 	return this.Explosion
 }
 
-func (this *OneValueSeries) setExplosion(newValue int32) {
+func (this *OneValueSeries) SetExplosion(newValue int32) {
 	this.Explosion = newValue
 }
-func (this *OneValueSeries) getMarker() ISeriesMarker {
+func (this *OneValueSeries) GetMarker() ISeriesMarker {
 	return this.Marker
 }
 
-func (this *OneValueSeries) setMarker(newValue ISeriesMarker) {
+func (this *OneValueSeries) SetMarker(newValue ISeriesMarker) {
 	this.Marker = newValue
 }
-func (this *OneValueSeries) getFillFormat() IFillFormat {
+func (this *OneValueSeries) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *OneValueSeries) setFillFormat(newValue IFillFormat) {
+func (this *OneValueSeries) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *OneValueSeries) getEffectFormat() IEffectFormat {
+func (this *OneValueSeries) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *OneValueSeries) setEffectFormat(newValue IEffectFormat) {
+func (this *OneValueSeries) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *OneValueSeries) getLineFormat() ILineFormat {
+func (this *OneValueSeries) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *OneValueSeries) setLineFormat(newValue ILineFormat) {
+func (this *OneValueSeries) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *OneValueSeries) getDataPointType() string {
+func (this *OneValueSeries) GetDataPointType() string {
 	return this.DataPointType
 }
 
-func (this *OneValueSeries) setDataPointType(newValue string) {
+func (this *OneValueSeries) SetDataPointType(newValue string) {
 	this.DataPointType = newValue
 }
-func (this *OneValueSeries) getDataPoints() []IOneValueChartDataPoint {
+func (this *OneValueSeries) GetDataPoints() []IOneValueChartDataPoint {
 	return this.DataPoints
 }
 
-func (this *OneValueSeries) setDataPoints(newValue []IOneValueChartDataPoint) {
+func (this *OneValueSeries) SetDataPoints(newValue []IOneValueChartDataPoint) {
 	this.DataPoints = newValue
 }
-func (this *OneValueSeries) getNumberFormatOfValues() string {
+func (this *OneValueSeries) GetNumberFormatOfValues() string {
 	return this.NumberFormatOfValues
 }
 
-func (this *OneValueSeries) setNumberFormatOfValues(newValue string) {
+func (this *OneValueSeries) SetNumberFormatOfValues(newValue string) {
 	this.NumberFormatOfValues = newValue
 }
-func (this *OneValueSeries) getShowConnectorLines() bool {
+func (this *OneValueSeries) GetShowConnectorLines() bool {
 	return this.ShowConnectorLines
 }
 
-func (this *OneValueSeries) setShowConnectorLines(newValue bool) {
+func (this *OneValueSeries) SetShowConnectorLines(newValue bool) {
 	this.ShowConnectorLines = newValue
 }
-func (this *OneValueSeries) getQuartileMethod() string {
+func (this *OneValueSeries) GetQuartileMethod() string {
 	return this.QuartileMethod
 }
 
-func (this *OneValueSeries) setQuartileMethod(newValue string) {
+func (this *OneValueSeries) SetQuartileMethod(newValue string) {
 	this.QuartileMethod = newValue
 }
-func (this *OneValueSeries) getShowInnerPoints() bool {
+func (this *OneValueSeries) GetShowInnerPoints() bool {
 	return this.ShowInnerPoints
 }
 
-func (this *OneValueSeries) setShowInnerPoints(newValue bool) {
+func (this *OneValueSeries) SetShowInnerPoints(newValue bool) {
 	this.ShowInnerPoints = newValue
 }
-func (this *OneValueSeries) getShowMeanLine() bool {
+func (this *OneValueSeries) GetShowMeanLine() bool {
 	return this.ShowMeanLine
 }
 
-func (this *OneValueSeries) setShowMeanLine(newValue bool) {
+func (this *OneValueSeries) SetShowMeanLine(newValue bool) {
 	this.ShowMeanLine = newValue
 }
-func (this *OneValueSeries) getShowMeanMarkers() bool {
+func (this *OneValueSeries) GetShowMeanMarkers() bool {
 	return this.ShowMeanMarkers
 }
 
-func (this *OneValueSeries) setShowMeanMarkers(newValue bool) {
+func (this *OneValueSeries) SetShowMeanMarkers(newValue bool) {
 	this.ShowMeanMarkers = newValue
 }
-func (this *OneValueSeries) getShowOutlierPoints() bool {
+func (this *OneValueSeries) GetShowOutlierPoints() bool {
 	return this.ShowOutlierPoints
 }
 
-func (this *OneValueSeries) setShowOutlierPoints(newValue bool) {
+func (this *OneValueSeries) SetShowOutlierPoints(newValue bool) {
 	this.ShowOutlierPoints = newValue
 }
 

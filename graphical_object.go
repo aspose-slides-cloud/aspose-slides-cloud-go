@@ -34,76 +34,76 @@ import (
 type IGraphicalObject interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type GraphicalObject struct {
@@ -169,130 +169,130 @@ func NewGraphicalObject() *GraphicalObject {
 	return instance
 }
 
-func (this *GraphicalObject) getSelfUri() IResourceUri {
+func (this *GraphicalObject) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *GraphicalObject) setSelfUri(newValue IResourceUri) {
+func (this *GraphicalObject) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *GraphicalObject) getAlternateLinks() []IResourceUri {
+func (this *GraphicalObject) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *GraphicalObject) setAlternateLinks(newValue []IResourceUri) {
+func (this *GraphicalObject) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *GraphicalObject) getName() string {
+func (this *GraphicalObject) GetName() string {
 	return this.Name
 }
 
-func (this *GraphicalObject) setName(newValue string) {
+func (this *GraphicalObject) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *GraphicalObject) getWidth() float64 {
+func (this *GraphicalObject) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *GraphicalObject) setWidth(newValue float64) {
+func (this *GraphicalObject) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *GraphicalObject) getHeight() float64 {
+func (this *GraphicalObject) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *GraphicalObject) setHeight(newValue float64) {
+func (this *GraphicalObject) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *GraphicalObject) getAlternativeText() string {
+func (this *GraphicalObject) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *GraphicalObject) setAlternativeText(newValue string) {
+func (this *GraphicalObject) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *GraphicalObject) getAlternativeTextTitle() string {
+func (this *GraphicalObject) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *GraphicalObject) setAlternativeTextTitle(newValue string) {
+func (this *GraphicalObject) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *GraphicalObject) getHidden() bool {
+func (this *GraphicalObject) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *GraphicalObject) setHidden(newValue bool) {
+func (this *GraphicalObject) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *GraphicalObject) getX() float64 {
+func (this *GraphicalObject) GetX() float64 {
 	return this.X
 }
 
-func (this *GraphicalObject) setX(newValue float64) {
+func (this *GraphicalObject) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *GraphicalObject) getY() float64 {
+func (this *GraphicalObject) GetY() float64 {
 	return this.Y
 }
 
-func (this *GraphicalObject) setY(newValue float64) {
+func (this *GraphicalObject) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *GraphicalObject) getZOrderPosition() int32 {
+func (this *GraphicalObject) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *GraphicalObject) setZOrderPosition(newValue int32) {
+func (this *GraphicalObject) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *GraphicalObject) getFillFormat() IFillFormat {
+func (this *GraphicalObject) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *GraphicalObject) setFillFormat(newValue IFillFormat) {
+func (this *GraphicalObject) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *GraphicalObject) getEffectFormat() IEffectFormat {
+func (this *GraphicalObject) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *GraphicalObject) setEffectFormat(newValue IEffectFormat) {
+func (this *GraphicalObject) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *GraphicalObject) getThreeDFormat() IThreeDFormat {
+func (this *GraphicalObject) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *GraphicalObject) setThreeDFormat(newValue IThreeDFormat) {
+func (this *GraphicalObject) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *GraphicalObject) getLineFormat() ILineFormat {
+func (this *GraphicalObject) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *GraphicalObject) setLineFormat(newValue ILineFormat) {
+func (this *GraphicalObject) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *GraphicalObject) getHyperlinkClick() IHyperlink {
+func (this *GraphicalObject) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *GraphicalObject) setHyperlinkClick(newValue IHyperlink) {
+func (this *GraphicalObject) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *GraphicalObject) getHyperlinkMouseOver() IHyperlink {
+func (this *GraphicalObject) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *GraphicalObject) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *GraphicalObject) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *GraphicalObject) getType() string {
+func (this *GraphicalObject) GetType() string {
 	return this.Type_
 }
 
-func (this *GraphicalObject) setType(newValue string) {
+func (this *GraphicalObject) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

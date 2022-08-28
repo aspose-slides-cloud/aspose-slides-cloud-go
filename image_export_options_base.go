@@ -34,23 +34,23 @@ import (
 type IImageExportOptionsBase interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Gets or sets the height of slides in the output image format.
-	getHeight() int32
-	setHeight(newValue int32)
+	GetHeight() int32
+	SetHeight(newValue int32)
 
 	// Gets or sets the height of slides in the output the output image format.
-	getWidth() int32
-	setWidth(newValue int32)
+	GetWidth() int32
+	SetWidth(newValue int32)
 }
 
 type ImageExportOptionsBase struct {
@@ -75,39 +75,39 @@ func NewImageExportOptionsBase() *ImageExportOptionsBase {
 	return instance
 }
 
-func (this *ImageExportOptionsBase) getDefaultRegularFont() string {
+func (this *ImageExportOptionsBase) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *ImageExportOptionsBase) setDefaultRegularFont(newValue string) {
+func (this *ImageExportOptionsBase) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *ImageExportOptionsBase) getFontFallbackRules() []IFontFallbackRule {
+func (this *ImageExportOptionsBase) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *ImageExportOptionsBase) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *ImageExportOptionsBase) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *ImageExportOptionsBase) getFormat() string {
+func (this *ImageExportOptionsBase) GetFormat() string {
 	return this.Format
 }
 
-func (this *ImageExportOptionsBase) setFormat(newValue string) {
+func (this *ImageExportOptionsBase) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *ImageExportOptionsBase) getHeight() int32 {
+func (this *ImageExportOptionsBase) GetHeight() int32 {
 	return this.Height
 }
 
-func (this *ImageExportOptionsBase) setHeight(newValue int32) {
+func (this *ImageExportOptionsBase) SetHeight(newValue int32) {
 	this.Height = newValue
 }
-func (this *ImageExportOptionsBase) getWidth() int32 {
+func (this *ImageExportOptionsBase) GetWidth() int32 {
 	return this.Width
 }
 
-func (this *ImageExportOptionsBase) setWidth(newValue int32) {
+func (this *ImageExportOptionsBase) SetWidth(newValue int32) {
 	this.Width = newValue
 }
 

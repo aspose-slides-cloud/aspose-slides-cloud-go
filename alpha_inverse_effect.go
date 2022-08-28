@@ -34,8 +34,8 @@ import (
 type IAlphaInverseEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type AlphaInverseEffect struct {
@@ -50,11 +50,11 @@ func NewAlphaInverseEffect() *AlphaInverseEffect {
 	return instance
 }
 
-func (this *AlphaInverseEffect) getType() string {
+func (this *AlphaInverseEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *AlphaInverseEffect) setType(newValue string) {
+func (this *AlphaInverseEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

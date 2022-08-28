@@ -34,44 +34,44 @@ import (
 type IBorderBoxElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Base
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Hide Top Edge
-	getHideTop() bool
-	setHideTop(newValue bool)
+	GetHideTop() bool
+	SetHideTop(newValue bool)
 
 	// Hide Bottom Edge
-	getHideBottom() bool
-	setHideBottom(newValue bool)
+	GetHideBottom() bool
+	SetHideBottom(newValue bool)
 
 	// Hide Left Edge
-	getHideLeft() bool
-	setHideLeft(newValue bool)
+	GetHideLeft() bool
+	SetHideLeft(newValue bool)
 
 	// Hide Right Edge
-	getHideRight() bool
-	setHideRight(newValue bool)
+	GetHideRight() bool
+	SetHideRight(newValue bool)
 
 	// Strikethrough Horizontal
-	getStrikethroughHorizontal() bool
-	setStrikethroughHorizontal(newValue bool)
+	GetStrikethroughHorizontal() bool
+	SetStrikethroughHorizontal(newValue bool)
 
 	// Strikethrough Vertical
-	getStrikethroughVertical() bool
-	setStrikethroughVertical(newValue bool)
+	GetStrikethroughVertical() bool
+	SetStrikethroughVertical(newValue bool)
 
 	// Strikethrough Bottom-Left to Top-Right
-	getStrikethroughBottomLeftToTopRight() bool
-	setStrikethroughBottomLeftToTopRight(newValue bool)
+	GetStrikethroughBottomLeftToTopRight() bool
+	SetStrikethroughBottomLeftToTopRight(newValue bool)
 
 	// Strikethrough Top-Left to Bottom-Right.
-	getStrikethroughTopLeftToBottomRight() bool
-	setStrikethroughTopLeftToBottomRight(newValue bool)
+	GetStrikethroughTopLeftToBottomRight() bool
+	SetStrikethroughTopLeftToBottomRight(newValue bool)
 }
 
 type BorderBoxElement struct {
@@ -113,74 +113,74 @@ func NewBorderBoxElement() *BorderBoxElement {
 	return instance
 }
 
-func (this *BorderBoxElement) getType() string {
+func (this *BorderBoxElement) GetType() string {
 	return this.Type_
 }
 
-func (this *BorderBoxElement) setType(newValue string) {
+func (this *BorderBoxElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *BorderBoxElement) getBase() IMathElement {
+func (this *BorderBoxElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *BorderBoxElement) setBase(newValue IMathElement) {
+func (this *BorderBoxElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *BorderBoxElement) getHideTop() bool {
+func (this *BorderBoxElement) GetHideTop() bool {
 	return this.HideTop
 }
 
-func (this *BorderBoxElement) setHideTop(newValue bool) {
+func (this *BorderBoxElement) SetHideTop(newValue bool) {
 	this.HideTop = newValue
 }
-func (this *BorderBoxElement) getHideBottom() bool {
+func (this *BorderBoxElement) GetHideBottom() bool {
 	return this.HideBottom
 }
 
-func (this *BorderBoxElement) setHideBottom(newValue bool) {
+func (this *BorderBoxElement) SetHideBottom(newValue bool) {
 	this.HideBottom = newValue
 }
-func (this *BorderBoxElement) getHideLeft() bool {
+func (this *BorderBoxElement) GetHideLeft() bool {
 	return this.HideLeft
 }
 
-func (this *BorderBoxElement) setHideLeft(newValue bool) {
+func (this *BorderBoxElement) SetHideLeft(newValue bool) {
 	this.HideLeft = newValue
 }
-func (this *BorderBoxElement) getHideRight() bool {
+func (this *BorderBoxElement) GetHideRight() bool {
 	return this.HideRight
 }
 
-func (this *BorderBoxElement) setHideRight(newValue bool) {
+func (this *BorderBoxElement) SetHideRight(newValue bool) {
 	this.HideRight = newValue
 }
-func (this *BorderBoxElement) getStrikethroughHorizontal() bool {
+func (this *BorderBoxElement) GetStrikethroughHorizontal() bool {
 	return this.StrikethroughHorizontal
 }
 
-func (this *BorderBoxElement) setStrikethroughHorizontal(newValue bool) {
+func (this *BorderBoxElement) SetStrikethroughHorizontal(newValue bool) {
 	this.StrikethroughHorizontal = newValue
 }
-func (this *BorderBoxElement) getStrikethroughVertical() bool {
+func (this *BorderBoxElement) GetStrikethroughVertical() bool {
 	return this.StrikethroughVertical
 }
 
-func (this *BorderBoxElement) setStrikethroughVertical(newValue bool) {
+func (this *BorderBoxElement) SetStrikethroughVertical(newValue bool) {
 	this.StrikethroughVertical = newValue
 }
-func (this *BorderBoxElement) getStrikethroughBottomLeftToTopRight() bool {
+func (this *BorderBoxElement) GetStrikethroughBottomLeftToTopRight() bool {
 	return this.StrikethroughBottomLeftToTopRight
 }
 
-func (this *BorderBoxElement) setStrikethroughBottomLeftToTopRight(newValue bool) {
+func (this *BorderBoxElement) SetStrikethroughBottomLeftToTopRight(newValue bool) {
 	this.StrikethroughBottomLeftToTopRight = newValue
 }
-func (this *BorderBoxElement) getStrikethroughTopLeftToBottomRight() bool {
+func (this *BorderBoxElement) GetStrikethroughTopLeftToBottomRight() bool {
 	return this.StrikethroughTopLeftToBottomRight
 }
 
-func (this *BorderBoxElement) setStrikethroughTopLeftToBottomRight(newValue bool) {
+func (this *BorderBoxElement) SetStrikethroughTopLeftToBottomRight(newValue bool) {
 	this.StrikethroughTopLeftToBottomRight = newValue
 }
 

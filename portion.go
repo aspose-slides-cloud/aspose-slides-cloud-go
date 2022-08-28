@@ -34,136 +34,136 @@ import (
 type IPortion interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Text.
-	getText() string
-	setText(newValue string)
+	GetText() string
+	SetText(newValue string)
 
 	// Math paragraph.
-	getMathParagraph() IMathParagraph
-	setMathParagraph(newValue IMathParagraph)
+	GetMathParagraph() IMathParagraph
+	SetMathParagraph(newValue IMathParagraph)
 
 	// True for bold font.
-	getFontBold() string
-	setFontBold(newValue string)
+	GetFontBold() string
+	SetFontBold(newValue string)
 
 	// True for italic font.
-	getFontItalic() string
-	setFontItalic(newValue string)
+	GetFontItalic() string
+	SetFontItalic(newValue string)
 
 	// Text underline type.
-	getFontUnderline() string
-	setFontUnderline(newValue string)
+	GetFontUnderline() string
+	SetFontUnderline(newValue string)
 
 	// Text strikethrough type.
-	getStrikethroughType() string
-	setStrikethroughType(newValue string)
+	GetStrikethroughType() string
+	SetStrikethroughType(newValue string)
 
 	// Text capitalization type.
-	getTextCapType() string
-	setTextCapType(newValue string)
+	GetTextCapType() string
+	SetTextCapType(newValue string)
 
 	// Superscript or subscript of the text.
-	getEscapement() float64
-	setEscapement(newValue float64)
+	GetEscapement() float64
+	SetEscapement(newValue float64)
 
 	// Intercharacter spacing increment.
-	getSpacing() float64
-	setSpacing(newValue float64)
+	GetSpacing() float64
+	SetSpacing(newValue float64)
 
 	// Font color.
-	getFontColor() string
-	setFontColor(newValue string)
+	GetFontColor() string
+	SetFontColor(newValue string)
 
 	// Highlight color.
-	getHighlightColor() string
-	setHighlightColor(newValue string)
+	GetHighlightColor() string
+	SetHighlightColor(newValue string)
 
 	// Font height.
-	getFontHeight() float64
-	setFontHeight(newValue float64)
+	GetFontHeight() float64
+	SetFontHeight(newValue float64)
 
 	// True to normalize the text.
-	getNormaliseHeight() string
-	setNormaliseHeight(newValue string)
+	GetNormaliseHeight() string
+	SetNormaliseHeight(newValue string)
 
 	// True if the text proof should be disabled.
-	getProofDisabled() string
-	setProofDisabled(newValue string)
+	GetProofDisabled() string
+	SetProofDisabled(newValue string)
 
 	// True if smart tag should be cleaned.
-	getSmartTagClean() bool
-	setSmartTagClean(newValue bool)
+	GetSmartTagClean() bool
+	SetSmartTagClean(newValue bool)
 
 	// Minimal font size for kerning.
-	getKerningMinimalSize() float64
-	setKerningMinimalSize(newValue float64)
+	GetKerningMinimalSize() float64
+	SetKerningMinimalSize(newValue float64)
 
 	// True if numbers should ignore East-Asian specific vertical text layout.
-	getKumimoji() string
-	setKumimoji(newValue string)
+	GetKumimoji() string
+	SetKumimoji(newValue string)
 
 	// Proving language ID.
-	getLanguageId() string
-	setLanguageId(newValue string)
+	GetLanguageId() string
+	SetLanguageId(newValue string)
 
 	// Alternative proving language ID.
-	getAlternativeLanguageId() string
-	setAlternativeLanguageId(newValue string)
+	GetAlternativeLanguageId() string
+	SetAlternativeLanguageId(newValue string)
 
 	// True if underline style has own FillFormat properties.
-	getIsHardUnderlineFill() string
-	setIsHardUnderlineFill(newValue string)
+	GetIsHardUnderlineFill() string
+	SetIsHardUnderlineFill(newValue string)
 
 	// True if underline style has own LineFormat properties.
-	getIsHardUnderlineLine() string
-	setIsHardUnderlineLine(newValue string)
+	GetIsHardUnderlineLine() string
+	SetIsHardUnderlineLine(newValue string)
 
 	// Fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Underline fill format.
-	getUnderlineFillFormat() IFillFormat
-	setUnderlineFillFormat(newValue IFillFormat)
+	GetUnderlineFillFormat() IFillFormat
+	SetUnderlineFillFormat(newValue IFillFormat)
 
 	// Underline line format.
-	getUnderlineLineFormat() ILineFormat
-	setUnderlineLineFormat(newValue ILineFormat)
+	GetUnderlineLineFormat() ILineFormat
+	SetUnderlineLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Returns or sets the Latin font info.
-	getLatinFont() string
-	setLatinFont(newValue string)
+	GetLatinFont() string
+	SetLatinFont(newValue string)
 
 	// Returns or sets the East Asian font info.
-	getEastAsianFont() string
-	setEastAsianFont(newValue string)
+	GetEastAsianFont() string
+	SetEastAsianFont(newValue string)
 
 	// Returns or sets the complex script font info.
-	getComplexScriptFont() string
-	setComplexScriptFont(newValue string)
+	GetComplexScriptFont() string
+	SetComplexScriptFont(newValue string)
 }
 
 type Portion struct {
@@ -283,235 +283,235 @@ func NewPortion() *Portion {
 	return instance
 }
 
-func (this *Portion) getSelfUri() IResourceUri {
+func (this *Portion) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Portion) setSelfUri(newValue IResourceUri) {
+func (this *Portion) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Portion) getAlternateLinks() []IResourceUri {
+func (this *Portion) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Portion) setAlternateLinks(newValue []IResourceUri) {
+func (this *Portion) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Portion) getText() string {
+func (this *Portion) GetText() string {
 	return this.Text
 }
 
-func (this *Portion) setText(newValue string) {
+func (this *Portion) SetText(newValue string) {
 	this.Text = newValue
 }
-func (this *Portion) getMathParagraph() IMathParagraph {
+func (this *Portion) GetMathParagraph() IMathParagraph {
 	return this.MathParagraph
 }
 
-func (this *Portion) setMathParagraph(newValue IMathParagraph) {
+func (this *Portion) SetMathParagraph(newValue IMathParagraph) {
 	this.MathParagraph = newValue
 }
-func (this *Portion) getFontBold() string {
+func (this *Portion) GetFontBold() string {
 	return this.FontBold
 }
 
-func (this *Portion) setFontBold(newValue string) {
+func (this *Portion) SetFontBold(newValue string) {
 	this.FontBold = newValue
 }
-func (this *Portion) getFontItalic() string {
+func (this *Portion) GetFontItalic() string {
 	return this.FontItalic
 }
 
-func (this *Portion) setFontItalic(newValue string) {
+func (this *Portion) SetFontItalic(newValue string) {
 	this.FontItalic = newValue
 }
-func (this *Portion) getFontUnderline() string {
+func (this *Portion) GetFontUnderline() string {
 	return this.FontUnderline
 }
 
-func (this *Portion) setFontUnderline(newValue string) {
+func (this *Portion) SetFontUnderline(newValue string) {
 	this.FontUnderline = newValue
 }
-func (this *Portion) getStrikethroughType() string {
+func (this *Portion) GetStrikethroughType() string {
 	return this.StrikethroughType
 }
 
-func (this *Portion) setStrikethroughType(newValue string) {
+func (this *Portion) SetStrikethroughType(newValue string) {
 	this.StrikethroughType = newValue
 }
-func (this *Portion) getTextCapType() string {
+func (this *Portion) GetTextCapType() string {
 	return this.TextCapType
 }
 
-func (this *Portion) setTextCapType(newValue string) {
+func (this *Portion) SetTextCapType(newValue string) {
 	this.TextCapType = newValue
 }
-func (this *Portion) getEscapement() float64 {
+func (this *Portion) GetEscapement() float64 {
 	return this.Escapement
 }
 
-func (this *Portion) setEscapement(newValue float64) {
+func (this *Portion) SetEscapement(newValue float64) {
 	this.Escapement = newValue
 }
-func (this *Portion) getSpacing() float64 {
+func (this *Portion) GetSpacing() float64 {
 	return this.Spacing
 }
 
-func (this *Portion) setSpacing(newValue float64) {
+func (this *Portion) SetSpacing(newValue float64) {
 	this.Spacing = newValue
 }
-func (this *Portion) getFontColor() string {
+func (this *Portion) GetFontColor() string {
 	return this.FontColor
 }
 
-func (this *Portion) setFontColor(newValue string) {
+func (this *Portion) SetFontColor(newValue string) {
 	this.FontColor = newValue
 }
-func (this *Portion) getHighlightColor() string {
+func (this *Portion) GetHighlightColor() string {
 	return this.HighlightColor
 }
 
-func (this *Portion) setHighlightColor(newValue string) {
+func (this *Portion) SetHighlightColor(newValue string) {
 	this.HighlightColor = newValue
 }
-func (this *Portion) getFontHeight() float64 {
+func (this *Portion) GetFontHeight() float64 {
 	return this.FontHeight
 }
 
-func (this *Portion) setFontHeight(newValue float64) {
+func (this *Portion) SetFontHeight(newValue float64) {
 	this.FontHeight = newValue
 }
-func (this *Portion) getNormaliseHeight() string {
+func (this *Portion) GetNormaliseHeight() string {
 	return this.NormaliseHeight
 }
 
-func (this *Portion) setNormaliseHeight(newValue string) {
+func (this *Portion) SetNormaliseHeight(newValue string) {
 	this.NormaliseHeight = newValue
 }
-func (this *Portion) getProofDisabled() string {
+func (this *Portion) GetProofDisabled() string {
 	return this.ProofDisabled
 }
 
-func (this *Portion) setProofDisabled(newValue string) {
+func (this *Portion) SetProofDisabled(newValue string) {
 	this.ProofDisabled = newValue
 }
-func (this *Portion) getSmartTagClean() bool {
+func (this *Portion) GetSmartTagClean() bool {
 	return this.SmartTagClean
 }
 
-func (this *Portion) setSmartTagClean(newValue bool) {
+func (this *Portion) SetSmartTagClean(newValue bool) {
 	this.SmartTagClean = newValue
 }
-func (this *Portion) getKerningMinimalSize() float64 {
+func (this *Portion) GetKerningMinimalSize() float64 {
 	return this.KerningMinimalSize
 }
 
-func (this *Portion) setKerningMinimalSize(newValue float64) {
+func (this *Portion) SetKerningMinimalSize(newValue float64) {
 	this.KerningMinimalSize = newValue
 }
-func (this *Portion) getKumimoji() string {
+func (this *Portion) GetKumimoji() string {
 	return this.Kumimoji
 }
 
-func (this *Portion) setKumimoji(newValue string) {
+func (this *Portion) SetKumimoji(newValue string) {
 	this.Kumimoji = newValue
 }
-func (this *Portion) getLanguageId() string {
+func (this *Portion) GetLanguageId() string {
 	return this.LanguageId
 }
 
-func (this *Portion) setLanguageId(newValue string) {
+func (this *Portion) SetLanguageId(newValue string) {
 	this.LanguageId = newValue
 }
-func (this *Portion) getAlternativeLanguageId() string {
+func (this *Portion) GetAlternativeLanguageId() string {
 	return this.AlternativeLanguageId
 }
 
-func (this *Portion) setAlternativeLanguageId(newValue string) {
+func (this *Portion) SetAlternativeLanguageId(newValue string) {
 	this.AlternativeLanguageId = newValue
 }
-func (this *Portion) getIsHardUnderlineFill() string {
+func (this *Portion) GetIsHardUnderlineFill() string {
 	return this.IsHardUnderlineFill
 }
 
-func (this *Portion) setIsHardUnderlineFill(newValue string) {
+func (this *Portion) SetIsHardUnderlineFill(newValue string) {
 	this.IsHardUnderlineFill = newValue
 }
-func (this *Portion) getIsHardUnderlineLine() string {
+func (this *Portion) GetIsHardUnderlineLine() string {
 	return this.IsHardUnderlineLine
 }
 
-func (this *Portion) setIsHardUnderlineLine(newValue string) {
+func (this *Portion) SetIsHardUnderlineLine(newValue string) {
 	this.IsHardUnderlineLine = newValue
 }
-func (this *Portion) getFillFormat() IFillFormat {
+func (this *Portion) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *Portion) setFillFormat(newValue IFillFormat) {
+func (this *Portion) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *Portion) getEffectFormat() IEffectFormat {
+func (this *Portion) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *Portion) setEffectFormat(newValue IEffectFormat) {
+func (this *Portion) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *Portion) getLineFormat() ILineFormat {
+func (this *Portion) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *Portion) setLineFormat(newValue ILineFormat) {
+func (this *Portion) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *Portion) getUnderlineFillFormat() IFillFormat {
+func (this *Portion) GetUnderlineFillFormat() IFillFormat {
 	return this.UnderlineFillFormat
 }
 
-func (this *Portion) setUnderlineFillFormat(newValue IFillFormat) {
+func (this *Portion) SetUnderlineFillFormat(newValue IFillFormat) {
 	this.UnderlineFillFormat = newValue
 }
-func (this *Portion) getUnderlineLineFormat() ILineFormat {
+func (this *Portion) GetUnderlineLineFormat() ILineFormat {
 	return this.UnderlineLineFormat
 }
 
-func (this *Portion) setUnderlineLineFormat(newValue ILineFormat) {
+func (this *Portion) SetUnderlineLineFormat(newValue ILineFormat) {
 	this.UnderlineLineFormat = newValue
 }
-func (this *Portion) getHyperlinkClick() IHyperlink {
+func (this *Portion) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *Portion) setHyperlinkClick(newValue IHyperlink) {
+func (this *Portion) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *Portion) getHyperlinkMouseOver() IHyperlink {
+func (this *Portion) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *Portion) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *Portion) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *Portion) getLatinFont() string {
+func (this *Portion) GetLatinFont() string {
 	return this.LatinFont
 }
 
-func (this *Portion) setLatinFont(newValue string) {
+func (this *Portion) SetLatinFont(newValue string) {
 	this.LatinFont = newValue
 }
-func (this *Portion) getEastAsianFont() string {
+func (this *Portion) GetEastAsianFont() string {
 	return this.EastAsianFont
 }
 
-func (this *Portion) setEastAsianFont(newValue string) {
+func (this *Portion) SetEastAsianFont(newValue string) {
 	this.EastAsianFont = newValue
 }
-func (this *Portion) getComplexScriptFont() string {
+func (this *Portion) GetComplexScriptFont() string {
 	return this.ComplexScriptFont
 }
 
-func (this *Portion) setComplexScriptFont(newValue string) {
+func (this *Portion) SetComplexScriptFont(newValue string) {
 	this.ComplexScriptFont = newValue
 }
 

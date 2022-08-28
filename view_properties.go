@@ -34,48 +34,48 @@ import (
 type IViewProperties interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Last used view mode.
-	getLastView() string
-	setLastView(newValue string)
+	GetLastView() string
+	SetLastView(newValue string)
 
 	// Horizontal bar state.
-	getHorizontalBarState() string
-	setHorizontalBarState(newValue string)
+	GetHorizontalBarState() string
+	SetHorizontalBarState(newValue string)
 
 	// Vertical bar state.
-	getVerticalBarState() string
-	setVerticalBarState(newValue string)
+	GetVerticalBarState() string
+	SetVerticalBarState(newValue string)
 
 	// True to prefer single view.
-	getPreferSingleView() bool
-	setPreferSingleView(newValue bool)
+	GetPreferSingleView() bool
+	SetPreferSingleView(newValue bool)
 
 	// The sizing of the side content region of the normal view, when the region is of a variable restored size.
-	getRestoredLeft() INormalViewRestoredProperties
-	setRestoredLeft(newValue INormalViewRestoredProperties)
+	GetRestoredLeft() INormalViewRestoredProperties
+	SetRestoredLeft(newValue INormalViewRestoredProperties)
 
 	// The sizing of the top slide region of the normal view, when the region is of a variable restored size.
-	getRestoredTop() INormalViewRestoredProperties
-	setRestoredTop(newValue INormalViewRestoredProperties)
+	GetRestoredTop() INormalViewRestoredProperties
+	SetRestoredTop(newValue INormalViewRestoredProperties)
 
 	// Slide view mode properties.
-	getSlideViewProperties() ICommonSlideViewProperties
-	setSlideViewProperties(newValue ICommonSlideViewProperties)
+	GetSlideViewProperties() ICommonSlideViewProperties
+	SetSlideViewProperties(newValue ICommonSlideViewProperties)
 
 	// Notes view mode properties.
-	getNotesViewProperties() ICommonSlideViewProperties
-	setNotesViewProperties(newValue ICommonSlideViewProperties)
+	GetNotesViewProperties() ICommonSlideViewProperties
+	SetNotesViewProperties(newValue ICommonSlideViewProperties)
 
 	// True if the comments should be shown.
-	getShowComments() string
-	setShowComments(newValue string)
+	GetShowComments() string
+	SetShowComments(newValue string)
 }
 
 type ViewProperties struct {
@@ -123,81 +123,81 @@ func NewViewProperties() *ViewProperties {
 	return instance
 }
 
-func (this *ViewProperties) getSelfUri() IResourceUri {
+func (this *ViewProperties) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *ViewProperties) setSelfUri(newValue IResourceUri) {
+func (this *ViewProperties) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *ViewProperties) getAlternateLinks() []IResourceUri {
+func (this *ViewProperties) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *ViewProperties) setAlternateLinks(newValue []IResourceUri) {
+func (this *ViewProperties) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *ViewProperties) getLastView() string {
+func (this *ViewProperties) GetLastView() string {
 	return this.LastView
 }
 
-func (this *ViewProperties) setLastView(newValue string) {
+func (this *ViewProperties) SetLastView(newValue string) {
 	this.LastView = newValue
 }
-func (this *ViewProperties) getHorizontalBarState() string {
+func (this *ViewProperties) GetHorizontalBarState() string {
 	return this.HorizontalBarState
 }
 
-func (this *ViewProperties) setHorizontalBarState(newValue string) {
+func (this *ViewProperties) SetHorizontalBarState(newValue string) {
 	this.HorizontalBarState = newValue
 }
-func (this *ViewProperties) getVerticalBarState() string {
+func (this *ViewProperties) GetVerticalBarState() string {
 	return this.VerticalBarState
 }
 
-func (this *ViewProperties) setVerticalBarState(newValue string) {
+func (this *ViewProperties) SetVerticalBarState(newValue string) {
 	this.VerticalBarState = newValue
 }
-func (this *ViewProperties) getPreferSingleView() bool {
+func (this *ViewProperties) GetPreferSingleView() bool {
 	return this.PreferSingleView
 }
 
-func (this *ViewProperties) setPreferSingleView(newValue bool) {
+func (this *ViewProperties) SetPreferSingleView(newValue bool) {
 	this.PreferSingleView = newValue
 }
-func (this *ViewProperties) getRestoredLeft() INormalViewRestoredProperties {
+func (this *ViewProperties) GetRestoredLeft() INormalViewRestoredProperties {
 	return this.RestoredLeft
 }
 
-func (this *ViewProperties) setRestoredLeft(newValue INormalViewRestoredProperties) {
+func (this *ViewProperties) SetRestoredLeft(newValue INormalViewRestoredProperties) {
 	this.RestoredLeft = newValue
 }
-func (this *ViewProperties) getRestoredTop() INormalViewRestoredProperties {
+func (this *ViewProperties) GetRestoredTop() INormalViewRestoredProperties {
 	return this.RestoredTop
 }
 
-func (this *ViewProperties) setRestoredTop(newValue INormalViewRestoredProperties) {
+func (this *ViewProperties) SetRestoredTop(newValue INormalViewRestoredProperties) {
 	this.RestoredTop = newValue
 }
-func (this *ViewProperties) getSlideViewProperties() ICommonSlideViewProperties {
+func (this *ViewProperties) GetSlideViewProperties() ICommonSlideViewProperties {
 	return this.SlideViewProperties
 }
 
-func (this *ViewProperties) setSlideViewProperties(newValue ICommonSlideViewProperties) {
+func (this *ViewProperties) SetSlideViewProperties(newValue ICommonSlideViewProperties) {
 	this.SlideViewProperties = newValue
 }
-func (this *ViewProperties) getNotesViewProperties() ICommonSlideViewProperties {
+func (this *ViewProperties) GetNotesViewProperties() ICommonSlideViewProperties {
 	return this.NotesViewProperties
 }
 
-func (this *ViewProperties) setNotesViewProperties(newValue ICommonSlideViewProperties) {
+func (this *ViewProperties) SetNotesViewProperties(newValue ICommonSlideViewProperties) {
 	this.NotesViewProperties = newValue
 }
-func (this *ViewProperties) getShowComments() string {
+func (this *ViewProperties) GetShowComments() string {
 	return this.ShowComments
 }
 
-func (this *ViewProperties) setShowComments(newValue string) {
+func (this *ViewProperties) SetShowComments(newValue string) {
 	this.ShowComments = newValue
 }
 

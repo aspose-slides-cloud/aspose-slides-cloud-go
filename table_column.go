@@ -34,8 +34,8 @@ import (
 type ITableColumn interface {
 
 	// Width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 }
 
 type TableColumn struct {
@@ -49,11 +49,11 @@ func NewTableColumn() *TableColumn {
 	return instance
 }
 
-func (this *TableColumn) getWidth() float64 {
+func (this *TableColumn) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *TableColumn) setWidth(newValue float64) {
+func (this *TableColumn) SetWidth(newValue float64) {
 	this.Width = newValue
 }
 

@@ -34,12 +34,12 @@ import (
 type IAlphaBiLevelEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Returns effect threshold.
-	getThreshold() float64
-	setThreshold(newValue float64)
+	GetThreshold() float64
+	SetThreshold(newValue float64)
 }
 
 type AlphaBiLevelEffect struct {
@@ -57,18 +57,18 @@ func NewAlphaBiLevelEffect() *AlphaBiLevelEffect {
 	return instance
 }
 
-func (this *AlphaBiLevelEffect) getType() string {
+func (this *AlphaBiLevelEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *AlphaBiLevelEffect) setType(newValue string) {
+func (this *AlphaBiLevelEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *AlphaBiLevelEffect) getThreshold() float64 {
+func (this *AlphaBiLevelEffect) GetThreshold() float64 {
 	return this.Threshold
 }
 
-func (this *AlphaBiLevelEffect) setThreshold(newValue float64) {
+func (this *AlphaBiLevelEffect) SetThreshold(newValue float64) {
 	this.Threshold = newValue
 }
 

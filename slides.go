@@ -34,16 +34,16 @@ import (
 type ISlides interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// List of slide links.
-	getSlideList() []IResourceUri
-	setSlideList(newValue []IResourceUri)
+	GetSlideList() []IResourceUri
+	SetSlideList(newValue []IResourceUri)
 }
 
 type Slides struct {
@@ -63,25 +63,25 @@ func NewSlides() *Slides {
 	return instance
 }
 
-func (this *Slides) getSelfUri() IResourceUri {
+func (this *Slides) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Slides) setSelfUri(newValue IResourceUri) {
+func (this *Slides) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Slides) getAlternateLinks() []IResourceUri {
+func (this *Slides) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Slides) setAlternateLinks(newValue []IResourceUri) {
+func (this *Slides) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Slides) getSlideList() []IResourceUri {
+func (this *Slides) GetSlideList() []IResourceUri {
 	return this.SlideList
 }
 
-func (this *Slides) setSlideList(newValue []IResourceUri) {
+func (this *Slides) SetSlideList(newValue []IResourceUri) {
 	this.SlideList = newValue
 }
 

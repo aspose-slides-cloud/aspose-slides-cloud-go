@@ -34,24 +34,24 @@ import (
 type ISlideBackground interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Fill type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 }
 
 type SlideBackground struct {
@@ -78,39 +78,39 @@ func NewSlideBackground() *SlideBackground {
 	return instance
 }
 
-func (this *SlideBackground) getSelfUri() IResourceUri {
+func (this *SlideBackground) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *SlideBackground) setSelfUri(newValue IResourceUri) {
+func (this *SlideBackground) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *SlideBackground) getAlternateLinks() []IResourceUri {
+func (this *SlideBackground) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *SlideBackground) setAlternateLinks(newValue []IResourceUri) {
+func (this *SlideBackground) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *SlideBackground) getType() string {
+func (this *SlideBackground) GetType() string {
 	return this.Type_
 }
 
-func (this *SlideBackground) setType(newValue string) {
+func (this *SlideBackground) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *SlideBackground) getFillFormat() IFillFormat {
+func (this *SlideBackground) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *SlideBackground) setFillFormat(newValue IFillFormat) {
+func (this *SlideBackground) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *SlideBackground) getEffectFormat() IEffectFormat {
+func (this *SlideBackground) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *SlideBackground) setEffectFormat(newValue IEffectFormat) {
+func (this *SlideBackground) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
 

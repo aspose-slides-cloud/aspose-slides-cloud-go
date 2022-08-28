@@ -34,16 +34,16 @@ import (
 type IFontFallbackRule interface {
 
 	// First index of continuous unicode range.
-	getRangeStartIndex() int32
-	setRangeStartIndex(newValue int32)
+	GetRangeStartIndex() int32
+	SetRangeStartIndex(newValue int32)
 
 	// Last index of continuous unicode range.
-	getRangeEndIndex() int32
-	setRangeEndIndex(newValue int32)
+	GetRangeEndIndex() int32
+	SetRangeEndIndex(newValue int32)
 
 	// List of fallback font links.
-	getFallbackFontList() []string
-	setFallbackFontList(newValue []string)
+	GetFallbackFontList() []string
+	SetFallbackFontList(newValue []string)
 }
 
 type FontFallbackRule struct {
@@ -63,25 +63,25 @@ func NewFontFallbackRule() *FontFallbackRule {
 	return instance
 }
 
-func (this *FontFallbackRule) getRangeStartIndex() int32 {
+func (this *FontFallbackRule) GetRangeStartIndex() int32 {
 	return this.RangeStartIndex
 }
 
-func (this *FontFallbackRule) setRangeStartIndex(newValue int32) {
+func (this *FontFallbackRule) SetRangeStartIndex(newValue int32) {
 	this.RangeStartIndex = newValue
 }
-func (this *FontFallbackRule) getRangeEndIndex() int32 {
+func (this *FontFallbackRule) GetRangeEndIndex() int32 {
 	return this.RangeEndIndex
 }
 
-func (this *FontFallbackRule) setRangeEndIndex(newValue int32) {
+func (this *FontFallbackRule) SetRangeEndIndex(newValue int32) {
 	this.RangeEndIndex = newValue
 }
-func (this *FontFallbackRule) getFallbackFontList() []string {
+func (this *FontFallbackRule) GetFallbackFontList() []string {
 	return this.FallbackFontList
 }
 
-func (this *FontFallbackRule) setFallbackFontList(newValue []string) {
+func (this *FontFallbackRule) SetFallbackFontList(newValue []string) {
 	this.FallbackFontList = newValue
 }
 

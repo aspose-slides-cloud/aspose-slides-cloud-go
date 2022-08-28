@@ -34,28 +34,28 @@ import (
 type IXpsExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	// Export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	getShowHiddenSlides() bool
-	setShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() bool
+	SetShowHiddenSlides(newValue bool)
 
 	// True to convert all metafiles used in a presentation to the PNG images.
-	getSaveMetafilesAsPng() bool
-	setSaveMetafilesAsPng(newValue bool)
+	GetSaveMetafilesAsPng() bool
+	SetSaveMetafilesAsPng(newValue bool)
 
 	// True to draw black frame around each slide.
-	getDrawSlidesFrame() bool
-	setDrawSlidesFrame(newValue bool)
+	GetDrawSlidesFrame() bool
+	SetDrawSlidesFrame(newValue bool)
 }
 
 type XpsExportOptions struct {
@@ -84,46 +84,46 @@ func NewXpsExportOptions() *XpsExportOptions {
 	return instance
 }
 
-func (this *XpsExportOptions) getDefaultRegularFont() string {
+func (this *XpsExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *XpsExportOptions) setDefaultRegularFont(newValue string) {
+func (this *XpsExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *XpsExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *XpsExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *XpsExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *XpsExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *XpsExportOptions) getFormat() string {
+func (this *XpsExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *XpsExportOptions) setFormat(newValue string) {
+func (this *XpsExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *XpsExportOptions) getShowHiddenSlides() bool {
+func (this *XpsExportOptions) GetShowHiddenSlides() bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *XpsExportOptions) setShowHiddenSlides(newValue bool) {
+func (this *XpsExportOptions) SetShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this *XpsExportOptions) getSaveMetafilesAsPng() bool {
+func (this *XpsExportOptions) GetSaveMetafilesAsPng() bool {
 	return this.SaveMetafilesAsPng
 }
 
-func (this *XpsExportOptions) setSaveMetafilesAsPng(newValue bool) {
+func (this *XpsExportOptions) SetSaveMetafilesAsPng(newValue bool) {
 	this.SaveMetafilesAsPng = newValue
 }
-func (this *XpsExportOptions) getDrawSlidesFrame() bool {
+func (this *XpsExportOptions) GetDrawSlidesFrame() bool {
 	return this.DrawSlidesFrame
 }
 
-func (this *XpsExportOptions) setDrawSlidesFrame(newValue bool) {
+func (this *XpsExportOptions) SetDrawSlidesFrame(newValue bool) {
 	this.DrawSlidesFrame = newValue
 }
 

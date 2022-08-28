@@ -34,12 +34,12 @@ import (
 type ITextFrameFormat interface {
 
 	// Represents 3d effect properties for a text.
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets text wrapping shape.
-	getTransform() string
-	setTransform(newValue string)
+	GetTransform() string
+	SetTransform(newValue string)
 }
 
 type TextFrameFormat struct {
@@ -57,18 +57,18 @@ func NewTextFrameFormat() *TextFrameFormat {
 	return instance
 }
 
-func (this *TextFrameFormat) getThreeDFormat() IThreeDFormat {
+func (this *TextFrameFormat) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *TextFrameFormat) setThreeDFormat(newValue IThreeDFormat) {
+func (this *TextFrameFormat) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *TextFrameFormat) getTransform() string {
+func (this *TextFrameFormat) GetTransform() string {
 	return this.Transform
 }
 
-func (this *TextFrameFormat) setTransform(newValue string) {
+func (this *TextFrameFormat) SetTransform(newValue string) {
 	this.Transform = newValue
 }
 

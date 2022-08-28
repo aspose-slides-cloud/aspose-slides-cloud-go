@@ -34,60 +34,60 @@ import (
 type IChartSeriesGroup interface {
 
 	// Returns a type of this series group.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Specifies the space between bar or column clusters, as a percentage of the bar or column width.
-	getGapWidth() int32
-	setGapWidth(newValue int32)
+	GetGapWidth() int32
+	SetGapWidth(newValue int32)
 
 	// Returns or sets the distance, as a percentage of the marker width, between the data series in a 3D chart.
-	getGapDepth() int32
-	setGapDepth(newValue int32)
+	GetGapDepth() int32
+	SetGapDepth(newValue int32)
 
 	// Gets or sets the angle of the first pie or doughnut chart slice,  in degrees (clockwise from up, from 0 to 360 degrees).
-	getFirstSliceAngle() int32
-	setFirstSliceAngle(newValue int32)
+	GetFirstSliceAngle() int32
+	SetFirstSliceAngle(newValue int32)
 
 	// Specifies that each data marker in the series has a different color.
-	getIsColorVaried() bool
-	setIsColorVaried(newValue bool)
+	GetIsColorVaried() bool
+	SetIsColorVaried(newValue bool)
 
 	// True if chart has series lines. Applied to stacked bar and OfPie charts.
-	getHasSeriesLines() bool
-	setHasSeriesLines(newValue bool)
+	GetHasSeriesLines() bool
+	SetHasSeriesLines(newValue bool)
 
 	// Specifies how much bars and columns shall overlap on 2-D charts (from -100 to 100).
-	getOverlap() int32
-	setOverlap(newValue int32)
+	GetOverlap() int32
+	SetOverlap(newValue int32)
 
 	// Specifies the size of the second pie or bar of a pie-of-pie chart or  a bar-of-pie chart, as a percentage of the size of the first pie (can  be between 5 and 200 percents).
-	getSecondPieSize() int32
-	setSecondPieSize(newValue int32)
+	GetSecondPieSize() int32
+	SetSecondPieSize(newValue int32)
 
 	// Specifies a value that shall be used to determine which data points  are in the second pie or bar on a pie-of-pie or bar-of-pie chart.  Is used together with PieSplitBy property.
-	getPieSplitPosition() float64
-	setPieSplitPosition(newValue float64)
+	GetPieSplitPosition() float64
+	SetPieSplitPosition(newValue float64)
 
 	// Specifies how to determine which data points are in the second pie or bar  on a pie-of-pie or bar-of-pie chart.
-	getPieSplitBy() string
-	setPieSplitBy(newValue string)
+	GetPieSplitBy() string
+	SetPieSplitBy(newValue string)
 
 	// Specifies the size of the hole in a doughnut chart (can be between 10 and 90 percents  of the size of the plot area.).
-	getDoughnutHoleSize() int32
-	setDoughnutHoleSize(newValue int32)
+	GetDoughnutHoleSize() int32
+	SetDoughnutHoleSize(newValue int32)
 
 	// Specifies the scale factor for the bubble chart (can be  between 0 and 300 percents of the default size). Read/write Int32.
-	getBubbleSizeScale() int32
-	setBubbleSizeScale(newValue int32)
+	GetBubbleSizeScale() int32
+	SetBubbleSizeScale(newValue int32)
 
 	// Specifies HiLowLines format.  HiLowLines applied with HiLowClose, OpenHiLowClose, VolumeHiLowClose and VolumeOpenHiLowClose chart types.
-	getHiLowLinesFormat() IChartLinesFormat
-	setHiLowLinesFormat(newValue IChartLinesFormat)
+	GetHiLowLinesFormat() IChartLinesFormat
+	SetHiLowLinesFormat(newValue IChartLinesFormat)
 
 	// Specifies how the bubble size values are represented on the bubble chart. Read/write BubbleSizeRepresentationType.
-	getBubbleSizeRepresentation() string
-	setBubbleSizeRepresentation(newValue string)
+	GetBubbleSizeRepresentation() string
+	SetBubbleSizeRepresentation(newValue string)
 }
 
 type ChartSeriesGroup struct {
@@ -143,102 +143,102 @@ func NewChartSeriesGroup() *ChartSeriesGroup {
 	return instance
 }
 
-func (this *ChartSeriesGroup) getType() string {
+func (this *ChartSeriesGroup) GetType() string {
 	return this.Type_
 }
 
-func (this *ChartSeriesGroup) setType(newValue string) {
+func (this *ChartSeriesGroup) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *ChartSeriesGroup) getGapWidth() int32 {
+func (this *ChartSeriesGroup) GetGapWidth() int32 {
 	return this.GapWidth
 }
 
-func (this *ChartSeriesGroup) setGapWidth(newValue int32) {
+func (this *ChartSeriesGroup) SetGapWidth(newValue int32) {
 	this.GapWidth = newValue
 }
-func (this *ChartSeriesGroup) getGapDepth() int32 {
+func (this *ChartSeriesGroup) GetGapDepth() int32 {
 	return this.GapDepth
 }
 
-func (this *ChartSeriesGroup) setGapDepth(newValue int32) {
+func (this *ChartSeriesGroup) SetGapDepth(newValue int32) {
 	this.GapDepth = newValue
 }
-func (this *ChartSeriesGroup) getFirstSliceAngle() int32 {
+func (this *ChartSeriesGroup) GetFirstSliceAngle() int32 {
 	return this.FirstSliceAngle
 }
 
-func (this *ChartSeriesGroup) setFirstSliceAngle(newValue int32) {
+func (this *ChartSeriesGroup) SetFirstSliceAngle(newValue int32) {
 	this.FirstSliceAngle = newValue
 }
-func (this *ChartSeriesGroup) getIsColorVaried() bool {
+func (this *ChartSeriesGroup) GetIsColorVaried() bool {
 	return this.IsColorVaried
 }
 
-func (this *ChartSeriesGroup) setIsColorVaried(newValue bool) {
+func (this *ChartSeriesGroup) SetIsColorVaried(newValue bool) {
 	this.IsColorVaried = newValue
 }
-func (this *ChartSeriesGroup) getHasSeriesLines() bool {
+func (this *ChartSeriesGroup) GetHasSeriesLines() bool {
 	return this.HasSeriesLines
 }
 
-func (this *ChartSeriesGroup) setHasSeriesLines(newValue bool) {
+func (this *ChartSeriesGroup) SetHasSeriesLines(newValue bool) {
 	this.HasSeriesLines = newValue
 }
-func (this *ChartSeriesGroup) getOverlap() int32 {
+func (this *ChartSeriesGroup) GetOverlap() int32 {
 	return this.Overlap
 }
 
-func (this *ChartSeriesGroup) setOverlap(newValue int32) {
+func (this *ChartSeriesGroup) SetOverlap(newValue int32) {
 	this.Overlap = newValue
 }
-func (this *ChartSeriesGroup) getSecondPieSize() int32 {
+func (this *ChartSeriesGroup) GetSecondPieSize() int32 {
 	return this.SecondPieSize
 }
 
-func (this *ChartSeriesGroup) setSecondPieSize(newValue int32) {
+func (this *ChartSeriesGroup) SetSecondPieSize(newValue int32) {
 	this.SecondPieSize = newValue
 }
-func (this *ChartSeriesGroup) getPieSplitPosition() float64 {
+func (this *ChartSeriesGroup) GetPieSplitPosition() float64 {
 	return this.PieSplitPosition
 }
 
-func (this *ChartSeriesGroup) setPieSplitPosition(newValue float64) {
+func (this *ChartSeriesGroup) SetPieSplitPosition(newValue float64) {
 	this.PieSplitPosition = newValue
 }
-func (this *ChartSeriesGroup) getPieSplitBy() string {
+func (this *ChartSeriesGroup) GetPieSplitBy() string {
 	return this.PieSplitBy
 }
 
-func (this *ChartSeriesGroup) setPieSplitBy(newValue string) {
+func (this *ChartSeriesGroup) SetPieSplitBy(newValue string) {
 	this.PieSplitBy = newValue
 }
-func (this *ChartSeriesGroup) getDoughnutHoleSize() int32 {
+func (this *ChartSeriesGroup) GetDoughnutHoleSize() int32 {
 	return this.DoughnutHoleSize
 }
 
-func (this *ChartSeriesGroup) setDoughnutHoleSize(newValue int32) {
+func (this *ChartSeriesGroup) SetDoughnutHoleSize(newValue int32) {
 	this.DoughnutHoleSize = newValue
 }
-func (this *ChartSeriesGroup) getBubbleSizeScale() int32 {
+func (this *ChartSeriesGroup) GetBubbleSizeScale() int32 {
 	return this.BubbleSizeScale
 }
 
-func (this *ChartSeriesGroup) setBubbleSizeScale(newValue int32) {
+func (this *ChartSeriesGroup) SetBubbleSizeScale(newValue int32) {
 	this.BubbleSizeScale = newValue
 }
-func (this *ChartSeriesGroup) getHiLowLinesFormat() IChartLinesFormat {
+func (this *ChartSeriesGroup) GetHiLowLinesFormat() IChartLinesFormat {
 	return this.HiLowLinesFormat
 }
 
-func (this *ChartSeriesGroup) setHiLowLinesFormat(newValue IChartLinesFormat) {
+func (this *ChartSeriesGroup) SetHiLowLinesFormat(newValue IChartLinesFormat) {
 	this.HiLowLinesFormat = newValue
 }
-func (this *ChartSeriesGroup) getBubbleSizeRepresentation() string {
+func (this *ChartSeriesGroup) GetBubbleSizeRepresentation() string {
 	return this.BubbleSizeRepresentation
 }
 
-func (this *ChartSeriesGroup) setBubbleSizeRepresentation(newValue string) {
+func (this *ChartSeriesGroup) SetBubbleSizeRepresentation(newValue string) {
 	this.BubbleSizeRepresentation = newValue
 }
 

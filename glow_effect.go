@@ -34,12 +34,12 @@ import (
 type IGlowEffect interface {
 
 	// radius
-	getRadius() float64
-	setRadius(newValue float64)
+	GetRadius() float64
+	SetRadius(newValue float64)
 
 	// color
-	getColor() string
-	setColor(newValue string)
+	GetColor() string
+	SetColor(newValue string)
 }
 
 type GlowEffect struct {
@@ -56,18 +56,18 @@ func NewGlowEffect() *GlowEffect {
 	return instance
 }
 
-func (this *GlowEffect) getRadius() float64 {
+func (this *GlowEffect) GetRadius() float64 {
 	return this.Radius
 }
 
-func (this *GlowEffect) setRadius(newValue float64) {
+func (this *GlowEffect) SetRadius(newValue float64) {
 	this.Radius = newValue
 }
-func (this *GlowEffect) getColor() string {
+func (this *GlowEffect) GetColor() string {
 	return this.Color
 }
 
-func (this *GlowEffect) setColor(newValue string) {
+func (this *GlowEffect) SetColor(newValue string) {
 	this.Color = newValue
 }
 

@@ -34,16 +34,16 @@ import (
 type IUpdateShape interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Shape DTO.
-	getShape() IShapeBase
-	setShape(newValue IShapeBase)
+	GetShape() IShapeBase
+	SetShape(newValue IShapeBase)
 
 	// Shape path for a grouped or SmartArt shape.
-	getShapePath() string
-	setShapePath(newValue string)
+	GetShapePath() string
+	SetShapePath(newValue string)
 }
 
 type UpdateShape struct {
@@ -64,25 +64,25 @@ func NewUpdateShape() *UpdateShape {
 	return instance
 }
 
-func (this *UpdateShape) getType() string {
+func (this *UpdateShape) GetType() string {
 	return this.Type_
 }
 
-func (this *UpdateShape) setType(newValue string) {
+func (this *UpdateShape) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *UpdateShape) getShape() IShapeBase {
+func (this *UpdateShape) GetShape() IShapeBase {
 	return this.Shape
 }
 
-func (this *UpdateShape) setShape(newValue IShapeBase) {
+func (this *UpdateShape) SetShape(newValue IShapeBase) {
 	this.Shape = newValue
 }
-func (this *UpdateShape) getShapePath() string {
+func (this *UpdateShape) GetShapePath() string {
 	return this.ShapePath
 }
 
-func (this *UpdateShape) setShapePath(newValue string) {
+func (this *UpdateShape) SetShapePath(newValue string) {
 	this.ShapePath = newValue
 }
 

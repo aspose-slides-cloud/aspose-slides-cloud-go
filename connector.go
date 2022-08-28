@@ -34,96 +34,96 @@ import (
 type IConnector interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Combined shape type.
-	getShapeType() string
-	setShapeType(newValue string)
+	GetShapeType() string
+	SetShapeType(newValue string)
 
 	// Start shape link.
-	getStartShapeConnectedTo() IResourceUri
-	setStartShapeConnectedTo(newValue IResourceUri)
+	GetStartShapeConnectedTo() IResourceUri
+	SetStartShapeConnectedTo(newValue IResourceUri)
 
 	// Start shape index.
-	getStartShapeConnectedToIndex() int32
-	setStartShapeConnectedToIndex(newValue int32)
+	GetStartShapeConnectedToIndex() int32
+	SetStartShapeConnectedToIndex(newValue int32)
 
 	// End shape link.
-	getEndShapeConnectedTo() IResourceUri
-	setEndShapeConnectedTo(newValue IResourceUri)
+	GetEndShapeConnectedTo() IResourceUri
+	SetEndShapeConnectedTo(newValue IResourceUri)
 
 	// End shape index.
-	getEndShapeConnectedToIndex() int32
-	setEndShapeConnectedToIndex(newValue int32)
+	GetEndShapeConnectedToIndex() int32
+	SetEndShapeConnectedToIndex(newValue int32)
 }
 
 type Connector struct {
@@ -205,165 +205,165 @@ func NewConnector() *Connector {
 	return instance
 }
 
-func (this *Connector) getSelfUri() IResourceUri {
+func (this *Connector) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Connector) setSelfUri(newValue IResourceUri) {
+func (this *Connector) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Connector) getAlternateLinks() []IResourceUri {
+func (this *Connector) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Connector) setAlternateLinks(newValue []IResourceUri) {
+func (this *Connector) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Connector) getName() string {
+func (this *Connector) GetName() string {
 	return this.Name
 }
 
-func (this *Connector) setName(newValue string) {
+func (this *Connector) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *Connector) getWidth() float64 {
+func (this *Connector) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *Connector) setWidth(newValue float64) {
+func (this *Connector) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *Connector) getHeight() float64 {
+func (this *Connector) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *Connector) setHeight(newValue float64) {
+func (this *Connector) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *Connector) getAlternativeText() string {
+func (this *Connector) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *Connector) setAlternativeText(newValue string) {
+func (this *Connector) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *Connector) getAlternativeTextTitle() string {
+func (this *Connector) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *Connector) setAlternativeTextTitle(newValue string) {
+func (this *Connector) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *Connector) getHidden() bool {
+func (this *Connector) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *Connector) setHidden(newValue bool) {
+func (this *Connector) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *Connector) getX() float64 {
+func (this *Connector) GetX() float64 {
 	return this.X
 }
 
-func (this *Connector) setX(newValue float64) {
+func (this *Connector) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *Connector) getY() float64 {
+func (this *Connector) GetY() float64 {
 	return this.Y
 }
 
-func (this *Connector) setY(newValue float64) {
+func (this *Connector) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *Connector) getZOrderPosition() int32 {
+func (this *Connector) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *Connector) setZOrderPosition(newValue int32) {
+func (this *Connector) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *Connector) getFillFormat() IFillFormat {
+func (this *Connector) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *Connector) setFillFormat(newValue IFillFormat) {
+func (this *Connector) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *Connector) getEffectFormat() IEffectFormat {
+func (this *Connector) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *Connector) setEffectFormat(newValue IEffectFormat) {
+func (this *Connector) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *Connector) getThreeDFormat() IThreeDFormat {
+func (this *Connector) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *Connector) setThreeDFormat(newValue IThreeDFormat) {
+func (this *Connector) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *Connector) getLineFormat() ILineFormat {
+func (this *Connector) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *Connector) setLineFormat(newValue ILineFormat) {
+func (this *Connector) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *Connector) getHyperlinkClick() IHyperlink {
+func (this *Connector) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *Connector) setHyperlinkClick(newValue IHyperlink) {
+func (this *Connector) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *Connector) getHyperlinkMouseOver() IHyperlink {
+func (this *Connector) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *Connector) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *Connector) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *Connector) getType() string {
+func (this *Connector) GetType() string {
 	return this.Type_
 }
 
-func (this *Connector) setType(newValue string) {
+func (this *Connector) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *Connector) getShapeType() string {
+func (this *Connector) GetShapeType() string {
 	return this.ShapeType
 }
 
-func (this *Connector) setShapeType(newValue string) {
+func (this *Connector) SetShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this *Connector) getStartShapeConnectedTo() IResourceUri {
+func (this *Connector) GetStartShapeConnectedTo() IResourceUri {
 	return this.StartShapeConnectedTo
 }
 
-func (this *Connector) setStartShapeConnectedTo(newValue IResourceUri) {
+func (this *Connector) SetStartShapeConnectedTo(newValue IResourceUri) {
 	this.StartShapeConnectedTo = newValue
 }
-func (this *Connector) getStartShapeConnectedToIndex() int32 {
+func (this *Connector) GetStartShapeConnectedToIndex() int32 {
 	return this.StartShapeConnectedToIndex
 }
 
-func (this *Connector) setStartShapeConnectedToIndex(newValue int32) {
+func (this *Connector) SetStartShapeConnectedToIndex(newValue int32) {
 	this.StartShapeConnectedToIndex = newValue
 }
-func (this *Connector) getEndShapeConnectedTo() IResourceUri {
+func (this *Connector) GetEndShapeConnectedTo() IResourceUri {
 	return this.EndShapeConnectedTo
 }
 
-func (this *Connector) setEndShapeConnectedTo(newValue IResourceUri) {
+func (this *Connector) SetEndShapeConnectedTo(newValue IResourceUri) {
 	this.EndShapeConnectedTo = newValue
 }
-func (this *Connector) getEndShapeConnectedToIndex() int32 {
+func (this *Connector) GetEndShapeConnectedToIndex() int32 {
 	return this.EndShapeConnectedToIndex
 }
 
-func (this *Connector) setEndShapeConnectedToIndex(newValue int32) {
+func (this *Connector) SetEndShapeConnectedToIndex(newValue int32) {
 	this.EndShapeConnectedToIndex = newValue
 }
 

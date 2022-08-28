@@ -34,8 +34,8 @@ import (
 type IFillOverlayEffect interface {
 
 	// blend mode
-	getBlend() string
-	setBlend(newValue string)
+	GetBlend() string
+	SetBlend(newValue string)
 }
 
 type FillOverlayEffect struct {
@@ -50,11 +50,11 @@ func NewFillOverlayEffect() *FillOverlayEffect {
 	return instance
 }
 
-func (this *FillOverlayEffect) getBlend() string {
+func (this *FillOverlayEffect) GetBlend() string {
 	return this.Blend
 }
 
-func (this *FillOverlayEffect) setBlend(newValue string) {
+func (this *FillOverlayEffect) SetBlend(newValue string) {
 	this.Blend = newValue
 }
 

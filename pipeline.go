@@ -34,12 +34,12 @@ import (
 type IPipeline interface {
 
 	// Get or sets input document.
-	getInput() IInput
-	setInput(newValue IInput)
+	GetInput() IInput
+	SetInput(newValue IInput)
 
 	// Get or sets list of tasks representing pipeline.
-	getTasks() []ITask
-	setTasks(newValue []ITask)
+	GetTasks() []ITask
+	SetTasks(newValue []ITask)
 }
 
 type Pipeline struct {
@@ -56,18 +56,18 @@ func NewPipeline() *Pipeline {
 	return instance
 }
 
-func (this *Pipeline) getInput() IInput {
+func (this *Pipeline) GetInput() IInput {
 	return this.Input
 }
 
-func (this *Pipeline) setInput(newValue IInput) {
+func (this *Pipeline) SetInput(newValue IInput) {
 	this.Input = newValue
 }
-func (this *Pipeline) getTasks() []ITask {
+func (this *Pipeline) GetTasks() []ITask {
 	return this.Tasks
 }
 
-func (this *Pipeline) setTasks(newValue []ITask) {
+func (this *Pipeline) SetTasks(newValue []ITask) {
 	this.Tasks = newValue
 }
 

@@ -34,112 +34,112 @@ import (
 type IVideoFrame interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Combined shape type.
-	getShapeType() string
-	setShapeType(newValue string)
+	GetShapeType() string
+	SetShapeType(newValue string)
 
 	// Determines whether a video is shown in full screen mode.
-	getFullScreenMode() bool
-	setFullScreenMode(newValue bool)
+	GetFullScreenMode() bool
+	SetFullScreenMode(newValue bool)
 
 	// Determines whether a VideoFrame is hidden. 
-	getHideAtShowing() bool
-	setHideAtShowing(newValue bool)
+	GetHideAtShowing() bool
+	SetHideAtShowing(newValue bool)
 
 	// Determines whether a video is looped.
-	getPlayLoopMode() bool
-	setPlayLoopMode(newValue bool)
+	GetPlayLoopMode() bool
+	SetPlayLoopMode(newValue bool)
 
 	// Returns or sets the video play mode.  
-	getPlayMode() string
-	setPlayMode(newValue string)
+	GetPlayMode() string
+	SetPlayMode(newValue string)
 
 	// Determines whether a video is automatically rewinded to start as soon as the movie has finished playing
-	getRewindVideo() bool
-	setRewindVideo(newValue bool)
+	GetRewindVideo() bool
+	SetRewindVideo(newValue bool)
 
 	// Returns or sets the audio volume.
-	getVolume() string
-	setVolume(newValue string)
+	GetVolume() string
+	SetVolume(newValue string)
 
 	// Video data encoded in base64.
-	getBase64Data() string
-	setBase64Data(newValue string)
+	GetBase64Data() string
+	SetBase64Data(newValue string)
 
 	// Picture fill format.
-	getPictureFillFormat() IPictureFill
-	setPictureFillFormat(newValue IPictureFill)
+	GetPictureFillFormat() IPictureFill
+	SetPictureFillFormat(newValue IPictureFill)
 }
 
 type VideoFrame struct {
@@ -235,193 +235,193 @@ func NewVideoFrame() *VideoFrame {
 	return instance
 }
 
-func (this *VideoFrame) getSelfUri() IResourceUri {
+func (this *VideoFrame) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *VideoFrame) setSelfUri(newValue IResourceUri) {
+func (this *VideoFrame) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *VideoFrame) getAlternateLinks() []IResourceUri {
+func (this *VideoFrame) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *VideoFrame) setAlternateLinks(newValue []IResourceUri) {
+func (this *VideoFrame) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *VideoFrame) getName() string {
+func (this *VideoFrame) GetName() string {
 	return this.Name
 }
 
-func (this *VideoFrame) setName(newValue string) {
+func (this *VideoFrame) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *VideoFrame) getWidth() float64 {
+func (this *VideoFrame) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *VideoFrame) setWidth(newValue float64) {
+func (this *VideoFrame) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *VideoFrame) getHeight() float64 {
+func (this *VideoFrame) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *VideoFrame) setHeight(newValue float64) {
+func (this *VideoFrame) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *VideoFrame) getAlternativeText() string {
+func (this *VideoFrame) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *VideoFrame) setAlternativeText(newValue string) {
+func (this *VideoFrame) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *VideoFrame) getAlternativeTextTitle() string {
+func (this *VideoFrame) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *VideoFrame) setAlternativeTextTitle(newValue string) {
+func (this *VideoFrame) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *VideoFrame) getHidden() bool {
+func (this *VideoFrame) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *VideoFrame) setHidden(newValue bool) {
+func (this *VideoFrame) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *VideoFrame) getX() float64 {
+func (this *VideoFrame) GetX() float64 {
 	return this.X
 }
 
-func (this *VideoFrame) setX(newValue float64) {
+func (this *VideoFrame) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *VideoFrame) getY() float64 {
+func (this *VideoFrame) GetY() float64 {
 	return this.Y
 }
 
-func (this *VideoFrame) setY(newValue float64) {
+func (this *VideoFrame) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *VideoFrame) getZOrderPosition() int32 {
+func (this *VideoFrame) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *VideoFrame) setZOrderPosition(newValue int32) {
+func (this *VideoFrame) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *VideoFrame) getFillFormat() IFillFormat {
+func (this *VideoFrame) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *VideoFrame) setFillFormat(newValue IFillFormat) {
+func (this *VideoFrame) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *VideoFrame) getEffectFormat() IEffectFormat {
+func (this *VideoFrame) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *VideoFrame) setEffectFormat(newValue IEffectFormat) {
+func (this *VideoFrame) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *VideoFrame) getThreeDFormat() IThreeDFormat {
+func (this *VideoFrame) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *VideoFrame) setThreeDFormat(newValue IThreeDFormat) {
+func (this *VideoFrame) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *VideoFrame) getLineFormat() ILineFormat {
+func (this *VideoFrame) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *VideoFrame) setLineFormat(newValue ILineFormat) {
+func (this *VideoFrame) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *VideoFrame) getHyperlinkClick() IHyperlink {
+func (this *VideoFrame) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *VideoFrame) setHyperlinkClick(newValue IHyperlink) {
+func (this *VideoFrame) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *VideoFrame) getHyperlinkMouseOver() IHyperlink {
+func (this *VideoFrame) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *VideoFrame) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *VideoFrame) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *VideoFrame) getType() string {
+func (this *VideoFrame) GetType() string {
 	return this.Type_
 }
 
-func (this *VideoFrame) setType(newValue string) {
+func (this *VideoFrame) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *VideoFrame) getShapeType() string {
+func (this *VideoFrame) GetShapeType() string {
 	return this.ShapeType
 }
 
-func (this *VideoFrame) setShapeType(newValue string) {
+func (this *VideoFrame) SetShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this *VideoFrame) getFullScreenMode() bool {
+func (this *VideoFrame) GetFullScreenMode() bool {
 	return this.FullScreenMode
 }
 
-func (this *VideoFrame) setFullScreenMode(newValue bool) {
+func (this *VideoFrame) SetFullScreenMode(newValue bool) {
 	this.FullScreenMode = newValue
 }
-func (this *VideoFrame) getHideAtShowing() bool {
+func (this *VideoFrame) GetHideAtShowing() bool {
 	return this.HideAtShowing
 }
 
-func (this *VideoFrame) setHideAtShowing(newValue bool) {
+func (this *VideoFrame) SetHideAtShowing(newValue bool) {
 	this.HideAtShowing = newValue
 }
-func (this *VideoFrame) getPlayLoopMode() bool {
+func (this *VideoFrame) GetPlayLoopMode() bool {
 	return this.PlayLoopMode
 }
 
-func (this *VideoFrame) setPlayLoopMode(newValue bool) {
+func (this *VideoFrame) SetPlayLoopMode(newValue bool) {
 	this.PlayLoopMode = newValue
 }
-func (this *VideoFrame) getPlayMode() string {
+func (this *VideoFrame) GetPlayMode() string {
 	return this.PlayMode
 }
 
-func (this *VideoFrame) setPlayMode(newValue string) {
+func (this *VideoFrame) SetPlayMode(newValue string) {
 	this.PlayMode = newValue
 }
-func (this *VideoFrame) getRewindVideo() bool {
+func (this *VideoFrame) GetRewindVideo() bool {
 	return this.RewindVideo
 }
 
-func (this *VideoFrame) setRewindVideo(newValue bool) {
+func (this *VideoFrame) SetRewindVideo(newValue bool) {
 	this.RewindVideo = newValue
 }
-func (this *VideoFrame) getVolume() string {
+func (this *VideoFrame) GetVolume() string {
 	return this.Volume
 }
 
-func (this *VideoFrame) setVolume(newValue string) {
+func (this *VideoFrame) SetVolume(newValue string) {
 	this.Volume = newValue
 }
-func (this *VideoFrame) getBase64Data() string {
+func (this *VideoFrame) GetBase64Data() string {
 	return this.Base64Data
 }
 
-func (this *VideoFrame) setBase64Data(newValue string) {
+func (this *VideoFrame) SetBase64Data(newValue string) {
 	this.Base64Data = newValue
 }
-func (this *VideoFrame) getPictureFillFormat() IPictureFill {
+func (this *VideoFrame) GetPictureFillFormat() IPictureFill {
 	return this.PictureFillFormat
 }
 
-func (this *VideoFrame) setPictureFillFormat(newValue IPictureFill) {
+func (this *VideoFrame) SetPictureFillFormat(newValue IPictureFill) {
 	this.PictureFillFormat = newValue
 }
 

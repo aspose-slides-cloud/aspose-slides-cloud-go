@@ -34,16 +34,16 @@ import (
 type IBubbleChartDataPoint interface {
 
 	// X-value
-	getXValue() float64
-	setXValue(newValue float64)
+	GetXValue() float64
+	SetXValue(newValue float64)
 
 	// Y-value
-	getYValue() float64
-	setYValue(newValue float64)
+	GetYValue() float64
+	SetYValue(newValue float64)
 
 	// Bubble size.
-	getBubbleSize() float64
-	setBubbleSize(newValue float64)
+	GetBubbleSize() float64
+	SetBubbleSize(newValue float64)
 }
 
 type BubbleChartDataPoint struct {
@@ -63,25 +63,25 @@ func NewBubbleChartDataPoint() *BubbleChartDataPoint {
 	return instance
 }
 
-func (this *BubbleChartDataPoint) getXValue() float64 {
+func (this *BubbleChartDataPoint) GetXValue() float64 {
 	return this.XValue
 }
 
-func (this *BubbleChartDataPoint) setXValue(newValue float64) {
+func (this *BubbleChartDataPoint) SetXValue(newValue float64) {
 	this.XValue = newValue
 }
-func (this *BubbleChartDataPoint) getYValue() float64 {
+func (this *BubbleChartDataPoint) GetYValue() float64 {
 	return this.YValue
 }
 
-func (this *BubbleChartDataPoint) setYValue(newValue float64) {
+func (this *BubbleChartDataPoint) SetYValue(newValue float64) {
 	this.YValue = newValue
 }
-func (this *BubbleChartDataPoint) getBubbleSize() float64 {
+func (this *BubbleChartDataPoint) GetBubbleSize() float64 {
 	return this.BubbleSize
 }
 
-func (this *BubbleChartDataPoint) setBubbleSize(newValue float64) {
+func (this *BubbleChartDataPoint) SetBubbleSize(newValue float64) {
 	this.BubbleSize = newValue
 }
 

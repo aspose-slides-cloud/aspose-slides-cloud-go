@@ -34,16 +34,16 @@ import (
 type ISplitDocumentResult interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// List of slide links.
-	getSlides() []IResourceUri
-	setSlides(newValue []IResourceUri)
+	GetSlides() []IResourceUri
+	SetSlides(newValue []IResourceUri)
 }
 
 type SplitDocumentResult struct {
@@ -63,25 +63,25 @@ func NewSplitDocumentResult() *SplitDocumentResult {
 	return instance
 }
 
-func (this *SplitDocumentResult) getSelfUri() IResourceUri {
+func (this *SplitDocumentResult) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *SplitDocumentResult) setSelfUri(newValue IResourceUri) {
+func (this *SplitDocumentResult) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *SplitDocumentResult) getAlternateLinks() []IResourceUri {
+func (this *SplitDocumentResult) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *SplitDocumentResult) setAlternateLinks(newValue []IResourceUri) {
+func (this *SplitDocumentResult) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *SplitDocumentResult) getSlides() []IResourceUri {
+func (this *SplitDocumentResult) GetSlides() []IResourceUri {
 	return this.Slides
 }
 
-func (this *SplitDocumentResult) setSlides(newValue []IResourceUri) {
+func (this *SplitDocumentResult) SetSlides(newValue []IResourceUri) {
 	this.Slides = newValue
 }
 

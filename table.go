@@ -34,116 +34,116 @@ import (
 type ITable interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Builtin table style.
-	getStyle() string
-	setStyle(newValue string)
+	GetStyle() string
+	SetStyle(newValue string)
 
 	// Rows.
-	getRows() []ITableRow
-	setRows(newValue []ITableRow)
+	GetRows() []ITableRow
+	SetRows(newValue []ITableRow)
 
 	// Columns.
-	getColumns() []ITableColumn
-	setColumns(newValue []ITableColumn)
+	GetColumns() []ITableColumn
+	SetColumns(newValue []ITableColumn)
 
 	// Determines whether the first column of a table has to be drawn with a special formatting.
-	getFirstCol() bool
-	setFirstCol(newValue bool)
+	GetFirstCol() bool
+	SetFirstCol(newValue bool)
 
 	// Determines whether the first row of a table has to be drawn with a special formatting.
-	getFirstRow() bool
-	setFirstRow(newValue bool)
+	GetFirstRow() bool
+	SetFirstRow(newValue bool)
 
 	// Determines whether the even rows has to be drawn with a different formatting.
-	getHorizontalBanding() bool
-	setHorizontalBanding(newValue bool)
+	GetHorizontalBanding() bool
+	SetHorizontalBanding(newValue bool)
 
 	// Determines whether the last column of a table has to be drawn with a special formatting.
-	getLastCol() bool
-	setLastCol(newValue bool)
+	GetLastCol() bool
+	SetLastCol(newValue bool)
 
 	// Determines whether the last row of a table has to be drawn with a special formatting.
-	getLastRow() bool
-	setLastRow(newValue bool)
+	GetLastRow() bool
+	SetLastRow(newValue bool)
 
 	// Determines whether the table has right to left reading order.
-	getRightToLeft() bool
-	setRightToLeft(newValue bool)
+	GetRightToLeft() bool
+	SetRightToLeft(newValue bool)
 
 	// Determines whether the even columns has to be drawn with a different formatting.
-	getVerticalBanding() bool
-	setVerticalBanding(newValue bool)
+	GetVerticalBanding() bool
+	SetVerticalBanding(newValue bool)
 }
 
 type Table struct {
@@ -240,200 +240,200 @@ func NewTable() *Table {
 	return instance
 }
 
-func (this *Table) getSelfUri() IResourceUri {
+func (this *Table) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Table) setSelfUri(newValue IResourceUri) {
+func (this *Table) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Table) getAlternateLinks() []IResourceUri {
+func (this *Table) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Table) setAlternateLinks(newValue []IResourceUri) {
+func (this *Table) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Table) getName() string {
+func (this *Table) GetName() string {
 	return this.Name
 }
 
-func (this *Table) setName(newValue string) {
+func (this *Table) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *Table) getWidth() float64 {
+func (this *Table) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *Table) setWidth(newValue float64) {
+func (this *Table) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *Table) getHeight() float64 {
+func (this *Table) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *Table) setHeight(newValue float64) {
+func (this *Table) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *Table) getAlternativeText() string {
+func (this *Table) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *Table) setAlternativeText(newValue string) {
+func (this *Table) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *Table) getAlternativeTextTitle() string {
+func (this *Table) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *Table) setAlternativeTextTitle(newValue string) {
+func (this *Table) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *Table) getHidden() bool {
+func (this *Table) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *Table) setHidden(newValue bool) {
+func (this *Table) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *Table) getX() float64 {
+func (this *Table) GetX() float64 {
 	return this.X
 }
 
-func (this *Table) setX(newValue float64) {
+func (this *Table) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *Table) getY() float64 {
+func (this *Table) GetY() float64 {
 	return this.Y
 }
 
-func (this *Table) setY(newValue float64) {
+func (this *Table) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *Table) getZOrderPosition() int32 {
+func (this *Table) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *Table) setZOrderPosition(newValue int32) {
+func (this *Table) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *Table) getFillFormat() IFillFormat {
+func (this *Table) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *Table) setFillFormat(newValue IFillFormat) {
+func (this *Table) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *Table) getEffectFormat() IEffectFormat {
+func (this *Table) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *Table) setEffectFormat(newValue IEffectFormat) {
+func (this *Table) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *Table) getThreeDFormat() IThreeDFormat {
+func (this *Table) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *Table) setThreeDFormat(newValue IThreeDFormat) {
+func (this *Table) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *Table) getLineFormat() ILineFormat {
+func (this *Table) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *Table) setLineFormat(newValue ILineFormat) {
+func (this *Table) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *Table) getHyperlinkClick() IHyperlink {
+func (this *Table) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *Table) setHyperlinkClick(newValue IHyperlink) {
+func (this *Table) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *Table) getHyperlinkMouseOver() IHyperlink {
+func (this *Table) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *Table) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *Table) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *Table) getType() string {
+func (this *Table) GetType() string {
 	return this.Type_
 }
 
-func (this *Table) setType(newValue string) {
+func (this *Table) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *Table) getStyle() string {
+func (this *Table) GetStyle() string {
 	return this.Style
 }
 
-func (this *Table) setStyle(newValue string) {
+func (this *Table) SetStyle(newValue string) {
 	this.Style = newValue
 }
-func (this *Table) getRows() []ITableRow {
+func (this *Table) GetRows() []ITableRow {
 	return this.Rows
 }
 
-func (this *Table) setRows(newValue []ITableRow) {
+func (this *Table) SetRows(newValue []ITableRow) {
 	this.Rows = newValue
 }
-func (this *Table) getColumns() []ITableColumn {
+func (this *Table) GetColumns() []ITableColumn {
 	return this.Columns
 }
 
-func (this *Table) setColumns(newValue []ITableColumn) {
+func (this *Table) SetColumns(newValue []ITableColumn) {
 	this.Columns = newValue
 }
-func (this *Table) getFirstCol() bool {
+func (this *Table) GetFirstCol() bool {
 	return this.FirstCol
 }
 
-func (this *Table) setFirstCol(newValue bool) {
+func (this *Table) SetFirstCol(newValue bool) {
 	this.FirstCol = newValue
 }
-func (this *Table) getFirstRow() bool {
+func (this *Table) GetFirstRow() bool {
 	return this.FirstRow
 }
 
-func (this *Table) setFirstRow(newValue bool) {
+func (this *Table) SetFirstRow(newValue bool) {
 	this.FirstRow = newValue
 }
-func (this *Table) getHorizontalBanding() bool {
+func (this *Table) GetHorizontalBanding() bool {
 	return this.HorizontalBanding
 }
 
-func (this *Table) setHorizontalBanding(newValue bool) {
+func (this *Table) SetHorizontalBanding(newValue bool) {
 	this.HorizontalBanding = newValue
 }
-func (this *Table) getLastCol() bool {
+func (this *Table) GetLastCol() bool {
 	return this.LastCol
 }
 
-func (this *Table) setLastCol(newValue bool) {
+func (this *Table) SetLastCol(newValue bool) {
 	this.LastCol = newValue
 }
-func (this *Table) getLastRow() bool {
+func (this *Table) GetLastRow() bool {
 	return this.LastRow
 }
 
-func (this *Table) setLastRow(newValue bool) {
+func (this *Table) SetLastRow(newValue bool) {
 	this.LastRow = newValue
 }
-func (this *Table) getRightToLeft() bool {
+func (this *Table) GetRightToLeft() bool {
 	return this.RightToLeft
 }
 
-func (this *Table) setRightToLeft(newValue bool) {
+func (this *Table) SetRightToLeft(newValue bool) {
 	this.RightToLeft = newValue
 }
-func (this *Table) getVerticalBanding() bool {
+func (this *Table) GetVerticalBanding() bool {
 	return this.VerticalBanding
 }
 
-func (this *Table) setVerticalBanding(newValue bool) {
+func (this *Table) SetVerticalBanding(newValue bool) {
 	this.VerticalBanding = newValue
 }
 

@@ -34,12 +34,12 @@ import (
 type IChartTitle interface {
 
 	// Get or sets the text.
-	getText() string
-	setText(newValue string)
+	GetText() string
+	SetText(newValue string)
 
 	// Get or sets value determines visibility of title
-	getHasTitle() bool
-	setHasTitle(newValue bool)
+	GetHasTitle() bool
+	SetHasTitle(newValue bool)
 }
 
 type ChartTitle struct {
@@ -56,18 +56,18 @@ func NewChartTitle() *ChartTitle {
 	return instance
 }
 
-func (this *ChartTitle) getText() string {
+func (this *ChartTitle) GetText() string {
 	return this.Text
 }
 
-func (this *ChartTitle) setText(newValue string) {
+func (this *ChartTitle) SetText(newValue string) {
 	this.Text = newValue
 }
-func (this *ChartTitle) getHasTitle() bool {
+func (this *ChartTitle) GetHasTitle() bool {
 	return this.HasTitle
 }
 
-func (this *ChartTitle) setHasTitle(newValue bool) {
+func (this *ChartTitle) SetHasTitle(newValue bool) {
 	this.HasTitle = newValue
 }
 

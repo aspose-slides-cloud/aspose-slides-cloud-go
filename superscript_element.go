@@ -34,16 +34,16 @@ import (
 type ISuperscriptElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Base argument
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Superscript
-	getSuperscript() IMathElement
-	setSuperscript(newValue IMathElement)
+	GetSuperscript() IMathElement
+	SetSuperscript(newValue IMathElement)
 }
 
 type SuperscriptElement struct {
@@ -64,25 +64,25 @@ func NewSuperscriptElement() *SuperscriptElement {
 	return instance
 }
 
-func (this *SuperscriptElement) getType() string {
+func (this *SuperscriptElement) GetType() string {
 	return this.Type_
 }
 
-func (this *SuperscriptElement) setType(newValue string) {
+func (this *SuperscriptElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *SuperscriptElement) getBase() IMathElement {
+func (this *SuperscriptElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *SuperscriptElement) setBase(newValue IMathElement) {
+func (this *SuperscriptElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *SuperscriptElement) getSuperscript() IMathElement {
+func (this *SuperscriptElement) GetSuperscript() IMathElement {
 	return this.Superscript
 }
 
-func (this *SuperscriptElement) setSuperscript(newValue IMathElement) {
+func (this *SuperscriptElement) SetSuperscript(newValue IMathElement) {
 	this.Superscript = newValue
 }
 

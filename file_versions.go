@@ -34,8 +34,8 @@ import (
 type IFileVersions interface {
 
 	// File versions FileVersion.
-	getValue() []IFileVersion
-	setValue(newValue []IFileVersion)
+	GetValue() []IFileVersion
+	SetValue(newValue []IFileVersion)
 }
 
 type FileVersions struct {
@@ -49,11 +49,11 @@ func NewFileVersions() *FileVersions {
 	return instance
 }
 
-func (this *FileVersions) getValue() []IFileVersion {
+func (this *FileVersions) GetValue() []IFileVersion {
 	return this.Value
 }
 
-func (this *FileVersions) setValue(newValue []IFileVersion) {
+func (this *FileVersions) SetValue(newValue []IFileVersion) {
 	this.Value = newValue
 }
 

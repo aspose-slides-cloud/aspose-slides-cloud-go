@@ -34,12 +34,12 @@ import (
 type ICommonSlideViewProperties interface {
 
 	// The view scaling ratio (percentage).
-	getScale() int32
-	setScale(newValue int32)
+	GetScale() int32
+	SetScale(newValue int32)
 
 	// True if the view content should automatically scale to best fit the current window size.
-	getVariableScale() bool
-	setVariableScale(newValue bool)
+	GetVariableScale() bool
+	SetVariableScale(newValue bool)
 }
 
 type CommonSlideViewProperties struct {
@@ -56,18 +56,18 @@ func NewCommonSlideViewProperties() *CommonSlideViewProperties {
 	return instance
 }
 
-func (this *CommonSlideViewProperties) getScale() int32 {
+func (this *CommonSlideViewProperties) GetScale() int32 {
 	return this.Scale
 }
 
-func (this *CommonSlideViewProperties) setScale(newValue int32) {
+func (this *CommonSlideViewProperties) SetScale(newValue int32) {
 	this.Scale = newValue
 }
-func (this *CommonSlideViewProperties) getVariableScale() bool {
+func (this *CommonSlideViewProperties) GetVariableScale() bool {
 	return this.VariableScale
 }
 
-func (this *CommonSlideViewProperties) setVariableScale(newValue bool) {
+func (this *CommonSlideViewProperties) SetVariableScale(newValue bool) {
 	this.VariableScale = newValue
 }
 

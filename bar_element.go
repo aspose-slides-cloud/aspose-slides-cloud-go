@@ -34,16 +34,16 @@ import (
 type IBarElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Base
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Position of the bar line.             
-	getPosition() string
-	setPosition(newValue string)
+	GetPosition() string
+	SetPosition(newValue string)
 }
 
 type BarElement struct {
@@ -65,25 +65,25 @@ func NewBarElement() *BarElement {
 	return instance
 }
 
-func (this *BarElement) getType() string {
+func (this *BarElement) GetType() string {
 	return this.Type_
 }
 
-func (this *BarElement) setType(newValue string) {
+func (this *BarElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *BarElement) getBase() IMathElement {
+func (this *BarElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *BarElement) setBase(newValue IMathElement) {
+func (this *BarElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *BarElement) getPosition() string {
+func (this *BarElement) GetPosition() string {
 	return this.Position
 }
 
-func (this *BarElement) setPosition(newValue string) {
+func (this *BarElement) SetPosition(newValue string) {
 	this.Position = newValue
 }
 

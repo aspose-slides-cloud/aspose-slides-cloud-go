@@ -34,12 +34,12 @@ import (
 type IPresentationsMergeRequest interface {
 
 	// Gets or sets the presentation paths.
-	getPresentationPaths() []string
-	setPresentationPaths(newValue []string)
+	GetPresentationPaths() []string
+	SetPresentationPaths(newValue []string)
 
 	// Gets or sets the presentation passwords.
-	getPresentationPasswords() []string
-	setPresentationPasswords(newValue []string)
+	GetPresentationPasswords() []string
+	SetPresentationPasswords(newValue []string)
 }
 
 type PresentationsMergeRequest struct {
@@ -56,18 +56,18 @@ func NewPresentationsMergeRequest() *PresentationsMergeRequest {
 	return instance
 }
 
-func (this *PresentationsMergeRequest) getPresentationPaths() []string {
+func (this *PresentationsMergeRequest) GetPresentationPaths() []string {
 	return this.PresentationPaths
 }
 
-func (this *PresentationsMergeRequest) setPresentationPaths(newValue []string) {
+func (this *PresentationsMergeRequest) SetPresentationPaths(newValue []string) {
 	this.PresentationPaths = newValue
 }
-func (this *PresentationsMergeRequest) getPresentationPasswords() []string {
+func (this *PresentationsMergeRequest) GetPresentationPasswords() []string {
 	return this.PresentationPasswords
 }
 
-func (this *PresentationsMergeRequest) setPresentationPasswords(newValue []string) {
+func (this *PresentationsMergeRequest) SetPresentationPasswords(newValue []string) {
 	this.PresentationPasswords = newValue
 }
 

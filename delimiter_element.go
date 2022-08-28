@@ -34,32 +34,32 @@ import (
 type IDelimiterElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Arguments
-	getArguments() []IMathElement
-	setArguments(newValue []IMathElement)
+	GetArguments() []IMathElement
+	SetArguments(newValue []IMathElement)
 
 	// Beginning character
-	getBeginningCharacter() string
-	setBeginningCharacter(newValue string)
+	GetBeginningCharacter() string
+	SetBeginningCharacter(newValue string)
 
 	// Separator character
-	getSeparatorCharacter() string
-	setSeparatorCharacter(newValue string)
+	GetSeparatorCharacter() string
+	SetSeparatorCharacter(newValue string)
 
 	// Ending character
-	getEndingCharacter() string
-	setEndingCharacter(newValue string)
+	GetEndingCharacter() string
+	SetEndingCharacter(newValue string)
 
 	// Grow to match operand height
-	getGrowToMatchOperandHeight() bool
-	setGrowToMatchOperandHeight(newValue bool)
+	GetGrowToMatchOperandHeight() bool
+	SetGrowToMatchOperandHeight(newValue bool)
 
 	// Delimiter shape
-	getDelimiterShape() string
-	setDelimiterShape(newValue string)
+	GetDelimiterShape() string
+	SetDelimiterShape(newValue string)
 }
 
 type DelimiterElement struct {
@@ -93,53 +93,53 @@ func NewDelimiterElement() *DelimiterElement {
 	return instance
 }
 
-func (this *DelimiterElement) getType() string {
+func (this *DelimiterElement) GetType() string {
 	return this.Type_
 }
 
-func (this *DelimiterElement) setType(newValue string) {
+func (this *DelimiterElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *DelimiterElement) getArguments() []IMathElement {
+func (this *DelimiterElement) GetArguments() []IMathElement {
 	return this.Arguments
 }
 
-func (this *DelimiterElement) setArguments(newValue []IMathElement) {
+func (this *DelimiterElement) SetArguments(newValue []IMathElement) {
 	this.Arguments = newValue
 }
-func (this *DelimiterElement) getBeginningCharacter() string {
+func (this *DelimiterElement) GetBeginningCharacter() string {
 	return this.BeginningCharacter
 }
 
-func (this *DelimiterElement) setBeginningCharacter(newValue string) {
+func (this *DelimiterElement) SetBeginningCharacter(newValue string) {
 	this.BeginningCharacter = newValue
 }
-func (this *DelimiterElement) getSeparatorCharacter() string {
+func (this *DelimiterElement) GetSeparatorCharacter() string {
 	return this.SeparatorCharacter
 }
 
-func (this *DelimiterElement) setSeparatorCharacter(newValue string) {
+func (this *DelimiterElement) SetSeparatorCharacter(newValue string) {
 	this.SeparatorCharacter = newValue
 }
-func (this *DelimiterElement) getEndingCharacter() string {
+func (this *DelimiterElement) GetEndingCharacter() string {
 	return this.EndingCharacter
 }
 
-func (this *DelimiterElement) setEndingCharacter(newValue string) {
+func (this *DelimiterElement) SetEndingCharacter(newValue string) {
 	this.EndingCharacter = newValue
 }
-func (this *DelimiterElement) getGrowToMatchOperandHeight() bool {
+func (this *DelimiterElement) GetGrowToMatchOperandHeight() bool {
 	return this.GrowToMatchOperandHeight
 }
 
-func (this *DelimiterElement) setGrowToMatchOperandHeight(newValue bool) {
+func (this *DelimiterElement) SetGrowToMatchOperandHeight(newValue bool) {
 	this.GrowToMatchOperandHeight = newValue
 }
-func (this *DelimiterElement) getDelimiterShape() string {
+func (this *DelimiterElement) GetDelimiterShape() string {
 	return this.DelimiterShape
 }
 
-func (this *DelimiterElement) setDelimiterShape(newValue string) {
+func (this *DelimiterElement) SetDelimiterShape(newValue string) {
 	this.DelimiterShape = newValue
 }
 

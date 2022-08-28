@@ -34,80 +34,80 @@ import (
 type ISmartArtShape interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Combined shape type.
-	getShapeType() string
-	setShapeType(newValue string)
+	GetShapeType() string
+	SetShapeType(newValue string)
 }
 
 type SmartArtShape struct {
@@ -177,137 +177,137 @@ func NewSmartArtShape() *SmartArtShape {
 	return instance
 }
 
-func (this *SmartArtShape) getSelfUri() IResourceUri {
+func (this *SmartArtShape) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *SmartArtShape) setSelfUri(newValue IResourceUri) {
+func (this *SmartArtShape) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *SmartArtShape) getAlternateLinks() []IResourceUri {
+func (this *SmartArtShape) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *SmartArtShape) setAlternateLinks(newValue []IResourceUri) {
+func (this *SmartArtShape) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *SmartArtShape) getName() string {
+func (this *SmartArtShape) GetName() string {
 	return this.Name
 }
 
-func (this *SmartArtShape) setName(newValue string) {
+func (this *SmartArtShape) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *SmartArtShape) getWidth() float64 {
+func (this *SmartArtShape) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *SmartArtShape) setWidth(newValue float64) {
+func (this *SmartArtShape) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *SmartArtShape) getHeight() float64 {
+func (this *SmartArtShape) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *SmartArtShape) setHeight(newValue float64) {
+func (this *SmartArtShape) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *SmartArtShape) getAlternativeText() string {
+func (this *SmartArtShape) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *SmartArtShape) setAlternativeText(newValue string) {
+func (this *SmartArtShape) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *SmartArtShape) getAlternativeTextTitle() string {
+func (this *SmartArtShape) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *SmartArtShape) setAlternativeTextTitle(newValue string) {
+func (this *SmartArtShape) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *SmartArtShape) getHidden() bool {
+func (this *SmartArtShape) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *SmartArtShape) setHidden(newValue bool) {
+func (this *SmartArtShape) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *SmartArtShape) getX() float64 {
+func (this *SmartArtShape) GetX() float64 {
 	return this.X
 }
 
-func (this *SmartArtShape) setX(newValue float64) {
+func (this *SmartArtShape) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *SmartArtShape) getY() float64 {
+func (this *SmartArtShape) GetY() float64 {
 	return this.Y
 }
 
-func (this *SmartArtShape) setY(newValue float64) {
+func (this *SmartArtShape) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *SmartArtShape) getZOrderPosition() int32 {
+func (this *SmartArtShape) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *SmartArtShape) setZOrderPosition(newValue int32) {
+func (this *SmartArtShape) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *SmartArtShape) getFillFormat() IFillFormat {
+func (this *SmartArtShape) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *SmartArtShape) setFillFormat(newValue IFillFormat) {
+func (this *SmartArtShape) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *SmartArtShape) getEffectFormat() IEffectFormat {
+func (this *SmartArtShape) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *SmartArtShape) setEffectFormat(newValue IEffectFormat) {
+func (this *SmartArtShape) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *SmartArtShape) getThreeDFormat() IThreeDFormat {
+func (this *SmartArtShape) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *SmartArtShape) setThreeDFormat(newValue IThreeDFormat) {
+func (this *SmartArtShape) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *SmartArtShape) getLineFormat() ILineFormat {
+func (this *SmartArtShape) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *SmartArtShape) setLineFormat(newValue ILineFormat) {
+func (this *SmartArtShape) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *SmartArtShape) getHyperlinkClick() IHyperlink {
+func (this *SmartArtShape) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *SmartArtShape) setHyperlinkClick(newValue IHyperlink) {
+func (this *SmartArtShape) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *SmartArtShape) getHyperlinkMouseOver() IHyperlink {
+func (this *SmartArtShape) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *SmartArtShape) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *SmartArtShape) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *SmartArtShape) getType() string {
+func (this *SmartArtShape) GetType() string {
 	return this.Type_
 }
 
-func (this *SmartArtShape) setType(newValue string) {
+func (this *SmartArtShape) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *SmartArtShape) getShapeType() string {
+func (this *SmartArtShape) GetShapeType() string {
 	return this.ShapeType
 }
 
-func (this *SmartArtShape) setShapeType(newValue string) {
+func (this *SmartArtShape) SetShapeType(newValue string) {
 	this.ShapeType = newValue
 }
 

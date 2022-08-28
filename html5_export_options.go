@@ -34,24 +34,24 @@ import (
 type IHtml5ExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	// Export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Gets or sets transitions animation option.
-	getAnimateTransitions() bool
-	setAnimateTransitions(newValue bool)
+	GetAnimateTransitions() bool
+	SetAnimateTransitions(newValue bool)
 
 	// Gets or sets shapes animation option.
-	getAnimateShapes() bool
-	setAnimateShapes(newValue bool)
+	GetAnimateShapes() bool
+	SetAnimateShapes(newValue bool)
 }
 
 type Html5ExportOptions struct {
@@ -77,39 +77,39 @@ func NewHtml5ExportOptions() *Html5ExportOptions {
 	return instance
 }
 
-func (this *Html5ExportOptions) getDefaultRegularFont() string {
+func (this *Html5ExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *Html5ExportOptions) setDefaultRegularFont(newValue string) {
+func (this *Html5ExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *Html5ExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *Html5ExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *Html5ExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *Html5ExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *Html5ExportOptions) getFormat() string {
+func (this *Html5ExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *Html5ExportOptions) setFormat(newValue string) {
+func (this *Html5ExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *Html5ExportOptions) getAnimateTransitions() bool {
+func (this *Html5ExportOptions) GetAnimateTransitions() bool {
 	return this.AnimateTransitions
 }
 
-func (this *Html5ExportOptions) setAnimateTransitions(newValue bool) {
+func (this *Html5ExportOptions) SetAnimateTransitions(newValue bool) {
 	this.AnimateTransitions = newValue
 }
-func (this *Html5ExportOptions) getAnimateShapes() bool {
+func (this *Html5ExportOptions) GetAnimateShapes() bool {
 	return this.AnimateShapes
 }
 
-func (this *Html5ExportOptions) setAnimateShapes(newValue bool) {
+func (this *Html5ExportOptions) SetAnimateShapes(newValue bool) {
 	this.AnimateShapes = newValue
 }
 

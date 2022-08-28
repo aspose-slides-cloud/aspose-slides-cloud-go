@@ -34,16 +34,16 @@ import (
 type ISlideComments interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Slide comment list.
-	getList() []ISlideCommentBase
-	setList(newValue []ISlideCommentBase)
+	GetList() []ISlideCommentBase
+	SetList(newValue []ISlideCommentBase)
 }
 
 type SlideComments struct {
@@ -63,25 +63,25 @@ func NewSlideComments() *SlideComments {
 	return instance
 }
 
-func (this *SlideComments) getSelfUri() IResourceUri {
+func (this *SlideComments) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *SlideComments) setSelfUri(newValue IResourceUri) {
+func (this *SlideComments) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *SlideComments) getAlternateLinks() []IResourceUri {
+func (this *SlideComments) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *SlideComments) setAlternateLinks(newValue []IResourceUri) {
+func (this *SlideComments) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *SlideComments) getList() []ISlideCommentBase {
+func (this *SlideComments) GetList() []ISlideCommentBase {
 	return this.List
 }
 
-func (this *SlideComments) setList(newValue []ISlideCommentBase) {
+func (this *SlideComments) SetList(newValue []ISlideCommentBase) {
 	this.List = newValue
 }
 

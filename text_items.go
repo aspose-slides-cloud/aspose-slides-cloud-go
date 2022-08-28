@@ -34,16 +34,16 @@ import (
 type ITextItems interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the text items.
-	getItems() []ITextItem
-	setItems(newValue []ITextItem)
+	GetItems() []ITextItem
+	SetItems(newValue []ITextItem)
 }
 
 type TextItems struct {
@@ -63,25 +63,25 @@ func NewTextItems() *TextItems {
 	return instance
 }
 
-func (this *TextItems) getSelfUri() IResourceUri {
+func (this *TextItems) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *TextItems) setSelfUri(newValue IResourceUri) {
+func (this *TextItems) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *TextItems) getAlternateLinks() []IResourceUri {
+func (this *TextItems) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *TextItems) setAlternateLinks(newValue []IResourceUri) {
+func (this *TextItems) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *TextItems) getItems() []ITextItem {
+func (this *TextItems) GetItems() []ITextItem {
 	return this.Items
 }
 
-func (this *TextItems) setItems(newValue []ITextItem) {
+func (this *TextItems) SetItems(newValue []ITextItem) {
 	this.Items = newValue
 }
 

@@ -34,12 +34,12 @@ import (
 type IScatterChartDataPoint interface {
 
 	// X-value
-	getXValue() float64
-	setXValue(newValue float64)
+	GetXValue() float64
+	SetXValue(newValue float64)
 
 	// Y-value
-	getYValue() float64
-	setYValue(newValue float64)
+	GetYValue() float64
+	SetYValue(newValue float64)
 }
 
 type ScatterChartDataPoint struct {
@@ -56,18 +56,18 @@ func NewScatterChartDataPoint() *ScatterChartDataPoint {
 	return instance
 }
 
-func (this *ScatterChartDataPoint) getXValue() float64 {
+func (this *ScatterChartDataPoint) GetXValue() float64 {
 	return this.XValue
 }
 
-func (this *ScatterChartDataPoint) setXValue(newValue float64) {
+func (this *ScatterChartDataPoint) SetXValue(newValue float64) {
 	this.XValue = newValue
 }
-func (this *ScatterChartDataPoint) getYValue() float64 {
+func (this *ScatterChartDataPoint) GetYValue() float64 {
 	return this.YValue
 }
 
-func (this *ScatterChartDataPoint) setYValue(newValue float64) {
+func (this *ScatterChartDataPoint) SetYValue(newValue float64) {
 	this.YValue = newValue
 }
 

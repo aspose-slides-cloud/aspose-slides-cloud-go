@@ -34,12 +34,12 @@ import (
 type IGradientFillStop interface {
 
 	// Color.
-	getColor() string
-	setColor(newValue string)
+	GetColor() string
+	SetColor(newValue string)
 
 	// Stop position (0..1).
-	getPosition() float64
-	setPosition(newValue float64)
+	GetPosition() float64
+	SetPosition(newValue float64)
 }
 
 type GradientFillStop struct {
@@ -56,18 +56,18 @@ func NewGradientFillStop() *GradientFillStop {
 	return instance
 }
 
-func (this *GradientFillStop) getColor() string {
+func (this *GradientFillStop) GetColor() string {
 	return this.Color
 }
 
-func (this *GradientFillStop) setColor(newValue string) {
+func (this *GradientFillStop) SetColor(newValue string) {
 	this.Color = newValue
 }
-func (this *GradientFillStop) getPosition() float64 {
+func (this *GradientFillStop) GetPosition() float64 {
 	return this.Position
 }
 
-func (this *GradientFillStop) setPosition(newValue float64) {
+func (this *GradientFillStop) SetPosition(newValue float64) {
 	this.Position = newValue
 }
 

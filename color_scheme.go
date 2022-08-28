@@ -34,60 +34,60 @@ import (
 type IColorScheme interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// First accent color.
-	getAccent1() string
-	setAccent1(newValue string)
+	GetAccent1() string
+	SetAccent1(newValue string)
 
 	// Second accent color.
-	getAccent2() string
-	setAccent2(newValue string)
+	GetAccent2() string
+	SetAccent2(newValue string)
 
 	// Third accent color.
-	getAccent3() string
-	setAccent3(newValue string)
+	GetAccent3() string
+	SetAccent3(newValue string)
 
 	// Fourth accent color.
-	getAccent4() string
-	setAccent4(newValue string)
+	GetAccent4() string
+	SetAccent4(newValue string)
 
 	// Fifth accent color.
-	getAccent5() string
-	setAccent5(newValue string)
+	GetAccent5() string
+	SetAccent5(newValue string)
 
 	// Sixth accent color.
-	getAccent6() string
-	setAccent6(newValue string)
+	GetAccent6() string
+	SetAccent6(newValue string)
 
 	// First dark color.
-	getDark1() string
-	setDark1(newValue string)
+	GetDark1() string
+	SetDark1(newValue string)
 
 	// Second dark color.
-	getDark2() string
-	setDark2(newValue string)
+	GetDark2() string
+	SetDark2(newValue string)
 
 	// Visited hyperlink color.
-	getFollowedHyperlink() string
-	setFollowedHyperlink(newValue string)
+	GetFollowedHyperlink() string
+	SetFollowedHyperlink(newValue string)
 
 	// Hyperlink color/
-	getHyperlink() string
-	setHyperlink(newValue string)
+	GetHyperlink() string
+	SetHyperlink(newValue string)
 
 	// First light color.
-	getLight1() string
-	setLight1(newValue string)
+	GetLight1() string
+	SetLight1(newValue string)
 
 	// Second light color.
-	getLight2() string
-	setLight2(newValue string)
+	GetLight2() string
+	SetLight2(newValue string)
 }
 
 type ColorScheme struct {
@@ -140,102 +140,102 @@ func NewColorScheme() *ColorScheme {
 	return instance
 }
 
-func (this *ColorScheme) getSelfUri() IResourceUri {
+func (this *ColorScheme) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *ColorScheme) setSelfUri(newValue IResourceUri) {
+func (this *ColorScheme) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *ColorScheme) getAlternateLinks() []IResourceUri {
+func (this *ColorScheme) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *ColorScheme) setAlternateLinks(newValue []IResourceUri) {
+func (this *ColorScheme) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *ColorScheme) getAccent1() string {
+func (this *ColorScheme) GetAccent1() string {
 	return this.Accent1
 }
 
-func (this *ColorScheme) setAccent1(newValue string) {
+func (this *ColorScheme) SetAccent1(newValue string) {
 	this.Accent1 = newValue
 }
-func (this *ColorScheme) getAccent2() string {
+func (this *ColorScheme) GetAccent2() string {
 	return this.Accent2
 }
 
-func (this *ColorScheme) setAccent2(newValue string) {
+func (this *ColorScheme) SetAccent2(newValue string) {
 	this.Accent2 = newValue
 }
-func (this *ColorScheme) getAccent3() string {
+func (this *ColorScheme) GetAccent3() string {
 	return this.Accent3
 }
 
-func (this *ColorScheme) setAccent3(newValue string) {
+func (this *ColorScheme) SetAccent3(newValue string) {
 	this.Accent3 = newValue
 }
-func (this *ColorScheme) getAccent4() string {
+func (this *ColorScheme) GetAccent4() string {
 	return this.Accent4
 }
 
-func (this *ColorScheme) setAccent4(newValue string) {
+func (this *ColorScheme) SetAccent4(newValue string) {
 	this.Accent4 = newValue
 }
-func (this *ColorScheme) getAccent5() string {
+func (this *ColorScheme) GetAccent5() string {
 	return this.Accent5
 }
 
-func (this *ColorScheme) setAccent5(newValue string) {
+func (this *ColorScheme) SetAccent5(newValue string) {
 	this.Accent5 = newValue
 }
-func (this *ColorScheme) getAccent6() string {
+func (this *ColorScheme) GetAccent6() string {
 	return this.Accent6
 }
 
-func (this *ColorScheme) setAccent6(newValue string) {
+func (this *ColorScheme) SetAccent6(newValue string) {
 	this.Accent6 = newValue
 }
-func (this *ColorScheme) getDark1() string {
+func (this *ColorScheme) GetDark1() string {
 	return this.Dark1
 }
 
-func (this *ColorScheme) setDark1(newValue string) {
+func (this *ColorScheme) SetDark1(newValue string) {
 	this.Dark1 = newValue
 }
-func (this *ColorScheme) getDark2() string {
+func (this *ColorScheme) GetDark2() string {
 	return this.Dark2
 }
 
-func (this *ColorScheme) setDark2(newValue string) {
+func (this *ColorScheme) SetDark2(newValue string) {
 	this.Dark2 = newValue
 }
-func (this *ColorScheme) getFollowedHyperlink() string {
+func (this *ColorScheme) GetFollowedHyperlink() string {
 	return this.FollowedHyperlink
 }
 
-func (this *ColorScheme) setFollowedHyperlink(newValue string) {
+func (this *ColorScheme) SetFollowedHyperlink(newValue string) {
 	this.FollowedHyperlink = newValue
 }
-func (this *ColorScheme) getHyperlink() string {
+func (this *ColorScheme) GetHyperlink() string {
 	return this.Hyperlink
 }
 
-func (this *ColorScheme) setHyperlink(newValue string) {
+func (this *ColorScheme) SetHyperlink(newValue string) {
 	this.Hyperlink = newValue
 }
-func (this *ColorScheme) getLight1() string {
+func (this *ColorScheme) GetLight1() string {
 	return this.Light1
 }
 
-func (this *ColorScheme) setLight1(newValue string) {
+func (this *ColorScheme) SetLight1(newValue string) {
 	this.Light1 = newValue
 }
-func (this *ColorScheme) getLight2() string {
+func (this *ColorScheme) GetLight2() string {
 	return this.Light2
 }
 
-func (this *ColorScheme) setLight2(newValue string) {
+func (this *ColorScheme) SetLight2(newValue string) {
 	this.Light2 = newValue
 }
 

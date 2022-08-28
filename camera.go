@@ -34,28 +34,28 @@ import (
 type ICamera interface {
 
 	// Camera type
-	getCameraType() string
-	setCameraType(newValue string)
+	GetCameraType() string
+	SetCameraType(newValue string)
 
 	// Camera FOV
-	getFieldOfViewAngle() float64
-	setFieldOfViewAngle(newValue float64)
+	GetFieldOfViewAngle() float64
+	SetFieldOfViewAngle(newValue float64)
 
 	// Camera zoom
-	getZoom() float64
-	setZoom(newValue float64)
+	GetZoom() float64
+	SetZoom(newValue float64)
 
 	// XRotation
-	getXRotation() float64
-	setXRotation(newValue float64)
+	GetXRotation() float64
+	SetXRotation(newValue float64)
 
 	// YRotation
-	getYRotation() float64
-	setYRotation(newValue float64)
+	GetYRotation() float64
+	SetYRotation(newValue float64)
 
 	// ZRotation
-	getZRotation() float64
-	setZRotation(newValue float64)
+	GetZRotation() float64
+	SetZRotation(newValue float64)
 }
 
 type Camera struct {
@@ -85,46 +85,46 @@ func NewCamera() *Camera {
 	return instance
 }
 
-func (this *Camera) getCameraType() string {
+func (this *Camera) GetCameraType() string {
 	return this.CameraType
 }
 
-func (this *Camera) setCameraType(newValue string) {
+func (this *Camera) SetCameraType(newValue string) {
 	this.CameraType = newValue
 }
-func (this *Camera) getFieldOfViewAngle() float64 {
+func (this *Camera) GetFieldOfViewAngle() float64 {
 	return this.FieldOfViewAngle
 }
 
-func (this *Camera) setFieldOfViewAngle(newValue float64) {
+func (this *Camera) SetFieldOfViewAngle(newValue float64) {
 	this.FieldOfViewAngle = newValue
 }
-func (this *Camera) getZoom() float64 {
+func (this *Camera) GetZoom() float64 {
 	return this.Zoom
 }
 
-func (this *Camera) setZoom(newValue float64) {
+func (this *Camera) SetZoom(newValue float64) {
 	this.Zoom = newValue
 }
-func (this *Camera) getXRotation() float64 {
+func (this *Camera) GetXRotation() float64 {
 	return this.XRotation
 }
 
-func (this *Camera) setXRotation(newValue float64) {
+func (this *Camera) SetXRotation(newValue float64) {
 	this.XRotation = newValue
 }
-func (this *Camera) getYRotation() float64 {
+func (this *Camera) GetYRotation() float64 {
 	return this.YRotation
 }
 
-func (this *Camera) setYRotation(newValue float64) {
+func (this *Camera) SetYRotation(newValue float64) {
 	this.YRotation = newValue
 }
-func (this *Camera) getZRotation() float64 {
+func (this *Camera) GetZRotation() float64 {
 	return this.ZRotation
 }
 
-func (this *Camera) setZRotation(newValue float64) {
+func (this *Camera) SetZRotation(newValue float64) {
 	this.ZRotation = newValue
 }
 

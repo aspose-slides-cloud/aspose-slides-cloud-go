@@ -34,60 +34,60 @@ import (
 type IReflectionEffect interface {
 
 	// direction
-	getDirection() float64
-	setDirection(newValue float64)
+	GetDirection() float64
+	SetDirection(newValue float64)
 
 	// fade direction
-	getFadeDirection() float64
-	setFadeDirection(newValue float64)
+	GetFadeDirection() float64
+	SetFadeDirection(newValue float64)
 
 	// distance
-	getDistance() float64
-	setDistance(newValue float64)
+	GetDistance() float64
+	SetDistance(newValue float64)
 
 	// blur radius
-	getBlurRadius() float64
-	setBlurRadius(newValue float64)
+	GetBlurRadius() float64
+	SetBlurRadius(newValue float64)
 
 	// scale horizontal
-	getScaleHorizontal() float64
-	setScaleHorizontal(newValue float64)
+	GetScaleHorizontal() float64
+	SetScaleHorizontal(newValue float64)
 
 	// scale vertical
-	getScaleVertical() float64
-	setScaleVertical(newValue float64)
+	GetScaleVertical() float64
+	SetScaleVertical(newValue float64)
 
 	// skew horizontal
-	getSkewHorizontal() float64
-	setSkewHorizontal(newValue float64)
+	GetSkewHorizontal() float64
+	SetSkewHorizontal(newValue float64)
 
 	// skew vertical
-	getSkewVertical() float64
-	setSkewVertical(newValue float64)
+	GetSkewVertical() float64
+	SetSkewVertical(newValue float64)
 
 	// start pos alpha
-	getStartPosAlpha() float64
-	setStartPosAlpha(newValue float64)
+	GetStartPosAlpha() float64
+	SetStartPosAlpha(newValue float64)
 
 	// end pos alpha
-	getEndPosAlpha() float64
-	setEndPosAlpha(newValue float64)
+	GetEndPosAlpha() float64
+	SetEndPosAlpha(newValue float64)
 
 	// start reflection opacity
-	getStartReflectionOpacity() float64
-	setStartReflectionOpacity(newValue float64)
+	GetStartReflectionOpacity() float64
+	SetStartReflectionOpacity(newValue float64)
 
 	// end reflection opacity
-	getEndReflectionOpacity() float64
-	setEndReflectionOpacity(newValue float64)
+	GetEndReflectionOpacity() float64
+	SetEndReflectionOpacity(newValue float64)
 
 	// rectangle alignment
-	getRectangleAlign() string
-	setRectangleAlign(newValue string)
+	GetRectangleAlign() string
+	SetRectangleAlign(newValue string)
 
 	// true if the reflection should rotate with the shape when the shape is rotated
-	getRotateShadowWithShape() bool
-	setRotateShadowWithShape(newValue bool)
+	GetRotateShadowWithShape() bool
+	SetRotateShadowWithShape(newValue bool)
 }
 
 type ReflectionEffect struct {
@@ -141,102 +141,102 @@ func NewReflectionEffect() *ReflectionEffect {
 	return instance
 }
 
-func (this *ReflectionEffect) getDirection() float64 {
+func (this *ReflectionEffect) GetDirection() float64 {
 	return this.Direction
 }
 
-func (this *ReflectionEffect) setDirection(newValue float64) {
+func (this *ReflectionEffect) SetDirection(newValue float64) {
 	this.Direction = newValue
 }
-func (this *ReflectionEffect) getFadeDirection() float64 {
+func (this *ReflectionEffect) GetFadeDirection() float64 {
 	return this.FadeDirection
 }
 
-func (this *ReflectionEffect) setFadeDirection(newValue float64) {
+func (this *ReflectionEffect) SetFadeDirection(newValue float64) {
 	this.FadeDirection = newValue
 }
-func (this *ReflectionEffect) getDistance() float64 {
+func (this *ReflectionEffect) GetDistance() float64 {
 	return this.Distance
 }
 
-func (this *ReflectionEffect) setDistance(newValue float64) {
+func (this *ReflectionEffect) SetDistance(newValue float64) {
 	this.Distance = newValue
 }
-func (this *ReflectionEffect) getBlurRadius() float64 {
+func (this *ReflectionEffect) GetBlurRadius() float64 {
 	return this.BlurRadius
 }
 
-func (this *ReflectionEffect) setBlurRadius(newValue float64) {
+func (this *ReflectionEffect) SetBlurRadius(newValue float64) {
 	this.BlurRadius = newValue
 }
-func (this *ReflectionEffect) getScaleHorizontal() float64 {
+func (this *ReflectionEffect) GetScaleHorizontal() float64 {
 	return this.ScaleHorizontal
 }
 
-func (this *ReflectionEffect) setScaleHorizontal(newValue float64) {
+func (this *ReflectionEffect) SetScaleHorizontal(newValue float64) {
 	this.ScaleHorizontal = newValue
 }
-func (this *ReflectionEffect) getScaleVertical() float64 {
+func (this *ReflectionEffect) GetScaleVertical() float64 {
 	return this.ScaleVertical
 }
 
-func (this *ReflectionEffect) setScaleVertical(newValue float64) {
+func (this *ReflectionEffect) SetScaleVertical(newValue float64) {
 	this.ScaleVertical = newValue
 }
-func (this *ReflectionEffect) getSkewHorizontal() float64 {
+func (this *ReflectionEffect) GetSkewHorizontal() float64 {
 	return this.SkewHorizontal
 }
 
-func (this *ReflectionEffect) setSkewHorizontal(newValue float64) {
+func (this *ReflectionEffect) SetSkewHorizontal(newValue float64) {
 	this.SkewHorizontal = newValue
 }
-func (this *ReflectionEffect) getSkewVertical() float64 {
+func (this *ReflectionEffect) GetSkewVertical() float64 {
 	return this.SkewVertical
 }
 
-func (this *ReflectionEffect) setSkewVertical(newValue float64) {
+func (this *ReflectionEffect) SetSkewVertical(newValue float64) {
 	this.SkewVertical = newValue
 }
-func (this *ReflectionEffect) getStartPosAlpha() float64 {
+func (this *ReflectionEffect) GetStartPosAlpha() float64 {
 	return this.StartPosAlpha
 }
 
-func (this *ReflectionEffect) setStartPosAlpha(newValue float64) {
+func (this *ReflectionEffect) SetStartPosAlpha(newValue float64) {
 	this.StartPosAlpha = newValue
 }
-func (this *ReflectionEffect) getEndPosAlpha() float64 {
+func (this *ReflectionEffect) GetEndPosAlpha() float64 {
 	return this.EndPosAlpha
 }
 
-func (this *ReflectionEffect) setEndPosAlpha(newValue float64) {
+func (this *ReflectionEffect) SetEndPosAlpha(newValue float64) {
 	this.EndPosAlpha = newValue
 }
-func (this *ReflectionEffect) getStartReflectionOpacity() float64 {
+func (this *ReflectionEffect) GetStartReflectionOpacity() float64 {
 	return this.StartReflectionOpacity
 }
 
-func (this *ReflectionEffect) setStartReflectionOpacity(newValue float64) {
+func (this *ReflectionEffect) SetStartReflectionOpacity(newValue float64) {
 	this.StartReflectionOpacity = newValue
 }
-func (this *ReflectionEffect) getEndReflectionOpacity() float64 {
+func (this *ReflectionEffect) GetEndReflectionOpacity() float64 {
 	return this.EndReflectionOpacity
 }
 
-func (this *ReflectionEffect) setEndReflectionOpacity(newValue float64) {
+func (this *ReflectionEffect) SetEndReflectionOpacity(newValue float64) {
 	this.EndReflectionOpacity = newValue
 }
-func (this *ReflectionEffect) getRectangleAlign() string {
+func (this *ReflectionEffect) GetRectangleAlign() string {
 	return this.RectangleAlign
 }
 
-func (this *ReflectionEffect) setRectangleAlign(newValue string) {
+func (this *ReflectionEffect) SetRectangleAlign(newValue string) {
 	this.RectangleAlign = newValue
 }
-func (this *ReflectionEffect) getRotateShadowWithShape() bool {
+func (this *ReflectionEffect) GetRotateShadowWithShape() bool {
 	return this.RotateShadowWithShape
 }
 
-func (this *ReflectionEffect) setRotateShadowWithShape(newValue bool) {
+func (this *ReflectionEffect) SetRotateShadowWithShape(newValue bool) {
 	this.RotateShadowWithShape = newValue
 }
 

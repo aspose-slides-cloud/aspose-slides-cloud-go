@@ -33,8 +33,8 @@ import (
 // Base class for fill formats 
 type IFillFormat interface {
 
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type FillFormat struct {
@@ -48,11 +48,11 @@ func NewFillFormat() *FillFormat {
 	return instance
 }
 
-func (this *FillFormat) getType() string {
+func (this *FillFormat) GetType() string {
 	return this.Type_
 }
 
-func (this *FillFormat) setType(newValue string) {
+func (this *FillFormat) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

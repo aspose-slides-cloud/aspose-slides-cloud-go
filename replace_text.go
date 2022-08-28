@@ -34,24 +34,24 @@ import (
 type IReplaceText interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Text to be replaced.
-	getOldText() string
-	setOldText(newValue string)
+	GetOldText() string
+	SetOldText(newValue string)
 
 	// Text to replace with.
-	getNewText() string
-	setNewText(newValue string)
+	GetNewText() string
+	SetNewText(newValue string)
 
 	// True to ignore case in replace pattern search.
-	getIgnoreCase() bool
-	setIgnoreCase(newValue bool)
+	GetIgnoreCase() bool
+	SetIgnoreCase(newValue bool)
 
 	// One-based position of the slide to perform the replace in. 0 to make the replace throughout the presentation.
-	getSlidePosition() int32
-	setSlidePosition(newValue int32)
+	GetSlidePosition() int32
+	SetSlidePosition(newValue int32)
 }
 
 type ReplaceText struct {
@@ -78,39 +78,39 @@ func NewReplaceText() *ReplaceText {
 	return instance
 }
 
-func (this *ReplaceText) getType() string {
+func (this *ReplaceText) GetType() string {
 	return this.Type_
 }
 
-func (this *ReplaceText) setType(newValue string) {
+func (this *ReplaceText) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *ReplaceText) getOldText() string {
+func (this *ReplaceText) GetOldText() string {
 	return this.OldText
 }
 
-func (this *ReplaceText) setOldText(newValue string) {
+func (this *ReplaceText) SetOldText(newValue string) {
 	this.OldText = newValue
 }
-func (this *ReplaceText) getNewText() string {
+func (this *ReplaceText) GetNewText() string {
 	return this.NewText
 }
 
-func (this *ReplaceText) setNewText(newValue string) {
+func (this *ReplaceText) SetNewText(newValue string) {
 	this.NewText = newValue
 }
-func (this *ReplaceText) getIgnoreCase() bool {
+func (this *ReplaceText) GetIgnoreCase() bool {
 	return this.IgnoreCase
 }
 
-func (this *ReplaceText) setIgnoreCase(newValue bool) {
+func (this *ReplaceText) SetIgnoreCase(newValue bool) {
 	this.IgnoreCase = newValue
 }
-func (this *ReplaceText) getSlidePosition() int32 {
+func (this *ReplaceText) GetSlidePosition() int32 {
 	return this.SlidePosition
 }
 
-func (this *ReplaceText) setSlidePosition(newValue int32) {
+func (this *ReplaceText) SetSlidePosition(newValue int32) {
 	this.SlidePosition = newValue
 }
 

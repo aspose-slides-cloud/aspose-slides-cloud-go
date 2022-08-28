@@ -34,16 +34,16 @@ import (
 type ILayoutSlides interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// List of layout slide links.
-	getSlideList() []IResourceUri
-	setSlideList(newValue []IResourceUri)
+	GetSlideList() []IResourceUri
+	SetSlideList(newValue []IResourceUri)
 }
 
 type LayoutSlides struct {
@@ -63,25 +63,25 @@ func NewLayoutSlides() *LayoutSlides {
 	return instance
 }
 
-func (this *LayoutSlides) getSelfUri() IResourceUri {
+func (this *LayoutSlides) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *LayoutSlides) setSelfUri(newValue IResourceUri) {
+func (this *LayoutSlides) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *LayoutSlides) getAlternateLinks() []IResourceUri {
+func (this *LayoutSlides) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *LayoutSlides) setAlternateLinks(newValue []IResourceUri) {
+func (this *LayoutSlides) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *LayoutSlides) getSlideList() []IResourceUri {
+func (this *LayoutSlides) GetSlideList() []IResourceUri {
 	return this.SlideList
 }
 
-func (this *LayoutSlides) setSlideList(newValue []IResourceUri) {
+func (this *LayoutSlides) SetSlideList(newValue []IResourceUri) {
 	this.SlideList = newValue
 }
 

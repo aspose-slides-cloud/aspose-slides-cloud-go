@@ -34,16 +34,16 @@ import (
 type IColorChangeEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Color which will be replaced.
-	getFromColor() string
-	setFromColor(newValue string)
+	GetFromColor() string
+	SetFromColor(newValue string)
 
 	// Color which will replace.
-	getToColor() string
-	setToColor(newValue string)
+	GetToColor() string
+	SetToColor(newValue string)
 }
 
 type ColorChangeEffect struct {
@@ -64,25 +64,25 @@ func NewColorChangeEffect() *ColorChangeEffect {
 	return instance
 }
 
-func (this *ColorChangeEffect) getType() string {
+func (this *ColorChangeEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *ColorChangeEffect) setType(newValue string) {
+func (this *ColorChangeEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *ColorChangeEffect) getFromColor() string {
+func (this *ColorChangeEffect) GetFromColor() string {
 	return this.FromColor
 }
 
-func (this *ColorChangeEffect) setFromColor(newValue string) {
+func (this *ColorChangeEffect) SetFromColor(newValue string) {
 	this.FromColor = newValue
 }
-func (this *ColorChangeEffect) getToColor() string {
+func (this *ColorChangeEffect) GetToColor() string {
 	return this.ToColor
 }
 
-func (this *ColorChangeEffect) setToColor(newValue string) {
+func (this *ColorChangeEffect) SetToColor(newValue string) {
 	this.ToColor = newValue
 }
 

@@ -29,8 +29,8 @@ package asposeslidescloud
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"reflect"
 	"strings"
@@ -45,14 +45,14 @@ var (
 	changedTestFileName     = "changedtest.pptx"
 	testTemplateFileName    = "TemplateCV.pptx"
 	testFilePassword        = "password"
-	isInitialized		= false
-	expectedTestDataVersion	= "1"
+	isInitialized           = false
+	expectedTestDataVersion = "1"
 )
 
 func initializeTest(functionName string, invalidParamName string, invalidParamValue interface{}) error {
 	if !isInitialized {
 		version := "0"
-		c := getTestApiClient()
+		c := GetTestApiClient()
 		f, _, e := c.SlidesApi.DownloadFile("TempTests/version.txt", "", "")
 		if e == nil {
 			data, e := ioutil.ReadFile(f.Name())
@@ -70,7 +70,7 @@ func initializeTest(functionName string, invalidParamName string, invalidParamVa
 				if e != nil {
 					return e
 				}
-				_, _, e = c.SlidesApi.UploadFile("TempTests/" + file.Name(), bytes, "")
+				_, _, e = c.SlidesApi.UploadFile("TempTests/"+file.Name(), bytes, "")
 				if e != nil {
 					return e
 				}
@@ -86,7 +86,7 @@ func initializeTest(functionName string, invalidParamName string, invalidParamVa
 	for _, rule := range getRules(getTestRules().Files, functionName, invalidParamName) {
 		fileRule := rule.(FileRule)
 		actualName := (untemplatize(fileRule.File, invalidParamValue)).(string)
-		path := "TempSlidesSDK";
+		path := "TempSlidesSDK"
 		if fileRule.Folder != "" {
 			path = untemplatize(fileRule.Folder, invalidParamValue).(string)
 		}
@@ -97,13 +97,13 @@ func initializeTest(functionName string, invalidParamName string, invalidParamVa
 
 	for path, rule := range files {
 		if rule.Action == "Put" {
-			c := getTestApiClient()
-			_, e := c.SlidesApi.CopyFile("TempTests/" + rule.ActualName, path, "", "", "")
+			c := GetTestApiClient()
+			_, e := c.SlidesApi.CopyFile("TempTests/"+rule.ActualName, path, "", "", "")
 			if e != nil {
 				return e
 			}
 		} else if rule.Action == "Delete" {
-			c := getTestApiClient()
+			c := GetTestApiClient()
 			_, e := c.SlidesApi.DeleteFile(path, "", "")
 			if e != nil {
 				return e
@@ -126,7 +126,7 @@ func getTestRules() *TestRules {
 	return testRules
 }
 
-func getTestApiClient() *APIClient {
+func GetTestApiClient() *APIClient {
 	if testApiClient == nil {
 		cfg := NewConfiguration()
 		configFile, err := os.Open("testConfig.json")
@@ -143,8 +143,9 @@ func createTestParamValue(functionName string, paramName string, paramType strin
 		fileParam := testFileName
 		if functionName == "ImportFromPdf" {
 			fileParam = "test.pdf"
-		}
-		if paramName == "image" {
+		} else if functionName == "ImportShapesFromSvg" {
+			fileParam = "shapes.svg"
+		} else if paramName == "image" {
 			fileParam = "watermark.png"
 		}
 		data, _ := ioutil.ReadFile("TestData/" + fileParam)
@@ -153,7 +154,7 @@ func createTestParamValue(functionName string, paramName string, paramType strin
 	if paramType == "[][]byte" {
 		data1, _ := ioutil.ReadFile("TestData/test.pptx")
 		data2, _ := ioutil.ReadFile("TestData/test-unprotected.pptx")
-        	return [][]byte { data1, data2 }
+		return [][]byte{data1, data2}
 	}
 	var value interface{}
 	value = "test" + paramName
@@ -171,220 +172,224 @@ func createTestParamValue(functionName string, paramName string, paramType strin
 }
 
 func undefaultize(value interface{}, paramType string) interface{} {
-    if value == nil {
-        if paramType == "[]int32" {
-            return []int32{}
-        }
-        if paramType == "[][]byte" {
-            return [][]byte{}
-        }
-        if paramType == "string" {
-            return ""
-        }
-        if paramType == "IShapeExportOptions" {
-            var options IShapeExportOptions
-            return &options
-        }
-        if paramType == "ExportOptions" {
-            var options ExportOptions
-            return &options
-        }
-        return nil
-    }
-    if paramType == "[]byte" {
-        return []byte{}
-    }
-    if paramType == "[]int32" {
-        var arr = []int32{}
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &arr)
-        return arr
-    }
-    if paramType == "int32" {
-        return int32(value.(float64))
-    }
-    if paramType == "Paragraph" {
-        var para Paragraph
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &para)
-        return &para
-    }
-    if paramType == "Portion" {
-        var portion Portion
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &portion)
-        return &portion
-    }
-    if paramType == "ShapeBase" {
-        var shape Shape
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &shape)
-        return &shape
-    }
-    if paramType == "NotesSlide" {
-        var slide NotesSlide
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "Slide" {
-        var slide Slide
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "LayoutSlide" {
-        var slide LayoutSlide
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "MasterSlide" {
-        var slide MasterSlide
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "Pipeline" {
-        var slide Pipeline
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "PresentationsMergeRequest" {
-        var slide PresentationsMergeRequest
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "OrderedMergeRequest" {
-        var slide OrderedMergeRequest
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "SlideBackground" {
-        var slide SlideBackground
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "SlideAnimation" {
-        var slide SlideAnimation
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "SlideCommentBase" {
-        var slide SlideComment
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "InteractiveSequence" {
-        var slide InteractiveSequence
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "Series" {
-        var series OneValueSeries
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &series)
-        return &series
-    }
-    if paramType == "ChartCategory" {
-        var category ChartCategory
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &category)
-        return &category
-    }
-    if paramType == "Effect" {
-        var slide Effect
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        slide.Type_ = value.(map[string]interface{})["Type"].(string)
-        return &slide
-    }
-    if paramType == "GeometryPaths" {
-        var slide GeometryPaths
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &slide)
-        return &slide
-    }
-    if paramType == "DocumentProperties" {
-        var para DocumentProperties
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &para)
-        return &para
-    }
-    if paramType == "DocumentProperty" {
-        var para DocumentProperty
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &para)
-        return &para
-    }
-    if paramType == "ViewProperties" {
-        var vp ViewProperties
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &vp)
-        return &vp
-    }
-    if paramType == "SlideProperties" {
-        var vp SlideProperties
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &vp)
-        return &vp
-    }
-    if paramType == "ProtectionProperties" {
-        var vp ProtectionProperties
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &vp)
-        return &vp
-    }
-    if paramType == "HeaderFooter" {
-        var vp HeaderFooter
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &vp)
-        return &vp
-    }
-    if paramType == "NotesSlideHeaderFooter" {
-        var vp NotesSlideHeaderFooter
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &vp)
-        return &vp
-    }
-    if paramType == "Sections" {
-        var vp Sections
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &vp)
-        return &vp
-    }
-    if paramType == "ChartSeriesGroup" {
-        var vp ChartSeriesGroup
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &vp)
-        return &vp
-    }
-    if paramType == "Axis" {
-        var vp Axis
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &vp)
-        return &vp
-    }
-    if paramType == "Legend" {
-        var vp Legend
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &vp)
-        return &vp
-    }
-    if paramType == "ChartWall" {
-        var vp ChartWall
-        b, _ := json.Marshal(value)
-        json.Unmarshal(b, &vp)
-        return &vp
-    }
-    return value
+	if value == nil {
+		if paramType == "[]int32" {
+			return []int32{}
+		}
+		if paramType == "[][]byte" {
+			return [][]byte{}
+		}
+		if paramType == "string" {
+			return ""
+		}
+		if paramType == "IShapeExportOptions" {
+			var options IShapeExportOptions
+			return &options
+		}
+		if paramType == "ExportOptions" {
+			var options ExportOptions
+			return &options
+		}
+		return nil
+	}
+	if paramType == "[]byte" {
+		return []byte{}
+	}
+	if paramType == "[]int32" {
+		var arr = []int32{}
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &arr)
+		return arr
+	}
+	if paramType == "int32" {
+                v, ok := value.(float64)
+                if !ok {
+                        return 0
+                }
+		return int32(v)
+	}
+	if paramType == "Paragraph" {
+		var para Paragraph
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &para)
+		return &para
+	}
+	if paramType == "Portion" {
+		var portion Portion
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &portion)
+		return &portion
+	}
+	if paramType == "ShapeBase" {
+		var shape Shape
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &shape)
+		return &shape
+	}
+	if paramType == "NotesSlide" {
+		var slide NotesSlide
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "Slide" {
+		var slide Slide
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "LayoutSlide" {
+		var slide LayoutSlide
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "MasterSlide" {
+		var slide MasterSlide
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "Pipeline" {
+		var slide Pipeline
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "PresentationsMergeRequest" {
+		var slide PresentationsMergeRequest
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "OrderedMergeRequest" {
+		var slide OrderedMergeRequest
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "SlideBackground" {
+		var slide SlideBackground
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "SlideAnimation" {
+		var slide SlideAnimation
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "SlideCommentBase" {
+		var slide SlideComment
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "InteractiveSequence" {
+		var slide InteractiveSequence
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "Series" {
+		var series OneValueSeries
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &series)
+		return &series
+	}
+	if paramType == "ChartCategory" {
+		var category ChartCategory
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &category)
+		return &category
+	}
+	if paramType == "Effect" {
+		var slide Effect
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		slide.Type_ = value.(map[string]interface{})["Type"].(string)
+		return &slide
+	}
+	if paramType == "GeometryPaths" {
+		var slide GeometryPaths
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &slide)
+		return &slide
+	}
+	if paramType == "DocumentProperties" {
+		var para DocumentProperties
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &para)
+		return &para
+	}
+	if paramType == "DocumentProperty" {
+		var para DocumentProperty
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &para)
+		return &para
+	}
+	if paramType == "ViewProperties" {
+		var vp ViewProperties
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &vp)
+		return &vp
+	}
+	if paramType == "SlideProperties" {
+		var vp SlideProperties
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &vp)
+		return &vp
+	}
+	if paramType == "ProtectionProperties" {
+		var vp ProtectionProperties
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &vp)
+		return &vp
+	}
+	if paramType == "HeaderFooter" {
+		var vp HeaderFooter
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &vp)
+		return &vp
+	}
+	if paramType == "NotesSlideHeaderFooter" {
+		var vp NotesSlideHeaderFooter
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &vp)
+		return &vp
+	}
+	if paramType == "Sections" {
+		var vp Sections
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &vp)
+		return &vp
+	}
+	if paramType == "ChartSeriesGroup" {
+		var vp ChartSeriesGroup
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &vp)
+		return &vp
+	}
+	if paramType == "Axis" {
+		var vp Axis
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &vp)
+		return &vp
+	}
+	if paramType == "Legend" {
+		var vp Legend
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &vp)
+		return &vp
+	}
+	if paramType == "ChartWall" {
+		var vp ChartWall
+		b, _ := json.Marshal(value)
+		json.Unmarshal(b, &vp)
+		return &vp
+	}
+	return value
 }
 
 func getRules(rules interface{}, functionName string, paramName string) []ITestRule {
@@ -419,14 +424,14 @@ func invalidizeTestParamValue(value interface{}, functionName string, paramName 
 }
 
 func assertError(t *testing.T, functionName string, paramName string, paramValue interface{}, errorCode int32, e error) {
-        if (e == nil) {
+	if e == nil {
 		failed := true
 		for _, _ = range getRules(getTestRules().OkToNotFail, functionName, paramName) {
-		    failed = false
+			failed = false
 		}
-		if (failed) {
-		    t.Errorf("Must have failed.")
-		    return
+		if failed {
+			t.Errorf("Must have failed.")
+			return
 		}
 	} else {
 		var code int32
@@ -444,7 +449,7 @@ func assertError(t *testing.T, functionName string, paramName string, paramValue
 			t.Errorf("Unexpected error code: %v.", errorCode)
 			return
 		}
-        	if (e != nil) {
+		if e != nil {
 			if !strings.Contains(e.Error(), untemplatize(message, paramValue).(string)) {
 				t.Errorf("Unexpected error message: %v.", e)
 				return
@@ -460,11 +465,11 @@ func assertBinaryResponse(file *os.File, t *testing.T) {
 }
 
 func untemplatize(template interface{}, value interface{}) interface{} {
-	if (template != nil && value != nil && reflect.TypeOf(template).Name() == "string") {
-		if (reflect.TypeOf(value).Name() == "string") {
+	if template != nil && value != nil && reflect.TypeOf(template).Name() == "string" {
+		if reflect.TypeOf(value).Name() == "string" {
 			return strings.Replace(template.(string), "%v", value.(string), -1)
 		}
-		if (reflect.TypeOf(value).Name() == "int32") {
+		if reflect.TypeOf(value).Name() == "int32" {
 			return strings.Replace(template.(string), "%v", fmt.Sprint(value), -1)
 		}
 	}

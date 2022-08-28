@@ -34,20 +34,20 @@ import (
 type IPresentationToMerge interface {
 
 	// Get or sets the presentation path
-	getPath() string
-	setPath(newValue string)
+	GetPath() string
+	SetPath(newValue string)
 
 	// Get or sets the presentation password
-	getPassword() string
-	setPassword(newValue string)
+	GetPassword() string
+	SetPassword(newValue string)
 
 	// Get or sets the indexes of slides to merge
-	getSlides() []int32
-	setSlides(newValue []int32)
+	GetSlides() []int32
+	SetSlides(newValue []int32)
 
 	// Merge (request or storage). 
-	getSource() string
-	setSource(newValue string)
+	GetSource() string
+	SetSource(newValue string)
 }
 
 type PresentationToMerge struct {
@@ -71,32 +71,32 @@ func NewPresentationToMerge() *PresentationToMerge {
 	return instance
 }
 
-func (this *PresentationToMerge) getPath() string {
+func (this *PresentationToMerge) GetPath() string {
 	return this.Path
 }
 
-func (this *PresentationToMerge) setPath(newValue string) {
+func (this *PresentationToMerge) SetPath(newValue string) {
 	this.Path = newValue
 }
-func (this *PresentationToMerge) getPassword() string {
+func (this *PresentationToMerge) GetPassword() string {
 	return this.Password
 }
 
-func (this *PresentationToMerge) setPassword(newValue string) {
+func (this *PresentationToMerge) SetPassword(newValue string) {
 	this.Password = newValue
 }
-func (this *PresentationToMerge) getSlides() []int32 {
+func (this *PresentationToMerge) GetSlides() []int32 {
 	return this.Slides
 }
 
-func (this *PresentationToMerge) setSlides(newValue []int32) {
+func (this *PresentationToMerge) SetSlides(newValue []int32) {
 	this.Slides = newValue
 }
-func (this *PresentationToMerge) getSource() string {
+func (this *PresentationToMerge) GetSource() string {
 	return this.Source
 }
 
-func (this *PresentationToMerge) setSource(newValue string) {
+func (this *PresentationToMerge) SetSource(newValue string) {
 	this.Source = newValue
 }
 

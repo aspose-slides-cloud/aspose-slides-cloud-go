@@ -34,75 +34,75 @@ import (
 type IShapeBase interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type ShapeBase struct {
@@ -167,130 +167,130 @@ func NewShapeBase() *ShapeBase {
 	return instance
 }
 
-func (this *ShapeBase) getSelfUri() IResourceUri {
+func (this *ShapeBase) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *ShapeBase) setSelfUri(newValue IResourceUri) {
+func (this *ShapeBase) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *ShapeBase) getAlternateLinks() []IResourceUri {
+func (this *ShapeBase) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *ShapeBase) setAlternateLinks(newValue []IResourceUri) {
+func (this *ShapeBase) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *ShapeBase) getName() string {
+func (this *ShapeBase) GetName() string {
 	return this.Name
 }
 
-func (this *ShapeBase) setName(newValue string) {
+func (this *ShapeBase) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *ShapeBase) getWidth() float64 {
+func (this *ShapeBase) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *ShapeBase) setWidth(newValue float64) {
+func (this *ShapeBase) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *ShapeBase) getHeight() float64 {
+func (this *ShapeBase) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *ShapeBase) setHeight(newValue float64) {
+func (this *ShapeBase) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *ShapeBase) getAlternativeText() string {
+func (this *ShapeBase) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *ShapeBase) setAlternativeText(newValue string) {
+func (this *ShapeBase) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *ShapeBase) getAlternativeTextTitle() string {
+func (this *ShapeBase) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *ShapeBase) setAlternativeTextTitle(newValue string) {
+func (this *ShapeBase) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *ShapeBase) getHidden() bool {
+func (this *ShapeBase) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *ShapeBase) setHidden(newValue bool) {
+func (this *ShapeBase) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *ShapeBase) getX() float64 {
+func (this *ShapeBase) GetX() float64 {
 	return this.X
 }
 
-func (this *ShapeBase) setX(newValue float64) {
+func (this *ShapeBase) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *ShapeBase) getY() float64 {
+func (this *ShapeBase) GetY() float64 {
 	return this.Y
 }
 
-func (this *ShapeBase) setY(newValue float64) {
+func (this *ShapeBase) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *ShapeBase) getZOrderPosition() int32 {
+func (this *ShapeBase) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *ShapeBase) setZOrderPosition(newValue int32) {
+func (this *ShapeBase) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *ShapeBase) getFillFormat() IFillFormat {
+func (this *ShapeBase) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *ShapeBase) setFillFormat(newValue IFillFormat) {
+func (this *ShapeBase) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *ShapeBase) getEffectFormat() IEffectFormat {
+func (this *ShapeBase) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *ShapeBase) setEffectFormat(newValue IEffectFormat) {
+func (this *ShapeBase) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *ShapeBase) getThreeDFormat() IThreeDFormat {
+func (this *ShapeBase) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *ShapeBase) setThreeDFormat(newValue IThreeDFormat) {
+func (this *ShapeBase) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *ShapeBase) getLineFormat() ILineFormat {
+func (this *ShapeBase) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *ShapeBase) setLineFormat(newValue ILineFormat) {
+func (this *ShapeBase) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *ShapeBase) getHyperlinkClick() IHyperlink {
+func (this *ShapeBase) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *ShapeBase) setHyperlinkClick(newValue IHyperlink) {
+func (this *ShapeBase) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *ShapeBase) getHyperlinkMouseOver() IHyperlink {
+func (this *ShapeBase) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *ShapeBase) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *ShapeBase) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *ShapeBase) getType() string {
+func (this *ShapeBase) GetType() string {
 	return this.Type_
 }
 
-func (this *ShapeBase) setType(newValue string) {
+func (this *ShapeBase) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

@@ -34,36 +34,36 @@ import (
 type IAccessPermissions interface {
 
 	// The user may print the document (possibly not at the highest quality level, depending on whether bit HighQualityPrint is also set).
-	getPrintDocument() bool
-	setPrintDocument(newValue bool)
+	GetPrintDocument() bool
+	SetPrintDocument(newValue bool)
 
 	// The user may modify the contents of the document by operations other than those controlled by bits AddOrModifyFields, FillExistingFields, AssembleDocument.
-	getModifyContent() bool
-	setModifyContent(newValue bool)
+	GetModifyContent() bool
+	SetModifyContent(newValue bool)
 
 	// The user may copy or otherwise extract text and graphics from the document by operations other than that controlled by bit ExtractTextAndGraphics.
-	getCopyTextAndGraphics() bool
-	setCopyTextAndGraphics(newValue bool)
+	GetCopyTextAndGraphics() bool
+	SetCopyTextAndGraphics(newValue bool)
 
 	// The user may add or modify text annotations, fill in interactive form fields, and, if bit ModifyContent is also set, create or modify interactive form fields (including signature fields).
-	getAddOrModifyFields() bool
-	setAddOrModifyFields(newValue bool)
+	GetAddOrModifyFields() bool
+	SetAddOrModifyFields(newValue bool)
 
 	// The user may fill in existing interactive form fields (including signature fields), even if bit AddOrModifyFields is clear.
-	getFillExistingFields() bool
-	setFillExistingFields(newValue bool)
+	GetFillExistingFields() bool
+	SetFillExistingFields(newValue bool)
 
 	// The user may extract text and graphics in support of accessibility to users with disabilities or for other purposes.
-	getExtractTextAndGraphics() bool
-	setExtractTextAndGraphics(newValue bool)
+	GetExtractTextAndGraphics() bool
+	SetExtractTextAndGraphics(newValue bool)
 
 	// The user may assemble the document (insert, rotate, or delete pages and create bookmarks or thumbnail images), even if bit ModifyContent is clear.
-	getAssembleDocument() bool
-	setAssembleDocument(newValue bool)
+	GetAssembleDocument() bool
+	SetAssembleDocument(newValue bool)
 
 	// The user may print the document to a representation from which a faithful digital copy of the PDF content could be generated. When this bit is clear (and bit PrintDocument is set), printing is limited to a low-level representation of the appearance, possibly of degraded quality.
-	getHighQualityPrint() bool
-	setHighQualityPrint(newValue bool)
+	GetHighQualityPrint() bool
+	SetHighQualityPrint(newValue bool)
 }
 
 type AccessPermissions struct {
@@ -98,60 +98,60 @@ func NewAccessPermissions() *AccessPermissions {
 	return instance
 }
 
-func (this *AccessPermissions) getPrintDocument() bool {
+func (this *AccessPermissions) GetPrintDocument() bool {
 	return this.PrintDocument
 }
 
-func (this *AccessPermissions) setPrintDocument(newValue bool) {
+func (this *AccessPermissions) SetPrintDocument(newValue bool) {
 	this.PrintDocument = newValue
 }
-func (this *AccessPermissions) getModifyContent() bool {
+func (this *AccessPermissions) GetModifyContent() bool {
 	return this.ModifyContent
 }
 
-func (this *AccessPermissions) setModifyContent(newValue bool) {
+func (this *AccessPermissions) SetModifyContent(newValue bool) {
 	this.ModifyContent = newValue
 }
-func (this *AccessPermissions) getCopyTextAndGraphics() bool {
+func (this *AccessPermissions) GetCopyTextAndGraphics() bool {
 	return this.CopyTextAndGraphics
 }
 
-func (this *AccessPermissions) setCopyTextAndGraphics(newValue bool) {
+func (this *AccessPermissions) SetCopyTextAndGraphics(newValue bool) {
 	this.CopyTextAndGraphics = newValue
 }
-func (this *AccessPermissions) getAddOrModifyFields() bool {
+func (this *AccessPermissions) GetAddOrModifyFields() bool {
 	return this.AddOrModifyFields
 }
 
-func (this *AccessPermissions) setAddOrModifyFields(newValue bool) {
+func (this *AccessPermissions) SetAddOrModifyFields(newValue bool) {
 	this.AddOrModifyFields = newValue
 }
-func (this *AccessPermissions) getFillExistingFields() bool {
+func (this *AccessPermissions) GetFillExistingFields() bool {
 	return this.FillExistingFields
 }
 
-func (this *AccessPermissions) setFillExistingFields(newValue bool) {
+func (this *AccessPermissions) SetFillExistingFields(newValue bool) {
 	this.FillExistingFields = newValue
 }
-func (this *AccessPermissions) getExtractTextAndGraphics() bool {
+func (this *AccessPermissions) GetExtractTextAndGraphics() bool {
 	return this.ExtractTextAndGraphics
 }
 
-func (this *AccessPermissions) setExtractTextAndGraphics(newValue bool) {
+func (this *AccessPermissions) SetExtractTextAndGraphics(newValue bool) {
 	this.ExtractTextAndGraphics = newValue
 }
-func (this *AccessPermissions) getAssembleDocument() bool {
+func (this *AccessPermissions) GetAssembleDocument() bool {
 	return this.AssembleDocument
 }
 
-func (this *AccessPermissions) setAssembleDocument(newValue bool) {
+func (this *AccessPermissions) SetAssembleDocument(newValue bool) {
 	this.AssembleDocument = newValue
 }
-func (this *AccessPermissions) getHighQualityPrint() bool {
+func (this *AccessPermissions) GetHighQualityPrint() bool {
 	return this.HighQualityPrint
 }
 
-func (this *AccessPermissions) setHighQualityPrint(newValue bool) {
+func (this *AccessPermissions) SetHighQualityPrint(newValue bool) {
 	this.HighQualityPrint = newValue
 }
 

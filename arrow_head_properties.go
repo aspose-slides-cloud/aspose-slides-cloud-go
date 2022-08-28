@@ -34,16 +34,16 @@ import (
 type IArrowHeadProperties interface {
 
 	// Length.
-	getLength() string
-	setLength(newValue string)
+	GetLength() string
+	SetLength(newValue string)
 
 	// Style.
-	getStyle() string
-	setStyle(newValue string)
+	GetStyle() string
+	SetStyle(newValue string)
 
 	// Width.
-	getWidth() string
-	setWidth(newValue string)
+	GetWidth() string
+	SetWidth(newValue string)
 }
 
 type ArrowHeadProperties struct {
@@ -66,25 +66,25 @@ func NewArrowHeadProperties() *ArrowHeadProperties {
 	return instance
 }
 
-func (this *ArrowHeadProperties) getLength() string {
+func (this *ArrowHeadProperties) GetLength() string {
 	return this.Length
 }
 
-func (this *ArrowHeadProperties) setLength(newValue string) {
+func (this *ArrowHeadProperties) SetLength(newValue string) {
 	this.Length = newValue
 }
-func (this *ArrowHeadProperties) getStyle() string {
+func (this *ArrowHeadProperties) GetStyle() string {
 	return this.Style
 }
 
-func (this *ArrowHeadProperties) setStyle(newValue string) {
+func (this *ArrowHeadProperties) SetStyle(newValue string) {
 	this.Style = newValue
 }
-func (this *ArrowHeadProperties) getWidth() string {
+func (this *ArrowHeadProperties) GetWidth() string {
 	return this.Width
 }
 
-func (this *ArrowHeadProperties) setWidth(newValue string) {
+func (this *ArrowHeadProperties) SetWidth(newValue string) {
 	this.Width = newValue
 }
 

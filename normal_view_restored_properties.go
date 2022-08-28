@@ -34,12 +34,12 @@ import (
 type INormalViewRestoredProperties interface {
 
 	// True if the size of the side content region should compensate for the new size when resizing the window containing the view within the application.
-	getAutoAdjust() bool
-	setAutoAdjust(newValue bool)
+	GetAutoAdjust() bool
+	SetAutoAdjust(newValue bool)
 
 	// The size of the slide region.
-	getDimensionSize() float64
-	setDimensionSize(newValue float64)
+	GetDimensionSize() float64
+	SetDimensionSize(newValue float64)
 }
 
 type NormalViewRestoredProperties struct {
@@ -56,18 +56,18 @@ func NewNormalViewRestoredProperties() *NormalViewRestoredProperties {
 	return instance
 }
 
-func (this *NormalViewRestoredProperties) getAutoAdjust() bool {
+func (this *NormalViewRestoredProperties) GetAutoAdjust() bool {
 	return this.AutoAdjust
 }
 
-func (this *NormalViewRestoredProperties) setAutoAdjust(newValue bool) {
+func (this *NormalViewRestoredProperties) SetAutoAdjust(newValue bool) {
 	this.AutoAdjust = newValue
 }
-func (this *NormalViewRestoredProperties) getDimensionSize() float64 {
+func (this *NormalViewRestoredProperties) GetDimensionSize() float64 {
 	return this.DimensionSize
 }
 
-func (this *NormalViewRestoredProperties) setDimensionSize(newValue float64) {
+func (this *NormalViewRestoredProperties) SetDimensionSize(newValue float64) {
 	this.DimensionSize = newValue
 }
 

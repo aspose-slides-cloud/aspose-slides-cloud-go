@@ -34,12 +34,12 @@ import (
 type IFilesUploadResult interface {
 
 	// List of uploaded file names
-	getUploaded() []string
-	setUploaded(newValue []string)
+	GetUploaded() []string
+	SetUploaded(newValue []string)
 
 	// List of errors.
-	getErrors() []ModelError
-	setErrors(newValue []ModelError)
+	GetErrors() []ModelError
+	SetErrors(newValue []ModelError)
 }
 
 type FilesUploadResult struct {
@@ -56,18 +56,18 @@ func NewFilesUploadResult() *FilesUploadResult {
 	return instance
 }
 
-func (this *FilesUploadResult) getUploaded() []string {
+func (this *FilesUploadResult) GetUploaded() []string {
 	return this.Uploaded
 }
 
-func (this *FilesUploadResult) setUploaded(newValue []string) {
+func (this *FilesUploadResult) SetUploaded(newValue []string) {
 	this.Uploaded = newValue
 }
-func (this *FilesUploadResult) getErrors() []ModelError {
+func (this *FilesUploadResult) GetErrors() []ModelError {
 	return this.Errors
 }
 
-func (this *FilesUploadResult) setErrors(newValue []ModelError) {
+func (this *FilesUploadResult) SetErrors(newValue []ModelError) {
 	this.Errors = newValue
 }
 

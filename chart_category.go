@@ -34,32 +34,32 @@ import (
 type IChartCategory interface {
 
 	// Gets or sets the parent categories. Used with Sunburst &amp; treemap categories; ignored for other chart types.
-	getParentCategories() []string
-	setParentCategories(newValue []string)
+	GetParentCategories() []string
+	SetParentCategories(newValue []string)
 
 	// Gets or sets the grouping level for the category. Used with Sunburst &amp; treemap categories; ignored for other chart types.
-	getLevel() int32
-	setLevel(newValue int32)
+	GetLevel() int32
+	SetLevel(newValue int32)
 
 	// Category value
-	getValue() string
-	setValue(newValue string)
+	GetValue() string
+	SetValue(newValue string)
 
 	// Get or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Get or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Get or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Gets or sets the data points for chart data
-	getDataPoints() []IOneValueChartDataPoint
-	setDataPoints(newValue []IOneValueChartDataPoint)
+	GetDataPoints() []IOneValueChartDataPoint
+	SetDataPoints(newValue []IOneValueChartDataPoint)
 }
 
 type ChartCategory struct {
@@ -91,53 +91,53 @@ func NewChartCategory() *ChartCategory {
 	return instance
 }
 
-func (this *ChartCategory) getParentCategories() []string {
+func (this *ChartCategory) GetParentCategories() []string {
 	return this.ParentCategories
 }
 
-func (this *ChartCategory) setParentCategories(newValue []string) {
+func (this *ChartCategory) SetParentCategories(newValue []string) {
 	this.ParentCategories = newValue
 }
-func (this *ChartCategory) getLevel() int32 {
+func (this *ChartCategory) GetLevel() int32 {
 	return this.Level
 }
 
-func (this *ChartCategory) setLevel(newValue int32) {
+func (this *ChartCategory) SetLevel(newValue int32) {
 	this.Level = newValue
 }
-func (this *ChartCategory) getValue() string {
+func (this *ChartCategory) GetValue() string {
 	return this.Value
 }
 
-func (this *ChartCategory) setValue(newValue string) {
+func (this *ChartCategory) SetValue(newValue string) {
 	this.Value = newValue
 }
-func (this *ChartCategory) getFillFormat() IFillFormat {
+func (this *ChartCategory) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *ChartCategory) setFillFormat(newValue IFillFormat) {
+func (this *ChartCategory) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *ChartCategory) getEffectFormat() IEffectFormat {
+func (this *ChartCategory) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *ChartCategory) setEffectFormat(newValue IEffectFormat) {
+func (this *ChartCategory) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *ChartCategory) getLineFormat() ILineFormat {
+func (this *ChartCategory) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *ChartCategory) setLineFormat(newValue ILineFormat) {
+func (this *ChartCategory) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *ChartCategory) getDataPoints() []IOneValueChartDataPoint {
+func (this *ChartCategory) GetDataPoints() []IOneValueChartDataPoint {
 	return this.DataPoints
 }
 
-func (this *ChartCategory) setDataPoints(newValue []IOneValueChartDataPoint) {
+func (this *ChartCategory) SetDataPoints(newValue []IOneValueChartDataPoint) {
 	this.DataPoints = newValue
 }
 

@@ -34,16 +34,16 @@ import (
 type IAccentElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// The argument to which the accent was applied
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Accent Character
-	getCharacter() string
-	setCharacter(newValue string)
+	GetCharacter() string
+	SetCharacter(newValue string)
 }
 
 type AccentElement struct {
@@ -64,25 +64,25 @@ func NewAccentElement() *AccentElement {
 	return instance
 }
 
-func (this *AccentElement) getType() string {
+func (this *AccentElement) GetType() string {
 	return this.Type_
 }
 
-func (this *AccentElement) setType(newValue string) {
+func (this *AccentElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *AccentElement) getBase() IMathElement {
+func (this *AccentElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *AccentElement) setBase(newValue IMathElement) {
+func (this *AccentElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *AccentElement) getCharacter() string {
+func (this *AccentElement) GetCharacter() string {
 	return this.Character
 }
 
-func (this *AccentElement) setCharacter(newValue string) {
+func (this *AccentElement) SetCharacter(newValue string) {
 	this.Character = newValue
 }
 

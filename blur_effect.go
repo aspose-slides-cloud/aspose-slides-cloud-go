@@ -34,12 +34,12 @@ import (
 type IBlurEffect interface {
 
 	// radius
-	getRadius() float64
-	setRadius(newValue float64)
+	GetRadius() float64
+	SetRadius(newValue float64)
 
 	// true if the bounds are grown
-	getGrow() bool
-	setGrow(newValue bool)
+	GetGrow() bool
+	SetGrow(newValue bool)
 }
 
 type BlurEffect struct {
@@ -56,18 +56,18 @@ func NewBlurEffect() *BlurEffect {
 	return instance
 }
 
-func (this *BlurEffect) getRadius() float64 {
+func (this *BlurEffect) GetRadius() float64 {
 	return this.Radius
 }
 
-func (this *BlurEffect) setRadius(newValue float64) {
+func (this *BlurEffect) SetRadius(newValue float64) {
 	this.Radius = newValue
 }
-func (this *BlurEffect) getGrow() bool {
+func (this *BlurEffect) GetGrow() bool {
 	return this.Grow
 }
 
-func (this *BlurEffect) setGrow(newValue bool) {
+func (this *BlurEffect) SetGrow(newValue bool) {
 	this.Grow = newValue
 }
 

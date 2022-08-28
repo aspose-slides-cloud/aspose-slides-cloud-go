@@ -34,20 +34,20 @@ import (
 type IAxes interface {
 
 	// Gets or sets the horizontal axis.
-	getHorizontalAxis() IAxis
-	setHorizontalAxis(newValue IAxis)
+	GetHorizontalAxis() IAxis
+	SetHorizontalAxis(newValue IAxis)
 
 	// Gets or sets the vertical axis.
-	getVerticalAxis() IAxis
-	setVerticalAxis(newValue IAxis)
+	GetVerticalAxis() IAxis
+	SetVerticalAxis(newValue IAxis)
 
 	// Gets or sets the secondary horizontal axis.
-	getSecondaryHorizontalAxis() IAxis
-	setSecondaryHorizontalAxis(newValue IAxis)
+	GetSecondaryHorizontalAxis() IAxis
+	SetSecondaryHorizontalAxis(newValue IAxis)
 
 	// Gets or sets the secondary vertical axis.
-	getSecondaryVerticalAxis() IAxis
-	setSecondaryVerticalAxis(newValue IAxis)
+	GetSecondaryVerticalAxis() IAxis
+	SetSecondaryVerticalAxis(newValue IAxis)
 }
 
 type Axes struct {
@@ -70,32 +70,32 @@ func NewAxes() *Axes {
 	return instance
 }
 
-func (this *Axes) getHorizontalAxis() IAxis {
+func (this *Axes) GetHorizontalAxis() IAxis {
 	return this.HorizontalAxis
 }
 
-func (this *Axes) setHorizontalAxis(newValue IAxis) {
+func (this *Axes) SetHorizontalAxis(newValue IAxis) {
 	this.HorizontalAxis = newValue
 }
-func (this *Axes) getVerticalAxis() IAxis {
+func (this *Axes) GetVerticalAxis() IAxis {
 	return this.VerticalAxis
 }
 
-func (this *Axes) setVerticalAxis(newValue IAxis) {
+func (this *Axes) SetVerticalAxis(newValue IAxis) {
 	this.VerticalAxis = newValue
 }
-func (this *Axes) getSecondaryHorizontalAxis() IAxis {
+func (this *Axes) GetSecondaryHorizontalAxis() IAxis {
 	return this.SecondaryHorizontalAxis
 }
 
-func (this *Axes) setSecondaryHorizontalAxis(newValue IAxis) {
+func (this *Axes) SetSecondaryHorizontalAxis(newValue IAxis) {
 	this.SecondaryHorizontalAxis = newValue
 }
-func (this *Axes) getSecondaryVerticalAxis() IAxis {
+func (this *Axes) GetSecondaryVerticalAxis() IAxis {
 	return this.SecondaryVerticalAxis
 }
 
-func (this *Axes) setSecondaryVerticalAxis(newValue IAxis) {
+func (this *Axes) SetSecondaryVerticalAxis(newValue IAxis) {
 	this.SecondaryVerticalAxis = newValue
 }
 

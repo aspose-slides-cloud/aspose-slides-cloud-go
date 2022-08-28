@@ -34,36 +34,36 @@ import (
 type IGifExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	// Export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Gets or sets the height of slides in the output image format.
-	getHeight() int32
-	setHeight(newValue int32)
+	GetHeight() int32
+	SetHeight(newValue int32)
 
 	// Gets or sets the height of slides in the output the output image format.
-	getWidth() int32
-	setWidth(newValue int32)
+	GetWidth() int32
+	SetWidth(newValue int32)
 
 	// Determines whether hidden slides will be exported.
-	getExportHiddenSlides() bool
-	setExportHiddenSlides(newValue bool)
+	GetExportHiddenSlides() bool
+	SetExportHiddenSlides(newValue bool)
 
 	// Gets or sets transition FPS [frames/sec]
-	getTransitionFps() int32
-	setTransitionFps(newValue int32)
+	GetTransitionFps() int32
+	SetTransitionFps(newValue int32)
 
 	// Gets or sets default delay time [ms].
-	getDefaultDelay() int32
-	setDefaultDelay(newValue int32)
+	GetDefaultDelay() int32
+	SetDefaultDelay(newValue int32)
 }
 
 type GifExportOptions struct {
@@ -98,60 +98,60 @@ func NewGifExportOptions() *GifExportOptions {
 	return instance
 }
 
-func (this *GifExportOptions) getDefaultRegularFont() string {
+func (this *GifExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *GifExportOptions) setDefaultRegularFont(newValue string) {
+func (this *GifExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *GifExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *GifExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *GifExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *GifExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *GifExportOptions) getFormat() string {
+func (this *GifExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *GifExportOptions) setFormat(newValue string) {
+func (this *GifExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *GifExportOptions) getHeight() int32 {
+func (this *GifExportOptions) GetHeight() int32 {
 	return this.Height
 }
 
-func (this *GifExportOptions) setHeight(newValue int32) {
+func (this *GifExportOptions) SetHeight(newValue int32) {
 	this.Height = newValue
 }
-func (this *GifExportOptions) getWidth() int32 {
+func (this *GifExportOptions) GetWidth() int32 {
 	return this.Width
 }
 
-func (this *GifExportOptions) setWidth(newValue int32) {
+func (this *GifExportOptions) SetWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this *GifExportOptions) getExportHiddenSlides() bool {
+func (this *GifExportOptions) GetExportHiddenSlides() bool {
 	return this.ExportHiddenSlides
 }
 
-func (this *GifExportOptions) setExportHiddenSlides(newValue bool) {
+func (this *GifExportOptions) SetExportHiddenSlides(newValue bool) {
 	this.ExportHiddenSlides = newValue
 }
-func (this *GifExportOptions) getTransitionFps() int32 {
+func (this *GifExportOptions) GetTransitionFps() int32 {
 	return this.TransitionFps
 }
 
-func (this *GifExportOptions) setTransitionFps(newValue int32) {
+func (this *GifExportOptions) SetTransitionFps(newValue int32) {
 	this.TransitionFps = newValue
 }
-func (this *GifExportOptions) getDefaultDelay() int32 {
+func (this *GifExportOptions) GetDefaultDelay() int32 {
 	return this.DefaultDelay
 }
 
-func (this *GifExportOptions) setDefaultDelay(newValue int32) {
+func (this *GifExportOptions) SetDefaultDelay(newValue int32) {
 	this.DefaultDelay = newValue
 }
 

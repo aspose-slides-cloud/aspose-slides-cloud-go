@@ -34,16 +34,16 @@ import (
 type IGeometryPath interface {
 
 	// Path fill mode
-	getFillMode() string
-	setFillMode(newValue string)
+	GetFillMode() string
+	SetFillMode(newValue string)
 
 	// Stroke
-	getStroke() bool
-	setStroke(newValue bool)
+	GetStroke() bool
+	SetStroke(newValue bool)
 
 	// List of PathSegmen objects
-	getPathData() []IPathSegment
-	setPathData(newValue []IPathSegment)
+	GetPathData() []IPathSegment
+	SetPathData(newValue []IPathSegment)
 }
 
 type GeometryPath struct {
@@ -64,25 +64,25 @@ func NewGeometryPath() *GeometryPath {
 	return instance
 }
 
-func (this *GeometryPath) getFillMode() string {
+func (this *GeometryPath) GetFillMode() string {
 	return this.FillMode
 }
 
-func (this *GeometryPath) setFillMode(newValue string) {
+func (this *GeometryPath) SetFillMode(newValue string) {
 	this.FillMode = newValue
 }
-func (this *GeometryPath) getStroke() bool {
+func (this *GeometryPath) GetStroke() bool {
 	return this.Stroke
 }
 
-func (this *GeometryPath) setStroke(newValue bool) {
+func (this *GeometryPath) SetStroke(newValue bool) {
 	this.Stroke = newValue
 }
-func (this *GeometryPath) getPathData() []IPathSegment {
+func (this *GeometryPath) GetPathData() []IPathSegment {
 	return this.PathData
 }
 
-func (this *GeometryPath) setPathData(newValue []IPathSegment) {
+func (this *GeometryPath) SetPathData(newValue []IPathSegment) {
 	this.PathData = newValue
 }
 

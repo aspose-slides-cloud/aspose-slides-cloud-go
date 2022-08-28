@@ -34,52 +34,52 @@ import (
 type ILineFormat interface {
 
 	// Alignment.
-	getAlignment() string
-	setAlignment(newValue string)
+	GetAlignment() string
+	SetAlignment(newValue string)
 
 	// Cap style.
-	getCapStyle() string
-	setCapStyle(newValue string)
+	GetCapStyle() string
+	SetCapStyle(newValue string)
 
 	// Dash style.
-	getDashStyle() string
-	setDashStyle(newValue string)
+	GetDashStyle() string
+	SetDashStyle(newValue string)
 
 	// Join style.
-	getJoinStyle() string
-	setJoinStyle(newValue string)
+	GetJoinStyle() string
+	SetJoinStyle(newValue string)
 
 	// Style.
-	getStyle() string
-	setStyle(newValue string)
+	GetStyle() string
+	SetStyle(newValue string)
 
 	// Sketch type.
-	getSketchType() string
-	setSketchType(newValue string)
+	GetSketchType() string
+	SetSketchType(newValue string)
 
 	// Begin arrowhead.
-	getBeginArrowHead() IArrowHeadProperties
-	setBeginArrowHead(newValue IArrowHeadProperties)
+	GetBeginArrowHead() IArrowHeadProperties
+	SetBeginArrowHead(newValue IArrowHeadProperties)
 
 	// End arrowhead.
-	getEndArrowHead() IArrowHeadProperties
-	setEndArrowHead(newValue IArrowHeadProperties)
+	GetEndArrowHead() IArrowHeadProperties
+	SetEndArrowHead(newValue IArrowHeadProperties)
 
 	// Custom dash pattern.
-	getCustomDashPattern() ICustomDashPattern
-	setCustomDashPattern(newValue ICustomDashPattern)
+	GetCustomDashPattern() ICustomDashPattern
+	SetCustomDashPattern(newValue ICustomDashPattern)
 
 	// Fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Miter limit.
-	getMiterLimit() float64
-	setMiterLimit(newValue float64)
+	GetMiterLimit() float64
+	SetMiterLimit(newValue float64)
 
 	// Width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 }
 
 type LineFormat struct {
@@ -132,88 +132,88 @@ func NewLineFormat() *LineFormat {
 	return instance
 }
 
-func (this *LineFormat) getAlignment() string {
+func (this *LineFormat) GetAlignment() string {
 	return this.Alignment
 }
 
-func (this *LineFormat) setAlignment(newValue string) {
+func (this *LineFormat) SetAlignment(newValue string) {
 	this.Alignment = newValue
 }
-func (this *LineFormat) getCapStyle() string {
+func (this *LineFormat) GetCapStyle() string {
 	return this.CapStyle
 }
 
-func (this *LineFormat) setCapStyle(newValue string) {
+func (this *LineFormat) SetCapStyle(newValue string) {
 	this.CapStyle = newValue
 }
-func (this *LineFormat) getDashStyle() string {
+func (this *LineFormat) GetDashStyle() string {
 	return this.DashStyle
 }
 
-func (this *LineFormat) setDashStyle(newValue string) {
+func (this *LineFormat) SetDashStyle(newValue string) {
 	this.DashStyle = newValue
 }
-func (this *LineFormat) getJoinStyle() string {
+func (this *LineFormat) GetJoinStyle() string {
 	return this.JoinStyle
 }
 
-func (this *LineFormat) setJoinStyle(newValue string) {
+func (this *LineFormat) SetJoinStyle(newValue string) {
 	this.JoinStyle = newValue
 }
-func (this *LineFormat) getStyle() string {
+func (this *LineFormat) GetStyle() string {
 	return this.Style
 }
 
-func (this *LineFormat) setStyle(newValue string) {
+func (this *LineFormat) SetStyle(newValue string) {
 	this.Style = newValue
 }
-func (this *LineFormat) getSketchType() string {
+func (this *LineFormat) GetSketchType() string {
 	return this.SketchType
 }
 
-func (this *LineFormat) setSketchType(newValue string) {
+func (this *LineFormat) SetSketchType(newValue string) {
 	this.SketchType = newValue
 }
-func (this *LineFormat) getBeginArrowHead() IArrowHeadProperties {
+func (this *LineFormat) GetBeginArrowHead() IArrowHeadProperties {
 	return this.BeginArrowHead
 }
 
-func (this *LineFormat) setBeginArrowHead(newValue IArrowHeadProperties) {
+func (this *LineFormat) SetBeginArrowHead(newValue IArrowHeadProperties) {
 	this.BeginArrowHead = newValue
 }
-func (this *LineFormat) getEndArrowHead() IArrowHeadProperties {
+func (this *LineFormat) GetEndArrowHead() IArrowHeadProperties {
 	return this.EndArrowHead
 }
 
-func (this *LineFormat) setEndArrowHead(newValue IArrowHeadProperties) {
+func (this *LineFormat) SetEndArrowHead(newValue IArrowHeadProperties) {
 	this.EndArrowHead = newValue
 }
-func (this *LineFormat) getCustomDashPattern() ICustomDashPattern {
+func (this *LineFormat) GetCustomDashPattern() ICustomDashPattern {
 	return this.CustomDashPattern
 }
 
-func (this *LineFormat) setCustomDashPattern(newValue ICustomDashPattern) {
+func (this *LineFormat) SetCustomDashPattern(newValue ICustomDashPattern) {
 	this.CustomDashPattern = newValue
 }
-func (this *LineFormat) getFillFormat() IFillFormat {
+func (this *LineFormat) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *LineFormat) setFillFormat(newValue IFillFormat) {
+func (this *LineFormat) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *LineFormat) getMiterLimit() float64 {
+func (this *LineFormat) GetMiterLimit() float64 {
 	return this.MiterLimit
 }
 
-func (this *LineFormat) setMiterLimit(newValue float64) {
+func (this *LineFormat) SetMiterLimit(newValue float64) {
 	this.MiterLimit = newValue
 }
-func (this *LineFormat) getWidth() float64 {
+func (this *LineFormat) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *LineFormat) setWidth(newValue float64) {
+func (this *LineFormat) SetWidth(newValue float64) {
 	this.Width = newValue
 }
 

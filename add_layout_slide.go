@@ -34,16 +34,16 @@ import (
 type IAddLayoutSlide interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Source file.
-	getCloneFromFile() IInputFile
-	setCloneFromFile(newValue IInputFile)
+	GetCloneFromFile() IInputFile
+	SetCloneFromFile(newValue IInputFile)
 
 	// Source layout slide position.
-	getCloneFromPosition() int32
-	setCloneFromPosition(newValue int32)
+	GetCloneFromPosition() int32
+	SetCloneFromPosition(newValue int32)
 }
 
 type AddLayoutSlide struct {
@@ -64,25 +64,25 @@ func NewAddLayoutSlide() *AddLayoutSlide {
 	return instance
 }
 
-func (this *AddLayoutSlide) getType() string {
+func (this *AddLayoutSlide) GetType() string {
 	return this.Type_
 }
 
-func (this *AddLayoutSlide) setType(newValue string) {
+func (this *AddLayoutSlide) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *AddLayoutSlide) getCloneFromFile() IInputFile {
+func (this *AddLayoutSlide) GetCloneFromFile() IInputFile {
 	return this.CloneFromFile
 }
 
-func (this *AddLayoutSlide) setCloneFromFile(newValue IInputFile) {
+func (this *AddLayoutSlide) SetCloneFromFile(newValue IInputFile) {
 	this.CloneFromFile = newValue
 }
-func (this *AddLayoutSlide) getCloneFromPosition() int32 {
+func (this *AddLayoutSlide) GetCloneFromPosition() int32 {
 	return this.CloneFromPosition
 }
 
-func (this *AddLayoutSlide) setCloneFromPosition(newValue int32) {
+func (this *AddLayoutSlide) SetCloneFromPosition(newValue int32) {
 	this.CloneFromPosition = newValue
 }
 

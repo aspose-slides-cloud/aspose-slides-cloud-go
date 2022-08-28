@@ -34,8 +34,8 @@ import (
 type IGeometryPaths interface {
 
 	// List of GeometryPath objects
-	getPaths() []IGeometryPath
-	setPaths(newValue []IGeometryPath)
+	GetPaths() []IGeometryPath
+	SetPaths(newValue []IGeometryPath)
 }
 
 type GeometryPaths struct {
@@ -49,11 +49,11 @@ func NewGeometryPaths() *GeometryPaths {
 	return instance
 }
 
-func (this *GeometryPaths) getPaths() []IGeometryPath {
+func (this *GeometryPaths) GetPaths() []IGeometryPath {
 	return this.Paths
 }
 
-func (this *GeometryPaths) setPaths(newValue []IGeometryPath) {
+func (this *GeometryPaths) SetPaths(newValue []IGeometryPath) {
 	this.Paths = newValue
 }
 

@@ -34,12 +34,12 @@ import (
 type IRemoveShape interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Shape path for a grouped or smart art shape.
-	getShapePath() string
-	setShapePath(newValue string)
+	GetShapePath() string
+	SetShapePath(newValue string)
 }
 
 type RemoveShape struct {
@@ -57,18 +57,18 @@ func NewRemoveShape() *RemoveShape {
 	return instance
 }
 
-func (this *RemoveShape) getType() string {
+func (this *RemoveShape) GetType() string {
 	return this.Type_
 }
 
-func (this *RemoveShape) setType(newValue string) {
+func (this *RemoveShape) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *RemoveShape) getShapePath() string {
+func (this *RemoveShape) GetShapePath() string {
 	return this.ShapePath
 }
 
-func (this *RemoveShape) setShapePath(newValue string) {
+func (this *RemoveShape) SetShapePath(newValue string) {
 	this.ShapePath = newValue
 }
 

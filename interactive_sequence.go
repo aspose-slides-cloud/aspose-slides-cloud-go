@@ -34,12 +34,12 @@ import (
 type IInteractiveSequence interface {
 
 	// Effect list.
-	getEffects() []IEffect
-	setEffects(newValue []IEffect)
+	GetEffects() []IEffect
+	SetEffects(newValue []IEffect)
 
 	// Index of the shape that triggers the sequence.
-	getTriggerShapeIndex() int32
-	setTriggerShapeIndex(newValue int32)
+	GetTriggerShapeIndex() int32
+	SetTriggerShapeIndex(newValue int32)
 }
 
 type InteractiveSequence struct {
@@ -56,18 +56,18 @@ func NewInteractiveSequence() *InteractiveSequence {
 	return instance
 }
 
-func (this *InteractiveSequence) getEffects() []IEffect {
+func (this *InteractiveSequence) GetEffects() []IEffect {
 	return this.Effects
 }
 
-func (this *InteractiveSequence) setEffects(newValue []IEffect) {
+func (this *InteractiveSequence) SetEffects(newValue []IEffect) {
 	this.Effects = newValue
 }
-func (this *InteractiveSequence) getTriggerShapeIndex() int32 {
+func (this *InteractiveSequence) GetTriggerShapeIndex() int32 {
 	return this.TriggerShapeIndex
 }
 
-func (this *InteractiveSequence) setTriggerShapeIndex(newValue int32) {
+func (this *InteractiveSequence) SetTriggerShapeIndex(newValue int32) {
 	this.TriggerShapeIndex = newValue
 }
 

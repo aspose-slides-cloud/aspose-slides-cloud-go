@@ -34,16 +34,16 @@ import (
 type IShapeBevel interface {
 
 	// Bevel type
-	getBevelType() string
-	setBevelType(newValue string)
+	GetBevelType() string
+	SetBevelType(newValue string)
 
 	// Bevel width
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Bevel height
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 }
 
 type ShapeBevel struct {
@@ -64,25 +64,25 @@ func NewShapeBevel() *ShapeBevel {
 	return instance
 }
 
-func (this *ShapeBevel) getBevelType() string {
+func (this *ShapeBevel) GetBevelType() string {
 	return this.BevelType
 }
 
-func (this *ShapeBevel) setBevelType(newValue string) {
+func (this *ShapeBevel) SetBevelType(newValue string) {
 	this.BevelType = newValue
 }
-func (this *ShapeBevel) getWidth() float64 {
+func (this *ShapeBevel) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *ShapeBevel) setWidth(newValue float64) {
+func (this *ShapeBevel) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *ShapeBevel) getHeight() float64 {
+func (this *ShapeBevel) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *ShapeBevel) setHeight(newValue float64) {
+func (this *ShapeBevel) SetHeight(newValue float64) {
 	this.Height = newValue
 }
 

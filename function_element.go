@@ -34,16 +34,16 @@ import (
 type IFunctionElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Function
-	getName() IMathElement
-	setName(newValue IMathElement)
+	GetName() IMathElement
+	SetName(newValue IMathElement)
 
 	// Function Argument
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 }
 
 type FunctionElement struct {
@@ -64,25 +64,25 @@ func NewFunctionElement() *FunctionElement {
 	return instance
 }
 
-func (this *FunctionElement) getType() string {
+func (this *FunctionElement) GetType() string {
 	return this.Type_
 }
 
-func (this *FunctionElement) setType(newValue string) {
+func (this *FunctionElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *FunctionElement) getName() IMathElement {
+func (this *FunctionElement) GetName() IMathElement {
 	return this.Name
 }
 
-func (this *FunctionElement) setName(newValue IMathElement) {
+func (this *FunctionElement) SetName(newValue IMathElement) {
 	this.Name = newValue
 }
-func (this *FunctionElement) getBase() IMathElement {
+func (this *FunctionElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *FunctionElement) setBase(newValue IMathElement) {
+func (this *FunctionElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
 

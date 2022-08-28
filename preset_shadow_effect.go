@@ -34,20 +34,20 @@ import (
 type IPresetShadowEffect interface {
 
 	// direction
-	getDirection() float64
-	setDirection(newValue float64)
+	GetDirection() float64
+	SetDirection(newValue float64)
 
 	// distance
-	getDistance() float64
-	setDistance(newValue float64)
+	GetDistance() float64
+	SetDistance(newValue float64)
 
 	// preset
-	getPreset() string
-	setPreset(newValue string)
+	GetPreset() string
+	SetPreset(newValue string)
 
 	// shadow color
-	getShadowColor() string
-	setShadowColor(newValue string)
+	GetShadowColor() string
+	SetShadowColor(newValue string)
 }
 
 type PresetShadowEffect struct {
@@ -71,32 +71,32 @@ func NewPresetShadowEffect() *PresetShadowEffect {
 	return instance
 }
 
-func (this *PresetShadowEffect) getDirection() float64 {
+func (this *PresetShadowEffect) GetDirection() float64 {
 	return this.Direction
 }
 
-func (this *PresetShadowEffect) setDirection(newValue float64) {
+func (this *PresetShadowEffect) SetDirection(newValue float64) {
 	this.Direction = newValue
 }
-func (this *PresetShadowEffect) getDistance() float64 {
+func (this *PresetShadowEffect) GetDistance() float64 {
 	return this.Distance
 }
 
-func (this *PresetShadowEffect) setDistance(newValue float64) {
+func (this *PresetShadowEffect) SetDistance(newValue float64) {
 	this.Distance = newValue
 }
-func (this *PresetShadowEffect) getPreset() string {
+func (this *PresetShadowEffect) GetPreset() string {
 	return this.Preset
 }
 
-func (this *PresetShadowEffect) setPreset(newValue string) {
+func (this *PresetShadowEffect) SetPreset(newValue string) {
 	this.Preset = newValue
 }
-func (this *PresetShadowEffect) getShadowColor() string {
+func (this *PresetShadowEffect) GetShadowColor() string {
 	return this.ShadowColor
 }
 
-func (this *PresetShadowEffect) setShadowColor(newValue string) {
+func (this *PresetShadowEffect) SetShadowColor(newValue string) {
 	this.ShadowColor = newValue
 }
 

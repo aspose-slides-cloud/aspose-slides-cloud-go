@@ -34,80 +34,80 @@ import (
 type IGroupShape interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Gets or sets the link to shapes.
-	getShapes() IResourceUri
-	setShapes(newValue IResourceUri)
+	GetShapes() IResourceUri
+	SetShapes(newValue IResourceUri)
 }
 
 type GroupShape struct {
@@ -176,137 +176,137 @@ func NewGroupShape() *GroupShape {
 	return instance
 }
 
-func (this *GroupShape) getSelfUri() IResourceUri {
+func (this *GroupShape) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *GroupShape) setSelfUri(newValue IResourceUri) {
+func (this *GroupShape) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *GroupShape) getAlternateLinks() []IResourceUri {
+func (this *GroupShape) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *GroupShape) setAlternateLinks(newValue []IResourceUri) {
+func (this *GroupShape) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *GroupShape) getName() string {
+func (this *GroupShape) GetName() string {
 	return this.Name
 }
 
-func (this *GroupShape) setName(newValue string) {
+func (this *GroupShape) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *GroupShape) getWidth() float64 {
+func (this *GroupShape) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *GroupShape) setWidth(newValue float64) {
+func (this *GroupShape) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *GroupShape) getHeight() float64 {
+func (this *GroupShape) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *GroupShape) setHeight(newValue float64) {
+func (this *GroupShape) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *GroupShape) getAlternativeText() string {
+func (this *GroupShape) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *GroupShape) setAlternativeText(newValue string) {
+func (this *GroupShape) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *GroupShape) getAlternativeTextTitle() string {
+func (this *GroupShape) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *GroupShape) setAlternativeTextTitle(newValue string) {
+func (this *GroupShape) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *GroupShape) getHidden() bool {
+func (this *GroupShape) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *GroupShape) setHidden(newValue bool) {
+func (this *GroupShape) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *GroupShape) getX() float64 {
+func (this *GroupShape) GetX() float64 {
 	return this.X
 }
 
-func (this *GroupShape) setX(newValue float64) {
+func (this *GroupShape) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *GroupShape) getY() float64 {
+func (this *GroupShape) GetY() float64 {
 	return this.Y
 }
 
-func (this *GroupShape) setY(newValue float64) {
+func (this *GroupShape) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *GroupShape) getZOrderPosition() int32 {
+func (this *GroupShape) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *GroupShape) setZOrderPosition(newValue int32) {
+func (this *GroupShape) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *GroupShape) getFillFormat() IFillFormat {
+func (this *GroupShape) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *GroupShape) setFillFormat(newValue IFillFormat) {
+func (this *GroupShape) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *GroupShape) getEffectFormat() IEffectFormat {
+func (this *GroupShape) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *GroupShape) setEffectFormat(newValue IEffectFormat) {
+func (this *GroupShape) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *GroupShape) getThreeDFormat() IThreeDFormat {
+func (this *GroupShape) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *GroupShape) setThreeDFormat(newValue IThreeDFormat) {
+func (this *GroupShape) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *GroupShape) getLineFormat() ILineFormat {
+func (this *GroupShape) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *GroupShape) setLineFormat(newValue ILineFormat) {
+func (this *GroupShape) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *GroupShape) getHyperlinkClick() IHyperlink {
+func (this *GroupShape) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *GroupShape) setHyperlinkClick(newValue IHyperlink) {
+func (this *GroupShape) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *GroupShape) getHyperlinkMouseOver() IHyperlink {
+func (this *GroupShape) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *GroupShape) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *GroupShape) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *GroupShape) getType() string {
+func (this *GroupShape) GetType() string {
 	return this.Type_
 }
 
-func (this *GroupShape) setType(newValue string) {
+func (this *GroupShape) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *GroupShape) getShapes() IResourceUri {
+func (this *GroupShape) GetShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *GroupShape) setShapes(newValue IResourceUri) {
+func (this *GroupShape) SetShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
 

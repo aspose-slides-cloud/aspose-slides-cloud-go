@@ -34,12 +34,12 @@ import (
 type ISolidFill interface {
 
 	// Fill type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Color.
-	getColor() string
-	setColor(newValue string)
+	GetColor() string
+	SetColor(newValue string)
 }
 
 type SolidFill struct {
@@ -57,18 +57,18 @@ func NewSolidFill() *SolidFill {
 	return instance
 }
 
-func (this *SolidFill) getType() string {
+func (this *SolidFill) GetType() string {
 	return this.Type_
 }
 
-func (this *SolidFill) setType(newValue string) {
+func (this *SolidFill) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *SolidFill) getColor() string {
+func (this *SolidFill) GetColor() string {
 	return this.Color
 }
 
-func (this *SolidFill) setColor(newValue string) {
+func (this *SolidFill) SetColor(newValue string) {
 	this.Color = newValue
 }
 

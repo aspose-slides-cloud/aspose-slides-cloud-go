@@ -34,12 +34,12 @@ import (
 type IMathParagraph interface {
 
 	// List of math blocks
-	getMathBlockList() []IBlockElement
-	setMathBlockList(newValue []IBlockElement)
+	GetMathBlockList() []IBlockElement
+	SetMathBlockList(newValue []IBlockElement)
 
 	// Justification of the math paragraph
-	getJustification() string
-	setJustification(newValue string)
+	GetJustification() string
+	SetJustification(newValue string)
 }
 
 type MathParagraph struct {
@@ -57,18 +57,18 @@ func NewMathParagraph() *MathParagraph {
 	return instance
 }
 
-func (this *MathParagraph) getMathBlockList() []IBlockElement {
+func (this *MathParagraph) GetMathBlockList() []IBlockElement {
 	return this.MathBlockList
 }
 
-func (this *MathParagraph) setMathBlockList(newValue []IBlockElement) {
+func (this *MathParagraph) SetMathBlockList(newValue []IBlockElement) {
 	this.MathBlockList = newValue
 }
-func (this *MathParagraph) getJustification() string {
+func (this *MathParagraph) GetJustification() string {
 	return this.Justification
 }
 
-func (this *MathParagraph) setJustification(newValue string) {
+func (this *MathParagraph) SetJustification(newValue string) {
 	this.Justification = newValue
 }
 

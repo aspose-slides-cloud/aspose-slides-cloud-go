@@ -34,12 +34,12 @@ import (
 type IApiInfo interface {
 
 	// Product name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// API version.
-	getVersion() string
-	setVersion(newValue string)
+	GetVersion() string
+	SetVersion(newValue string)
 }
 
 type ApiInfo struct {
@@ -56,18 +56,18 @@ func NewApiInfo() *ApiInfo {
 	return instance
 }
 
-func (this *ApiInfo) getName() string {
+func (this *ApiInfo) GetName() string {
 	return this.Name
 }
 
-func (this *ApiInfo) setName(newValue string) {
+func (this *ApiInfo) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *ApiInfo) getVersion() string {
+func (this *ApiInfo) GetVersion() string {
 	return this.Version
 }
 
-func (this *ApiInfo) setVersion(newValue string) {
+func (this *ApiInfo) SetVersion(newValue string) {
 	this.Version = newValue
 }
 

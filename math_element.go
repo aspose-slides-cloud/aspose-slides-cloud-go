@@ -33,8 +33,8 @@ import (
 // Math element.
 type IMathElement interface {
 
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type MathElement struct {
@@ -48,11 +48,11 @@ func NewMathElement() *MathElement {
 	return instance
 }
 
-func (this *MathElement) getType() string {
+func (this *MathElement) GetType() string {
 	return this.Type_
 }
 
-func (this *MathElement) setType(newValue string) {
+func (this *MathElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

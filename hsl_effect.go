@@ -34,20 +34,20 @@ import (
 type IHslEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Hue
-	getHue() float64
-	setHue(newValue float64)
+	GetHue() float64
+	SetHue(newValue float64)
 
 	// Saturation
-	getSaturation() float64
-	setSaturation(newValue float64)
+	GetSaturation() float64
+	SetSaturation(newValue float64)
 
 	// Luminance
-	getLuminance() float64
-	setLuminance(newValue float64)
+	GetLuminance() float64
+	SetLuminance(newValue float64)
 }
 
 type HslEffect struct {
@@ -71,32 +71,32 @@ func NewHslEffect() *HslEffect {
 	return instance
 }
 
-func (this *HslEffect) getType() string {
+func (this *HslEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *HslEffect) setType(newValue string) {
+func (this *HslEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *HslEffect) getHue() float64 {
+func (this *HslEffect) GetHue() float64 {
 	return this.Hue
 }
 
-func (this *HslEffect) setHue(newValue float64) {
+func (this *HslEffect) SetHue(newValue float64) {
 	this.Hue = newValue
 }
-func (this *HslEffect) getSaturation() float64 {
+func (this *HslEffect) GetSaturation() float64 {
 	return this.Saturation
 }
 
-func (this *HslEffect) setSaturation(newValue float64) {
+func (this *HslEffect) SetSaturation(newValue float64) {
 	this.Saturation = newValue
 }
-func (this *HslEffect) getLuminance() float64 {
+func (this *HslEffect) GetLuminance() float64 {
 	return this.Luminance
 }
 
-func (this *HslEffect) setLuminance(newValue float64) {
+func (this *HslEffect) SetLuminance(newValue float64) {
 	this.Luminance = newValue
 }
 

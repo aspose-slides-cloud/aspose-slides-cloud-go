@@ -34,23 +34,23 @@ import (
 type ISlideCommentBase interface {
 
 	// Author.
-	getAuthor() string
-	setAuthor(newValue string)
+	GetAuthor() string
+	SetAuthor(newValue string)
 
 	// Text.
-	getText() string
-	setText(newValue string)
+	GetText() string
+	SetText(newValue string)
 
 	// Creation time.
-	getCreatedTime() string
-	setCreatedTime(newValue string)
+	GetCreatedTime() string
+	SetCreatedTime(newValue string)
 
 	// Child comments.
-	getChildComments() []ISlideCommentBase
-	setChildComments(newValue []ISlideCommentBase)
+	GetChildComments() []ISlideCommentBase
+	SetChildComments(newValue []ISlideCommentBase)
 
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type SlideCommentBase struct {
@@ -76,39 +76,39 @@ func NewSlideCommentBase() *SlideCommentBase {
 	return instance
 }
 
-func (this *SlideCommentBase) getAuthor() string {
+func (this *SlideCommentBase) GetAuthor() string {
 	return this.Author
 }
 
-func (this *SlideCommentBase) setAuthor(newValue string) {
+func (this *SlideCommentBase) SetAuthor(newValue string) {
 	this.Author = newValue
 }
-func (this *SlideCommentBase) getText() string {
+func (this *SlideCommentBase) GetText() string {
 	return this.Text
 }
 
-func (this *SlideCommentBase) setText(newValue string) {
+func (this *SlideCommentBase) SetText(newValue string) {
 	this.Text = newValue
 }
-func (this *SlideCommentBase) getCreatedTime() string {
+func (this *SlideCommentBase) GetCreatedTime() string {
 	return this.CreatedTime
 }
 
-func (this *SlideCommentBase) setCreatedTime(newValue string) {
+func (this *SlideCommentBase) SetCreatedTime(newValue string) {
 	this.CreatedTime = newValue
 }
-func (this *SlideCommentBase) getChildComments() []ISlideCommentBase {
+func (this *SlideCommentBase) GetChildComments() []ISlideCommentBase {
 	return this.ChildComments
 }
 
-func (this *SlideCommentBase) setChildComments(newValue []ISlideCommentBase) {
+func (this *SlideCommentBase) SetChildComments(newValue []ISlideCommentBase) {
 	this.ChildComments = newValue
 }
-func (this *SlideCommentBase) getType() string {
+func (this *SlideCommentBase) GetType() string {
 	return this.Type_
 }
 
-func (this *SlideCommentBase) setType(newValue string) {
+func (this *SlideCommentBase) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

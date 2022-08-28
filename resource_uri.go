@@ -34,28 +34,28 @@ import (
 type IResourceUri interface {
 
 	// Gets or sets the href.
-	getHref() string
-	setHref(newValue string)
+	GetHref() string
+	SetHref(newValue string)
 
 	// Gets or sets the relation.
-	getRelation() string
-	setRelation(newValue string)
+	GetRelation() string
+	SetRelation(newValue string)
 
 	// Gets or sets the type of link.
-	getLinkType() string
-	setLinkType(newValue string)
+	GetLinkType() string
+	SetLinkType(newValue string)
 
 	// Gets or sets the title of link.
-	getTitle() string
-	setTitle(newValue string)
+	GetTitle() string
+	SetTitle(newValue string)
 
 	// Resource slide index.
-	getSlideIndex() int32
-	setSlideIndex(newValue int32)
+	GetSlideIndex() int32
+	SetSlideIndex(newValue int32)
 
 	// Resource shape index.
-	getShapeIndex() int32
-	setShapeIndex(newValue int32)
+	GetShapeIndex() int32
+	SetShapeIndex(newValue int32)
 }
 
 type ResourceUri struct {
@@ -84,46 +84,46 @@ func NewResourceUri() *ResourceUri {
 	return instance
 }
 
-func (this *ResourceUri) getHref() string {
+func (this *ResourceUri) GetHref() string {
 	return this.Href
 }
 
-func (this *ResourceUri) setHref(newValue string) {
+func (this *ResourceUri) SetHref(newValue string) {
 	this.Href = newValue
 }
-func (this *ResourceUri) getRelation() string {
+func (this *ResourceUri) GetRelation() string {
 	return this.Relation
 }
 
-func (this *ResourceUri) setRelation(newValue string) {
+func (this *ResourceUri) SetRelation(newValue string) {
 	this.Relation = newValue
 }
-func (this *ResourceUri) getLinkType() string {
+func (this *ResourceUri) GetLinkType() string {
 	return this.LinkType
 }
 
-func (this *ResourceUri) setLinkType(newValue string) {
+func (this *ResourceUri) SetLinkType(newValue string) {
 	this.LinkType = newValue
 }
-func (this *ResourceUri) getTitle() string {
+func (this *ResourceUri) GetTitle() string {
 	return this.Title
 }
 
-func (this *ResourceUri) setTitle(newValue string) {
+func (this *ResourceUri) SetTitle(newValue string) {
 	this.Title = newValue
 }
-func (this *ResourceUri) getSlideIndex() int32 {
+func (this *ResourceUri) GetSlideIndex() int32 {
 	return this.SlideIndex
 }
 
-func (this *ResourceUri) setSlideIndex(newValue int32) {
+func (this *ResourceUri) SetSlideIndex(newValue int32) {
 	this.SlideIndex = newValue
 }
-func (this *ResourceUri) getShapeIndex() int32 {
+func (this *ResourceUri) GetShapeIndex() int32 {
 	return this.ShapeIndex
 }
 
-func (this *ResourceUri) setShapeIndex(newValue int32) {
+func (this *ResourceUri) SetShapeIndex(newValue int32) {
 	this.ShapeIndex = newValue
 }
 

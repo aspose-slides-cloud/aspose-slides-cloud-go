@@ -34,24 +34,24 @@ import (
 type IImage interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Get or sets the width of an image.
-	getWidth() int32
-	setWidth(newValue int32)
+	GetWidth() int32
+	SetWidth(newValue int32)
 
 	// Get or sets the height of an image.
-	getHeight() int32
-	setHeight(newValue int32)
+	GetHeight() int32
+	SetHeight(newValue int32)
 
 	// Get or sets the content type of an image.
-	getContentType() string
-	setContentType(newValue string)
+	GetContentType() string
+	SetContentType(newValue string)
 }
 
 type Image struct {
@@ -77,39 +77,39 @@ func NewImage() *Image {
 	return instance
 }
 
-func (this *Image) getSelfUri() IResourceUri {
+func (this *Image) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Image) setSelfUri(newValue IResourceUri) {
+func (this *Image) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Image) getAlternateLinks() []IResourceUri {
+func (this *Image) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Image) setAlternateLinks(newValue []IResourceUri) {
+func (this *Image) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Image) getWidth() int32 {
+func (this *Image) GetWidth() int32 {
 	return this.Width
 }
 
-func (this *Image) setWidth(newValue int32) {
+func (this *Image) SetWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this *Image) getHeight() int32 {
+func (this *Image) GetHeight() int32 {
 	return this.Height
 }
 
-func (this *Image) setHeight(newValue int32) {
+func (this *Image) SetHeight(newValue int32) {
 	this.Height = newValue
 }
-func (this *Image) getContentType() string {
+func (this *Image) GetContentType() string {
 	return this.ContentType
 }
 
-func (this *Image) setContentType(newValue string) {
+func (this *Image) SetContentType(newValue string) {
 	this.ContentType = newValue
 }
 

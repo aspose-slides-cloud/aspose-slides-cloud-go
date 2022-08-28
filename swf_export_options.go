@@ -34,96 +34,96 @@ import (
 type ISwfExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
 	// Export format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	getShowHiddenSlides() bool
-	setShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() bool
+	SetShowHiddenSlides(newValue bool)
 
 	// Specifies whether the generated SWF document should be compressed or not. Default is true. 
-	getCompressed() bool
-	setCompressed(newValue bool)
+	GetCompressed() bool
+	SetCompressed(newValue bool)
 
 	// Specifies whether the generated SWF document should include the integrated document viewer or not. Default is true. 
-	getViewerIncluded() bool
-	setViewerIncluded(newValue bool)
+	GetViewerIncluded() bool
+	SetViewerIncluded(newValue bool)
 
 	// Specifies whether border around pages should be shown. Default is true. 
-	getShowPageBorder() bool
-	setShowPageBorder(newValue bool)
+	GetShowPageBorder() bool
+	SetShowPageBorder(newValue bool)
 
 	// Show/hide fullscreen button. Can be overridden in flashvars. Default is true. 
-	getShowFullScreen() bool
-	setShowFullScreen(newValue bool)
+	GetShowFullScreen() bool
+	SetShowFullScreen(newValue bool)
 
 	// Show/hide page stepper. Can be overridden in flashvars. Default is true. 
-	getShowPageStepper() bool
-	setShowPageStepper(newValue bool)
+	GetShowPageStepper() bool
+	SetShowPageStepper(newValue bool)
 
 	// Show/hide search section. Can be overridden in flashvars. Default is true. 
-	getShowSearch() bool
-	setShowSearch(newValue bool)
+	GetShowSearch() bool
+	SetShowSearch(newValue bool)
 
 	// Show/hide whole top pane. Can be overridden in flashvars. Default is true. 
-	getShowTopPane() bool
-	setShowTopPane(newValue bool)
+	GetShowTopPane() bool
+	SetShowTopPane(newValue bool)
 
 	// Show/hide bottom pane. Can be overridden in flashvars. Default is true. 
-	getShowBottomPane() bool
-	setShowBottomPane(newValue bool)
+	GetShowBottomPane() bool
+	SetShowBottomPane(newValue bool)
 
 	// Show/hide left pane. Can be overridden in flashvars. Default is true. 
-	getShowLeftPane() bool
-	setShowLeftPane(newValue bool)
+	GetShowLeftPane() bool
+	SetShowLeftPane(newValue bool)
 
 	// Start with opened left pane. Can be overridden in flashvars. Default is false. 
-	getStartOpenLeftPane() bool
-	setStartOpenLeftPane(newValue bool)
+	GetStartOpenLeftPane() bool
+	SetStartOpenLeftPane(newValue bool)
 
 	// Enable/disable context menu. Default is true. 
-	getEnableContextMenu() bool
-	setEnableContextMenu(newValue bool)
+	GetEnableContextMenu() bool
+	SetEnableContextMenu(newValue bool)
 
 	// Image that will be displayed as logo in the top right corner of the viewer. The image data is a base 64 string. Image should be 32x64 pixels PNG image, otherwise logo can be displayed improperly. 
-	getLogoImage() string
-	setLogoImage(newValue string)
+	GetLogoImage() string
+	SetLogoImage(newValue string)
 
 	// Gets or sets the full hyperlink address for a logo. Has an effect only if a LogoImage is specified. 
-	getLogoLink() string
-	setLogoLink(newValue string)
+	GetLogoLink() string
+	SetLogoLink(newValue string)
 
 	// Specifies the quality of JPEG images. Default is 95.
-	getJpegQuality() int32
-	setJpegQuality(newValue int32)
+	GetJpegQuality() int32
+	SetJpegQuality(newValue int32)
 
 	// Gets or sets the position of the notes on the page.
-	getNotesPosition() string
-	setNotesPosition(newValue string)
+	GetNotesPosition() string
+	SetNotesPosition(newValue string)
 
 	// Gets or sets the position of the comments on the page.
-	getCommentsPosition() string
-	setCommentsPosition(newValue string)
+	GetCommentsPosition() string
+	SetCommentsPosition(newValue string)
 
 	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	getCommentsAreaWidth() int32
-	setCommentsAreaWidth(newValue int32)
+	GetCommentsAreaWidth() int32
+	SetCommentsAreaWidth(newValue int32)
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
-	getCommentsAreaColor() string
-	setCommentsAreaColor(newValue string)
+	GetCommentsAreaColor() string
+	SetCommentsAreaColor(newValue string)
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	getShowCommentsByNoAuthor() bool
-	setShowCommentsByNoAuthor(newValue bool)
+	GetShowCommentsByNoAuthor() bool
+	SetShowCommentsByNoAuthor(newValue bool)
 }
 
 type SwfExportOptions struct {
@@ -205,165 +205,165 @@ func NewSwfExportOptions() *SwfExportOptions {
 	return instance
 }
 
-func (this *SwfExportOptions) getDefaultRegularFont() string {
+func (this *SwfExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *SwfExportOptions) setDefaultRegularFont(newValue string) {
+func (this *SwfExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *SwfExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *SwfExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *SwfExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *SwfExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *SwfExportOptions) getFormat() string {
+func (this *SwfExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *SwfExportOptions) setFormat(newValue string) {
+func (this *SwfExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *SwfExportOptions) getShowHiddenSlides() bool {
+func (this *SwfExportOptions) GetShowHiddenSlides() bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *SwfExportOptions) setShowHiddenSlides(newValue bool) {
+func (this *SwfExportOptions) SetShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this *SwfExportOptions) getCompressed() bool {
+func (this *SwfExportOptions) GetCompressed() bool {
 	return this.Compressed
 }
 
-func (this *SwfExportOptions) setCompressed(newValue bool) {
+func (this *SwfExportOptions) SetCompressed(newValue bool) {
 	this.Compressed = newValue
 }
-func (this *SwfExportOptions) getViewerIncluded() bool {
+func (this *SwfExportOptions) GetViewerIncluded() bool {
 	return this.ViewerIncluded
 }
 
-func (this *SwfExportOptions) setViewerIncluded(newValue bool) {
+func (this *SwfExportOptions) SetViewerIncluded(newValue bool) {
 	this.ViewerIncluded = newValue
 }
-func (this *SwfExportOptions) getShowPageBorder() bool {
+func (this *SwfExportOptions) GetShowPageBorder() bool {
 	return this.ShowPageBorder
 }
 
-func (this *SwfExportOptions) setShowPageBorder(newValue bool) {
+func (this *SwfExportOptions) SetShowPageBorder(newValue bool) {
 	this.ShowPageBorder = newValue
 }
-func (this *SwfExportOptions) getShowFullScreen() bool {
+func (this *SwfExportOptions) GetShowFullScreen() bool {
 	return this.ShowFullScreen
 }
 
-func (this *SwfExportOptions) setShowFullScreen(newValue bool) {
+func (this *SwfExportOptions) SetShowFullScreen(newValue bool) {
 	this.ShowFullScreen = newValue
 }
-func (this *SwfExportOptions) getShowPageStepper() bool {
+func (this *SwfExportOptions) GetShowPageStepper() bool {
 	return this.ShowPageStepper
 }
 
-func (this *SwfExportOptions) setShowPageStepper(newValue bool) {
+func (this *SwfExportOptions) SetShowPageStepper(newValue bool) {
 	this.ShowPageStepper = newValue
 }
-func (this *SwfExportOptions) getShowSearch() bool {
+func (this *SwfExportOptions) GetShowSearch() bool {
 	return this.ShowSearch
 }
 
-func (this *SwfExportOptions) setShowSearch(newValue bool) {
+func (this *SwfExportOptions) SetShowSearch(newValue bool) {
 	this.ShowSearch = newValue
 }
-func (this *SwfExportOptions) getShowTopPane() bool {
+func (this *SwfExportOptions) GetShowTopPane() bool {
 	return this.ShowTopPane
 }
 
-func (this *SwfExportOptions) setShowTopPane(newValue bool) {
+func (this *SwfExportOptions) SetShowTopPane(newValue bool) {
 	this.ShowTopPane = newValue
 }
-func (this *SwfExportOptions) getShowBottomPane() bool {
+func (this *SwfExportOptions) GetShowBottomPane() bool {
 	return this.ShowBottomPane
 }
 
-func (this *SwfExportOptions) setShowBottomPane(newValue bool) {
+func (this *SwfExportOptions) SetShowBottomPane(newValue bool) {
 	this.ShowBottomPane = newValue
 }
-func (this *SwfExportOptions) getShowLeftPane() bool {
+func (this *SwfExportOptions) GetShowLeftPane() bool {
 	return this.ShowLeftPane
 }
 
-func (this *SwfExportOptions) setShowLeftPane(newValue bool) {
+func (this *SwfExportOptions) SetShowLeftPane(newValue bool) {
 	this.ShowLeftPane = newValue
 }
-func (this *SwfExportOptions) getStartOpenLeftPane() bool {
+func (this *SwfExportOptions) GetStartOpenLeftPane() bool {
 	return this.StartOpenLeftPane
 }
 
-func (this *SwfExportOptions) setStartOpenLeftPane(newValue bool) {
+func (this *SwfExportOptions) SetStartOpenLeftPane(newValue bool) {
 	this.StartOpenLeftPane = newValue
 }
-func (this *SwfExportOptions) getEnableContextMenu() bool {
+func (this *SwfExportOptions) GetEnableContextMenu() bool {
 	return this.EnableContextMenu
 }
 
-func (this *SwfExportOptions) setEnableContextMenu(newValue bool) {
+func (this *SwfExportOptions) SetEnableContextMenu(newValue bool) {
 	this.EnableContextMenu = newValue
 }
-func (this *SwfExportOptions) getLogoImage() string {
+func (this *SwfExportOptions) GetLogoImage() string {
 	return this.LogoImage
 }
 
-func (this *SwfExportOptions) setLogoImage(newValue string) {
+func (this *SwfExportOptions) SetLogoImage(newValue string) {
 	this.LogoImage = newValue
 }
-func (this *SwfExportOptions) getLogoLink() string {
+func (this *SwfExportOptions) GetLogoLink() string {
 	return this.LogoLink
 }
 
-func (this *SwfExportOptions) setLogoLink(newValue string) {
+func (this *SwfExportOptions) SetLogoLink(newValue string) {
 	this.LogoLink = newValue
 }
-func (this *SwfExportOptions) getJpegQuality() int32 {
+func (this *SwfExportOptions) GetJpegQuality() int32 {
 	return this.JpegQuality
 }
 
-func (this *SwfExportOptions) setJpegQuality(newValue int32) {
+func (this *SwfExportOptions) SetJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this *SwfExportOptions) getNotesPosition() string {
+func (this *SwfExportOptions) GetNotesPosition() string {
 	return this.NotesPosition
 }
 
-func (this *SwfExportOptions) setNotesPosition(newValue string) {
+func (this *SwfExportOptions) SetNotesPosition(newValue string) {
 	this.NotesPosition = newValue
 }
-func (this *SwfExportOptions) getCommentsPosition() string {
+func (this *SwfExportOptions) GetCommentsPosition() string {
 	return this.CommentsPosition
 }
 
-func (this *SwfExportOptions) setCommentsPosition(newValue string) {
+func (this *SwfExportOptions) SetCommentsPosition(newValue string) {
 	this.CommentsPosition = newValue
 }
-func (this *SwfExportOptions) getCommentsAreaWidth() int32 {
+func (this *SwfExportOptions) GetCommentsAreaWidth() int32 {
 	return this.CommentsAreaWidth
 }
 
-func (this *SwfExportOptions) setCommentsAreaWidth(newValue int32) {
+func (this *SwfExportOptions) SetCommentsAreaWidth(newValue int32) {
 	this.CommentsAreaWidth = newValue
 }
-func (this *SwfExportOptions) getCommentsAreaColor() string {
+func (this *SwfExportOptions) GetCommentsAreaColor() string {
 	return this.CommentsAreaColor
 }
 
-func (this *SwfExportOptions) setCommentsAreaColor(newValue string) {
+func (this *SwfExportOptions) SetCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
-func (this *SwfExportOptions) getShowCommentsByNoAuthor() bool {
+func (this *SwfExportOptions) GetShowCommentsByNoAuthor() bool {
 	return this.ShowCommentsByNoAuthor
 }
 
-func (this *SwfExportOptions) setShowCommentsByNoAuthor(newValue bool) {
+func (this *SwfExportOptions) SetShowCommentsByNoAuthor(newValue bool) {
 	this.ShowCommentsByNoAuthor = newValue
 }
 

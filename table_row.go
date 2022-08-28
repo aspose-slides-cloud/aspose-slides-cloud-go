@@ -34,16 +34,16 @@ import (
 type ITableRow interface {
 
 	// Cells for the row.
-	getCells() []ITableCell
-	setCells(newValue []ITableCell)
+	GetCells() []ITableCell
+	SetCells(newValue []ITableCell)
 
 	// Minimal height of the row.
-	getMinimalHeight() float64
-	setMinimalHeight(newValue float64)
+	GetMinimalHeight() float64
+	SetMinimalHeight(newValue float64)
 
 	// Height of the row.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 }
 
 type TableRow struct {
@@ -63,25 +63,25 @@ func NewTableRow() *TableRow {
 	return instance
 }
 
-func (this *TableRow) getCells() []ITableCell {
+func (this *TableRow) GetCells() []ITableCell {
 	return this.Cells
 }
 
-func (this *TableRow) setCells(newValue []ITableCell) {
+func (this *TableRow) SetCells(newValue []ITableCell) {
 	this.Cells = newValue
 }
-func (this *TableRow) getMinimalHeight() float64 {
+func (this *TableRow) GetMinimalHeight() float64 {
 	return this.MinimalHeight
 }
 
-func (this *TableRow) setMinimalHeight(newValue float64) {
+func (this *TableRow) SetMinimalHeight(newValue float64) {
 	this.MinimalHeight = newValue
 }
-func (this *TableRow) getHeight() float64 {
+func (this *TableRow) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *TableRow) setHeight(newValue float64) {
+func (this *TableRow) SetHeight(newValue float64) {
 	this.Height = newValue
 }
 

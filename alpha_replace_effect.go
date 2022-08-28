@@ -34,12 +34,12 @@ import (
 type IAlphaReplaceEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// The new opacity value.
-	getAlpha() float64
-	setAlpha(newValue float64)
+	GetAlpha() float64
+	SetAlpha(newValue float64)
 }
 
 type AlphaReplaceEffect struct {
@@ -57,18 +57,18 @@ func NewAlphaReplaceEffect() *AlphaReplaceEffect {
 	return instance
 }
 
-func (this *AlphaReplaceEffect) getType() string {
+func (this *AlphaReplaceEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *AlphaReplaceEffect) setType(newValue string) {
+func (this *AlphaReplaceEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *AlphaReplaceEffect) getAlpha() float64 {
+func (this *AlphaReplaceEffect) GetAlpha() float64 {
 	return this.Alpha
 }
 
-func (this *AlphaReplaceEffect) setAlpha(newValue float64) {
+func (this *AlphaReplaceEffect) SetAlpha(newValue float64) {
 	this.Alpha = newValue
 }
 

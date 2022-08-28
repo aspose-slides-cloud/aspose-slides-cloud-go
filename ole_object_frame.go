@@ -34,112 +34,112 @@ import (
 type IOleObjectFrame interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// True if an object is visible as icon.
-	getIsObjectIcon() bool
-	setIsObjectIcon(newValue bool)
+	GetIsObjectIcon() bool
+	SetIsObjectIcon(newValue bool)
 
 	// The title for OleObject icon.             
-	getSubstitutePictureTitle() string
-	setSubstitutePictureTitle(newValue string)
+	GetSubstitutePictureTitle() string
+	SetSubstitutePictureTitle(newValue string)
 
 	// OleObject image fill properties.
-	getSubstitutePictureFormat() IPictureFill
-	setSubstitutePictureFormat(newValue IPictureFill)
+	GetSubstitutePictureFormat() IPictureFill
+	SetSubstitutePictureFormat(newValue IPictureFill)
 
 	// Returns or sets the name of an object.
-	getObjectName() string
-	setObjectName(newValue string)
+	GetObjectName() string
+	SetObjectName(newValue string)
 
 	// File data of embedded OLE object. 
-	getEmbeddedFileBase64Data() string
-	setEmbeddedFileBase64Data(newValue string)
+	GetEmbeddedFileBase64Data() string
+	SetEmbeddedFileBase64Data(newValue string)
 
 	// File extension for the current embedded OLE object
-	getEmbeddedFileExtension() string
-	setEmbeddedFileExtension(newValue string)
+	GetEmbeddedFileExtension() string
+	SetEmbeddedFileExtension(newValue string)
 
 	// ProgID of an object.
-	getObjectProgId() string
-	setObjectProgId(newValue string)
+	GetObjectProgId() string
+	SetObjectProgId(newValue string)
 
 	// Full path to a linked file.
-	getLinkPath() string
-	setLinkPath(newValue string)
+	GetLinkPath() string
+	SetLinkPath(newValue string)
 
 	// Determines if the linked embedded object is automatically updated when the presentation is opened or printed. Read/write Boolean.
-	getUpdateAutomatic() bool
-	setUpdateAutomatic(newValue bool)
+	GetUpdateAutomatic() bool
+	SetUpdateAutomatic(newValue bool)
 }
 
 type OleObjectFrame struct {
@@ -232,193 +232,193 @@ func NewOleObjectFrame() *OleObjectFrame {
 	return instance
 }
 
-func (this *OleObjectFrame) getSelfUri() IResourceUri {
+func (this *OleObjectFrame) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *OleObjectFrame) setSelfUri(newValue IResourceUri) {
+func (this *OleObjectFrame) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *OleObjectFrame) getAlternateLinks() []IResourceUri {
+func (this *OleObjectFrame) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *OleObjectFrame) setAlternateLinks(newValue []IResourceUri) {
+func (this *OleObjectFrame) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *OleObjectFrame) getName() string {
+func (this *OleObjectFrame) GetName() string {
 	return this.Name
 }
 
-func (this *OleObjectFrame) setName(newValue string) {
+func (this *OleObjectFrame) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *OleObjectFrame) getWidth() float64 {
+func (this *OleObjectFrame) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *OleObjectFrame) setWidth(newValue float64) {
+func (this *OleObjectFrame) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *OleObjectFrame) getHeight() float64 {
+func (this *OleObjectFrame) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *OleObjectFrame) setHeight(newValue float64) {
+func (this *OleObjectFrame) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *OleObjectFrame) getAlternativeText() string {
+func (this *OleObjectFrame) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *OleObjectFrame) setAlternativeText(newValue string) {
+func (this *OleObjectFrame) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *OleObjectFrame) getAlternativeTextTitle() string {
+func (this *OleObjectFrame) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *OleObjectFrame) setAlternativeTextTitle(newValue string) {
+func (this *OleObjectFrame) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *OleObjectFrame) getHidden() bool {
+func (this *OleObjectFrame) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *OleObjectFrame) setHidden(newValue bool) {
+func (this *OleObjectFrame) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *OleObjectFrame) getX() float64 {
+func (this *OleObjectFrame) GetX() float64 {
 	return this.X
 }
 
-func (this *OleObjectFrame) setX(newValue float64) {
+func (this *OleObjectFrame) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *OleObjectFrame) getY() float64 {
+func (this *OleObjectFrame) GetY() float64 {
 	return this.Y
 }
 
-func (this *OleObjectFrame) setY(newValue float64) {
+func (this *OleObjectFrame) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *OleObjectFrame) getZOrderPosition() int32 {
+func (this *OleObjectFrame) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *OleObjectFrame) setZOrderPosition(newValue int32) {
+func (this *OleObjectFrame) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *OleObjectFrame) getFillFormat() IFillFormat {
+func (this *OleObjectFrame) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *OleObjectFrame) setFillFormat(newValue IFillFormat) {
+func (this *OleObjectFrame) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *OleObjectFrame) getEffectFormat() IEffectFormat {
+func (this *OleObjectFrame) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *OleObjectFrame) setEffectFormat(newValue IEffectFormat) {
+func (this *OleObjectFrame) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *OleObjectFrame) getThreeDFormat() IThreeDFormat {
+func (this *OleObjectFrame) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *OleObjectFrame) setThreeDFormat(newValue IThreeDFormat) {
+func (this *OleObjectFrame) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *OleObjectFrame) getLineFormat() ILineFormat {
+func (this *OleObjectFrame) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *OleObjectFrame) setLineFormat(newValue ILineFormat) {
+func (this *OleObjectFrame) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *OleObjectFrame) getHyperlinkClick() IHyperlink {
+func (this *OleObjectFrame) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *OleObjectFrame) setHyperlinkClick(newValue IHyperlink) {
+func (this *OleObjectFrame) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *OleObjectFrame) getHyperlinkMouseOver() IHyperlink {
+func (this *OleObjectFrame) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *OleObjectFrame) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *OleObjectFrame) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *OleObjectFrame) getType() string {
+func (this *OleObjectFrame) GetType() string {
 	return this.Type_
 }
 
-func (this *OleObjectFrame) setType(newValue string) {
+func (this *OleObjectFrame) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *OleObjectFrame) getIsObjectIcon() bool {
+func (this *OleObjectFrame) GetIsObjectIcon() bool {
 	return this.IsObjectIcon
 }
 
-func (this *OleObjectFrame) setIsObjectIcon(newValue bool) {
+func (this *OleObjectFrame) SetIsObjectIcon(newValue bool) {
 	this.IsObjectIcon = newValue
 }
-func (this *OleObjectFrame) getSubstitutePictureTitle() string {
+func (this *OleObjectFrame) GetSubstitutePictureTitle() string {
 	return this.SubstitutePictureTitle
 }
 
-func (this *OleObjectFrame) setSubstitutePictureTitle(newValue string) {
+func (this *OleObjectFrame) SetSubstitutePictureTitle(newValue string) {
 	this.SubstitutePictureTitle = newValue
 }
-func (this *OleObjectFrame) getSubstitutePictureFormat() IPictureFill {
+func (this *OleObjectFrame) GetSubstitutePictureFormat() IPictureFill {
 	return this.SubstitutePictureFormat
 }
 
-func (this *OleObjectFrame) setSubstitutePictureFormat(newValue IPictureFill) {
+func (this *OleObjectFrame) SetSubstitutePictureFormat(newValue IPictureFill) {
 	this.SubstitutePictureFormat = newValue
 }
-func (this *OleObjectFrame) getObjectName() string {
+func (this *OleObjectFrame) GetObjectName() string {
 	return this.ObjectName
 }
 
-func (this *OleObjectFrame) setObjectName(newValue string) {
+func (this *OleObjectFrame) SetObjectName(newValue string) {
 	this.ObjectName = newValue
 }
-func (this *OleObjectFrame) getEmbeddedFileBase64Data() string {
+func (this *OleObjectFrame) GetEmbeddedFileBase64Data() string {
 	return this.EmbeddedFileBase64Data
 }
 
-func (this *OleObjectFrame) setEmbeddedFileBase64Data(newValue string) {
+func (this *OleObjectFrame) SetEmbeddedFileBase64Data(newValue string) {
 	this.EmbeddedFileBase64Data = newValue
 }
-func (this *OleObjectFrame) getEmbeddedFileExtension() string {
+func (this *OleObjectFrame) GetEmbeddedFileExtension() string {
 	return this.EmbeddedFileExtension
 }
 
-func (this *OleObjectFrame) setEmbeddedFileExtension(newValue string) {
+func (this *OleObjectFrame) SetEmbeddedFileExtension(newValue string) {
 	this.EmbeddedFileExtension = newValue
 }
-func (this *OleObjectFrame) getObjectProgId() string {
+func (this *OleObjectFrame) GetObjectProgId() string {
 	return this.ObjectProgId
 }
 
-func (this *OleObjectFrame) setObjectProgId(newValue string) {
+func (this *OleObjectFrame) SetObjectProgId(newValue string) {
 	this.ObjectProgId = newValue
 }
-func (this *OleObjectFrame) getLinkPath() string {
+func (this *OleObjectFrame) GetLinkPath() string {
 	return this.LinkPath
 }
 
-func (this *OleObjectFrame) setLinkPath(newValue string) {
+func (this *OleObjectFrame) SetLinkPath(newValue string) {
 	this.LinkPath = newValue
 }
-func (this *OleObjectFrame) getUpdateAutomatic() bool {
+func (this *OleObjectFrame) GetUpdateAutomatic() bool {
 	return this.UpdateAutomatic
 }
 
-func (this *OleObjectFrame) setUpdateAutomatic(newValue bool) {
+func (this *OleObjectFrame) SetUpdateAutomatic(newValue bool) {
 	this.UpdateAutomatic = newValue
 }
 

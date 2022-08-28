@@ -34,28 +34,28 @@ import (
 type IFormatScheme interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Background styles.
-	getBackgroundStyles() []IFillFormat
-	setBackgroundStyles(newValue []IFillFormat)
+	GetBackgroundStyles() []IFillFormat
+	SetBackgroundStyles(newValue []IFillFormat)
 
 	// Effect styles.
-	getEffectStyles() []IEffectFormat
-	setEffectStyles(newValue []IEffectFormat)
+	GetEffectStyles() []IEffectFormat
+	SetEffectStyles(newValue []IEffectFormat)
 
 	// Fill styles.
-	getFillStyles() []IFillFormat
-	setFillStyles(newValue []IFillFormat)
+	GetFillStyles() []IFillFormat
+	SetFillStyles(newValue []IFillFormat)
 
 	// Line style.
-	getLineStyles() []ILineFormat
-	setLineStyles(newValue []ILineFormat)
+	GetLineStyles() []ILineFormat
+	SetLineStyles(newValue []ILineFormat)
 }
 
 type FormatScheme struct {
@@ -84,46 +84,46 @@ func NewFormatScheme() *FormatScheme {
 	return instance
 }
 
-func (this *FormatScheme) getSelfUri() IResourceUri {
+func (this *FormatScheme) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *FormatScheme) setSelfUri(newValue IResourceUri) {
+func (this *FormatScheme) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *FormatScheme) getAlternateLinks() []IResourceUri {
+func (this *FormatScheme) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *FormatScheme) setAlternateLinks(newValue []IResourceUri) {
+func (this *FormatScheme) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *FormatScheme) getBackgroundStyles() []IFillFormat {
+func (this *FormatScheme) GetBackgroundStyles() []IFillFormat {
 	return this.BackgroundStyles
 }
 
-func (this *FormatScheme) setBackgroundStyles(newValue []IFillFormat) {
+func (this *FormatScheme) SetBackgroundStyles(newValue []IFillFormat) {
 	this.BackgroundStyles = newValue
 }
-func (this *FormatScheme) getEffectStyles() []IEffectFormat {
+func (this *FormatScheme) GetEffectStyles() []IEffectFormat {
 	return this.EffectStyles
 }
 
-func (this *FormatScheme) setEffectStyles(newValue []IEffectFormat) {
+func (this *FormatScheme) SetEffectStyles(newValue []IEffectFormat) {
 	this.EffectStyles = newValue
 }
-func (this *FormatScheme) getFillStyles() []IFillFormat {
+func (this *FormatScheme) GetFillStyles() []IFillFormat {
 	return this.FillStyles
 }
 
-func (this *FormatScheme) setFillStyles(newValue []IFillFormat) {
+func (this *FormatScheme) SetFillStyles(newValue []IFillFormat) {
 	this.FillStyles = newValue
 }
-func (this *FormatScheme) getLineStyles() []ILineFormat {
+func (this *FormatScheme) GetLineStyles() []ILineFormat {
 	return this.LineStyles
 }
 
-func (this *FormatScheme) setLineStyles(newValue []ILineFormat) {
+func (this *FormatScheme) SetLineStyles(newValue []ILineFormat) {
 	this.LineStyles = newValue
 }
 

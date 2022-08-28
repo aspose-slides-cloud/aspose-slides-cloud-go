@@ -34,24 +34,24 @@ import (
 type ISeriesMarker interface {
 
 	// size
-	getSize() int32
-	setSize(newValue int32)
+	GetSize() int32
+	SetSize(newValue int32)
 
 	// symbol
-	getSymbol() string
-	setSymbol(newValue string)
+	GetSymbol() string
+	SetSymbol(newValue string)
 
 	// Get or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Get or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Get or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 }
 
 type SeriesMarker struct {
@@ -78,39 +78,39 @@ func NewSeriesMarker() *SeriesMarker {
 	return instance
 }
 
-func (this *SeriesMarker) getSize() int32 {
+func (this *SeriesMarker) GetSize() int32 {
 	return this.Size
 }
 
-func (this *SeriesMarker) setSize(newValue int32) {
+func (this *SeriesMarker) SetSize(newValue int32) {
 	this.Size = newValue
 }
-func (this *SeriesMarker) getSymbol() string {
+func (this *SeriesMarker) GetSymbol() string {
 	return this.Symbol
 }
 
-func (this *SeriesMarker) setSymbol(newValue string) {
+func (this *SeriesMarker) SetSymbol(newValue string) {
 	this.Symbol = newValue
 }
-func (this *SeriesMarker) getFillFormat() IFillFormat {
+func (this *SeriesMarker) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *SeriesMarker) setFillFormat(newValue IFillFormat) {
+func (this *SeriesMarker) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *SeriesMarker) getEffectFormat() IEffectFormat {
+func (this *SeriesMarker) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *SeriesMarker) setEffectFormat(newValue IEffectFormat) {
+func (this *SeriesMarker) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *SeriesMarker) getLineFormat() ILineFormat {
+func (this *SeriesMarker) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *SeriesMarker) setLineFormat(newValue ILineFormat) {
+func (this *SeriesMarker) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
 

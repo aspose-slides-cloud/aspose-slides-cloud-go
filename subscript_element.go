@@ -34,16 +34,16 @@ import (
 type ISubscriptElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Base argument
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Subscript
-	getSubscript() IMathElement
-	setSubscript(newValue IMathElement)
+	GetSubscript() IMathElement
+	SetSubscript(newValue IMathElement)
 }
 
 type SubscriptElement struct {
@@ -64,25 +64,25 @@ func NewSubscriptElement() *SubscriptElement {
 	return instance
 }
 
-func (this *SubscriptElement) getType() string {
+func (this *SubscriptElement) GetType() string {
 	return this.Type_
 }
 
-func (this *SubscriptElement) setType(newValue string) {
+func (this *SubscriptElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *SubscriptElement) getBase() IMathElement {
+func (this *SubscriptElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *SubscriptElement) setBase(newValue IMathElement) {
+func (this *SubscriptElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *SubscriptElement) getSubscript() IMathElement {
+func (this *SubscriptElement) GetSubscript() IMathElement {
 	return this.Subscript
 }
 
-func (this *SubscriptElement) setSubscript(newValue IMathElement) {
+func (this *SubscriptElement) SetSubscript(newValue IMathElement) {
 	this.Subscript = newValue
 }
 

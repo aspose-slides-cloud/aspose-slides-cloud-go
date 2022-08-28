@@ -34,16 +34,16 @@ import (
 type IDuotoneEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Returns target color format for dark pixels.
-	getColor1() string
-	setColor1(newValue string)
+	GetColor1() string
+	SetColor1(newValue string)
 
 	// Returns target color format for light pixels.
-	getColor2() string
-	setColor2(newValue string)
+	GetColor2() string
+	SetColor2(newValue string)
 }
 
 type DuotoneEffect struct {
@@ -64,25 +64,25 @@ func NewDuotoneEffect() *DuotoneEffect {
 	return instance
 }
 
-func (this *DuotoneEffect) getType() string {
+func (this *DuotoneEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *DuotoneEffect) setType(newValue string) {
+func (this *DuotoneEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *DuotoneEffect) getColor1() string {
+func (this *DuotoneEffect) GetColor1() string {
 	return this.Color1
 }
 
-func (this *DuotoneEffect) setColor1(newValue string) {
+func (this *DuotoneEffect) SetColor1(newValue string) {
 	this.Color1 = newValue
 }
-func (this *DuotoneEffect) getColor2() string {
+func (this *DuotoneEffect) GetColor2() string {
 	return this.Color2
 }
 
-func (this *DuotoneEffect) setColor2(newValue string) {
+func (this *DuotoneEffect) SetColor2(newValue string) {
 	this.Color2 = newValue
 }
 

@@ -34,44 +34,44 @@ import (
 type IHyperlink interface {
 
 	// If true Hypelink is not applied. 
-	getIsDisabled() bool
-	setIsDisabled(newValue bool)
+	GetIsDisabled() bool
+	SetIsDisabled(newValue bool)
 
 	// Type of HyperLink action             
-	getActionType() string
-	setActionType(newValue string)
+	GetActionType() string
+	SetActionType(newValue string)
 
 	// Specifies the external URL
-	getExternalUrl() string
-	setExternalUrl(newValue string)
+	GetExternalUrl() string
+	SetExternalUrl(newValue string)
 
 	// Index of the target slide
-	getTargetSlideIndex() int32
-	setTargetSlideIndex(newValue int32)
+	GetTargetSlideIndex() int32
+	SetTargetSlideIndex(newValue int32)
 
 	// Target frame
-	getTargetFrame() string
-	setTargetFrame(newValue string)
+	GetTargetFrame() string
+	SetTargetFrame(newValue string)
 
 	// Hyperlink tooltip
-	getTooltip() string
-	setTooltip(newValue string)
+	GetTooltip() string
+	SetTooltip(newValue string)
 
 	// Makes hyperlink viewed when it is invoked.             
-	getHistory() bool
-	setHistory(newValue bool)
+	GetHistory() bool
+	SetHistory(newValue bool)
 
 	// Determines whether the hyperlink should be highlighted on click.
-	getHighlightClick() bool
-	setHighlightClick(newValue bool)
+	GetHighlightClick() bool
+	SetHighlightClick(newValue bool)
 
 	// Determines whether the sound should be stopped on hyperlink click
-	getStopSoundOnClick() bool
-	setStopSoundOnClick(newValue bool)
+	GetStopSoundOnClick() bool
+	SetStopSoundOnClick(newValue bool)
 
 	// Represents the source of hyperlink color
-	getColorSource() string
-	setColorSource(newValue string)
+	GetColorSource() string
+	SetColorSource(newValue string)
 }
 
 type Hyperlink struct {
@@ -114,74 +114,74 @@ func NewHyperlink() *Hyperlink {
 	return instance
 }
 
-func (this *Hyperlink) getIsDisabled() bool {
+func (this *Hyperlink) GetIsDisabled() bool {
 	return this.IsDisabled
 }
 
-func (this *Hyperlink) setIsDisabled(newValue bool) {
+func (this *Hyperlink) SetIsDisabled(newValue bool) {
 	this.IsDisabled = newValue
 }
-func (this *Hyperlink) getActionType() string {
+func (this *Hyperlink) GetActionType() string {
 	return this.ActionType
 }
 
-func (this *Hyperlink) setActionType(newValue string) {
+func (this *Hyperlink) SetActionType(newValue string) {
 	this.ActionType = newValue
 }
-func (this *Hyperlink) getExternalUrl() string {
+func (this *Hyperlink) GetExternalUrl() string {
 	return this.ExternalUrl
 }
 
-func (this *Hyperlink) setExternalUrl(newValue string) {
+func (this *Hyperlink) SetExternalUrl(newValue string) {
 	this.ExternalUrl = newValue
 }
-func (this *Hyperlink) getTargetSlideIndex() int32 {
+func (this *Hyperlink) GetTargetSlideIndex() int32 {
 	return this.TargetSlideIndex
 }
 
-func (this *Hyperlink) setTargetSlideIndex(newValue int32) {
+func (this *Hyperlink) SetTargetSlideIndex(newValue int32) {
 	this.TargetSlideIndex = newValue
 }
-func (this *Hyperlink) getTargetFrame() string {
+func (this *Hyperlink) GetTargetFrame() string {
 	return this.TargetFrame
 }
 
-func (this *Hyperlink) setTargetFrame(newValue string) {
+func (this *Hyperlink) SetTargetFrame(newValue string) {
 	this.TargetFrame = newValue
 }
-func (this *Hyperlink) getTooltip() string {
+func (this *Hyperlink) GetTooltip() string {
 	return this.Tooltip
 }
 
-func (this *Hyperlink) setTooltip(newValue string) {
+func (this *Hyperlink) SetTooltip(newValue string) {
 	this.Tooltip = newValue
 }
-func (this *Hyperlink) getHistory() bool {
+func (this *Hyperlink) GetHistory() bool {
 	return this.History
 }
 
-func (this *Hyperlink) setHistory(newValue bool) {
+func (this *Hyperlink) SetHistory(newValue bool) {
 	this.History = newValue
 }
-func (this *Hyperlink) getHighlightClick() bool {
+func (this *Hyperlink) GetHighlightClick() bool {
 	return this.HighlightClick
 }
 
-func (this *Hyperlink) setHighlightClick(newValue bool) {
+func (this *Hyperlink) SetHighlightClick(newValue bool) {
 	this.HighlightClick = newValue
 }
-func (this *Hyperlink) getStopSoundOnClick() bool {
+func (this *Hyperlink) GetStopSoundOnClick() bool {
 	return this.StopSoundOnClick
 }
 
-func (this *Hyperlink) setStopSoundOnClick(newValue bool) {
+func (this *Hyperlink) SetStopSoundOnClick(newValue bool) {
 	this.StopSoundOnClick = newValue
 }
-func (this *Hyperlink) getColorSource() string {
+func (this *Hyperlink) GetColorSource() string {
 	return this.ColorSource
 }
 
-func (this *Hyperlink) setColorSource(newValue string) {
+func (this *Hyperlink) SetColorSource(newValue string) {
 	this.ColorSource = newValue
 }
 

@@ -34,15 +34,15 @@ import (
 type IExportOptions interface {
 
 	// Default regular font for rendering the presentation. 
-	getDefaultRegularFont() string
-	setDefaultRegularFont(newValue string)
+	GetDefaultRegularFont() string
+	SetDefaultRegularFont(newValue string)
 
 	// Gets of sets list of font fallback rules.
-	getFontFallbackRules() []IFontFallbackRule
-	setFontFallbackRules(newValue []IFontFallbackRule)
+	GetFontFallbackRules() []IFontFallbackRule
+	SetFontFallbackRules(newValue []IFontFallbackRule)
 
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 }
 
 type ExportOptions struct {
@@ -61,25 +61,25 @@ func NewExportOptions() *ExportOptions {
 	return instance
 }
 
-func (this *ExportOptions) getDefaultRegularFont() string {
+func (this *ExportOptions) GetDefaultRegularFont() string {
 	return this.DefaultRegularFont
 }
 
-func (this *ExportOptions) setDefaultRegularFont(newValue string) {
+func (this *ExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
 }
-func (this *ExportOptions) getFontFallbackRules() []IFontFallbackRule {
+func (this *ExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
 }
 
-func (this *ExportOptions) setFontFallbackRules(newValue []IFontFallbackRule) {
+func (this *ExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
 }
-func (this *ExportOptions) getFormat() string {
+func (this *ExportOptions) GetFormat() string {
 	return this.Format
 }
 
-func (this *ExportOptions) setFormat(newValue string) {
+func (this *ExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
 

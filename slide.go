@@ -34,56 +34,56 @@ import (
 type ISlide interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Specifies if shapes of the master slide should be shown on the slide. True by default.
-	getShowMasterShapes() bool
-	setShowMasterShapes(newValue bool)
+	GetShowMasterShapes() bool
+	SetShowMasterShapes(newValue bool)
 
 	// Gets or sets the  link to the layout slide.
-	getLayoutSlide() IResourceUri
-	setLayoutSlide(newValue IResourceUri)
+	GetLayoutSlide() IResourceUri
+	SetLayoutSlide(newValue IResourceUri)
 
 	// Gets or sets the  link to list of top-level shapes.
-	getShapes() IResourceUri
-	setShapes(newValue IResourceUri)
+	GetShapes() IResourceUri
+	SetShapes(newValue IResourceUri)
 
 	// Gets or sets the link to theme.
-	getTheme() IResourceUri
-	setTheme(newValue IResourceUri)
+	GetTheme() IResourceUri
+	SetTheme(newValue IResourceUri)
 
 	// Gets or sets the  link to placeholders.
-	getPlaceholders() IResourceUri
-	setPlaceholders(newValue IResourceUri)
+	GetPlaceholders() IResourceUri
+	SetPlaceholders(newValue IResourceUri)
 
 	// Gets or sets the link to images.
-	getImages() IResourceUri
-	setImages(newValue IResourceUri)
+	GetImages() IResourceUri
+	SetImages(newValue IResourceUri)
 
 	// Gets or sets the link to comments.
-	getComments() IResourceUri
-	setComments(newValue IResourceUri)
+	GetComments() IResourceUri
+	SetComments(newValue IResourceUri)
 
 	// Get or sets the link to slide's background
-	getBackground() IResourceUri
-	setBackground(newValue IResourceUri)
+	GetBackground() IResourceUri
+	SetBackground(newValue IResourceUri)
 
 	// Get or sets the link to notes slide.
-	getNotesSlide() IResourceUri
-	setNotesSlide(newValue IResourceUri)
+	GetNotesSlide() IResourceUri
+	SetNotesSlide(newValue IResourceUri)
 }
 
 type Slide struct {
@@ -133,95 +133,95 @@ func NewSlide() *Slide {
 	return instance
 }
 
-func (this *Slide) getSelfUri() IResourceUri {
+func (this *Slide) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Slide) setSelfUri(newValue IResourceUri) {
+func (this *Slide) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Slide) getAlternateLinks() []IResourceUri {
+func (this *Slide) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Slide) setAlternateLinks(newValue []IResourceUri) {
+func (this *Slide) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Slide) getWidth() float64 {
+func (this *Slide) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *Slide) setWidth(newValue float64) {
+func (this *Slide) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *Slide) getHeight() float64 {
+func (this *Slide) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *Slide) setHeight(newValue float64) {
+func (this *Slide) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *Slide) getShowMasterShapes() bool {
+func (this *Slide) GetShowMasterShapes() bool {
 	return this.ShowMasterShapes
 }
 
-func (this *Slide) setShowMasterShapes(newValue bool) {
+func (this *Slide) SetShowMasterShapes(newValue bool) {
 	this.ShowMasterShapes = newValue
 }
-func (this *Slide) getLayoutSlide() IResourceUri {
+func (this *Slide) GetLayoutSlide() IResourceUri {
 	return this.LayoutSlide
 }
 
-func (this *Slide) setLayoutSlide(newValue IResourceUri) {
+func (this *Slide) SetLayoutSlide(newValue IResourceUri) {
 	this.LayoutSlide = newValue
 }
-func (this *Slide) getShapes() IResourceUri {
+func (this *Slide) GetShapes() IResourceUri {
 	return this.Shapes
 }
 
-func (this *Slide) setShapes(newValue IResourceUri) {
+func (this *Slide) SetShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
-func (this *Slide) getTheme() IResourceUri {
+func (this *Slide) GetTheme() IResourceUri {
 	return this.Theme
 }
 
-func (this *Slide) setTheme(newValue IResourceUri) {
+func (this *Slide) SetTheme(newValue IResourceUri) {
 	this.Theme = newValue
 }
-func (this *Slide) getPlaceholders() IResourceUri {
+func (this *Slide) GetPlaceholders() IResourceUri {
 	return this.Placeholders
 }
 
-func (this *Slide) setPlaceholders(newValue IResourceUri) {
+func (this *Slide) SetPlaceholders(newValue IResourceUri) {
 	this.Placeholders = newValue
 }
-func (this *Slide) getImages() IResourceUri {
+func (this *Slide) GetImages() IResourceUri {
 	return this.Images
 }
 
-func (this *Slide) setImages(newValue IResourceUri) {
+func (this *Slide) SetImages(newValue IResourceUri) {
 	this.Images = newValue
 }
-func (this *Slide) getComments() IResourceUri {
+func (this *Slide) GetComments() IResourceUri {
 	return this.Comments
 }
 
-func (this *Slide) setComments(newValue IResourceUri) {
+func (this *Slide) SetComments(newValue IResourceUri) {
 	this.Comments = newValue
 }
-func (this *Slide) getBackground() IResourceUri {
+func (this *Slide) GetBackground() IResourceUri {
 	return this.Background
 }
 
-func (this *Slide) setBackground(newValue IResourceUri) {
+func (this *Slide) SetBackground(newValue IResourceUri) {
 	this.Background = newValue
 }
-func (this *Slide) getNotesSlide() IResourceUri {
+func (this *Slide) GetNotesSlide() IResourceUri {
 	return this.NotesSlide
 }
 
-func (this *Slide) setNotesSlide(newValue IResourceUri) {
+func (this *Slide) SetNotesSlide(newValue IResourceUri) {
 	this.NotesSlide = newValue
 }
 

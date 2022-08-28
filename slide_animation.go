@@ -34,20 +34,20 @@ import (
 type ISlideAnimation interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Main sequence.
-	getMainSequence() []IEffect
-	setMainSequence(newValue []IEffect)
+	GetMainSequence() []IEffect
+	SetMainSequence(newValue []IEffect)
 
 	// Interactive sequence list.
-	getInteractiveSequences() []IInteractiveSequence
-	setInteractiveSequences(newValue []IInteractiveSequence)
+	GetInteractiveSequences() []IInteractiveSequence
+	SetInteractiveSequences(newValue []IInteractiveSequence)
 }
 
 type SlideAnimation struct {
@@ -70,32 +70,32 @@ func NewSlideAnimation() *SlideAnimation {
 	return instance
 }
 
-func (this *SlideAnimation) getSelfUri() IResourceUri {
+func (this *SlideAnimation) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *SlideAnimation) setSelfUri(newValue IResourceUri) {
+func (this *SlideAnimation) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *SlideAnimation) getAlternateLinks() []IResourceUri {
+func (this *SlideAnimation) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *SlideAnimation) setAlternateLinks(newValue []IResourceUri) {
+func (this *SlideAnimation) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *SlideAnimation) getMainSequence() []IEffect {
+func (this *SlideAnimation) GetMainSequence() []IEffect {
 	return this.MainSequence
 }
 
-func (this *SlideAnimation) setMainSequence(newValue []IEffect) {
+func (this *SlideAnimation) SetMainSequence(newValue []IEffect) {
 	this.MainSequence = newValue
 }
-func (this *SlideAnimation) getInteractiveSequences() []IInteractiveSequence {
+func (this *SlideAnimation) GetInteractiveSequences() []IInteractiveSequence {
 	return this.InteractiveSequences
 }
 
-func (this *SlideAnimation) setInteractiveSequences(newValue []IInteractiveSequence) {
+func (this *SlideAnimation) SetInteractiveSequences(newValue []IInteractiveSequence) {
 	this.InteractiveSequences = newValue
 }
 

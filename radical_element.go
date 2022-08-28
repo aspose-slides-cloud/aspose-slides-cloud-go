@@ -34,20 +34,20 @@ import (
 type IRadicalElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Base argument
-	getBase() IMathElement
-	setBase(newValue IMathElement)
+	GetBase() IMathElement
+	SetBase(newValue IMathElement)
 
 	// Degree argument
-	getDegree() IMathElement
-	setDegree(newValue IMathElement)
+	GetDegree() IMathElement
+	SetDegree(newValue IMathElement)
 
 	// Hide degree
-	getHideDegree() bool
-	setHideDegree(newValue bool)
+	GetHideDegree() bool
+	SetHideDegree(newValue bool)
 }
 
 type RadicalElement struct {
@@ -71,32 +71,32 @@ func NewRadicalElement() *RadicalElement {
 	return instance
 }
 
-func (this *RadicalElement) getType() string {
+func (this *RadicalElement) GetType() string {
 	return this.Type_
 }
 
-func (this *RadicalElement) setType(newValue string) {
+func (this *RadicalElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *RadicalElement) getBase() IMathElement {
+func (this *RadicalElement) GetBase() IMathElement {
 	return this.Base
 }
 
-func (this *RadicalElement) setBase(newValue IMathElement) {
+func (this *RadicalElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *RadicalElement) getDegree() IMathElement {
+func (this *RadicalElement) GetDegree() IMathElement {
 	return this.Degree
 }
 
-func (this *RadicalElement) setDegree(newValue IMathElement) {
+func (this *RadicalElement) SetDegree(newValue IMathElement) {
 	this.Degree = newValue
 }
-func (this *RadicalElement) getHideDegree() bool {
+func (this *RadicalElement) GetHideDegree() bool {
 	return this.HideDegree
 }
 
-func (this *RadicalElement) setHideDegree(newValue bool) {
+func (this *RadicalElement) SetHideDegree(newValue bool) {
 	this.HideDegree = newValue
 }
 

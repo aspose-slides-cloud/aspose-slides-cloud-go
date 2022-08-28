@@ -34,36 +34,36 @@ import (
 type IProtectionProperties interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// True if document properties are encrypted. Has effect only for password protected presentations.
-	getEncryptDocumentProperties() bool
-	setEncryptDocumentProperties(newValue bool)
+	GetEncryptDocumentProperties() bool
+	SetEncryptDocumentProperties(newValue bool)
 
 	// True if the document should be opened as read-only.
-	getReadOnlyRecommended() bool
-	setReadOnlyRecommended(newValue bool)
+	GetReadOnlyRecommended() bool
+	SetReadOnlyRecommended(newValue bool)
 
 	// Password for read protection.
-	getReadPassword() string
-	setReadPassword(newValue string)
+	GetReadPassword() string
+	SetReadPassword(newValue string)
 
 	// Password for write protection.
-	getWritePassword() string
-	setWritePassword(newValue string)
+	GetWritePassword() string
+	SetWritePassword(newValue string)
 
 	// Returns true if the presentation protected for editing. 
-	getIsWriteProtected() bool
-	setIsWriteProtected(newValue bool)
+	GetIsWriteProtected() bool
+	SetIsWriteProtected(newValue bool)
 
 	// Returns true if the presentation protected for reading. 
-	getIsEncrypted() bool
-	setIsEncrypted(newValue bool)
+	GetIsEncrypted() bool
+	SetIsEncrypted(newValue bool)
 }
 
 type ProtectionProperties struct {
@@ -98,60 +98,60 @@ func NewProtectionProperties() *ProtectionProperties {
 	return instance
 }
 
-func (this *ProtectionProperties) getSelfUri() IResourceUri {
+func (this *ProtectionProperties) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *ProtectionProperties) setSelfUri(newValue IResourceUri) {
+func (this *ProtectionProperties) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *ProtectionProperties) getAlternateLinks() []IResourceUri {
+func (this *ProtectionProperties) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *ProtectionProperties) setAlternateLinks(newValue []IResourceUri) {
+func (this *ProtectionProperties) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *ProtectionProperties) getEncryptDocumentProperties() bool {
+func (this *ProtectionProperties) GetEncryptDocumentProperties() bool {
 	return this.EncryptDocumentProperties
 }
 
-func (this *ProtectionProperties) setEncryptDocumentProperties(newValue bool) {
+func (this *ProtectionProperties) SetEncryptDocumentProperties(newValue bool) {
 	this.EncryptDocumentProperties = newValue
 }
-func (this *ProtectionProperties) getReadOnlyRecommended() bool {
+func (this *ProtectionProperties) GetReadOnlyRecommended() bool {
 	return this.ReadOnlyRecommended
 }
 
-func (this *ProtectionProperties) setReadOnlyRecommended(newValue bool) {
+func (this *ProtectionProperties) SetReadOnlyRecommended(newValue bool) {
 	this.ReadOnlyRecommended = newValue
 }
-func (this *ProtectionProperties) getReadPassword() string {
+func (this *ProtectionProperties) GetReadPassword() string {
 	return this.ReadPassword
 }
 
-func (this *ProtectionProperties) setReadPassword(newValue string) {
+func (this *ProtectionProperties) SetReadPassword(newValue string) {
 	this.ReadPassword = newValue
 }
-func (this *ProtectionProperties) getWritePassword() string {
+func (this *ProtectionProperties) GetWritePassword() string {
 	return this.WritePassword
 }
 
-func (this *ProtectionProperties) setWritePassword(newValue string) {
+func (this *ProtectionProperties) SetWritePassword(newValue string) {
 	this.WritePassword = newValue
 }
-func (this *ProtectionProperties) getIsWriteProtected() bool {
+func (this *ProtectionProperties) GetIsWriteProtected() bool {
 	return this.IsWriteProtected
 }
 
-func (this *ProtectionProperties) setIsWriteProtected(newValue bool) {
+func (this *ProtectionProperties) SetIsWriteProtected(newValue bool) {
 	this.IsWriteProtected = newValue
 }
-func (this *ProtectionProperties) getIsEncrypted() bool {
+func (this *ProtectionProperties) GetIsEncrypted() bool {
 	return this.IsEncrypted
 }
 
-func (this *ProtectionProperties) setIsEncrypted(newValue bool) {
+func (this *ProtectionProperties) SetIsEncrypted(newValue bool) {
 	this.IsEncrypted = newValue
 }
 

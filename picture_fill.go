@@ -34,48 +34,48 @@ import (
 type IPictureFill interface {
 
 	// Fill type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Percentage of image height that is cropped from the bottom.
-	getCropBottom() float64
-	setCropBottom(newValue float64)
+	GetCropBottom() float64
+	SetCropBottom(newValue float64)
 
 	// Percentage of image height that is cropped from the left.
-	getCropLeft() float64
-	setCropLeft(newValue float64)
+	GetCropLeft() float64
+	SetCropLeft(newValue float64)
 
 	// Percentage of image height that is cropped from the right.
-	getCropRight() float64
-	setCropRight(newValue float64)
+	GetCropRight() float64
+	SetCropRight(newValue float64)
 
 	// Percentage of image height that is cropped from the top.
-	getCropTop() float64
-	setCropTop(newValue float64)
+	GetCropTop() float64
+	SetCropTop(newValue float64)
 
 	// Picture resolution.
-	getDpi() int32
-	setDpi(newValue int32)
+	GetDpi() int32
+	SetDpi(newValue int32)
 
 	// Internal image link.
-	getImage() IResourceUri
-	setImage(newValue IResourceUri)
+	GetImage() IResourceUri
+	SetImage(newValue IResourceUri)
 
 	// Base 64 image data.
-	getBase64Data() string
-	setBase64Data(newValue string)
+	GetBase64Data() string
+	SetBase64Data(newValue string)
 
 	// SVG image data.
-	getSvgData() string
-	setSvgData(newValue string)
+	GetSvgData() string
+	SetSvgData(newValue string)
 
 	// Fill mode.
-	getPictureFillMode() string
-	setPictureFillMode(newValue string)
+	GetPictureFillMode() string
+	SetPictureFillMode(newValue string)
 
 	// Image transform effects.
-	getImageTransformList() []IImageTransformEffect
-	setImageTransformList(newValue []IImageTransformEffect)
+	GetImageTransformList() []IImageTransformEffect
+	SetImageTransformList(newValue []IImageTransformEffect)
 }
 
 type PictureFill struct {
@@ -121,81 +121,81 @@ func NewPictureFill() *PictureFill {
 	return instance
 }
 
-func (this *PictureFill) getType() string {
+func (this *PictureFill) GetType() string {
 	return this.Type_
 }
 
-func (this *PictureFill) setType(newValue string) {
+func (this *PictureFill) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *PictureFill) getCropBottom() float64 {
+func (this *PictureFill) GetCropBottom() float64 {
 	return this.CropBottom
 }
 
-func (this *PictureFill) setCropBottom(newValue float64) {
+func (this *PictureFill) SetCropBottom(newValue float64) {
 	this.CropBottom = newValue
 }
-func (this *PictureFill) getCropLeft() float64 {
+func (this *PictureFill) GetCropLeft() float64 {
 	return this.CropLeft
 }
 
-func (this *PictureFill) setCropLeft(newValue float64) {
+func (this *PictureFill) SetCropLeft(newValue float64) {
 	this.CropLeft = newValue
 }
-func (this *PictureFill) getCropRight() float64 {
+func (this *PictureFill) GetCropRight() float64 {
 	return this.CropRight
 }
 
-func (this *PictureFill) setCropRight(newValue float64) {
+func (this *PictureFill) SetCropRight(newValue float64) {
 	this.CropRight = newValue
 }
-func (this *PictureFill) getCropTop() float64 {
+func (this *PictureFill) GetCropTop() float64 {
 	return this.CropTop
 }
 
-func (this *PictureFill) setCropTop(newValue float64) {
+func (this *PictureFill) SetCropTop(newValue float64) {
 	this.CropTop = newValue
 }
-func (this *PictureFill) getDpi() int32 {
+func (this *PictureFill) GetDpi() int32 {
 	return this.Dpi
 }
 
-func (this *PictureFill) setDpi(newValue int32) {
+func (this *PictureFill) SetDpi(newValue int32) {
 	this.Dpi = newValue
 }
-func (this *PictureFill) getImage() IResourceUri {
+func (this *PictureFill) GetImage() IResourceUri {
 	return this.Image
 }
 
-func (this *PictureFill) setImage(newValue IResourceUri) {
+func (this *PictureFill) SetImage(newValue IResourceUri) {
 	this.Image = newValue
 }
-func (this *PictureFill) getBase64Data() string {
+func (this *PictureFill) GetBase64Data() string {
 	return this.Base64Data
 }
 
-func (this *PictureFill) setBase64Data(newValue string) {
+func (this *PictureFill) SetBase64Data(newValue string) {
 	this.Base64Data = newValue
 }
-func (this *PictureFill) getSvgData() string {
+func (this *PictureFill) GetSvgData() string {
 	return this.SvgData
 }
 
-func (this *PictureFill) setSvgData(newValue string) {
+func (this *PictureFill) SetSvgData(newValue string) {
 	this.SvgData = newValue
 }
-func (this *PictureFill) getPictureFillMode() string {
+func (this *PictureFill) GetPictureFillMode() string {
 	return this.PictureFillMode
 }
 
-func (this *PictureFill) setPictureFillMode(newValue string) {
+func (this *PictureFill) SetPictureFillMode(newValue string) {
 	this.PictureFillMode = newValue
 }
-func (this *PictureFill) getImageTransformList() []IImageTransformEffect {
+func (this *PictureFill) GetImageTransformList() []IImageTransformEffect {
 	return this.ImageTransformList
 }
 
-func (this *PictureFill) setImageTransformList(newValue []IImageTransformEffect) {
+func (this *PictureFill) SetImageTransformList(newValue []IImageTransformEffect) {
 	this.ImageTransformList = newValue
 }
 

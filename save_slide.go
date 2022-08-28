@@ -34,32 +34,32 @@ import (
 type ISaveSlide interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Output to save the slide to.
-	getOutput() IOutputFile
-	setOutput(newValue IOutputFile)
+	GetOutput() IOutputFile
+	SetOutput(newValue IOutputFile)
 
 	// Save format.
-	getFormat() string
-	setFormat(newValue string)
+	GetFormat() string
+	SetFormat(newValue string)
 
 	// Save options.
-	getOptions() IExportOptions
-	setOptions(newValue IExportOptions)
+	GetOptions() IExportOptions
+	SetOptions(newValue IExportOptions)
 
 	// Result width for saving to an image format.
-	getWidth() int32
-	setWidth(newValue int32)
+	GetWidth() int32
+	SetWidth(newValue int32)
 
 	// Result height for saving to an image format.
-	getHeight() int32
-	setHeight(newValue int32)
+	GetHeight() int32
+	SetHeight(newValue int32)
 
 	// Slide index.
-	getPosition() int32
-	setPosition(newValue int32)
+	GetPosition() int32
+	SetPosition(newValue int32)
 }
 
 type SaveSlide struct {
@@ -93,53 +93,53 @@ func NewSaveSlide() *SaveSlide {
 	return instance
 }
 
-func (this *SaveSlide) getType() string {
+func (this *SaveSlide) GetType() string {
 	return this.Type_
 }
 
-func (this *SaveSlide) setType(newValue string) {
+func (this *SaveSlide) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *SaveSlide) getOutput() IOutputFile {
+func (this *SaveSlide) GetOutput() IOutputFile {
 	return this.Output
 }
 
-func (this *SaveSlide) setOutput(newValue IOutputFile) {
+func (this *SaveSlide) SetOutput(newValue IOutputFile) {
 	this.Output = newValue
 }
-func (this *SaveSlide) getFormat() string {
+func (this *SaveSlide) GetFormat() string {
 	return this.Format
 }
 
-func (this *SaveSlide) setFormat(newValue string) {
+func (this *SaveSlide) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *SaveSlide) getOptions() IExportOptions {
+func (this *SaveSlide) GetOptions() IExportOptions {
 	return this.Options
 }
 
-func (this *SaveSlide) setOptions(newValue IExportOptions) {
+func (this *SaveSlide) SetOptions(newValue IExportOptions) {
 	this.Options = newValue
 }
-func (this *SaveSlide) getWidth() int32 {
+func (this *SaveSlide) GetWidth() int32 {
 	return this.Width
 }
 
-func (this *SaveSlide) setWidth(newValue int32) {
+func (this *SaveSlide) SetWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this *SaveSlide) getHeight() int32 {
+func (this *SaveSlide) GetHeight() int32 {
 	return this.Height
 }
 
-func (this *SaveSlide) setHeight(newValue int32) {
+func (this *SaveSlide) SetHeight(newValue int32) {
 	this.Height = newValue
 }
-func (this *SaveSlide) getPosition() int32 {
+func (this *SaveSlide) GetPosition() int32 {
 	return this.Position
 }
 
-func (this *SaveSlide) setPosition(newValue int32) {
+func (this *SaveSlide) SetPosition(newValue int32) {
 	this.Position = newValue
 }
 

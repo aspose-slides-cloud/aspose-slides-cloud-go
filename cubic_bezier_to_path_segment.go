@@ -34,32 +34,32 @@ import (
 type ICubicBezierToPathSegment interface {
 
 	// Cubic Bezier curve segment
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// X coordinate of the first direction point
-	getX1() float64
-	setX1(newValue float64)
+	GetX1() float64
+	SetX1(newValue float64)
 
 	// Y coordinate of the first direction point
-	getY1() float64
-	setY1(newValue float64)
+	GetY1() float64
+	SetY1(newValue float64)
 
 	// X coordinate of the second direction point
-	getX2() float64
-	setX2(newValue float64)
+	GetX2() float64
+	SetX2(newValue float64)
 
 	// Y coordinate of the second direction point
-	getY2() float64
-	setY2(newValue float64)
+	GetY2() float64
+	SetY2(newValue float64)
 
 	// X coordinate of end point
-	getX3() float64
-	setX3(newValue float64)
+	GetX3() float64
+	SetX3(newValue float64)
 
 	// Y coordinate of end point
-	getY3() float64
-	setY3(newValue float64)
+	GetY3() float64
+	SetY3(newValue float64)
 }
 
 type CubicBezierToPathSegment struct {
@@ -92,53 +92,53 @@ func NewCubicBezierToPathSegment() *CubicBezierToPathSegment {
 	return instance
 }
 
-func (this *CubicBezierToPathSegment) getType() string {
+func (this *CubicBezierToPathSegment) GetType() string {
 	return this.Type_
 }
 
-func (this *CubicBezierToPathSegment) setType(newValue string) {
+func (this *CubicBezierToPathSegment) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *CubicBezierToPathSegment) getX1() float64 {
+func (this *CubicBezierToPathSegment) GetX1() float64 {
 	return this.X1
 }
 
-func (this *CubicBezierToPathSegment) setX1(newValue float64) {
+func (this *CubicBezierToPathSegment) SetX1(newValue float64) {
 	this.X1 = newValue
 }
-func (this *CubicBezierToPathSegment) getY1() float64 {
+func (this *CubicBezierToPathSegment) GetY1() float64 {
 	return this.Y1
 }
 
-func (this *CubicBezierToPathSegment) setY1(newValue float64) {
+func (this *CubicBezierToPathSegment) SetY1(newValue float64) {
 	this.Y1 = newValue
 }
-func (this *CubicBezierToPathSegment) getX2() float64 {
+func (this *CubicBezierToPathSegment) GetX2() float64 {
 	return this.X2
 }
 
-func (this *CubicBezierToPathSegment) setX2(newValue float64) {
+func (this *CubicBezierToPathSegment) SetX2(newValue float64) {
 	this.X2 = newValue
 }
-func (this *CubicBezierToPathSegment) getY2() float64 {
+func (this *CubicBezierToPathSegment) GetY2() float64 {
 	return this.Y2
 }
 
-func (this *CubicBezierToPathSegment) setY2(newValue float64) {
+func (this *CubicBezierToPathSegment) SetY2(newValue float64) {
 	this.Y2 = newValue
 }
-func (this *CubicBezierToPathSegment) getX3() float64 {
+func (this *CubicBezierToPathSegment) GetX3() float64 {
 	return this.X3
 }
 
-func (this *CubicBezierToPathSegment) setX3(newValue float64) {
+func (this *CubicBezierToPathSegment) SetX3(newValue float64) {
 	this.X3 = newValue
 }
-func (this *CubicBezierToPathSegment) getY3() float64 {
+func (this *CubicBezierToPathSegment) GetY3() float64 {
 	return this.Y3
 }
 
-func (this *CubicBezierToPathSegment) setY3(newValue float64) {
+func (this *CubicBezierToPathSegment) SetY3(newValue float64) {
 	this.Y3 = newValue
 }
 

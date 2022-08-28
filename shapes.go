@@ -34,16 +34,16 @@ import (
 type IShapes interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// List of shape links.
-	getShapesLinks() []IResourceUri
-	setShapesLinks(newValue []IResourceUri)
+	GetShapesLinks() []IResourceUri
+	SetShapesLinks(newValue []IResourceUri)
 }
 
 type Shapes struct {
@@ -63,25 +63,25 @@ func NewShapes() *Shapes {
 	return instance
 }
 
-func (this *Shapes) getSelfUri() IResourceUri {
+func (this *Shapes) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Shapes) setSelfUri(newValue IResourceUri) {
+func (this *Shapes) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Shapes) getAlternateLinks() []IResourceUri {
+func (this *Shapes) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Shapes) setAlternateLinks(newValue []IResourceUri) {
+func (this *Shapes) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Shapes) getShapesLinks() []IResourceUri {
+func (this *Shapes) GetShapesLinks() []IResourceUri {
 	return this.ShapesLinks
 }
 
-func (this *Shapes) setShapesLinks(newValue []IResourceUri) {
+func (this *Shapes) SetShapesLinks(newValue []IResourceUri) {
 	this.ShapesLinks = newValue
 }
 

@@ -34,20 +34,20 @@ import (
 type IPatternFill interface {
 
 	// Type of fill.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Gets or sets the back color of the pattern fill.
-	getBackColor() string
-	setBackColor(newValue string)
+	GetBackColor() string
+	SetBackColor(newValue string)
 
 	// Gets or sets the fore color of the pattern fill.
-	getForeColor() string
-	setForeColor(newValue string)
+	GetForeColor() string
+	SetForeColor(newValue string)
 
 	// Gets or sets the style of pattern fill.
-	getStyle() string
-	setStyle(newValue string)
+	GetStyle() string
+	SetStyle(newValue string)
 }
 
 type PatternFill struct {
@@ -72,32 +72,32 @@ func NewPatternFill() *PatternFill {
 	return instance
 }
 
-func (this *PatternFill) getType() string {
+func (this *PatternFill) GetType() string {
 	return this.Type_
 }
 
-func (this *PatternFill) setType(newValue string) {
+func (this *PatternFill) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *PatternFill) getBackColor() string {
+func (this *PatternFill) GetBackColor() string {
 	return this.BackColor
 }
 
-func (this *PatternFill) setBackColor(newValue string) {
+func (this *PatternFill) SetBackColor(newValue string) {
 	this.BackColor = newValue
 }
-func (this *PatternFill) getForeColor() string {
+func (this *PatternFill) GetForeColor() string {
 	return this.ForeColor
 }
 
-func (this *PatternFill) setForeColor(newValue string) {
+func (this *PatternFill) SetForeColor(newValue string) {
 	this.ForeColor = newValue
 }
-func (this *PatternFill) getStyle() string {
+func (this *PatternFill) GetStyle() string {
 	return this.Style
 }
 
-func (this *PatternFill) setStyle(newValue string) {
+func (this *PatternFill) SetStyle(newValue string) {
 	this.Style = newValue
 }
 

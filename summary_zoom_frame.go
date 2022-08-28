@@ -34,84 +34,84 @@ import (
 type ISummaryZoomFrame interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Zoom layout type
-	getZoomLayout() string
-	setZoomLayout(newValue string)
+	GetZoomLayout() string
+	SetZoomLayout(newValue string)
 
 	// Zoom frame sections
-	getSections() []ISummaryZoomSection
-	setSections(newValue []ISummaryZoomSection)
+	GetSections() []ISummaryZoomSection
+	SetSections(newValue []ISummaryZoomSection)
 }
 
 type SummaryZoomFrame struct {
@@ -184,144 +184,144 @@ func NewSummaryZoomFrame() *SummaryZoomFrame {
 	return instance
 }
 
-func (this *SummaryZoomFrame) getSelfUri() IResourceUri {
+func (this *SummaryZoomFrame) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *SummaryZoomFrame) setSelfUri(newValue IResourceUri) {
+func (this *SummaryZoomFrame) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *SummaryZoomFrame) getAlternateLinks() []IResourceUri {
+func (this *SummaryZoomFrame) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *SummaryZoomFrame) setAlternateLinks(newValue []IResourceUri) {
+func (this *SummaryZoomFrame) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *SummaryZoomFrame) getName() string {
+func (this *SummaryZoomFrame) GetName() string {
 	return this.Name
 }
 
-func (this *SummaryZoomFrame) setName(newValue string) {
+func (this *SummaryZoomFrame) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *SummaryZoomFrame) getWidth() float64 {
+func (this *SummaryZoomFrame) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *SummaryZoomFrame) setWidth(newValue float64) {
+func (this *SummaryZoomFrame) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *SummaryZoomFrame) getHeight() float64 {
+func (this *SummaryZoomFrame) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *SummaryZoomFrame) setHeight(newValue float64) {
+func (this *SummaryZoomFrame) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *SummaryZoomFrame) getAlternativeText() string {
+func (this *SummaryZoomFrame) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *SummaryZoomFrame) setAlternativeText(newValue string) {
+func (this *SummaryZoomFrame) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *SummaryZoomFrame) getAlternativeTextTitle() string {
+func (this *SummaryZoomFrame) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *SummaryZoomFrame) setAlternativeTextTitle(newValue string) {
+func (this *SummaryZoomFrame) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *SummaryZoomFrame) getHidden() bool {
+func (this *SummaryZoomFrame) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *SummaryZoomFrame) setHidden(newValue bool) {
+func (this *SummaryZoomFrame) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *SummaryZoomFrame) getX() float64 {
+func (this *SummaryZoomFrame) GetX() float64 {
 	return this.X
 }
 
-func (this *SummaryZoomFrame) setX(newValue float64) {
+func (this *SummaryZoomFrame) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *SummaryZoomFrame) getY() float64 {
+func (this *SummaryZoomFrame) GetY() float64 {
 	return this.Y
 }
 
-func (this *SummaryZoomFrame) setY(newValue float64) {
+func (this *SummaryZoomFrame) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *SummaryZoomFrame) getZOrderPosition() int32 {
+func (this *SummaryZoomFrame) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *SummaryZoomFrame) setZOrderPosition(newValue int32) {
+func (this *SummaryZoomFrame) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *SummaryZoomFrame) getFillFormat() IFillFormat {
+func (this *SummaryZoomFrame) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *SummaryZoomFrame) setFillFormat(newValue IFillFormat) {
+func (this *SummaryZoomFrame) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *SummaryZoomFrame) getEffectFormat() IEffectFormat {
+func (this *SummaryZoomFrame) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *SummaryZoomFrame) setEffectFormat(newValue IEffectFormat) {
+func (this *SummaryZoomFrame) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *SummaryZoomFrame) getThreeDFormat() IThreeDFormat {
+func (this *SummaryZoomFrame) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *SummaryZoomFrame) setThreeDFormat(newValue IThreeDFormat) {
+func (this *SummaryZoomFrame) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *SummaryZoomFrame) getLineFormat() ILineFormat {
+func (this *SummaryZoomFrame) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *SummaryZoomFrame) setLineFormat(newValue ILineFormat) {
+func (this *SummaryZoomFrame) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *SummaryZoomFrame) getHyperlinkClick() IHyperlink {
+func (this *SummaryZoomFrame) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *SummaryZoomFrame) setHyperlinkClick(newValue IHyperlink) {
+func (this *SummaryZoomFrame) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *SummaryZoomFrame) getHyperlinkMouseOver() IHyperlink {
+func (this *SummaryZoomFrame) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *SummaryZoomFrame) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *SummaryZoomFrame) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *SummaryZoomFrame) getType() string {
+func (this *SummaryZoomFrame) GetType() string {
 	return this.Type_
 }
 
-func (this *SummaryZoomFrame) setType(newValue string) {
+func (this *SummaryZoomFrame) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *SummaryZoomFrame) getZoomLayout() string {
+func (this *SummaryZoomFrame) GetZoomLayout() string {
 	return this.ZoomLayout
 }
 
-func (this *SummaryZoomFrame) setZoomLayout(newValue string) {
+func (this *SummaryZoomFrame) SetZoomLayout(newValue string) {
 	this.ZoomLayout = newValue
 }
-func (this *SummaryZoomFrame) getSections() []ISummaryZoomSection {
+func (this *SummaryZoomFrame) GetSections() []ISummaryZoomSection {
 	return this.Sections
 }
 
-func (this *SummaryZoomFrame) setSections(newValue []ISummaryZoomSection) {
+func (this *SummaryZoomFrame) SetSections(newValue []ISummaryZoomSection) {
 	this.Sections = newValue
 }
 

@@ -34,20 +34,20 @@ import (
 type IFractionElement interface {
 
 	// Element type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Fraction type
-	getFractionType() string
-	setFractionType(newValue string)
+	GetFractionType() string
+	SetFractionType(newValue string)
 
 	// Numerator
-	getNumerator() IMathElement
-	setNumerator(newValue IMathElement)
+	GetNumerator() IMathElement
+	SetNumerator(newValue IMathElement)
 
 	// Denominator
-	getDenominator() IMathElement
-	setDenominator(newValue IMathElement)
+	GetDenominator() IMathElement
+	SetDenominator(newValue IMathElement)
 }
 
 type FractionElement struct {
@@ -72,32 +72,32 @@ func NewFractionElement() *FractionElement {
 	return instance
 }
 
-func (this *FractionElement) getType() string {
+func (this *FractionElement) GetType() string {
 	return this.Type_
 }
 
-func (this *FractionElement) setType(newValue string) {
+func (this *FractionElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *FractionElement) getFractionType() string {
+func (this *FractionElement) GetFractionType() string {
 	return this.FractionType
 }
 
-func (this *FractionElement) setFractionType(newValue string) {
+func (this *FractionElement) SetFractionType(newValue string) {
 	this.FractionType = newValue
 }
-func (this *FractionElement) getNumerator() IMathElement {
+func (this *FractionElement) GetNumerator() IMathElement {
 	return this.Numerator
 }
 
-func (this *FractionElement) setNumerator(newValue IMathElement) {
+func (this *FractionElement) SetNumerator(newValue IMathElement) {
 	this.Numerator = newValue
 }
-func (this *FractionElement) getDenominator() IMathElement {
+func (this *FractionElement) GetDenominator() IMathElement {
 	return this.Denominator
 }
 
-func (this *FractionElement) setDenominator(newValue IMathElement) {
+func (this *FractionElement) SetDenominator(newValue IMathElement) {
 	this.Denominator = newValue
 }
 

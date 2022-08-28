@@ -34,40 +34,40 @@ import (
 type IDocumentReplaceResult interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Link to Document properties.
-	getDocumentProperties() IResourceUri
-	setDocumentProperties(newValue IResourceUri)
+	GetDocumentProperties() IResourceUri
+	SetDocumentProperties(newValue IResourceUri)
 
 	// Link to Document properties.
-	getViewProperties() IResourceUri
-	setViewProperties(newValue IResourceUri)
+	GetViewProperties() IResourceUri
+	SetViewProperties(newValue IResourceUri)
 
 	// Link to slides collection.
-	getSlides() IResourceUri
-	setSlides(newValue IResourceUri)
+	GetSlides() IResourceUri
+	SetSlides(newValue IResourceUri)
 
 	// Link to images collection.
-	getImages() IResourceUri
-	setImages(newValue IResourceUri)
+	GetImages() IResourceUri
+	SetImages(newValue IResourceUri)
 
 	// Link to layout slides collection.
-	getLayoutSlides() IResourceUri
-	setLayoutSlides(newValue IResourceUri)
+	GetLayoutSlides() IResourceUri
+	SetLayoutSlides(newValue IResourceUri)
 
 	// Link to master slides collection.
-	getMasterSlides() IResourceUri
-	setMasterSlides(newValue IResourceUri)
+	GetMasterSlides() IResourceUri
+	SetMasterSlides(newValue IResourceUri)
 
 	// Gets or sets the number of matches 
-	getMatches() int32
-	setMatches(newValue int32)
+	GetMatches() int32
+	SetMatches(newValue int32)
 }
 
 type DocumentReplaceResult struct {
@@ -105,67 +105,67 @@ func NewDocumentReplaceResult() *DocumentReplaceResult {
 	return instance
 }
 
-func (this *DocumentReplaceResult) getSelfUri() IResourceUri {
+func (this *DocumentReplaceResult) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *DocumentReplaceResult) setSelfUri(newValue IResourceUri) {
+func (this *DocumentReplaceResult) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *DocumentReplaceResult) getAlternateLinks() []IResourceUri {
+func (this *DocumentReplaceResult) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *DocumentReplaceResult) setAlternateLinks(newValue []IResourceUri) {
+func (this *DocumentReplaceResult) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *DocumentReplaceResult) getDocumentProperties() IResourceUri {
+func (this *DocumentReplaceResult) GetDocumentProperties() IResourceUri {
 	return this.DocumentProperties
 }
 
-func (this *DocumentReplaceResult) setDocumentProperties(newValue IResourceUri) {
+func (this *DocumentReplaceResult) SetDocumentProperties(newValue IResourceUri) {
 	this.DocumentProperties = newValue
 }
-func (this *DocumentReplaceResult) getViewProperties() IResourceUri {
+func (this *DocumentReplaceResult) GetViewProperties() IResourceUri {
 	return this.ViewProperties
 }
 
-func (this *DocumentReplaceResult) setViewProperties(newValue IResourceUri) {
+func (this *DocumentReplaceResult) SetViewProperties(newValue IResourceUri) {
 	this.ViewProperties = newValue
 }
-func (this *DocumentReplaceResult) getSlides() IResourceUri {
+func (this *DocumentReplaceResult) GetSlides() IResourceUri {
 	return this.Slides
 }
 
-func (this *DocumentReplaceResult) setSlides(newValue IResourceUri) {
+func (this *DocumentReplaceResult) SetSlides(newValue IResourceUri) {
 	this.Slides = newValue
 }
-func (this *DocumentReplaceResult) getImages() IResourceUri {
+func (this *DocumentReplaceResult) GetImages() IResourceUri {
 	return this.Images
 }
 
-func (this *DocumentReplaceResult) setImages(newValue IResourceUri) {
+func (this *DocumentReplaceResult) SetImages(newValue IResourceUri) {
 	this.Images = newValue
 }
-func (this *DocumentReplaceResult) getLayoutSlides() IResourceUri {
+func (this *DocumentReplaceResult) GetLayoutSlides() IResourceUri {
 	return this.LayoutSlides
 }
 
-func (this *DocumentReplaceResult) setLayoutSlides(newValue IResourceUri) {
+func (this *DocumentReplaceResult) SetLayoutSlides(newValue IResourceUri) {
 	this.LayoutSlides = newValue
 }
-func (this *DocumentReplaceResult) getMasterSlides() IResourceUri {
+func (this *DocumentReplaceResult) GetMasterSlides() IResourceUri {
 	return this.MasterSlides
 }
 
-func (this *DocumentReplaceResult) setMasterSlides(newValue IResourceUri) {
+func (this *DocumentReplaceResult) SetMasterSlides(newValue IResourceUri) {
 	this.MasterSlides = newValue
 }
-func (this *DocumentReplaceResult) getMatches() int32 {
+func (this *DocumentReplaceResult) GetMatches() int32 {
 	return this.Matches
 }
 
-func (this *DocumentReplaceResult) setMatches(newValue int32) {
+func (this *DocumentReplaceResult) SetMatches(newValue int32) {
 	this.Matches = newValue
 }
 

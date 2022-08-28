@@ -34,8 +34,8 @@ import (
 type IAlphaCeilingEffect interface {
 
 	// Image transform effect type
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type AlphaCeilingEffect struct {
@@ -50,11 +50,11 @@ func NewAlphaCeilingEffect() *AlphaCeilingEffect {
 	return instance
 }
 
-func (this *AlphaCeilingEffect) getType() string {
+func (this *AlphaCeilingEffect) GetType() string {
 	return this.Type_
 }
 
-func (this *AlphaCeilingEffect) setType(newValue string) {
+func (this *AlphaCeilingEffect) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

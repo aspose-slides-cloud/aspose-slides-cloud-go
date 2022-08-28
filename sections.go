@@ -34,16 +34,16 @@ import (
 type ISections interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// List of slide links.
-	getSectionList() []ISection
-	setSectionList(newValue []ISection)
+	GetSectionList() []ISection
+	SetSectionList(newValue []ISection)
 }
 
 type Sections struct {
@@ -63,25 +63,25 @@ func NewSections() *Sections {
 	return instance
 }
 
-func (this *Sections) getSelfUri() IResourceUri {
+func (this *Sections) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Sections) setSelfUri(newValue IResourceUri) {
+func (this *Sections) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Sections) getAlternateLinks() []IResourceUri {
+func (this *Sections) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Sections) setAlternateLinks(newValue []IResourceUri) {
+func (this *Sections) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Sections) getSectionList() []ISection {
+func (this *Sections) GetSectionList() []ISection {
 	return this.SectionList
 }
 
-func (this *Sections) setSectionList(newValue []ISection) {
+func (this *Sections) SetSectionList(newValue []ISection) {
 	this.SectionList = newValue
 }
 

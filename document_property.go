@@ -34,24 +34,24 @@ import (
 type IDocumentProperty interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Value.
-	getValue() string
-	setValue(newValue string)
+	GetValue() string
+	SetValue(newValue string)
 
 	// True for builtin property.
-	getBuiltIn() bool
-	setBuiltIn(newValue bool)
+	GetBuiltIn() bool
+	SetBuiltIn(newValue bool)
 }
 
 type DocumentProperty struct {
@@ -77,39 +77,39 @@ func NewDocumentProperty() *DocumentProperty {
 	return instance
 }
 
-func (this *DocumentProperty) getSelfUri() IResourceUri {
+func (this *DocumentProperty) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *DocumentProperty) setSelfUri(newValue IResourceUri) {
+func (this *DocumentProperty) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *DocumentProperty) getAlternateLinks() []IResourceUri {
+func (this *DocumentProperty) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *DocumentProperty) setAlternateLinks(newValue []IResourceUri) {
+func (this *DocumentProperty) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *DocumentProperty) getName() string {
+func (this *DocumentProperty) GetName() string {
 	return this.Name
 }
 
-func (this *DocumentProperty) setName(newValue string) {
+func (this *DocumentProperty) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *DocumentProperty) getValue() string {
+func (this *DocumentProperty) GetValue() string {
 	return this.Value
 }
 
-func (this *DocumentProperty) setValue(newValue string) {
+func (this *DocumentProperty) SetValue(newValue string) {
 	this.Value = newValue
 }
-func (this *DocumentProperty) getBuiltIn() bool {
+func (this *DocumentProperty) GetBuiltIn() bool {
 	return this.BuiltIn
 }
 
-func (this *DocumentProperty) setBuiltIn(newValue bool) {
+func (this *DocumentProperty) SetBuiltIn(newValue bool) {
 	this.BuiltIn = newValue
 }
 

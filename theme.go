@@ -34,28 +34,28 @@ import (
 type ITheme interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Color scheme.
-	getColorScheme() IResourceUri
-	setColorScheme(newValue IResourceUri)
+	GetColorScheme() IResourceUri
+	SetColorScheme(newValue IResourceUri)
 
 	// Font scheme.
-	getFontScheme() IResourceUri
-	setFontScheme(newValue IResourceUri)
+	GetFontScheme() IResourceUri
+	SetFontScheme(newValue IResourceUri)
 
 	// Format scheme.
-	getFormatScheme() IResourceUri
-	setFormatScheme(newValue IResourceUri)
+	GetFormatScheme() IResourceUri
+	SetFormatScheme(newValue IResourceUri)
 }
 
 type Theme struct {
@@ -84,46 +84,46 @@ func NewTheme() *Theme {
 	return instance
 }
 
-func (this *Theme) getSelfUri() IResourceUri {
+func (this *Theme) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *Theme) setSelfUri(newValue IResourceUri) {
+func (this *Theme) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *Theme) getAlternateLinks() []IResourceUri {
+func (this *Theme) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *Theme) setAlternateLinks(newValue []IResourceUri) {
+func (this *Theme) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *Theme) getName() string {
+func (this *Theme) GetName() string {
 	return this.Name
 }
 
-func (this *Theme) setName(newValue string) {
+func (this *Theme) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *Theme) getColorScheme() IResourceUri {
+func (this *Theme) GetColorScheme() IResourceUri {
 	return this.ColorScheme
 }
 
-func (this *Theme) setColorScheme(newValue IResourceUri) {
+func (this *Theme) SetColorScheme(newValue IResourceUri) {
 	this.ColorScheme = newValue
 }
-func (this *Theme) getFontScheme() IResourceUri {
+func (this *Theme) GetFontScheme() IResourceUri {
 	return this.FontScheme
 }
 
-func (this *Theme) setFontScheme(newValue IResourceUri) {
+func (this *Theme) SetFontScheme(newValue IResourceUri) {
 	this.FontScheme = newValue
 }
-func (this *Theme) getFormatScheme() IResourceUri {
+func (this *Theme) GetFormatScheme() IResourceUri {
 	return this.FormatScheme
 }
 
-func (this *Theme) setFormatScheme(newValue IResourceUri) {
+func (this *Theme) SetFormatScheme(newValue IResourceUri) {
 	this.FormatScheme = newValue
 }
 

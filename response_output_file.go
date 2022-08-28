@@ -34,8 +34,8 @@ import (
 type IResponseOutputFile interface {
 
 	// File type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type ResponseOutputFile struct {
@@ -50,11 +50,11 @@ func NewResponseOutputFile() *ResponseOutputFile {
 	return instance
 }
 
-func (this *ResponseOutputFile) getType() string {
+func (this *ResponseOutputFile) GetType() string {
 	return this.Type_
 }
 
-func (this *ResponseOutputFile) setType(newValue string) {
+func (this *ResponseOutputFile) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

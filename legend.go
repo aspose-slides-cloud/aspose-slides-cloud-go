@@ -34,44 +34,44 @@ import (
 type ILegend interface {
 
 	// position
-	getPosition() string
-	setPosition(newValue string)
+	GetPosition() string
+	SetPosition(newValue string)
 
 	// the X location
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// the Y location
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Width
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Height
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// true if other elements are allowed to overlay the legend
-	getOverlay() bool
-	setOverlay(newValue bool)
+	GetOverlay() bool
+	SetOverlay(newValue bool)
 
 	// Get or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Get or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Get or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Get or sets value determines the visibility of legend
-	getHasLegend() bool
-	setHasLegend(newValue bool)
+	GetHasLegend() bool
+	SetHasLegend(newValue bool)
 }
 
 type Legend struct {
@@ -113,74 +113,74 @@ func NewLegend() *Legend {
 	return instance
 }
 
-func (this *Legend) getPosition() string {
+func (this *Legend) GetPosition() string {
 	return this.Position
 }
 
-func (this *Legend) setPosition(newValue string) {
+func (this *Legend) SetPosition(newValue string) {
 	this.Position = newValue
 }
-func (this *Legend) getX() float64 {
+func (this *Legend) GetX() float64 {
 	return this.X
 }
 
-func (this *Legend) setX(newValue float64) {
+func (this *Legend) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *Legend) getY() float64 {
+func (this *Legend) GetY() float64 {
 	return this.Y
 }
 
-func (this *Legend) setY(newValue float64) {
+func (this *Legend) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *Legend) getWidth() float64 {
+func (this *Legend) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *Legend) setWidth(newValue float64) {
+func (this *Legend) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *Legend) getHeight() float64 {
+func (this *Legend) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *Legend) setHeight(newValue float64) {
+func (this *Legend) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *Legend) getOverlay() bool {
+func (this *Legend) GetOverlay() bool {
 	return this.Overlay
 }
 
-func (this *Legend) setOverlay(newValue bool) {
+func (this *Legend) SetOverlay(newValue bool) {
 	this.Overlay = newValue
 }
-func (this *Legend) getFillFormat() IFillFormat {
+func (this *Legend) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *Legend) setFillFormat(newValue IFillFormat) {
+func (this *Legend) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *Legend) getEffectFormat() IEffectFormat {
+func (this *Legend) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *Legend) setEffectFormat(newValue IEffectFormat) {
+func (this *Legend) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *Legend) getLineFormat() ILineFormat {
+func (this *Legend) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *Legend) setLineFormat(newValue ILineFormat) {
+func (this *Legend) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *Legend) getHasLegend() bool {
+func (this *Legend) GetHasLegend() bool {
 	return this.HasLegend
 }
 
-func (this *Legend) setHasLegend(newValue bool) {
+func (this *Legend) SetHasLegend(newValue bool) {
 	this.HasLegend = newValue
 }
 

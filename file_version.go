@@ -35,32 +35,32 @@ import (
 type IFileVersion interface {
 
 	// File or folder name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// True if it is a folder.
-	getIsFolder() bool
-	setIsFolder(newValue bool)
+	GetIsFolder() bool
+	SetIsFolder(newValue bool)
 
 	// File or folder last modified DateTime.
-	getModifiedDate() time.Time
-	setModifiedDate(newValue time.Time)
+	GetModifiedDate() time.Time
+	SetModifiedDate(newValue time.Time)
 
 	// File or folder size.
-	getSize() int64
-	setSize(newValue int64)
+	GetSize() int64
+	SetSize(newValue int64)
 
 	// File or folder path.
-	getPath() string
-	setPath(newValue string)
+	GetPath() string
+	SetPath(newValue string)
 
 	// File Version ID.
-	getVersionId() string
-	setVersionId(newValue string)
+	GetVersionId() string
+	SetVersionId(newValue string)
 
 	// Specifies whether the file is (true) or is not (false) the latest version of an file.
-	getIsLatest() bool
-	setIsLatest(newValue bool)
+	GetIsLatest() bool
+	SetIsLatest(newValue bool)
 }
 
 type FileVersion struct {
@@ -92,53 +92,53 @@ func NewFileVersion() *FileVersion {
 	return instance
 }
 
-func (this *FileVersion) getName() string {
+func (this *FileVersion) GetName() string {
 	return this.Name
 }
 
-func (this *FileVersion) setName(newValue string) {
+func (this *FileVersion) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *FileVersion) getIsFolder() bool {
+func (this *FileVersion) GetIsFolder() bool {
 	return this.IsFolder
 }
 
-func (this *FileVersion) setIsFolder(newValue bool) {
+func (this *FileVersion) SetIsFolder(newValue bool) {
 	this.IsFolder = newValue
 }
-func (this *FileVersion) getModifiedDate() time.Time {
+func (this *FileVersion) GetModifiedDate() time.Time {
 	return this.ModifiedDate
 }
 
-func (this *FileVersion) setModifiedDate(newValue time.Time) {
+func (this *FileVersion) SetModifiedDate(newValue time.Time) {
 	this.ModifiedDate = newValue
 }
-func (this *FileVersion) getSize() int64 {
+func (this *FileVersion) GetSize() int64 {
 	return this.Size
 }
 
-func (this *FileVersion) setSize(newValue int64) {
+func (this *FileVersion) SetSize(newValue int64) {
 	this.Size = newValue
 }
-func (this *FileVersion) getPath() string {
+func (this *FileVersion) GetPath() string {
 	return this.Path
 }
 
-func (this *FileVersion) setPath(newValue string) {
+func (this *FileVersion) SetPath(newValue string) {
 	this.Path = newValue
 }
-func (this *FileVersion) getVersionId() string {
+func (this *FileVersion) GetVersionId() string {
 	return this.VersionId
 }
 
-func (this *FileVersion) setVersionId(newValue string) {
+func (this *FileVersion) SetVersionId(newValue string) {
 	this.VersionId = newValue
 }
-func (this *FileVersion) getIsLatest() bool {
+func (this *FileVersion) GetIsLatest() bool {
 	return this.IsLatest
 }
 
-func (this *FileVersion) setIsLatest(newValue bool) {
+func (this *FileVersion) SetIsLatest(newValue bool) {
 	this.IsLatest = newValue
 }
 

@@ -34,16 +34,16 @@ import (
 type ILineToPathSegment interface {
 
 	// Line segment
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// X coordinate of the end point of the line
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Y coordinate of the end point of the line
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 }
 
 type LineToPathSegment struct {
@@ -64,25 +64,25 @@ func NewLineToPathSegment() *LineToPathSegment {
 	return instance
 }
 
-func (this *LineToPathSegment) getType() string {
+func (this *LineToPathSegment) GetType() string {
 	return this.Type_
 }
 
-func (this *LineToPathSegment) setType(newValue string) {
+func (this *LineToPathSegment) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *LineToPathSegment) getX() float64 {
+func (this *LineToPathSegment) GetX() float64 {
 	return this.X
 }
 
-func (this *LineToPathSegment) setX(newValue float64) {
+func (this *LineToPathSegment) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *LineToPathSegment) getY() float64 {
+func (this *LineToPathSegment) GetY() float64 {
 	return this.Y
 }
 
-func (this *LineToPathSegment) setY(newValue float64) {
+func (this *LineToPathSegment) SetY(newValue float64) {
 	this.Y = newValue
 }
 

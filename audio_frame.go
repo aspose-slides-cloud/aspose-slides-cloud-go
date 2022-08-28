@@ -34,132 +34,132 @@ import (
 type IAudioFrame interface {
 
 	// Gets or sets the link to this resource.
-	getSelfUri() IResourceUri
-	setSelfUri(newValue IResourceUri)
+	GetSelfUri() IResourceUri
+	SetSelfUri(newValue IResourceUri)
 
 	// List of alternate links.
-	getAlternateLinks() []IResourceUri
-	setAlternateLinks(newValue []IResourceUri)
+	GetAlternateLinks() []IResourceUri
+	SetAlternateLinks(newValue []IResourceUri)
 
 	// Gets or sets the name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// Gets or sets the width.
-	getWidth() float64
-	setWidth(newValue float64)
+	GetWidth() float64
+	SetWidth(newValue float64)
 
 	// Gets or sets the height.
-	getHeight() float64
-	setHeight(newValue float64)
+	GetHeight() float64
+	SetHeight(newValue float64)
 
 	// Gets or sets the alternative text.
-	getAlternativeText() string
-	setAlternativeText(newValue string)
+	GetAlternativeText() string
+	SetAlternativeText(newValue string)
 
 	// The title of alternative text associated with the shape.
-	getAlternativeTextTitle() string
-	setAlternativeTextTitle(newValue string)
+	GetAlternativeTextTitle() string
+	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	getHidden() bool
-	setHidden(newValue bool)
+	GetHidden() bool
+	SetHidden(newValue bool)
 
 	// Gets or sets the X
-	getX() float64
-	setX(newValue float64)
+	GetX() float64
+	SetX(newValue float64)
 
 	// Gets or sets the Y.
-	getY() float64
-	setY(newValue float64)
+	GetY() float64
+	SetY(newValue float64)
 
 	// Gets z-order position of shape
-	getZOrderPosition() int32
-	setZOrderPosition(newValue int32)
+	GetZOrderPosition() int32
+	SetZOrderPosition(newValue int32)
 
 	// Gets or sets the fill format.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Gets or sets the effect format.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Gets or sets the 3D format
-	getThreeDFormat() IThreeDFormat
-	setThreeDFormat(newValue IThreeDFormat)
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
 
 	// Gets or sets the line format.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
 	// Hyperlink defined for mouse click.
-	getHyperlinkClick() IHyperlink
-	setHyperlinkClick(newValue IHyperlink)
+	GetHyperlinkClick() IHyperlink
+	SetHyperlinkClick(newValue IHyperlink)
 
 	// Hyperlink defined for mouse over.
-	getHyperlinkMouseOver() IHyperlink
-	setHyperlinkMouseOver(newValue IHyperlink)
+	GetHyperlinkMouseOver() IHyperlink
+	SetHyperlinkMouseOver(newValue IHyperlink)
 
 	// Shape type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Combined shape type.
-	getShapeType() string
-	setShapeType(newValue string)
+	GetShapeType() string
+	SetShapeType(newValue string)
 
 	// Returns or sets a last track index.
-	getAudioCdEndTrack() int32
-	setAudioCdEndTrack(newValue int32)
+	GetAudioCdEndTrack() int32
+	SetAudioCdEndTrack(newValue int32)
 
 	// Returns or sets a last track time.
-	getAudioCdEndTrackTime() int32
-	setAudioCdEndTrackTime(newValue int32)
+	GetAudioCdEndTrackTime() int32
+	SetAudioCdEndTrackTime(newValue int32)
 
 	// Returns or sets a start track index.
-	getAudioCdStartTrack() int32
-	setAudioCdStartTrack(newValue int32)
+	GetAudioCdStartTrack() int32
+	SetAudioCdStartTrack(newValue int32)
 
 	// Returns or sets a start track time. 
-	getAudioCdStartTrackTime() int32
-	setAudioCdStartTrackTime(newValue int32)
+	GetAudioCdStartTrackTime() int32
+	SetAudioCdStartTrackTime(newValue int32)
 
 	// Determines whether a sound is embedded to a presentation.
-	getEmbedded() bool
-	setEmbedded(newValue bool)
+	GetEmbedded() bool
+	SetEmbedded(newValue bool)
 
 	// Determines whether an AudioFrame is hidden.
-	getHideAtShowing() bool
-	setHideAtShowing(newValue bool)
+	GetHideAtShowing() bool
+	SetHideAtShowing(newValue bool)
 
 	// Determines whether an audio is looped. 
-	getPlayLoopMode() bool
-	setPlayLoopMode(newValue bool)
+	GetPlayLoopMode() bool
+	SetPlayLoopMode(newValue bool)
 
 	// Returns or sets the audio play mode.
-	getPlayMode() string
-	setPlayMode(newValue string)
+	GetPlayMode() string
+	SetPlayMode(newValue string)
 
 	// Returns or sets the audio volume.
-	getVolume() string
-	setVolume(newValue string)
+	GetVolume() string
+	SetVolume(newValue string)
 
 	// Audio data encoded in base64.
-	getBase64Data() string
-	setBase64Data(newValue string)
+	GetBase64Data() string
+	SetBase64Data(newValue string)
 
 	// Determines whether an audio is playing across the slides.
-	getPlayAcrossSlides() bool
-	setPlayAcrossSlides(newValue bool)
+	GetPlayAcrossSlides() bool
+	SetPlayAcrossSlides(newValue bool)
 
 	// Determines whether audio is automatically rewound to start after playing.
-	getRewindAudio() bool
-	setRewindAudio(newValue bool)
+	GetRewindAudio() bool
+	SetRewindAudio(newValue bool)
 
 	// Picture fill format.
-	getPictureFillFormat() IPictureFill
-	setPictureFillFormat(newValue IPictureFill)
+	GetPictureFillFormat() IPictureFill
+	SetPictureFillFormat(newValue IPictureFill)
 }
 
 type AudioFrame struct {
@@ -270,228 +270,228 @@ func NewAudioFrame() *AudioFrame {
 	return instance
 }
 
-func (this *AudioFrame) getSelfUri() IResourceUri {
+func (this *AudioFrame) GetSelfUri() IResourceUri {
 	return this.SelfUri
 }
 
-func (this *AudioFrame) setSelfUri(newValue IResourceUri) {
+func (this *AudioFrame) SetSelfUri(newValue IResourceUri) {
 	this.SelfUri = newValue
 }
-func (this *AudioFrame) getAlternateLinks() []IResourceUri {
+func (this *AudioFrame) GetAlternateLinks() []IResourceUri {
 	return this.AlternateLinks
 }
 
-func (this *AudioFrame) setAlternateLinks(newValue []IResourceUri) {
+func (this *AudioFrame) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *AudioFrame) getName() string {
+func (this *AudioFrame) GetName() string {
 	return this.Name
 }
 
-func (this *AudioFrame) setName(newValue string) {
+func (this *AudioFrame) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *AudioFrame) getWidth() float64 {
+func (this *AudioFrame) GetWidth() float64 {
 	return this.Width
 }
 
-func (this *AudioFrame) setWidth(newValue float64) {
+func (this *AudioFrame) SetWidth(newValue float64) {
 	this.Width = newValue
 }
-func (this *AudioFrame) getHeight() float64 {
+func (this *AudioFrame) GetHeight() float64 {
 	return this.Height
 }
 
-func (this *AudioFrame) setHeight(newValue float64) {
+func (this *AudioFrame) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *AudioFrame) getAlternativeText() string {
+func (this *AudioFrame) GetAlternativeText() string {
 	return this.AlternativeText
 }
 
-func (this *AudioFrame) setAlternativeText(newValue string) {
+func (this *AudioFrame) SetAlternativeText(newValue string) {
 	this.AlternativeText = newValue
 }
-func (this *AudioFrame) getAlternativeTextTitle() string {
+func (this *AudioFrame) GetAlternativeTextTitle() string {
 	return this.AlternativeTextTitle
 }
 
-func (this *AudioFrame) setAlternativeTextTitle(newValue string) {
+func (this *AudioFrame) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *AudioFrame) getHidden() bool {
+func (this *AudioFrame) GetHidden() bool {
 	return this.Hidden
 }
 
-func (this *AudioFrame) setHidden(newValue bool) {
+func (this *AudioFrame) SetHidden(newValue bool) {
 	this.Hidden = newValue
 }
-func (this *AudioFrame) getX() float64 {
+func (this *AudioFrame) GetX() float64 {
 	return this.X
 }
 
-func (this *AudioFrame) setX(newValue float64) {
+func (this *AudioFrame) SetX(newValue float64) {
 	this.X = newValue
 }
-func (this *AudioFrame) getY() float64 {
+func (this *AudioFrame) GetY() float64 {
 	return this.Y
 }
 
-func (this *AudioFrame) setY(newValue float64) {
+func (this *AudioFrame) SetY(newValue float64) {
 	this.Y = newValue
 }
-func (this *AudioFrame) getZOrderPosition() int32 {
+func (this *AudioFrame) GetZOrderPosition() int32 {
 	return this.ZOrderPosition
 }
 
-func (this *AudioFrame) setZOrderPosition(newValue int32) {
+func (this *AudioFrame) SetZOrderPosition(newValue int32) {
 	this.ZOrderPosition = newValue
 }
-func (this *AudioFrame) getFillFormat() IFillFormat {
+func (this *AudioFrame) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *AudioFrame) setFillFormat(newValue IFillFormat) {
+func (this *AudioFrame) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *AudioFrame) getEffectFormat() IEffectFormat {
+func (this *AudioFrame) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *AudioFrame) setEffectFormat(newValue IEffectFormat) {
+func (this *AudioFrame) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *AudioFrame) getThreeDFormat() IThreeDFormat {
+func (this *AudioFrame) GetThreeDFormat() IThreeDFormat {
 	return this.ThreeDFormat
 }
 
-func (this *AudioFrame) setThreeDFormat(newValue IThreeDFormat) {
+func (this *AudioFrame) SetThreeDFormat(newValue IThreeDFormat) {
 	this.ThreeDFormat = newValue
 }
-func (this *AudioFrame) getLineFormat() ILineFormat {
+func (this *AudioFrame) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *AudioFrame) setLineFormat(newValue ILineFormat) {
+func (this *AudioFrame) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *AudioFrame) getHyperlinkClick() IHyperlink {
+func (this *AudioFrame) GetHyperlinkClick() IHyperlink {
 	return this.HyperlinkClick
 }
 
-func (this *AudioFrame) setHyperlinkClick(newValue IHyperlink) {
+func (this *AudioFrame) SetHyperlinkClick(newValue IHyperlink) {
 	this.HyperlinkClick = newValue
 }
-func (this *AudioFrame) getHyperlinkMouseOver() IHyperlink {
+func (this *AudioFrame) GetHyperlinkMouseOver() IHyperlink {
 	return this.HyperlinkMouseOver
 }
 
-func (this *AudioFrame) setHyperlinkMouseOver(newValue IHyperlink) {
+func (this *AudioFrame) SetHyperlinkMouseOver(newValue IHyperlink) {
 	this.HyperlinkMouseOver = newValue
 }
-func (this *AudioFrame) getType() string {
+func (this *AudioFrame) GetType() string {
 	return this.Type_
 }
 
-func (this *AudioFrame) setType(newValue string) {
+func (this *AudioFrame) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *AudioFrame) getShapeType() string {
+func (this *AudioFrame) GetShapeType() string {
 	return this.ShapeType
 }
 
-func (this *AudioFrame) setShapeType(newValue string) {
+func (this *AudioFrame) SetShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this *AudioFrame) getAudioCdEndTrack() int32 {
+func (this *AudioFrame) GetAudioCdEndTrack() int32 {
 	return this.AudioCdEndTrack
 }
 
-func (this *AudioFrame) setAudioCdEndTrack(newValue int32) {
+func (this *AudioFrame) SetAudioCdEndTrack(newValue int32) {
 	this.AudioCdEndTrack = newValue
 }
-func (this *AudioFrame) getAudioCdEndTrackTime() int32 {
+func (this *AudioFrame) GetAudioCdEndTrackTime() int32 {
 	return this.AudioCdEndTrackTime
 }
 
-func (this *AudioFrame) setAudioCdEndTrackTime(newValue int32) {
+func (this *AudioFrame) SetAudioCdEndTrackTime(newValue int32) {
 	this.AudioCdEndTrackTime = newValue
 }
-func (this *AudioFrame) getAudioCdStartTrack() int32 {
+func (this *AudioFrame) GetAudioCdStartTrack() int32 {
 	return this.AudioCdStartTrack
 }
 
-func (this *AudioFrame) setAudioCdStartTrack(newValue int32) {
+func (this *AudioFrame) SetAudioCdStartTrack(newValue int32) {
 	this.AudioCdStartTrack = newValue
 }
-func (this *AudioFrame) getAudioCdStartTrackTime() int32 {
+func (this *AudioFrame) GetAudioCdStartTrackTime() int32 {
 	return this.AudioCdStartTrackTime
 }
 
-func (this *AudioFrame) setAudioCdStartTrackTime(newValue int32) {
+func (this *AudioFrame) SetAudioCdStartTrackTime(newValue int32) {
 	this.AudioCdStartTrackTime = newValue
 }
-func (this *AudioFrame) getEmbedded() bool {
+func (this *AudioFrame) GetEmbedded() bool {
 	return this.Embedded
 }
 
-func (this *AudioFrame) setEmbedded(newValue bool) {
+func (this *AudioFrame) SetEmbedded(newValue bool) {
 	this.Embedded = newValue
 }
-func (this *AudioFrame) getHideAtShowing() bool {
+func (this *AudioFrame) GetHideAtShowing() bool {
 	return this.HideAtShowing
 }
 
-func (this *AudioFrame) setHideAtShowing(newValue bool) {
+func (this *AudioFrame) SetHideAtShowing(newValue bool) {
 	this.HideAtShowing = newValue
 }
-func (this *AudioFrame) getPlayLoopMode() bool {
+func (this *AudioFrame) GetPlayLoopMode() bool {
 	return this.PlayLoopMode
 }
 
-func (this *AudioFrame) setPlayLoopMode(newValue bool) {
+func (this *AudioFrame) SetPlayLoopMode(newValue bool) {
 	this.PlayLoopMode = newValue
 }
-func (this *AudioFrame) getPlayMode() string {
+func (this *AudioFrame) GetPlayMode() string {
 	return this.PlayMode
 }
 
-func (this *AudioFrame) setPlayMode(newValue string) {
+func (this *AudioFrame) SetPlayMode(newValue string) {
 	this.PlayMode = newValue
 }
-func (this *AudioFrame) getVolume() string {
+func (this *AudioFrame) GetVolume() string {
 	return this.Volume
 }
 
-func (this *AudioFrame) setVolume(newValue string) {
+func (this *AudioFrame) SetVolume(newValue string) {
 	this.Volume = newValue
 }
-func (this *AudioFrame) getBase64Data() string {
+func (this *AudioFrame) GetBase64Data() string {
 	return this.Base64Data
 }
 
-func (this *AudioFrame) setBase64Data(newValue string) {
+func (this *AudioFrame) SetBase64Data(newValue string) {
 	this.Base64Data = newValue
 }
-func (this *AudioFrame) getPlayAcrossSlides() bool {
+func (this *AudioFrame) GetPlayAcrossSlides() bool {
 	return this.PlayAcrossSlides
 }
 
-func (this *AudioFrame) setPlayAcrossSlides(newValue bool) {
+func (this *AudioFrame) SetPlayAcrossSlides(newValue bool) {
 	this.PlayAcrossSlides = newValue
 }
-func (this *AudioFrame) getRewindAudio() bool {
+func (this *AudioFrame) GetRewindAudio() bool {
 	return this.RewindAudio
 }
 
-func (this *AudioFrame) setRewindAudio(newValue bool) {
+func (this *AudioFrame) SetRewindAudio(newValue bool) {
 	this.RewindAudio = newValue
 }
-func (this *AudioFrame) getPictureFillFormat() IPictureFill {
+func (this *AudioFrame) GetPictureFillFormat() IPictureFill {
 	return this.PictureFillFormat
 }
 
-func (this *AudioFrame) setPictureFillFormat(newValue IPictureFill) {
+func (this *AudioFrame) SetPictureFillFormat(newValue IPictureFill) {
 	this.PictureFillFormat = newValue
 }
 

@@ -34,8 +34,8 @@ import (
 type IClosePathSegment interface {
 
 	// Close segment
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 }
 
 type ClosePathSegment struct {
@@ -50,11 +50,11 @@ func NewClosePathSegment() *ClosePathSegment {
 	return instance
 }
 
-func (this *ClosePathSegment) getType() string {
+func (this *ClosePathSegment) GetType() string {
 	return this.Type_
 }
 
-func (this *ClosePathSegment) setType(newValue string) {
+func (this *ClosePathSegment) SetType(newValue string) {
 	this.Type_ = newValue
 }
 

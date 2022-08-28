@@ -34,67 +34,67 @@ import (
 type IXYSeries interface {
 
 	// Series type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Series name.
-	getName() string
-	setName(newValue string)
+	GetName() string
+	SetName(newValue string)
 
 	// True if each data marker in the series has a different color.
-	getIsColorVaried() bool
-	setIsColorVaried(newValue bool)
+	GetIsColorVaried() bool
+	SetIsColorVaried(newValue bool)
 
 	// Invert solid color for the series.
-	getInvertedSolidFillColor() string
-	setInvertedSolidFillColor(newValue string)
+	GetInvertedSolidFillColor() string
+	SetInvertedSolidFillColor(newValue string)
 
 	// True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.
-	getSmooth() bool
-	setSmooth(newValue bool)
+	GetSmooth() bool
+	SetSmooth(newValue bool)
 
 	// True if the series is plotted on second value axis.
-	getPlotOnSecondAxis() bool
-	setPlotOnSecondAxis(newValue bool)
+	GetPlotOnSecondAxis() bool
+	SetPlotOnSecondAxis(newValue bool)
 
 	// Series order.
-	getOrder() int32
-	setOrder(newValue int32)
+	GetOrder() int32
+	SetOrder(newValue int32)
 
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	getInvertIfNegative() bool
-	setInvertIfNegative(newValue bool)
+	GetInvertIfNegative() bool
+	SetInvertIfNegative(newValue bool)
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
-	getExplosion() int32
-	setExplosion(newValue int32)
+	GetExplosion() int32
+	SetExplosion(newValue int32)
 
 	// Series marker.
-	getMarker() ISeriesMarker
-	setMarker(newValue ISeriesMarker)
+	GetMarker() ISeriesMarker
+	SetMarker(newValue ISeriesMarker)
 
 	// Fill properties set for the series.
-	getFillFormat() IFillFormat
-	setFillFormat(newValue IFillFormat)
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
 
 	// Effect properties set for the series.
-	getEffectFormat() IEffectFormat
-	setEffectFormat(newValue IEffectFormat)
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
 
 	// Line properties set for the series.
-	getLineFormat() ILineFormat
-	setLineFormat(newValue ILineFormat)
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
 
-	getDataPointType() string
-	setDataPointType(newValue string)
+	GetDataPointType() string
+	SetDataPointType(newValue string)
 
 	// The number format for the series y values.
-	getNumberFormatOfYValues() string
-	setNumberFormatOfYValues(newValue string)
+	GetNumberFormatOfYValues() string
+	SetNumberFormatOfYValues(newValue string)
 
 	// The number format for the series x values.
-	getNumberFormatOfXValues() string
-	setNumberFormatOfXValues(newValue string)
+	GetNumberFormatOfXValues() string
+	SetNumberFormatOfXValues(newValue string)
 }
 
 type XYSeries struct {
@@ -154,116 +154,116 @@ func NewXYSeries() *XYSeries {
 	return instance
 }
 
-func (this *XYSeries) getType() string {
+func (this *XYSeries) GetType() string {
 	return this.Type_
 }
 
-func (this *XYSeries) setType(newValue string) {
+func (this *XYSeries) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *XYSeries) getName() string {
+func (this *XYSeries) GetName() string {
 	return this.Name
 }
 
-func (this *XYSeries) setName(newValue string) {
+func (this *XYSeries) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *XYSeries) getIsColorVaried() bool {
+func (this *XYSeries) GetIsColorVaried() bool {
 	return this.IsColorVaried
 }
 
-func (this *XYSeries) setIsColorVaried(newValue bool) {
+func (this *XYSeries) SetIsColorVaried(newValue bool) {
 	this.IsColorVaried = newValue
 }
-func (this *XYSeries) getInvertedSolidFillColor() string {
+func (this *XYSeries) GetInvertedSolidFillColor() string {
 	return this.InvertedSolidFillColor
 }
 
-func (this *XYSeries) setInvertedSolidFillColor(newValue string) {
+func (this *XYSeries) SetInvertedSolidFillColor(newValue string) {
 	this.InvertedSolidFillColor = newValue
 }
-func (this *XYSeries) getSmooth() bool {
+func (this *XYSeries) GetSmooth() bool {
 	return this.Smooth
 }
 
-func (this *XYSeries) setSmooth(newValue bool) {
+func (this *XYSeries) SetSmooth(newValue bool) {
 	this.Smooth = newValue
 }
-func (this *XYSeries) getPlotOnSecondAxis() bool {
+func (this *XYSeries) GetPlotOnSecondAxis() bool {
 	return this.PlotOnSecondAxis
 }
 
-func (this *XYSeries) setPlotOnSecondAxis(newValue bool) {
+func (this *XYSeries) SetPlotOnSecondAxis(newValue bool) {
 	this.PlotOnSecondAxis = newValue
 }
-func (this *XYSeries) getOrder() int32 {
+func (this *XYSeries) GetOrder() int32 {
 	return this.Order
 }
 
-func (this *XYSeries) setOrder(newValue int32) {
+func (this *XYSeries) SetOrder(newValue int32) {
 	this.Order = newValue
 }
-func (this *XYSeries) getInvertIfNegative() bool {
+func (this *XYSeries) GetInvertIfNegative() bool {
 	return this.InvertIfNegative
 }
 
-func (this *XYSeries) setInvertIfNegative(newValue bool) {
+func (this *XYSeries) SetInvertIfNegative(newValue bool) {
 	this.InvertIfNegative = newValue
 }
-func (this *XYSeries) getExplosion() int32 {
+func (this *XYSeries) GetExplosion() int32 {
 	return this.Explosion
 }
 
-func (this *XYSeries) setExplosion(newValue int32) {
+func (this *XYSeries) SetExplosion(newValue int32) {
 	this.Explosion = newValue
 }
-func (this *XYSeries) getMarker() ISeriesMarker {
+func (this *XYSeries) GetMarker() ISeriesMarker {
 	return this.Marker
 }
 
-func (this *XYSeries) setMarker(newValue ISeriesMarker) {
+func (this *XYSeries) SetMarker(newValue ISeriesMarker) {
 	this.Marker = newValue
 }
-func (this *XYSeries) getFillFormat() IFillFormat {
+func (this *XYSeries) GetFillFormat() IFillFormat {
 	return this.FillFormat
 }
 
-func (this *XYSeries) setFillFormat(newValue IFillFormat) {
+func (this *XYSeries) SetFillFormat(newValue IFillFormat) {
 	this.FillFormat = newValue
 }
-func (this *XYSeries) getEffectFormat() IEffectFormat {
+func (this *XYSeries) GetEffectFormat() IEffectFormat {
 	return this.EffectFormat
 }
 
-func (this *XYSeries) setEffectFormat(newValue IEffectFormat) {
+func (this *XYSeries) SetEffectFormat(newValue IEffectFormat) {
 	this.EffectFormat = newValue
 }
-func (this *XYSeries) getLineFormat() ILineFormat {
+func (this *XYSeries) GetLineFormat() ILineFormat {
 	return this.LineFormat
 }
 
-func (this *XYSeries) setLineFormat(newValue ILineFormat) {
+func (this *XYSeries) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *XYSeries) getDataPointType() string {
+func (this *XYSeries) GetDataPointType() string {
 	return this.DataPointType
 }
 
-func (this *XYSeries) setDataPointType(newValue string) {
+func (this *XYSeries) SetDataPointType(newValue string) {
 	this.DataPointType = newValue
 }
-func (this *XYSeries) getNumberFormatOfYValues() string {
+func (this *XYSeries) GetNumberFormatOfYValues() string {
 	return this.NumberFormatOfYValues
 }
 
-func (this *XYSeries) setNumberFormatOfYValues(newValue string) {
+func (this *XYSeries) SetNumberFormatOfYValues(newValue string) {
 	this.NumberFormatOfYValues = newValue
 }
-func (this *XYSeries) getNumberFormatOfXValues() string {
+func (this *XYSeries) GetNumberFormatOfXValues() string {
 	return this.NumberFormatOfXValues
 }
 
-func (this *XYSeries) setNumberFormatOfXValues(newValue string) {
+func (this *XYSeries) SetNumberFormatOfXValues(newValue string) {
 	this.NumberFormatOfXValues = newValue
 }
 

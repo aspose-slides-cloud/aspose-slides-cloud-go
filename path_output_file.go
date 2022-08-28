@@ -34,16 +34,16 @@ import (
 type IPathOutputFile interface {
 
 	// File type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Get or sets path to file.
-	getPath() string
-	setPath(newValue string)
+	GetPath() string
+	SetPath(newValue string)
 
 	// Get or sets name of storage.
-	getStorage() string
-	setStorage(newValue string)
+	GetStorage() string
+	SetStorage(newValue string)
 }
 
 type PathOutputFile struct {
@@ -64,25 +64,25 @@ func NewPathOutputFile() *PathOutputFile {
 	return instance
 }
 
-func (this *PathOutputFile) getType() string {
+func (this *PathOutputFile) GetType() string {
 	return this.Type_
 }
 
-func (this *PathOutputFile) setType(newValue string) {
+func (this *PathOutputFile) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *PathOutputFile) getPath() string {
+func (this *PathOutputFile) GetPath() string {
 	return this.Path
 }
 
-func (this *PathOutputFile) setPath(newValue string) {
+func (this *PathOutputFile) SetPath(newValue string) {
 	this.Path = newValue
 }
-func (this *PathOutputFile) getStorage() string {
+func (this *PathOutputFile) GetStorage() string {
 	return this.Storage
 }
 
-func (this *PathOutputFile) setStorage(newValue string) {
+func (this *PathOutputFile) SetStorage(newValue string) {
 	this.Storage = newValue
 }
 

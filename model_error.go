@@ -34,20 +34,20 @@ import (
 type IModelError interface {
 
 	// Code             
-	getCode() string
-	setCode(newValue string)
+	GetCode() string
+	SetCode(newValue string)
 
 	// Message             
-	getMessage() string
-	setMessage(newValue string)
+	GetMessage() string
+	SetMessage(newValue string)
 
 	// Description             
-	getDescription() string
-	setDescription(newValue string)
+	GetDescription() string
+	SetDescription(newValue string)
 
 	// Inner Error             
-	getInnerError() IErrorDetails
-	setInnerError(newValue IErrorDetails)
+	GetInnerError() IErrorDetails
+	SetInnerError(newValue IErrorDetails)
 }
 
 type ModelError struct {
@@ -70,32 +70,32 @@ func NewModelError() *ModelError {
 	return instance
 }
 
-func (this *ModelError) getCode() string {
+func (this *ModelError) GetCode() string {
 	return this.Code
 }
 
-func (this *ModelError) setCode(newValue string) {
+func (this *ModelError) SetCode(newValue string) {
 	this.Code = newValue
 }
-func (this *ModelError) getMessage() string {
+func (this *ModelError) GetMessage() string {
 	return this.Message
 }
 
-func (this *ModelError) setMessage(newValue string) {
+func (this *ModelError) SetMessage(newValue string) {
 	this.Message = newValue
 }
-func (this *ModelError) getDescription() string {
+func (this *ModelError) GetDescription() string {
 	return this.Description
 }
 
-func (this *ModelError) setDescription(newValue string) {
+func (this *ModelError) SetDescription(newValue string) {
 	this.Description = newValue
 }
-func (this *ModelError) getInnerError() IErrorDetails {
+func (this *ModelError) GetInnerError() IErrorDetails {
 	return this.InnerError
 }
 
-func (this *ModelError) setInnerError(newValue IErrorDetails) {
+func (this *ModelError) SetInnerError(newValue IErrorDetails) {
 	this.InnerError = newValue
 }
 

@@ -34,20 +34,20 @@ import (
 type IAddMasterSlide interface {
 
 	// Task type.
-	getType() string
-	setType(newValue string)
+	GetType() string
+	SetType(newValue string)
 
 	// Source presentation clone from.
-	getCloneFromFile() IInputFile
-	setCloneFromFile(newValue IInputFile)
+	GetCloneFromFile() IInputFile
+	SetCloneFromFile(newValue IInputFile)
 
 	// Index of slide to clone.
-	getCloneFromPosition() int32
-	setCloneFromPosition(newValue int32)
+	GetCloneFromPosition() int32
+	SetCloneFromPosition(newValue int32)
 
 	// True if cloned master slide is applied to all slides.
-	getApplyToAll() bool
-	setApplyToAll(newValue bool)
+	GetApplyToAll() bool
+	SetApplyToAll(newValue bool)
 }
 
 type AddMasterSlide struct {
@@ -71,32 +71,32 @@ func NewAddMasterSlide() *AddMasterSlide {
 	return instance
 }
 
-func (this *AddMasterSlide) getType() string {
+func (this *AddMasterSlide) GetType() string {
 	return this.Type_
 }
 
-func (this *AddMasterSlide) setType(newValue string) {
+func (this *AddMasterSlide) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *AddMasterSlide) getCloneFromFile() IInputFile {
+func (this *AddMasterSlide) GetCloneFromFile() IInputFile {
 	return this.CloneFromFile
 }
 
-func (this *AddMasterSlide) setCloneFromFile(newValue IInputFile) {
+func (this *AddMasterSlide) SetCloneFromFile(newValue IInputFile) {
 	this.CloneFromFile = newValue
 }
-func (this *AddMasterSlide) getCloneFromPosition() int32 {
+func (this *AddMasterSlide) GetCloneFromPosition() int32 {
 	return this.CloneFromPosition
 }
 
-func (this *AddMasterSlide) setCloneFromPosition(newValue int32) {
+func (this *AddMasterSlide) SetCloneFromPosition(newValue int32) {
 	this.CloneFromPosition = newValue
 }
-func (this *AddMasterSlide) getApplyToAll() bool {
+func (this *AddMasterSlide) GetApplyToAll() bool {
 	return this.ApplyToAll
 }
 
-func (this *AddMasterSlide) setApplyToAll(newValue bool) {
+func (this *AddMasterSlide) SetApplyToAll(newValue bool) {
 	this.ApplyToAll = newValue
 }
 

@@ -34,8 +34,8 @@ import (
 type IEntityExists interface {
 
 	// True if the object exists.
-	getExists() bool
-	setExists(newValue bool)
+	GetExists() bool
+	SetExists(newValue bool)
 }
 
 type EntityExists struct {
@@ -49,11 +49,11 @@ func NewEntityExists() *EntityExists {
 	return instance
 }
 
-func (this *EntityExists) getExists() bool {
+func (this *EntityExists) GetExists() bool {
 	return this.Exists
 }
 
-func (this *EntityExists) setExists(newValue bool) {
+func (this *EntityExists) SetExists(newValue bool) {
 	this.Exists = newValue
 }
 

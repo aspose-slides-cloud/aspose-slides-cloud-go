@@ -34,16 +34,16 @@ import (
 type IFontSet interface {
 
 	// Complex script font.
-	getComplexScript() string
-	setComplexScript(newValue string)
+	GetComplexScript() string
+	SetComplexScript(newValue string)
 
 	// East Asian font.
-	getEastAsian() string
-	setEastAsian(newValue string)
+	GetEastAsian() string
+	SetEastAsian(newValue string)
 
 	// Latin font.
-	getLatin() string
-	setLatin(newValue string)
+	GetLatin() string
+	SetLatin(newValue string)
 }
 
 type FontSet struct {
@@ -63,25 +63,25 @@ func NewFontSet() *FontSet {
 	return instance
 }
 
-func (this *FontSet) getComplexScript() string {
+func (this *FontSet) GetComplexScript() string {
 	return this.ComplexScript
 }
 
-func (this *FontSet) setComplexScript(newValue string) {
+func (this *FontSet) SetComplexScript(newValue string) {
 	this.ComplexScript = newValue
 }
-func (this *FontSet) getEastAsian() string {
+func (this *FontSet) GetEastAsian() string {
 	return this.EastAsian
 }
 
-func (this *FontSet) setEastAsian(newValue string) {
+func (this *FontSet) SetEastAsian(newValue string) {
 	this.EastAsian = newValue
 }
-func (this *FontSet) getLatin() string {
+func (this *FontSet) GetLatin() string {
 	return this.Latin
 }
 
-func (this *FontSet) setLatin(newValue string) {
+func (this *FontSet) SetLatin(newValue string) {
 	this.Latin = newValue
 }
 
