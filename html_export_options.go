@@ -41,6 +41,10 @@ type IHtmlExportOptions interface {
 	GetFontFallbackRules() []IFontFallbackRule
 	SetFontFallbackRules(newValue []IFontFallbackRule)
 
+	// Gets of sets list of font substitution rules.
+	GetFontSubstRules() []IFontSubstRule
+	SetFontSubstRules(newValue []IFontSubstRule)
+
 	// Export format.
 	GetFormat() string
 	SetFormat(newValue string)
@@ -101,6 +105,9 @@ type HtmlExportOptions struct {
 
 	// Gets of sets list of font fallback rules.
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
+
+	// Gets of sets list of font substitution rules.
+	FontSubstRules []IFontSubstRule `json:"FontSubstRules,omitempty"`
 
 	// Export format.
 	Format string `json:"Format,omitempty"`
@@ -163,6 +170,13 @@ func (this *HtmlExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 
 func (this *HtmlExportOptions) SetFontFallbackRules(newValue []IFontFallbackRule) {
 	this.FontFallbackRules = newValue
+}
+func (this *HtmlExportOptions) GetFontSubstRules() []IFontSubstRule {
+	return this.FontSubstRules
+}
+
+func (this *HtmlExportOptions) SetFontSubstRules(newValue []IFontSubstRule) {
+	this.FontSubstRules = newValue
 }
 func (this *HtmlExportOptions) GetFormat() string {
 	return this.Format
@@ -330,6 +344,55 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 				}
 			}
 			this.FontFallbackRules = valueForIFontFallbackRules
+		}
+	}
+	
+	if valFontSubstRules, ok := objMap["fontSubstRules"]; ok {
+		if valFontSubstRules != nil {
+			var valueForFontSubstRules []json.RawMessage
+			err = json.Unmarshal(*valFontSubstRules, &valueForFontSubstRules)
+			if err != nil {
+				return err
+			}
+			valueForIFontSubstRules := make([]IFontSubstRule, len(valueForFontSubstRules))
+			for i, v := range valueForFontSubstRules {
+				vObject, err := createObjectForType("FontSubstRule", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIFontSubstRules[i] = vObject.(IFontSubstRule)
+				}
+			}
+			this.FontSubstRules = valueForIFontSubstRules
+		}
+	}
+	if valFontSubstRulesCap, ok := objMap["FontSubstRules"]; ok {
+		if valFontSubstRulesCap != nil {
+			var valueForFontSubstRules []json.RawMessage
+			err = json.Unmarshal(*valFontSubstRulesCap, &valueForFontSubstRules)
+			if err != nil {
+				return err
+			}
+			valueForIFontSubstRules := make([]IFontSubstRule, len(valueForFontSubstRules))
+			for i, v := range valueForFontSubstRules {
+				vObject, err := createObjectForType("FontSubstRule", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIFontSubstRules[i] = vObject.(IFontSubstRule)
+				}
+			}
+			this.FontSubstRules = valueForIFontSubstRules
 		}
 	}
 	

@@ -8183,6 +8183,398 @@ func TestCreateSlideInvalidStorage(t *testing.T) {
     assertError(t, "CreateSlide", "storage", teststorage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Add SmartArt node
+   Test for SlidesApi.CreateSmartArtNode method
+*/
+func TestCreateSmartArtNode(t *testing.T) {
+    testname, _ := createTestParamValue("CreateSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("CreateSmartArtNode", "smartArtIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("CreateSmartArtNode", "subNode", "string").(string)
+    testtext, _ := createTestParamValue("CreateSmartArtNode", "text", "string").(string)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateSmartArtNode", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateSmartArtNode", "storage", "string").(string)
+    e := initializeTest("CreateSmartArtNode", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.CreateSmartArtNode(testname, testslideIndex, testsmartArtIndex, testsubNode, testtext, testposition, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Add SmartArt node
+   Test for SlidesApi.CreateSmartArtNode method with invalid name
+*/
+func TestCreateSmartArtNodeInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("CreateSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("CreateSmartArtNode", "smartArtIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("CreateSmartArtNode", "subNode", "string").(string)
+    testtext, _ := createTestParamValue("CreateSmartArtNode", "text", "string").(string)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateSmartArtNode", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "CreateSmartArtNode", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("CreateSmartArtNode", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateSmartArtNode(testname, testslideIndex, testsmartArtIndex, testsubNode, testtext, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateSmartArtNode", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add SmartArt node
+   Test for SlidesApi.CreateSmartArtNode method with invalid slideIndex
+*/
+func TestCreateSmartArtNodeInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("CreateSmartArtNode", "smartArtIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("CreateSmartArtNode", "subNode", "string").(string)
+    testtext, _ := createTestParamValue("CreateSmartArtNode", "text", "string").(string)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateSmartArtNode", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "CreateSmartArtNode", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("CreateSmartArtNode", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateSmartArtNode(testname, testslideIndex, testsmartArtIndex, testsubNode, testtext, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateSmartArtNode", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add SmartArt node
+   Test for SlidesApi.CreateSmartArtNode method with invalid smartArtIndex
+*/
+func TestCreateSmartArtNodeInvalidSmartArtIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("CreateSmartArtNode", "smartArtIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("CreateSmartArtNode", "subNode", "string").(string)
+    testtext, _ := createTestParamValue("CreateSmartArtNode", "text", "string").(string)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateSmartArtNode", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testsmartArtIndex, "CreateSmartArtNode", "smartArtIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testsmartArtIndex = nullValue
+    } else {
+        testsmartArtIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("CreateSmartArtNode", "smartArtIndex", testsmartArtIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateSmartArtNode(testname, testslideIndex, testsmartArtIndex, testsubNode, testtext, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateSmartArtNode", "smartArtIndex", testsmartArtIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add SmartArt node
+   Test for SlidesApi.CreateSmartArtNode method with invalid subNode
+*/
+func TestCreateSmartArtNodeInvalidSubNode(t *testing.T) {
+    testname, _ := createTestParamValue("CreateSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("CreateSmartArtNode", "smartArtIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("CreateSmartArtNode", "subNode", "string").(string)
+    testtext, _ := createTestParamValue("CreateSmartArtNode", "text", "string").(string)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateSmartArtNode", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testsubNode, "CreateSmartArtNode", "subNode", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testsubNode = nullValue
+    } else {
+        testsubNode, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("CreateSmartArtNode", "subNode", testsubNode)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateSmartArtNode(testname, testslideIndex, testsmartArtIndex, testsubNode, testtext, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateSmartArtNode", "subNode", testsubNode, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add SmartArt node
+   Test for SlidesApi.CreateSmartArtNode method with invalid text
+*/
+func TestCreateSmartArtNodeInvalidText(t *testing.T) {
+    testname, _ := createTestParamValue("CreateSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("CreateSmartArtNode", "smartArtIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("CreateSmartArtNode", "subNode", "string").(string)
+    testtext, _ := createTestParamValue("CreateSmartArtNode", "text", "string").(string)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateSmartArtNode", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testtext, "CreateSmartArtNode", "text", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testtext = nullValue
+    } else {
+        testtext, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("CreateSmartArtNode", "text", testtext)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateSmartArtNode(testname, testslideIndex, testsmartArtIndex, testsubNode, testtext, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateSmartArtNode", "text", testtext, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add SmartArt node
+   Test for SlidesApi.CreateSmartArtNode method with invalid position
+*/
+func TestCreateSmartArtNodeInvalidPosition(t *testing.T) {
+    testname, _ := createTestParamValue("CreateSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("CreateSmartArtNode", "smartArtIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("CreateSmartArtNode", "subNode", "string").(string)
+    testtext, _ := createTestParamValue("CreateSmartArtNode", "text", "string").(string)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateSmartArtNode", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateSmartArtNode", "storage", "string").(string)
+    testposition = new(int32)
+
+    invalidValue := invalidizeTestParamValue(testposition, "CreateSmartArtNode", "position", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        testposition = nullValue
+    } else {
+        *testposition, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("CreateSmartArtNode", "position", testposition)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateSmartArtNode(testname, testslideIndex, testsmartArtIndex, testsubNode, testtext, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateSmartArtNode", "position", testposition, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add SmartArt node
+   Test for SlidesApi.CreateSmartArtNode method with invalid password
+*/
+func TestCreateSmartArtNodeInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("CreateSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("CreateSmartArtNode", "smartArtIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("CreateSmartArtNode", "subNode", "string").(string)
+    testtext, _ := createTestParamValue("CreateSmartArtNode", "text", "string").(string)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateSmartArtNode", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "CreateSmartArtNode", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("CreateSmartArtNode", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateSmartArtNode(testname, testslideIndex, testsmartArtIndex, testsubNode, testtext, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateSmartArtNode", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add SmartArt node
+   Test for SlidesApi.CreateSmartArtNode method with invalid folder
+*/
+func TestCreateSmartArtNodeInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("CreateSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("CreateSmartArtNode", "smartArtIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("CreateSmartArtNode", "subNode", "string").(string)
+    testtext, _ := createTestParamValue("CreateSmartArtNode", "text", "string").(string)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateSmartArtNode", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "CreateSmartArtNode", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("CreateSmartArtNode", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateSmartArtNode(testname, testslideIndex, testsmartArtIndex, testsubNode, testtext, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateSmartArtNode", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Add SmartArt node
+   Test for SlidesApi.CreateSmartArtNode method with invalid storage
+*/
+func TestCreateSmartArtNodeInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("CreateSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("CreateSmartArtNode", "smartArtIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("CreateSmartArtNode", "subNode", "string").(string)
+    testtext, _ := createTestParamValue("CreateSmartArtNode", "text", "string").(string)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateSmartArtNode", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "CreateSmartArtNode", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("CreateSmartArtNode", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateSmartArtNode(testname, testslideIndex, testsmartArtIndex, testsubNode, testtext, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateSmartArtNode", "storage", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Add an effect to special slide (master, layout, notes) animation.
    Test for SlidesApi.CreateSpecialSlideAnimationEffect method
 */
@@ -20116,6 +20508,303 @@ func TestDeleteSlidesInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteSlides", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete SmartArt node
+   Test for SlidesApi.DeleteSmartArtNode method
+*/
+func TestDeleteSmartArtNode(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("DeleteSmartArtNode", "smartArtIndex", "int32").(int32)
+    testnodeIndex, _ := createTestParamValue("DeleteSmartArtNode", "nodeIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("DeleteSmartArtNode", "subNode", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSmartArtNode", "storage", "string").(string)
+    e := initializeTest("DeleteSmartArtNode", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.DeleteSmartArtNode(testname, testslideIndex, testsmartArtIndex, testnodeIndex, testsubNode, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Delete SmartArt node
+   Test for SlidesApi.DeleteSmartArtNode method with invalid name
+*/
+func TestDeleteSmartArtNodeInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("DeleteSmartArtNode", "smartArtIndex", "int32").(int32)
+    testnodeIndex, _ := createTestParamValue("DeleteSmartArtNode", "nodeIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("DeleteSmartArtNode", "subNode", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "DeleteSmartArtNode", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSmartArtNode", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteSmartArtNode(testname, testslideIndex, testsmartArtIndex, testnodeIndex, testsubNode, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSmartArtNode", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete SmartArt node
+   Test for SlidesApi.DeleteSmartArtNode method with invalid slideIndex
+*/
+func TestDeleteSmartArtNodeInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("DeleteSmartArtNode", "smartArtIndex", "int32").(int32)
+    testnodeIndex, _ := createTestParamValue("DeleteSmartArtNode", "nodeIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("DeleteSmartArtNode", "subNode", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "DeleteSmartArtNode", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSmartArtNode", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteSmartArtNode(testname, testslideIndex, testsmartArtIndex, testnodeIndex, testsubNode, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSmartArtNode", "slideIndex", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete SmartArt node
+   Test for SlidesApi.DeleteSmartArtNode method with invalid smartArtIndex
+*/
+func TestDeleteSmartArtNodeInvalidSmartArtIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("DeleteSmartArtNode", "smartArtIndex", "int32").(int32)
+    testnodeIndex, _ := createTestParamValue("DeleteSmartArtNode", "nodeIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("DeleteSmartArtNode", "subNode", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testsmartArtIndex, "DeleteSmartArtNode", "smartArtIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testsmartArtIndex = nullValue
+    } else {
+        testsmartArtIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSmartArtNode", "smartArtIndex", testsmartArtIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteSmartArtNode(testname, testslideIndex, testsmartArtIndex, testnodeIndex, testsubNode, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSmartArtNode", "smartArtIndex", testsmartArtIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete SmartArt node
+   Test for SlidesApi.DeleteSmartArtNode method with invalid nodeIndex
+*/
+func TestDeleteSmartArtNodeInvalidNodeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("DeleteSmartArtNode", "smartArtIndex", "int32").(int32)
+    testnodeIndex, _ := createTestParamValue("DeleteSmartArtNode", "nodeIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("DeleteSmartArtNode", "subNode", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testnodeIndex, "DeleteSmartArtNode", "nodeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testnodeIndex = nullValue
+    } else {
+        testnodeIndex, _ = invalidValue.(int32)
+    }
+
+    e := initializeTest("DeleteSmartArtNode", "nodeIndex", testnodeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteSmartArtNode(testname, testslideIndex, testsmartArtIndex, testnodeIndex, testsubNode, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSmartArtNode", "nodeIndex", testnodeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete SmartArt node
+   Test for SlidesApi.DeleteSmartArtNode method with invalid subNode
+*/
+func TestDeleteSmartArtNodeInvalidSubNode(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("DeleteSmartArtNode", "smartArtIndex", "int32").(int32)
+    testnodeIndex, _ := createTestParamValue("DeleteSmartArtNode", "nodeIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("DeleteSmartArtNode", "subNode", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testsubNode, "DeleteSmartArtNode", "subNode", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testsubNode = nullValue
+    } else {
+        testsubNode, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSmartArtNode", "subNode", testsubNode)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteSmartArtNode(testname, testslideIndex, testsmartArtIndex, testnodeIndex, testsubNode, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSmartArtNode", "subNode", testsubNode, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete SmartArt node
+   Test for SlidesApi.DeleteSmartArtNode method with invalid password
+*/
+func TestDeleteSmartArtNodeInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("DeleteSmartArtNode", "smartArtIndex", "int32").(int32)
+    testnodeIndex, _ := createTestParamValue("DeleteSmartArtNode", "nodeIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("DeleteSmartArtNode", "subNode", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteSmartArtNode", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSmartArtNode", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteSmartArtNode(testname, testslideIndex, testsmartArtIndex, testnodeIndex, testsubNode, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSmartArtNode", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete SmartArt node
+   Test for SlidesApi.DeleteSmartArtNode method with invalid folder
+*/
+func TestDeleteSmartArtNodeInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("DeleteSmartArtNode", "smartArtIndex", "int32").(int32)
+    testnodeIndex, _ := createTestParamValue("DeleteSmartArtNode", "nodeIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("DeleteSmartArtNode", "subNode", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "DeleteSmartArtNode", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSmartArtNode", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteSmartArtNode(testname, testslideIndex, testsmartArtIndex, testnodeIndex, testsubNode, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSmartArtNode", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete SmartArt node
+   Test for SlidesApi.DeleteSmartArtNode method with invalid storage
+*/
+func TestDeleteSmartArtNodeInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteSmartArtNode", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteSmartArtNode", "slideIndex", "int32").(int32)
+    testsmartArtIndex, _ := createTestParamValue("DeleteSmartArtNode", "smartArtIndex", "int32").(int32)
+    testnodeIndex, _ := createTestParamValue("DeleteSmartArtNode", "nodeIndex", "int32").(int32)
+    testsubNode, _ := createTestParamValue("DeleteSmartArtNode", "subNode", "string").(string)
+    testpassword, _ := createTestParamValue("DeleteSmartArtNode", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteSmartArtNode", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteSmartArtNode", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "DeleteSmartArtNode", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("DeleteSmartArtNode", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteSmartArtNode(testname, testslideIndex, testsmartArtIndex, testnodeIndex, testsubNode, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteSmartArtNode", "storage", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Remove animation from a special slide (master, layout, notes).
@@ -50899,6 +51588,12 @@ func TestImportShapesFromSvg(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -50908,7 +51603,7 @@ func TestImportShapesFromSvg(t *testing.T) {
        return
     }
     c := GetTestApiClient()
-    _, _, e = c.SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, _, e = c.SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -50947,6 +51642,12 @@ func TestImportShapesFromSvgInvalidName(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -50964,7 +51665,7 @@ func TestImportShapesFromSvgInvalidName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -51004,6 +51705,12 @@ func TestImportShapesFromSvgInvalidSlideIndex(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -51021,7 +51728,7 @@ func TestImportShapesFromSvgInvalidSlideIndex(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -51061,6 +51768,12 @@ func TestImportShapesFromSvgInvalidImage(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -51077,7 +51790,7 @@ func TestImportShapesFromSvgInvalidImage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -51117,6 +51830,12 @@ func TestImportShapesFromSvgInvalidX(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -51135,7 +51854,7 @@ func TestImportShapesFromSvgInvalidX(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -51175,6 +51894,12 @@ func TestImportShapesFromSvgInvalidY(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -51193,7 +51918,7 @@ func TestImportShapesFromSvgInvalidY(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -51233,6 +51958,12 @@ func TestImportShapesFromSvgInvalidWidth(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -51251,7 +51982,7 @@ func TestImportShapesFromSvgInvalidWidth(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -51291,6 +52022,12 @@ func TestImportShapesFromSvgInvalidHeight(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -51309,7 +52046,7 @@ func TestImportShapesFromSvgInvalidHeight(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -51349,6 +52086,12 @@ func TestImportShapesFromSvgInvalidShapes(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -51366,12 +52109,76 @@ func TestImportShapesFromSvgInvalidShapes(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "ImportShapesFromSvg", "shapes", testshapes, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Imports shapes from SVG file.
+   Test for SlidesApi.ImportShapesFromSvg method with invalid group
+*/
+func TestImportShapesFromSvgInvalidGroup(t *testing.T) {
+    testname, _ := createTestParamValue("ImportShapesFromSvg", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("ImportShapesFromSvg", "slideIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ImportShapesFromSvg", "image", "[]byte").([]byte)
+    var testx *int32
+    testxValue := createTestParamValue("ImportShapesFromSvg", "x", "int32")
+    if (testxValue != nil) {
+        testx = new(int32)
+        *testx, _ = testxValue.(int32)
+    }
+    var testy *int32
+    testyValue := createTestParamValue("ImportShapesFromSvg", "y", "int32")
+    if (testyValue != nil) {
+        testy = new(int32)
+        *testy, _ = testyValue.(int32)
+    }
+    var testwidth *int32
+    testwidthValue := createTestParamValue("ImportShapesFromSvg", "width", "int32")
+    if (testwidthValue != nil) {
+        testwidth = new(int32)
+        *testwidth, _ = testwidthValue.(int32)
+    }
+    var testheight *int32
+    testheightValue := createTestParamValue("ImportShapesFromSvg", "height", "int32")
+    if (testheightValue != nil) {
+        testheight = new(int32)
+        *testheight, _ = testheightValue.(int32)
+    }
+    testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
+    testgroup = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testgroup, "ImportShapesFromSvg", "group", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testgroup = nullValue
+    } else {
+        *testgroup, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("ImportShapesFromSvg", "group", testgroup)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ImportShapesFromSvg", "group", testgroup, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Imports shapes from SVG file.
@@ -51406,6 +52213,12 @@ func TestImportShapesFromSvgInvalidPassword(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -51423,7 +52236,7 @@ func TestImportShapesFromSvgInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -51463,6 +52276,12 @@ func TestImportShapesFromSvgInvalidFolder(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -51480,7 +52299,7 @@ func TestImportShapesFromSvgInvalidFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -51520,6 +52339,12 @@ func TestImportShapesFromSvgInvalidStorage(t *testing.T) {
         *testheight, _ = testheightValue.(int32)
     }
     testshapes, _ := createTestParamValue("ImportShapesFromSvg", "shapes", "[]int32").([]int32)
+    var testgroup *bool
+    testgroupValue := createTestParamValue("ImportShapesFromSvg", "group", "bool")
+    if (testgroupValue != nil) {
+        testgroup = new(bool)
+        *testgroup, _ = testgroupValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ImportShapesFromSvg", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportShapesFromSvg", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportShapesFromSvg", "storage", "string").(string)
@@ -51537,7 +52362,7 @@ func TestImportShapesFromSvgInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.ImportShapesFromSvg(testname, testslideIndex, testimage, testx, testy, testwidth, testheight, testshapes, testgroup, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -53567,6 +54392,600 @@ func TestReorderSlidesInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "ReorderSlides", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation fonts info.
+   Test for SlidesApi.ReplaceFont method
+*/
+func TestReplaceFont(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceFont", "name", "string").(string)
+    testsourceFont, _ := createTestParamValue("ReplaceFont", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFont", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFont", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFont", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceFont", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFont", "fontsFolder", "string").(string)
+    e := initializeTest("ReplaceFont", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.ReplaceFont(testname, testsourceFont, testtargetFont, testembed, testpassword, testfolder, teststorage, testfontsFolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation fonts info.
+   Test for SlidesApi.ReplaceFont method with invalid name
+*/
+func TestReplaceFontInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceFont", "name", "string").(string)
+    testsourceFont, _ := createTestParamValue("ReplaceFont", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFont", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFont", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFont", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceFont", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFont", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "ReplaceFont", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("ReplaceFont", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFont(testname, testsourceFont, testtargetFont, testembed, testpassword, testfolder, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFont", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation fonts info.
+   Test for SlidesApi.ReplaceFont method with invalid sourceFont
+*/
+func TestReplaceFontInvalidSourceFont(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceFont", "name", "string").(string)
+    testsourceFont, _ := createTestParamValue("ReplaceFont", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFont", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFont", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFont", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceFont", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFont", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testsourceFont, "ReplaceFont", "sourceFont", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testsourceFont = nullValue
+    } else {
+        testsourceFont, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("ReplaceFont", "sourceFont", testsourceFont)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFont(testname, testsourceFont, testtargetFont, testembed, testpassword, testfolder, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFont", "sourceFont", testsourceFont, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation fonts info.
+   Test for SlidesApi.ReplaceFont method with invalid targetFont
+*/
+func TestReplaceFontInvalidTargetFont(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceFont", "name", "string").(string)
+    testsourceFont, _ := createTestParamValue("ReplaceFont", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFont", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFont", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFont", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceFont", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFont", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testtargetFont, "ReplaceFont", "targetFont", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testtargetFont = nullValue
+    } else {
+        testtargetFont, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("ReplaceFont", "targetFont", testtargetFont)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFont(testname, testsourceFont, testtargetFont, testembed, testpassword, testfolder, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFont", "targetFont", testtargetFont, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation fonts info.
+   Test for SlidesApi.ReplaceFont method with invalid embed
+*/
+func TestReplaceFontInvalidEmbed(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceFont", "name", "string").(string)
+    testsourceFont, _ := createTestParamValue("ReplaceFont", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFont", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFont", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFont", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceFont", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFont", "fontsFolder", "string").(string)
+    testembed = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testembed, "ReplaceFont", "embed", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testembed = nullValue
+    } else {
+        *testembed, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("ReplaceFont", "embed", testembed)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFont(testname, testsourceFont, testtargetFont, testembed, testpassword, testfolder, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFont", "embed", testembed, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation fonts info.
+   Test for SlidesApi.ReplaceFont method with invalid password
+*/
+func TestReplaceFontInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceFont", "name", "string").(string)
+    testsourceFont, _ := createTestParamValue("ReplaceFont", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFont", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFont", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFont", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceFont", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFont", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "ReplaceFont", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("ReplaceFont", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFont(testname, testsourceFont, testtargetFont, testembed, testpassword, testfolder, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFont", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation fonts info.
+   Test for SlidesApi.ReplaceFont method with invalid folder
+*/
+func TestReplaceFontInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceFont", "name", "string").(string)
+    testsourceFont, _ := createTestParamValue("ReplaceFont", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFont", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFont", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFont", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceFont", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFont", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "ReplaceFont", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("ReplaceFont", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFont(testname, testsourceFont, testtargetFont, testembed, testpassword, testfolder, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFont", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation fonts info.
+   Test for SlidesApi.ReplaceFont method with invalid storage
+*/
+func TestReplaceFontInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceFont", "name", "string").(string)
+    testsourceFont, _ := createTestParamValue("ReplaceFont", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFont", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFont", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFont", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceFont", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFont", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "ReplaceFont", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("ReplaceFont", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFont(testname, testsourceFont, testtargetFont, testembed, testpassword, testfolder, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFont", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation fonts info.
+   Test for SlidesApi.ReplaceFont method with invalid fontsFolder
+*/
+func TestReplaceFontInvalidFontsFolder(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceFont", "name", "string").(string)
+    testsourceFont, _ := createTestParamValue("ReplaceFont", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFont", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFont", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFont", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceFont", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFont", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfontsFolder, "ReplaceFont", "fontsFolder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfontsFolder = nullValue
+    } else {
+        testfontsFolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("ReplaceFont", "fontsFolder", testfontsFolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFont(testname, testsourceFont, testtargetFont, testembed, testpassword, testfolder, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFont", "fontsFolder", testfontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation.
+   Test for SlidesApi.ReplaceFontOnline method
+*/
+func TestReplaceFontOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceFontOnline", "document", "[]byte").([]byte)
+    testsourceFont, _ := createTestParamValue("ReplaceFontOnline", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFontOnline", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFontOnline", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFontOnline", "fontsFolder", "string").(string)
+    e := initializeTest("ReplaceFontOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    r, _, e := c.SlidesApi.ReplaceFontOnline(testdocument, testsourceFont, testtargetFont, testembed, testpassword, testfontsFolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation.
+   Test for SlidesApi.ReplaceFontOnline method with invalid document
+*/
+func TestReplaceFontOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceFontOnline", "document", "[]byte").([]byte)
+    testsourceFont, _ := createTestParamValue("ReplaceFontOnline", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFontOnline", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFontOnline", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFontOnline", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "ReplaceFontOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("ReplaceFontOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFontOnline(testdocument, testsourceFont, testtargetFont, testembed, testpassword, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFontOnline", "document", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation.
+   Test for SlidesApi.ReplaceFontOnline method with invalid sourceFont
+*/
+func TestReplaceFontOnlineInvalidSourceFont(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceFontOnline", "document", "[]byte").([]byte)
+    testsourceFont, _ := createTestParamValue("ReplaceFontOnline", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFontOnline", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFontOnline", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFontOnline", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testsourceFont, "ReplaceFontOnline", "sourceFont", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testsourceFont = nullValue
+    } else {
+        testsourceFont, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("ReplaceFontOnline", "sourceFont", testsourceFont)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFontOnline(testdocument, testsourceFont, testtargetFont, testembed, testpassword, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFontOnline", "sourceFont", testsourceFont, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation.
+   Test for SlidesApi.ReplaceFontOnline method with invalid targetFont
+*/
+func TestReplaceFontOnlineInvalidTargetFont(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceFontOnline", "document", "[]byte").([]byte)
+    testsourceFont, _ := createTestParamValue("ReplaceFontOnline", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFontOnline", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFontOnline", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFontOnline", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testtargetFont, "ReplaceFontOnline", "targetFont", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testtargetFont = nullValue
+    } else {
+        testtargetFont, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("ReplaceFontOnline", "targetFont", testtargetFont)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFontOnline(testdocument, testsourceFont, testtargetFont, testembed, testpassword, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFontOnline", "targetFont", testtargetFont, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation.
+   Test for SlidesApi.ReplaceFontOnline method with invalid embed
+*/
+func TestReplaceFontOnlineInvalidEmbed(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceFontOnline", "document", "[]byte").([]byte)
+    testsourceFont, _ := createTestParamValue("ReplaceFontOnline", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFontOnline", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFontOnline", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFontOnline", "fontsFolder", "string").(string)
+    testembed = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testembed, "ReplaceFontOnline", "embed", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testembed = nullValue
+    } else {
+        *testembed, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("ReplaceFontOnline", "embed", testembed)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFontOnline(testdocument, testsourceFont, testtargetFont, testembed, testpassword, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFontOnline", "embed", testembed, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation.
+   Test for SlidesApi.ReplaceFontOnline method with invalid password
+*/
+func TestReplaceFontOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceFontOnline", "document", "[]byte").([]byte)
+    testsourceFont, _ := createTestParamValue("ReplaceFontOnline", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFontOnline", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFontOnline", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFontOnline", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "ReplaceFontOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("ReplaceFontOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFontOnline(testdocument, testsourceFont, testtargetFont, testembed, testpassword, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFontOnline", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces specified font and returns presentation.
+   Test for SlidesApi.ReplaceFontOnline method with invalid fontsFolder
+*/
+func TestReplaceFontOnlineInvalidFontsFolder(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceFontOnline", "document", "[]byte").([]byte)
+    testsourceFont, _ := createTestParamValue("ReplaceFontOnline", "sourceFont", "string").(string)
+    testtargetFont, _ := createTestParamValue("ReplaceFontOnline", "targetFont", "string").(string)
+    var testembed *bool
+    testembedValue := createTestParamValue("ReplaceFontOnline", "embed", "bool")
+    if (testembedValue != nil) {
+        testembed = new(bool)
+        *testembed, _ = testembedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("ReplaceFontOnline", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfontsFolder, "ReplaceFontOnline", "fontsFolder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfontsFolder = nullValue
+    } else {
+        testfontsFolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("ReplaceFontOnline", "fontsFolder", testfontsFolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceFontOnline(testdocument, testsourceFont, testtargetFont, testembed, testpassword, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceFontOnline", "fontsFolder", testfontsFolder, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Replace text with a new value.
@@ -62176,13 +63595,14 @@ func TestSetEmbeddedFont(t *testing.T) {
     testpassword, _ := createTestParamValue("SetEmbeddedFont", "password", "string").(string)
     testfolder, _ := createTestParamValue("SetEmbeddedFont", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SetEmbeddedFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFont", "fontsFolder", "string").(string)
     e := initializeTest("SetEmbeddedFont", "", "")
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
     }
     c := GetTestApiClient()
-    _, _, e = c.SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage)
+    _, _, e = c.SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage, testfontsFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -62204,6 +63624,7 @@ func TestSetEmbeddedFontInvalidName(t *testing.T) {
     testpassword, _ := createTestParamValue("SetEmbeddedFont", "password", "string").(string)
     testfolder, _ := createTestParamValue("SetEmbeddedFont", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SetEmbeddedFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFont", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testname, "SetEmbeddedFont", "name", "string")
     if (invalidValue == nil) {
@@ -62218,7 +63639,7 @@ func TestSetEmbeddedFontInvalidName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -62241,6 +63662,7 @@ func TestSetEmbeddedFontInvalidFontName(t *testing.T) {
     testpassword, _ := createTestParamValue("SetEmbeddedFont", "password", "string").(string)
     testfolder, _ := createTestParamValue("SetEmbeddedFont", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SetEmbeddedFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFont", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testfontName, "SetEmbeddedFont", "fontName", "string")
     if (invalidValue == nil) {
@@ -62255,7 +63677,7 @@ func TestSetEmbeddedFontInvalidFontName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -62278,6 +63700,7 @@ func TestSetEmbeddedFontInvalidOnlyUsed(t *testing.T) {
     testpassword, _ := createTestParamValue("SetEmbeddedFont", "password", "string").(string)
     testfolder, _ := createTestParamValue("SetEmbeddedFont", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SetEmbeddedFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFont", "fontsFolder", "string").(string)
     testonlyUsed = new(bool)
 
     invalidValue := invalidizeTestParamValue(testonlyUsed, "SetEmbeddedFont", "onlyUsed", "bool")
@@ -62293,7 +63716,7 @@ func TestSetEmbeddedFontInvalidOnlyUsed(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -62316,6 +63739,7 @@ func TestSetEmbeddedFontInvalidPassword(t *testing.T) {
     testpassword, _ := createTestParamValue("SetEmbeddedFont", "password", "string").(string)
     testfolder, _ := createTestParamValue("SetEmbeddedFont", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SetEmbeddedFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFont", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testpassword, "SetEmbeddedFont", "password", "string")
     if (invalidValue == nil) {
@@ -62330,7 +63754,7 @@ func TestSetEmbeddedFontInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -62353,6 +63777,7 @@ func TestSetEmbeddedFontInvalidFolder(t *testing.T) {
     testpassword, _ := createTestParamValue("SetEmbeddedFont", "password", "string").(string)
     testfolder, _ := createTestParamValue("SetEmbeddedFont", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SetEmbeddedFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFont", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testfolder, "SetEmbeddedFont", "folder", "string")
     if (invalidValue == nil) {
@@ -62367,7 +63792,7 @@ func TestSetEmbeddedFontInvalidFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -62390,6 +63815,7 @@ func TestSetEmbeddedFontInvalidStorage(t *testing.T) {
     testpassword, _ := createTestParamValue("SetEmbeddedFont", "password", "string").(string)
     testfolder, _ := createTestParamValue("SetEmbeddedFont", "folder", "string").(string)
     teststorage, _ := createTestParamValue("SetEmbeddedFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFont", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(teststorage, "SetEmbeddedFont", "storage", "string")
     if (invalidValue == nil) {
@@ -62404,12 +63830,466 @@ func TestSetEmbeddedFontInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage)
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "SetEmbeddedFont", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds specified font and returns presentation fonts info.
+   Test for SlidesApi.SetEmbeddedFont method with invalid fontsFolder
+*/
+func TestSetEmbeddedFontInvalidFontsFolder(t *testing.T) {
+    testname, _ := createTestParamValue("SetEmbeddedFont", "name", "string").(string)
+    testfontName, _ := createTestParamValue("SetEmbeddedFont", "fontName", "string").(string)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFont", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFont", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetEmbeddedFont", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetEmbeddedFont", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFont", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfontsFolder, "SetEmbeddedFont", "fontsFolder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfontsFolder = nullValue
+    } else {
+        testfontsFolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetEmbeddedFont", "fontsFolder", testfontsFolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFont(testname, testfontName, testonlyUsed, testpassword, testfolder, teststorage, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFont", "fontsFolder", testfontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation fonts info.
+   Test for SlidesApi.SetEmbeddedFontFromRequest method
+*/
+func TestSetEmbeddedFontFromRequest(t *testing.T) {
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequest", "font", "[]byte").([]byte)
+    testname, _ := createTestParamValue("SetEmbeddedFontFromRequest", "name", "string").(string)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequest", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequest", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetEmbeddedFontFromRequest", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetEmbeddedFontFromRequest", "storage", "string").(string)
+    e := initializeTest("SetEmbeddedFontFromRequest", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.SetEmbeddedFontFromRequest(testfont, testname, testonlyUsed, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation fonts info.
+   Test for SlidesApi.SetEmbeddedFontFromRequest method with invalid font
+*/
+func TestSetEmbeddedFontFromRequestInvalidFont(t *testing.T) {
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequest", "font", "[]byte").([]byte)
+    testname, _ := createTestParamValue("SetEmbeddedFontFromRequest", "name", "string").(string)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequest", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequest", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetEmbeddedFontFromRequest", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetEmbeddedFontFromRequest", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfont, "SetEmbeddedFontFromRequest", "font", "[]byte")
+    if (invalidValue == nil) {
+        testfont = nil
+    } else {
+        testfont, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("SetEmbeddedFontFromRequest", "font", testfont)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontFromRequest(testfont, testname, testonlyUsed, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFontFromRequest", "font", testfont, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation fonts info.
+   Test for SlidesApi.SetEmbeddedFontFromRequest method with invalid name
+*/
+func TestSetEmbeddedFontFromRequestInvalidName(t *testing.T) {
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequest", "font", "[]byte").([]byte)
+    testname, _ := createTestParamValue("SetEmbeddedFontFromRequest", "name", "string").(string)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequest", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequest", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetEmbeddedFontFromRequest", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetEmbeddedFontFromRequest", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "SetEmbeddedFontFromRequest", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetEmbeddedFontFromRequest", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontFromRequest(testfont, testname, testonlyUsed, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFontFromRequest", "name", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation fonts info.
+   Test for SlidesApi.SetEmbeddedFontFromRequest method with invalid onlyUsed
+*/
+func TestSetEmbeddedFontFromRequestInvalidOnlyUsed(t *testing.T) {
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequest", "font", "[]byte").([]byte)
+    testname, _ := createTestParamValue("SetEmbeddedFontFromRequest", "name", "string").(string)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequest", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequest", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetEmbeddedFontFromRequest", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetEmbeddedFontFromRequest", "storage", "string").(string)
+    testonlyUsed = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testonlyUsed, "SetEmbeddedFontFromRequest", "onlyUsed", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testonlyUsed = nullValue
+    } else {
+        *testonlyUsed, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("SetEmbeddedFontFromRequest", "onlyUsed", testonlyUsed)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontFromRequest(testfont, testname, testonlyUsed, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFontFromRequest", "onlyUsed", testonlyUsed, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation fonts info.
+   Test for SlidesApi.SetEmbeddedFontFromRequest method with invalid password
+*/
+func TestSetEmbeddedFontFromRequestInvalidPassword(t *testing.T) {
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequest", "font", "[]byte").([]byte)
+    testname, _ := createTestParamValue("SetEmbeddedFontFromRequest", "name", "string").(string)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequest", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequest", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetEmbeddedFontFromRequest", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetEmbeddedFontFromRequest", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "SetEmbeddedFontFromRequest", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetEmbeddedFontFromRequest", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontFromRequest(testfont, testname, testonlyUsed, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFontFromRequest", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation fonts info.
+   Test for SlidesApi.SetEmbeddedFontFromRequest method with invalid folder
+*/
+func TestSetEmbeddedFontFromRequestInvalidFolder(t *testing.T) {
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequest", "font", "[]byte").([]byte)
+    testname, _ := createTestParamValue("SetEmbeddedFontFromRequest", "name", "string").(string)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequest", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequest", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetEmbeddedFontFromRequest", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetEmbeddedFontFromRequest", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "SetEmbeddedFontFromRequest", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetEmbeddedFontFromRequest", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontFromRequest(testfont, testname, testonlyUsed, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFontFromRequest", "folder", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation fonts info.
+   Test for SlidesApi.SetEmbeddedFontFromRequest method with invalid storage
+*/
+func TestSetEmbeddedFontFromRequestInvalidStorage(t *testing.T) {
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequest", "font", "[]byte").([]byte)
+    testname, _ := createTestParamValue("SetEmbeddedFontFromRequest", "name", "string").(string)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequest", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequest", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SetEmbeddedFontFromRequest", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SetEmbeddedFontFromRequest", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "SetEmbeddedFontFromRequest", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetEmbeddedFontFromRequest", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontFromRequest(testfont, testname, testonlyUsed, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFontFromRequest", "storage", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation.
+   Test for SlidesApi.SetEmbeddedFontFromRequestOnline method
+*/
+func TestSetEmbeddedFontFromRequestOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "document", "[]byte").([]byte)
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "font", "[]byte").([]byte)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequestOnline", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "password", "string").(string)
+    e := initializeTest("SetEmbeddedFontFromRequestOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    r, _, e := c.SlidesApi.SetEmbeddedFontFromRequestOnline(testdocument, testfont, testonlyUsed, testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation.
+   Test for SlidesApi.SetEmbeddedFontFromRequestOnline method with invalid document
+*/
+func TestSetEmbeddedFontFromRequestOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "document", "[]byte").([]byte)
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "font", "[]byte").([]byte)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequestOnline", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "SetEmbeddedFontFromRequestOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("SetEmbeddedFontFromRequestOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontFromRequestOnline(testdocument, testfont, testonlyUsed, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFontFromRequestOnline", "document", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation.
+   Test for SlidesApi.SetEmbeddedFontFromRequestOnline method with invalid font
+*/
+func TestSetEmbeddedFontFromRequestOnlineInvalidFont(t *testing.T) {
+    testdocument, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "document", "[]byte").([]byte)
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "font", "[]byte").([]byte)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequestOnline", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfont, "SetEmbeddedFontFromRequestOnline", "font", "[]byte")
+    if (invalidValue == nil) {
+        testfont = nil
+    } else {
+        testfont, _ = invalidValue.([]byte)
+    }
+
+    e := initializeTest("SetEmbeddedFontFromRequestOnline", "font", testfont)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontFromRequestOnline(testdocument, testfont, testonlyUsed, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFontFromRequestOnline", "font", testfont, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation.
+   Test for SlidesApi.SetEmbeddedFontFromRequestOnline method with invalid onlyUsed
+*/
+func TestSetEmbeddedFontFromRequestOnlineInvalidOnlyUsed(t *testing.T) {
+    testdocument, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "document", "[]byte").([]byte)
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "font", "[]byte").([]byte)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequestOnline", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "password", "string").(string)
+    testonlyUsed = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testonlyUsed, "SetEmbeddedFontFromRequestOnline", "onlyUsed", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testonlyUsed = nullValue
+    } else {
+        *testonlyUsed, _ = invalidValue.(bool)
+    }
+
+    e := initializeTest("SetEmbeddedFontFromRequestOnline", "onlyUsed", testonlyUsed)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontFromRequestOnline(testdocument, testfont, testonlyUsed, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFontFromRequestOnline", "onlyUsed", testonlyUsed, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds font from request and returns presentation.
+   Test for SlidesApi.SetEmbeddedFontFromRequestOnline method with invalid password
+*/
+func TestSetEmbeddedFontFromRequestOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "document", "[]byte").([]byte)
+    testfont, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "font", "[]byte").([]byte)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontFromRequestOnline", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontFromRequestOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "SetEmbeddedFontFromRequestOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetEmbeddedFontFromRequestOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontFromRequestOnline(testdocument, testfont, testonlyUsed, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFontFromRequestOnline", "password", testpassword, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Embeds specified font and returns presentation.
@@ -62425,13 +64305,14 @@ func TestSetEmbeddedFontOnline(t *testing.T) {
         *testonlyUsed, _ = testonlyUsedValue.(bool)
     }
     testpassword, _ := createTestParamValue("SetEmbeddedFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFontOnline", "fontsFolder", "string").(string)
     e := initializeTest("SetEmbeddedFontOnline", "", "")
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
     }
     c := GetTestApiClient()
-    r, _, e := c.SlidesApi.SetEmbeddedFontOnline(testdocument, testfontName, testonlyUsed, testpassword)
+    r, _, e := c.SlidesApi.SetEmbeddedFontOnline(testdocument, testfontName, testonlyUsed, testpassword, testfontsFolder)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -62452,6 +64333,7 @@ func TestSetEmbeddedFontOnlineInvalidDocument(t *testing.T) {
         *testonlyUsed, _ = testonlyUsedValue.(bool)
     }
     testpassword, _ := createTestParamValue("SetEmbeddedFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFontOnline", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testdocument, "SetEmbeddedFontOnline", "document", "[]byte")
     if (invalidValue == nil) {
@@ -62465,7 +64347,7 @@ func TestSetEmbeddedFontOnlineInvalidDocument(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontOnline(testdocument, testfontName, testonlyUsed, testpassword)
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontOnline(testdocument, testfontName, testonlyUsed, testpassword, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -62486,6 +64368,7 @@ func TestSetEmbeddedFontOnlineInvalidFontName(t *testing.T) {
         *testonlyUsed, _ = testonlyUsedValue.(bool)
     }
     testpassword, _ := createTestParamValue("SetEmbeddedFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFontOnline", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testfontName, "SetEmbeddedFontOnline", "fontName", "string")
     if (invalidValue == nil) {
@@ -62500,7 +64383,7 @@ func TestSetEmbeddedFontOnlineInvalidFontName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontOnline(testdocument, testfontName, testonlyUsed, testpassword)
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontOnline(testdocument, testfontName, testonlyUsed, testpassword, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -62521,6 +64404,7 @@ func TestSetEmbeddedFontOnlineInvalidOnlyUsed(t *testing.T) {
         *testonlyUsed, _ = testonlyUsedValue.(bool)
     }
     testpassword, _ := createTestParamValue("SetEmbeddedFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFontOnline", "fontsFolder", "string").(string)
     testonlyUsed = new(bool)
 
     invalidValue := invalidizeTestParamValue(testonlyUsed, "SetEmbeddedFontOnline", "onlyUsed", "bool")
@@ -62536,7 +64420,7 @@ func TestSetEmbeddedFontOnlineInvalidOnlyUsed(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontOnline(testdocument, testfontName, testonlyUsed, testpassword)
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontOnline(testdocument, testfontName, testonlyUsed, testpassword, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -62557,6 +64441,7 @@ func TestSetEmbeddedFontOnlineInvalidPassword(t *testing.T) {
         *testonlyUsed, _ = testonlyUsedValue.(bool)
     }
     testpassword, _ := createTestParamValue("SetEmbeddedFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFontOnline", "fontsFolder", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testpassword, "SetEmbeddedFontOnline", "password", "string")
     if (invalidValue == nil) {
@@ -62571,12 +64456,48 @@ func TestSetEmbeddedFontOnlineInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontOnline(testdocument, testfontName, testonlyUsed, testpassword)
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontOnline(testdocument, testfontName, testonlyUsed, testpassword, testfontsFolder)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "SetEmbeddedFontOnline", "password", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Embeds specified font and returns presentation.
+   Test for SlidesApi.SetEmbeddedFontOnline method with invalid fontsFolder
+*/
+func TestSetEmbeddedFontOnlineInvalidFontsFolder(t *testing.T) {
+    testdocument, _ := createTestParamValue("SetEmbeddedFontOnline", "document", "[]byte").([]byte)
+    testfontName, _ := createTestParamValue("SetEmbeddedFontOnline", "fontName", "string").(string)
+    var testonlyUsed *bool
+    testonlyUsedValue := createTestParamValue("SetEmbeddedFontOnline", "onlyUsed", "bool")
+    if (testonlyUsedValue != nil) {
+        testonlyUsed = new(bool)
+        *testonlyUsed, _ = testonlyUsedValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("SetEmbeddedFontOnline", "password", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SetEmbeddedFontOnline", "fontsFolder", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfontsFolder, "SetEmbeddedFontOnline", "fontsFolder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfontsFolder = nullValue
+    } else {
+        testfontsFolder, _ = invalidValue.(string)
+    }
+
+    e := initializeTest("SetEmbeddedFontOnline", "fontsFolder", testfontsFolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SetEmbeddedFontOnline(testdocument, testfontName, testonlyUsed, testpassword, testfontsFolder)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SetEmbeddedFontOnline", "fontsFolder", testfontsFolder, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Set header/footer the notes slide.

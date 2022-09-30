@@ -1,0 +1,7 @@
+{
+    "AppSid": "@your_client_id@",
+    "AppKey": "@your_client_secret@",
+    "BaseUrl" : "https://api-qa.aspose.cloud",
+    "AuthBaseUrl" : "https://api-qa.aspose.cloud",
+    "Debug" : false
+}

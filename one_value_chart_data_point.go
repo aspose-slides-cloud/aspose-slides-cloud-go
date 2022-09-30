@@ -33,6 +33,22 @@ import (
 // One value chart data point.
 type IOneValueChartDataPoint interface {
 
+	// Gets or sets the fill format.
+	GetFillFormat() IFillFormat
+	SetFillFormat(newValue IFillFormat)
+
+	// Gets or sets the effect format.
+	GetEffectFormat() IEffectFormat
+	SetEffectFormat(newValue IEffectFormat)
+
+	// Gets or sets the 3D format
+	GetThreeDFormat() IThreeDFormat
+	SetThreeDFormat(newValue IThreeDFormat)
+
+	// Gets or sets the line format.
+	GetLineFormat() ILineFormat
+	SetLineFormat(newValue ILineFormat)
+
 	// Value.
 	GetValue() float64
 	SetValue(newValue float64)
@@ -47,6 +63,18 @@ type IOneValueChartDataPoint interface {
 }
 
 type OneValueChartDataPoint struct {
+
+	// Gets or sets the fill format.
+	FillFormat IFillFormat `json:"FillFormat,omitempty"`
+
+	// Gets or sets the effect format.
+	EffectFormat IEffectFormat `json:"EffectFormat,omitempty"`
+
+	// Gets or sets the 3D format
+	ThreeDFormat IThreeDFormat `json:"ThreeDFormat,omitempty"`
+
+	// Gets or sets the line format.
+	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
 	// Value.
 	Value float64 `json:"Value"`
@@ -63,6 +91,34 @@ func NewOneValueChartDataPoint() *OneValueChartDataPoint {
 	return instance
 }
 
+func (this *OneValueChartDataPoint) GetFillFormat() IFillFormat {
+	return this.FillFormat
+}
+
+func (this *OneValueChartDataPoint) SetFillFormat(newValue IFillFormat) {
+	this.FillFormat = newValue
+}
+func (this *OneValueChartDataPoint) GetEffectFormat() IEffectFormat {
+	return this.EffectFormat
+}
+
+func (this *OneValueChartDataPoint) SetEffectFormat(newValue IEffectFormat) {
+	this.EffectFormat = newValue
+}
+func (this *OneValueChartDataPoint) GetThreeDFormat() IThreeDFormat {
+	return this.ThreeDFormat
+}
+
+func (this *OneValueChartDataPoint) SetThreeDFormat(newValue IThreeDFormat) {
+	this.ThreeDFormat = newValue
+}
+func (this *OneValueChartDataPoint) GetLineFormat() ILineFormat {
+	return this.LineFormat
+}
+
+func (this *OneValueChartDataPoint) SetLineFormat(newValue ILineFormat) {
+	this.LineFormat = newValue
+}
 func (this *OneValueChartDataPoint) GetValue() float64 {
 	return this.Value
 }
@@ -90,6 +146,178 @@ func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
 		return err
+	}
+	
+	if valFillFormat, ok := objMap["fillFormat"]; ok {
+		if valFillFormat != nil {
+			var valueForFillFormat FillFormat
+			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("FillFormat", *valFillFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
+		}
+	}
+	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
+		if valFillFormatCap != nil {
+			var valueForFillFormat FillFormat
+			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valFillFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IFillFormat)
+			if ok {
+				this.FillFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valEffectFormat, ok := objMap["effectFormat"]; ok {
+		if valEffectFormat != nil {
+			var valueForEffectFormat EffectFormat
+			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
+		}
+	}
+	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
+		if valEffectFormatCap != nil {
+			var valueForEffectFormat EffectFormat
+			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valEffectFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IEffectFormat)
+			if ok {
+				this.EffectFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valThreeDFormat, ok := objMap["threeDFormat"]; ok {
+		if valThreeDFormat != nil {
+			var valueForThreeDFormat ThreeDFormat
+			err = json.Unmarshal(*valThreeDFormat, &valueForThreeDFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ThreeDFormat", *valThreeDFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valThreeDFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IThreeDFormat)
+			if ok {
+				this.ThreeDFormat = vInterfaceObject
+			}
+		}
+	}
+	if valThreeDFormatCap, ok := objMap["ThreeDFormat"]; ok {
+		if valThreeDFormatCap != nil {
+			var valueForThreeDFormat ThreeDFormat
+			err = json.Unmarshal(*valThreeDFormatCap, &valueForThreeDFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ThreeDFormat", *valThreeDFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valThreeDFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IThreeDFormat)
+			if ok {
+				this.ThreeDFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valLineFormat, ok := objMap["lineFormat"]; ok {
+		if valLineFormat != nil {
+			var valueForLineFormat LineFormat
+			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("LineFormat", *valLineFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLineFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.LineFormat = vInterfaceObject
+			}
+		}
+	}
+	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
+		if valLineFormatCap != nil {
+			var valueForLineFormat LineFormat
+			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valLineFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ILineFormat)
+			if ok {
+				this.LineFormat = vInterfaceObject
+			}
+		}
 	}
 	
 	if valValue, ok := objMap["value"]; ok {

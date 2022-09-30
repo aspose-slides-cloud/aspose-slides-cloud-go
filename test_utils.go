@@ -49,7 +49,7 @@ var (
 	expectedTestDataVersion = "1"
 )
 
-func initializeTest(functionName string, invalidParamName string, invalidParamValue interface{}) error {
+func InitializeTest(functionName string, invalidParamName string, invalidParamValue interface{}) error {
 	if !isInitialized {
 		version := "0"
 		c := GetTestApiClient()

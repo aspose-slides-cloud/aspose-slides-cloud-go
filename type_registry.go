@@ -123,6 +123,9 @@ func init() {
 	typeRegistry["FontSet"] = reflect.TypeOf(FontSet{})
 	
 	typeDeterminers["FontSet"] = make(map[string]string)
+	typeRegistry["FontSubstRule"] = reflect.TypeOf(FontSubstRule{})
+	
+	typeDeterminers["FontSubstRule"] = make(map[string]string)
 	typeRegistry["FontsData"] = reflect.TypeOf(FontsData{})
 	
 	typeDeterminers["FontsData"] = make(map[string]string)
