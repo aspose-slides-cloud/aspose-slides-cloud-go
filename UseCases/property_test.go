@@ -448,7 +448,7 @@ func TestViewPropertiesGet(t *testing.T) {
 }
 
 /*
-   Test for
+   Test for view properties
 */
 func TestViewPropertiesSet(t *testing.T) {
 	c := slidescloud.GetTestApiClient()
@@ -524,6 +524,74 @@ func TestProtectionCheck(t *testing.T) {
 
 	if protectionProperties.GetReadPassword() == "" {
 		t.Errorf("Expected %v, but was %v", "not null", protectionProperties.GetReadPassword())
+		return
+	}
+}
+
+/*
+   Test for slide show properties
+*/
+func TestSlideShowPropertiesGet(t *testing.T) {
+	c := slidescloud.GetTestApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	response, _, e := c.SlidesApi.GetSlideShowProperties(fileName, password, folderName, "")
+
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	if response.GetShowAnimation() != true {
+		t.Errorf("Expected %v, but was %v", true, response.GetShowAnimation())
+		return
+	}
+
+	if response.GetShowNarration() != true {
+		t.Errorf("Expected %v, but was %v", true, response.GetShowAnimation())
+		return
+	}
+}
+
+/*
+   Test for slide show properties
+*/
+func TestSlideShowPropertiesSet(t *testing.T) {
+	c := slidescloud.GetTestApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	dto := slidescloud.NewSlideShowProperties()
+	dto.SetLoop(true)
+	dto.SetUseTimings(true)
+	dto.SetSlideShowType("PresentedBySpeaker")
+
+	response, _, e := c.SlidesApi.SetSlideShowProperties(fileName, dto, password, folderName, "")
+
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	if response.GetLoop() != dto.GetLoop() {
+		t.Errorf("Expected %v, but was %v", dto.GetLoop(), response.GetLoop())
+		return
+	}
+
+	if response.GetUseTimings() != dto.GetUseTimings() {
+		t.Errorf("Expected %v, but was %v", dto.GetUseTimings(), response.GetUseTimings())
+		return
+	}
+
+	if response.GetSlideShowType() != dto.GetSlideShowType() {
+		t.Errorf("Expected %v, but was %v", dto.GetSlideShowType(), response.GetSlideShowType())
 		return
 	}
 }

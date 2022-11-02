@@ -68,7 +68,7 @@ func TestConvertPostFromRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if resultStat.Size() >= resultSlidesStat.Size() {
+	if resultStat.Size() <= resultSlidesStat.Size() {
 		t.Errorf("Wrong response size. Expected greater than %v but was %v.", resultSlidesStat.Size(), resultStat.Size())
 		return
 	}
@@ -454,7 +454,7 @@ func TestConvertShapePostFromStorage(t *testing.T) {
 		return
 	}
 
-	_, _, e = c.SlidesApi.DownloadShape(fileName, 1, 1, "png", nil, nil, nil, "", "password", folderName, "", "")
+	_, _, e = c.SlidesApi.DownloadShape(fileName, 1, 1, "png", nil, nil, nil, "", "password", folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -472,7 +472,9 @@ func TestConvertSubShapePostFromStorage(t *testing.T) {
 		return
 	}
 
-	_, _, e = c.SlidesApi.DownloadSubshape(fileName, 1, "4/shapes", 1, "png", nil, nil, nil, "", "password", folderName, "", "")
+	var subShape = "1"
+	var shapeIndex int32 = 4
+	_, _, e = c.SlidesApi.DownloadShape(fileName, 1, shapeIndex, "png", nil, nil, nil, "", "password", folderName, "", "", subShape)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -491,7 +493,7 @@ func TestConvertShapePutFromStorage(t *testing.T) {
 		return
 	}
 
-	_, e = c.SlidesApi.SaveShape(fileName, 1, 1, "png", outPath, nil, nil, nil, "", "password", folderName, "", "")
+	_, e = c.SlidesApi.SaveShape(fileName, 1, 1, "png", outPath, nil, nil, nil, "", "password", folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -519,7 +521,10 @@ func TestConvertSubshapePutFromStorage(t *testing.T) {
 		return
 	}
 
-	_, e = c.SlidesApi.SaveSubshape(fileName, 1, "4/shapes", 1, "png", outPath, nil, nil, nil, "", "password", folderName, "", "")
+	var subShape = "1"
+	var shapeIndex int32 = 4
+
+	_, e = c.SlidesApi.SaveShape(fileName, 1, shapeIndex, "png", outPath, nil, nil, nil, "", "password", folderName, "", "", subShape)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

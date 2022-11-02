@@ -42,6 +42,7 @@ type ITestRule interface {
     getInvalid() *bool
     getParameter() string
     getMethod() string
+    getType() string
     getLanguage() string
 }
 
@@ -54,6 +55,7 @@ type FileRule struct {
     File string `json:"File,omitempty"`
     Folder string `json:"Folder,omitempty"`
     Path string `json:"Path,omitempty"`
+    Type string `json:"Type,omitempty"`
     ActualName string
 }
 
@@ -67,6 +69,10 @@ func (this FileRule) getParameter() string {
 
 func (this FileRule) getMethod() string {
 	return this.Method
+}
+
+func (this FileRule) getType() string {
+	return this.Type
 }
 
 func (this FileRule) getLanguage() string {
@@ -95,6 +101,10 @@ func (this ValueRule) getParameter() string {
 
 func (this ValueRule) getMethod() string {
 	return this.Method
+}
+
+func (this ValueRule) getType() string {
+	return this.Type
 }
 
 func (this ValueRule) getLanguage() string {
@@ -194,6 +204,7 @@ type OkToNotFailRule struct {
     Invalid *bool `json:"Invalid,omitempty"`
     Parameter string `json:"Parameter,omitempty"`
     Method string `json:"Method,omitempty"`
+    Type string `json:"Type,omitempty"`
     Language string `json:"Language,omitempty"`
 }
 
@@ -209,6 +220,10 @@ func (this OkToNotFailRule) getMethod() string {
 	return this.Method
 }
 
+func (this OkToNotFailRule) getType() string {
+	return this.Type
+}
+
 func (this OkToNotFailRule) getLanguage() string {
 	return this.Language
 }
@@ -217,6 +232,7 @@ type ResultRule struct {
     Invalid *bool `json:"Invalid,omitempty"`
     Parameter string `json:"Parameter,omitempty"`
     Method string `json:"Method,omitempty"`
+    Type string `json:"Type,omitempty"`
     Language string `json:"Language,omitempty"`
     Code int32 `json:"Code,omitempty"`
     Message string `json:"Message,omitempty"`
@@ -232,6 +248,10 @@ func (this ResultRule) getParameter() string {
 
 func (this ResultRule) getMethod() string {
 	return this.Method
+}
+
+func (this ResultRule) getType() string {
+	return this.Type
 }
 
 func (this ResultRule) getLanguage() string {

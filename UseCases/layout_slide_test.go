@@ -105,7 +105,7 @@ func TestLayoutSlideShapes(t *testing.T) {
 		return
 	}
 
-	shapes, _, e := c.SlidesApi.GetSpecialSlideShapes(fileName, slideIndex, "layoutSlide", password, folderName, "")
+	shapes, _, e := c.SlidesApi.GetSpecialSlideShapes(fileName, slideIndex, "layoutSlide", password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -122,7 +122,7 @@ func TestLayoutSlideShapes(t *testing.T) {
 	dto.Height = 200
 	dto.ShapeType = "Rectangle"
 	dto.Text = "New shape"
-	shape, _, e := c.SlidesApi.CreateSpecialSlideShape(fileName, slideIndex, "layoutSlide", dto, nil, nil, password, folderName, "")
+	shape, _, e := c.SlidesApi.CreateSpecialSlideShape(fileName, slideIndex, "layoutSlide", dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -131,7 +131,7 @@ func TestLayoutSlideShapes(t *testing.T) {
 		t.Errorf("Wrong shape text. Expected %v but was %v.", dto.GetText(), shape.(slidescloud.IShape).GetText())
 		return
 	}
-	shapes, _, e = c.SlidesApi.GetSpecialSlideShapes(fileName, slideIndex, "layoutSlide", password, folderName, "")
+	shapes, _, e = c.SlidesApi.GetSpecialSlideShapes(fileName, slideIndex, "layoutSlide", password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -142,7 +142,7 @@ func TestLayoutSlideShapes(t *testing.T) {
 	}
 
 	dto.Text = "Updated shape"
-	shape, _, e = c.SlidesApi.UpdateSpecialSlideShape(fileName, slideIndex, "layoutSlide", shapeCount+1, dto, password, folderName, "")
+	shape, _, e = c.SlidesApi.UpdateSpecialSlideShape(fileName, slideIndex, "layoutSlide", shapeCount+1, dto, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -151,7 +151,7 @@ func TestLayoutSlideShapes(t *testing.T) {
 		t.Errorf("Wrong shape text. Expected %v but was %v.", dto.GetText(), shape.(slidescloud.IShape).GetText())
 		return
 	}
-	shapes, _, e = c.SlidesApi.GetSpecialSlideShapes(fileName, slideIndex, "layoutSlide", password, folderName, "")
+	shapes, _, e = c.SlidesApi.GetSpecialSlideShapes(fileName, slideIndex, "layoutSlide", password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -161,12 +161,12 @@ func TestLayoutSlideShapes(t *testing.T) {
 		return
 	}
 
-	_, _, e = c.SlidesApi.DeleteSpecialSlideShape(fileName, slideIndex, "layoutSlide", shapeCount+1, password, folderName, "")
+	_, _, e = c.SlidesApi.DeleteSpecialSlideShape(fileName, slideIndex, "layoutSlide", shapeCount+1, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shapes, _, e = c.SlidesApi.GetSpecialSlideShapes(fileName, slideIndex, "layoutSlide", password, folderName, "")
+	shapes, _, e = c.SlidesApi.GetSpecialSlideShapes(fileName, slideIndex, "layoutSlide", password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -191,7 +191,7 @@ func TestLayoutSlideParagraphs(t *testing.T) {
 		return
 	}
 
-	paragraphs, _, e := c.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "layoutSlide", shapeIndex, password, folderName, "")
+	paragraphs, _, e := c.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "layoutSlide", shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -206,7 +206,7 @@ func TestLayoutSlideParagraphs(t *testing.T) {
 	dto := slidescloud.NewParagraph()
 	dto.Alignment = "Right"
 	dto.PortionList = []slidescloud.IPortion{portion}
-	paragraph, _, e := c.SlidesApi.CreateSpecialSlideParagraph(fileName, slideIndex, "layoutSlide", shapeIndex, dto, nil, password, folderName, "")
+	paragraph, _, e := c.SlidesApi.CreateSpecialSlideParagraph(fileName, slideIndex, "layoutSlide", shapeIndex, dto, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -215,7 +215,7 @@ func TestLayoutSlideParagraphs(t *testing.T) {
 		t.Errorf("Wrong paragraph alignment. Expected %v but was %v.", dto.GetAlignment(), paragraph.GetAlignment())
 		return
 	}
-	paragraphs, _, e = c.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "layoutSlide", shapeIndex, password, folderName, "")
+	paragraphs, _, e = c.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "layoutSlide", shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -227,7 +227,7 @@ func TestLayoutSlideParagraphs(t *testing.T) {
 
 	dto = slidescloud.NewParagraph()
 	dto.Alignment = "Center"
-	paragraph, _, e = c.SlidesApi.UpdateSpecialSlideParagraph(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphCount+1, dto, password, folderName, "")
+	paragraph, _, e = c.SlidesApi.UpdateSpecialSlideParagraph(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphCount+1, dto, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -236,7 +236,7 @@ func TestLayoutSlideParagraphs(t *testing.T) {
 		t.Errorf("Wrong paragraph alignment. Expected %v but was %v.", dto.GetAlignment(), paragraph.GetAlignment())
 		return
 	}
-	paragraphs, _, e = c.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "layoutSlide", shapeIndex, password, folderName, "")
+	paragraphs, _, e = c.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "layoutSlide", shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -246,12 +246,12 @@ func TestLayoutSlideParagraphs(t *testing.T) {
 		return
 	}
 
-	_, _, e = c.SlidesApi.DeleteSpecialSlideParagraph(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphCount+1, password, folderName, "")
+	_, _, e = c.SlidesApi.DeleteSpecialSlideParagraph(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphCount+1, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	paragraphs, _, e = c.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "layoutSlide", shapeIndex, password, folderName, "")
+	paragraphs, _, e = c.SlidesApi.GetSpecialSlideParagraphs(fileName, slideIndex, "layoutSlide", shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -277,7 +277,7 @@ func TestLayoutSlidePortions(t *testing.T) {
 		return
 	}
 
-	portions, _, e := c.SlidesApi.GetSpecialSlidePortions(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, password, folderName, "")
+	portions, _, e := c.SlidesApi.GetSpecialSlidePortions(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -290,7 +290,7 @@ func TestLayoutSlidePortions(t *testing.T) {
 	dto := slidescloud.NewPortion()
 	dto.Text = "New portion"
 	dto.FontBold = "True"
-	portion, _, e := c.SlidesApi.CreateSpecialSlidePortion(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, dto, nil, password, folderName, "")
+	portion, _, e := c.SlidesApi.CreateSpecialSlidePortion(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, dto, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -303,7 +303,7 @@ func TestLayoutSlidePortions(t *testing.T) {
 		t.Errorf("Wrong portion text. Expected %v but was %v.", dto.GetText(), portion.GetText())
 		return
 	}
-	portions, _, e = c.SlidesApi.GetSpecialSlidePortions(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, password, folderName, "")
+	portions, _, e = c.SlidesApi.GetSpecialSlidePortions(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -316,7 +316,7 @@ func TestLayoutSlidePortions(t *testing.T) {
 	dto2 := slidescloud.NewPortion()
 	dto2.Text = "Updated portion"
 	dto2.FontHeight = 22
-	portion, _, e = c.SlidesApi.UpdateSpecialSlidePortion(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, portionCount+1, dto2, password, folderName, "")
+	portion, _, e = c.SlidesApi.UpdateSpecialSlidePortion(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, portionCount+1, dto2, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -333,7 +333,7 @@ func TestLayoutSlidePortions(t *testing.T) {
 		t.Errorf("Wrong portion text. Expected %v but was %v.", dto2.GetText(), portion.GetText())
 		return
 	}
-	portions, _, e = c.SlidesApi.GetSpecialSlidePortions(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, password, folderName, "")
+	portions, _, e = c.SlidesApi.GetSpecialSlidePortions(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -343,12 +343,12 @@ func TestLayoutSlidePortions(t *testing.T) {
 		return
 	}
 
-	_, _, e = c.SlidesApi.DeleteSpecialSlidePortion(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, portionCount+1, password, folderName, "")
+	_, _, e = c.SlidesApi.DeleteSpecialSlidePortion(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, portionCount+1, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	portions, _, e = c.SlidesApi.GetSpecialSlidePortions(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, password, folderName, "")
+	portions, _, e = c.SlidesApi.GetSpecialSlidePortions(fileName, slideIndex, "layoutSlide", shapeIndex, paragraphIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

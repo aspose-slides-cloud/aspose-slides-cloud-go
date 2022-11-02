@@ -53,7 +53,7 @@ func TestShapeFormatLine(t *testing.T) {
 	lineFormat.Width = 7
 	lineFormat.DashStyle = "Dash"
 	dto.LineFormat = lineFormat
-	result, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, dto, password, folderName, "")
+	result, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, dto, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -63,7 +63,7 @@ func TestShapeFormatLine(t *testing.T) {
 		t.Errorf("Wrong shape type.")
 		return
 	}
-	result, _, e = c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "")
+	result, _, e = c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -97,7 +97,7 @@ func TestShapeFormatFill(t *testing.T) {
 	fillFormat := slidescloud.NewSolidFill()
 	fillFormat.Color = "#FFFFFF00"
 	dto.FillFormat = fillFormat
-	result, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, dto, password, folderName, "")
+	result, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, dto, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -107,7 +107,7 @@ func TestShapeFormatFill(t *testing.T) {
 		t.Errorf("Wrong shape type.")
 		return
 	}
-	result, _, e = c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "")
+	result, _, e = c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -151,7 +151,7 @@ func TestShapeFormatEffect(t *testing.T) {
 	innerShadow.ShadowColor = "#FFFFFF00"
 	effectFormat.InnerShadow = innerShadow
 	dto.EffectFormat = effectFormat
-	result, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, dto, password, folderName, "")
+	result, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, dto, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -161,7 +161,7 @@ func TestShapeFormatEffect(t *testing.T) {
 		t.Errorf("Wrong shape type.")
 		return
 	}
-	result, _, e = c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "")
+	result, _, e = c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -210,7 +210,7 @@ func TestShapeFormat3D(t *testing.T) {
 	lightRig.Direction = "Top"
 	threeDFormat.LightRig = lightRig
 	dto.ThreeDFormat = threeDFormat
-	result, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, dto, password, folderName, "")
+	result, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, dto, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -220,7 +220,7 @@ func TestShapeFormat3D(t *testing.T) {
 		t.Errorf("Wrong shape type.")
 		return
 	}
-	result, _, e = c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "")
+	result, _, e = c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

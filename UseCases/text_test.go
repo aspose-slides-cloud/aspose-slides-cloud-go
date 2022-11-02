@@ -210,7 +210,7 @@ func TestShapeTextHighlight(t *testing.T) {
 		return
 	}
 
-	para, _, e := c.SlidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "")
+	para, _, e := c.SlidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -263,7 +263,7 @@ func TestShapeTextHighlightRegex(t *testing.T) {
 		return
 	}
 
-	para, _, e := c.SlidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "")
+	para, _, e := c.SlidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)

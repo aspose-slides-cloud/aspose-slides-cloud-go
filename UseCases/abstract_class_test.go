@@ -43,7 +43,7 @@ func TestShape(t *testing.T) {
 		return
 	}
 
-	r, _, e := slidescloud.GetTestApiClient().SlidesApi.GetShape("test.pptx", 1, 1, "password", "TempSlidesSDK", "")
+	r, _, e := slidescloud.GetTestApiClient().SlidesApi.GetShape("test.pptx", 1, 1, "password", "TempSlidesSDK", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

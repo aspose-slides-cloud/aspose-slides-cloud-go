@@ -648,6 +648,9 @@ func init() {
 	typeRegistry["SlideProperties"] = reflect.TypeOf(SlideProperties{})
 	derivedTypes["SlideProperties"] = "ResourceBase"
 	typeDeterminers["SlideProperties"] = make(map[string]string)
+	typeRegistry["SlideShowProperties"] = reflect.TypeOf(SlideShowProperties{})
+	derivedTypes["SlideShowProperties"] = "ResourceBase"
+	typeDeterminers["SlideShowProperties"] = make(map[string]string)
 	typeRegistry["Slides"] = reflect.TypeOf(Slides{})
 	derivedTypes["Slides"] = "ResourceBase"
 	typeDeterminers["Slides"] = make(map[string]string)
@@ -807,6 +810,11 @@ func init() {
 	typeDeterminers["SummaryZoomSection"]["Type"] = "SummaryZoomSection"
 }
 
+func isModelClass(typeName string) bool {
+	_, ok := typeRegistry[typeName]
+	return ok
+}
+
 func isSubclass(typeName string, baseTypeName string) bool {
 	if typeName == baseTypeName {
 		return true
@@ -826,6 +834,49 @@ func createObjectForType(typeName string, data []byte) (interface{}, error) {
 		return nil, err
 	}
 	return createObjectForTypeMap(typeName, typeName, objmap), nil
+}
+
+func createObjectForMap(typeName string, baseTypeName string, objMap map[string]interface{}) interface{} {
+	for k, v := range derivedTypes {
+		if v == typeName {
+			subObject := createObjectForMap(k, typeName, objMap)
+			if subObject != nil {
+				return subObject
+			}
+		}
+	}
+	matches := 0
+	if detMap, ok := typeDeterminers[typeName]; ok {
+		matches = 0
+		for k, v := range detMap {
+			objValue, objOk := objMap[k]
+			if !objOk {
+				objValue, objOk = objMap[lcFirst(k)]
+			}
+			if !objOk {
+				return nil
+			}
+			if objOk {
+				var objString string
+				var objBytes, ok = objValue.([]byte)
+				if ok {
+				 	err := json.Unmarshal(objBytes, &objString)
+					if err == nil {
+						if objString != v {
+							return nil
+						}
+					}
+				}
+			}
+			matches++
+		}
+	}
+	if typeName == baseTypeName || matches > 0 {
+		if reflectType, ok := typeRegistry[typeName]; ok {
+			return reflect.New(reflectType).Interface()
+		}
+	}
+	return nil
 }
 
 func createObjectForTypeMap(typeName string, baseTypeName string, objMap map[string]*json.RawMessage) interface{} {

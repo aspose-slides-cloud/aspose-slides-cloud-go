@@ -48,7 +48,7 @@ func TestParagraphGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -75,7 +75,7 @@ func TestParagraphsGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetParagraphs(fileName, slideIndex, shapeIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetParagraphs(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -93,7 +93,8 @@ func TestParagraphsGet(t *testing.T) {
 */
 func TestSubshapeParagraphGet(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 	var paragraphIndex int32 = 1
 
 	c := slidescloud.GetTestApiClient()
@@ -103,7 +104,7 @@ func TestSubshapeParagraphGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetSubshapeParagraph(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -121,7 +122,8 @@ func TestSubshapeParagraphGet(t *testing.T) {
 */
 func TestSubshapeParagraphsGet(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -130,7 +132,7 @@ func TestSubshapeParagraphsGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetSubshapeParagraphs(fileName, slideIndex, "3/shapes", shapeIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetParagraphs(fileName, slideIndex, shapeIndex, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -162,7 +164,7 @@ func TestParagraphCreate(t *testing.T) {
 	dto.MarginRight = 2
 	dto.Alignment = "Center"
 
-	response, _, e := c.SlidesApi.CreateParagraph(fileName, slideIndex, shapeIndex, dto, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.CreateParagraph(fileName, slideIndex, shapeIndex, dto, nil, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -207,7 +209,7 @@ func TestParagraphCreateWithPortions(t *testing.T) {
 	dto := slidescloud.NewParagraph()
 	dto.PortionList = []slidescloud.IPortion{portion1, portion2}
 
-	response, _, e := c.SlidesApi.CreateParagraph(fileName, slideIndex, shapeIndex, dto, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.CreateParagraph(fileName, slideIndex, shapeIndex, dto, nil, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -225,7 +227,8 @@ func TestParagraphCreateWithPortions(t *testing.T) {
 */
 func TestSubshapeParagraphCreate(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -239,7 +242,7 @@ func TestSubshapeParagraphCreate(t *testing.T) {
 	dto.MarginRight = 2
 	dto.Alignment = "Center"
 
-	response, _, e := c.SlidesApi.CreateSubshapeParagraph(fileName, slideIndex, "3/shapes", shapeIndex, dto, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.CreateParagraph(fileName, slideIndex, shapeIndex, dto, nil, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -282,7 +285,7 @@ func TestParagraphUpdate(t *testing.T) {
 	dto.MarginRight = 2
 	dto.Alignment = "Center"
 
-	response, _, e := c.SlidesApi.UpdateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, dto, password, folderName, "")
+	response, _, e := c.SlidesApi.UpdateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, dto, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -310,7 +313,8 @@ func TestParagraphUpdate(t *testing.T) {
 */
 func TestSubshapeParagraphUpdate(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 	var paragraphIndex int32 = 1
 
 	c := slidescloud.GetTestApiClient()
@@ -325,7 +329,7 @@ func TestSubshapeParagraphUpdate(t *testing.T) {
 	dto.MarginRight = 2
 	dto.Alignment = "Center"
 
-	response, _, e := c.SlidesApi.UpdateSubshapeParagraph(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, dto, password, folderName, "")
+	response, _, e := c.SlidesApi.UpdateParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, dto, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -362,7 +366,7 @@ func TestParagraphsDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteParagraphs(fileName, slideIndex, shapeIndex, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteParagraphs(fileName, slideIndex, shapeIndex, nil, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -390,7 +394,7 @@ func TestParagraphsDeleteIndexes(t *testing.T) {
 	}
 
 	indexes := []int32{2}
-	response, _, e := c.SlidesApi.DeleteParagraphs(fileName, slideIndex, shapeIndex, indexes, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteParagraphs(fileName, slideIndex, shapeIndex, indexes, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -408,7 +412,8 @@ func TestParagraphsDeleteIndexes(t *testing.T) {
 */
 func TestSubshapeParagraphsDelete(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -417,7 +422,7 @@ func TestSubshapeParagraphsDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteSubshapeParagraphs(fileName, slideIndex, "3/shapes", shapeIndex, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteParagraphs(fileName, slideIndex, shapeIndex, nil, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -435,7 +440,8 @@ func TestSubshapeParagraphsDelete(t *testing.T) {
 */
 func TestSubshapeParagraphsDeleteIndexes(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -445,7 +451,7 @@ func TestSubshapeParagraphsDeleteIndexes(t *testing.T) {
 	}
 
 	indexes := []int32{1}
-	response, _, e := c.SlidesApi.DeleteSubshapeParagraphs(fileName, slideIndex, "3/shapes", shapeIndex, indexes, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteParagraphs(fileName, slideIndex, shapeIndex, indexes, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -473,7 +479,7 @@ func TestParagraphDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -491,7 +497,8 @@ func TestParagraphDelete(t *testing.T) {
 */
 func TestSubshapeParagraphDelete(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 	var paragraphIndex int32 = 1
 
 	c := slidescloud.GetTestApiClient()
@@ -501,7 +508,7 @@ func TestSubshapeParagraphDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteSubshapeParagraph(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -584,7 +591,7 @@ func TestParagraphDefaultPortionFormat(t *testing.T) {
 	dto.DefaultPortionFormat = portionFormat
 	dto.PortionList = []slidescloud.IPortion{portion1, portion2}
 
-	response, _, e := c.SlidesApi.CreateParagraph(fileName, slideIndex, shapeIndex, dto, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.CreateParagraph(fileName, slideIndex, shapeIndex, dto, nil, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -622,7 +629,7 @@ func TestParagraphEffectiveGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetParagraphEffective(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetParagraphEffective(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -640,7 +647,8 @@ func TestParagraphEffectiveGet(t *testing.T) {
 */
 func TestSubshapeParagraphEffectiveGet(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 	var paragraphIndex int32 = 1
 
 	c := slidescloud.GetTestApiClient()
@@ -650,7 +658,7 @@ func TestSubshapeParagraphEffectiveGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetSubshapeParagraphEffective(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetParagraphEffective(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)

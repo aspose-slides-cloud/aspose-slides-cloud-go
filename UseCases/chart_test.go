@@ -44,7 +44,7 @@ func TestChartGet(t *testing.T) {
 		return
 	}
 
-	chart, _, e := c.SlidesApi.GetShape(fileName, 3, 1, password, folderName, "")
+	chart, _, e := c.SlidesApi.GetShape(fileName, 3, 1, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -100,7 +100,7 @@ func TestChartCreate(t *testing.T) {
 	category3 := slidescloud.NewChartCategory()
 	category3.Value = "Category3"
 	chart.Categories = []slidescloud.IChartCategory{category1, category2, category3}
-	result, _, e := c.SlidesApi.CreateShape(fileName, 3, chart, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 3, chart, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -156,7 +156,7 @@ func TestChartUpdate(t *testing.T) {
 	category3 := slidescloud.NewChartCategory()
 	category3.Value = "Category3"
 	chart.Categories = []slidescloud.IChartCategory{category1, category2, category3}
-	result, _, e := c.SlidesApi.UpdateShape(fileName, 3, 1, chart, "password", folderName, "")
+	result, _, e := c.SlidesApi.UpdateShape(fileName, 3, 1, chart, "password", folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -521,7 +521,7 @@ func TestChartSunburst(t *testing.T) {
 	category4.Value = "Stem2"
 	category4.Level = 1
 	chart.Categories = []slidescloud.IChartCategory{category1, category2, category3, category4}
-	result, _, e := c.SlidesApi.CreateShape(fileName, 3, chart, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 3, chart, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -599,7 +599,7 @@ func TestMultiLevelCategoryAxis(t *testing.T) {
 	category8.SetValue("Category8")
 	dto.Categories = []slidescloud.IChartCategory{category1, category2, category3, category4, category5, category6, category7, category8}
 
-	response, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -635,7 +635,7 @@ func TestTemplate(t *testing.T) {
 		return
 	}
 
-	chart, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "")
+	chart, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -644,7 +644,7 @@ func TestTemplate(t *testing.T) {
 
 	chart.(slidescloud.IChart).GetLegend().SetHasLegend(false)
 
-	response, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, chart, password, folderName, "")
+	response, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, chart, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -671,7 +671,7 @@ func TestChartGridLinesFormat(t *testing.T) {
 		return
 	}
 
-	chart, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "")
+	chart, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -715,7 +715,7 @@ func TestChartGridLinesFormat(t *testing.T) {
 
 	chart.(slidescloud.IChart).SetAxes(axes)
 
-	response, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, chart, password, folderName, "")
+	response, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, chart, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -761,7 +761,7 @@ func TestChartSeriesGroups(t *testing.T) {
 		return
 	}
 
-	chart, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "")
+	chart, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)

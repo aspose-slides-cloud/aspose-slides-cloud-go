@@ -49,7 +49,7 @@ func TestPortionsGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetPortions(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetPortions(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -67,7 +67,8 @@ func TestPortionsGet(t *testing.T) {
 */
 func TestSubshapePortionsGet(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 	var paragraphIndex int32 = 1
 
 	c := slidescloud.GetTestApiClient()
@@ -77,7 +78,7 @@ func TestSubshapePortionsGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetSubshapePortions(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetPortions(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -107,7 +108,7 @@ func TestPortionGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -125,7 +126,8 @@ func TestPortionGet(t *testing.T) {
 */
 func TestSubshapePortionGet(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
 	portionText := "portion 1"
@@ -137,7 +139,7 @@ func TestSubshapePortionGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetSubshapePortion(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, portionIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -176,7 +178,7 @@ func TestPortionCreate(t *testing.T) {
 	dto.LatinFont = fontName
 	dto.FillFormat = fillFormat
 
-	response, _, e := c.SlidesApi.CreatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, dto, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.CreatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, dto, nil, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -214,7 +216,8 @@ func TestPortionCreate(t *testing.T) {
 */
 func TestSubshapePortionCreate(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 2
+	var shapeIndex int32 = 3
+	var subShape = "2"
 	var paragraphIndex int32 = 1
 	portionText := "portion 1"
 	fontName := "Arial"
@@ -235,7 +238,7 @@ func TestSubshapePortionCreate(t *testing.T) {
 	dto.LatinFont = fontName
 	dto.FillFormat = fillFormat
 
-	response, _, e := c.SlidesApi.CreateSubshapePortion(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, dto, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.CreatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, dto, nil, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -295,7 +298,7 @@ func TestPortionUpdate(t *testing.T) {
 	dto.LatinFont = fontName
 	dto.FillFormat = fillFormat
 
-	response, _, e := c.SlidesApi.UpdatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, dto, password, folderName, "")
+	response, _, e := c.SlidesApi.UpdatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, dto, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -333,7 +336,8 @@ func TestPortionUpdate(t *testing.T) {
 */
 func TestSubshapePortionUpdate(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 2
+	var shapeIndex int32 = 3
+	var subShape = "2"
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
 	portionText := "portion 1"
@@ -355,7 +359,7 @@ func TestSubshapePortionUpdate(t *testing.T) {
 	dto.LatinFont = fontName
 	dto.FillFormat = fillFormat
 
-	response, _, e := c.SlidesApi.UpdateSubshapePortion(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, portionIndex, dto, password, folderName, "")
+	response, _, e := c.SlidesApi.UpdatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, dto, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -403,7 +407,7 @@ func TestPortionsDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeletePortions(fileName, slideIndex, shapeIndex, paragraphIndex, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.DeletePortions(fileName, slideIndex, shapeIndex, paragraphIndex, nil, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -432,7 +436,7 @@ func TestPortionsDeleteIndexes(t *testing.T) {
 	}
 
 	indexes := []int32{1}
-	response, _, e := c.SlidesApi.DeletePortions(fileName, slideIndex, shapeIndex, paragraphIndex, indexes, password, folderName, "")
+	response, _, e := c.SlidesApi.DeletePortions(fileName, slideIndex, shapeIndex, paragraphIndex, indexes, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -450,7 +454,8 @@ func TestPortionsDeleteIndexes(t *testing.T) {
 */
 func TestSubshapePortionsDelete(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 	var paragraphIndex int32 = 1
 
 	c := slidescloud.GetTestApiClient()
@@ -460,7 +465,7 @@ func TestSubshapePortionsDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteSubshapePortions(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.DeletePortions(fileName, slideIndex, shapeIndex, paragraphIndex, nil, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -478,7 +483,8 @@ func TestSubshapePortionsDelete(t *testing.T) {
 */
 func TestSubshapePortionsDeleteIndexes(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 	var paragraphIndex int32 = 1
 
 	c := slidescloud.GetTestApiClient()
@@ -489,7 +495,7 @@ func TestSubshapePortionsDeleteIndexes(t *testing.T) {
 	}
 
 	indexes := []int32{1}
-	response, _, e := c.SlidesApi.DeleteSubshapePortions(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, indexes, password, folderName, "")
+	response, _, e := c.SlidesApi.DeletePortions(fileName, slideIndex, shapeIndex, paragraphIndex, indexes, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -518,7 +524,7 @@ func TestPortionDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeletePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.DeletePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -536,7 +542,8 @@ func TestPortionDelete(t *testing.T) {
 */
 func TestSubshapePortionDelete(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
 
@@ -547,7 +554,7 @@ func TestSubshapePortionDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteSubshapePortion(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, portionIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.DeletePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -620,7 +627,7 @@ func TestPortionEffectiveGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetPortionEffective(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetPortionEffective(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -638,7 +645,8 @@ func TestPortionEffectiveGet(t *testing.T) {
 */
 func TestSubshapePortionEffectiveGet(t *testing.T) {
 	var slideIndex int32 = 6
-	var shapeIndex int32 = 1
+	var shapeIndex int32 = 3
+	var subShape = "1"
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
 
@@ -649,7 +657,7 @@ func TestSubshapePortionEffectiveGet(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.GetSubshapePortionEffective(fileName, slideIndex, "3/shapes", shapeIndex, paragraphIndex, portionIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.GetPortionEffective(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)

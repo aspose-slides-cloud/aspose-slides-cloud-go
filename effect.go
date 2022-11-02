@@ -92,6 +92,14 @@ type IEffect interface {
 	// Delay time after trigger.
 	GetTriggerDelayTime() float64
 	SetTriggerDelayTime(newValue float64)
+
+	// Specifies if the effect will repeat until the end of slide.
+	GetRepeatUntilEndSlide() bool
+	SetRepeatUntilEndSlide(newValue bool)
+
+	// Specifies if the effect will repeat until the next click.
+	GetRepeatUntilNextClick() bool
+	SetRepeatUntilNextClick(newValue bool)
 }
 
 type Effect struct {
@@ -140,6 +148,12 @@ type Effect struct {
 
 	// Delay time after trigger.
 	TriggerDelayTime float64 `json:"TriggerDelayTime,omitempty"`
+
+	// Specifies if the effect will repeat until the end of slide.
+	RepeatUntilEndSlide bool `json:"RepeatUntilEndSlide"`
+
+	// Specifies if the effect will repeat until the next click.
+	RepeatUntilNextClick bool `json:"RepeatUntilNextClick"`
 }
 
 func NewEffect() *Effect {
@@ -256,6 +270,20 @@ func (this *Effect) GetTriggerDelayTime() float64 {
 
 func (this *Effect) SetTriggerDelayTime(newValue float64) {
 	this.TriggerDelayTime = newValue
+}
+func (this *Effect) GetRepeatUntilEndSlide() bool {
+	return this.RepeatUntilEndSlide
+}
+
+func (this *Effect) SetRepeatUntilEndSlide(newValue bool) {
+	this.RepeatUntilEndSlide = newValue
+}
+func (this *Effect) GetRepeatUntilNextClick() bool {
+	return this.RepeatUntilNextClick
+}
+
+func (this *Effect) SetRepeatUntilNextClick(newValue bool) {
+	this.RepeatUntilNextClick = newValue
 }
 
 func (this *Effect) UnmarshalJSON(b []byte) error {
@@ -637,6 +665,48 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.TriggerDelayTime = valueForTriggerDelayTime
+		}
+	}
+	
+	if valRepeatUntilEndSlide, ok := objMap["repeatUntilEndSlide"]; ok {
+		if valRepeatUntilEndSlide != nil {
+			var valueForRepeatUntilEndSlide bool
+			err = json.Unmarshal(*valRepeatUntilEndSlide, &valueForRepeatUntilEndSlide)
+			if err != nil {
+				return err
+			}
+			this.RepeatUntilEndSlide = valueForRepeatUntilEndSlide
+		}
+	}
+	if valRepeatUntilEndSlideCap, ok := objMap["RepeatUntilEndSlide"]; ok {
+		if valRepeatUntilEndSlideCap != nil {
+			var valueForRepeatUntilEndSlide bool
+			err = json.Unmarshal(*valRepeatUntilEndSlideCap, &valueForRepeatUntilEndSlide)
+			if err != nil {
+				return err
+			}
+			this.RepeatUntilEndSlide = valueForRepeatUntilEndSlide
+		}
+	}
+	
+	if valRepeatUntilNextClick, ok := objMap["repeatUntilNextClick"]; ok {
+		if valRepeatUntilNextClick != nil {
+			var valueForRepeatUntilNextClick bool
+			err = json.Unmarshal(*valRepeatUntilNextClick, &valueForRepeatUntilNextClick)
+			if err != nil {
+				return err
+			}
+			this.RepeatUntilNextClick = valueForRepeatUntilNextClick
+		}
+	}
+	if valRepeatUntilNextClickCap, ok := objMap["RepeatUntilNextClick"]; ok {
+		if valRepeatUntilNextClickCap != nil {
+			var valueForRepeatUntilNextClick bool
+			err = json.Unmarshal(*valRepeatUntilNextClickCap, &valueForRepeatUntilNextClick)
+			if err != nil {
+				return err
+			}
+			this.RepeatUntilNextClick = valueForRepeatUntilNextClick
 		}
 	}
 

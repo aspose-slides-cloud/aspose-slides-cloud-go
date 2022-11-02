@@ -44,7 +44,7 @@ func TestHyperlinkGetShape(t *testing.T) {
 		return
 	}
 
-	shape, _, e := c.SlidesApi.GetShape(fileName, 2, 2, password, folderName, "")
+	shape, _, e := c.SlidesApi.GetShape(fileName, 2, 2, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -74,7 +74,7 @@ func TestHyperlinkGetPortion(t *testing.T) {
 		return
 	}
 
-	portion, _, e := c.SlidesApi.GetPortion(fileName, 2, 1, 1, 2, password, folderName, "")
+	portion, _, e := c.SlidesApi.GetPortion(fileName, 2, 1, 1, 2, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -109,7 +109,7 @@ func TestHyperlinkCreateShape(t *testing.T) {
 	hyperlink.ActionType = "Hyperlink"
 	hyperlink.ExternalUrl = "https://docs.aspose.cloud/slides"
 	shape.HyperlinkClick = hyperlink
-	updatedShape, _, e := c.SlidesApi.UpdateShape(fileName, 1, 1, shape, password, folderName, "")
+	updatedShape, _, e := c.SlidesApi.UpdateShape(fileName, 1, 1, shape, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -140,7 +140,7 @@ func TestHyperlinkCreatePortion(t *testing.T) {
 	hyperlink := slidescloud.NewHyperlink()
 	hyperlink.ActionType = "JumpLastSlide"
 	dto.HyperlinkMouseOver = hyperlink
-	updatedPortion, _, e := c.SlidesApi.CreatePortion(fileName, 1, 1, 1, dto, nil, password, folderName, "")
+	updatedPortion, _, e := c.SlidesApi.CreatePortion(fileName, 1, 1, 1, dto, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -170,7 +170,7 @@ func TestHyperlinkDelete(t *testing.T) {
 	hyperlink := slidescloud.NewHyperlink()
 	hyperlink.IsDisabled = true
 	shape.HyperlinkClick = hyperlink
-	updatedShape, _, e := c.SlidesApi.UpdateShape(fileName, 1, 1, shape, password, folderName, "")
+	updatedShape, _, e := c.SlidesApi.UpdateShape(fileName, 1, 1, shape, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

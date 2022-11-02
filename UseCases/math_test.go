@@ -45,7 +45,7 @@ func TestMathGet(t *testing.T) {
 		return
 	}
 
-	portion, _, e := c.SlidesApi.GetPortion(fileName, 2, 3, 1, 1, password, folderName, "")
+	portion, _, e := c.SlidesApi.GetPortion(fileName, 2, 3, 1, 1, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -88,7 +88,7 @@ func TestMathGetNull(t *testing.T) {
 		return
 	}
 
-	portion, _, e := c.SlidesApi.GetPortion(fileName, 2, 1, 1, 1, password, folderName, "")
+	portion, _, e := c.SlidesApi.GetPortion(fileName, 2, 1, 1, 1, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -138,7 +138,7 @@ func TestMathCreate(t *testing.T) {
 	blockElement.MathElementList = []slidescloud.IMathElement{functionElement}
 	mathParagraph.MathBlockList = []slidescloud.IBlockElement{blockElement}
 	dto.MathParagraph = mathParagraph
-	portion, _, e := c.SlidesApi.CreatePortion(fileName, 1, 1, 1, dto, nil, password, folderName, "")
+	portion, _, e := c.SlidesApi.CreatePortion(fileName, 1, 1, 1, dto, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -209,7 +209,7 @@ func TestMathUpdate(t *testing.T) {
 	blockElement.MathElementList = []slidescloud.IMathElement{functionElement}
 	mathParagraph.MathBlockList = []slidescloud.IBlockElement{blockElement}
 	dto.MathParagraph = mathParagraph
-	portion, _, e := c.SlidesApi.UpdatePortion(fileName, 2, 3, 1, 1, dto, password, folderName, "")
+	portion, _, e := c.SlidesApi.UpdatePortion(fileName, 2, 3, 1, 1, dto, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

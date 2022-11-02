@@ -48,7 +48,7 @@ func TestWatermarkTextStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -60,7 +60,7 @@ func TestWatermarkTextStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -69,7 +69,7 @@ func TestWatermarkTextStorage(t *testing.T) {
 		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(GetResult.GetShapesLinks()))
 		return
 	}
-	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "")
+	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -88,7 +88,7 @@ func TestWatermarkTextStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -111,7 +111,7 @@ func TestWatermarkTextDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -125,7 +125,7 @@ func TestWatermarkTextDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -134,7 +134,7 @@ func TestWatermarkTextDTOStorage(t *testing.T) {
 		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(GetResult.GetShapesLinks()))
 		return
 	}
-	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "")
+	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -153,7 +153,7 @@ func TestWatermarkTextDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -175,7 +175,7 @@ func TestWatermarkImageStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -192,7 +192,7 @@ func TestWatermarkImageStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -201,7 +201,7 @@ func TestWatermarkImageStorage(t *testing.T) {
 		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(GetResult.GetShapesLinks()))
 		return
 	}
-	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "")
+	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -216,7 +216,7 @@ func TestWatermarkImageStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -239,7 +239,7 @@ func TestWatermarkImageDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -261,7 +261,7 @@ func TestWatermarkImageDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -270,7 +270,7 @@ func TestWatermarkImageDTOStorage(t *testing.T) {
 		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(GetResult.GetShapesLinks()))
 		return
 	}
-	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "")
+	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -285,7 +285,7 @@ func TestWatermarkImageDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

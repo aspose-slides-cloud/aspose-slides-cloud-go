@@ -49,7 +49,7 @@ func TestShapesGet(t *testing.T) {
 		return
 	}
 
-	shapes, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	shapes, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -75,7 +75,7 @@ func TestShapesGetByType(t *testing.T) {
 		return
 	}
 
-	shapes, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "Chart")
+	shapes, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "Chart", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -93,7 +93,7 @@ func TestShapesGetByType(t *testing.T) {
 */
 func TestSubShapesGet(t *testing.T) {
 	var slideIndex int32 = 1
-	path := "4/shapes"
+	subShape := "4"
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -102,7 +102,7 @@ func TestSubShapesGet(t *testing.T) {
 		return
 	}
 
-	shapes, _, e := c.SlidesApi.GetSubshapes(fileName, slideIndex, path, password, folderName, "")
+	shapes, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -129,7 +129,7 @@ func TestShapeGet(t *testing.T) {
 		return
 	}
 
-	shape, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "")
+	shape, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -147,8 +147,8 @@ func TestShapeGet(t *testing.T) {
 */
 func TestSubShapeGet(t *testing.T) {
 	var slideIndex int32 = 1
-	var shapeIndex int32 = 1
-	path := "4/shapes"
+	var shapeIndex int32 = 4
+	subShape := "1"
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -157,7 +157,7 @@ func TestSubShapeGet(t *testing.T) {
 		return
 	}
 
-	shape, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shapeIndex, password, folderName, "")
+	shape, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -183,7 +183,7 @@ func TestShapeAdd(t *testing.T) {
 
 	dto := slidescloud.NewShape()
 	dto.ShapeType = "Callout1"
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -207,7 +207,7 @@ func TestShapeEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewShape()
-	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e == nil {
 		t.Errorf("Shape with undefined type should not have been created.")
 		return
@@ -232,7 +232,7 @@ func TestGraphicalObjectEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewGraphicalObject()
-	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e == nil {
 		t.Errorf("GraphicalObject should not have been created.")
 		return
@@ -258,7 +258,7 @@ func TestPictureFrameAdd(t *testing.T) {
 	fill := slidescloud.NewPictureFill()
 	fill.Base64Data = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXY5g+ffp/AAZTAsWGL27gAAAAAElFTkSuQmCC"
 	dto.PictureFillFormat = fill
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -282,7 +282,7 @@ func TestPictureFrameEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewPictureFrame()
-	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e == nil {
 		t.Errorf("PictureFrame with undefined data should not have been created.")
 		return
@@ -306,7 +306,7 @@ func TestAudioFrameAdd(t *testing.T) {
 
 	dto := slidescloud.NewAudioFrame()
 	dto.Base64Data = "bXAzc2FtcGxl"
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -330,7 +330,7 @@ func TestAudioFrameEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewAudioFrame()
-	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e == nil {
 		t.Errorf("AudioFrame with undefined data should not have been created.")
 		return
@@ -354,7 +354,7 @@ func TestVideoFrameAdd(t *testing.T) {
 
 	dto := slidescloud.NewVideoFrame()
 	dto.Base64Data = "bXAzc2FtcGxl"
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -378,7 +378,7 @@ func TestVideoFrameEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewVideoFrame()
-	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e == nil {
 		t.Errorf("VideoFrame with undefined data should not have been created.")
 		return
@@ -401,7 +401,7 @@ func TestOleObjectFrameEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewOleObjectFrame()
-	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e == nil {
 		t.Errorf("OleObjectFrame should not have been created.")
 		return
@@ -442,7 +442,7 @@ func TestSmartArtAdd(t *testing.T) {
 	node2.Text = "Second"
 	node2.OrgChartLayout = "Initial"
 	dto.Nodes = []slidescloud.ISmartArtNode{node1, node2}
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -474,13 +474,14 @@ func TestSmartArtTextFormatting(t *testing.T) {
 	fillFormat.SetColor("#FFFFFF00")
 	portion.FillFormat = fillFormat
 
-	targetNodePath := "1/nodes/1/nodes"
+	targetNodePath := "1/nodes/2"
 	var slideIndex int32 = 7
-	var shapeIndex int32 = 2
+	var shapeIndex int32 = 1
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
 
-	response, _, e := c.SlidesApi.UpdateSubshapePortion(fileName, slideIndex, targetNodePath, shapeIndex, paragraphIndex, portionIndex, portion, password, folderName, "")
+	response, _, e := c.SlidesApi.UpdatePortion(fileName, slideIndex, shapeIndex, paragraphIndex,
+		portionIndex, portion, password, folderName, "", targetNodePath)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -524,7 +525,7 @@ func TestSmartArtEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewSmartArt()
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -549,7 +550,7 @@ func TestChartEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewChart()
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -603,7 +604,7 @@ func TestChartEmpty(t *testing.T) {
 	series2.DataPoints = []slidescloud.IOneValueChartDataPoint{dataPoint21, dataPoint22, dataPoint23}
 	dto.Series = []slidescloud.ISeries{series1, series2}
 
-	result, _, e = c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e = c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 	}
@@ -682,7 +683,7 @@ func TestTableAdd(t *testing.T) {
 	dto.Columns = []slidescloud.ITableColumn{column1, column2, column3, column4}
 	dto.FirstRow = true
 	dto.HorizontalBanding = true
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -706,7 +707,7 @@ func TestTableEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewTable()
-	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e == nil {
 		t.Errorf("Table with undefinined cell data should not have been created.")
 		return
@@ -729,7 +730,7 @@ func TestGroupShapeEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewGroupShape()
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -760,7 +761,7 @@ func TestConnectorAdd(t *testing.T) {
 	end := slidescloud.NewResourceUri()
 	end.Href = "https://api.aspose.cloud/v3.0/slides/myPresentation.pptx/slides/1/shapes/2"
 	dto.EndShapeConnectedTo = end
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -784,7 +785,7 @@ func TestConnectorEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewConnector()
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -817,8 +818,9 @@ func TestCreateSubShape(t *testing.T) {
 	dto.SetWidth(50)
 	dto.SetHeight(50)
 
-	shapePath := "4/shapes"
-	shapeBase, _, e := c.SlidesApi.CreateSubshape(fileName, slideIndex, shapePath, dto, nil, nil, password, folderName, "")
+	subShape := "4"
+	shapeBase, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName,
+		"", subShape)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -850,7 +852,7 @@ func TestShapeUpdate(t *testing.T) {
 	fillFormat.SetColor("#FFF5FF8A")
 	dto.FillFormat = fillFormat
 
-	response, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, dto, password, folderName, "")
+	response, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, dto, password, folderName, "", "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -878,8 +880,8 @@ func TestShapeUpdate(t *testing.T) {
 */
 func TestSubShapeUpdate(t *testing.T) {
 	var slideIndex int32 = 1
-	var shapeIndex int32 = 1
-	path := "4/shapes"
+	var shapeIndex int32 = 4
+	subShape := "1"
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -903,7 +905,7 @@ func TestSubShapeUpdate(t *testing.T) {
 	fillFormat.SetStops([]slidescloud.IGradientFillStop{gradientStop1, gradientStop2})
 	dto.SetFillFormat(fillFormat)
 
-	response, _, e := c.SlidesApi.UpdateSubshape(fileName, slideIndex, path, shapeIndex, dto, password, folderName, "")
+	response, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, dto, password, folderName, "", subShape)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -939,7 +941,7 @@ func TestShapesDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteShapes(fileName, slideIndex, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteShapes(fileName, slideIndex, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -965,7 +967,7 @@ func TestShapesDeleteIndexes(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteShapes(fileName, slideIndex, shapesIndexes, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteShapes(fileName, slideIndex, shapesIndexes, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -982,7 +984,7 @@ func TestShapesDeleteIndexes(t *testing.T) {
 */
 func TestSubShapesDelete(t *testing.T) {
 	var slideIndex int32 = 1
-	path := "4/shapes"
+	subShape := "4"
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -991,7 +993,7 @@ func TestSubShapesDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteSubshapes(fileName, slideIndex, path, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteShapes(fileName, slideIndex, nil, password, folderName, "", subShape)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1008,7 +1010,7 @@ func TestSubShapesDelete(t *testing.T) {
 */
 func TestSubShapesDeleteIndexes(t *testing.T) {
 	var slideIndex int32 = 1
-	path := "4/shapes"
+	subShape := "4"
 	shapesIndexes := []int32{2}
 
 	c := slidescloud.GetTestApiClient()
@@ -1018,7 +1020,7 @@ func TestSubShapesDeleteIndexes(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteSubshapes(fileName, slideIndex, path, shapesIndexes, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteShapes(fileName, slideIndex, shapesIndexes, password, folderName, "", subShape)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1044,7 +1046,7 @@ func TestShapeDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteShape(fileName, slideIndex, shapeIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1061,8 +1063,8 @@ func TestShapeDelete(t *testing.T) {
 */
 func TestSubShapeDelete(t *testing.T) {
 	var slideIndex int32 = 1
-	var shapeIndex int32 = 1
-	path := "4/shapes"
+	var shapeIndex int32 = 4
+	subShape := "1"
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -1071,7 +1073,7 @@ func TestSubShapeDelete(t *testing.T) {
 		return
 	}
 
-	response, _, e := c.SlidesApi.DeleteSubshape(fileName, slideIndex, path, shapeIndex, password, folderName, "")
+	response, _, e := c.SlidesApi.DeleteShape(fileName, slideIndex, shapeIndex, password, folderName, "", subShape)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1097,12 +1099,12 @@ func TestShapesAlign(t *testing.T) {
 		return
 	}
 
-	shape11, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape1Index, password, folderName, "")
+	shape11, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape1Index, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shape12, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape2Index, password, folderName, "")
+	shape12, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape2Index, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1116,17 +1118,17 @@ func TestShapesAlign(t *testing.T) {
 		return
 	}
 
-	_, _, e = c.SlidesApi.AlignShapes(fileName, slideIndex, "AlignTop", nil, nil, password, folderName, "")
+	_, _, e = c.SlidesApi.AlignShapes(fileName, slideIndex, "AlignTop", nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shape21, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape1Index, password, folderName, "")
+	shape21, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape1Index, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shape22, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape2Index, password, folderName, "")
+	shape22, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape2Index, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1141,17 +1143,17 @@ func TestShapesAlign(t *testing.T) {
 	}
 
 	var alignToSlide bool = true
-	_, _, e = c.SlidesApi.AlignShapes(fileName, slideIndex, "AlignLeft", &alignToSlide, []int32{1, 2}, password, folderName, "")
+	_, _, e = c.SlidesApi.AlignShapes(fileName, slideIndex, "AlignLeft", &alignToSlide, []int32{1, 2}, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shape31, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape1Index, password, folderName, "")
+	shape31, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape1Index, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shape32, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape2Index, password, folderName, "")
+	shape32, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shape2Index, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1175,9 +1177,9 @@ func TestShapesAlign(t *testing.T) {
 */
 func TestShapesAlignGroup(t *testing.T) {
 	var slideIndex int32 = 1
-	var path string = "4/shapes"
-	var shape1Index int32 = 1
-	var shape2Index int32 = 2
+	var shapeIndex int32 = 4
+	var subShape1 = "1"
+	var subShape2 = "2"
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
@@ -1185,12 +1187,12 @@ func TestShapesAlignGroup(t *testing.T) {
 		return
 	}
 
-	shape11, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape1Index, password, folderName, "")
+	shape11, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", subShape1)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shape12, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape2Index, password, folderName, "")
+	shape12, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", subShape2)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1204,17 +1206,17 @@ func TestShapesAlignGroup(t *testing.T) {
 		return
 	}
 
-	_, _, e = c.SlidesApi.AlignSubshapes(fileName, slideIndex, path, "AlignTop", nil, nil, password, folderName, "")
+	_, _, e = c.SlidesApi.AlignShapes(fileName, slideIndex, "AlignTop", nil, nil, password, folderName, "", "4")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shape21, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape1Index, password, folderName, "")
+	shape21, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", subShape1)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shape22, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape2Index, password, folderName, "")
+	shape22, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", subShape2)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1229,17 +1231,17 @@ func TestShapesAlignGroup(t *testing.T) {
 	}
 
 	var alignToSlide bool = true
-	_, _, e = c.SlidesApi.AlignSubshapes(fileName, slideIndex, path, "AlignLeft", &alignToSlide, []int32{1, 2}, password, folderName, "")
+	_, _, e = c.SlidesApi.AlignShapes(fileName, slideIndex, "AlignLeft", &alignToSlide, []int32{1, 2}, password, folderName, "", "4")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shape31, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape1Index, password, folderName, "")
+	shape31, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", subShape1)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shape32, _, e := c.SlidesApi.GetSubshape(fileName, slideIndex, path, shape2Index, password, folderName, "")
+	shape32, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", subShape2)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1346,7 +1348,7 @@ func TestZoomFrameAdd(t *testing.T) {
 	dto.SetHeight(100)
 	dto.SetTargetSlideIndex(2)
 
-	response, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1383,7 +1385,7 @@ func TestSectionZoomFrameAdd(t *testing.T) {
 	dto.SetHeight(100)
 	dto.SetTargetSectionIndex(2)
 
-	response, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1421,7 +1423,7 @@ func TestOleObjectFrameAddByLink(t *testing.T) {
 	dto.SetLinkPath("OleObject.xlsx")
 	dto.SetObjectProgId("Excel.Sheet.8")
 
-	response, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1465,7 +1467,7 @@ func TestOleObjectFrameAddEmbedded(t *testing.T) {
 	dto.SetEmbeddedFileBase64Data(base64.StdEncoding.EncodeToString(source))
 	dto.SetEmbeddedFileExtension("xlsx")
 
-	response, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "")
+	response, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1487,7 +1489,7 @@ func TestOleObjectFrameAddEmbedded(t *testing.T) {
 */
 func TestGroupShapeAdd(t *testing.T) {
 	var slideIndex int32 = 5
-	path := "1/shapes"
+	var subShape = "1"
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -1497,7 +1499,7 @@ func TestGroupShapeAdd(t *testing.T) {
 	}
 
 	dto := slidescloud.NewGroupShape()
-	c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "")
+	c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "", "")
 
 	shape1 := slidescloud.NewShape()
 	shape1.SetShapeType("Rectangle")
@@ -1520,11 +1522,11 @@ func TestGroupShapeAdd(t *testing.T) {
 	shape3.SetWidth(50)
 	shape3.SetHeight(50)
 
-	c.SlidesApi.CreateSubshape(fileName, slideIndex, path, shape1, nil, nil, password, folderName, "")
-	c.SlidesApi.CreateSubshape(fileName, slideIndex, path, shape2, nil, nil, password, folderName, "")
-	c.SlidesApi.CreateSubshape(fileName, slideIndex, path, shape3, nil, nil, password, folderName, "")
+	c.SlidesApi.CreateShape(fileName, slideIndex, shape1, nil, nil, password, folderName, "", subShape)
+	c.SlidesApi.CreateShape(fileName, slideIndex, shape2, nil, nil, password, folderName, "", subShape)
+	c.SlidesApi.CreateShape(fileName, slideIndex, shape3, nil, nil, password, folderName, "", subShape)
 
-	shapes, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "")
+	shapes, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -1535,7 +1537,7 @@ func TestGroupShapeAdd(t *testing.T) {
 		return
 	}
 
-	subShapes, _, e := c.SlidesApi.GetSubshapes(fileName, slideIndex, path, password, folderName, "")
+	subShapes, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", subShape)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
