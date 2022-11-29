@@ -62,7 +62,7 @@ func TestChartGet(t *testing.T) {
 /*
    Test for create chart
 */
-func TestChartCreate(t *testing.T) {
+func TestChartCreateAutoDataSource(t *testing.T) {
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
@@ -85,6 +85,165 @@ func TestChartCreate(t *testing.T) {
 	series1.DataPoints = []slidescloud.IOneValueChartDataPoint{point11, point12, point13}
 	series2 := slidescloud.NewOneValueSeries()
 	series2.Name = "Series2"
+	point21 := slidescloud.NewOneValueChartDataPoint()
+	point21.Value = 55
+	point22 := slidescloud.NewOneValueChartDataPoint()
+	point22.Value = 35
+	point23 := slidescloud.NewOneValueChartDataPoint()
+	point23.Value = 90
+	series2.DataPoints = []slidescloud.IOneValueChartDataPoint{point21, point22, point23}
+	chart.Series = []slidescloud.ISeries{series1, series2}
+	category1 := slidescloud.NewChartCategory()
+	category1.Value = "Category1"
+	category2 := slidescloud.NewChartCategory()
+	category2.Value = "Category2"
+	category3 := slidescloud.NewChartCategory()
+	category3.Value = "Category3"
+	chart.Categories = []slidescloud.IChartCategory{category1, category2, category3}
+	result, _, e := c.SlidesApi.CreateShape(fileName, 3, chart, nil, nil, password, folderName, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if len(result.(slidescloud.IChart).GetSeries()) != 2 {
+		t.Errorf("Wrong series count. Expected %v but was %v.", 2, len(result.(slidescloud.IChart).GetSeries()))
+		return
+	}
+	if len(result.(slidescloud.IChart).GetCategories()) != 3 {
+		t.Errorf("Wrong category count. Expected %v but was %v.", 3, len(result.(slidescloud.IChart).GetCategories()))
+		return
+	}
+}
+
+/*
+   Test for create chart with data in workbook
+*/
+func TestChartCreateWorksheet(t *testing.T) {
+	c := slidescloud.GetTestApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	chart := slidescloud.NewChart()
+	chart.ChartType = "ClusteredColumn"
+	chart.Width = 400
+	chart.Height = 300
+
+	dataSourceForCategories := slidescloud.NewWorkbook()
+	dataSourceForCategories.WorksheetIndex = 0
+	dataSourceForCategories.ColumnIndex = 0
+	dataSourceForCategories.RowIndex = 1
+	chart.DataSourceForCategories = dataSourceForCategories
+
+	series1 := slidescloud.NewOneValueSeries()
+	dataSourceForSeries1Name := slidescloud.NewWorkbook()
+	dataSourceForSeries1Name.WorksheetIndex = 0
+	dataSourceForSeries1Name.ColumnIndex = 1
+	dataSourceForSeries1Name.RowIndex = 0
+	series1.DataSourceForSeriesName = dataSourceForSeries1Name
+	series1.Name = "Series1"
+
+	dataSourceForSeries1Values := slidescloud.NewWorkbook()
+	dataSourceForSeries1Values.WorksheetIndex = 0
+	dataSourceForSeries1Values.ColumnIndex = 1
+	dataSourceForSeries1Values.RowIndex = 1
+	series1.DataSourceForValues = dataSourceForSeries1Values
+	point11 := slidescloud.NewOneValueChartDataPoint()
+	point11.Value = 40
+	point12 := slidescloud.NewOneValueChartDataPoint()
+	point12.Value = 50
+	point13 := slidescloud.NewOneValueChartDataPoint()
+	point13.Value = 70
+	series1.DataPoints = []slidescloud.IOneValueChartDataPoint{point11, point12, point13}
+
+	series2 := slidescloud.NewOneValueSeries()
+	dataSourceForSeries2Name := slidescloud.NewWorkbook()
+	dataSourceForSeries2Name.WorksheetIndex = 0
+	dataSourceForSeries2Name.ColumnIndex = 2
+	dataSourceForSeries2Name.RowIndex = 0
+	series2.DataSourceForSeriesName = dataSourceForSeries2Name
+	series2.Name = "Series2"
+
+	dataSourceForSeries2Values := slidescloud.NewWorkbook()
+	dataSourceForSeries2Values.WorksheetIndex = 0
+	dataSourceForSeries2Values.ColumnIndex = 2
+	dataSourceForSeries2Values.RowIndex = 1
+	series2.DataSourceForValues = dataSourceForSeries2Values
+
+	point21 := slidescloud.NewOneValueChartDataPoint()
+	point21.Value = 55
+	point22 := slidescloud.NewOneValueChartDataPoint()
+	point22.Value = 35
+	point23 := slidescloud.NewOneValueChartDataPoint()
+	point23.Value = 90
+	series2.DataPoints = []slidescloud.IOneValueChartDataPoint{point21, point22, point23}
+	chart.Series = []slidescloud.ISeries{series1, series2}
+	category1 := slidescloud.NewChartCategory()
+	category1.Value = "Category1"
+	category2 := slidescloud.NewChartCategory()
+	category2.Value = "Category2"
+	category3 := slidescloud.NewChartCategory()
+	category3.Value = "Category3"
+	chart.Categories = []slidescloud.IChartCategory{category1, category2, category3}
+	result, _, e := c.SlidesApi.CreateShape(fileName, 3, chart, nil, nil, password, folderName, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if len(result.(slidescloud.IChart).GetSeries()) != 2 {
+		t.Errorf("Wrong series count. Expected %v but was %v.", 2, len(result.(slidescloud.IChart).GetSeries()))
+		return
+	}
+	if len(result.(slidescloud.IChart).GetCategories()) != 3 {
+		t.Errorf("Wrong category count. Expected %v but was %v.", 3, len(result.(slidescloud.IChart).GetCategories()))
+		return
+	}
+}
+
+/*
+   Test for create chart with literals
+*/
+func TestChartCreateLiterals(t *testing.T) {
+	c := slidescloud.GetTestApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	chart := slidescloud.NewChart()
+	chart.ChartType = "ClusteredColumn"
+	chart.Width = 400
+	chart.Height = 300
+
+	dataSourceForCategories := slidescloud.NewLiterals()
+	chart.DataSourceForCategories = dataSourceForCategories
+
+	series1 := slidescloud.NewOneValueSeries()
+	dataSourceForSeries1Name := slidescloud.NewLiterals()
+	series1.DataSourceForSeriesName = dataSourceForSeries1Name
+	series1.Name = "Series1"
+
+	dataSourceForSeries1Values := slidescloud.NewLiterals()
+	series1.DataSourceForValues = dataSourceForSeries1Values
+	point11 := slidescloud.NewOneValueChartDataPoint()
+	point11.Value = 40
+	point12 := slidescloud.NewOneValueChartDataPoint()
+	point12.Value = 50
+	point13 := slidescloud.NewOneValueChartDataPoint()
+	point13.Value = 70
+	series1.DataPoints = []slidescloud.IOneValueChartDataPoint{point11, point12, point13}
+
+	series2 := slidescloud.NewOneValueSeries()
+	dataSourceForSeries2Name := slidescloud.NewLiterals()
+	series2.DataSourceForSeriesName = dataSourceForSeries2Name
+	series2.Name = "Series2"
+
+	dataSourceForSeries2Values := slidescloud.NewLiterals()
+	series2.DataSourceForValues = dataSourceForSeries2Values
+
 	point21 := slidescloud.NewOneValueChartDataPoint()
 	point21.Value = 55
 	point22 := slidescloud.NewOneValueChartDataPoint()
@@ -963,6 +1122,71 @@ func TestUpdateDataPointFormat(t *testing.T) {
 
 	if dataPoint.GetEffectFormat().GetBlur() == nil {
 		t.Errorf("Expected %v, but was %v", "not nil", nil)
+		return
+	}
+}
+
+/*
+   Test for create chart with data in workbook
+*/
+func TestChartFormulas(t *testing.T) {
+	c := slidescloud.GetTestApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	chart := slidescloud.NewChart()
+	chart.ChartType = "ClusteredColumn"
+	chart.Width = 400
+	chart.Height = 300
+
+	dataSourceForCategories := slidescloud.NewWorkbook()
+	dataSourceForCategories.WorksheetIndex = 0
+	dataSourceForCategories.ColumnIndex = 0
+	dataSourceForCategories.RowIndex = 1
+	chart.DataSourceForCategories = dataSourceForCategories
+
+	series1 := slidescloud.NewOneValueSeries()
+	dataSourceForSeries1Name := slidescloud.NewWorkbook()
+	dataSourceForSeries1Name.WorksheetIndex = 0
+	dataSourceForSeries1Name.ColumnIndex = 1
+	dataSourceForSeries1Name.RowIndex = 0
+	series1.DataSourceForSeriesName = dataSourceForSeries1Name
+	series1.Name = "Series1"
+
+	dataSourceForSeries1Values := slidescloud.NewWorkbook()
+	dataSourceForSeries1Values.WorksheetIndex = 0
+	dataSourceForSeries1Values.ColumnIndex = 1
+	dataSourceForSeries1Values.RowIndex = 1
+	series1.DataSourceForValues = dataSourceForSeries1Values
+	point11 := slidescloud.NewOneValueChartDataPoint()
+	point11.Value = 40
+	point12 := slidescloud.NewOneValueChartDataPoint()
+	point12.Value = 50
+	point13 := slidescloud.NewOneValueChartDataPoint()
+	point13.Value = 0
+	point13.ValueFormula = "SUM(B2:B3)"
+	series1.DataPoints = []slidescloud.IOneValueChartDataPoint{point11, point12, point13}
+
+	chart.Series = []slidescloud.ISeries{series1}
+	category1 := slidescloud.NewChartCategory()
+	category1.Value = "Category1"
+	category2 := slidescloud.NewChartCategory()
+	category2.Value = "Category2"
+	category3 := slidescloud.NewChartCategory()
+	category3.Value = "Category3"
+	chart.Categories = []slidescloud.IChartCategory{category1, category2, category3}
+	result, _, e := c.SlidesApi.CreateShape(fileName, 3, chart, nil, nil, password, folderName, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	dataPoint := result.(slidescloud.IChart).GetSeries()[0].(slidescloud.IOneValueSeries).GetDataPoints()[2]
+
+	if dataPoint.GetValue() != 90 {
+		t.Errorf("Expected %v, but was %v", 90, dataPoint.GetValue())
 		return
 	}
 }

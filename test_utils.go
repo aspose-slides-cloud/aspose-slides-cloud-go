@@ -109,6 +109,10 @@ func InitializeTest(functionName string, invalidParamName string, invalidParamVa
 			if e != nil {
 				return e
 			}
+			_, e = c.SlidesApi.DeleteFolder(path, "", nil)
+			if e != nil {
+				return e
+			}
 		}
 	}
 	return nil
