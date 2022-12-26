@@ -49,6 +49,10 @@ type IScatterChartDataPoint interface {
 	GetLineFormat() ILineFormat
 	SetLineFormat(newValue ILineFormat)
 
+	// Data point type.
+	GetType() string
+	SetType(newValue string)
+
 	// X-value
 	GetXValue() float64
 	SetXValue(newValue float64)
@@ -80,11 +84,14 @@ type ScatterChartDataPoint struct {
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
+	// Data point type.
+	Type_ string `json:"Type"`
+
 	// X-value
-	XValue float64 `json:"XValue"`
+	XValue float64 `json:"XValue,omitempty"`
 
 	// Y-value
-	YValue float64 `json:"YValue"`
+	YValue float64 `json:"YValue,omitempty"`
 
 	// Spreadsheet formula in A1-style.
 	XValueFormula string `json:"XValueFormula,omitempty"`
@@ -95,6 +102,7 @@ type ScatterChartDataPoint struct {
 
 func NewScatterChartDataPoint() *ScatterChartDataPoint {
 	instance := new(ScatterChartDataPoint)
+	instance.Type_ = "Scatter"
 	return instance
 }
 
@@ -125,6 +133,13 @@ func (this *ScatterChartDataPoint) GetLineFormat() ILineFormat {
 
 func (this *ScatterChartDataPoint) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
+}
+func (this *ScatterChartDataPoint) GetType() string {
+	return this.Type_
+}
+
+func (this *ScatterChartDataPoint) SetType(newValue string) {
+	this.Type_ = newValue
 }
 func (this *ScatterChartDataPoint) GetXValue() float64 {
 	return this.XValue
@@ -330,6 +345,39 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 			vInterfaceObject, ok := vObject.(ILineFormat)
 			if ok {
 				this.LineFormat = vInterfaceObject
+			}
+		}
+	}
+	this.Type_ = "Scatter"
+	if valType, ok := objMap["type"]; ok {
+		if valType != nil {
+			var valueForType string
+			err = json.Unmarshal(*valType, &valueForType)
+			if err != nil {
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
+			}
+		}
+	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
 		}
 	}

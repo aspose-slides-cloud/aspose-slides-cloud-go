@@ -48,6 +48,9 @@ type IDataPoint interface {
 	// Gets or sets the line format.
 	GetLineFormat() ILineFormat
 	SetLineFormat(newValue ILineFormat)
+
+	GetType() string
+	SetType(newValue string)
 }
 
 type DataPoint struct {
@@ -63,6 +66,8 @@ type DataPoint struct {
 
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
+
+	Type_ string `json:"Type,omitempty"`
 }
 
 func NewDataPoint() *DataPoint {
@@ -97,6 +102,13 @@ func (this *DataPoint) GetLineFormat() ILineFormat {
 
 func (this *DataPoint) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
+}
+func (this *DataPoint) GetType() string {
+	return this.Type_
+}
+
+func (this *DataPoint) SetType(newValue string) {
+	this.Type_ = newValue
 }
 
 func (this *DataPoint) UnmarshalJSON(b []byte) error {
@@ -274,6 +286,39 @@ func (this *DataPoint) UnmarshalJSON(b []byte) error {
 			vInterfaceObject, ok := vObject.(ILineFormat)
 			if ok {
 				this.LineFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valType, ok := objMap["type"]; ok {
+		if valType != nil {
+			var valueForType string
+			err = json.Unmarshal(*valType, &valueForType)
+			if err != nil {
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valType, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
+			}
+		}
+	}
+	if valTypeCap, ok := objMap["Type"]; ok {
+		if valTypeCap != nil {
+			var valueForType string
+			err = json.Unmarshal(*valTypeCap, &valueForType)
+			if err != nil {
+				var valueForTypeInt int32
+				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
+				if err != nil {
+					return err
+				}
+				this.Type_ = string(valueForTypeInt)
+			} else {
+				this.Type_ = valueForType
 			}
 		}
 	}

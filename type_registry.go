@@ -145,6 +145,7 @@ func init() {
 	typeRegistry["BubbleChartDataPoint"] = reflect.TypeOf(BubbleChartDataPoint{})
 	derivedTypes["BubbleChartDataPoint"] = "ScatterChartDataPoint"
 	typeDeterminers["BubbleChartDataPoint"] = make(map[string]string)
+	typeDeterminers["BubbleChartDataPoint"]["Type"] = "Bubble"
 	typeRegistry["BubbleSeries"] = reflect.TypeOf(BubbleSeries{})
 	derivedTypes["BubbleSeries"] = "XYSeries"
 	typeDeterminers["BubbleSeries"] = make(map[string]string)
@@ -471,6 +472,7 @@ func init() {
 	typeRegistry["OneValueChartDataPoint"] = reflect.TypeOf(OneValueChartDataPoint{})
 	derivedTypes["OneValueChartDataPoint"] = "DataPoint"
 	typeDeterminers["OneValueChartDataPoint"] = make(map[string]string)
+	typeDeterminers["OneValueChartDataPoint"]["Type"] = "OneValue"
 	typeRegistry["OneValueSeries"] = reflect.TypeOf(OneValueSeries{})
 	derivedTypes["OneValueSeries"] = "Series"
 	typeDeterminers["OneValueSeries"] = make(map[string]string)
@@ -616,6 +618,7 @@ func init() {
 	typeRegistry["ScatterChartDataPoint"] = reflect.TypeOf(ScatterChartDataPoint{})
 	derivedTypes["ScatterChartDataPoint"] = "DataPoint"
 	typeDeterminers["ScatterChartDataPoint"] = make(map[string]string)
+	typeDeterminers["ScatterChartDataPoint"]["Type"] = "Scatter"
 	typeRegistry["ScatterSeries"] = reflect.TypeOf(ScatterSeries{})
 	derivedTypes["ScatterSeries"] = "XYSeries"
 	typeDeterminers["ScatterSeries"] = make(map[string]string)

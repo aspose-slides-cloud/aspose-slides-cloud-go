@@ -18,7 +18,8 @@
 		{ "Action": "Delete", "Folder": "TempSlidesSDKinvalid", "File": "changedtest.pptx", "Method": "/CreatePresentationFrom/" },
 		{ "Action": "Delete", "Folder": "invalidTempSlidesSDK", "File": "test.pptx", "Method": "/CreatePresentationFrom/" },
 		{ "Action": "Delete", "Folder": "invalidTempSlidesSDK", "File": "test.pptx", "Parameter": "CloneFrom" },
-		{ "Action": "Delete", "Folder": "invalidTempSlidesSDK", "File": "test.pptx", "Parameter": "/S.?.?rc.?Path/" }
+		{ "Action": "Delete", "Folder": "invalidTempSlidesSDK", "File": "test.pptx", "Parameter": "/S.?.?rc.?Path/" },
+		{ "Action": "Delete", "Folder": "", "File": "NewTestFolder", "Method": "CreateFolder" }
 	],
 	"Values": [
 		{ "Value": "test%n", "InvalidValue": "%vinvalid" },
@@ -46,7 +47,7 @@
 		{ "Value": {}, "InvalidValue": null, "Type": "model" },
 		{ "Value": { "MasterSlide": { "Href": "masterSlides/2" } }, "Type": "LayoutSlide" },
 		{ "Value": { "DataPointType": "OneValue" }, "Type": "OneValueSeries" },
-		{ "Value": { "XValue": 32.5, "YValue": 42.9 }, "Type": "ScatterChartDataPoint" },
+		{ "Value": { "Type": "Scatter", "XValue": 32.5, "YValue": 42.9 }, "Type": "ScatterChartDataPoint" },
 		{ "Value": { "TriggerShapeIndex": 1 }, "Type": "InteractiveSequence" },
 		{ "Value": { "ShapeIndex": 1, "Type": "Appear" }, "Type": "Effect" },
 		{ "Value": { "Type": "Regular", "Author": "Caesar", "Text": "Veni vidi vici" }, "Type": "SlideComment", "Method": "/CreateComment/" },
@@ -56,6 +57,7 @@
 		{ "Value": { "Presentations": [{ "Path": "file1", "Password": "password" }, { "Path": "file2" }] }, "Type": "OrderedMergeRequest", "Language": "Python" },
 		{ "Value": { "Presentations": [{ "Path": "file1", "Password": "password" }, { "Path": "file2" }] }, "Type": "OrderedMergeRequest", "Language": "Go" },
 		{ "Value": { "Presentations": [{ "Path": "file1", "Password": "password" }, { "Path": "file2" }] }, "Type": "OrderedMergeRequest", "Language": "Ruby" },
+		{ "Value": { "Presentations": [{ "Path": "file1", "Password": "password" }, { "Path": "file2" }] }, "Type": "OrderedMergeRequest", "Language": "Perl" },
 		{ "Value": {}, "Type": "OrderedMergeRequest", "Method": "OrderedMerge" },
 		{ "Value": { "paths": [ { "pathData": [ { "type": "MoveTo" } ] } ] }, "Type": "GeometryPaths" },
 		{ "Value": null, "Parameter": "PictureFrame" },
@@ -77,6 +79,7 @@
 		{ "Value": null, "Parameter": "SubNode" },
 		{ "Value": null, "Parameter": "SubShape" },
 		{ "Value": "TempSlidesSDK/test.pptx", "InvalidValue": "invalid%v", "Parameter": "/Path/" },
+		{ "Value": "NewTestFolder", "Parameter": "Path", "Method": "CreateFolder" },
 		{ "Value": "TempSlidesSDK", "Parameter": "Path", "Method": "DeleteFolder" },
 		{ "Value": "TempSlidesSDK/changedtest.pptx", "Parameter": "DestPath" },
 		{ "Value": "TempSlidesSDK/test.pptx", "InvalidValue": "invalid%v", "Parameter": "CloneFrom" },

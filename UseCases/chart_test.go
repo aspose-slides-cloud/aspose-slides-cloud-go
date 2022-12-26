@@ -1166,7 +1166,6 @@ func TestChartFormulas(t *testing.T) {
 	point12 := slidescloud.NewOneValueChartDataPoint()
 	point12.Value = 50
 	point13 := slidescloud.NewOneValueChartDataPoint()
-	point13.Value = 0
 	point13.ValueFormula = "SUM(B2:B3)"
 	series1.DataPoints = []slidescloud.IOneValueChartDataPoint{point11, point12, point13}
 
