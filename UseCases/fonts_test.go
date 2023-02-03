@@ -29,9 +29,10 @@ package usecasetests
 
 import (
 	"io/ioutil"
+	"os"
 	"testing"
 
-	slidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v22"
+	slidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v23"
 )
 
 /*
@@ -176,6 +177,85 @@ func TestSetEmbeddedFontFromRequestOnline(t *testing.T) {
 }
 
 /*
+   Test for compress embedded fonts
+*/
+func TestEmbeddedFontsCompress(t *testing.T) {
+	fontName := "Calibri"
+	c := slidescloud.GetTestApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	var onlyUsed bool = false
+
+	response, _, e := c.SlidesApi.SetEmbeddedFont(fileName, fontName, &onlyUsed, password, folderName, "", "")
+
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	if response.GetList()[2].GetIsEmbedded() != true {
+		t.Errorf("Expected %v, but was %v", true, response.GetList()[2].GetIsEmbedded())
+		return
+	}
+
+        //In a real world example, you would rather get the same result by calling SetEmbeddedFont with onlyUsed = true
+	_, e = c.SlidesApi.CompressEmbeddedFonts(fileName, password, folderName, "")
+
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+
+/*
+   Test for compress embedded fonts online
+*/
+func TestEmbeddedFontCompressOnline(t *testing.T) {
+	password := "password"
+	fontName := "Calibri"
+
+	c := slidescloud.GetTestApiClient()
+	document, e := ioutil.ReadFile("TestData/test.pptx")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	var onlyUsed bool = false
+	result, _, e := c.SlidesApi.SetEmbeddedFontOnline(document, fontName, &onlyUsed, password, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	resultStat, e := os.Stat(result.Name())
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+        //In a real world example, you would rather get the same result by calling SetEmbeddedFont with onlyUsed = true
+	compressedResult, _, e := c.SlidesApi.CompressEmbeddedFontsOnline(document, password)
+
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	compressedResultStat, e := os.Stat(compressedResult.Name())
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if compressedResultStat.Size() >= resultStat.Size() {
+		t.Errorf("Wrong response size. Expected less than %v but was %v.", resultStat.Size(), compressedResultStat.Size())
+		return
+	}
+}
+
+/*
    Test for set embedded font
 */
 func TestEmbeddedFontDelete(t *testing.T) {
@@ -217,32 +297,32 @@ func TestEmbeddedFontDelete(t *testing.T) {
 /*
    Test for delete embedded font online
 */
-// func TestEmbeddedFontDeleteOnline(t *testing.T) {
-// 	password := "password"
-// 	fontName := "Calibri"
+func TestEmbeddedFontDeleteOnline(t *testing.T) {
+	password := "password"
+	fontName := "Calibri"
 
-// 	c := GetTestApiClient()
-// 	document, e := ioutil.ReadFile("TestData/test.pptx")
-// 	if e != nil {
-// 		t.Errorf("Error: %v.", e)
-// 		return
-// 	}
+	c := slidescloud.GetTestApiClient()
+	document, e := ioutil.ReadFile("TestData/test.pptx")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
-// 	var onlyUsed bool = false
-// 	_, _, e = c.SlidesApi.SetEmbeddedFontOnline(document, fontName, &onlyUsed, password)
+	var onlyUsed bool = false
+	_, _, e = c.SlidesApi.SetEmbeddedFontOnline(document, fontName, &onlyUsed, password, "")
 
-// 	if e != nil {
-// 		t.Errorf("Error: %v.", e)
-// 		return
-// 	}
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
-// 	_, _, e = c.SlidesApi.DeleteEmbeddedFontOnline(response, fontName, password)
+	_, _, e = c.SlidesApi.DeleteEmbeddedFontOnline(document, fontName, password)
 
-// 	if e != nil {
-// 		t.Errorf("Error: %v.", e)
-// 		return
-// 	}
-// }
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
 
 /*
    Test for replace font

@@ -864,6 +864,222 @@ func TestAlignSpecialSlideShapesInvalidSubShape(t *testing.T) {
     assertError(t, "AlignSpecialSlideShapes", "subShape", "string", testsubShape, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Compresses embedded fonts by removing unused characters.
+   Test for SlidesApi.CompressEmbeddedFonts method
+*/
+func TestCompressEmbeddedFonts(t *testing.T) {
+    testname, _ := createTestParamValue("CompressEmbeddedFonts", "name", "string").(string)
+    testpassword, _ := createTestParamValue("CompressEmbeddedFonts", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CompressEmbeddedFonts", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CompressEmbeddedFonts", "storage", "string").(string)
+    e := InitializeTest("CompressEmbeddedFonts", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, e = c.SlidesApi.CompressEmbeddedFonts(testname, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Compresses embedded fonts by removing unused characters.
+   Test for SlidesApi.CompressEmbeddedFonts method with invalid name
+*/
+func TestCompressEmbeddedFontsInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("CompressEmbeddedFonts", "name", "string").(string)
+    testpassword, _ := createTestParamValue("CompressEmbeddedFonts", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CompressEmbeddedFonts", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CompressEmbeddedFonts", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "CompressEmbeddedFonts", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CompressEmbeddedFonts", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestApiClient().SlidesApi.CompressEmbeddedFonts(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CompressEmbeddedFonts", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Compresses embedded fonts by removing unused characters.
+   Test for SlidesApi.CompressEmbeddedFonts method with invalid password
+*/
+func TestCompressEmbeddedFontsInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("CompressEmbeddedFonts", "name", "string").(string)
+    testpassword, _ := createTestParamValue("CompressEmbeddedFonts", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CompressEmbeddedFonts", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CompressEmbeddedFonts", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "CompressEmbeddedFonts", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CompressEmbeddedFonts", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestApiClient().SlidesApi.CompressEmbeddedFonts(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CompressEmbeddedFonts", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Compresses embedded fonts by removing unused characters.
+   Test for SlidesApi.CompressEmbeddedFonts method with invalid folder
+*/
+func TestCompressEmbeddedFontsInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("CompressEmbeddedFonts", "name", "string").(string)
+    testpassword, _ := createTestParamValue("CompressEmbeddedFonts", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CompressEmbeddedFonts", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CompressEmbeddedFonts", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "CompressEmbeddedFonts", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CompressEmbeddedFonts", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestApiClient().SlidesApi.CompressEmbeddedFonts(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CompressEmbeddedFonts", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Compresses embedded fonts by removing unused characters.
+   Test for SlidesApi.CompressEmbeddedFonts method with invalid storage
+*/
+func TestCompressEmbeddedFontsInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("CompressEmbeddedFonts", "name", "string").(string)
+    testpassword, _ := createTestParamValue("CompressEmbeddedFonts", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CompressEmbeddedFonts", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CompressEmbeddedFonts", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "CompressEmbeddedFonts", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CompressEmbeddedFonts", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestApiClient().SlidesApi.CompressEmbeddedFonts(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CompressEmbeddedFonts", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Compresses embedded fonts by removing unused characters.
+   Test for SlidesApi.CompressEmbeddedFontsOnline method
+*/
+func TestCompressEmbeddedFontsOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("CompressEmbeddedFontsOnline", "document", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("CompressEmbeddedFontsOnline", "password", "string").(string)
+    e := InitializeTest("CompressEmbeddedFontsOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    r, _, e := c.SlidesApi.CompressEmbeddedFontsOnline(testdocument, testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Compresses embedded fonts by removing unused characters.
+   Test for SlidesApi.CompressEmbeddedFontsOnline method with invalid document
+*/
+func TestCompressEmbeddedFontsOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("CompressEmbeddedFontsOnline", "document", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("CompressEmbeddedFontsOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "CompressEmbeddedFontsOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := InitializeTest("CompressEmbeddedFontsOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CompressEmbeddedFontsOnline(testdocument, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CompressEmbeddedFontsOnline", "document", "[]byte", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Compresses embedded fonts by removing unused characters.
+   Test for SlidesApi.CompressEmbeddedFontsOnline method with invalid password
+*/
+func TestCompressEmbeddedFontsOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("CompressEmbeddedFontsOnline", "document", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("CompressEmbeddedFontsOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "CompressEmbeddedFontsOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CompressEmbeddedFontsOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CompressEmbeddedFontsOnline(testdocument, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CompressEmbeddedFontsOnline", "password", "string", testpassword, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Convert presentation from request content to format specified.
    Test for SlidesApi.Convert method
 */

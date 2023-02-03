@@ -30,7 +30,7 @@ package usecasetests
 import (
 	"testing"
 
-	slidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v22"
+	slidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v23"
 )
 
 /*
