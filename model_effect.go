@@ -100,6 +100,10 @@ type IEffect interface {
 	// Specifies if the effect will repeat until the next click.
 	GetRepeatUntilNextClick() bool
 	SetRepeatUntilNextClick(newValue bool)
+
+	// This attribute specifies if the animation effect stops the previous sound.
+	GetStopPreviousSound() bool
+	SetStopPreviousSound(newValue bool)
 }
 
 type Effect struct {
@@ -154,6 +158,9 @@ type Effect struct {
 
 	// Specifies if the effect will repeat until the next click.
 	RepeatUntilNextClick bool `json:"RepeatUntilNextClick"`
+
+	// This attribute specifies if the animation effect stops the previous sound.
+	StopPreviousSound bool `json:"StopPreviousSound"`
 }
 
 func NewEffect() *Effect {
@@ -279,6 +286,13 @@ func (this *Effect) GetRepeatUntilNextClick() bool {
 
 func (this *Effect) SetRepeatUntilNextClick(newValue bool) {
 	this.RepeatUntilNextClick = newValue
+}
+func (this *Effect) GetStopPreviousSound() bool {
+	return this.StopPreviousSound
+}
+
+func (this *Effect) SetStopPreviousSound(newValue bool) {
+	this.StopPreviousSound = newValue
 }
 
 func (this *Effect) UnmarshalJSON(b []byte) error {
@@ -702,6 +716,27 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.RepeatUntilNextClick = valueForRepeatUntilNextClick
+		}
+	}
+	
+	if valStopPreviousSound, ok := objMap["stopPreviousSound"]; ok {
+		if valStopPreviousSound != nil {
+			var valueForStopPreviousSound bool
+			err = json.Unmarshal(*valStopPreviousSound, &valueForStopPreviousSound)
+			if err != nil {
+				return err
+			}
+			this.StopPreviousSound = valueForStopPreviousSound
+		}
+	}
+	if valStopPreviousSoundCap, ok := objMap["StopPreviousSound"]; ok {
+		if valStopPreviousSoundCap != nil {
+			var valueForStopPreviousSound bool
+			err = json.Unmarshal(*valStopPreviousSoundCap, &valueForStopPreviousSound)
+			if err != nil {
+				return err
+			}
+			this.StopPreviousSound = valueForStopPreviousSound
 		}
 	}
 

@@ -45,6 +45,7 @@
 		{ "Value": [2, 1], "Parameter": "OldPositions" },
 		{ "Value": [1, 2], "Parameter": "NewPositions" },
 		{ "Value": {}, "InvalidValue": null, "Type": "model" },
+		{ "Value": { "Type": "Shape", "ShapeType": "Rectangle" }, "InvalidValue": null, "Type": "Shape" },
 		{ "Value": { "MasterSlide": { "Href": "masterSlides/2" } }, "Type": "LayoutSlide" },
 		{ "Value": { "DataPointType": "OneValue" }, "Type": "OneValueSeries" },
 		{ "Value": { "Type": "Scatter", "XValue": 32.5, "YValue": 42.9 }, "Type": "ScatterChartDataPoint" },

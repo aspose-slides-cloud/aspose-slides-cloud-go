@@ -26219,6 +26219,81 @@ func TestDownloadShapeInvalidSubShape(t *testing.T) {
     assertError(t, "DownloadShape", "subShape", "string", testsubShape, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Creates the shape from the DTO and returns the result in the specified format.
+   Test for SlidesApi.DownloadShapeFromDto method
+*/
+func TestDownloadShapeFromDto(t *testing.T) {
+    testformat, _ := createTestParamValue("DownloadShapeFromDto", "format", "string").(string)
+    testdto, _ := createTestParamValue("DownloadShapeFromDto", "dto", "ShapeBase").(IShapeBase)
+    e := InitializeTest("DownloadShapeFromDto", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    r, _, e := c.SlidesApi.DownloadShapeFromDto(testformat, testdto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Creates the shape from the DTO and returns the result in the specified format.
+   Test for SlidesApi.DownloadShapeFromDto method with invalid format
+*/
+func TestDownloadShapeFromDtoInvalidFormat(t *testing.T) {
+    testformat, _ := createTestParamValue("DownloadShapeFromDto", "format", "string").(string)
+    testdto, _ := createTestParamValue("DownloadShapeFromDto", "dto", "ShapeBase").(IShapeBase)
+
+    invalidValue := invalidizeTestParamValue(testformat, "DownloadShapeFromDto", "format", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testformat = nullValue
+    } else {
+        testformat, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DownloadShapeFromDto", "format", testformat)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DownloadShapeFromDto(testformat, testdto)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DownloadShapeFromDto", "format", "string", testformat, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates the shape from the DTO and returns the result in the specified format.
+   Test for SlidesApi.DownloadShapeFromDto method with invalid dto
+*/
+func TestDownloadShapeFromDtoInvalidDto(t *testing.T) {
+    testformat, _ := createTestParamValue("DownloadShapeFromDto", "format", "string").(string)
+    testdto, _ := createTestParamValue("DownloadShapeFromDto", "dto", "ShapeBase").(IShapeBase)
+
+    invalidValue := invalidizeTestParamValue(testdto, "DownloadShapeFromDto", "dto", "ShapeBase")
+    if (invalidValue == nil) {
+        testdto = nil
+    } else {
+        testdto, _ = invalidValue.(IShapeBase)
+    }
+
+    e := InitializeTest("DownloadShapeFromDto", "dto", testdto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DownloadShapeFromDto(testformat, testdto)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DownloadShapeFromDto", "dto", "ShapeBase", testdto, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Render shape to specified picture format.
    Test for SlidesApi.DownloadShapeOnline method
 */

@@ -132,23 +132,23 @@ func TestChartCreateWorksheet(t *testing.T) {
 	chart.Height = 300
 
 	dataSourceForCategories := slidescloud.NewWorkbook()
-	dataSourceForCategories.WorksheetIndex = 0
-	dataSourceForCategories.ColumnIndex = 0
-	dataSourceForCategories.RowIndex = 1
+	dataSourceForCategories.WorksheetIndex = 1
+	dataSourceForCategories.ColumnIndex = 1
+	dataSourceForCategories.RowIndex = 2
 	chart.DataSourceForCategories = dataSourceForCategories
 
 	series1 := slidescloud.NewOneValueSeries()
 	dataSourceForSeries1Name := slidescloud.NewWorkbook()
-	dataSourceForSeries1Name.WorksheetIndex = 0
-	dataSourceForSeries1Name.ColumnIndex = 1
-	dataSourceForSeries1Name.RowIndex = 0
+	dataSourceForSeries1Name.WorksheetIndex = 1
+	dataSourceForSeries1Name.ColumnIndex = 2
+	dataSourceForSeries1Name.RowIndex = 1
 	series1.DataSourceForSeriesName = dataSourceForSeries1Name
 	series1.Name = "Series1"
 
 	dataSourceForSeries1Values := slidescloud.NewWorkbook()
-	dataSourceForSeries1Values.WorksheetIndex = 0
-	dataSourceForSeries1Values.ColumnIndex = 1
-	dataSourceForSeries1Values.RowIndex = 1
+	dataSourceForSeries1Values.WorksheetIndex = 1
+	dataSourceForSeries1Values.ColumnIndex = 2
+	dataSourceForSeries1Values.RowIndex = 2
 	series1.DataSourceForValues = dataSourceForSeries1Values
 	point11 := slidescloud.NewOneValueChartDataPoint()
 	point11.Value = 40
@@ -160,16 +160,16 @@ func TestChartCreateWorksheet(t *testing.T) {
 
 	series2 := slidescloud.NewOneValueSeries()
 	dataSourceForSeries2Name := slidescloud.NewWorkbook()
-	dataSourceForSeries2Name.WorksheetIndex = 0
-	dataSourceForSeries2Name.ColumnIndex = 2
-	dataSourceForSeries2Name.RowIndex = 0
+	dataSourceForSeries2Name.WorksheetIndex = 1
+	dataSourceForSeries2Name.ColumnIndex = 3
+	dataSourceForSeries2Name.RowIndex = 1
 	series2.DataSourceForSeriesName = dataSourceForSeries2Name
 	series2.Name = "Series2"
 
 	dataSourceForSeries2Values := slidescloud.NewWorkbook()
-	dataSourceForSeries2Values.WorksheetIndex = 0
-	dataSourceForSeries2Values.ColumnIndex = 2
-	dataSourceForSeries2Values.RowIndex = 1
+	dataSourceForSeries2Values.WorksheetIndex = 1
+	dataSourceForSeries2Values.ColumnIndex = 3
+	dataSourceForSeries2Values.RowIndex = 2
 	series2.DataSourceForValues = dataSourceForSeries2Values
 
 	point21 := slidescloud.NewOneValueChartDataPoint()
@@ -1143,23 +1143,23 @@ func TestChartFormulas(t *testing.T) {
 	chart.Height = 300
 
 	dataSourceForCategories := slidescloud.NewWorkbook()
-	dataSourceForCategories.WorksheetIndex = 0
-	dataSourceForCategories.ColumnIndex = 0
-	dataSourceForCategories.RowIndex = 1
+	dataSourceForCategories.WorksheetIndex = 1
+	dataSourceForCategories.ColumnIndex = 1
+	dataSourceForCategories.RowIndex = 2
 	chart.DataSourceForCategories = dataSourceForCategories
 
 	series1 := slidescloud.NewOneValueSeries()
 	dataSourceForSeries1Name := slidescloud.NewWorkbook()
-	dataSourceForSeries1Name.WorksheetIndex = 0
-	dataSourceForSeries1Name.ColumnIndex = 1
-	dataSourceForSeries1Name.RowIndex = 0
+	dataSourceForSeries1Name.WorksheetIndex = 1
+	dataSourceForSeries1Name.ColumnIndex = 2
+	dataSourceForSeries1Name.RowIndex = 1
 	series1.DataSourceForSeriesName = dataSourceForSeries1Name
 	series1.Name = "Series1"
 
 	dataSourceForSeries1Values := slidescloud.NewWorkbook()
-	dataSourceForSeries1Values.WorksheetIndex = 0
-	dataSourceForSeries1Values.ColumnIndex = 1
-	dataSourceForSeries1Values.RowIndex = 1
+	dataSourceForSeries1Values.WorksheetIndex = 1
+	dataSourceForSeries1Values.ColumnIndex = 2
+	dataSourceForSeries1Values.RowIndex = 2
 	series1.DataSourceForValues = dataSourceForSeries1Values
 	point11 := slidescloud.NewOneValueChartDataPoint()
 	point11.Value = 40

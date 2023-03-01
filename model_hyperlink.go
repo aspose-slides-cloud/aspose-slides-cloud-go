@@ -72,6 +72,10 @@ type IHyperlink interface {
 	// Represents the source of hyperlink color
 	GetColorSource() string
 	SetColorSource(newValue string)
+
+	// Audio data encoded in base64. Represents the playing sound of the hyperlink. 
+	GetSoundBase64() string
+	SetSoundBase64(newValue string)
 }
 
 type Hyperlink struct {
@@ -105,6 +109,9 @@ type Hyperlink struct {
 
 	// Represents the source of hyperlink color
 	ColorSource string `json:"ColorSource,omitempty"`
+
+	// Audio data encoded in base64. Represents the playing sound of the hyperlink. 
+	SoundBase64 string `json:"SoundBase64,omitempty"`
 }
 
 func NewHyperlink() *Hyperlink {
@@ -182,6 +189,13 @@ func (this *Hyperlink) GetColorSource() string {
 
 func (this *Hyperlink) SetColorSource(newValue string) {
 	this.ColorSource = newValue
+}
+func (this *Hyperlink) GetSoundBase64() string {
+	return this.SoundBase64
+}
+
+func (this *Hyperlink) SetSoundBase64(newValue string) {
+	this.SoundBase64 = newValue
 }
 
 func (this *Hyperlink) UnmarshalJSON(b []byte) error {
@@ -422,6 +436,27 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 			} else {
 				this.ColorSource = valueForColorSource
 			}
+		}
+	}
+	
+	if valSoundBase64, ok := objMap["soundBase64"]; ok {
+		if valSoundBase64 != nil {
+			var valueForSoundBase64 string
+			err = json.Unmarshal(*valSoundBase64, &valueForSoundBase64)
+			if err != nil {
+				return err
+			}
+			this.SoundBase64 = valueForSoundBase64
+		}
+	}
+	if valSoundBase64Cap, ok := objMap["SoundBase64"]; ok {
+		if valSoundBase64Cap != nil {
+			var valueForSoundBase64 string
+			err = json.Unmarshal(*valSoundBase64Cap, &valueForSoundBase64)
+			if err != nil {
+				return err
+			}
+			this.SoundBase64 = valueForSoundBase64
 		}
 	}
 

@@ -219,7 +219,7 @@ func TestEmbeddedFontCompressOnline(t *testing.T) {
 	fontName := "Calibri"
 
 	c := slidescloud.GetTestApiClient()
-	document, e := ioutil.ReadFile("TestData/test.pptx")
+	document, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -302,24 +302,41 @@ func TestEmbeddedFontDeleteOnline(t *testing.T) {
 	fontName := "Calibri"
 
 	c := slidescloud.GetTestApiClient()
-	document, e := ioutil.ReadFile("TestData/test.pptx")
+	document, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
 	var onlyUsed bool = false
-	_, _, e = c.SlidesApi.SetEmbeddedFontOnline(document, fontName, &onlyUsed, password, "")
+	embedded, _, e := c.SlidesApi.SetEmbeddedFontOnline(document, fontName, &onlyUsed, password, "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, _, e = c.SlidesApi.DeleteEmbeddedFontOnline(document, fontName, password)
+	embeddedDocument, e := ioutil.ReadFile(embedded.Name())
+
+	unembedded, _, e := c.SlidesApi.DeleteEmbeddedFontOnline(embeddedDocument, fontName, password)
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	embeddedStat, e := os.Stat(embedded.Name())
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	unembeddedStat, e := os.Stat(unembedded.Name())
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if unembeddedStat.Size() >= embeddedStat.Size() {
+		t.Errorf("Wrong file size. Expected less than %v but was %v.", embeddedStat.Size(), unembeddedStat.Size())
 		return
 	}
 }

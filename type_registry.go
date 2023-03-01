@@ -489,6 +489,9 @@ func init() {
 	typeRegistry["Paragraph"] = reflect.TypeOf(Paragraph{})
 	derivedTypes["Paragraph"] = "ResourceBase"
 	typeDeterminers["Paragraph"] = make(map[string]string)
+	typeRegistry["ParagraphFormat"] = reflect.TypeOf(ParagraphFormat{})
+	
+	typeDeterminers["ParagraphFormat"] = make(map[string]string)
 	typeRegistry["Paragraphs"] = reflect.TypeOf(Paragraphs{})
 	derivedTypes["Paragraphs"] = "ResourceBase"
 	typeDeterminers["Paragraphs"] = make(map[string]string)

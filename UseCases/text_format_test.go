@@ -99,3 +99,50 @@ func TestTextFormat3D(t *testing.T) {
 		return
 	}
 }
+
+/*
+   Test for text frame format
+*/
+func TestTextFrameFormat(t *testing.T) {
+	var slideIndex int32 = 1
+
+	c := slidescloud.GetTestApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	dto := slidescloud.NewShape()
+	dto.ShapeType = "Rectangle"
+	dto.X = 100
+	dto.Y = 100
+	dto.Height = 100
+	dto.Width = 200
+	dto.Text = "Sample text"
+
+	textFrameFormat := slidescloud.NewTextFrameFormat()
+	textFrameFormat.CenterText = "True"
+	textFrameFormat.MarginLeft = 2
+	textFrameFormat.MarginRight = 2
+	textFrameFormat.MarginTop = 2
+	textFrameFormat.MarginBottom = 2
+	solidFillFormat := slidescloud.NewSolidFill()
+	solidFillFormat.Color = "#FF0000"
+	defaultParagraphFormat := slidescloud.NewParagraphFormat()
+	defaultParagraphFormat.BulletFillFormat = solidFillFormat
+	textFrameFormat.DefaultParagraphFormat = defaultParagraphFormat
+	dto.TextFrameFormat = textFrameFormat
+
+	response, _, e := c.SlidesApi.CreateShape(fileName, slideIndex, dto, nil, nil, password, folderName, "", "")
+
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	if response.GetType() != "Shape" {
+		t.Errorf("Expected %v, but was %v", "Shape", response.GetType())
+		return
+	}
+}

@@ -30,16 +30,16 @@ import (
 	"encoding/json"
 )
 
-// Represents paragraph resource
-type IParagraph interface {
+// Paragraph formatting properties.
+type IParagraphFormat interface {
 
-	// Gets or sets the link to this resource.
-	GetSelfUri() IResourceUri
-	SetSelfUri(newValue IResourceUri)
+	// Depth.
+	GetDepth() int32
+	SetDepth(newValue int32)
 
-	// List of alternate links.
-	GetAlternateLinks() []IResourceUri
-	SetAlternateLinks(newValue []IResourceUri)
+	// Text alignment.
+	GetAlignment() string
+	SetAlignment(newValue string)
 
 	// Left margin.
 	GetMarginLeft() float64
@@ -61,45 +61,33 @@ type IParagraph interface {
 	GetSpaceWithin() float64
 	SetSpaceWithin(newValue float64)
 
-	// First line indent.
-	GetIndent() float64
-	SetIndent(newValue float64)
-
-	// Text alignment.
-	GetAlignment() string
-	SetAlignment(newValue string)
-
 	// Font alignment.
 	GetFontAlignment() string
 	SetFontAlignment(newValue string)
 
-	// Default tabulation size.
-	GetDefaultTabSize() float64
-	SetDefaultTabSize(newValue float64)
+	// First line indent.
+	GetIndent() float64
+	SetIndent(newValue float64)
 
-	// Depth.
-	GetDepth() int32
-	SetDepth(newValue int32)
-
-	// True if hanging punctuation is used with the paragraph.
-	GetHangingPunctuation() string
-	SetHangingPunctuation(newValue string)
-
-	// True if East Asian line break is used with the paragraph.
-	GetEastAsianLineBreak() string
-	SetEastAsianLineBreak(newValue string)
-
-	// True if Latin line break is used with the paragraph.
-	GetLatinLineBreak() string
-	SetLatinLineBreak(newValue string)
-
-	// True if right to left direction is used with the paragraph.
+	// Determines whether the Right to Left writing is used in a paragraph. No inheritance applied.
 	GetRightToLeft() string
 	SetRightToLeft(newValue string)
 
-	// List of portion links.
-	GetPortionList() []IPortion
-	SetPortionList(newValue []IPortion)
+	// Determines whether the East Asian line break is used in a paragraph. No inheritance applied.
+	GetEastAsianLineBreak() string
+	SetEastAsianLineBreak(newValue string)
+
+	// Determines whether the Latin line break is used in a paragraph. No inheritance applied.
+	GetLatinLineBreak() string
+	SetLatinLineBreak(newValue string)
+
+	// Determines whether the hanging punctuation is used in a paragraph. No inheritance applied.
+	GetHangingPunctuation() string
+	SetHangingPunctuation(newValue string)
+
+	// Returns or sets default tabulation size with no inheritance.
+	GetDefaultTabSize() float64
+	SetDefaultTabSize(newValue float64)
 
 	// Default portion format.
 	GetDefaultPortionFormat() IPortionFormat
@@ -130,13 +118,13 @@ type IParagraph interface {
 	SetBulletFillFormat(newValue IFillFormat)
 }
 
-type Paragraph struct {
+type ParagraphFormat struct {
 
-	// Gets or sets the link to this resource.
-	SelfUri IResourceUri `json:"SelfUri,omitempty"`
+	// Depth.
+	Depth int32 `json:"Depth,omitempty"`
 
-	// List of alternate links.
-	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
+	// Text alignment.
+	Alignment string `json:"Alignment,omitempty"`
 
 	// Left margin.
 	MarginLeft float64 `json:"MarginLeft,omitempty"`
@@ -153,35 +141,26 @@ type Paragraph struct {
 	// Spacing between lines.
 	SpaceWithin float64 `json:"SpaceWithin,omitempty"`
 
-	// First line indent.
-	Indent float64 `json:"Indent,omitempty"`
-
-	// Text alignment.
-	Alignment string `json:"Alignment,omitempty"`
-
 	// Font alignment.
 	FontAlignment string `json:"FontAlignment,omitempty"`
 
-	// Default tabulation size.
-	DefaultTabSize float64 `json:"DefaultTabSize,omitempty"`
+	// First line indent.
+	Indent float64 `json:"Indent,omitempty"`
 
-	// Depth.
-	Depth int32 `json:"Depth,omitempty"`
-
-	// True if hanging punctuation is used with the paragraph.
-	HangingPunctuation string `json:"HangingPunctuation,omitempty"`
-
-	// True if East Asian line break is used with the paragraph.
-	EastAsianLineBreak string `json:"EastAsianLineBreak,omitempty"`
-
-	// True if Latin line break is used with the paragraph.
-	LatinLineBreak string `json:"LatinLineBreak,omitempty"`
-
-	// True if right to left direction is used with the paragraph.
+	// Determines whether the Right to Left writing is used in a paragraph. No inheritance applied.
 	RightToLeft string `json:"RightToLeft,omitempty"`
 
-	// List of portion links.
-	PortionList []IPortion `json:"PortionList,omitempty"`
+	// Determines whether the East Asian line break is used in a paragraph. No inheritance applied.
+	EastAsianLineBreak string `json:"EastAsianLineBreak,omitempty"`
+
+	// Determines whether the Latin line break is used in a paragraph. No inheritance applied.
+	LatinLineBreak string `json:"LatinLineBreak,omitempty"`
+
+	// Determines whether the hanging punctuation is used in a paragraph. No inheritance applied.
+	HangingPunctuation string `json:"HangingPunctuation,omitempty"`
+
+	// Returns or sets default tabulation size with no inheritance.
+	DefaultTabSize float64 `json:"DefaultTabSize,omitempty"`
 
 	// Default portion format.
 	DefaultPortionFormat IPortionFormat `json:"DefaultPortionFormat,omitempty"`
@@ -205,276 +184,217 @@ type Paragraph struct {
 	BulletFillFormat IFillFormat `json:"BulletFillFormat,omitempty"`
 }
 
-func NewParagraph() *Paragraph {
-	instance := new(Paragraph)
+func NewParagraphFormat() *ParagraphFormat {
+	instance := new(ParagraphFormat)
 	return instance
 }
 
-func (this *Paragraph) GetSelfUri() IResourceUri {
-	return this.SelfUri
-}
-
-func (this *Paragraph) SetSelfUri(newValue IResourceUri) {
-	this.SelfUri = newValue
-}
-func (this *Paragraph) GetAlternateLinks() []IResourceUri {
-	return this.AlternateLinks
-}
-
-func (this *Paragraph) SetAlternateLinks(newValue []IResourceUri) {
-	this.AlternateLinks = newValue
-}
-func (this *Paragraph) GetMarginLeft() float64 {
-	return this.MarginLeft
-}
-
-func (this *Paragraph) SetMarginLeft(newValue float64) {
-	this.MarginLeft = newValue
-}
-func (this *Paragraph) GetMarginRight() float64 {
-	return this.MarginRight
-}
-
-func (this *Paragraph) SetMarginRight(newValue float64) {
-	this.MarginRight = newValue
-}
-func (this *Paragraph) GetSpaceBefore() float64 {
-	return this.SpaceBefore
-}
-
-func (this *Paragraph) SetSpaceBefore(newValue float64) {
-	this.SpaceBefore = newValue
-}
-func (this *Paragraph) GetSpaceAfter() float64 {
-	return this.SpaceAfter
-}
-
-func (this *Paragraph) SetSpaceAfter(newValue float64) {
-	this.SpaceAfter = newValue
-}
-func (this *Paragraph) GetSpaceWithin() float64 {
-	return this.SpaceWithin
-}
-
-func (this *Paragraph) SetSpaceWithin(newValue float64) {
-	this.SpaceWithin = newValue
-}
-func (this *Paragraph) GetIndent() float64 {
-	return this.Indent
-}
-
-func (this *Paragraph) SetIndent(newValue float64) {
-	this.Indent = newValue
-}
-func (this *Paragraph) GetAlignment() string {
-	return this.Alignment
-}
-
-func (this *Paragraph) SetAlignment(newValue string) {
-	this.Alignment = newValue
-}
-func (this *Paragraph) GetFontAlignment() string {
-	return this.FontAlignment
-}
-
-func (this *Paragraph) SetFontAlignment(newValue string) {
-	this.FontAlignment = newValue
-}
-func (this *Paragraph) GetDefaultTabSize() float64 {
-	return this.DefaultTabSize
-}
-
-func (this *Paragraph) SetDefaultTabSize(newValue float64) {
-	this.DefaultTabSize = newValue
-}
-func (this *Paragraph) GetDepth() int32 {
+func (this *ParagraphFormat) GetDepth() int32 {
 	return this.Depth
 }
 
-func (this *Paragraph) SetDepth(newValue int32) {
+func (this *ParagraphFormat) SetDepth(newValue int32) {
 	this.Depth = newValue
 }
-func (this *Paragraph) GetHangingPunctuation() string {
-	return this.HangingPunctuation
+func (this *ParagraphFormat) GetAlignment() string {
+	return this.Alignment
 }
 
-func (this *Paragraph) SetHangingPunctuation(newValue string) {
-	this.HangingPunctuation = newValue
+func (this *ParagraphFormat) SetAlignment(newValue string) {
+	this.Alignment = newValue
 }
-func (this *Paragraph) GetEastAsianLineBreak() string {
-	return this.EastAsianLineBreak
-}
-
-func (this *Paragraph) SetEastAsianLineBreak(newValue string) {
-	this.EastAsianLineBreak = newValue
-}
-func (this *Paragraph) GetLatinLineBreak() string {
-	return this.LatinLineBreak
+func (this *ParagraphFormat) GetMarginLeft() float64 {
+	return this.MarginLeft
 }
 
-func (this *Paragraph) SetLatinLineBreak(newValue string) {
-	this.LatinLineBreak = newValue
+func (this *ParagraphFormat) SetMarginLeft(newValue float64) {
+	this.MarginLeft = newValue
 }
-func (this *Paragraph) GetRightToLeft() string {
+func (this *ParagraphFormat) GetMarginRight() float64 {
+	return this.MarginRight
+}
+
+func (this *ParagraphFormat) SetMarginRight(newValue float64) {
+	this.MarginRight = newValue
+}
+func (this *ParagraphFormat) GetSpaceBefore() float64 {
+	return this.SpaceBefore
+}
+
+func (this *ParagraphFormat) SetSpaceBefore(newValue float64) {
+	this.SpaceBefore = newValue
+}
+func (this *ParagraphFormat) GetSpaceAfter() float64 {
+	return this.SpaceAfter
+}
+
+func (this *ParagraphFormat) SetSpaceAfter(newValue float64) {
+	this.SpaceAfter = newValue
+}
+func (this *ParagraphFormat) GetSpaceWithin() float64 {
+	return this.SpaceWithin
+}
+
+func (this *ParagraphFormat) SetSpaceWithin(newValue float64) {
+	this.SpaceWithin = newValue
+}
+func (this *ParagraphFormat) GetFontAlignment() string {
+	return this.FontAlignment
+}
+
+func (this *ParagraphFormat) SetFontAlignment(newValue string) {
+	this.FontAlignment = newValue
+}
+func (this *ParagraphFormat) GetIndent() float64 {
+	return this.Indent
+}
+
+func (this *ParagraphFormat) SetIndent(newValue float64) {
+	this.Indent = newValue
+}
+func (this *ParagraphFormat) GetRightToLeft() string {
 	return this.RightToLeft
 }
 
-func (this *Paragraph) SetRightToLeft(newValue string) {
+func (this *ParagraphFormat) SetRightToLeft(newValue string) {
 	this.RightToLeft = newValue
 }
-func (this *Paragraph) GetPortionList() []IPortion {
-	return this.PortionList
+func (this *ParagraphFormat) GetEastAsianLineBreak() string {
+	return this.EastAsianLineBreak
 }
 
-func (this *Paragraph) SetPortionList(newValue []IPortion) {
-	this.PortionList = newValue
+func (this *ParagraphFormat) SetEastAsianLineBreak(newValue string) {
+	this.EastAsianLineBreak = newValue
 }
-func (this *Paragraph) GetDefaultPortionFormat() IPortionFormat {
+func (this *ParagraphFormat) GetLatinLineBreak() string {
+	return this.LatinLineBreak
+}
+
+func (this *ParagraphFormat) SetLatinLineBreak(newValue string) {
+	this.LatinLineBreak = newValue
+}
+func (this *ParagraphFormat) GetHangingPunctuation() string {
+	return this.HangingPunctuation
+}
+
+func (this *ParagraphFormat) SetHangingPunctuation(newValue string) {
+	this.HangingPunctuation = newValue
+}
+func (this *ParagraphFormat) GetDefaultTabSize() float64 {
+	return this.DefaultTabSize
+}
+
+func (this *ParagraphFormat) SetDefaultTabSize(newValue float64) {
+	this.DefaultTabSize = newValue
+}
+func (this *ParagraphFormat) GetDefaultPortionFormat() IPortionFormat {
 	return this.DefaultPortionFormat
 }
 
-func (this *Paragraph) SetDefaultPortionFormat(newValue IPortionFormat) {
+func (this *ParagraphFormat) SetDefaultPortionFormat(newValue IPortionFormat) {
 	this.DefaultPortionFormat = newValue
 }
-func (this *Paragraph) GetBulletChar() string {
+func (this *ParagraphFormat) GetBulletChar() string {
 	return this.BulletChar
 }
 
-func (this *Paragraph) SetBulletChar(newValue string) {
+func (this *ParagraphFormat) SetBulletChar(newValue string) {
 	this.BulletChar = newValue
 }
-func (this *Paragraph) GetBulletHeight() float64 {
+func (this *ParagraphFormat) GetBulletHeight() float64 {
 	return this.BulletHeight
 }
 
-func (this *Paragraph) SetBulletHeight(newValue float64) {
+func (this *ParagraphFormat) SetBulletHeight(newValue float64) {
 	this.BulletHeight = newValue
 }
-func (this *Paragraph) GetBulletType() string {
+func (this *ParagraphFormat) GetBulletType() string {
 	return this.BulletType
 }
 
-func (this *Paragraph) SetBulletType(newValue string) {
+func (this *ParagraphFormat) SetBulletType(newValue string) {
 	this.BulletType = newValue
 }
-func (this *Paragraph) GetNumberedBulletStartWith() int32 {
+func (this *ParagraphFormat) GetNumberedBulletStartWith() int32 {
 	return this.NumberedBulletStartWith
 }
 
-func (this *Paragraph) SetNumberedBulletStartWith(newValue int32) {
+func (this *ParagraphFormat) SetNumberedBulletStartWith(newValue int32) {
 	this.NumberedBulletStartWith = newValue
 }
-func (this *Paragraph) GetNumberedBulletStyle() string {
+func (this *ParagraphFormat) GetNumberedBulletStyle() string {
 	return this.NumberedBulletStyle
 }
 
-func (this *Paragraph) SetNumberedBulletStyle(newValue string) {
+func (this *ParagraphFormat) SetNumberedBulletStyle(newValue string) {
 	this.NumberedBulletStyle = newValue
 }
-func (this *Paragraph) GetBulletFillFormat() IFillFormat {
+func (this *ParagraphFormat) GetBulletFillFormat() IFillFormat {
 	return this.BulletFillFormat
 }
 
-func (this *Paragraph) SetBulletFillFormat(newValue IFillFormat) {
+func (this *ParagraphFormat) SetBulletFillFormat(newValue IFillFormat) {
 	this.BulletFillFormat = newValue
 }
 
-func (this *Paragraph) UnmarshalJSON(b []byte) error {
+func (this *ParagraphFormat) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
 	err := json.Unmarshal(b, &objMap)
 	if err != nil {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["selfUri"]; ok {
-		if valSelfUri != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
+	if valDepth, ok := objMap["depth"]; ok {
+		if valDepth != nil {
+			var valueForDepth int32
+			err = json.Unmarshal(*valDepth, &valueForDepth)
 			if err != nil {
 				return err
 			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUri)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUri, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
+			this.Depth = valueForDepth
 		}
 	}
-	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
-		if valSelfUriCap != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
+	if valDepthCap, ok := objMap["Depth"]; ok {
+		if valDepthCap != nil {
+			var valueForDepth int32
+			err = json.Unmarshal(*valDepthCap, &valueForDepth)
 			if err != nil {
 				return err
 			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
+			this.Depth = valueForDepth
 		}
 	}
 	
-	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
-		if valAlternateLinks != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
+	if valAlignment, ok := objMap["alignment"]; ok {
+		if valAlignment != nil {
+			var valueForAlignment string
+			err = json.Unmarshal(*valAlignment, &valueForAlignment)
 			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
+				var valueForAlignmentInt int32
+				err = json.Unmarshal(*valAlignment, &valueForAlignmentInt)
 				if err != nil {
 					return err
 				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
+				this.Alignment = string(valueForAlignmentInt)
+			} else {
+				this.Alignment = valueForAlignment
 			}
-			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
-	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
-		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
+	if valAlignmentCap, ok := objMap["Alignment"]; ok {
+		if valAlignmentCap != nil {
+			var valueForAlignment string
+			err = json.Unmarshal(*valAlignmentCap, &valueForAlignment)
 			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
+				var valueForAlignmentInt int32
+				err = json.Unmarshal(*valAlignmentCap, &valueForAlignmentInt)
 				if err != nil {
 					return err
 				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
+				this.Alignment = string(valueForAlignmentInt)
+			} else {
+				this.Alignment = valueForAlignment
 			}
-			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
 	
@@ -583,60 +503,6 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
-	if valIndent, ok := objMap["indent"]; ok {
-		if valIndent != nil {
-			var valueForIndent float64
-			err = json.Unmarshal(*valIndent, &valueForIndent)
-			if err != nil {
-				return err
-			}
-			this.Indent = valueForIndent
-		}
-	}
-	if valIndentCap, ok := objMap["Indent"]; ok {
-		if valIndentCap != nil {
-			var valueForIndent float64
-			err = json.Unmarshal(*valIndentCap, &valueForIndent)
-			if err != nil {
-				return err
-			}
-			this.Indent = valueForIndent
-		}
-	}
-	
-	if valAlignment, ok := objMap["alignment"]; ok {
-		if valAlignment != nil {
-			var valueForAlignment string
-			err = json.Unmarshal(*valAlignment, &valueForAlignment)
-			if err != nil {
-				var valueForAlignmentInt int32
-				err = json.Unmarshal(*valAlignment, &valueForAlignmentInt)
-				if err != nil {
-					return err
-				}
-				this.Alignment = string(valueForAlignmentInt)
-			} else {
-				this.Alignment = valueForAlignment
-			}
-		}
-	}
-	if valAlignmentCap, ok := objMap["Alignment"]; ok {
-		if valAlignmentCap != nil {
-			var valueForAlignment string
-			err = json.Unmarshal(*valAlignmentCap, &valueForAlignment)
-			if err != nil {
-				var valueForAlignmentInt int32
-				err = json.Unmarshal(*valAlignmentCap, &valueForAlignmentInt)
-				if err != nil {
-					return err
-				}
-				this.Alignment = string(valueForAlignmentInt)
-			} else {
-				this.Alignment = valueForAlignment
-			}
-		}
-	}
-	
 	if valFontAlignment, ok := objMap["fontAlignment"]; ok {
 		if valFontAlignment != nil {
 			var valueForFontAlignment string
@@ -670,77 +536,56 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
-	if valDefaultTabSize, ok := objMap["defaultTabSize"]; ok {
-		if valDefaultTabSize != nil {
-			var valueForDefaultTabSize float64
-			err = json.Unmarshal(*valDefaultTabSize, &valueForDefaultTabSize)
+	if valIndent, ok := objMap["indent"]; ok {
+		if valIndent != nil {
+			var valueForIndent float64
+			err = json.Unmarshal(*valIndent, &valueForIndent)
 			if err != nil {
 				return err
 			}
-			this.DefaultTabSize = valueForDefaultTabSize
+			this.Indent = valueForIndent
 		}
 	}
-	if valDefaultTabSizeCap, ok := objMap["DefaultTabSize"]; ok {
-		if valDefaultTabSizeCap != nil {
-			var valueForDefaultTabSize float64
-			err = json.Unmarshal(*valDefaultTabSizeCap, &valueForDefaultTabSize)
+	if valIndentCap, ok := objMap["Indent"]; ok {
+		if valIndentCap != nil {
+			var valueForIndent float64
+			err = json.Unmarshal(*valIndentCap, &valueForIndent)
 			if err != nil {
 				return err
 			}
-			this.DefaultTabSize = valueForDefaultTabSize
+			this.Indent = valueForIndent
 		}
 	}
 	
-	if valDepth, ok := objMap["depth"]; ok {
-		if valDepth != nil {
-			var valueForDepth int32
-			err = json.Unmarshal(*valDepth, &valueForDepth)
+	if valRightToLeft, ok := objMap["rightToLeft"]; ok {
+		if valRightToLeft != nil {
+			var valueForRightToLeft string
+			err = json.Unmarshal(*valRightToLeft, &valueForRightToLeft)
 			if err != nil {
-				return err
-			}
-			this.Depth = valueForDepth
-		}
-	}
-	if valDepthCap, ok := objMap["Depth"]; ok {
-		if valDepthCap != nil {
-			var valueForDepth int32
-			err = json.Unmarshal(*valDepthCap, &valueForDepth)
-			if err != nil {
-				return err
-			}
-			this.Depth = valueForDepth
-		}
-	}
-	
-	if valHangingPunctuation, ok := objMap["hangingPunctuation"]; ok {
-		if valHangingPunctuation != nil {
-			var valueForHangingPunctuation string
-			err = json.Unmarshal(*valHangingPunctuation, &valueForHangingPunctuation)
-			if err != nil {
-				var valueForHangingPunctuationInt int32
-				err = json.Unmarshal(*valHangingPunctuation, &valueForHangingPunctuationInt)
+				var valueForRightToLeftInt int32
+				err = json.Unmarshal(*valRightToLeft, &valueForRightToLeftInt)
 				if err != nil {
 					return err
 				}
-				this.HangingPunctuation = string(valueForHangingPunctuationInt)
+				this.RightToLeft = string(valueForRightToLeftInt)
 			} else {
-				this.HangingPunctuation = valueForHangingPunctuation
+				this.RightToLeft = valueForRightToLeft
 			}
 		}
 	}
-	if valHangingPunctuationCap, ok := objMap["HangingPunctuation"]; ok {
-		if valHangingPunctuationCap != nil {
-			var valueForHangingPunctuation string
-			err = json.Unmarshal(*valHangingPunctuationCap, &valueForHangingPunctuation)
+	if valRightToLeftCap, ok := objMap["RightToLeft"]; ok {
+		if valRightToLeftCap != nil {
+			var valueForRightToLeft string
+			err = json.Unmarshal(*valRightToLeftCap, &valueForRightToLeft)
 			if err != nil {
-				var valueForHangingPunctuationInt int32
-				err = json.Unmarshal(*valHangingPunctuationCap, &valueForHangingPunctuationInt)
+				var valueForRightToLeftInt int32
+				err = json.Unmarshal(*valRightToLeftCap, &valueForRightToLeftInt)
 				if err != nil {
 					return err
 				}
-				this.HangingPunctuation = string(valueForHangingPunctuationInt)
+				this.RightToLeft = string(valueForRightToLeftInt)
 			} else {
-				this.HangingPunctuation = valueForHangingPunctuation
+				this.RightToLeft = valueForRightToLeft
 			}
 		}
 	}
@@ -811,85 +656,57 @@ func (this *Paragraph) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
-	if valRightToLeft, ok := objMap["rightToLeft"]; ok {
-		if valRightToLeft != nil {
-			var valueForRightToLeft string
-			err = json.Unmarshal(*valRightToLeft, &valueForRightToLeft)
+	if valHangingPunctuation, ok := objMap["hangingPunctuation"]; ok {
+		if valHangingPunctuation != nil {
+			var valueForHangingPunctuation string
+			err = json.Unmarshal(*valHangingPunctuation, &valueForHangingPunctuation)
 			if err != nil {
-				var valueForRightToLeftInt int32
-				err = json.Unmarshal(*valRightToLeft, &valueForRightToLeftInt)
+				var valueForHangingPunctuationInt int32
+				err = json.Unmarshal(*valHangingPunctuation, &valueForHangingPunctuationInt)
 				if err != nil {
 					return err
 				}
-				this.RightToLeft = string(valueForRightToLeftInt)
+				this.HangingPunctuation = string(valueForHangingPunctuationInt)
 			} else {
-				this.RightToLeft = valueForRightToLeft
+				this.HangingPunctuation = valueForHangingPunctuation
 			}
 		}
 	}
-	if valRightToLeftCap, ok := objMap["RightToLeft"]; ok {
-		if valRightToLeftCap != nil {
-			var valueForRightToLeft string
-			err = json.Unmarshal(*valRightToLeftCap, &valueForRightToLeft)
+	if valHangingPunctuationCap, ok := objMap["HangingPunctuation"]; ok {
+		if valHangingPunctuationCap != nil {
+			var valueForHangingPunctuation string
+			err = json.Unmarshal(*valHangingPunctuationCap, &valueForHangingPunctuation)
 			if err != nil {
-				var valueForRightToLeftInt int32
-				err = json.Unmarshal(*valRightToLeftCap, &valueForRightToLeftInt)
+				var valueForHangingPunctuationInt int32
+				err = json.Unmarshal(*valHangingPunctuationCap, &valueForHangingPunctuationInt)
 				if err != nil {
 					return err
 				}
-				this.RightToLeft = string(valueForRightToLeftInt)
+				this.HangingPunctuation = string(valueForHangingPunctuationInt)
 			} else {
-				this.RightToLeft = valueForRightToLeft
+				this.HangingPunctuation = valueForHangingPunctuation
 			}
 		}
 	}
 	
-	if valPortionList, ok := objMap["portionList"]; ok {
-		if valPortionList != nil {
-			var valueForPortionList []json.RawMessage
-			err = json.Unmarshal(*valPortionList, &valueForPortionList)
+	if valDefaultTabSize, ok := objMap["defaultTabSize"]; ok {
+		if valDefaultTabSize != nil {
+			var valueForDefaultTabSize float64
+			err = json.Unmarshal(*valDefaultTabSize, &valueForDefaultTabSize)
 			if err != nil {
 				return err
 			}
-			valueForIPortionList := make([]IPortion, len(valueForPortionList))
-			for i, v := range valueForPortionList {
-				vObject, err := createObjectForType("Portion", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIPortionList[i] = vObject.(IPortion)
-				}
-			}
-			this.PortionList = valueForIPortionList
+			this.DefaultTabSize = valueForDefaultTabSize
 		}
 	}
-	if valPortionListCap, ok := objMap["PortionList"]; ok {
-		if valPortionListCap != nil {
-			var valueForPortionList []json.RawMessage
-			err = json.Unmarshal(*valPortionListCap, &valueForPortionList)
+	if valDefaultTabSizeCap, ok := objMap["DefaultTabSize"]; ok {
+		if valDefaultTabSizeCap != nil {
+			var valueForDefaultTabSize float64
+			err = json.Unmarshal(*valDefaultTabSizeCap, &valueForDefaultTabSize)
 			if err != nil {
 				return err
 			}
-			valueForIPortionList := make([]IPortion, len(valueForPortionList))
-			for i, v := range valueForPortionList {
-				vObject, err := createObjectForType("Portion", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIPortionList[i] = vObject.(IPortion)
-				}
-			}
-			this.PortionList = valueForIPortionList
+			this.DefaultTabSize = valueForDefaultTabSize
 		}
 	}
 	

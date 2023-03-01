@@ -550,63 +550,14 @@ func TestChartEmpty(t *testing.T) {
 	}
 
 	dto := slidescloud.NewChart()
-	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
+	_, response, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
+	if e == nil {
+		t.Errorf("Chart with undefined data should not have been created.")
 		return
 	}
-	_, ok := result.(slidescloud.IChart)
-	if !ok {
-		t.Errorf("Wrong shape type.")
+	if response.StatusCode != 500 {
+		t.Errorf("Wrong status code. Expected 400 but was %v.", response.StatusCode)
 		return
-	}
-
-	dto = slidescloud.NewChart()
-	dto.ChartType = "ClusteredColumn"
-	dto.X = 100
-	dto.Y = 100
-	dto.Width = 400
-	dto.Height = 400
-
-	title := slidescloud.NewChartTitle()
-	title.HasTitle = true
-	title.Text = "Column Chart"
-	dto.Title = title
-
-	category1 := slidescloud.NewChartCategory()
-	category1.Value = "Category1"
-	category2 := slidescloud.NewChartCategory()
-	category2.Value = "Category2"
-	category3 := slidescloud.NewChartCategory()
-	category3.Value = "Category3"
-	dto.Categories = []slidescloud.IChartCategory{category1, category2, category3}
-
-	series1 := slidescloud.NewOneValueSeries()
-	dataPoint11 := slidescloud.NewOneValueChartDataPoint()
-	dataPoint11.Value = 20
-
-	dataPoint12 := slidescloud.NewOneValueChartDataPoint()
-	dataPoint12.Value = 50
-
-	dataPoint13 := slidescloud.NewOneValueChartDataPoint()
-	dataPoint13.Value = 30
-	series1.DataPoints = []slidescloud.IOneValueChartDataPoint{dataPoint11, dataPoint12, dataPoint13}
-
-	series2 := slidescloud.NewOneValueSeries()
-	dataPoint21 := slidescloud.NewOneValueChartDataPoint()
-	dataPoint21.Value = 30
-
-	dataPoint22 := slidescloud.NewOneValueChartDataPoint()
-	dataPoint22.Value = 10
-
-	dataPoint23 := slidescloud.NewOneValueChartDataPoint()
-	dataPoint23.Value = 60
-	series2.DataPoints = []slidescloud.IOneValueChartDataPoint{dataPoint21, dataPoint22, dataPoint23}
-	dto.Series = []slidescloud.ISeries{series1, series2}
-
-	result, _, e = c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
 	}
 }
 
@@ -1718,6 +1669,26 @@ func TestDeleteSmartArtSubNode(t *testing.T) {
 
 	if len(response.GetNodes()[0].GetNodes()) != 3 {
 		t.Errorf("Expected %v, but was %v", 3, response.GetNodes()[0].GetNodes())
+		return
+	}
+}
+
+func TestDownloadShapeFromDto(t *testing.T) {
+	shape := slidescloud.NewShape()
+	shape.SetShapeType("Rectangle")
+	shape.SetWidth(400)
+	shape.SetHeight(200)
+	shape.SetText("Shape text")
+
+	c := slidescloud.GetTestApiClient()
+	_, _, e := c.SlidesApi.DownloadShapeFromDto("png", shape)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	if e != nil {
+		t.Errorf("Error: %v.", e)
 		return
 	}
 }
