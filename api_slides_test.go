@@ -55447,13 +55447,14 @@ func TestSplitAndSaveOnline(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
     e := InitializeTest("SplitAndSaveOnline", "", "")
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
     }
     c := GetTestApiClient()
-    _, _, e = c.SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, _, e = c.SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -55494,6 +55495,7 @@ func TestSplitAndSaveOnlineInvalidDocument(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
 
     invalidValue := invalidizeTestParamValue(testdocument, "SplitAndSaveOnline", "document", "[]byte")
     if (invalidValue == nil) {
@@ -55507,7 +55509,7 @@ func TestSplitAndSaveOnlineInvalidDocument(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -55549,6 +55551,7 @@ func TestSplitAndSaveOnlineInvalidFormat(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
 
     invalidValue := invalidizeTestParamValue(testformat, "SplitAndSaveOnline", "format", "string")
     if (invalidValue == nil) {
@@ -55563,7 +55566,7 @@ func TestSplitAndSaveOnlineInvalidFormat(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -55605,6 +55608,7 @@ func TestSplitAndSaveOnlineInvalidDestFolder(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
 
     invalidValue := invalidizeTestParamValue(testdestFolder, "SplitAndSaveOnline", "destFolder", "string")
     if (invalidValue == nil) {
@@ -55619,7 +55623,7 @@ func TestSplitAndSaveOnlineInvalidDestFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -55661,6 +55665,7 @@ func TestSplitAndSaveOnlineInvalidWidth(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
     testwidth = new(int32)
 
     invalidValue := invalidizeTestParamValue(testwidth, "SplitAndSaveOnline", "width", "int32")
@@ -55676,7 +55681,7 @@ func TestSplitAndSaveOnlineInvalidWidth(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -55718,6 +55723,7 @@ func TestSplitAndSaveOnlineInvalidHeight(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
     testheight = new(int32)
 
     invalidValue := invalidizeTestParamValue(testheight, "SplitAndSaveOnline", "height", "int32")
@@ -55733,7 +55739,7 @@ func TestSplitAndSaveOnlineInvalidHeight(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -55775,6 +55781,7 @@ func TestSplitAndSaveOnlineInvalidFrom(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
     testfrom = new(int32)
 
     invalidValue := invalidizeTestParamValue(testfrom, "SplitAndSaveOnline", "from", "int32")
@@ -55790,7 +55797,7 @@ func TestSplitAndSaveOnlineInvalidFrom(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -55832,6 +55839,7 @@ func TestSplitAndSaveOnlineInvalidTo(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
     testto = new(int32)
 
     invalidValue := invalidizeTestParamValue(testto, "SplitAndSaveOnline", "to", "int32")
@@ -55847,7 +55855,7 @@ func TestSplitAndSaveOnlineInvalidTo(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -55889,6 +55897,7 @@ func TestSplitAndSaveOnlineInvalidPassword(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
 
     invalidValue := invalidizeTestParamValue(testpassword, "SplitAndSaveOnline", "password", "string")
     if (invalidValue == nil) {
@@ -55903,7 +55912,7 @@ func TestSplitAndSaveOnlineInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -55945,6 +55954,7 @@ func TestSplitAndSaveOnlineInvalidStorage(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
 
     invalidValue := invalidizeTestParamValue(teststorage, "SplitAndSaveOnline", "storage", "string")
     if (invalidValue == nil) {
@@ -55959,7 +55969,7 @@ func TestSplitAndSaveOnlineInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -56001,6 +56011,7 @@ func TestSplitAndSaveOnlineInvalidFontsFolder(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
 
     invalidValue := invalidizeTestParamValue(testfontsFolder, "SplitAndSaveOnline", "fontsFolder", "string")
     if (invalidValue == nil) {
@@ -56015,12 +56026,68 @@ func TestSplitAndSaveOnlineInvalidFontsFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "SplitAndSaveOnline", "fontsFolder", "string", testfontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Splits PowerPoint presentation slides from the specified range into separate files and exports them in the specified file format. If the range is not provided all slides will be processed. 
+   Test for SlidesApi.SplitAndSaveOnline method with invalid options
+*/
+func TestSplitAndSaveOnlineInvalidOptions(t *testing.T) {
+    testdocument, _ := createTestParamValue("SplitAndSaveOnline", "document", "[]byte").([]byte)
+    testformat, _ := createTestParamValue("SplitAndSaveOnline", "format", "string").(string)
+    testdestFolder, _ := createTestParamValue("SplitAndSaveOnline", "destFolder", "string").(string)
+    var testwidth *int32
+    testwidthValue := createTestParamValue("SplitAndSaveOnline", "width", "int32")
+    if (testwidthValue != nil) {
+        testwidth = new(int32)
+        *testwidth, _ = testwidthValue.(int32)
+    }
+    var testheight *int32
+    testheightValue := createTestParamValue("SplitAndSaveOnline", "height", "int32")
+    if (testheightValue != nil) {
+        testheight = new(int32)
+        *testheight, _ = testheightValue.(int32)
+    }
+    var testfrom *int32
+    testfromValue := createTestParamValue("SplitAndSaveOnline", "from", "int32")
+    if (testfromValue != nil) {
+        testfrom = new(int32)
+        *testfrom, _ = testfromValue.(int32)
+    }
+    var testto *int32
+    testtoValue := createTestParamValue("SplitAndSaveOnline", "to", "int32")
+    if (testtoValue != nil) {
+        testto = new(int32)
+        *testto, _ = testtoValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("SplitAndSaveOnline", "password", "string").(string)
+    teststorage, _ := createTestParamValue("SplitAndSaveOnline", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SplitAndSaveOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitAndSaveOnline", "options", "ExportOptions").(IExportOptions)
+
+    invalidValue := invalidizeTestParamValue(testoptions, "SplitAndSaveOnline", "options", "ExportOptions")
+    if (invalidValue == nil) {
+        testoptions = nil
+    } else {
+        testoptions, _ = invalidValue.(IExportOptions)
+    }
+
+    e := InitializeTest("SplitAndSaveOnline", "options", testoptions)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitAndSaveOnline(testdocument, testformat, testdestFolder, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitAndSaveOnline", "options", "ExportOptions", testoptions, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Splits PowerPoint presentation slides from the specified range into separate files and exports them in the specified file format. If the range is not provided all slides will be processed. 
@@ -56056,13 +56123,14 @@ func TestSplitOnline(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitOnline", "options", "ExportOptions").(IExportOptions)
     e := InitializeTest("SplitOnline", "", "")
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
     }
     c := GetTestApiClient()
-    r, _, e := c.SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    r, _, e := c.SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -56103,6 +56171,7 @@ func TestSplitOnlineInvalidDocument(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitOnline", "options", "ExportOptions").(IExportOptions)
 
     invalidValue := invalidizeTestParamValue(testdocument, "SplitOnline", "document", "[]byte")
     if (invalidValue == nil) {
@@ -56116,7 +56185,7 @@ func TestSplitOnlineInvalidDocument(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -56157,6 +56226,7 @@ func TestSplitOnlineInvalidFormat(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitOnline", "options", "ExportOptions").(IExportOptions)
 
     invalidValue := invalidizeTestParamValue(testformat, "SplitOnline", "format", "string")
     if (invalidValue == nil) {
@@ -56171,7 +56241,7 @@ func TestSplitOnlineInvalidFormat(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -56212,6 +56282,7 @@ func TestSplitOnlineInvalidWidth(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitOnline", "options", "ExportOptions").(IExportOptions)
     testwidth = new(int32)
 
     invalidValue := invalidizeTestParamValue(testwidth, "SplitOnline", "width", "int32")
@@ -56227,7 +56298,7 @@ func TestSplitOnlineInvalidWidth(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -56268,6 +56339,7 @@ func TestSplitOnlineInvalidHeight(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitOnline", "options", "ExportOptions").(IExportOptions)
     testheight = new(int32)
 
     invalidValue := invalidizeTestParamValue(testheight, "SplitOnline", "height", "int32")
@@ -56283,7 +56355,7 @@ func TestSplitOnlineInvalidHeight(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -56324,6 +56396,7 @@ func TestSplitOnlineInvalidFrom(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitOnline", "options", "ExportOptions").(IExportOptions)
     testfrom = new(int32)
 
     invalidValue := invalidizeTestParamValue(testfrom, "SplitOnline", "from", "int32")
@@ -56339,7 +56412,7 @@ func TestSplitOnlineInvalidFrom(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -56380,6 +56453,7 @@ func TestSplitOnlineInvalidTo(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitOnline", "options", "ExportOptions").(IExportOptions)
     testto = new(int32)
 
     invalidValue := invalidizeTestParamValue(testto, "SplitOnline", "to", "int32")
@@ -56395,7 +56469,7 @@ func TestSplitOnlineInvalidTo(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -56436,6 +56510,7 @@ func TestSplitOnlineInvalidPassword(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitOnline", "options", "ExportOptions").(IExportOptions)
 
     invalidValue := invalidizeTestParamValue(testpassword, "SplitOnline", "password", "string")
     if (invalidValue == nil) {
@@ -56450,7 +56525,7 @@ func TestSplitOnlineInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -56491,6 +56566,7 @@ func TestSplitOnlineInvalidStorage(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitOnline", "options", "ExportOptions").(IExportOptions)
 
     invalidValue := invalidizeTestParamValue(teststorage, "SplitOnline", "storage", "string")
     if (invalidValue == nil) {
@@ -56505,7 +56581,7 @@ func TestSplitOnlineInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -56546,6 +56622,7 @@ func TestSplitOnlineInvalidFontsFolder(t *testing.T) {
     testpassword, _ := createTestParamValue("SplitOnline", "password", "string").(string)
     teststorage, _ := createTestParamValue("SplitOnline", "storage", "string").(string)
     testfontsFolder, _ := createTestParamValue("SplitOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitOnline", "options", "ExportOptions").(IExportOptions)
 
     invalidValue := invalidizeTestParamValue(testfontsFolder, "SplitOnline", "fontsFolder", "string")
     if (invalidValue == nil) {
@@ -56560,12 +56637,67 @@ func TestSplitOnlineInvalidFontsFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder)
+    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "SplitOnline", "fontsFolder", "string", testfontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Splits PowerPoint presentation slides from the specified range into separate files and exports them in the specified file format. If the range is not provided all slides will be processed. 
+   Test for SlidesApi.SplitOnline method with invalid options
+*/
+func TestSplitOnlineInvalidOptions(t *testing.T) {
+    testdocument, _ := createTestParamValue("SplitOnline", "document", "[]byte").([]byte)
+    testformat, _ := createTestParamValue("SplitOnline", "format", "string").(string)
+    var testwidth *int32
+    testwidthValue := createTestParamValue("SplitOnline", "width", "int32")
+    if (testwidthValue != nil) {
+        testwidth = new(int32)
+        *testwidth, _ = testwidthValue.(int32)
+    }
+    var testheight *int32
+    testheightValue := createTestParamValue("SplitOnline", "height", "int32")
+    if (testheightValue != nil) {
+        testheight = new(int32)
+        *testheight, _ = testheightValue.(int32)
+    }
+    var testfrom *int32
+    testfromValue := createTestParamValue("SplitOnline", "from", "int32")
+    if (testfromValue != nil) {
+        testfrom = new(int32)
+        *testfrom, _ = testfromValue.(int32)
+    }
+    var testto *int32
+    testtoValue := createTestParamValue("SplitOnline", "to", "int32")
+    if (testtoValue != nil) {
+        testto = new(int32)
+        *testto, _ = testtoValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("SplitOnline", "password", "string").(string)
+    teststorage, _ := createTestParamValue("SplitOnline", "storage", "string").(string)
+    testfontsFolder, _ := createTestParamValue("SplitOnline", "fontsFolder", "string").(string)
+    testoptions, _ := createTestParamValue("SplitOnline", "options", "ExportOptions").(IExportOptions)
+
+    invalidValue := invalidizeTestParamValue(testoptions, "SplitOnline", "options", "ExportOptions")
+    if (invalidValue == nil) {
+        testoptions = nil
+    } else {
+        testoptions, _ = invalidValue.(IExportOptions)
+    }
+
+    e := InitializeTest("SplitOnline", "options", testoptions)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitOnline(testdocument, testformat, testwidth, testheight, testfrom, testto, testpassword, teststorage, testfontsFolder, testoptions)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitOnline", "options", "ExportOptions", testoptions, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Check if storage exists

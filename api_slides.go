@@ -23955,8 +23955,9 @@ func (a *SlidesApiService) Split(name string, options IExportOptions, format str
      @param "password" (string) Document password.
      @param "storage" (string) Document storage.
      @param "fontsFolder" (string) Custom fonts folder.
+     @param "options" (ExportOptions) Export options.
  @return SplitDocumentResult*/
-func (a *SlidesApiService) SplitAndSaveOnline(document []byte, format string, destFolder string, width *int32, height *int32, from *int32, to *int32, password string, storage string, fontsFolder string) (ISplitDocumentResult, *http.Response, error) {
+func (a *SlidesApiService) SplitAndSaveOnline(document []byte, format string, destFolder string, width *int32, height *int32, from *int32, to *int32, password string, storage string, fontsFolder string, options IExportOptions) (ISplitDocumentResult, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -24064,6 +24065,7 @@ func (a *SlidesApiService) SplitAndSaveOnline(document []byte, format string, de
 	if len(document) > 0 {
 		localVarFiles = append(localVarFiles, document)
 	}
+	localVarPostBody = &options
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {
@@ -24101,8 +24103,9 @@ func (a *SlidesApiService) SplitAndSaveOnline(document []byte, format string, de
      @param "password" (string) Document password.
      @param "storage" (string) Document storage.
      @param "fontsFolder" (string) Custom fonts folder.
+     @param "options" (ExportOptions) Export options.
  @return *os.File*/
-func (a *SlidesApiService) SplitOnline(document []byte, format string, width *int32, height *int32, from *int32, to *int32, password string, storage string, fontsFolder string) (*os.File, *http.Response, error) {
+func (a *SlidesApiService) SplitOnline(document []byte, format string, width *int32, height *int32, from *int32, to *int32, password string, storage string, fontsFolder string, options IExportOptions) (*os.File, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -24204,6 +24207,7 @@ func (a *SlidesApiService) SplitOnline(document []byte, format string, width *in
 	if len(document) > 0 {
 		localVarFiles = append(localVarFiles, document)
 	}
+	localVarPostBody = &options
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {

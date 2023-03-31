@@ -72,6 +72,10 @@ type IImageExportOptions interface {
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
 	GetCommentsAreaColor() string
 	SetCommentsAreaColor(newValue string)
+
+	// Show hidden slides. If true, hidden are exported.
+	GetShowHiddenSlides() bool
+	SetShowHiddenSlides(newValue bool)
 }
 
 type ImageExportOptions struct {
@@ -105,6 +109,9 @@ type ImageExportOptions struct {
 
 	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
+
+	// Show hidden slides. If true, hidden are exported.
+	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
 }
 
 func NewImageExportOptions() *ImageExportOptions {
@@ -181,6 +188,13 @@ func (this *ImageExportOptions) GetCommentsAreaColor() string {
 
 func (this *ImageExportOptions) SetCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
+}
+func (this *ImageExportOptions) GetShowHiddenSlides() bool {
+	return this.ShowHiddenSlides
+}
+
+func (this *ImageExportOptions) SetShowHiddenSlides(newValue bool) {
+	this.ShowHiddenSlides = newValue
 }
 
 func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
@@ -477,6 +491,27 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.CommentsAreaColor = valueForCommentsAreaColor
+		}
+	}
+	
+	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
+		if valShowHiddenSlides != nil {
+			var valueForShowHiddenSlides bool
+			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
+			if err != nil {
+				return err
+			}
+			this.ShowHiddenSlides = valueForShowHiddenSlides
+		}
+	}
+	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
+		if valShowHiddenSlidesCap != nil {
+			var valueForShowHiddenSlides bool
+			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
+			if err != nil {
+				return err
+			}
+			this.ShowHiddenSlides = valueForShowHiddenSlides
 		}
 	}
 

@@ -156,6 +156,7 @@
 		{ "Parameter": "Data", "Method": "CreatePresentation" },
 		{ "Parameter": "Format", "Language": "NET" },
 		{ "Parameter": "Format", "Language": "Java" },
+		{ "Parameter": "Format", "Language": "Swift" },
 		{ "Parameter": "SlideType" },
 		{ "Parameter": "ShapeType" },
 		{ "Parameter": "AlignmentType" },
