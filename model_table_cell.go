@@ -104,6 +104,14 @@ type ITableCell interface {
 	// Cell row index
 	GetRowIndex() int32
 	SetRowIndex(newValue int32)
+
+	// Returns TextFrame's formatting properties.
+	GetTextFrameFormat() ITextFrameFormat
+	SetTextFrameFormat(newValue ITextFrameFormat)
+
+	// Get or sets list to paragraphs list
+	GetParagraphs() IResourceUri
+	SetParagraphs(newValue IResourceUri)
 }
 
 type TableCell struct {
@@ -161,6 +169,12 @@ type TableCell struct {
 
 	// Cell row index
 	RowIndex int32 `json:"RowIndex,omitempty"`
+
+	// Returns TextFrame's formatting properties.
+	TextFrameFormat ITextFrameFormat `json:"TextFrameFormat,omitempty"`
+
+	// Get or sets list to paragraphs list
+	Paragraphs IResourceUri `json:"Paragraphs,omitempty"`
 }
 
 func NewTableCell() *TableCell {
@@ -293,6 +307,20 @@ func (this *TableCell) GetRowIndex() int32 {
 
 func (this *TableCell) SetRowIndex(newValue int32) {
 	this.RowIndex = newValue
+}
+func (this *TableCell) GetTextFrameFormat() ITextFrameFormat {
+	return this.TextFrameFormat
+}
+
+func (this *TableCell) SetTextFrameFormat(newValue ITextFrameFormat) {
+	this.TextFrameFormat = newValue
+}
+func (this *TableCell) GetParagraphs() IResourceUri {
+	return this.Paragraphs
+}
+
+func (this *TableCell) SetParagraphs(newValue IResourceUri) {
+	this.Paragraphs = newValue
 }
 
 func (this *TableCell) UnmarshalJSON(b []byte) error {
@@ -855,6 +883,92 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.RowIndex = valueForRowIndex
+		}
+	}
+	
+	if valTextFrameFormat, ok := objMap["textFrameFormat"]; ok {
+		if valTextFrameFormat != nil {
+			var valueForTextFrameFormat TextFrameFormat
+			err = json.Unmarshal(*valTextFrameFormat, &valueForTextFrameFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("TextFrameFormat", *valTextFrameFormat)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valTextFrameFormat, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ITextFrameFormat)
+			if ok {
+				this.TextFrameFormat = vInterfaceObject
+			}
+		}
+	}
+	if valTextFrameFormatCap, ok := objMap["TextFrameFormat"]; ok {
+		if valTextFrameFormatCap != nil {
+			var valueForTextFrameFormat TextFrameFormat
+			err = json.Unmarshal(*valTextFrameFormatCap, &valueForTextFrameFormat)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("TextFrameFormat", *valTextFrameFormatCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valTextFrameFormatCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ITextFrameFormat)
+			if ok {
+				this.TextFrameFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valParagraphs, ok := objMap["paragraphs"]; ok {
+		if valParagraphs != nil {
+			var valueForParagraphs ResourceUri
+			err = json.Unmarshal(*valParagraphs, &valueForParagraphs)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ResourceUri", *valParagraphs)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valParagraphs, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Paragraphs = vInterfaceObject
+			}
+		}
+	}
+	if valParagraphsCap, ok := objMap["Paragraphs"]; ok {
+		if valParagraphsCap != nil {
+			var valueForParagraphs ResourceUri
+			err = json.Unmarshal(*valParagraphsCap, &valueForParagraphs)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ResourceUri", *valParagraphsCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valParagraphsCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IResourceUri)
+			if ok {
+				this.Paragraphs = vInterfaceObject
+			}
 		}
 	}
 

@@ -84,7 +84,7 @@ func TestSlideGet(t *testing.T) {
 */
 func TestSlideCreate(t *testing.T) {
 	var position int32 = 1
-	var slidesCount int = 8
+	var slidesCount int = 9
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -122,7 +122,7 @@ func TestSlideCreate(t *testing.T) {
    Test for copy slide
 */
 func TestSlideCopy(t *testing.T) {
-	var slidesCount int = 8
+	var slidesCount int = 9
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -149,7 +149,7 @@ func TestSlideCopy(t *testing.T) {
 */
 func TestSlideCopyFromSource(t *testing.T) {
 	sourceFileName := "TemplateCV.pptx"
-	var slidesCount int = 8
+	var slidesCount int = 9
 	var slideIndex int32 = 1
 	var position int32 = 1
 
@@ -183,7 +183,7 @@ func TestSlideCopyFromSource(t *testing.T) {
    Test for move slide
 */
 func TestSlideMove(t *testing.T) {
-	var slidesCount int = 8
+	var slidesCount int = 9
 	var slideIndex int32 = 1
 	var position int32 = 2
 
@@ -211,7 +211,7 @@ func TestSlideMove(t *testing.T) {
    Test for reorder slides
 */
 func TestSlidesReorder(t *testing.T) {
-	var slidesCount int = 8
+	var slidesCount int = 9
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -295,7 +295,7 @@ func TestSlidesDelete(t *testing.T) {
    Test for delete slides by indexes
 */
 func TestSlideDeleteIndexes(t *testing.T) {
-	var slidesCount int = 8
+	var slidesCount int = 9
 
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -322,7 +322,7 @@ func TestSlideDeleteIndexes(t *testing.T) {
    Test for delete slide
 */
 func TestSlideDelete(t *testing.T) {
-	var slidesCount int = 8
+	var slidesCount int = 9
 	var slideIndex int32 = 1
 
 	c := slidescloud.GetTestApiClient()

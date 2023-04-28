@@ -227,7 +227,7 @@ func ruleTypeApplies(ruleType string, actualType string) bool {
 		return false
 	}
         if ruleType == "number" {
-            return actualType == "int32"
+            return actualType == "int32" || actualType == "float64"
 	}
         if ruleType == "int" {
             return actualType == "int32"

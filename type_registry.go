@@ -749,6 +749,9 @@ func init() {
 	typeRegistry["TableCell"] = reflect.TypeOf(TableCell{})
 	
 	typeDeterminers["TableCell"] = make(map[string]string)
+	typeRegistry["TableCellMergeOptions"] = reflect.TypeOf(TableCellMergeOptions{})
+	
+	typeDeterminers["TableCellMergeOptions"] = make(map[string]string)
 	typeRegistry["TableColumn"] = reflect.TypeOf(TableColumn{})
 	
 	typeDeterminers["TableColumn"] = make(map[string]string)

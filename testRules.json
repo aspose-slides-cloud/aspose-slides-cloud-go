@@ -26,6 +26,7 @@
 		{ "Value": 1, "InvalidValue": 593, "Type": "number" },
 		{ "Value": 3, "Parameter": "SlideIndex", "Method": "/Chart/" },
 		{ "Value": 8, "Parameter": "SlideIndex", "Method": "/ChartWall/" },
+		{ "Value": 9, "Parameter": "SlideIndex", "Method": "/Table/" },
 		{ "Value": 7, "Parameter": "SlideIndex", "Method": "/SmartArt/" },
 		{ "Value": 5, "Parameter": "SlideIndex", "Method": "CreateSection" },
 		{ "Value": 4, "Parameter": "SlideIndex", "Method": "/ShapeGeometryPath/" },
@@ -63,6 +64,7 @@
 		{ "Value": { "paths": [ { "pathData": [ { "type": "MoveTo" } ] } ] }, "Type": "GeometryPaths" },
 		{ "Value": null, "Parameter": "PictureFrame" },
 		{ "Value": null, "Parameter": "Options" },
+		{ "Value": { "FirstRowIndex": 1, "LastRowIndex": 1, "FirstCellIndex": 1, "LastCellIndex": 1 }, "Parameter": "TableCellMergeOptions" },
 		{ "Value": "@test.pptx", "InvalidValue": null, "Type": "stream" },
 		{ "Value": "@test.pdf", "Type": "stream", "Method": "ImportFromPdf" },
 		{ "Value": "@watermark.png", "Type": "stream", "Parameter": "Image" },
@@ -109,6 +111,7 @@
 		{ "Value": "AlignTop", "InvalidValue": "AlignBottom", "Parameter": "AlignmentType" },
 		{ "Value": "HorizontalAxis", "InvalidValue": "VerticalAxis", "Parameter": "AxisType" },
 		{ "Value": "BackWall", "InvalidValue": "Floor", "Parameter": "ChartWallType" },
+		{ "Value": "SplitByWidth", "InvalidValue": "SplitByHeight", "Parameter": "SplitType" },
 		{ "Value": null, "InvalidValue": "Shape", "Parameter": "Bounds" }
 	],
 	"OKToReturnNull": [
@@ -162,6 +165,7 @@
 		{ "Parameter": "AlignmentType" },
 		{ "Parameter": "AxisType" },
 		{ "Parameter": "ChartWallType" },
+		{ "Parameter": "SplitType" },
 		{ "Parameter": "Bounds" }
 	],
 	"Results": [
@@ -188,6 +192,7 @@
 		{ "Code": 404, "Message": " is not found ", "Parameter": "FontName" },
 		{ "Message": "Invalid password.", "Parameter": "/Password/" },
 		{ "Message": " is out of bounds. Valid index range is between ", "Type": "int" },
+		{ "Message": " is out of bounds. Should be ", "Parameter": "Value" },
 		{ "Message": "Placeholder with index %v doesn't exist.", "Parameter": "PlaceholderIndex" },
 		{ "Message": " is out of bounds. Valid index range is between ", "Type": "int[]" },
 		{ "Message": "Invalid value for ", "Parameter": "SlideType" },

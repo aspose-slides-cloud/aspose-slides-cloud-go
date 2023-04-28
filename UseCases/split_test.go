@@ -92,7 +92,7 @@ func TestSplitRequest(t *testing.T) {
 	password := "password"
 	c := slidescloud.GetTestApiClient()
 
-	result1, _, e := c.SlidesApi.SplitOnline(source, "png", nil, nil, nil, nil, password, "", "")
+	result1, _, e := c.SlidesApi.SplitOnline(source, "png", nil, nil, nil, nil, password, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -110,7 +110,7 @@ func TestSplitRequest(t *testing.T) {
 
 	var from int32 = 2
 	var to int32 = 3
-	result2, _, e := c.SlidesApi.SplitOnline(source, "png", nil, nil, &from, &to, password, "", "")
+	result2, _, e := c.SlidesApi.SplitOnline(source, "png", nil, nil, &from, &to, password, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -147,7 +147,7 @@ func TestSplitRequestToStorage(t *testing.T) {
 	password := "password"
 	c := slidescloud.GetTestApiClient()
 
-	result1, _, e := c.SlidesApi.SplitAndSaveOnline(source, "png", "", nil, nil, nil, nil, password, "", "")
+	result1, _, e := c.SlidesApi.SplitAndSaveOnline(source, "png", "", nil, nil, nil, nil, password, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -155,7 +155,7 @@ func TestSplitRequestToStorage(t *testing.T) {
 
 	var from int32 = 2
 	var to int32 = 3
-	result2, _, e := c.SlidesApi.SplitAndSaveOnline(source, "png", "", nil, nil, &from, &to, password, "", "")
+	result2, _, e := c.SlidesApi.SplitAndSaveOnline(source, "png", "", nil, nil, &from, &to, password, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

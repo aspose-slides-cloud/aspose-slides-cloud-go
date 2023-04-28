@@ -10888,6 +10888,1074 @@ func TestCreateSpecialSlideShapeInvalidSubShape(t *testing.T) {
     assertError(t, "CreateSpecialSlideShape", "subShape", "string", testsubShape, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Creates table cell paragraph.
+   Test for SlidesApi.CreateTableCellParagraph method
+*/
+func TestCreateTableCellParagraph(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellParagraph", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("CreateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellParagraph", "storage", "string").(string)
+    e := InitializeTest("CreateTableCellParagraph", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.CreateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Creates table cell paragraph.
+   Test for SlidesApi.CreateTableCellParagraph method with invalid name
+*/
+func TestCreateTableCellParagraphInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellParagraph", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("CreateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "CreateTableCellParagraph", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableCellParagraph", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellParagraph", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell paragraph.
+   Test for SlidesApi.CreateTableCellParagraph method with invalid slideIndex
+*/
+func TestCreateTableCellParagraphInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellParagraph", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("CreateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "CreateTableCellParagraph", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableCellParagraph", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellParagraph", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell paragraph.
+   Test for SlidesApi.CreateTableCellParagraph method with invalid shapeIndex
+*/
+func TestCreateTableCellParagraphInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellParagraph", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("CreateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "CreateTableCellParagraph", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableCellParagraph", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellParagraph", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell paragraph.
+   Test for SlidesApi.CreateTableCellParagraph method with invalid rowIndex
+*/
+func TestCreateTableCellParagraphInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellParagraph", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("CreateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "CreateTableCellParagraph", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableCellParagraph", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellParagraph", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell paragraph.
+   Test for SlidesApi.CreateTableCellParagraph method with invalid cellIndex
+*/
+func TestCreateTableCellParagraphInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellParagraph", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("CreateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "CreateTableCellParagraph", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableCellParagraph", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellParagraph", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell paragraph.
+   Test for SlidesApi.CreateTableCellParagraph method with invalid dto
+*/
+func TestCreateTableCellParagraphInvalidDto(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellParagraph", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("CreateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdto, "CreateTableCellParagraph", "dto", "Paragraph")
+    if (invalidValue == nil) {
+        testdto = nil
+    } else {
+        testdto, _ = invalidValue.(IParagraph)
+    }
+
+    e := InitializeTest("CreateTableCellParagraph", "dto", testdto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellParagraph", "dto", "Paragraph", testdto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell paragraph.
+   Test for SlidesApi.CreateTableCellParagraph method with invalid password
+*/
+func TestCreateTableCellParagraphInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellParagraph", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("CreateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "CreateTableCellParagraph", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableCellParagraph", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellParagraph", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell paragraph.
+   Test for SlidesApi.CreateTableCellParagraph method with invalid folder
+*/
+func TestCreateTableCellParagraphInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellParagraph", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("CreateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "CreateTableCellParagraph", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableCellParagraph", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellParagraph", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell paragraph.
+   Test for SlidesApi.CreateTableCellParagraph method with invalid storage
+*/
+func TestCreateTableCellParagraphInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellParagraph", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("CreateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "CreateTableCellParagraph", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableCellParagraph", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellParagraph", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell portion.
+   Test for SlidesApi.CreateTableCellPortion method
+*/
+func TestCreateTableCellPortion(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("CreateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("CreateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellPortion", "storage", "string").(string)
+    e := InitializeTest("CreateTableCellPortion", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.CreateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Creates table cell portion.
+   Test for SlidesApi.CreateTableCellPortion method with invalid name
+*/
+func TestCreateTableCellPortionInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("CreateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("CreateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "CreateTableCellPortion", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableCellPortion", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellPortion", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell portion.
+   Test for SlidesApi.CreateTableCellPortion method with invalid slideIndex
+*/
+func TestCreateTableCellPortionInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("CreateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("CreateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "CreateTableCellPortion", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableCellPortion", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellPortion", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell portion.
+   Test for SlidesApi.CreateTableCellPortion method with invalid shapeIndex
+*/
+func TestCreateTableCellPortionInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("CreateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("CreateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "CreateTableCellPortion", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableCellPortion", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellPortion", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell portion.
+   Test for SlidesApi.CreateTableCellPortion method with invalid rowIndex
+*/
+func TestCreateTableCellPortionInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("CreateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("CreateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "CreateTableCellPortion", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableCellPortion", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellPortion", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell portion.
+   Test for SlidesApi.CreateTableCellPortion method with invalid cellIndex
+*/
+func TestCreateTableCellPortionInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("CreateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("CreateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "CreateTableCellPortion", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableCellPortion", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellPortion", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell portion.
+   Test for SlidesApi.CreateTableCellPortion method with invalid paragraphIndex
+*/
+func TestCreateTableCellPortionInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("CreateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("CreateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "CreateTableCellPortion", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableCellPortion", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellPortion", "paragraphIndex", "int32", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell portion.
+   Test for SlidesApi.CreateTableCellPortion method with invalid dto
+*/
+func TestCreateTableCellPortionInvalidDto(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("CreateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("CreateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdto, "CreateTableCellPortion", "dto", "Portion")
+    if (invalidValue == nil) {
+        testdto = nil
+    } else {
+        testdto, _ = invalidValue.(IPortion)
+    }
+
+    e := InitializeTest("CreateTableCellPortion", "dto", testdto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellPortion", "dto", "Portion", testdto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell portion.
+   Test for SlidesApi.CreateTableCellPortion method with invalid password
+*/
+func TestCreateTableCellPortionInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("CreateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("CreateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "CreateTableCellPortion", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableCellPortion", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellPortion", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell portion.
+   Test for SlidesApi.CreateTableCellPortion method with invalid folder
+*/
+func TestCreateTableCellPortionInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("CreateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("CreateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "CreateTableCellPortion", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableCellPortion", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellPortion", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Creates table cell portion.
+   Test for SlidesApi.CreateTableCellPortion method with invalid storage
+*/
+func TestCreateTableCellPortionInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("CreateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("CreateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("CreateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("CreateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "CreateTableCellPortion", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableCellPortion", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableCellPortion", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Inserts the table row in the specified position. If position is not specified, the row add to the end of the table.
+   Test for SlidesApi.CreateTableRow method
+*/
+func TestCreateTableRow(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableRow", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableRow", "dto", "TableRow").(ITableRow)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateTableRow", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableRow", "storage", "string").(string)
+    e := InitializeTest("CreateTableRow", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.CreateTableRow(testname, testslideIndex, testshapeIndex, testdto, testposition, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Inserts the table row in the specified position. If position is not specified, the row add to the end of the table.
+   Test for SlidesApi.CreateTableRow method with invalid name
+*/
+func TestCreateTableRowInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableRow", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableRow", "dto", "TableRow").(ITableRow)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateTableRow", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "CreateTableRow", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableRow", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableRow(testname, testslideIndex, testshapeIndex, testdto, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableRow", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Inserts the table row in the specified position. If position is not specified, the row add to the end of the table.
+   Test for SlidesApi.CreateTableRow method with invalid slideIndex
+*/
+func TestCreateTableRowInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableRow", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableRow", "dto", "TableRow").(ITableRow)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateTableRow", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "CreateTableRow", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableRow", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableRow(testname, testslideIndex, testshapeIndex, testdto, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableRow", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Inserts the table row in the specified position. If position is not specified, the row add to the end of the table.
+   Test for SlidesApi.CreateTableRow method with invalid shapeIndex
+*/
+func TestCreateTableRowInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableRow", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableRow", "dto", "TableRow").(ITableRow)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateTableRow", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "CreateTableRow", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableRow", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableRow(testname, testslideIndex, testshapeIndex, testdto, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableRow", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Inserts the table row in the specified position. If position is not specified, the row add to the end of the table.
+   Test for SlidesApi.CreateTableRow method with invalid dto
+*/
+func TestCreateTableRowInvalidDto(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableRow", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableRow", "dto", "TableRow").(ITableRow)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateTableRow", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdto, "CreateTableRow", "dto", "TableRow")
+    if (invalidValue == nil) {
+        testdto = nil
+    } else {
+        testdto, _ = invalidValue.(ITableRow)
+    }
+
+    e := InitializeTest("CreateTableRow", "dto", testdto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableRow(testname, testslideIndex, testshapeIndex, testdto, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableRow", "dto", "TableRow", testdto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Inserts the table row in the specified position. If position is not specified, the row add to the end of the table.
+   Test for SlidesApi.CreateTableRow method with invalid position
+*/
+func TestCreateTableRowInvalidPosition(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableRow", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableRow", "dto", "TableRow").(ITableRow)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateTableRow", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableRow", "storage", "string").(string)
+    testposition = new(int32)
+
+    invalidValue := invalidizeTestParamValue(testposition, "CreateTableRow", "position", "int32")
+    if (invalidValue == nil) {
+        var nullValue *int32
+        testposition = nullValue
+    } else {
+        *testposition, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("CreateTableRow", "position", testposition)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableRow(testname, testslideIndex, testshapeIndex, testdto, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableRow", "position", "int32", testposition, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Inserts the table row in the specified position. If position is not specified, the row add to the end of the table.
+   Test for SlidesApi.CreateTableRow method with invalid password
+*/
+func TestCreateTableRowInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableRow", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableRow", "dto", "TableRow").(ITableRow)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateTableRow", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "CreateTableRow", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableRow", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableRow(testname, testslideIndex, testshapeIndex, testdto, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableRow", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Inserts the table row in the specified position. If position is not specified, the row add to the end of the table.
+   Test for SlidesApi.CreateTableRow method with invalid folder
+*/
+func TestCreateTableRowInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableRow", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableRow", "dto", "TableRow").(ITableRow)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateTableRow", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "CreateTableRow", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableRow", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableRow(testname, testslideIndex, testshapeIndex, testdto, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableRow", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Inserts the table row in the specified position. If position is not specified, the row add to the end of the table.
+   Test for SlidesApi.CreateTableRow method with invalid storage
+*/
+func TestCreateTableRowInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("CreateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("CreateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("CreateTableRow", "shapeIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("CreateTableRow", "dto", "TableRow").(ITableRow)
+    var testposition *int32
+    testpositionValue := createTestParamValue("CreateTableRow", "position", "int32")
+    if (testpositionValue != nil) {
+        testposition = new(int32)
+        *testposition, _ = testpositionValue.(int32)
+    }
+    testpassword, _ := createTestParamValue("CreateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "CreateTableRow", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateTableRow", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateTableRow(testname, testslideIndex, testshapeIndex, testdto, testposition, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateTableRow", "storage", "string", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
    Test for SlidesApi.CreateWatermark method
 */
@@ -22075,6 +23143,1077 @@ func TestDeleteSpecialSlideShapesInvalidSubShape(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteSpecialSlideShapes", "subShape", "string", testsubShape, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete cell paragraph.
+   Test for SlidesApi.DeleteTableCellParagraph method
+*/
+func TestDeleteTableCellParagraph(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellParagraph", "storage", "string").(string)
+    e := InitializeTest("DeleteTableCellParagraph", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.DeleteTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Delete cell paragraph.
+   Test for SlidesApi.DeleteTableCellParagraph method with invalid name
+*/
+func TestDeleteTableCellParagraphInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "DeleteTableCellParagraph", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableCellParagraph", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellParagraph", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete cell paragraph.
+   Test for SlidesApi.DeleteTableCellParagraph method with invalid slideIndex
+*/
+func TestDeleteTableCellParagraphInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "DeleteTableCellParagraph", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableCellParagraph", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellParagraph", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete cell paragraph.
+   Test for SlidesApi.DeleteTableCellParagraph method with invalid shapeIndex
+*/
+func TestDeleteTableCellParagraphInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "DeleteTableCellParagraph", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableCellParagraph", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellParagraph", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete cell paragraph.
+   Test for SlidesApi.DeleteTableCellParagraph method with invalid rowIndex
+*/
+func TestDeleteTableCellParagraphInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "DeleteTableCellParagraph", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableCellParagraph", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellParagraph", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete cell paragraph.
+   Test for SlidesApi.DeleteTableCellParagraph method with invalid cellIndex
+*/
+func TestDeleteTableCellParagraphInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "DeleteTableCellParagraph", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableCellParagraph", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellParagraph", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete cell paragraph.
+   Test for SlidesApi.DeleteTableCellParagraph method with invalid paragraphIndex
+*/
+func TestDeleteTableCellParagraphInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "DeleteTableCellParagraph", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableCellParagraph", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellParagraph", "paragraphIndex", "int32", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete cell paragraph.
+   Test for SlidesApi.DeleteTableCellParagraph method with invalid password
+*/
+func TestDeleteTableCellParagraphInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteTableCellParagraph", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableCellParagraph", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellParagraph", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete cell paragraph.
+   Test for SlidesApi.DeleteTableCellParagraph method with invalid folder
+*/
+func TestDeleteTableCellParagraphInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "DeleteTableCellParagraph", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableCellParagraph", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellParagraph", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete cell paragraph.
+   Test for SlidesApi.DeleteTableCellParagraph method with invalid storage
+*/
+func TestDeleteTableCellParagraphInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "DeleteTableCellParagraph", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableCellParagraph", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellParagraph", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete table ell portion.
+   Test for SlidesApi.DeleteTableCellPortion method
+*/
+func TestDeleteTableCellPortion(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DeleteTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellPortion", "storage", "string").(string)
+    e := InitializeTest("DeleteTableCellPortion", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.DeleteTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Delete table ell portion.
+   Test for SlidesApi.DeleteTableCellPortion method with invalid name
+*/
+func TestDeleteTableCellPortionInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DeleteTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "DeleteTableCellPortion", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableCellPortion", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellPortion", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete table ell portion.
+   Test for SlidesApi.DeleteTableCellPortion method with invalid slideIndex
+*/
+func TestDeleteTableCellPortionInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DeleteTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "DeleteTableCellPortion", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableCellPortion", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellPortion", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete table ell portion.
+   Test for SlidesApi.DeleteTableCellPortion method with invalid shapeIndex
+*/
+func TestDeleteTableCellPortionInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DeleteTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "DeleteTableCellPortion", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableCellPortion", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellPortion", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete table ell portion.
+   Test for SlidesApi.DeleteTableCellPortion method with invalid rowIndex
+*/
+func TestDeleteTableCellPortionInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DeleteTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "DeleteTableCellPortion", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableCellPortion", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellPortion", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete table ell portion.
+   Test for SlidesApi.DeleteTableCellPortion method with invalid cellIndex
+*/
+func TestDeleteTableCellPortionInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DeleteTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "DeleteTableCellPortion", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableCellPortion", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellPortion", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete table ell portion.
+   Test for SlidesApi.DeleteTableCellPortion method with invalid paragraphIndex
+*/
+func TestDeleteTableCellPortionInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DeleteTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "DeleteTableCellPortion", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableCellPortion", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellPortion", "paragraphIndex", "int32", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete table ell portion.
+   Test for SlidesApi.DeleteTableCellPortion method with invalid portionIndex
+*/
+func TestDeleteTableCellPortionInvalidPortionIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DeleteTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testportionIndex, "DeleteTableCellPortion", "portionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testportionIndex = nullValue
+    } else {
+        testportionIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableCellPortion", "portionIndex", testportionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellPortion", "portionIndex", "int32", testportionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete table ell portion.
+   Test for SlidesApi.DeleteTableCellPortion method with invalid password
+*/
+func TestDeleteTableCellPortionInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DeleteTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteTableCellPortion", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableCellPortion", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellPortion", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete table ell portion.
+   Test for SlidesApi.DeleteTableCellPortion method with invalid folder
+*/
+func TestDeleteTableCellPortionInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DeleteTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "DeleteTableCellPortion", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableCellPortion", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellPortion", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete table ell portion.
+   Test for SlidesApi.DeleteTableCellPortion method with invalid storage
+*/
+func TestDeleteTableCellPortionInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("DeleteTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("DeleteTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("DeleteTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "DeleteTableCellPortion", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableCellPortion", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableCellPortion", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes the table row.
+   Test for SlidesApi.DeleteTableRow method
+*/
+func TestDeleteTableRow(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableRow", "rowIndex", "int32").(int32)
+    var testwithAttachedRows *bool
+    testwithAttachedRowsValue := createTestParamValue("DeleteTableRow", "withAttachedRows", "bool")
+    if (testwithAttachedRowsValue != nil) {
+        testwithAttachedRows = new(bool)
+        *testwithAttachedRows, _ = testwithAttachedRowsValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableRow", "storage", "string").(string)
+    e := InitializeTest("DeleteTableRow", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.DeleteTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testwithAttachedRows, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Deletes the table row.
+   Test for SlidesApi.DeleteTableRow method with invalid name
+*/
+func TestDeleteTableRowInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableRow", "rowIndex", "int32").(int32)
+    var testwithAttachedRows *bool
+    testwithAttachedRowsValue := createTestParamValue("DeleteTableRow", "withAttachedRows", "bool")
+    if (testwithAttachedRowsValue != nil) {
+        testwithAttachedRows = new(bool)
+        *testwithAttachedRows, _ = testwithAttachedRowsValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "DeleteTableRow", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableRow", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testwithAttachedRows, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableRow", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes the table row.
+   Test for SlidesApi.DeleteTableRow method with invalid slideIndex
+*/
+func TestDeleteTableRowInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableRow", "rowIndex", "int32").(int32)
+    var testwithAttachedRows *bool
+    testwithAttachedRowsValue := createTestParamValue("DeleteTableRow", "withAttachedRows", "bool")
+    if (testwithAttachedRowsValue != nil) {
+        testwithAttachedRows = new(bool)
+        *testwithAttachedRows, _ = testwithAttachedRowsValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "DeleteTableRow", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableRow", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testwithAttachedRows, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableRow", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes the table row.
+   Test for SlidesApi.DeleteTableRow method with invalid shapeIndex
+*/
+func TestDeleteTableRowInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableRow", "rowIndex", "int32").(int32)
+    var testwithAttachedRows *bool
+    testwithAttachedRowsValue := createTestParamValue("DeleteTableRow", "withAttachedRows", "bool")
+    if (testwithAttachedRowsValue != nil) {
+        testwithAttachedRows = new(bool)
+        *testwithAttachedRows, _ = testwithAttachedRowsValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "DeleteTableRow", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableRow", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testwithAttachedRows, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableRow", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes the table row.
+   Test for SlidesApi.DeleteTableRow method with invalid rowIndex
+*/
+func TestDeleteTableRowInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableRow", "rowIndex", "int32").(int32)
+    var testwithAttachedRows *bool
+    testwithAttachedRowsValue := createTestParamValue("DeleteTableRow", "withAttachedRows", "bool")
+    if (testwithAttachedRowsValue != nil) {
+        testwithAttachedRows = new(bool)
+        *testwithAttachedRows, _ = testwithAttachedRowsValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "DeleteTableRow", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteTableRow", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testwithAttachedRows, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableRow", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes the table row.
+   Test for SlidesApi.DeleteTableRow method with invalid withAttachedRows
+*/
+func TestDeleteTableRowInvalidWithAttachedRows(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableRow", "rowIndex", "int32").(int32)
+    var testwithAttachedRows *bool
+    testwithAttachedRowsValue := createTestParamValue("DeleteTableRow", "withAttachedRows", "bool")
+    if (testwithAttachedRowsValue != nil) {
+        testwithAttachedRows = new(bool)
+        *testwithAttachedRows, _ = testwithAttachedRowsValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableRow", "storage", "string").(string)
+    testwithAttachedRows = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testwithAttachedRows, "DeleteTableRow", "withAttachedRows", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testwithAttachedRows = nullValue
+    } else {
+        *testwithAttachedRows, _ = invalidValue.(bool)
+    }
+
+    e := InitializeTest("DeleteTableRow", "withAttachedRows", testwithAttachedRows)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testwithAttachedRows, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableRow", "withAttachedRows", "bool", testwithAttachedRows, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes the table row.
+   Test for SlidesApi.DeleteTableRow method with invalid password
+*/
+func TestDeleteTableRowInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableRow", "rowIndex", "int32").(int32)
+    var testwithAttachedRows *bool
+    testwithAttachedRowsValue := createTestParamValue("DeleteTableRow", "withAttachedRows", "bool")
+    if (testwithAttachedRowsValue != nil) {
+        testwithAttachedRows = new(bool)
+        *testwithAttachedRows, _ = testwithAttachedRowsValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteTableRow", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableRow", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testwithAttachedRows, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableRow", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes the table row.
+   Test for SlidesApi.DeleteTableRow method with invalid folder
+*/
+func TestDeleteTableRowInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableRow", "rowIndex", "int32").(int32)
+    var testwithAttachedRows *bool
+    testwithAttachedRowsValue := createTestParamValue("DeleteTableRow", "withAttachedRows", "bool")
+    if (testwithAttachedRowsValue != nil) {
+        testwithAttachedRows = new(bool)
+        *testwithAttachedRows, _ = testwithAttachedRowsValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "DeleteTableRow", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableRow", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testwithAttachedRows, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableRow", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes the table row.
+   Test for SlidesApi.DeleteTableRow method with invalid storage
+*/
+func TestDeleteTableRowInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeleteTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeleteTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("DeleteTableRow", "rowIndex", "int32").(int32)
+    var testwithAttachedRows *bool
+    testwithAttachedRowsValue := createTestParamValue("DeleteTableRow", "withAttachedRows", "bool")
+    if (testwithAttachedRowsValue != nil) {
+        testwithAttachedRows = new(bool)
+        *testwithAttachedRows, _ = testwithAttachedRowsValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("DeleteTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "DeleteTableRow", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteTableRow", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testwithAttachedRows, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteTableRow", "storage", "string", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Removes unused layout slides.
@@ -39378,6 +41517,1372 @@ func TestGetSpecialSlideShapesInvalidSubShape(t *testing.T) {
     assertError(t, "GetSpecialSlideShapes", "subShape", "string", testsubShape, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Returns paragraph info.
+   Test for SlidesApi.GetTableCellParagraph method
+*/
+func TestGetTableCellParagraph(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraph", "storage", "string").(string)
+    e := InitializeTest("GetTableCellParagraph", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.GetTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Returns paragraph info.
+   Test for SlidesApi.GetTableCellParagraph method with invalid name
+*/
+func TestGetTableCellParagraphInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetTableCellParagraph", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellParagraph", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraph", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns paragraph info.
+   Test for SlidesApi.GetTableCellParagraph method with invalid slideIndex
+*/
+func TestGetTableCellParagraphInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "GetTableCellParagraph", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellParagraph", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraph", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns paragraph info.
+   Test for SlidesApi.GetTableCellParagraph method with invalid shapeIndex
+*/
+func TestGetTableCellParagraphInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "GetTableCellParagraph", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellParagraph", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraph", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns paragraph info.
+   Test for SlidesApi.GetTableCellParagraph method with invalid rowIndex
+*/
+func TestGetTableCellParagraphInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "GetTableCellParagraph", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellParagraph", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraph", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns paragraph info.
+   Test for SlidesApi.GetTableCellParagraph method with invalid cellIndex
+*/
+func TestGetTableCellParagraphInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "GetTableCellParagraph", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellParagraph", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraph", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns paragraph info.
+   Test for SlidesApi.GetTableCellParagraph method with invalid paragraphIndex
+*/
+func TestGetTableCellParagraphInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "GetTableCellParagraph", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellParagraph", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraph", "paragraphIndex", "int32", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns paragraph info.
+   Test for SlidesApi.GetTableCellParagraph method with invalid password
+*/
+func TestGetTableCellParagraphInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetTableCellParagraph", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellParagraph", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraph", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns paragraph info.
+   Test for SlidesApi.GetTableCellParagraph method with invalid folder
+*/
+func TestGetTableCellParagraphInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetTableCellParagraph", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellParagraph", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraph", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns paragraph info.
+   Test for SlidesApi.GetTableCellParagraph method with invalid storage
+*/
+func TestGetTableCellParagraphInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetTableCellParagraph", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellParagraph", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraph", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell paragraphs.
+   Test for SlidesApi.GetTableCellParagraphs method
+*/
+func TestGetTableCellParagraphs(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraphs", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraphs", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraphs", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraphs", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraphs", "cellIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraphs", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraphs", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraphs", "storage", "string").(string)
+    e := InitializeTest("GetTableCellParagraphs", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.GetTableCellParagraphs(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Returns table cell paragraphs.
+   Test for SlidesApi.GetTableCellParagraphs method with invalid name
+*/
+func TestGetTableCellParagraphsInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraphs", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraphs", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraphs", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraphs", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraphs", "cellIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraphs", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraphs", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraphs", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetTableCellParagraphs", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellParagraphs", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraphs(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraphs", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell paragraphs.
+   Test for SlidesApi.GetTableCellParagraphs method with invalid slideIndex
+*/
+func TestGetTableCellParagraphsInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraphs", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraphs", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraphs", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraphs", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraphs", "cellIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraphs", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraphs", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraphs", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "GetTableCellParagraphs", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellParagraphs", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraphs(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraphs", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell paragraphs.
+   Test for SlidesApi.GetTableCellParagraphs method with invalid shapeIndex
+*/
+func TestGetTableCellParagraphsInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraphs", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraphs", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraphs", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraphs", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraphs", "cellIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraphs", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraphs", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraphs", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "GetTableCellParagraphs", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellParagraphs", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraphs(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraphs", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell paragraphs.
+   Test for SlidesApi.GetTableCellParagraphs method with invalid rowIndex
+*/
+func TestGetTableCellParagraphsInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraphs", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraphs", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraphs", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraphs", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraphs", "cellIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraphs", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraphs", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraphs", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "GetTableCellParagraphs", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellParagraphs", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraphs(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraphs", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell paragraphs.
+   Test for SlidesApi.GetTableCellParagraphs method with invalid cellIndex
+*/
+func TestGetTableCellParagraphsInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraphs", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraphs", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraphs", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraphs", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraphs", "cellIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraphs", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraphs", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraphs", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "GetTableCellParagraphs", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellParagraphs", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraphs(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraphs", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell paragraphs.
+   Test for SlidesApi.GetTableCellParagraphs method with invalid password
+*/
+func TestGetTableCellParagraphsInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraphs", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraphs", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraphs", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraphs", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraphs", "cellIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraphs", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraphs", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraphs", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetTableCellParagraphs", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellParagraphs", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraphs(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraphs", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell paragraphs.
+   Test for SlidesApi.GetTableCellParagraphs method with invalid folder
+*/
+func TestGetTableCellParagraphsInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraphs", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraphs", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraphs", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraphs", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraphs", "cellIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraphs", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraphs", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraphs", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetTableCellParagraphs", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellParagraphs", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraphs(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraphs", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell paragraphs.
+   Test for SlidesApi.GetTableCellParagraphs method with invalid storage
+*/
+func TestGetTableCellParagraphsInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellParagraphs", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellParagraphs", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellParagraphs", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellParagraphs", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellParagraphs", "cellIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellParagraphs", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellParagraphs", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellParagraphs", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetTableCellParagraphs", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellParagraphs", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellParagraphs(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellParagraphs", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portion.
+   Test for SlidesApi.GetTableCellPortion method
+*/
+func TestGetTableCellPortion(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortion", "storage", "string").(string)
+    e := InitializeTest("GetTableCellPortion", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.GetTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Returns table cell portion.
+   Test for SlidesApi.GetTableCellPortion method with invalid name
+*/
+func TestGetTableCellPortionInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetTableCellPortion", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellPortion", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortion", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portion.
+   Test for SlidesApi.GetTableCellPortion method with invalid slideIndex
+*/
+func TestGetTableCellPortionInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "GetTableCellPortion", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellPortion", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortion", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portion.
+   Test for SlidesApi.GetTableCellPortion method with invalid shapeIndex
+*/
+func TestGetTableCellPortionInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "GetTableCellPortion", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellPortion", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortion", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portion.
+   Test for SlidesApi.GetTableCellPortion method with invalid rowIndex
+*/
+func TestGetTableCellPortionInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "GetTableCellPortion", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellPortion", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortion", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portion.
+   Test for SlidesApi.GetTableCellPortion method with invalid cellIndex
+*/
+func TestGetTableCellPortionInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "GetTableCellPortion", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellPortion", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortion", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portion.
+   Test for SlidesApi.GetTableCellPortion method with invalid paragraphIndex
+*/
+func TestGetTableCellPortionInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "GetTableCellPortion", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellPortion", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortion", "paragraphIndex", "int32", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portion.
+   Test for SlidesApi.GetTableCellPortion method with invalid portionIndex
+*/
+func TestGetTableCellPortionInvalidPortionIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testportionIndex, "GetTableCellPortion", "portionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testportionIndex = nullValue
+    } else {
+        testportionIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellPortion", "portionIndex", testportionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortion", "portionIndex", "int32", testportionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portion.
+   Test for SlidesApi.GetTableCellPortion method with invalid password
+*/
+func TestGetTableCellPortionInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetTableCellPortion", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellPortion", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortion", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portion.
+   Test for SlidesApi.GetTableCellPortion method with invalid folder
+*/
+func TestGetTableCellPortionInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetTableCellPortion", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellPortion", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortion", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portion.
+   Test for SlidesApi.GetTableCellPortion method with invalid storage
+*/
+func TestGetTableCellPortionInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("GetTableCellPortion", "portionIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetTableCellPortion", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellPortion", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortion", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portions.
+   Test for SlidesApi.GetTableCellPortions method
+*/
+func TestGetTableCellPortions(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortions", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortions", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortions", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortions", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortions", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortions", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortions", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortions", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortions", "storage", "string").(string)
+    e := InitializeTest("GetTableCellPortions", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.GetTableCellPortions(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Returns table cell portions.
+   Test for SlidesApi.GetTableCellPortions method with invalid name
+*/
+func TestGetTableCellPortionsInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortions", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortions", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortions", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortions", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortions", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortions", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortions", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortions", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortions", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetTableCellPortions", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellPortions", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortions(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortions", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portions.
+   Test for SlidesApi.GetTableCellPortions method with invalid slideIndex
+*/
+func TestGetTableCellPortionsInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortions", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortions", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortions", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortions", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortions", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortions", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortions", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortions", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortions", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "GetTableCellPortions", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellPortions", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortions(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortions", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portions.
+   Test for SlidesApi.GetTableCellPortions method with invalid shapeIndex
+*/
+func TestGetTableCellPortionsInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortions", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortions", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortions", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortions", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortions", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortions", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortions", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortions", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortions", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "GetTableCellPortions", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellPortions", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortions(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortions", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portions.
+   Test for SlidesApi.GetTableCellPortions method with invalid rowIndex
+*/
+func TestGetTableCellPortionsInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortions", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortions", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortions", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortions", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortions", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortions", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortions", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortions", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortions", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "GetTableCellPortions", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellPortions", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortions(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortions", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portions.
+   Test for SlidesApi.GetTableCellPortions method with invalid cellIndex
+*/
+func TestGetTableCellPortionsInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortions", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortions", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortions", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortions", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortions", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortions", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortions", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortions", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortions", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "GetTableCellPortions", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellPortions", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortions(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortions", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portions.
+   Test for SlidesApi.GetTableCellPortions method with invalid paragraphIndex
+*/
+func TestGetTableCellPortionsInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortions", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortions", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortions", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortions", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortions", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortions", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortions", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortions", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortions", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "GetTableCellPortions", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetTableCellPortions", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortions(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortions", "paragraphIndex", "int32", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portions.
+   Test for SlidesApi.GetTableCellPortions method with invalid password
+*/
+func TestGetTableCellPortionsInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortions", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortions", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortions", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortions", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortions", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortions", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortions", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortions", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortions", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetTableCellPortions", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellPortions", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortions(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortions", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portions.
+   Test for SlidesApi.GetTableCellPortions method with invalid folder
+*/
+func TestGetTableCellPortionsInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortions", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortions", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortions", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortions", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortions", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortions", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortions", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortions", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortions", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetTableCellPortions", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellPortions", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortions(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortions", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns table cell portions.
+   Test for SlidesApi.GetTableCellPortions method with invalid storage
+*/
+func TestGetTableCellPortionsInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetTableCellPortions", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("GetTableCellPortions", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("GetTableCellPortions", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("GetTableCellPortions", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("GetTableCellPortions", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("GetTableCellPortions", "paragraphIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetTableCellPortions", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetTableCellPortions", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetTableCellPortions", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetTableCellPortions", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetTableCellPortions", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetTableCellPortions(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetTableCellPortions", "storage", "string", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Read slide theme info.
    Test for SlidesApi.GetTheme method
 */
@@ -42279,6 +45784,260 @@ func TestMergeOnlineInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "MergeOnline", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Merge table cells.
+   Test for SlidesApi.MergeTableCells method
+*/
+func TestMergeTableCells(t *testing.T) {
+    testname, _ := createTestParamValue("MergeTableCells", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("MergeTableCells", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("MergeTableCells", "shapeIndex", "int32").(int32)
+    testtableCellMergeOptions, _ := createTestParamValue("MergeTableCells", "tableCellMergeOptions", "TableCellMergeOptions").(ITableCellMergeOptions)
+    testpassword, _ := createTestParamValue("MergeTableCells", "password", "string").(string)
+    testfolder, _ := createTestParamValue("MergeTableCells", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("MergeTableCells", "storage", "string").(string)
+    e := InitializeTest("MergeTableCells", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.MergeTableCells(testname, testslideIndex, testshapeIndex, testtableCellMergeOptions, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Merge table cells.
+   Test for SlidesApi.MergeTableCells method with invalid name
+*/
+func TestMergeTableCellsInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("MergeTableCells", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("MergeTableCells", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("MergeTableCells", "shapeIndex", "int32").(int32)
+    testtableCellMergeOptions, _ := createTestParamValue("MergeTableCells", "tableCellMergeOptions", "TableCellMergeOptions").(ITableCellMergeOptions)
+    testpassword, _ := createTestParamValue("MergeTableCells", "password", "string").(string)
+    testfolder, _ := createTestParamValue("MergeTableCells", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("MergeTableCells", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "MergeTableCells", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("MergeTableCells", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.MergeTableCells(testname, testslideIndex, testshapeIndex, testtableCellMergeOptions, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "MergeTableCells", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Merge table cells.
+   Test for SlidesApi.MergeTableCells method with invalid slideIndex
+*/
+func TestMergeTableCellsInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("MergeTableCells", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("MergeTableCells", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("MergeTableCells", "shapeIndex", "int32").(int32)
+    testtableCellMergeOptions, _ := createTestParamValue("MergeTableCells", "tableCellMergeOptions", "TableCellMergeOptions").(ITableCellMergeOptions)
+    testpassword, _ := createTestParamValue("MergeTableCells", "password", "string").(string)
+    testfolder, _ := createTestParamValue("MergeTableCells", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("MergeTableCells", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "MergeTableCells", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("MergeTableCells", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.MergeTableCells(testname, testslideIndex, testshapeIndex, testtableCellMergeOptions, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "MergeTableCells", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Merge table cells.
+   Test for SlidesApi.MergeTableCells method with invalid shapeIndex
+*/
+func TestMergeTableCellsInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("MergeTableCells", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("MergeTableCells", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("MergeTableCells", "shapeIndex", "int32").(int32)
+    testtableCellMergeOptions, _ := createTestParamValue("MergeTableCells", "tableCellMergeOptions", "TableCellMergeOptions").(ITableCellMergeOptions)
+    testpassword, _ := createTestParamValue("MergeTableCells", "password", "string").(string)
+    testfolder, _ := createTestParamValue("MergeTableCells", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("MergeTableCells", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "MergeTableCells", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("MergeTableCells", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.MergeTableCells(testname, testslideIndex, testshapeIndex, testtableCellMergeOptions, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "MergeTableCells", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Merge table cells.
+   Test for SlidesApi.MergeTableCells method with invalid tableCellMergeOptions
+*/
+func TestMergeTableCellsInvalidTableCellMergeOptions(t *testing.T) {
+    testname, _ := createTestParamValue("MergeTableCells", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("MergeTableCells", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("MergeTableCells", "shapeIndex", "int32").(int32)
+    testtableCellMergeOptions, _ := createTestParamValue("MergeTableCells", "tableCellMergeOptions", "TableCellMergeOptions").(ITableCellMergeOptions)
+    testpassword, _ := createTestParamValue("MergeTableCells", "password", "string").(string)
+    testfolder, _ := createTestParamValue("MergeTableCells", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("MergeTableCells", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testtableCellMergeOptions, "MergeTableCells", "tableCellMergeOptions", "TableCellMergeOptions")
+    if (invalidValue == nil) {
+        testtableCellMergeOptions = nil
+    } else {
+        testtableCellMergeOptions, _ = invalidValue.(ITableCellMergeOptions)
+    }
+
+    e := InitializeTest("MergeTableCells", "tableCellMergeOptions", testtableCellMergeOptions)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.MergeTableCells(testname, testslideIndex, testshapeIndex, testtableCellMergeOptions, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "MergeTableCells", "tableCellMergeOptions", "TableCellMergeOptions", testtableCellMergeOptions, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Merge table cells.
+   Test for SlidesApi.MergeTableCells method with invalid password
+*/
+func TestMergeTableCellsInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("MergeTableCells", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("MergeTableCells", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("MergeTableCells", "shapeIndex", "int32").(int32)
+    testtableCellMergeOptions, _ := createTestParamValue("MergeTableCells", "tableCellMergeOptions", "TableCellMergeOptions").(ITableCellMergeOptions)
+    testpassword, _ := createTestParamValue("MergeTableCells", "password", "string").(string)
+    testfolder, _ := createTestParamValue("MergeTableCells", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("MergeTableCells", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "MergeTableCells", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("MergeTableCells", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.MergeTableCells(testname, testslideIndex, testshapeIndex, testtableCellMergeOptions, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "MergeTableCells", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Merge table cells.
+   Test for SlidesApi.MergeTableCells method with invalid folder
+*/
+func TestMergeTableCellsInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("MergeTableCells", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("MergeTableCells", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("MergeTableCells", "shapeIndex", "int32").(int32)
+    testtableCellMergeOptions, _ := createTestParamValue("MergeTableCells", "tableCellMergeOptions", "TableCellMergeOptions").(ITableCellMergeOptions)
+    testpassword, _ := createTestParamValue("MergeTableCells", "password", "string").(string)
+    testfolder, _ := createTestParamValue("MergeTableCells", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("MergeTableCells", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "MergeTableCells", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("MergeTableCells", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.MergeTableCells(testname, testslideIndex, testshapeIndex, testtableCellMergeOptions, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "MergeTableCells", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Merge table cells.
+   Test for SlidesApi.MergeTableCells method with invalid storage
+*/
+func TestMergeTableCellsInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("MergeTableCells", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("MergeTableCells", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("MergeTableCells", "shapeIndex", "int32").(int32)
+    testtableCellMergeOptions, _ := createTestParamValue("MergeTableCells", "tableCellMergeOptions", "TableCellMergeOptions").(ITableCellMergeOptions)
+    testpassword, _ := createTestParamValue("MergeTableCells", "password", "string").(string)
+    testfolder, _ := createTestParamValue("MergeTableCells", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("MergeTableCells", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "MergeTableCells", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("MergeTableCells", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.MergeTableCells(testname, testslideIndex, testshapeIndex, testtableCellMergeOptions, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "MergeTableCells", "storage", "string", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Move file
@@ -56700,6 +60459,393 @@ func TestSplitOnlineInvalidOptions(t *testing.T) {
     assertError(t, "SplitOnline", "options", "ExportOptions", testoptions, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Split table cell.
+   Test for SlidesApi.SplitTableCell method
+*/
+func TestSplitTableCell(t *testing.T) {
+    testname, _ := createTestParamValue("SplitTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SplitTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SplitTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("SplitTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("SplitTableCell", "cellIndex", "int32").(int32)
+    testsplitType, _ := createTestParamValue("SplitTableCell", "splitType", "string").(string)
+    testvalue, _ := createTestParamValue("SplitTableCell", "value", "float64").(float64)
+    testpassword, _ := createTestParamValue("SplitTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SplitTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SplitTableCell", "storage", "string").(string)
+    e := InitializeTest("SplitTableCell", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.SplitTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testsplitType, testvalue, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Split table cell.
+   Test for SlidesApi.SplitTableCell method with invalid name
+*/
+func TestSplitTableCellInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("SplitTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SplitTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SplitTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("SplitTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("SplitTableCell", "cellIndex", "int32").(int32)
+    testsplitType, _ := createTestParamValue("SplitTableCell", "splitType", "string").(string)
+    testvalue, _ := createTestParamValue("SplitTableCell", "value", "float64").(float64)
+    testpassword, _ := createTestParamValue("SplitTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SplitTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SplitTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "SplitTableCell", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("SplitTableCell", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testsplitType, testvalue, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitTableCell", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Split table cell.
+   Test for SlidesApi.SplitTableCell method with invalid slideIndex
+*/
+func TestSplitTableCellInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SplitTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SplitTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SplitTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("SplitTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("SplitTableCell", "cellIndex", "int32").(int32)
+    testsplitType, _ := createTestParamValue("SplitTableCell", "splitType", "string").(string)
+    testvalue, _ := createTestParamValue("SplitTableCell", "value", "float64").(float64)
+    testpassword, _ := createTestParamValue("SplitTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SplitTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SplitTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "SplitTableCell", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("SplitTableCell", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testsplitType, testvalue, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitTableCell", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Split table cell.
+   Test for SlidesApi.SplitTableCell method with invalid shapeIndex
+*/
+func TestSplitTableCellInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SplitTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SplitTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SplitTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("SplitTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("SplitTableCell", "cellIndex", "int32").(int32)
+    testsplitType, _ := createTestParamValue("SplitTableCell", "splitType", "string").(string)
+    testvalue, _ := createTestParamValue("SplitTableCell", "value", "float64").(float64)
+    testpassword, _ := createTestParamValue("SplitTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SplitTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SplitTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "SplitTableCell", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("SplitTableCell", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testsplitType, testvalue, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitTableCell", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Split table cell.
+   Test for SlidesApi.SplitTableCell method with invalid rowIndex
+*/
+func TestSplitTableCellInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SplitTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SplitTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SplitTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("SplitTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("SplitTableCell", "cellIndex", "int32").(int32)
+    testsplitType, _ := createTestParamValue("SplitTableCell", "splitType", "string").(string)
+    testvalue, _ := createTestParamValue("SplitTableCell", "value", "float64").(float64)
+    testpassword, _ := createTestParamValue("SplitTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SplitTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SplitTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "SplitTableCell", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("SplitTableCell", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testsplitType, testvalue, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitTableCell", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Split table cell.
+   Test for SlidesApi.SplitTableCell method with invalid cellIndex
+*/
+func TestSplitTableCellInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("SplitTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SplitTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SplitTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("SplitTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("SplitTableCell", "cellIndex", "int32").(int32)
+    testsplitType, _ := createTestParamValue("SplitTableCell", "splitType", "string").(string)
+    testvalue, _ := createTestParamValue("SplitTableCell", "value", "float64").(float64)
+    testpassword, _ := createTestParamValue("SplitTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SplitTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SplitTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "SplitTableCell", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("SplitTableCell", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testsplitType, testvalue, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitTableCell", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Split table cell.
+   Test for SlidesApi.SplitTableCell method with invalid splitType
+*/
+func TestSplitTableCellInvalidSplitType(t *testing.T) {
+    testname, _ := createTestParamValue("SplitTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SplitTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SplitTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("SplitTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("SplitTableCell", "cellIndex", "int32").(int32)
+    testsplitType, _ := createTestParamValue("SplitTableCell", "splitType", "string").(string)
+    testvalue, _ := createTestParamValue("SplitTableCell", "value", "float64").(float64)
+    testpassword, _ := createTestParamValue("SplitTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SplitTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SplitTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testsplitType, "SplitTableCell", "splitType", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testsplitType = nullValue
+    } else {
+        testsplitType, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("SplitTableCell", "splitType", testsplitType)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testsplitType, testvalue, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitTableCell", "splitType", "string", testsplitType, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Split table cell.
+   Test for SlidesApi.SplitTableCell method with invalid value
+*/
+func TestSplitTableCellInvalidValue(t *testing.T) {
+    testname, _ := createTestParamValue("SplitTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SplitTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SplitTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("SplitTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("SplitTableCell", "cellIndex", "int32").(int32)
+    testsplitType, _ := createTestParamValue("SplitTableCell", "splitType", "string").(string)
+    testvalue, _ := createTestParamValue("SplitTableCell", "value", "float64").(float64)
+    testpassword, _ := createTestParamValue("SplitTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SplitTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SplitTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testvalue, "SplitTableCell", "value", "float64")
+    if (invalidValue == nil) {
+        var nullValue float64
+        testvalue = nullValue
+    } else {
+        testvalue, _ = invalidValue.(float64)
+    }
+
+    e := InitializeTest("SplitTableCell", "value", testvalue)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testsplitType, testvalue, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitTableCell", "value", "float64", testvalue, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Split table cell.
+   Test for SlidesApi.SplitTableCell method with invalid password
+*/
+func TestSplitTableCellInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("SplitTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SplitTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SplitTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("SplitTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("SplitTableCell", "cellIndex", "int32").(int32)
+    testsplitType, _ := createTestParamValue("SplitTableCell", "splitType", "string").(string)
+    testvalue, _ := createTestParamValue("SplitTableCell", "value", "float64").(float64)
+    testpassword, _ := createTestParamValue("SplitTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SplitTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SplitTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "SplitTableCell", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("SplitTableCell", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testsplitType, testvalue, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitTableCell", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Split table cell.
+   Test for SlidesApi.SplitTableCell method with invalid folder
+*/
+func TestSplitTableCellInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("SplitTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SplitTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SplitTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("SplitTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("SplitTableCell", "cellIndex", "int32").(int32)
+    testsplitType, _ := createTestParamValue("SplitTableCell", "splitType", "string").(string)
+    testvalue, _ := createTestParamValue("SplitTableCell", "value", "float64").(float64)
+    testpassword, _ := createTestParamValue("SplitTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SplitTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SplitTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "SplitTableCell", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("SplitTableCell", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testsplitType, testvalue, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitTableCell", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Split table cell.
+   Test for SlidesApi.SplitTableCell method with invalid storage
+*/
+func TestSplitTableCellInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("SplitTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("SplitTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("SplitTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("SplitTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("SplitTableCell", "cellIndex", "int32").(int32)
+    testsplitType, _ := createTestParamValue("SplitTableCell", "splitType", "string").(string)
+    testvalue, _ := createTestParamValue("SplitTableCell", "value", "float64").(float64)
+    testpassword, _ := createTestParamValue("SplitTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("SplitTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("SplitTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "SplitTableCell", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("SplitTableCell", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.SplitTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testsplitType, testvalue, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "SplitTableCell", "storage", "string", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Check if storage exists
    Test for SlidesApi.StorageExists method
 */
@@ -61900,6 +66046,1462 @@ func TestUpdateSpecialSlideShapeInvalidSubShape(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "UpdateSpecialSlideShape", "subShape", "string", testsubShape, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table cell.
+   Test for SlidesApi.UpdateTableCell method
+*/
+func TestUpdateTableCell(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCell", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCell", "dto", "TableCell").(ITableCell)
+    testpassword, _ := createTestParamValue("UpdateTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCell", "storage", "string").(string)
+    e := InitializeTest("UpdateTableCell", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.UpdateTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Update the table cell.
+   Test for SlidesApi.UpdateTableCell method with invalid name
+*/
+func TestUpdateTableCellInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCell", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCell", "dto", "TableCell").(ITableCell)
+    testpassword, _ := createTestParamValue("UpdateTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "UpdateTableCell", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCell", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCell", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table cell.
+   Test for SlidesApi.UpdateTableCell method with invalid slideIndex
+*/
+func TestUpdateTableCellInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCell", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCell", "dto", "TableCell").(ITableCell)
+    testpassword, _ := createTestParamValue("UpdateTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "UpdateTableCell", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCell", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCell", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table cell.
+   Test for SlidesApi.UpdateTableCell method with invalid shapeIndex
+*/
+func TestUpdateTableCellInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCell", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCell", "dto", "TableCell").(ITableCell)
+    testpassword, _ := createTestParamValue("UpdateTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "UpdateTableCell", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCell", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCell", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table cell.
+   Test for SlidesApi.UpdateTableCell method with invalid rowIndex
+*/
+func TestUpdateTableCellInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCell", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCell", "dto", "TableCell").(ITableCell)
+    testpassword, _ := createTestParamValue("UpdateTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "UpdateTableCell", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCell", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCell", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table cell.
+   Test for SlidesApi.UpdateTableCell method with invalid cellIndex
+*/
+func TestUpdateTableCellInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCell", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCell", "dto", "TableCell").(ITableCell)
+    testpassword, _ := createTestParamValue("UpdateTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "UpdateTableCell", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCell", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCell", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table cell.
+   Test for SlidesApi.UpdateTableCell method with invalid dto
+*/
+func TestUpdateTableCellInvalidDto(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCell", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCell", "dto", "TableCell").(ITableCell)
+    testpassword, _ := createTestParamValue("UpdateTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdto, "UpdateTableCell", "dto", "TableCell")
+    if (invalidValue == nil) {
+        testdto = nil
+    } else {
+        testdto, _ = invalidValue.(ITableCell)
+    }
+
+    e := InitializeTest("UpdateTableCell", "dto", testdto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCell", "dto", "TableCell", testdto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table cell.
+   Test for SlidesApi.UpdateTableCell method with invalid password
+*/
+func TestUpdateTableCellInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCell", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCell", "dto", "TableCell").(ITableCell)
+    testpassword, _ := createTestParamValue("UpdateTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "UpdateTableCell", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCell", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCell", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table cell.
+   Test for SlidesApi.UpdateTableCell method with invalid folder
+*/
+func TestUpdateTableCellInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCell", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCell", "dto", "TableCell").(ITableCell)
+    testpassword, _ := createTestParamValue("UpdateTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "UpdateTableCell", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCell", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCell", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table cell.
+   Test for SlidesApi.UpdateTableCell method with invalid storage
+*/
+func TestUpdateTableCellInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCell", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCell", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCell", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCell", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCell", "cellIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCell", "dto", "TableCell").(ITableCell)
+    testpassword, _ := createTestParamValue("UpdateTableCell", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCell", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCell", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "UpdateTableCell", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCell", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCell(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCell", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell paragraph.
+   Test for SlidesApi.UpdateTableCellParagraph method
+*/
+func TestUpdateTableCellParagraph(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("UpdateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellParagraph", "storage", "string").(string)
+    e := InitializeTest("UpdateTableCellParagraph", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.UpdateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Updates table cell paragraph.
+   Test for SlidesApi.UpdateTableCellParagraph method with invalid name
+*/
+func TestUpdateTableCellParagraphInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("UpdateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "UpdateTableCellParagraph", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCellParagraph", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellParagraph", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell paragraph.
+   Test for SlidesApi.UpdateTableCellParagraph method with invalid slideIndex
+*/
+func TestUpdateTableCellParagraphInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("UpdateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "UpdateTableCellParagraph", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCellParagraph", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellParagraph", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell paragraph.
+   Test for SlidesApi.UpdateTableCellParagraph method with invalid shapeIndex
+*/
+func TestUpdateTableCellParagraphInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("UpdateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "UpdateTableCellParagraph", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCellParagraph", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellParagraph", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell paragraph.
+   Test for SlidesApi.UpdateTableCellParagraph method with invalid rowIndex
+*/
+func TestUpdateTableCellParagraphInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("UpdateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "UpdateTableCellParagraph", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCellParagraph", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellParagraph", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell paragraph.
+   Test for SlidesApi.UpdateTableCellParagraph method with invalid cellIndex
+*/
+func TestUpdateTableCellParagraphInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("UpdateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "UpdateTableCellParagraph", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCellParagraph", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellParagraph", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell paragraph.
+   Test for SlidesApi.UpdateTableCellParagraph method with invalid paragraphIndex
+*/
+func TestUpdateTableCellParagraphInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("UpdateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "UpdateTableCellParagraph", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCellParagraph", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellParagraph", "paragraphIndex", "int32", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell paragraph.
+   Test for SlidesApi.UpdateTableCellParagraph method with invalid dto
+*/
+func TestUpdateTableCellParagraphInvalidDto(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("UpdateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdto, "UpdateTableCellParagraph", "dto", "Paragraph")
+    if (invalidValue == nil) {
+        testdto = nil
+    } else {
+        testdto, _ = invalidValue.(IParagraph)
+    }
+
+    e := InitializeTest("UpdateTableCellParagraph", "dto", testdto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellParagraph", "dto", "Paragraph", testdto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell paragraph.
+   Test for SlidesApi.UpdateTableCellParagraph method with invalid password
+*/
+func TestUpdateTableCellParagraphInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("UpdateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "UpdateTableCellParagraph", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCellParagraph", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellParagraph", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell paragraph.
+   Test for SlidesApi.UpdateTableCellParagraph method with invalid folder
+*/
+func TestUpdateTableCellParagraphInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("UpdateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "UpdateTableCellParagraph", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCellParagraph", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellParagraph", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell paragraph.
+   Test for SlidesApi.UpdateTableCellParagraph method with invalid storage
+*/
+func TestUpdateTableCellParagraphInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellParagraph", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellParagraph", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellParagraph", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellParagraph", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellParagraph", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellParagraph", "paragraphIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellParagraph", "dto", "Paragraph").(IParagraph)
+    testpassword, _ := createTestParamValue("UpdateTableCellParagraph", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellParagraph", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellParagraph", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "UpdateTableCellParagraph", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCellParagraph", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellParagraph(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellParagraph", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method
+*/
+func TestUpdateTableCellPortion(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+    e := InitializeTest("UpdateTableCellPortion", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method with invalid name
+*/
+func TestUpdateTableCellPortionInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "UpdateTableCellPortion", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCellPortion", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellPortion", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method with invalid slideIndex
+*/
+func TestUpdateTableCellPortionInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "UpdateTableCellPortion", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCellPortion", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellPortion", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method with invalid shapeIndex
+*/
+func TestUpdateTableCellPortionInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "UpdateTableCellPortion", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCellPortion", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellPortion", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method with invalid rowIndex
+*/
+func TestUpdateTableCellPortionInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "UpdateTableCellPortion", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCellPortion", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellPortion", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method with invalid cellIndex
+*/
+func TestUpdateTableCellPortionInvalidCellIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testcellIndex, "UpdateTableCellPortion", "cellIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testcellIndex = nullValue
+    } else {
+        testcellIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCellPortion", "cellIndex", testcellIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellPortion", "cellIndex", "int32", testcellIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method with invalid paragraphIndex
+*/
+func TestUpdateTableCellPortionInvalidParagraphIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testparagraphIndex, "UpdateTableCellPortion", "paragraphIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testparagraphIndex = nullValue
+    } else {
+        testparagraphIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCellPortion", "paragraphIndex", testparagraphIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellPortion", "paragraphIndex", "int32", testparagraphIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method with invalid portionIndex
+*/
+func TestUpdateTableCellPortionInvalidPortionIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testportionIndex, "UpdateTableCellPortion", "portionIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testportionIndex = nullValue
+    } else {
+        testportionIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableCellPortion", "portionIndex", testportionIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellPortion", "portionIndex", "int32", testportionIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method with invalid dto
+*/
+func TestUpdateTableCellPortionInvalidDto(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdto, "UpdateTableCellPortion", "dto", "Portion")
+    if (invalidValue == nil) {
+        testdto = nil
+    } else {
+        testdto, _ = invalidValue.(IPortion)
+    }
+
+    e := InitializeTest("UpdateTableCellPortion", "dto", testdto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellPortion", "dto", "Portion", testdto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method with invalid password
+*/
+func TestUpdateTableCellPortionInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "UpdateTableCellPortion", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCellPortion", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellPortion", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method with invalid folder
+*/
+func TestUpdateTableCellPortionInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "UpdateTableCellPortion", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCellPortion", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellPortion", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Updates table cell portion.
+   Test for SlidesApi.UpdateTableCellPortion method with invalid storage
+*/
+func TestUpdateTableCellPortionInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableCellPortion", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableCellPortion", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableCellPortion", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableCellPortion", "rowIndex", "int32").(int32)
+    testcellIndex, _ := createTestParamValue("UpdateTableCellPortion", "cellIndex", "int32").(int32)
+    testparagraphIndex, _ := createTestParamValue("UpdateTableCellPortion", "paragraphIndex", "int32").(int32)
+    testportionIndex, _ := createTestParamValue("UpdateTableCellPortion", "portionIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableCellPortion", "dto", "Portion").(IPortion)
+    testpassword, _ := createTestParamValue("UpdateTableCellPortion", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableCellPortion", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableCellPortion", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "UpdateTableCellPortion", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableCellPortion", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableCellPortion(testname, testslideIndex, testshapeIndex, testrowIndex, testcellIndex, testparagraphIndex, testportionIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableCellPortion", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table row.
+   Test for SlidesApi.UpdateTableRow method
+*/
+func TestUpdateTableRow(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableRow", "rowIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableRow", "dto", "TableRow").(ITableRow)
+    testpassword, _ := createTestParamValue("UpdateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableRow", "storage", "string").(string)
+    e := InitializeTest("UpdateTableRow", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.UpdateTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testdto, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Update the table row.
+   Test for SlidesApi.UpdateTableRow method with invalid name
+*/
+func TestUpdateTableRowInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableRow", "rowIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableRow", "dto", "TableRow").(ITableRow)
+    testpassword, _ := createTestParamValue("UpdateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "UpdateTableRow", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableRow", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableRow", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table row.
+   Test for SlidesApi.UpdateTableRow method with invalid slideIndex
+*/
+func TestUpdateTableRowInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableRow", "rowIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableRow", "dto", "TableRow").(ITableRow)
+    testpassword, _ := createTestParamValue("UpdateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "UpdateTableRow", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableRow", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableRow", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table row.
+   Test for SlidesApi.UpdateTableRow method with invalid shapeIndex
+*/
+func TestUpdateTableRowInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableRow", "rowIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableRow", "dto", "TableRow").(ITableRow)
+    testpassword, _ := createTestParamValue("UpdateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "UpdateTableRow", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableRow", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableRow", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table row.
+   Test for SlidesApi.UpdateTableRow method with invalid rowIndex
+*/
+func TestUpdateTableRowInvalidRowIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableRow", "rowIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableRow", "dto", "TableRow").(ITableRow)
+    testpassword, _ := createTestParamValue("UpdateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testrowIndex, "UpdateTableRow", "rowIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testrowIndex = nullValue
+    } else {
+        testrowIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateTableRow", "rowIndex", testrowIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableRow", "rowIndex", "int32", testrowIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table row.
+   Test for SlidesApi.UpdateTableRow method with invalid dto
+*/
+func TestUpdateTableRowInvalidDto(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableRow", "rowIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableRow", "dto", "TableRow").(ITableRow)
+    testpassword, _ := createTestParamValue("UpdateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdto, "UpdateTableRow", "dto", "TableRow")
+    if (invalidValue == nil) {
+        testdto = nil
+    } else {
+        testdto, _ = invalidValue.(ITableRow)
+    }
+
+    e := InitializeTest("UpdateTableRow", "dto", testdto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableRow", "dto", "TableRow", testdto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table row.
+   Test for SlidesApi.UpdateTableRow method with invalid password
+*/
+func TestUpdateTableRowInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableRow", "rowIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableRow", "dto", "TableRow").(ITableRow)
+    testpassword, _ := createTestParamValue("UpdateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "UpdateTableRow", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableRow", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableRow", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table row.
+   Test for SlidesApi.UpdateTableRow method with invalid folder
+*/
+func TestUpdateTableRowInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableRow", "rowIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableRow", "dto", "TableRow").(ITableRow)
+    testpassword, _ := createTestParamValue("UpdateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "UpdateTableRow", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableRow", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableRow", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update the table row.
+   Test for SlidesApi.UpdateTableRow method with invalid storage
+*/
+func TestUpdateTableRowInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateTableRow", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("UpdateTableRow", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("UpdateTableRow", "shapeIndex", "int32").(int32)
+    testrowIndex, _ := createTestParamValue("UpdateTableRow", "rowIndex", "int32").(int32)
+    testdto, _ := createTestParamValue("UpdateTableRow", "dto", "TableRow").(ITableRow)
+    testpassword, _ := createTestParamValue("UpdateTableRow", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateTableRow", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateTableRow", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "UpdateTableRow", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateTableRow", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateTableRow(testname, testslideIndex, testshapeIndex, testrowIndex, testdto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateTableRow", "storage", "string", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Upload file
