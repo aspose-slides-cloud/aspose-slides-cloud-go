@@ -213,15 +213,15 @@ func (c *APIClient) makeRequestWithAuthCheck(
 		fmt.Printf("<--: %v\n", localVarHttpResponse)
 	}
 	defer localVarHttpResponse.Body.Close()
+        responseLength := 0
 	responseBytes, err = ioutil.ReadAll(localVarHttpResponse.Body)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, responseBytes, false, err
+	if err == nil && localVarHttpResponse != nil {
+		if c.cfg.Debug {
+			fmt.Printf("<--BODY: %v\n", string(responseBytes))
+		}
+		responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1)
+	        responseLength = len(responseBytes)
 	}
-	if c.cfg.Debug {
-		fmt.Printf("<--BODY: %v\n", string(responseBytes))
-	}
-	responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1)
-        responseLength := len(responseBytes)
 	needRepeat = needRepeat &&
 		(localVarHttpResponse.StatusCode == 401 ||
 			(localVarHttpResponse.StatusCode == 500 && responseLength == 0))

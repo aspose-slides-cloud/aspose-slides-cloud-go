@@ -11956,6 +11956,182 @@ func TestCreateTableRowInvalidStorage(t *testing.T) {
     assertError(t, "CreateTableRow", "storage", "string", teststorage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Append module to VBA project             
+   Test for SlidesApi.CreateVbaModule method
+*/
+func TestCreateVbaModule(t *testing.T) {
+    testname, _ := createTestParamValue("CreateVbaModule", "name", "string").(string)
+    testmoduleDto, _ := createTestParamValue("CreateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("CreateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateVbaModule", "storage", "string").(string)
+    e := InitializeTest("CreateVbaModule", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.CreateVbaModule(testname, testmoduleDto, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Append module to VBA project             
+   Test for SlidesApi.CreateVbaModule method with invalid name
+*/
+func TestCreateVbaModuleInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("CreateVbaModule", "name", "string").(string)
+    testmoduleDto, _ := createTestParamValue("CreateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("CreateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "CreateVbaModule", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateVbaModule", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateVbaModule(testname, testmoduleDto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateVbaModule", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Append module to VBA project             
+   Test for SlidesApi.CreateVbaModule method with invalid moduleDto
+*/
+func TestCreateVbaModuleInvalidModuleDto(t *testing.T) {
+    testname, _ := createTestParamValue("CreateVbaModule", "name", "string").(string)
+    testmoduleDto, _ := createTestParamValue("CreateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("CreateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testmoduleDto, "CreateVbaModule", "moduleDto", "VbaModule")
+    if (invalidValue == nil) {
+        testmoduleDto = nil
+    } else {
+        testmoduleDto, _ = invalidValue.(IVbaModule)
+    }
+
+    e := InitializeTest("CreateVbaModule", "moduleDto", testmoduleDto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateVbaModule(testname, testmoduleDto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateVbaModule", "moduleDto", "VbaModule", testmoduleDto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Append module to VBA project             
+   Test for SlidesApi.CreateVbaModule method with invalid password
+*/
+func TestCreateVbaModuleInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("CreateVbaModule", "name", "string").(string)
+    testmoduleDto, _ := createTestParamValue("CreateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("CreateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "CreateVbaModule", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateVbaModule", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateVbaModule(testname, testmoduleDto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateVbaModule", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Append module to VBA project             
+   Test for SlidesApi.CreateVbaModule method with invalid folder
+*/
+func TestCreateVbaModuleInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("CreateVbaModule", "name", "string").(string)
+    testmoduleDto, _ := createTestParamValue("CreateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("CreateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "CreateVbaModule", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateVbaModule", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateVbaModule(testname, testmoduleDto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateVbaModule", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Append module to VBA project             
+   Test for SlidesApi.CreateVbaModule method with invalid storage
+*/
+func TestCreateVbaModuleInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("CreateVbaModule", "name", "string").(string)
+    testmoduleDto, _ := createTestParamValue("CreateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("CreateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("CreateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("CreateVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "CreateVbaModule", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("CreateVbaModule", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.CreateVbaModule(testname, testmoduleDto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "CreateVbaModule", "storage", "string", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously. 
    Test for SlidesApi.CreateWatermark method
 */
@@ -24766,6 +24942,183 @@ func TestDeleteUnusedMasterSlidesOnlineInvalidPassword(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "DeleteUnusedMasterSlidesOnline", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete module from VBA project.
+   Test for SlidesApi.DeleteVbaModule method
+*/
+func TestDeleteVbaModule(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("DeleteVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteVbaModule", "storage", "string").(string)
+    e := InitializeTest("DeleteVbaModule", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.DeleteVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Delete module from VBA project.
+   Test for SlidesApi.DeleteVbaModule method with invalid name
+*/
+func TestDeleteVbaModuleInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("DeleteVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "DeleteVbaModule", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteVbaModule", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteVbaModule", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete module from VBA project.
+   Test for SlidesApi.DeleteVbaModule method with invalid moduleIndex
+*/
+func TestDeleteVbaModuleInvalidModuleIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("DeleteVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testmoduleIndex, "DeleteVbaModule", "moduleIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testmoduleIndex = nullValue
+    } else {
+        testmoduleIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeleteVbaModule", "moduleIndex", testmoduleIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteVbaModule", "moduleIndex", "int32", testmoduleIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete module from VBA project.
+   Test for SlidesApi.DeleteVbaModule method with invalid password
+*/
+func TestDeleteVbaModuleInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("DeleteVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeleteVbaModule", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteVbaModule", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteVbaModule", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete module from VBA project.
+   Test for SlidesApi.DeleteVbaModule method with invalid folder
+*/
+func TestDeleteVbaModuleInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("DeleteVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "DeleteVbaModule", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteVbaModule", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteVbaModule", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Delete module from VBA project.
+   Test for SlidesApi.DeleteVbaModule method with invalid storage
+*/
+func TestDeleteVbaModuleInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("DeleteVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("DeleteVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeleteVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeleteVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeleteVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "DeleteVbaModule", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeleteVbaModule", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.DeleteVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeleteVbaModule", "storage", "string", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Removes shapes with name \&quot;watermark\&quot; from the presentation.
@@ -43058,6 +43411,324 @@ func TestGetThemeInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetTheme", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get VBA module info.
+   Test for SlidesApi.GetVbaModule method
+*/
+func TestGetVbaModule(t *testing.T) {
+    testname, _ := createTestParamValue("GetVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("GetVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetVbaModule", "storage", "string").(string)
+    e := InitializeTest("GetVbaModule", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.GetVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Get VBA module info.
+   Test for SlidesApi.GetVbaModule method with invalid name
+*/
+func TestGetVbaModuleInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("GetVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetVbaModule", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetVbaModule", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetVbaModule", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get VBA module info.
+   Test for SlidesApi.GetVbaModule method with invalid moduleIndex
+*/
+func TestGetVbaModuleInvalidModuleIndex(t *testing.T) {
+    testname, _ := createTestParamValue("GetVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("GetVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testmoduleIndex, "GetVbaModule", "moduleIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testmoduleIndex = nullValue
+    } else {
+        testmoduleIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("GetVbaModule", "moduleIndex", testmoduleIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetVbaModule", "moduleIndex", "int32", testmoduleIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get VBA module info.
+   Test for SlidesApi.GetVbaModule method with invalid password
+*/
+func TestGetVbaModuleInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("GetVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetVbaModule", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetVbaModule", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetVbaModule", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get VBA module info.
+   Test for SlidesApi.GetVbaModule method with invalid folder
+*/
+func TestGetVbaModuleInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("GetVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetVbaModule", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetVbaModule", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetVbaModule", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get VBA module info.
+   Test for SlidesApi.GetVbaModule method with invalid storage
+*/
+func TestGetVbaModuleInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("GetVbaModule", "moduleIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("GetVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetVbaModule", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetVbaModule", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetVbaModule(testname, testmoduleIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetVbaModule", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get VBA project info.
+   Test for SlidesApi.GetVbaProject method
+*/
+func TestGetVbaProject(t *testing.T) {
+    testname, _ := createTestParamValue("GetVbaProject", "name", "string").(string)
+    testpassword, _ := createTestParamValue("GetVbaProject", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetVbaProject", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetVbaProject", "storage", "string").(string)
+    e := InitializeTest("GetVbaProject", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.GetVbaProject(testname, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Get VBA project info.
+   Test for SlidesApi.GetVbaProject method with invalid name
+*/
+func TestGetVbaProjectInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetVbaProject", "name", "string").(string)
+    testpassword, _ := createTestParamValue("GetVbaProject", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetVbaProject", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetVbaProject", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetVbaProject", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetVbaProject", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetVbaProject(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetVbaProject", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get VBA project info.
+   Test for SlidesApi.GetVbaProject method with invalid password
+*/
+func TestGetVbaProjectInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetVbaProject", "name", "string").(string)
+    testpassword, _ := createTestParamValue("GetVbaProject", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetVbaProject", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetVbaProject", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetVbaProject", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetVbaProject", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetVbaProject(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetVbaProject", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get VBA project info.
+   Test for SlidesApi.GetVbaProject method with invalid folder
+*/
+func TestGetVbaProjectInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetVbaProject", "name", "string").(string)
+    testpassword, _ := createTestParamValue("GetVbaProject", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetVbaProject", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetVbaProject", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetVbaProject", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetVbaProject", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetVbaProject(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetVbaProject", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get VBA project info.
+   Test for SlidesApi.GetVbaProject method with invalid storage
+*/
+func TestGetVbaProjectInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetVbaProject", "name", "string").(string)
+    testpassword, _ := createTestParamValue("GetVbaProject", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetVbaProject", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetVbaProject", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetVbaProject", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetVbaProject", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.GetVbaProject(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetVbaProject", "storage", "string", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Read presentation view properties.
@@ -67502,6 +68173,220 @@ func TestUpdateTableRowInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "UpdateTableRow", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update VBA module.
+   Test for SlidesApi.UpdateVbaModule method
+*/
+func TestUpdateVbaModule(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("UpdateVbaModule", "moduleIndex", "int32").(int32)
+    testmoduleDto, _ := createTestParamValue("UpdateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("UpdateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateVbaModule", "storage", "string").(string)
+    e := InitializeTest("UpdateVbaModule", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.UpdateVbaModule(testname, testmoduleIndex, testmoduleDto, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Update VBA module.
+   Test for SlidesApi.UpdateVbaModule method with invalid name
+*/
+func TestUpdateVbaModuleInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("UpdateVbaModule", "moduleIndex", "int32").(int32)
+    testmoduleDto, _ := createTestParamValue("UpdateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("UpdateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "UpdateVbaModule", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateVbaModule", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateVbaModule(testname, testmoduleIndex, testmoduleDto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateVbaModule", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update VBA module.
+   Test for SlidesApi.UpdateVbaModule method with invalid moduleIndex
+*/
+func TestUpdateVbaModuleInvalidModuleIndex(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("UpdateVbaModule", "moduleIndex", "int32").(int32)
+    testmoduleDto, _ := createTestParamValue("UpdateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("UpdateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testmoduleIndex, "UpdateVbaModule", "moduleIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testmoduleIndex = nullValue
+    } else {
+        testmoduleIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("UpdateVbaModule", "moduleIndex", testmoduleIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateVbaModule(testname, testmoduleIndex, testmoduleDto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateVbaModule", "moduleIndex", "int32", testmoduleIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update VBA module.
+   Test for SlidesApi.UpdateVbaModule method with invalid moduleDto
+*/
+func TestUpdateVbaModuleInvalidModuleDto(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("UpdateVbaModule", "moduleIndex", "int32").(int32)
+    testmoduleDto, _ := createTestParamValue("UpdateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("UpdateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testmoduleDto, "UpdateVbaModule", "moduleDto", "VbaModule")
+    if (invalidValue == nil) {
+        testmoduleDto = nil
+    } else {
+        testmoduleDto, _ = invalidValue.(IVbaModule)
+    }
+
+    e := InitializeTest("UpdateVbaModule", "moduleDto", testmoduleDto)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateVbaModule(testname, testmoduleIndex, testmoduleDto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateVbaModule", "moduleDto", "VbaModule", testmoduleDto, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update VBA module.
+   Test for SlidesApi.UpdateVbaModule method with invalid password
+*/
+func TestUpdateVbaModuleInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("UpdateVbaModule", "moduleIndex", "int32").(int32)
+    testmoduleDto, _ := createTestParamValue("UpdateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("UpdateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "UpdateVbaModule", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateVbaModule", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateVbaModule(testname, testmoduleIndex, testmoduleDto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateVbaModule", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update VBA module.
+   Test for SlidesApi.UpdateVbaModule method with invalid folder
+*/
+func TestUpdateVbaModuleInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("UpdateVbaModule", "moduleIndex", "int32").(int32)
+    testmoduleDto, _ := createTestParamValue("UpdateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("UpdateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "UpdateVbaModule", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateVbaModule", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateVbaModule(testname, testmoduleIndex, testmoduleDto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateVbaModule", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Update VBA module.
+   Test for SlidesApi.UpdateVbaModule method with invalid storage
+*/
+func TestUpdateVbaModuleInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("UpdateVbaModule", "name", "string").(string)
+    testmoduleIndex, _ := createTestParamValue("UpdateVbaModule", "moduleIndex", "int32").(int32)
+    testmoduleDto, _ := createTestParamValue("UpdateVbaModule", "moduleDto", "VbaModule").(IVbaModule)
+    testpassword, _ := createTestParamValue("UpdateVbaModule", "password", "string").(string)
+    testfolder, _ := createTestParamValue("UpdateVbaModule", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("UpdateVbaModule", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "UpdateVbaModule", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("UpdateVbaModule", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.UpdateVbaModule(testname, testmoduleIndex, testmoduleDto, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "UpdateVbaModule", "storage", "string", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Upload file

@@ -51,7 +51,7 @@ func TestUpdateTableCell(t *testing.T) {
 	dto := slidescloud.NewTableCell()
 	dto.Text = "Test text"
 
-	result, _, e := c.SlidesApi.UpdateTableCell(fileName, dto, slideIndex, shapeIndex, rowIndex, cellIndex, password, folderName, "")
+	result, _, e := c.SlidesApi.UpdateTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, dto, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -62,7 +62,7 @@ func TestUpdateTableCell(t *testing.T) {
 	}
 }
 
-func TestInsertTableRow(t *testing.T) {
+func TestCreateTableRow(t *testing.T) {
 	c := slidescloud.GetTestApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
@@ -85,7 +85,7 @@ func TestInsertTableRow(t *testing.T) {
 	dto.MinimalHeight = 30
 	dto.Cells = []slidescloud.ITableCell{cell0, cell1, cell2, cell3}
 
-	result, _, e := c.SlidesApi.InsertTableRow(fileName, dto, slideIndex, shapeIndex, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.CreateTableRow(fileName, slideIndex, shapeIndex, dto, nil, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -134,7 +134,7 @@ func TestUpdateTableRow(t *testing.T) {
 	dto := slidescloud.NewTableRow()
 	dto.SetMinimalHeight(30)
 
-	result, _, e := c.SlidesApi.UpdateTableRow(fileName, dto, slideIndex, shapeIndex, rowIndex, password, folderName, "")
+	result, _, e := c.SlidesApi.UpdateTableRow(fileName, slideIndex, shapeIndex, rowIndex, dto, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -162,7 +162,7 @@ func TestMergeTableCells(t *testing.T) {
 	dto.LastRowIndex = 2
 	dto.LastCellIndex = 2
 
-	result, _, e := c.SlidesApi.MergeTableCells(fileName, dto, slideIndex, shapeIndex, password, folderName, "")
+	result, _, e := c.SlidesApi.MergeTableCells(fileName, slideIndex, shapeIndex, dto, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -191,7 +191,7 @@ func TestSplitTableCellsByWidth(t *testing.T) {
 	var cellIndex int32 = 1
 	var cellWidth int32 = 10
 
-	result, _, e := c.SlidesApi.SplitTableCell(fileName, "SplitByWidth", float64(cellWidth), slideIndex, shapeIndex, rowIndex, cellIndex,
+	result, _, e := c.SlidesApi.SplitTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, "SplitByWidth", float64(cellWidth),
 		password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -217,7 +217,7 @@ func TestSplitTableCellsByHeight(t *testing.T) {
 	var cellIndex int32 = 1
 	var cellHeight int32 = 10
 
-	result, _, e := c.SlidesApi.SplitTableCell(fileName, "SplitByHeight", float64(cellHeight), slideIndex, shapeIndex, rowIndex, cellIndex,
+	result, _, e := c.SlidesApi.SplitTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, "SplitByHeight", float64(cellHeight),
 		password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -243,7 +243,7 @@ func TestSplitTableCellsByColSpan(t *testing.T) {
 	var cellIndex int32 = 1
 	var colSpan int32 = 1
 
-	result, _, e := c.SlidesApi.SplitTableCell(fileName, "SplitByColSpan", float64(colSpan), slideIndex, shapeIndex, rowIndex, cellIndex,
+	result, _, e := c.SlidesApi.SplitTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, "SplitByColSpan", float64(colSpan),
 		password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -269,7 +269,7 @@ func TestSplitTableCellsByRowSpan(t *testing.T) {
 	var cellIndex int32 = 3
 	var colSpan int32 = 1
 
-	result, _, e := c.SlidesApi.SplitTableCell(fileName, "SplitByRowSpan", float64(colSpan), slideIndex, shapeIndex, rowIndex, cellIndex,
+	result, _, e := c.SlidesApi.SplitTableCell(fileName, slideIndex, shapeIndex, rowIndex, cellIndex, "SplitByRowSpan", float64(colSpan),
 		password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

@@ -798,6 +798,15 @@ func init() {
 	derivedTypes["UpdateShape"] = "Task"
 	typeDeterminers["UpdateShape"] = make(map[string]string)
 	typeDeterminers["UpdateShape"]["Type"] = "UpdateShape"
+	typeRegistry["VbaModule"] = reflect.TypeOf(VbaModule{})
+	derivedTypes["VbaModule"] = "ResourceBase"
+	typeDeterminers["VbaModule"] = make(map[string]string)
+	typeRegistry["VbaProject"] = reflect.TypeOf(VbaProject{})
+	derivedTypes["VbaProject"] = "ResourceBase"
+	typeDeterminers["VbaProject"] = make(map[string]string)
+	typeRegistry["VbaReference"] = reflect.TypeOf(VbaReference{})
+	
+	typeDeterminers["VbaReference"] = make(map[string]string)
 	typeRegistry["VideoExportOptions"] = reflect.TypeOf(VideoExportOptions{})
 	derivedTypes["VideoExportOptions"] = "ExportOptions"
 	typeDeterminers["VideoExportOptions"] = make(map[string]string)
