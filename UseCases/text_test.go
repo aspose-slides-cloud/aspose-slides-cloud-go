@@ -187,6 +187,79 @@ func TestTextReplaceRequest(t *testing.T) {
 }
 
 /*
+   Test for replace text with formatting
+*/
+func TestReplaceTextFormatting(t *testing.T) {
+	var slideIndex int32 = 1
+	var shapeIndex int32 = 1
+	var paragraphIndex int32 = 1
+	var portionIndex int32 = 1
+        oldText := "banana"
+        newText := "orange"
+        color := "#FFFFA500"
+
+        portion := slidescloud.NewPortion()
+        portion.Text = oldText
+
+        portionFormat := slidescloud.NewPortionFormat()
+        portionFormat.FontColor = color
+
+	c := slidescloud.GetTestApiClient()
+
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, _, e = c.SlidesApi.CreatePortion(fileName, slideIndex, shapeIndex, paragraphIndex, portion, &portionIndex, password, folderName, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, _, e = c.SlidesApi.ReplaceTextFormatting(fileName, oldText, newText, portionFormat, nil, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	updatedPortion, _, e := c.SlidesApi.GetPortion(fileName, slideIndex, shapeIndex, paragraphIndex, portionIndex, password, folderName, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	if updatedPortion.GetText() != newText {
+		t.Errorf("Wrong portion text. Expected %v but was %v.", newText, updatedPortion.GetText())
+		return
+	}
+	if updatedPortion.GetFontColor() != color {
+		t.Errorf("Wrong portion color. Expected %v but was %v.", color, updatedPortion.GetFontColor())
+		return
+	}
+}
+
+/*
+   Test for replace text with formatting online
+*/
+func TestReplaceTextFormattingOnline(t *testing.T) {
+	source, e := ioutil.ReadFile(localTestFile)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	c := slidescloud.GetTestApiClient()
+
+        portionFormat := slidescloud.NewPortionFormat()
+        portionFormat.FontColor = "#FFFFA500"
+	_, _, e = c.SlidesApi.ReplaceTextFormattingOnline(source, "orange", "banana", portionFormat, nil, password)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+
+/*
    Test for highlight shape text
 */
 func TestShapeTextHighlight(t *testing.T) {

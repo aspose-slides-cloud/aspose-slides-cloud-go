@@ -104,6 +104,18 @@ type IEffect interface {
 	// This attribute specifies if the animation effect stops the previous sound.
 	GetStopPreviousSound() bool
 	SetStopPreviousSound(newValue bool)
+
+	// This attribute specifies if the effect will rewind when done playing.
+	GetRewind() bool
+	SetRewind(newValue bool)
+
+	// Defined an after animation color for effect.
+	GetAfterAnimationType() string
+	SetAfterAnimationType(newValue string)
+
+	// Defined an after animation color for effect. Applied when the AfterAnimationType property is set to Color.
+	GetAfterAnimationColor() string
+	SetAfterAnimationColor(newValue string)
 }
 
 type Effect struct {
@@ -161,6 +173,15 @@ type Effect struct {
 
 	// This attribute specifies if the animation effect stops the previous sound.
 	StopPreviousSound bool `json:"StopPreviousSound"`
+
+	// This attribute specifies if the effect will rewind when done playing.
+	Rewind bool `json:"Rewind"`
+
+	// Defined an after animation color for effect.
+	AfterAnimationType string `json:"AfterAnimationType,omitempty"`
+
+	// Defined an after animation color for effect. Applied when the AfterAnimationType property is set to Color.
+	AfterAnimationColor string `json:"AfterAnimationColor,omitempty"`
 }
 
 func NewEffect() *Effect {
@@ -293,6 +314,27 @@ func (this *Effect) GetStopPreviousSound() bool {
 
 func (this *Effect) SetStopPreviousSound(newValue bool) {
 	this.StopPreviousSound = newValue
+}
+func (this *Effect) GetRewind() bool {
+	return this.Rewind
+}
+
+func (this *Effect) SetRewind(newValue bool) {
+	this.Rewind = newValue
+}
+func (this *Effect) GetAfterAnimationType() string {
+	return this.AfterAnimationType
+}
+
+func (this *Effect) SetAfterAnimationType(newValue string) {
+	this.AfterAnimationType = newValue
+}
+func (this *Effect) GetAfterAnimationColor() string {
+	return this.AfterAnimationColor
+}
+
+func (this *Effect) SetAfterAnimationColor(newValue string) {
+	this.AfterAnimationColor = newValue
 }
 
 func (this *Effect) UnmarshalJSON(b []byte) error {
@@ -737,6 +779,81 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.StopPreviousSound = valueForStopPreviousSound
+		}
+	}
+	
+	if valRewind, ok := objMap["rewind"]; ok {
+		if valRewind != nil {
+			var valueForRewind bool
+			err = json.Unmarshal(*valRewind, &valueForRewind)
+			if err != nil {
+				return err
+			}
+			this.Rewind = valueForRewind
+		}
+	}
+	if valRewindCap, ok := objMap["Rewind"]; ok {
+		if valRewindCap != nil {
+			var valueForRewind bool
+			err = json.Unmarshal(*valRewindCap, &valueForRewind)
+			if err != nil {
+				return err
+			}
+			this.Rewind = valueForRewind
+		}
+	}
+	
+	if valAfterAnimationType, ok := objMap["afterAnimationType"]; ok {
+		if valAfterAnimationType != nil {
+			var valueForAfterAnimationType string
+			err = json.Unmarshal(*valAfterAnimationType, &valueForAfterAnimationType)
+			if err != nil {
+				var valueForAfterAnimationTypeInt int32
+				err = json.Unmarshal(*valAfterAnimationType, &valueForAfterAnimationTypeInt)
+				if err != nil {
+					return err
+				}
+				this.AfterAnimationType = string(valueForAfterAnimationTypeInt)
+			} else {
+				this.AfterAnimationType = valueForAfterAnimationType
+			}
+		}
+	}
+	if valAfterAnimationTypeCap, ok := objMap["AfterAnimationType"]; ok {
+		if valAfterAnimationTypeCap != nil {
+			var valueForAfterAnimationType string
+			err = json.Unmarshal(*valAfterAnimationTypeCap, &valueForAfterAnimationType)
+			if err != nil {
+				var valueForAfterAnimationTypeInt int32
+				err = json.Unmarshal(*valAfterAnimationTypeCap, &valueForAfterAnimationTypeInt)
+				if err != nil {
+					return err
+				}
+				this.AfterAnimationType = string(valueForAfterAnimationTypeInt)
+			} else {
+				this.AfterAnimationType = valueForAfterAnimationType
+			}
+		}
+	}
+	
+	if valAfterAnimationColor, ok := objMap["afterAnimationColor"]; ok {
+		if valAfterAnimationColor != nil {
+			var valueForAfterAnimationColor string
+			err = json.Unmarshal(*valAfterAnimationColor, &valueForAfterAnimationColor)
+			if err != nil {
+				return err
+			}
+			this.AfterAnimationColor = valueForAfterAnimationColor
+		}
+	}
+	if valAfterAnimationColorCap, ok := objMap["AfterAnimationColor"]; ok {
+		if valAfterAnimationColorCap != nil {
+			var valueForAfterAnimationColor string
+			err = json.Unmarshal(*valAfterAnimationColorCap, &valueForAfterAnimationColor)
+			if err != nil {
+				return err
+			}
+			this.AfterAnimationColor = valueForAfterAnimationColor
 		}
 	}
 

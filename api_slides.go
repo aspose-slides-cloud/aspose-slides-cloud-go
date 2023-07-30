@@ -22098,6 +22098,212 @@ func (a *SlidesApiService) ReplaceSlideTextOnline(document []byte, slideIndex in
 	return successPayload, localVarHttpResponse, err
 }
 
+/* SlidesApiService Finds and replaces text in presentation with given format.
+ @param name Document name.
+ @param oldValue Text value to be replaced.
+ @param newValue Text value to replace with.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "portionFormat" (PortionFormat) Portion format.
+     @param "withMasters" (bool) Text replacement includes master slides.
+     @param "password" (string) Document password.
+     @param "folder" (string) Document folder.
+     @param "storage" (string) Document storage.
+ @return Document*/
+func (a *SlidesApiService) ReplaceTextFormatting(name string, oldValue string, newValue string, portionFormat IPortionFormat, withMasters *bool, password string, folder string, storage string) (IDocument, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IDocument
+	)
+
+	if len(name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter name")
+	}
+	if len(oldValue) == 0 {
+		return successPayload, nil, reportError("Missing required parameter oldValue")
+	}
+	if len(newValue) == 0 {
+		return successPayload, nil, reportError("Missing required parameter newValue")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/replaceTextFormatting"
+	namePathStringValue := fmt.Sprintf("%v", name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if withMasters != nil {
+		if err := typeCheckParameter(*withMasters, "bool", "withMasters"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("OldValue", parameterToString(oldValue, ""))
+	localVarQueryParams.Add("NewValue", parameterToString(newValue, ""))
+	if withMasters != nil {
+		localVarQueryParams.Add("WithMasters", parameterToString(withMasters, ""))
+	}
+	if localVarTempParam := folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	localVarPostBody = &portionFormat
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("Document", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IDocument); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IDocument); true {
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* SlidesApiService Finds and replaces text in presentation with given format.
+ @param document Document data.
+ @param oldValue Text value to be replaced.
+ @param newValue Text value to replace with.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "portionFormat" (PortionFormat) Portion format.
+     @param "withMasters" (bool) Text replacement includes master slides.
+     @param "password" (string) Document password.
+ @return *os.File*/
+func (a *SlidesApiService) ReplaceTextFormattingOnline(document []byte, oldValue string, newValue string, portionFormat IPortionFormat, withMasters *bool, password string) (*os.File, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload *os.File
+	)
+
+	if len(document) == 0 {
+		return successPayload, nil, reportError("Missing required parameter document")
+	}
+	if len(oldValue) == 0 {
+		return successPayload, nil, reportError("Missing required parameter oldValue")
+	}
+	if len(newValue) == 0 {
+		return successPayload, nil, reportError("Missing required parameter newValue")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/replaceTextFormatting"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if withMasters != nil {
+		if err := typeCheckParameter(*withMasters, "bool", "withMasters"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarQueryParams.Add("OldValue", parameterToString(oldValue, ""))
+	localVarQueryParams.Add("NewValue", parameterToString(newValue, ""))
+	if withMasters != nil {
+		localVarQueryParams.Add("WithMasters", parameterToString(withMasters, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"multipart/form-data",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarPostBody = &portionFormat
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	defer successPayload.Close()
+        successPayload, err = processFileResponse(responseBody)
+        if err != nil {
+		return successPayload, localVarHttpResponse, err
+        }
+
+	return successPayload, localVarHttpResponse, err
+}
+
 /* SlidesApiService Convert Mathematical Text to MathML Format and saves result to the storage
  @param name Document name.
  @param slideIndex Slide index.
@@ -28846,8 +29052,8 @@ func (a *SlidesApiService) UpdateTableRow(name string, slideIndex int32, shapeIn
 /* SlidesApiService Update VBA module.
  @param name Document name.
  @param moduleIndex The index of the macros module to remove.
+ @param moduleDto VBA module DTO.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "moduleDto" (VbaModule) VBA module DTO.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -28862,6 +29068,9 @@ func (a *SlidesApiService) UpdateVbaModule(name string, moduleIndex int32, modul
 
 	if len(name) == 0 {
 		return successPayload, nil, reportError("Missing required parameter name")
+	}
+	if moduleDto == nil {
+		return successPayload, nil, reportError("Missing required parameter moduleDto")
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/vbaProject/modules/{moduleIndex}"

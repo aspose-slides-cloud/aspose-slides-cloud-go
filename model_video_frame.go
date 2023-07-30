@@ -140,6 +140,14 @@ type IVideoFrame interface {
 	// Picture fill format.
 	GetPictureFillFormat() IPictureFill
 	SetPictureFillFormat(newValue IPictureFill)
+
+	// Trim start [ms]
+	GetTrimFromStart() float64
+	SetTrimFromStart(newValue float64)
+
+	// Trim end [ms]
+	GetTrimFromEnd() float64
+	SetTrimFromEnd(newValue float64)
 }
 
 type VideoFrame struct {
@@ -224,6 +232,12 @@ type VideoFrame struct {
 
 	// Picture fill format.
 	PictureFillFormat IPictureFill `json:"PictureFillFormat,omitempty"`
+
+	// Trim start [ms]
+	TrimFromStart float64 `json:"TrimFromStart,omitempty"`
+
+	// Trim end [ms]
+	TrimFromEnd float64 `json:"TrimFromEnd,omitempty"`
 }
 
 func NewVideoFrame() *VideoFrame {
@@ -421,6 +435,20 @@ func (this *VideoFrame) GetPictureFillFormat() IPictureFill {
 
 func (this *VideoFrame) SetPictureFillFormat(newValue IPictureFill) {
 	this.PictureFillFormat = newValue
+}
+func (this *VideoFrame) GetTrimFromStart() float64 {
+	return this.TrimFromStart
+}
+
+func (this *VideoFrame) SetTrimFromStart(newValue float64) {
+	this.TrimFromStart = newValue
+}
+func (this *VideoFrame) GetTrimFromEnd() float64 {
+	return this.TrimFromEnd
+}
+
+func (this *VideoFrame) SetTrimFromEnd(newValue float64) {
+	this.TrimFromEnd = newValue
 }
 
 func (this *VideoFrame) UnmarshalJSON(b []byte) error {
@@ -1246,6 +1274,48 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 			if ok {
 				this.PictureFillFormat = vInterfaceObject
 			}
+		}
+	}
+	
+	if valTrimFromStart, ok := objMap["trimFromStart"]; ok {
+		if valTrimFromStart != nil {
+			var valueForTrimFromStart float64
+			err = json.Unmarshal(*valTrimFromStart, &valueForTrimFromStart)
+			if err != nil {
+				return err
+			}
+			this.TrimFromStart = valueForTrimFromStart
+		}
+	}
+	if valTrimFromStartCap, ok := objMap["TrimFromStart"]; ok {
+		if valTrimFromStartCap != nil {
+			var valueForTrimFromStart float64
+			err = json.Unmarshal(*valTrimFromStartCap, &valueForTrimFromStart)
+			if err != nil {
+				return err
+			}
+			this.TrimFromStart = valueForTrimFromStart
+		}
+	}
+	
+	if valTrimFromEnd, ok := objMap["trimFromEnd"]; ok {
+		if valTrimFromEnd != nil {
+			var valueForTrimFromEnd float64
+			err = json.Unmarshal(*valTrimFromEnd, &valueForTrimFromEnd)
+			if err != nil {
+				return err
+			}
+			this.TrimFromEnd = valueForTrimFromEnd
+		}
+	}
+	if valTrimFromEndCap, ok := objMap["TrimFromEnd"]; ok {
+		if valTrimFromEndCap != nil {
+			var valueForTrimFromEnd float64
+			err = json.Unmarshal(*valTrimFromEndCap, &valueForTrimFromEnd)
+			if err != nil {
+				return err
+			}
+			this.TrimFromEnd = valueForTrimFromEnd
 		}
 	}
 

@@ -50004,6 +50004,598 @@ func TestReplaceSlideTextOnlineInvalidPassword(t *testing.T) {
     assertError(t, "ReplaceSlideTextOnline", "password", "string", testpassword, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormatting method
+*/
+func TestReplaceTextFormatting(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceTextFormatting", "name", "string").(string)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormatting", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormatting", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormatting", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormatting", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormatting", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceTextFormatting", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceTextFormatting", "storage", "string").(string)
+    e := InitializeTest("ReplaceTextFormatting", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, _, e = c.SlidesApi.ReplaceTextFormatting(testname, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormatting method with invalid name
+*/
+func TestReplaceTextFormattingInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceTextFormatting", "name", "string").(string)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormatting", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormatting", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormatting", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormatting", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormatting", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceTextFormatting", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceTextFormatting", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "ReplaceTextFormatting", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceTextFormatting", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormatting(testname, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormatting", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormatting method with invalid oldValue
+*/
+func TestReplaceTextFormattingInvalidOldValue(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceTextFormatting", "name", "string").(string)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormatting", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormatting", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormatting", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormatting", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormatting", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceTextFormatting", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceTextFormatting", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testoldValue, "ReplaceTextFormatting", "oldValue", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testoldValue = nullValue
+    } else {
+        testoldValue, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceTextFormatting", "oldValue", testoldValue)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormatting(testname, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormatting", "oldValue", "string", testoldValue, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormatting method with invalid newValue
+*/
+func TestReplaceTextFormattingInvalidNewValue(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceTextFormatting", "name", "string").(string)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormatting", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormatting", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormatting", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormatting", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormatting", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceTextFormatting", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceTextFormatting", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testnewValue, "ReplaceTextFormatting", "newValue", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testnewValue = nullValue
+    } else {
+        testnewValue, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceTextFormatting", "newValue", testnewValue)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormatting(testname, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormatting", "newValue", "string", testnewValue, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormatting method with invalid portionFormat
+*/
+func TestReplaceTextFormattingInvalidPortionFormat(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceTextFormatting", "name", "string").(string)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormatting", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormatting", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormatting", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormatting", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormatting", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceTextFormatting", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceTextFormatting", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testportionFormat, "ReplaceTextFormatting", "portionFormat", "PortionFormat")
+    if (invalidValue == nil) {
+        testportionFormat = nil
+    } else {
+        testportionFormat, _ = invalidValue.(IPortionFormat)
+    }
+
+    e := InitializeTest("ReplaceTextFormatting", "portionFormat", testportionFormat)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormatting(testname, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormatting", "portionFormat", "PortionFormat", testportionFormat, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormatting method with invalid withMasters
+*/
+func TestReplaceTextFormattingInvalidWithMasters(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceTextFormatting", "name", "string").(string)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormatting", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormatting", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormatting", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormatting", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormatting", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceTextFormatting", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceTextFormatting", "storage", "string").(string)
+    testwithMasters = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testwithMasters, "ReplaceTextFormatting", "withMasters", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testwithMasters = nullValue
+    } else {
+        *testwithMasters, _ = invalidValue.(bool)
+    }
+
+    e := InitializeTest("ReplaceTextFormatting", "withMasters", testwithMasters)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormatting(testname, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormatting", "withMasters", "bool", testwithMasters, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormatting method with invalid password
+*/
+func TestReplaceTextFormattingInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceTextFormatting", "name", "string").(string)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormatting", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormatting", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormatting", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormatting", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormatting", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceTextFormatting", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceTextFormatting", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "ReplaceTextFormatting", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceTextFormatting", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormatting(testname, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormatting", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormatting method with invalid folder
+*/
+func TestReplaceTextFormattingInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceTextFormatting", "name", "string").(string)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormatting", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormatting", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormatting", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormatting", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormatting", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceTextFormatting", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceTextFormatting", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "ReplaceTextFormatting", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceTextFormatting", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormatting(testname, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormatting", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormatting method with invalid storage
+*/
+func TestReplaceTextFormattingInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceTextFormatting", "name", "string").(string)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormatting", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormatting", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormatting", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormatting", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormatting", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceTextFormatting", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceTextFormatting", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "ReplaceTextFormatting", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceTextFormatting", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormatting(testname, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormatting", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormattingOnline method
+*/
+func TestReplaceTextFormattingOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceTextFormattingOnline", "document", "[]byte").([]byte)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormattingOnline", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormattingOnline", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormattingOnline", "password", "string").(string)
+    e := InitializeTest("ReplaceTextFormattingOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    r, _, e := c.SlidesApi.ReplaceTextFormattingOnline(testdocument, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormattingOnline method with invalid document
+*/
+func TestReplaceTextFormattingOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceTextFormattingOnline", "document", "[]byte").([]byte)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormattingOnline", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormattingOnline", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormattingOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "ReplaceTextFormattingOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := InitializeTest("ReplaceTextFormattingOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormattingOnline(testdocument, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormattingOnline", "document", "[]byte", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormattingOnline method with invalid oldValue
+*/
+func TestReplaceTextFormattingOnlineInvalidOldValue(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceTextFormattingOnline", "document", "[]byte").([]byte)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormattingOnline", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormattingOnline", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormattingOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testoldValue, "ReplaceTextFormattingOnline", "oldValue", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testoldValue = nullValue
+    } else {
+        testoldValue, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceTextFormattingOnline", "oldValue", testoldValue)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormattingOnline(testdocument, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormattingOnline", "oldValue", "string", testoldValue, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormattingOnline method with invalid newValue
+*/
+func TestReplaceTextFormattingOnlineInvalidNewValue(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceTextFormattingOnline", "document", "[]byte").([]byte)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormattingOnline", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormattingOnline", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormattingOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testnewValue, "ReplaceTextFormattingOnline", "newValue", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testnewValue = nullValue
+    } else {
+        testnewValue, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceTextFormattingOnline", "newValue", testnewValue)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormattingOnline(testdocument, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormattingOnline", "newValue", "string", testnewValue, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormattingOnline method with invalid portionFormat
+*/
+func TestReplaceTextFormattingOnlineInvalidPortionFormat(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceTextFormattingOnline", "document", "[]byte").([]byte)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormattingOnline", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormattingOnline", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormattingOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testportionFormat, "ReplaceTextFormattingOnline", "portionFormat", "PortionFormat")
+    if (invalidValue == nil) {
+        testportionFormat = nil
+    } else {
+        testportionFormat, _ = invalidValue.(IPortionFormat)
+    }
+
+    e := InitializeTest("ReplaceTextFormattingOnline", "portionFormat", testportionFormat)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormattingOnline(testdocument, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormattingOnline", "portionFormat", "PortionFormat", testportionFormat, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormattingOnline method with invalid withMasters
+*/
+func TestReplaceTextFormattingOnlineInvalidWithMasters(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceTextFormattingOnline", "document", "[]byte").([]byte)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormattingOnline", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormattingOnline", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormattingOnline", "password", "string").(string)
+    testwithMasters = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testwithMasters, "ReplaceTextFormattingOnline", "withMasters", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testwithMasters = nullValue
+    } else {
+        *testwithMasters, _ = invalidValue.(bool)
+    }
+
+    e := InitializeTest("ReplaceTextFormattingOnline", "withMasters", testwithMasters)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormattingOnline(testdocument, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormattingOnline", "withMasters", "bool", testwithMasters, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Finds and replaces text in presentation with given format.
+   Test for SlidesApi.ReplaceTextFormattingOnline method with invalid password
+*/
+func TestReplaceTextFormattingOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceTextFormattingOnline", "document", "[]byte").([]byte)
+    testoldValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplaceTextFormattingOnline", "newValue", "string").(string)
+    testportionFormat, _ := createTestParamValue("ReplaceTextFormattingOnline", "portionFormat", "PortionFormat").(IPortionFormat)
+    var testwithMasters *bool
+    testwithMastersValue := createTestParamValue("ReplaceTextFormattingOnline", "withMasters", "bool")
+    if (testwithMastersValue != nil) {
+        testwithMasters = new(bool)
+        *testwithMasters, _ = testwithMastersValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplaceTextFormattingOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "ReplaceTextFormattingOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceTextFormattingOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceTextFormattingOnline(testdocument, testoldValue, testnewValue, testportionFormat, testwithMasters, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceTextFormattingOnline", "password", "string", testpassword, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
    Test for SlidesApi.SavePortionAsMathMl method
 */

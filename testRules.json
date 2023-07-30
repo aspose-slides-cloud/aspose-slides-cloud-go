@@ -205,7 +205,6 @@
 		{ "Message": "Error processing presentation ", "Parameter": "Files" },
 		{ "Message": "Image expected", "Parameter": "Image" },
 		{ "Message": " required parameter", "Type": "model" },
-		{ "Message": " DTO expected", "Type": "VbaModule", "Method": "UpdateVbaModule" },
 		{ "Message": "Failed to load the presentation", "Parameter": "Request", "Method": "/Merge.*Online/" },
 		{ "Message": "Invalid Request", "Parameter": "VersionId" },
 		{ "Message": "AmazonS3 Storage exception", "Parameter": "VersionId", "Method": "ObjectExists" },
