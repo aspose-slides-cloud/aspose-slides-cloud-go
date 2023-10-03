@@ -48906,6 +48906,360 @@ func TestReplaceFontOnlineInvalidFontsFolder(t *testing.T) {
     assertError(t, "ReplaceFontOnline", "fontsFolder", "string", testfontsFolder, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Replaces image by the specified index.
+   Test for SlidesApi.ReplaceImage method
+*/
+func TestReplaceImage(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceImage", "name", "string").(string)
+    testimageIndex, _ := createTestParamValue("ReplaceImage", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImage", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImage", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceImage", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceImage", "storage", "string").(string)
+    e := InitializeTest("ReplaceImage", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    _, e = c.SlidesApi.ReplaceImage(testname, testimageIndex, testimage, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Replaces image by the specified index.
+   Test for SlidesApi.ReplaceImage method with invalid name
+*/
+func TestReplaceImageInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceImage", "name", "string").(string)
+    testimageIndex, _ := createTestParamValue("ReplaceImage", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImage", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImage", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceImage", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceImage", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "ReplaceImage", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceImage", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestApiClient().SlidesApi.ReplaceImage(testname, testimageIndex, testimage, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceImage", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces image by the specified index.
+   Test for SlidesApi.ReplaceImage method with invalid imageIndex
+*/
+func TestReplaceImageInvalidImageIndex(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceImage", "name", "string").(string)
+    testimageIndex, _ := createTestParamValue("ReplaceImage", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImage", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImage", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceImage", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceImage", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testimageIndex, "ReplaceImage", "imageIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testimageIndex = nullValue
+    } else {
+        testimageIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("ReplaceImage", "imageIndex", testimageIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestApiClient().SlidesApi.ReplaceImage(testname, testimageIndex, testimage, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceImage", "imageIndex", "int32", testimageIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces image by the specified index.
+   Test for SlidesApi.ReplaceImage method with invalid image
+*/
+func TestReplaceImageInvalidImage(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceImage", "name", "string").(string)
+    testimageIndex, _ := createTestParamValue("ReplaceImage", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImage", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImage", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceImage", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceImage", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testimage, "ReplaceImage", "image", "[]byte")
+    if (invalidValue == nil) {
+        testimage = nil
+    } else {
+        testimage, _ = invalidValue.([]byte)
+    }
+
+    e := InitializeTest("ReplaceImage", "image", testimage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestApiClient().SlidesApi.ReplaceImage(testname, testimageIndex, testimage, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceImage", "image", "[]byte", testimage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces image by the specified index.
+   Test for SlidesApi.ReplaceImage method with invalid password
+*/
+func TestReplaceImageInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceImage", "name", "string").(string)
+    testimageIndex, _ := createTestParamValue("ReplaceImage", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImage", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImage", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceImage", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceImage", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "ReplaceImage", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceImage", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestApiClient().SlidesApi.ReplaceImage(testname, testimageIndex, testimage, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceImage", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces image by the specified index.
+   Test for SlidesApi.ReplaceImage method with invalid folder
+*/
+func TestReplaceImageInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceImage", "name", "string").(string)
+    testimageIndex, _ := createTestParamValue("ReplaceImage", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImage", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImage", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceImage", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceImage", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "ReplaceImage", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceImage", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestApiClient().SlidesApi.ReplaceImage(testname, testimageIndex, testimage, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceImage", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces image by the specified index.
+   Test for SlidesApi.ReplaceImage method with invalid storage
+*/
+func TestReplaceImageInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("ReplaceImage", "name", "string").(string)
+    testimageIndex, _ := createTestParamValue("ReplaceImage", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImage", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImage", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplaceImage", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplaceImage", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "ReplaceImage", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceImage", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestApiClient().SlidesApi.ReplaceImage(testname, testimageIndex, testimage, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceImage", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces image by the specified index and returns updated document. 
+   Test for SlidesApi.ReplaceImageOnline method
+*/
+func TestReplaceImageOnline(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceImageOnline", "document", "[]byte").([]byte)
+    testimageIndex, _ := createTestParamValue("ReplaceImageOnline", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImageOnline", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImageOnline", "password", "string").(string)
+    e := InitializeTest("ReplaceImageOnline", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestApiClient()
+    r, _, e := c.SlidesApi.ReplaceImageOnline(testdocument, testimageIndex, testimage, testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
+}
+
+/* SlidesApiServiceTests Replaces image by the specified index and returns updated document. 
+   Test for SlidesApi.ReplaceImageOnline method with invalid document
+*/
+func TestReplaceImageOnlineInvalidDocument(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceImageOnline", "document", "[]byte").([]byte)
+    testimageIndex, _ := createTestParamValue("ReplaceImageOnline", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImageOnline", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImageOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testdocument, "ReplaceImageOnline", "document", "[]byte")
+    if (invalidValue == nil) {
+        testdocument = nil
+    } else {
+        testdocument, _ = invalidValue.([]byte)
+    }
+
+    e := InitializeTest("ReplaceImageOnline", "document", testdocument)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceImageOnline(testdocument, testimageIndex, testimage, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceImageOnline", "document", "[]byte", testdocument, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces image by the specified index and returns updated document. 
+   Test for SlidesApi.ReplaceImageOnline method with invalid imageIndex
+*/
+func TestReplaceImageOnlineInvalidImageIndex(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceImageOnline", "document", "[]byte").([]byte)
+    testimageIndex, _ := createTestParamValue("ReplaceImageOnline", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImageOnline", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImageOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testimageIndex, "ReplaceImageOnline", "imageIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testimageIndex = nullValue
+    } else {
+        testimageIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("ReplaceImageOnline", "imageIndex", testimageIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceImageOnline(testdocument, testimageIndex, testimage, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceImageOnline", "imageIndex", "int32", testimageIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces image by the specified index and returns updated document. 
+   Test for SlidesApi.ReplaceImageOnline method with invalid image
+*/
+func TestReplaceImageOnlineInvalidImage(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceImageOnline", "document", "[]byte").([]byte)
+    testimageIndex, _ := createTestParamValue("ReplaceImageOnline", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImageOnline", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImageOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testimage, "ReplaceImageOnline", "image", "[]byte")
+    if (invalidValue == nil) {
+        testimage = nil
+    } else {
+        testimage, _ = invalidValue.([]byte)
+    }
+
+    e := InitializeTest("ReplaceImageOnline", "image", testimage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceImageOnline(testdocument, testimageIndex, testimage, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceImageOnline", "image", "[]byte", testimage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replaces image by the specified index and returns updated document. 
+   Test for SlidesApi.ReplaceImageOnline method with invalid password
+*/
+func TestReplaceImageOnlineInvalidPassword(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplaceImageOnline", "document", "[]byte").([]byte)
+    testimageIndex, _ := createTestParamValue("ReplaceImageOnline", "imageIndex", "int32").(int32)
+    testimage, _ := createTestParamValue("ReplaceImageOnline", "image", "[]byte").([]byte)
+    testpassword, _ := createTestParamValue("ReplaceImageOnline", "password", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "ReplaceImageOnline", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("ReplaceImageOnline", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestApiClient().SlidesApi.ReplaceImageOnline(testdocument, testimageIndex, testimage, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplaceImageOnline", "password", "string", testpassword, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Replace text with a new value.
    Test for SlidesApi.ReplacePresentationText method
 */
