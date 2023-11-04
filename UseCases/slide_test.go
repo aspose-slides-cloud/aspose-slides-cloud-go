@@ -38,7 +38,7 @@ import (
    Test for get slides
 */
 func TestSlidesGet(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -64,7 +64,7 @@ func TestSlidesGet(t *testing.T) {
 func TestSlideGet(t *testing.T) {
 	var slideIndex int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -86,7 +86,7 @@ func TestSlideCreate(t *testing.T) {
 	var position int32 = 1
 	var slidesCount int = 9
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -124,7 +124,7 @@ func TestSlideCreate(t *testing.T) {
 func TestSlideCopy(t *testing.T) {
 	var slidesCount int = 9
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -153,7 +153,7 @@ func TestSlideCopyFromSource(t *testing.T) {
 	var slideIndex int32 = 1
 	var position int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -187,7 +187,7 @@ func TestSlideMove(t *testing.T) {
 	var slideIndex int32 = 1
 	var position int32 = 2
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -213,7 +213,7 @@ func TestSlideMove(t *testing.T) {
 func TestSlidesReorder(t *testing.T) {
 	var slidesCount int = 9
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -242,7 +242,7 @@ func TestSlidesReorder(t *testing.T) {
 func TestSlideUpdate(t *testing.T) {
 	var slideIndex int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -271,7 +271,7 @@ func TestSlideUpdate(t *testing.T) {
    Test for delete slide
 */
 func TestSlidesDelete(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -297,7 +297,7 @@ func TestSlidesDelete(t *testing.T) {
 func TestSlideDeleteIndexes(t *testing.T) {
 	var slidesCount int = 9
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -325,7 +325,7 @@ func TestSlideDelete(t *testing.T) {
 	var slidesCount int = 9
 	var slideIndex int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -351,7 +351,7 @@ func TestSlideDelete(t *testing.T) {
 func TestBackgroundGet(t *testing.T) {
 	var slideIndex int32 = 5
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -378,7 +378,7 @@ func TestBackgroundSet(t *testing.T) {
 	color := "#FFF5FF8A"
 	var slideIndex int32 = 5
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -415,7 +415,7 @@ func TestBackgroundColorSet(t *testing.T) {
 	color := "#FFF5FF8A"
 	var slideIndex int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -446,7 +446,7 @@ func TestBackgroundColorSet(t *testing.T) {
 func TestBackgroundDelete(t *testing.T) {
 	var slideIndex int32 = 5
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

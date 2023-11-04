@@ -36,10 +36,12 @@ import (
 	"regexp"
 	"strings"
 	"testing"
+	"time"
 )
 
 var (
 	testApiClient           *APIClient
+	testAsyncApiClient           *APIClient
 	testFolderName          = "TempSlidesSDK"
 	testFileName            = "test.pptx"
 	unprotectedTestFileName = "test-unprotected.pptx"
@@ -48,12 +50,30 @@ var (
 	testFilePassword        = "password"
 	isInitialized           = false
 	expectedTestDataVersion = "1"
+        testOperationId         = ""
 )
+
+func EnsureOperationId() {
+	if testOperationId == "" {
+		c := GetTestSlidesAsyncApiClient()
+		source, e := ioutil.ReadFile("TestData/" + testFileName)
+		if e != nil {
+			return
+		}
+		operationId, _, e := c.SlidesAsyncApi.StartConvert(source, "pdf", testFilePassword, "", "", nil, nil)
+		if e != nil {
+			return
+		}
+		testOperationId = operationId
+		time.Sleep(time.Duration(10) * time.Second)
+	}
+}
 
 func InitializeTest(functionName string, invalidParamName string, invalidParamValue interface{}) error {
 	if !isInitialized {
+		EnsureOperationId()
 		version := "0"
-		c := GetTestApiClient()
+		c := GetTestSlidesApiClient()
 		f, _, e := c.SlidesApi.DownloadFile("TempTests/version.txt", "", "")
 		if e == nil {
 			data, e := ioutil.ReadFile(f.Name())
@@ -98,13 +118,13 @@ func InitializeTest(functionName string, invalidParamName string, invalidParamVa
 
 	for path, rule := range files {
 		if rule.Action == "Put" {
-			c := GetTestApiClient()
+			c := GetTestSlidesApiClient()
 			_, e := c.SlidesApi.CopyFile("TempTests/"+rule.ActualName, path, "", "", "")
 			if e != nil {
 				return e
 			}
 		} else if rule.Action == "Delete" {
-			c := GetTestApiClient()
+			c := GetTestSlidesApiClient()
 			_, e := c.SlidesApi.DeleteFile(path, "", "")
 			if e != nil {
 				return e
@@ -131,7 +151,7 @@ func getTestRules() *TestRules {
 	return testRules
 }
 
-func GetTestApiClient() *APIClient {
+func GetTestSlidesApiClient() *APIClient {
 	if testApiClient == nil {
 		cfg := NewConfiguration()
 		configFile, err := os.Open("testConfig.json")
@@ -143,7 +163,21 @@ func GetTestApiClient() *APIClient {
 	return testApiClient
 }
 
+func GetTestSlidesAsyncApiClient() *APIClient {
+	if testAsyncApiClient == nil {
+		cfg := NewConfiguration()
+		configFile, err := os.Open("testConfig.json")
+		if err == nil {
+			json.NewDecoder(configFile).Decode(cfg)
+		}
+		cfg.BasePath = cfg.AsyncBasePath
+		testAsyncApiClient = NewAPIClient(cfg)
+	}
+	return testAsyncApiClient
+}
+
 func createTestParamValue(functionName string, paramName string, paramType string) interface{} {
+	EnsureOperationId()
 	var value interface{}
 	value = nil
 	ruleType := paramType
@@ -322,6 +356,12 @@ func untemplatize(template interface{}, value interface{}, name interface{}) int
 			}
 			data, _ := ioutil.ReadFile("TestData/" + fileName)
 			return data
+		}
+		if template.(string) == "#OperationId" {
+			return testOperationId
+		}
+		if template.(string) == "#NewId" {
+			return "705e4dcb-3ecd-24f3-3a35-3e926e4bded5"
 		}
 		if value != nil {
 			if reflect.TypeOf(value).Name() == "string" {

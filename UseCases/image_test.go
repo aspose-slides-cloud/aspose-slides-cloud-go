@@ -40,7 +40,7 @@ import (
    Test for Get image
 */
 func TestImageGet(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -68,7 +68,7 @@ func TestImageGet(t *testing.T) {
    Test for download all images from storage
 */
 func TestImageDownloadAllStorage(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -135,7 +135,7 @@ func TestImageDownloadAllRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 
 	downloadResult, _, e := c.SlidesApi.DownloadImagesDefaultFormatOnline(source, password)
 	if e != nil {
@@ -193,7 +193,7 @@ func TestImageDownloadAllRequest(t *testing.T) {
 */
 func TestImageDownloadStorage(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -237,7 +237,7 @@ func TestImageDownloadRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 
 	downloadResult, _, e := c.SlidesApi.DownloadImageDefaultFormatOnline(source, slideIndex, password)
 	if e != nil {

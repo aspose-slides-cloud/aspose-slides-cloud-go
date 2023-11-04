@@ -38,7 +38,7 @@ import (
 	Create VBA module
 */
 func TestCreateVbaModule(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -70,7 +70,7 @@ func TestCreateVbaModule(t *testing.T) {
 */
 func TestDeleteVbaModule(t *testing.T) {
 	macrosFileName := "macros.pptm"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+macrosFileName, folderName+"/"+macrosFileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -92,7 +92,7 @@ func TestDeleteVbaModule(t *testing.T) {
 */
 func TestGetVbaModule(t *testing.T) {
 	macrosFileName := "macros.pptm"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+macrosFileName, folderName+"/"+macrosFileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -114,7 +114,7 @@ func TestGetVbaModule(t *testing.T) {
 */
 func TestGetVbaProject(t *testing.T) {
 	macrosFileName := "macros.pptm"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+macrosFileName, folderName+"/"+macrosFileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -135,7 +135,7 @@ func TestGetVbaProject(t *testing.T) {
 */
 func TestUpdateVbaModule(t *testing.T) {
 	macrosFileName := "macros.pptm"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+macrosFileName, folderName+"/"+macrosFileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

@@ -37,7 +37,7 @@ import (
    Test for Get chart
 */
 func TestChartGet(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -63,7 +63,7 @@ func TestChartGet(t *testing.T) {
    Test for create chart
 */
 func TestChartCreateAutoDataSource(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -119,7 +119,7 @@ func TestChartCreateAutoDataSource(t *testing.T) {
    Test for create chart with data in workbook
 */
 func TestChartCreateWorksheet(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -206,7 +206,7 @@ func TestChartCreateWorksheet(t *testing.T) {
    Test for create chart with literals
 */
 func TestChartCreateLiterals(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -278,7 +278,7 @@ func TestChartCreateLiterals(t *testing.T) {
    Test for update chart
 */
 func TestChartUpdate(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -334,7 +334,7 @@ func TestChartUpdate(t *testing.T) {
    Test for create chart series
 */
 func TestChartSeriesCreate(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -371,7 +371,7 @@ func TestChartSeriesCreate(t *testing.T) {
    Test for update chart series
 */
 func TestChartSeriesUpdate(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -408,7 +408,7 @@ func TestChartSeriesUpdate(t *testing.T) {
    Test for delete chart series
 */
 func TestChartSeriesDelete(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -434,7 +434,7 @@ func TestChartSeriesDelete(t *testing.T) {
    Test for create chart category
 */
 func TestChartCategoryCreate(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -477,7 +477,7 @@ func TestChartCategoryCreate(t *testing.T) {
    Test for update chart category
 */
 func TestChartCategoryUpdate(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -521,7 +521,7 @@ func TestChartCategoryUpdate(t *testing.T) {
 */
 func TestChartCategoryDelete(t *testing.T) {
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -551,7 +551,7 @@ func TestChartCategoryDelete(t *testing.T) {
    Test for create chart data point
 */
 func TestChartDataPointCreate(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -575,7 +575,7 @@ func TestChartDataPointCreate(t *testing.T) {
    Test for update chart data point
 */
 func TestChartDataPointUpdate(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -611,7 +611,7 @@ func TestChartDataPointUpdate(t *testing.T) {
    Test for delete chart data point
 */
 func TestChartDataPointDelete(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -641,7 +641,7 @@ func TestChartDataPointDelete(t *testing.T) {
    Test for sunburst chart
 */
 func TestChartSunburst(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -701,7 +701,7 @@ func TestChartSunburst(t *testing.T) {
 func TestMultiLevelCategoryAxis(t *testing.T) {
 	var slideIndex int32 = 3
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -787,7 +787,7 @@ func TestTemplate(t *testing.T) {
 	var slideIndex int32 = 3
 	var shapeIndex int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -823,7 +823,7 @@ func TestChartGridLinesFormat(t *testing.T) {
 	var slideIndex int32 = 3
 	var shapeIndex int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -913,7 +913,7 @@ func TestChartSeriesGroups(t *testing.T) {
 	var shapeIndex int32 = 1
 	var seriesGroupIndex int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -957,7 +957,7 @@ func TestChartLegend(t *testing.T) {
 	var slideIndex int32 = 3
 	var shapeIndex int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -995,7 +995,7 @@ func TestChartAxisSet(t *testing.T) {
 	var slideIndex int32 = 3
 	var shapeIndex int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -1037,7 +1037,7 @@ func TestChartWallSet(t *testing.T) {
 	var slideIndex int32 = 8
 	var shapeIndex int32 = 2
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -1071,7 +1071,7 @@ func TestUpdateDataPointFormat(t *testing.T) {
 	var seriesIndex int32 = 2
 	var dataPointIndex int32 = 2
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -1130,7 +1130,7 @@ func TestUpdateDataPointFormat(t *testing.T) {
    Test for create chart with data in workbook
 */
 func TestChartFormulas(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

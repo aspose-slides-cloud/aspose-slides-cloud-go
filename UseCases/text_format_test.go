@@ -39,7 +39,7 @@ import (
 func TestTextFormat3D(t *testing.T) {
 	var slideIndex int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -106,7 +106,7 @@ func TestTextFormat3D(t *testing.T) {
 func TestTextFrameFormat(t *testing.T) {
 	var slideIndex int32 = 1
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

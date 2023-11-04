@@ -40,7 +40,7 @@ func TestAnimationGet(t *testing.T) {
 	var slideIndex int32 = 1
 	var shapeIndex int32 = 3
 	var paragraphIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -91,7 +91,7 @@ func TestAnimationGet(t *testing.T) {
 */
 func TestAnimationSet(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -131,7 +131,7 @@ func TestAnimationSet(t *testing.T) {
 */
 func TestAnimationCreateEffect(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -161,7 +161,7 @@ func TestAnimationCreateEffect(t *testing.T) {
 */
 func TestAnimationCreateInteractiveSequence(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -194,7 +194,7 @@ func TestAnimationCreateInteractiveSequence(t *testing.T) {
 */
 func TestAnimationCreateInteractiveSequenceEffect(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -224,7 +224,7 @@ func TestAnimationCreateInteractiveSequenceEffect(t *testing.T) {
 */
 func TestAnimationUpdateEffect(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -254,7 +254,7 @@ func TestAnimationUpdateEffect(t *testing.T) {
 */
 func TestAnimationUpdateInteractiveSequenceEffect(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -284,7 +284,7 @@ func TestAnimationUpdateInteractiveSequenceEffect(t *testing.T) {
 */
 func TestAnimationDelete(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -311,7 +311,7 @@ func TestAnimationDelete(t *testing.T) {
 */
 func TestAnimationDeleteMainSequence(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -338,7 +338,7 @@ func TestAnimationDeleteMainSequence(t *testing.T) {
 */
 func TestAnimationDeleteMainSequenceEffect(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -365,7 +365,7 @@ func TestAnimationDeleteMainSequenceEffect(t *testing.T) {
 */
 func TestAnimationDeleteInteractiveSequences(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -392,7 +392,7 @@ func TestAnimationDeleteInteractiveSequences(t *testing.T) {
 */
 func TestAnimationDeleteInteractiveSequence(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -419,7 +419,7 @@ func TestAnimationDeleteInteractiveSequence(t *testing.T) {
 */
 func TestAnimationDeleteInteractiveSequenceEffect(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

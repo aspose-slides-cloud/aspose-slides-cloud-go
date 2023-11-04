@@ -38,7 +38,7 @@ import (
    Test for create empty presentation
 */
 func TestCreateEmpty(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.DeleteFile(folderName+"/"+fileName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -55,7 +55,7 @@ func TestCreateEmpty(t *testing.T) {
    Test for create presentation from request
 */
 func TestCreateFromRequest(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.DeleteFile(folderName+"/"+fileName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -74,7 +74,7 @@ func TestCreateFromRequest(t *testing.T) {
 */
 func TestCreateFromStorage(t *testing.T) {
 	newFileName := "test2.pptx"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.DeleteFile(folderName+"/"+newFileName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -98,7 +98,7 @@ func TestCreateFromStorage(t *testing.T) {
 */
 func TestCreateFromTemplate(t *testing.T) {
 	templateFileName := "TemplateCV.pptx"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.DeleteFile(folderName+"/"+fileName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -122,7 +122,7 @@ func TestCreateFromTemplate(t *testing.T) {
    Test for create presentation from HTML
 */
 func TestCreateFromHtml(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.DeleteFile(folderName+"/"+fileName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -139,7 +139,7 @@ func TestCreateFromHtml(t *testing.T) {
    Test for append presentation from HTML
 */
 func TestAppendFromHtml(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -172,7 +172,7 @@ func TestAppendFromHtml(t *testing.T) {
    Test for create presentation from PDF
 */
 func TestCreateFromPdf(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.DeleteFile(folderName+"/"+fileName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -194,7 +194,7 @@ func TestCreateFromPdf(t *testing.T) {
    Test for append presentation from PDF
 */
 func TestAppendFromPdf(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

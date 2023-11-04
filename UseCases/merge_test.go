@@ -40,7 +40,7 @@ import (
 func TestMergeStorage(t *testing.T) {
 	fileName2 := "test-unprotected.pptx"
 	fileNamePdf := "test.pdf"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -71,7 +71,7 @@ func TestMergeStorage(t *testing.T) {
 */
 func TestMergeOrderedStorage(t *testing.T) {
 	fileName2 := "test-unprotected.pptx"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -110,7 +110,7 @@ func TestMergeRequest(t *testing.T) {
 		return
 	}
 
-	_, _, e = slidescloud.GetTestApiClient().SlidesApi.MergeOnline([][]byte{source1, source2}, nil, "")
+	_, _, e = slidescloud.GetTestSlidesApiClient().SlidesApi.MergeOnline([][]byte{source1, source2}, nil, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -132,7 +132,7 @@ func TestMergeAndSaveRequest(t *testing.T) {
 		return
 	}
 	outPath := "TestData/out.pptx"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 
 	_, e = c.SlidesApi.MergeAndSaveOnline(outPath, [][]byte{source1, source2}, nil, "")
 	if e != nil {
@@ -173,7 +173,7 @@ func TestMergeOrderedRequest(t *testing.T) {
 	presentation2.Path = "file2"
 	presentation2.Slides = []int32{1, 2}
 	request.Presentations = []slidescloud.IPresentationToMerge{presentation1, presentation2}
-	_, _, e = slidescloud.GetTestApiClient().SlidesApi.MergeOnline([][]byte{source1, source2}, request, "")
+	_, _, e = slidescloud.GetTestSlidesApiClient().SlidesApi.MergeOnline([][]byte{source1, source2}, request, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -185,7 +185,7 @@ func TestMergeOrderedRequest(t *testing.T) {
 */
 func TestMergeCombinedRequest(t *testing.T) {
 	fileName2 := "test-unprotected.pptx"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName2, folderName+"/"+fileName2, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -206,7 +206,7 @@ func TestMergeCombinedRequest(t *testing.T) {
 	presentation2.Path = folderName + "/" + fileName2
 	presentation2.Slides = []int32{1, 2}
 	request.Presentations = []slidescloud.IPresentationToMerge{presentation1, presentation2}
-	_, _, e = slidescloud.GetTestApiClient().SlidesApi.MergeOnline([][]byte{source}, request, "")
+	_, _, e = slidescloud.GetTestSlidesApiClient().SlidesApi.MergeOnline([][]byte{source}, request, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -218,7 +218,7 @@ func TestMergeCombinedRequest(t *testing.T) {
 */
 func TestMergeOrderedUrl(t *testing.T) {
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

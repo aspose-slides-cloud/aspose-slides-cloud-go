@@ -477,6 +477,9 @@ func init() {
 	derivedTypes["OneValueSeries"] = "Series"
 	typeDeterminers["OneValueSeries"] = make(map[string]string)
 	typeDeterminers["OneValueSeries"]["DataPointType"] = "OneValue"
+	typeRegistry["Operation"] = reflect.TypeOf(Operation{})
+	
+	typeDeterminers["Operation"] = make(map[string]string)
 	typeRegistry["OrderedMergeRequest"] = reflect.TypeOf(OrderedMergeRequest{})
 	
 	typeDeterminers["OrderedMergeRequest"] = make(map[string]string)

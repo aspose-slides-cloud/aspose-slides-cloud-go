@@ -37,7 +37,7 @@ import (
    Test for Get hyperlink for shape
 */
 func TestHyperlinkGetShape(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -67,7 +67,7 @@ func TestHyperlinkGetShape(t *testing.T) {
    Test for Get hyperlink for portion
 */
 func TestHyperlinkGetPortion(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -97,7 +97,7 @@ func TestHyperlinkGetPortion(t *testing.T) {
    Test for create hyperlink for shape
 */
 func TestHyperlinkCreateShape(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -128,7 +128,7 @@ func TestHyperlinkCreateShape(t *testing.T) {
    Test for create hyperlink for portion
 */
 func TestHyperlinkCreatePortion(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -159,7 +159,7 @@ func TestHyperlinkCreatePortion(t *testing.T) {
    Test for delete hyperlink
 */
 func TestHyperlinkDelete(t *testing.T) {
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

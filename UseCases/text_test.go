@@ -39,7 +39,7 @@ import (
 */
 func TestTextGet(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -88,7 +88,7 @@ func TestTextReplaceStorage(t *testing.T) {
 	var slideIndex int32 = 1
 	oldValue := "text"
 	newValue := "new_text"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	var ignoreCase bool = true
 
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -161,7 +161,7 @@ func TestTextReplaceRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 
 	var withEmpty bool = true
 	_, _, e = c.SlidesApi.ReplacePresentationTextOnline(source, oldValue, newValue, nil, password)
@@ -204,7 +204,7 @@ func TestReplaceTextFormatting(t *testing.T) {
         portionFormat := slidescloud.NewPortionFormat()
         portionFormat.FontColor = color
 
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
@@ -248,7 +248,7 @@ func TestReplaceTextFormattingOnline(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 
         portionFormat := slidescloud.NewPortionFormat()
         portionFormat.FontColor = "#FFFFA500"
@@ -269,7 +269,7 @@ func TestShapeTextHighlight(t *testing.T) {
 	textToHighlight := "highlight"
 	highlightColor := "#FFF5FF8A"
 	ignoreCase := true
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -322,7 +322,7 @@ func TestShapeTextHighlightRegex(t *testing.T) {
 	textToHighlight := "highlight"
 	highlightColor := "#FFF5FF8A"
 	ignoreCase := false
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

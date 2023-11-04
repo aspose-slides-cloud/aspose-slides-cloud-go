@@ -70,7 +70,7 @@ func TestTemplateInput(t *testing.T) {
 	}
 	files := [][]byte{data1, data2}
 
-	_, _, e = slidescloud.GetTestApiClient().SlidesApi.Pipeline(pipeline, files)
+	_, _, e = slidescloud.GetTestSlidesApiClient().SlidesApi.Pipeline(pipeline, files)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

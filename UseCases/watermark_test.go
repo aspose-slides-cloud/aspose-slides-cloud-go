@@ -42,7 +42,7 @@ import (
 func TestWatermarkTextStorage(t *testing.T) {
 	var slideIndex int32 = 1
 	watermarkText := "watermarkText"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -105,7 +105,7 @@ func TestWatermarkTextStorage(t *testing.T) {
 func TestWatermarkTextDTOStorage(t *testing.T) {
 	var slideIndex int32 = 1
 	watermarkText := "watermarkText"
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -169,7 +169,7 @@ func TestWatermarkTextDTOStorage(t *testing.T) {
 */
 func TestWatermarkImageStorage(t *testing.T) {
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -233,7 +233,7 @@ func TestWatermarkImageStorage(t *testing.T) {
 func TestWatermarkImageDTOStorage(t *testing.T) {
 	watermarkName := "myWatermark"
 	var slideIndex int32 = 1
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -305,7 +305,7 @@ func TestWatermarkTextRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 
 	postResult, _, e := c.SlidesApi.CreateWatermarkOnline(source, nil, nil, "watermark", "", "", password)
 	if e != nil {
@@ -347,7 +347,7 @@ func TestWatermarkTextDTORequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 
 	watermark := slidescloud.NewShape()
 	watermark.Text = "watermarkText"
@@ -396,7 +396,7 @@ func TestWatermarkImageRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 
 	postResult, _, e := c.SlidesApi.CreateImageWatermarkOnline(source, watermark, nil, password)
 	if e != nil {
@@ -444,7 +444,7 @@ func TestWatermarkImageDTORequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestApiClient()
+	c := slidescloud.GetTestSlidesApiClient()
 
 	dto := slidescloud.NewPictureFrame()
 	fillFormat := slidescloud.NewPictureFill()

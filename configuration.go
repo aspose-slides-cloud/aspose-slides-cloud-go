@@ -48,6 +48,7 @@ type APIKey struct {
 
 type Configuration struct {
 	BasePath      string            	`json:"BaseUrl,omitempty"`
+	AsyncBasePath string            	`json:"AsyncBaseUrl,omitempty"`
 	AuthBasePath  string            	`json:"AuthBaseUrl,omitempty"`
 	Version       string            	`json:"Version,omitempty"`
 	Host          string            	`json:"host,omitempty"`
@@ -65,11 +66,12 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		BasePath:      "https://api.aspose.cloud",
+		AsyncBasePath:  "https://api.aspose.cloud",
 		AuthBasePath:  "https://api.aspose.cloud",
 		AppSid:        "",
 		AppKey:        "",
 		Version:       "v3.0",
-		ApiVersion:    "23.9.0",
+		ApiVersion:    "23.10.0",
 		CustomHeaders: make(map[string]string),
 	}
 	return cfg

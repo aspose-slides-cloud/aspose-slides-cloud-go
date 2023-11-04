@@ -61,6 +61,7 @@ type APIClient struct {
 
 	 // API Services
 	SlidesApi		*SlidesApiService
+	SlidesAsyncApi		*SlidesAsyncApiService
 }
 
 type service struct {
@@ -80,6 +81,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.SlidesApi = (*SlidesApiService)(&c.common)
+	c.SlidesAsyncApi = (*SlidesAsyncApiService)(&c.common)
 
 	return c
 }
@@ -242,7 +244,7 @@ func (c *APIClient) prepareRequest (
 	if postBody != nil {
 		partCount += 1
 	}
-	if partCount > 1 {
+	if len(files) > 0 {
 		contentType := headerParams["Content-Type"]
 		body = &bytes.Buffer{}
 		w := multipart.NewWriter(body)
