@@ -268,6 +268,38 @@ func TestSlideUpdate(t *testing.T) {
 }
 
 /*
+   Test for set slide transition
+*/
+func TestSetSlideTransition(t *testing.T) {
+	var slideIndex int32 = 1
+
+	c := slidescloud.GetTestSlidesApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	transition := slidescloud.NewSlideShowTransition()
+	transition.Type_ = "Circle"
+	transition.Speed = "Medium"
+	dto := slidescloud.NewSlide()
+	dto.SlideShowTransition = transition
+
+	response, _, e := c.SlidesApi.UpdateSlide(fileName, slideIndex, dto, password, folderName, "")
+
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	if !strings.Contains(response.GetSlideShowTransition().GetType(), dto.SlideShowTransition.GetType()) {
+		t.Errorf("Expected %v, but was %v", dto.SlideShowTransition.GetType(), response.GetSlideShowTransition().GetType())
+		return
+	}
+}
+
+/*
    Test for delete slide
 */
 func TestSlidesDelete(t *testing.T) {

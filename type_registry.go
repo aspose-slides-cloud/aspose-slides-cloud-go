@@ -480,6 +480,9 @@ func init() {
 	typeRegistry["Operation"] = reflect.TypeOf(Operation{})
 	
 	typeDeterminers["Operation"] = make(map[string]string)
+	typeRegistry["OperationProgress"] = reflect.TypeOf(OperationProgress{})
+	
+	typeDeterminers["OperationProgress"] = make(map[string]string)
 	typeRegistry["OrderedMergeRequest"] = reflect.TypeOf(OrderedMergeRequest{})
 	
 	typeDeterminers["OrderedMergeRequest"] = make(map[string]string)
@@ -693,6 +696,9 @@ func init() {
 	typeRegistry["SlideShowProperties"] = reflect.TypeOf(SlideShowProperties{})
 	derivedTypes["SlideShowProperties"] = "ResourceBase"
 	typeDeterminers["SlideShowProperties"] = make(map[string]string)
+	typeRegistry["SlideShowTransition"] = reflect.TypeOf(SlideShowTransition{})
+	
+	typeDeterminers["SlideShowTransition"] = make(map[string]string)
 	typeRegistry["Slides"] = reflect.TypeOf(Slides{})
 	derivedTypes["Slides"] = "ResourceBase"
 	typeDeterminers["Slides"] = make(map[string]string)

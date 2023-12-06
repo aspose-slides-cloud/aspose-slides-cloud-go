@@ -53,6 +53,10 @@ type ISlide interface {
 	GetShowMasterShapes() bool
 	SetShowMasterShapes(newValue bool)
 
+	// Specifies if shapes of the master slide should be shown on the slide. True by default.
+	GetSlideShowTransition() ISlideShowTransition
+	SetSlideShowTransition(newValue ISlideShowTransition)
+
 	// Gets or sets the  link to the layout slide.
 	GetLayoutSlide() IResourceUri
 	SetLayoutSlide(newValue IResourceUri)
@@ -102,6 +106,9 @@ type Slide struct {
 
 	// Specifies if shapes of the master slide should be shown on the slide. True by default.
 	ShowMasterShapes bool `json:"ShowMasterShapes"`
+
+	// Specifies if shapes of the master slide should be shown on the slide. True by default.
+	SlideShowTransition ISlideShowTransition `json:"SlideShowTransition,omitempty"`
 
 	// Gets or sets the  link to the layout slide.
 	LayoutSlide IResourceUri `json:"LayoutSlide,omitempty"`
@@ -167,6 +174,13 @@ func (this *Slide) GetShowMasterShapes() bool {
 
 func (this *Slide) SetShowMasterShapes(newValue bool) {
 	this.ShowMasterShapes = newValue
+}
+func (this *Slide) GetSlideShowTransition() ISlideShowTransition {
+	return this.SlideShowTransition
+}
+
+func (this *Slide) SetSlideShowTransition(newValue ISlideShowTransition) {
+	this.SlideShowTransition = newValue
 }
 func (this *Slide) GetLayoutSlide() IResourceUri {
 	return this.LayoutSlide
@@ -384,6 +398,49 @@ func (this *Slide) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.ShowMasterShapes = valueForShowMasterShapes
+		}
+	}
+	
+	if valSlideShowTransition, ok := objMap["slideShowTransition"]; ok {
+		if valSlideShowTransition != nil {
+			var valueForSlideShowTransition SlideShowTransition
+			err = json.Unmarshal(*valSlideShowTransition, &valueForSlideShowTransition)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("SlideShowTransition", *valSlideShowTransition)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSlideShowTransition, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISlideShowTransition)
+			if ok {
+				this.SlideShowTransition = vInterfaceObject
+			}
+		}
+	}
+	if valSlideShowTransitionCap, ok := objMap["SlideShowTransition"]; ok {
+		if valSlideShowTransitionCap != nil {
+			var valueForSlideShowTransition SlideShowTransition
+			err = json.Unmarshal(*valSlideShowTransitionCap, &valueForSlideShowTransition)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("SlideShowTransition", *valSlideShowTransitionCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSlideShowTransitionCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISlideShowTransition)
+			if ok {
+				this.SlideShowTransition = vInterfaceObject
+			}
 		}
 	}
 	

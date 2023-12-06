@@ -21689,8 +21689,8 @@ func (a *SlidesApiService) ReplaceFontOnline(document []byte, sourceFont string,
 /* SlidesApiService Replaces image by the specified index.
  @param name Document name.
  @param imageIndex Image index.
+ @param image Image data.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "image" ([]byte) Image data.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
@@ -21704,6 +21704,9 @@ func (a *SlidesApiService) ReplaceImage(name string, imageIndex int32, image []b
 
 	if len(name) == 0 {
 		return nil, reportError("Missing required parameter name")
+	}
+	if len(image) == 0 {
+		return nil, reportError("Missing required parameter image")
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/images/{imageIndex}/replace"
@@ -21781,8 +21784,8 @@ func (a *SlidesApiService) ReplaceImage(name string, imageIndex int32, image []b
 /* SlidesApiService Replaces image by the specified index and returns updated document. 
  @param document Document data.
  @param imageIndex Image index.
+ @param image Image data.
  @param optional (nil or map[string]interface{}) with one or more of:
-     @param "image" ([]byte) Image data.
      @param "password" (string) Password.
  @return *os.File*/
 func (a *SlidesApiService) ReplaceImageOnline(document []byte, imageIndex int32, image []byte, password string) (*os.File, *http.Response, error) {
@@ -21795,6 +21798,9 @@ func (a *SlidesApiService) ReplaceImageOnline(document []byte, imageIndex int32,
 
 	if len(document) == 0 {
 		return successPayload, nil, reportError("Missing required parameter document")
+	}
+	if len(image) == 0 {
+		return successPayload, nil, reportError("Missing required parameter image")
 	}
 	// create path and map variables
 	localVarPath := a.client.cfg.GetApiUrl() + "/slides/images/{imageIndex}/replace"

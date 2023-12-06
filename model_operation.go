@@ -43,6 +43,9 @@ type IOperation interface {
 	GetStatus() string
 	SetStatus(newValue string)
 
+	GetProgress() IOperationProgress
+	SetProgress(newValue IOperationProgress)
+
 	GetCreated() time.Time
 	SetCreated(newValue time.Time)
 
@@ -72,6 +75,8 @@ type Operation struct {
 	Method string `json:"Method"`
 
 	Status string `json:"Status"`
+
+	Progress IOperationProgress `json:"Progress,omitempty"`
 
 	Created time.Time `json:"Created,omitempty"`
 
@@ -115,6 +120,13 @@ func (this *Operation) GetStatus() string {
 
 func (this *Operation) SetStatus(newValue string) {
 	this.Status = newValue
+}
+func (this *Operation) GetProgress() IOperationProgress {
+	return this.Progress
+}
+
+func (this *Operation) SetProgress(newValue IOperationProgress) {
+	this.Progress = newValue
 }
 func (this *Operation) GetCreated() time.Time {
 	return this.Created
@@ -256,6 +268,49 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 				this.Status = string(valueForStatusInt)
 			} else {
 				this.Status = valueForStatus
+			}
+		}
+	}
+	
+	if valProgress, ok := objMap["progress"]; ok {
+		if valProgress != nil {
+			var valueForProgress OperationProgress
+			err = json.Unmarshal(*valProgress, &valueForProgress)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("OperationProgress", *valProgress)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valProgress, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IOperationProgress)
+			if ok {
+				this.Progress = vInterfaceObject
+			}
+		}
+	}
+	if valProgressCap, ok := objMap["Progress"]; ok {
+		if valProgressCap != nil {
+			var valueForProgress OperationProgress
+			err = json.Unmarshal(*valProgressCap, &valueForProgress)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("OperationProgress", *valProgressCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valProgressCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IOperationProgress)
+			if ok {
+				this.Progress = vInterfaceObject
 			}
 		}
 	}
