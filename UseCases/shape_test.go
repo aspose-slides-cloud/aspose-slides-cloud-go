@@ -171,6 +171,34 @@ func TestSubShapeGet(t *testing.T) {
 }
 
 /*
+   Test for load and save shape
+*/
+func TestShapeLoadAndSave(t *testing.T) {
+	c := slidescloud.GetTestSlidesApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	dto, _, e := c.SlidesApi.GetShape(fileName, 3, 1, password, folderName, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	shape, _, e := c.SlidesApi.UpdateShape(fileName, 3, 1, dto, password, folderName, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, ok := shape.(slidescloud.IChart)
+	if !ok {
+		t.Errorf("Wrong shape type.")
+		return
+	}
+}
+
+/*
    Test for add shape
 */
 func TestShapeAdd(t *testing.T) {

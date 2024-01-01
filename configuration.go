@@ -71,7 +71,7 @@ func NewConfiguration() *Configuration {
 		AppSid:        "",
 		AppKey:        "",
 		Version:       "v3.0",
-		ApiVersion:    "23.11.0",
+		ApiVersion:    "23.12.0",
 		CustomHeaders: make(map[string]string),
 	}
 	return cfg
