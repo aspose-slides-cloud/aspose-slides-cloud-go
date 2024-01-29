@@ -31380,6 +31380,81 @@ func TestGetApiInfo(t *testing.T) {
     }
 }
 
+/* SlidesApiServiceTests Returns presentation fonts info.
+   Test for SlidesApi.GetAvailableFonts method
+*/
+func TestGetAvailableFonts(t *testing.T) {
+    testfontsFolder, _ := createTestParamValue("GetAvailableFonts", "fontsFolder", "string").(string)
+    teststorage, _ := createTestParamValue("GetAvailableFonts", "storage", "string").(string)
+    e := InitializeTest("GetAvailableFonts", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestSlidesApiClient()
+    _, _, e = c.SlidesApi.GetAvailableFonts(testfontsFolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Returns presentation fonts info.
+   Test for SlidesApi.GetAvailableFonts method with invalid fontsFolder
+*/
+func TestGetAvailableFontsInvalidFontsFolder(t *testing.T) {
+    testfontsFolder, _ := createTestParamValue("GetAvailableFonts", "fontsFolder", "string").(string)
+    teststorage, _ := createTestParamValue("GetAvailableFonts", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfontsFolder, "GetAvailableFonts", "fontsFolder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfontsFolder = nullValue
+    } else {
+        testfontsFolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetAvailableFonts", "fontsFolder", testfontsFolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestSlidesApiClient().SlidesApi.GetAvailableFonts(testfontsFolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetAvailableFonts", "fontsFolder", "string", testfontsFolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Returns presentation fonts info.
+   Test for SlidesApi.GetAvailableFonts method with invalid storage
+*/
+func TestGetAvailableFontsInvalidStorage(t *testing.T) {
+    testfontsFolder, _ := createTestParamValue("GetAvailableFonts", "fontsFolder", "string").(string)
+    teststorage, _ := createTestParamValue("GetAvailableFonts", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetAvailableFonts", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetAvailableFonts", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestSlidesApiClient().SlidesApi.GetAvailableFonts(testfontsFolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetAvailableFonts", "storage", "string", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Read slide background info.
    Test for SlidesApi.GetBackground method
 */

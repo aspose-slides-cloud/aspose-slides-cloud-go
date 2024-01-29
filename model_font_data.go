@@ -40,6 +40,10 @@ type IFontData interface {
 	// Returns true if font is embedded.
 	GetIsEmbedded() bool
 	SetIsEmbedded(newValue bool)
+
+	// Returns true for a custom font (contained in fontsFolder directory).
+	GetIsCustom() bool
+	SetIsCustom(newValue bool)
 }
 
 type FontData struct {
@@ -49,6 +53,9 @@ type FontData struct {
 
 	// Returns true if font is embedded.
 	IsEmbedded bool `json:"IsEmbedded"`
+
+	// Returns true for a custom font (contained in fontsFolder directory).
+	IsCustom bool `json:"IsCustom"`
 }
 
 func NewFontData() *FontData {
@@ -69,6 +76,13 @@ func (this *FontData) GetIsEmbedded() bool {
 
 func (this *FontData) SetIsEmbedded(newValue bool) {
 	this.IsEmbedded = newValue
+}
+func (this *FontData) GetIsCustom() bool {
+	return this.IsCustom
+}
+
+func (this *FontData) SetIsCustom(newValue bool) {
+	this.IsCustom = newValue
 }
 
 func (this *FontData) UnmarshalJSON(b []byte) error {
@@ -117,6 +131,27 @@ func (this *FontData) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.IsEmbedded = valueForIsEmbedded
+		}
+	}
+	
+	if valIsCustom, ok := objMap["isCustom"]; ok {
+		if valIsCustom != nil {
+			var valueForIsCustom bool
+			err = json.Unmarshal(*valIsCustom, &valueForIsCustom)
+			if err != nil {
+				return err
+			}
+			this.IsCustom = valueForIsCustom
+		}
+	}
+	if valIsCustomCap, ok := objMap["IsCustom"]; ok {
+		if valIsCustomCap != nil {
+			var valueForIsCustom bool
+			err = json.Unmarshal(*valIsCustomCap, &valueForIsCustom)
+			if err != nil {
+				return err
+			}
+			this.IsCustom = valueForIsCustom
 		}
 	}
 

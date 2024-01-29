@@ -32,8 +32,28 @@ import (
 	"os"
 	"testing"
 
-	slidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v23"
+	slidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
 )
+
+/*
+   Test for get available fonts
+*/
+func TestFontsGetAvailable(t *testing.T) {
+	c := slidescloud.GetTestSlidesApiClient()
+	response, _, e := c.SlidesApi.GetAvailableFonts("", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if len(response.GetList()) <= 1 {
+		t.Errorf("Expected greater thatn %v, but was %v", 1, len(response.GetList()))
+		return
+	}
+	if response.GetList()[0].GetIsCustom() {
+		t.Errorf("Expected false, but was true")
+		return
+	}
+}
 
 /*
    Test for get fonts
