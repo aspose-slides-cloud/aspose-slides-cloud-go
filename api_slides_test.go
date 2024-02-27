@@ -31809,6 +31809,147 @@ func TestGetColorSchemeInvalidStorage(t *testing.T) {
     assertError(t, "GetColorScheme", "storage", "string", teststorage, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Lists comment authors.
+   Test for SlidesApi.GetCommentAuthors method
+*/
+func TestGetCommentAuthors(t *testing.T) {
+    testname, _ := createTestParamValue("GetCommentAuthors", "name", "string").(string)
+    testpassword, _ := createTestParamValue("GetCommentAuthors", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetCommentAuthors", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetCommentAuthors", "storage", "string").(string)
+    e := InitializeTest("GetCommentAuthors", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestSlidesApiClient()
+    _, _, e = c.SlidesApi.GetCommentAuthors(testname, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Lists comment authors.
+   Test for SlidesApi.GetCommentAuthors method with invalid name
+*/
+func TestGetCommentAuthorsInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("GetCommentAuthors", "name", "string").(string)
+    testpassword, _ := createTestParamValue("GetCommentAuthors", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetCommentAuthors", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetCommentAuthors", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "GetCommentAuthors", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetCommentAuthors", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestSlidesApiClient().SlidesApi.GetCommentAuthors(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetCommentAuthors", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Lists comment authors.
+   Test for SlidesApi.GetCommentAuthors method with invalid password
+*/
+func TestGetCommentAuthorsInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("GetCommentAuthors", "name", "string").(string)
+    testpassword, _ := createTestParamValue("GetCommentAuthors", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetCommentAuthors", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetCommentAuthors", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "GetCommentAuthors", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetCommentAuthors", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestSlidesApiClient().SlidesApi.GetCommentAuthors(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetCommentAuthors", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Lists comment authors.
+   Test for SlidesApi.GetCommentAuthors method with invalid folder
+*/
+func TestGetCommentAuthorsInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("GetCommentAuthors", "name", "string").(string)
+    testpassword, _ := createTestParamValue("GetCommentAuthors", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetCommentAuthors", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetCommentAuthors", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "GetCommentAuthors", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetCommentAuthors", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestSlidesApiClient().SlidesApi.GetCommentAuthors(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetCommentAuthors", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Lists comment authors.
+   Test for SlidesApi.GetCommentAuthors method with invalid storage
+*/
+func TestGetCommentAuthorsInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("GetCommentAuthors", "name", "string").(string)
+    testpassword, _ := createTestParamValue("GetCommentAuthors", "password", "string").(string)
+    testfolder, _ := createTestParamValue("GetCommentAuthors", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("GetCommentAuthors", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "GetCommentAuthors", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("GetCommentAuthors", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestSlidesApiClient().SlidesApi.GetCommentAuthors(testname, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "GetCommentAuthors", "storage", "string", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Get disc usage
    Test for SlidesApi.GetDiscUsage method
 */

@@ -354,3 +354,27 @@ func TestShapeModernCommentCreate(t *testing.T) {
 		return
 	}
 }
+
+/*
+   Test for get comment authors
+*/
+func TestGetCommentAuthors(t *testing.T) {
+	c := slidescloud.GetTestSlidesApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	response, _, e := c.SlidesApi.GetCommentAuthors(fileName, password, folderName, "")
+
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	if len(response.GetList()) != 1 {
+		t.Errorf("Expected %v, but was %v", 1, len(response.GetList()))
+		return
+	}
+}

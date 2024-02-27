@@ -187,6 +187,12 @@ func init() {
 	typeRegistry["ColorScheme"] = reflect.TypeOf(ColorScheme{})
 	derivedTypes["ColorScheme"] = "ResourceBase"
 	typeDeterminers["ColorScheme"] = make(map[string]string)
+	typeRegistry["CommentAuthor"] = reflect.TypeOf(CommentAuthor{})
+	
+	typeDeterminers["CommentAuthor"] = make(map[string]string)
+	typeRegistry["CommentAuthors"] = reflect.TypeOf(CommentAuthors{})
+	derivedTypes["CommentAuthors"] = "ResourceBase"
+	typeDeterminers["CommentAuthors"] = make(map[string]string)
 	typeRegistry["CommonSlideViewProperties"] = reflect.TypeOf(CommonSlideViewProperties{})
 	
 	typeDeterminers["CommonSlideViewProperties"] = make(map[string]string)
