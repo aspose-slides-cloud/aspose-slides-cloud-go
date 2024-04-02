@@ -56,6 +56,14 @@ type IHtml5ExportOptions interface {
 	// Gets or sets shapes animation option.
 	GetAnimateShapes() bool
 	SetAnimateShapes(newValue bool)
+
+	// Gets or sets embed images option.
+	GetEmbedImages() bool
+	SetEmbedImages(newValue bool)
+
+	// Slides layouting options
+	GetNotesCommentsLayouting() INotesCommentsLayoutingOptions
+	SetNotesCommentsLayouting(newValue INotesCommentsLayoutingOptions)
 }
 
 type Html5ExportOptions struct {
@@ -77,6 +85,12 @@ type Html5ExportOptions struct {
 
 	// Gets or sets shapes animation option.
 	AnimateShapes bool `json:"AnimateShapes"`
+
+	// Gets or sets embed images option.
+	EmbedImages bool `json:"EmbedImages"`
+
+	// Slides layouting options
+	NotesCommentsLayouting INotesCommentsLayoutingOptions `json:"NotesCommentsLayouting,omitempty"`
 }
 
 func NewHtml5ExportOptions() *Html5ExportOptions {
@@ -125,6 +139,20 @@ func (this *Html5ExportOptions) GetAnimateShapes() bool {
 
 func (this *Html5ExportOptions) SetAnimateShapes(newValue bool) {
 	this.AnimateShapes = newValue
+}
+func (this *Html5ExportOptions) GetEmbedImages() bool {
+	return this.EmbedImages
+}
+
+func (this *Html5ExportOptions) SetEmbedImages(newValue bool) {
+	this.EmbedImages = newValue
+}
+func (this *Html5ExportOptions) GetNotesCommentsLayouting() INotesCommentsLayoutingOptions {
+	return this.NotesCommentsLayouting
+}
+
+func (this *Html5ExportOptions) SetNotesCommentsLayouting(newValue INotesCommentsLayoutingOptions) {
+	this.NotesCommentsLayouting = newValue
 }
 
 func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
@@ -313,6 +341,70 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.AnimateShapes = valueForAnimateShapes
+		}
+	}
+	
+	if valEmbedImages, ok := objMap["embedImages"]; ok {
+		if valEmbedImages != nil {
+			var valueForEmbedImages bool
+			err = json.Unmarshal(*valEmbedImages, &valueForEmbedImages)
+			if err != nil {
+				return err
+			}
+			this.EmbedImages = valueForEmbedImages
+		}
+	}
+	if valEmbedImagesCap, ok := objMap["EmbedImages"]; ok {
+		if valEmbedImagesCap != nil {
+			var valueForEmbedImages bool
+			err = json.Unmarshal(*valEmbedImagesCap, &valueForEmbedImages)
+			if err != nil {
+				return err
+			}
+			this.EmbedImages = valueForEmbedImages
+		}
+	}
+	
+	if valNotesCommentsLayouting, ok := objMap["notesCommentsLayouting"]; ok {
+		if valNotesCommentsLayouting != nil {
+			var valueForNotesCommentsLayouting NotesCommentsLayoutingOptions
+			err = json.Unmarshal(*valNotesCommentsLayouting, &valueForNotesCommentsLayouting)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("NotesCommentsLayoutingOptions", *valNotesCommentsLayouting)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valNotesCommentsLayouting, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(INotesCommentsLayoutingOptions)
+			if ok {
+				this.NotesCommentsLayouting = vInterfaceObject
+			}
+		}
+	}
+	if valNotesCommentsLayoutingCap, ok := objMap["NotesCommentsLayouting"]; ok {
+		if valNotesCommentsLayoutingCap != nil {
+			var valueForNotesCommentsLayouting NotesCommentsLayoutingOptions
+			err = json.Unmarshal(*valNotesCommentsLayoutingCap, &valueForNotesCommentsLayouting)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("NotesCommentsLayoutingOptions", *valNotesCommentsLayoutingCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valNotesCommentsLayoutingCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(INotesCommentsLayoutingOptions)
+			if ok {
+				this.NotesCommentsLayouting = vInterfaceObject
+			}
 		}
 	}
 

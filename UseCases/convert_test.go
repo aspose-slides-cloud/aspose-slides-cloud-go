@@ -543,7 +543,6 @@ func TestConvertSubshapePutFromStorage(t *testing.T) {
 /*
    Test for conversion with font fallback rules.
 */
-
 func TestConvertWithFontFallBackRules(t *testing.T) {
 	c := slidescloud.GetTestSlidesApiClient()
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
@@ -568,6 +567,31 @@ func TestConvertWithFontFallBackRules(t *testing.T) {
 	exportOptions.SetFontFallbackRules(fontRules)
 
 	_, _, e = c.SlidesApi.DownloadPresentation(fileName, "png", exportOptions, "password", folderName, "", "", nil)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+
+/*
+   Test for conversion with slide layout options.
+*/
+func TestConvertWithSlideLayoutOptions(t *testing.T) {
+	c := slidescloud.GetTestSlidesApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	slideLayoutOptions := slidescloud.NewHandoutLayoutingOptions()
+	slideLayoutOptions.SetHandout("Handouts2")
+	slideLayoutOptions.SetPrintSlideNumbers(true)
+
+	exportOptions := slidescloud.NewPdfExportOptions()
+	exportOptions.SetSlidesLayoutOptions(slideLayoutOptions)
+
+	_, _, e = c.SlidesApi.DownloadPresentation(fileName, "pdf", exportOptions, "password", folderName, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

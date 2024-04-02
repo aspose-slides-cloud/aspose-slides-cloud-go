@@ -340,6 +340,10 @@ func init() {
 	derivedTypes["GroupingCharacterElement"] = "MathElement"
 	typeDeterminers["GroupingCharacterElement"] = make(map[string]string)
 	typeDeterminers["GroupingCharacterElement"]["Type"] = "GroupingCharacter"
+	typeRegistry["HandoutLayoutingOptions"] = reflect.TypeOf(HandoutLayoutingOptions{})
+	derivedTypes["HandoutLayoutingOptions"] = "SlidesLayoutOptions"
+	typeDeterminers["HandoutLayoutingOptions"] = make(map[string]string)
+	typeDeterminers["HandoutLayoutingOptions"]["LayoutType"] = "Handout"
 	typeRegistry["HeaderFooter"] = reflect.TypeOf(HeaderFooter{})
 	derivedTypes["HeaderFooter"] = "ResourceBase"
 	typeDeterminers["HeaderFooter"] = make(map[string]string)
@@ -462,6 +466,10 @@ func init() {
 	typeRegistry["NormalViewRestoredProperties"] = reflect.TypeOf(NormalViewRestoredProperties{})
 	
 	typeDeterminers["NormalViewRestoredProperties"] = make(map[string]string)
+	typeRegistry["NotesCommentsLayoutingOptions"] = reflect.TypeOf(NotesCommentsLayoutingOptions{})
+	derivedTypes["NotesCommentsLayoutingOptions"] = "SlidesLayoutOptions"
+	typeDeterminers["NotesCommentsLayoutingOptions"] = make(map[string]string)
+	typeDeterminers["NotesCommentsLayoutingOptions"]["LayoutType"] = "NotesComments"
 	typeRegistry["NotesSlide"] = reflect.TypeOf(NotesSlide{})
 	derivedTypes["NotesSlide"] = "ResourceBase"
 	typeDeterminers["NotesSlide"] = make(map[string]string)
@@ -708,6 +716,9 @@ func init() {
 	typeRegistry["Slides"] = reflect.TypeOf(Slides{})
 	derivedTypes["Slides"] = "ResourceBase"
 	typeDeterminers["Slides"] = make(map[string]string)
+	typeRegistry["SlidesLayoutOptions"] = reflect.TypeOf(SlidesLayoutOptions{})
+	
+	typeDeterminers["SlidesLayoutOptions"] = make(map[string]string)
 	typeRegistry["SmartArt"] = reflect.TypeOf(SmartArt{})
 	derivedTypes["SmartArt"] = "ShapeBase"
 	typeDeterminers["SmartArt"] = make(map[string]string)

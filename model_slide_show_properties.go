@@ -65,6 +65,10 @@ type ISlideShowProperties interface {
 	GetShowNarration() bool
 	SetShowNarration(newValue bool)
 
+	// Show media controls.
+	GetShowMediaControls() bool
+	SetShowMediaControls(newValue bool)
+
 	// Use timings.
 	GetUseTimings() bool
 	SetUseTimings(newValue bool)
@@ -103,6 +107,9 @@ type SlideShowProperties struct {
 
 	// Show narrration.
 	ShowNarration bool `json:"ShowNarration"`
+
+	// Show media controls.
+	ShowMediaControls bool `json:"ShowMediaControls"`
 
 	// Use timings.
 	UseTimings bool `json:"UseTimings"`
@@ -174,6 +181,13 @@ func (this *SlideShowProperties) GetShowNarration() bool {
 
 func (this *SlideShowProperties) SetShowNarration(newValue bool) {
 	this.ShowNarration = newValue
+}
+func (this *SlideShowProperties) GetShowMediaControls() bool {
+	return this.ShowMediaControls
+}
+
+func (this *SlideShowProperties) SetShowMediaControls(newValue bool) {
+	this.ShowMediaControls = newValue
 }
 func (this *SlideShowProperties) GetUseTimings() bool {
 	return this.UseTimings
@@ -419,6 +433,27 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.ShowNarration = valueForShowNarration
+		}
+	}
+	
+	if valShowMediaControls, ok := objMap["showMediaControls"]; ok {
+		if valShowMediaControls != nil {
+			var valueForShowMediaControls bool
+			err = json.Unmarshal(*valShowMediaControls, &valueForShowMediaControls)
+			if err != nil {
+				return err
+			}
+			this.ShowMediaControls = valueForShowMediaControls
+		}
+	}
+	if valShowMediaControlsCap, ok := objMap["ShowMediaControls"]; ok {
+		if valShowMediaControlsCap != nil {
+			var valueForShowMediaControls bool
+			err = json.Unmarshal(*valShowMediaControlsCap, &valueForShowMediaControls)
+			if err != nil {
+				return err
+			}
+			this.ShowMediaControls = valueForShowMediaControls
 		}
 	}
 	

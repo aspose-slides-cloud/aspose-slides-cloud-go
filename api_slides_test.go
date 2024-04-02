@@ -16909,6 +16909,221 @@ func TestDeleteParagraphsInvalidSubShape(t *testing.T) {
     assertError(t, "DeleteParagraphs", "subShape", "string", testsubShape, int32(statusCode), e)
 }
 
+/* SlidesApiServiceTests Deletes cropped areas of a pictire.
+   Test for SlidesApi.DeletePictureCroppedAreas method
+*/
+func TestDeletePictureCroppedAreas(t *testing.T) {
+    testname, _ := createTestParamValue("DeletePictureCroppedAreas", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeletePictureCroppedAreas", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeletePictureCroppedAreas", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeletePictureCroppedAreas", "storage", "string").(string)
+    e := InitializeTest("DeletePictureCroppedAreas", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestSlidesApiClient()
+    _, e = c.SlidesApi.DeletePictureCroppedAreas(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+}
+
+/* SlidesApiServiceTests Deletes cropped areas of a pictire.
+   Test for SlidesApi.DeletePictureCroppedAreas method with invalid name
+*/
+func TestDeletePictureCroppedAreasInvalidName(t *testing.T) {
+    testname, _ := createTestParamValue("DeletePictureCroppedAreas", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeletePictureCroppedAreas", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeletePictureCroppedAreas", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeletePictureCroppedAreas", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testname, "DeletePictureCroppedAreas", "name", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testname = nullValue
+    } else {
+        testname, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeletePictureCroppedAreas", "name", testname)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestSlidesApiClient().SlidesApi.DeletePictureCroppedAreas(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeletePictureCroppedAreas", "name", "string", testname, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes cropped areas of a pictire.
+   Test for SlidesApi.DeletePictureCroppedAreas method with invalid slideIndex
+*/
+func TestDeletePictureCroppedAreasInvalidSlideIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeletePictureCroppedAreas", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeletePictureCroppedAreas", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeletePictureCroppedAreas", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeletePictureCroppedAreas", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testslideIndex, "DeletePictureCroppedAreas", "slideIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testslideIndex = nullValue
+    } else {
+        testslideIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeletePictureCroppedAreas", "slideIndex", testslideIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestSlidesApiClient().SlidesApi.DeletePictureCroppedAreas(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeletePictureCroppedAreas", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes cropped areas of a pictire.
+   Test for SlidesApi.DeletePictureCroppedAreas method with invalid shapeIndex
+*/
+func TestDeletePictureCroppedAreasInvalidShapeIndex(t *testing.T) {
+    testname, _ := createTestParamValue("DeletePictureCroppedAreas", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeletePictureCroppedAreas", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeletePictureCroppedAreas", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeletePictureCroppedAreas", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testshapeIndex, "DeletePictureCroppedAreas", "shapeIndex", "int32")
+    if (invalidValue == nil) {
+        var nullValue int32
+        testshapeIndex = nullValue
+    } else {
+        testshapeIndex, _ = invalidValue.(int32)
+    }
+
+    e := InitializeTest("DeletePictureCroppedAreas", "shapeIndex", testshapeIndex)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestSlidesApiClient().SlidesApi.DeletePictureCroppedAreas(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeletePictureCroppedAreas", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes cropped areas of a pictire.
+   Test for SlidesApi.DeletePictureCroppedAreas method with invalid password
+*/
+func TestDeletePictureCroppedAreasInvalidPassword(t *testing.T) {
+    testname, _ := createTestParamValue("DeletePictureCroppedAreas", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeletePictureCroppedAreas", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeletePictureCroppedAreas", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeletePictureCroppedAreas", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testpassword, "DeletePictureCroppedAreas", "password", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testpassword = nullValue
+    } else {
+        testpassword, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeletePictureCroppedAreas", "password", testpassword)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestSlidesApiClient().SlidesApi.DeletePictureCroppedAreas(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeletePictureCroppedAreas", "password", "string", testpassword, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes cropped areas of a pictire.
+   Test for SlidesApi.DeletePictureCroppedAreas method with invalid folder
+*/
+func TestDeletePictureCroppedAreasInvalidFolder(t *testing.T) {
+    testname, _ := createTestParamValue("DeletePictureCroppedAreas", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeletePictureCroppedAreas", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeletePictureCroppedAreas", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeletePictureCroppedAreas", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testfolder, "DeletePictureCroppedAreas", "folder", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        testfolder = nullValue
+    } else {
+        testfolder, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeletePictureCroppedAreas", "folder", testfolder)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestSlidesApiClient().SlidesApi.DeletePictureCroppedAreas(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeletePictureCroppedAreas", "folder", "string", testfolder, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Deletes cropped areas of a pictire.
+   Test for SlidesApi.DeletePictureCroppedAreas method with invalid storage
+*/
+func TestDeletePictureCroppedAreasInvalidStorage(t *testing.T) {
+    testname, _ := createTestParamValue("DeletePictureCroppedAreas", "name", "string").(string)
+    testslideIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "slideIndex", "int32").(int32)
+    testshapeIndex, _ := createTestParamValue("DeletePictureCroppedAreas", "shapeIndex", "int32").(int32)
+    testpassword, _ := createTestParamValue("DeletePictureCroppedAreas", "password", "string").(string)
+    testfolder, _ := createTestParamValue("DeletePictureCroppedAreas", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("DeletePictureCroppedAreas", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(teststorage, "DeletePictureCroppedAreas", "storage", "string")
+    if (invalidValue == nil) {
+        var nullValue string
+        teststorage = nullValue
+    } else {
+        teststorage, _ = invalidValue.(string)
+    }
+
+    e := InitializeTest("DeletePictureCroppedAreas", "storage", teststorage)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    r, e := GetTestSlidesApiClient().SlidesApi.DeletePictureCroppedAreas(testname, testslideIndex, testshapeIndex, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "DeletePictureCroppedAreas", "storage", "string", teststorage, int32(statusCode), e)
+}
+
 /* SlidesApiServiceTests Remove a portion.
    Test for SlidesApi.DeletePortion method
 */

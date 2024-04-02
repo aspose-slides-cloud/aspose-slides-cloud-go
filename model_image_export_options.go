@@ -57,25 +57,13 @@ type IImageExportOptions interface {
 	GetWidth() int32
 	SetWidth(newValue int32)
 
-	// Gets or sets the position of the notes on the page.
-	GetNotesPosition() string
-	SetNotesPosition(newValue string)
-
-	// Gets or sets the position of the comments on the page.
-	GetCommentsPosition() string
-	SetCommentsPosition(newValue string)
-
-	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	GetCommentsAreaWidth() int32
-	SetCommentsAreaWidth(newValue int32)
-
-	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
-	GetCommentsAreaColor() string
-	SetCommentsAreaColor(newValue string)
-
 	// Show hidden slides. If true, hidden are exported.
 	GetShowHiddenSlides() bool
 	SetShowHiddenSlides(newValue bool)
+
+	// Slides layouting options
+	GetSlidesLayoutOptions() ISlidesLayoutOptions
+	SetSlidesLayoutOptions(newValue ISlidesLayoutOptions)
 }
 
 type ImageExportOptions struct {
@@ -98,20 +86,11 @@ type ImageExportOptions struct {
 	// Gets or sets the height of slides in the output the output image format.
 	Width int32 `json:"Width,omitempty"`
 
-	// Gets or sets the position of the notes on the page.
-	NotesPosition string `json:"NotesPosition,omitempty"`
-
-	// Gets or sets the position of the comments on the page.
-	CommentsPosition string `json:"CommentsPosition,omitempty"`
-
-	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	CommentsAreaWidth int32 `json:"CommentsAreaWidth,omitempty"`
-
-	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
-	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
-
 	// Show hidden slides. If true, hidden are exported.
 	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
+
+	// Slides layouting options
+	SlidesLayoutOptions ISlidesLayoutOptions `json:"SlidesLayoutOptions,omitempty"`
 }
 
 func NewImageExportOptions() *ImageExportOptions {
@@ -161,40 +140,19 @@ func (this *ImageExportOptions) GetWidth() int32 {
 func (this *ImageExportOptions) SetWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this *ImageExportOptions) GetNotesPosition() string {
-	return this.NotesPosition
-}
-
-func (this *ImageExportOptions) SetNotesPosition(newValue string) {
-	this.NotesPosition = newValue
-}
-func (this *ImageExportOptions) GetCommentsPosition() string {
-	return this.CommentsPosition
-}
-
-func (this *ImageExportOptions) SetCommentsPosition(newValue string) {
-	this.CommentsPosition = newValue
-}
-func (this *ImageExportOptions) GetCommentsAreaWidth() int32 {
-	return this.CommentsAreaWidth
-}
-
-func (this *ImageExportOptions) SetCommentsAreaWidth(newValue int32) {
-	this.CommentsAreaWidth = newValue
-}
-func (this *ImageExportOptions) GetCommentsAreaColor() string {
-	return this.CommentsAreaColor
-}
-
-func (this *ImageExportOptions) SetCommentsAreaColor(newValue string) {
-	this.CommentsAreaColor = newValue
-}
 func (this *ImageExportOptions) GetShowHiddenSlides() bool {
 	return this.ShowHiddenSlides
 }
 
 func (this *ImageExportOptions) SetShowHiddenSlides(newValue bool) {
 	this.ShowHiddenSlides = newValue
+}
+func (this *ImageExportOptions) GetSlidesLayoutOptions() ISlidesLayoutOptions {
+	return this.SlidesLayoutOptions
+}
+
+func (this *ImageExportOptions) SetSlidesLayoutOptions(newValue ISlidesLayoutOptions) {
+	this.SlidesLayoutOptions = newValue
 }
 
 func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
@@ -386,114 +344,6 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
-	if valNotesPosition, ok := objMap["notesPosition"]; ok {
-		if valNotesPosition != nil {
-			var valueForNotesPosition string
-			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
-			if err != nil {
-				var valueForNotesPositionInt int32
-				err = json.Unmarshal(*valNotesPosition, &valueForNotesPositionInt)
-				if err != nil {
-					return err
-				}
-				this.NotesPosition = string(valueForNotesPositionInt)
-			} else {
-				this.NotesPosition = valueForNotesPosition
-			}
-		}
-	}
-	if valNotesPositionCap, ok := objMap["NotesPosition"]; ok {
-		if valNotesPositionCap != nil {
-			var valueForNotesPosition string
-			err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPosition)
-			if err != nil {
-				var valueForNotesPositionInt int32
-				err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPositionInt)
-				if err != nil {
-					return err
-				}
-				this.NotesPosition = string(valueForNotesPositionInt)
-			} else {
-				this.NotesPosition = valueForNotesPosition
-			}
-		}
-	}
-	
-	if valCommentsPosition, ok := objMap["commentsPosition"]; ok {
-		if valCommentsPosition != nil {
-			var valueForCommentsPosition string
-			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
-			if err != nil {
-				var valueForCommentsPositionInt int32
-				err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPositionInt)
-				if err != nil {
-					return err
-				}
-				this.CommentsPosition = string(valueForCommentsPositionInt)
-			} else {
-				this.CommentsPosition = valueForCommentsPosition
-			}
-		}
-	}
-	if valCommentsPositionCap, ok := objMap["CommentsPosition"]; ok {
-		if valCommentsPositionCap != nil {
-			var valueForCommentsPosition string
-			err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPosition)
-			if err != nil {
-				var valueForCommentsPositionInt int32
-				err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPositionInt)
-				if err != nil {
-					return err
-				}
-				this.CommentsPosition = string(valueForCommentsPositionInt)
-			} else {
-				this.CommentsPosition = valueForCommentsPosition
-			}
-		}
-	}
-	
-	if valCommentsAreaWidth, ok := objMap["commentsAreaWidth"]; ok {
-		if valCommentsAreaWidth != nil {
-			var valueForCommentsAreaWidth int32
-			err = json.Unmarshal(*valCommentsAreaWidth, &valueForCommentsAreaWidth)
-			if err != nil {
-				return err
-			}
-			this.CommentsAreaWidth = valueForCommentsAreaWidth
-		}
-	}
-	if valCommentsAreaWidthCap, ok := objMap["CommentsAreaWidth"]; ok {
-		if valCommentsAreaWidthCap != nil {
-			var valueForCommentsAreaWidth int32
-			err = json.Unmarshal(*valCommentsAreaWidthCap, &valueForCommentsAreaWidth)
-			if err != nil {
-				return err
-			}
-			this.CommentsAreaWidth = valueForCommentsAreaWidth
-		}
-	}
-	
-	if valCommentsAreaColor, ok := objMap["commentsAreaColor"]; ok {
-		if valCommentsAreaColor != nil {
-			var valueForCommentsAreaColor string
-			err = json.Unmarshal(*valCommentsAreaColor, &valueForCommentsAreaColor)
-			if err != nil {
-				return err
-			}
-			this.CommentsAreaColor = valueForCommentsAreaColor
-		}
-	}
-	if valCommentsAreaColorCap, ok := objMap["CommentsAreaColor"]; ok {
-		if valCommentsAreaColorCap != nil {
-			var valueForCommentsAreaColor string
-			err = json.Unmarshal(*valCommentsAreaColorCap, &valueForCommentsAreaColor)
-			if err != nil {
-				return err
-			}
-			this.CommentsAreaColor = valueForCommentsAreaColor
-		}
-	}
-	
 	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
 			var valueForShowHiddenSlides bool
@@ -512,6 +362,49 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.ShowHiddenSlides = valueForShowHiddenSlides
+		}
+	}
+	
+	if valSlidesLayoutOptions, ok := objMap["slidesLayoutOptions"]; ok {
+		if valSlidesLayoutOptions != nil {
+			var valueForSlidesLayoutOptions SlidesLayoutOptions
+			err = json.Unmarshal(*valSlidesLayoutOptions, &valueForSlidesLayoutOptions)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("SlidesLayoutOptions", *valSlidesLayoutOptions)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSlidesLayoutOptions, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISlidesLayoutOptions)
+			if ok {
+				this.SlidesLayoutOptions = vInterfaceObject
+			}
+		}
+	}
+	if valSlidesLayoutOptionsCap, ok := objMap["SlidesLayoutOptions"]; ok {
+		if valSlidesLayoutOptionsCap != nil {
+			var valueForSlidesLayoutOptions SlidesLayoutOptions
+			err = json.Unmarshal(*valSlidesLayoutOptionsCap, &valueForSlidesLayoutOptions)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("SlidesLayoutOptions", *valSlidesLayoutOptionsCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valSlidesLayoutOptionsCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISlidesLayoutOptions)
+			if ok {
+				this.SlidesLayoutOptions = vInterfaceObject
+			}
 		}
 	}
 

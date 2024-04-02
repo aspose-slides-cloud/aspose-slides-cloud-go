@@ -27,6 +27,18 @@ You may want to check out Aspose free [Powerpoint to PDF](https://products.aspos
 **Web:** HTML/HTML5
 **Other:** MPEG4, SWF (export whole presentations)
 
+## Enhancements in Version 24.3
+
+* Added Markdown (**Md**) to the list of allowed export formats.
+* Added **DeletePictureCroppedAreas** method to delete cropped areas of pictures.
+* Added **SlidesLayoutOptions** property to **PdfExportOptions**, **HtmlExportOptions**, **TiffExportOptions** and **ImageExportOptions** classes. You can use it to specify handout or notes/comments layouting options.
+* Added **AnimateTextType** enum property to **Effect** class.
+* Added **NotesCommentsLayouting** property to **Html5ExportOptions** class.
+* Added **BwConversionMode** property to **TiffExportOptions** class.
+* Added **EmbedImages** boolean property to **Html5ExportOptions** class.
+* Added **ShowMediaControls** boolean property to **SlideShowProperties** class.
+* Added **IsDecorative** boolean property to **ShapeBase** class.
+
 ## Enhancements in Version 24.2
 
 * Added **GetCommentAuthors** method to get list of comment authors.
@@ -44,23 +56,24 @@ The complete source code is available in this repository folder.
 ## Prerequisites
 To use Aspose Slides Cloud SDK for Go you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
 
+
 ### Installation
 
 ```sh
-slides get github.com/aspose-slides-cloud/aspose-slides-cloud-slides
+go get github.com/aspose-slides-cloud/aspose-slides-cloud-go
 ```
 
 ### Sample usage
 
 The example code below converts a PowerPoint document to PDF format using asposeslidescloud library:
 ```slides
-        cfg := asposeslidescloud.NewConfiguration()
-	cfg.AppSid = "MyClientId"
-	cfg.AppKey = "MyClientSecret"
-       	apiClient := asposeslidescloud.NewAPIClient(cfg)
-        file, _ := ioutil.ReadFile("MyPresentation.pptx")
-	r, _, _ := apiClient.SlidesApi.Convert(file, "pdf")
-	fmt.Printf("My PDF was saved to %s", r.Name())
+    cfg := asposeslidescloud.NewConfiguration()
+    cfg.AppSid = "MyClientId"
+    cfg.AppKey = "MyClientSecret"
+    apiClient := asposeslidescloud.NewAPIClient(cfg)
+    file, _ := ioutil.ReadFile("MyPresentation.pptx")
+    r, _, _ := apiClient.SlidesApi.Convert(file, "pdf", "", "", "", nil, nil)
+    fmt.Printf("My PDF was saved to %s", r.Name())
 ```
 
 ## Aspose.Slides Cloud SDKs in Popular Languages

@@ -45,6 +45,10 @@ type IEffect interface {
 	GetPresetClassType() string
 	SetPresetClassType(newValue string)
 
+	// Preset class type.
+	GetAnimateTextType() string
+	SetAnimateTextType(newValue string)
+
 	// Shape index.
 	GetShapeIndex() int32
 	SetShapeIndex(newValue int32)
@@ -129,6 +133,9 @@ type Effect struct {
 	// Preset class type.
 	PresetClassType string `json:"PresetClassType,omitempty"`
 
+	// Preset class type.
+	AnimateTextType string `json:"AnimateTextType,omitempty"`
+
 	// Shape index.
 	ShapeIndex int32 `json:"ShapeIndex"`
 
@@ -209,6 +216,13 @@ func (this *Effect) GetPresetClassType() string {
 
 func (this *Effect) SetPresetClassType(newValue string) {
 	this.PresetClassType = newValue
+}
+func (this *Effect) GetAnimateTextType() string {
+	return this.AnimateTextType
+}
+
+func (this *Effect) SetAnimateTextType(newValue string) {
+	this.AnimateTextType = newValue
 }
 func (this *Effect) GetShapeIndex() int32 {
 	return this.ShapeIndex
@@ -439,6 +453,39 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 				this.PresetClassType = string(valueForPresetClassTypeInt)
 			} else {
 				this.PresetClassType = valueForPresetClassType
+			}
+		}
+	}
+	
+	if valAnimateTextType, ok := objMap["animateTextType"]; ok {
+		if valAnimateTextType != nil {
+			var valueForAnimateTextType string
+			err = json.Unmarshal(*valAnimateTextType, &valueForAnimateTextType)
+			if err != nil {
+				var valueForAnimateTextTypeInt int32
+				err = json.Unmarshal(*valAnimateTextType, &valueForAnimateTextTypeInt)
+				if err != nil {
+					return err
+				}
+				this.AnimateTextType = string(valueForAnimateTextTypeInt)
+			} else {
+				this.AnimateTextType = valueForAnimateTextType
+			}
+		}
+	}
+	if valAnimateTextTypeCap, ok := objMap["AnimateTextType"]; ok {
+		if valAnimateTextTypeCap != nil {
+			var valueForAnimateTextType string
+			err = json.Unmarshal(*valAnimateTextTypeCap, &valueForAnimateTextType)
+			if err != nil {
+				var valueForAnimateTextTypeInt int32
+				err = json.Unmarshal(*valAnimateTextTypeCap, &valueForAnimateTextTypeInt)
+				if err != nil {
+					return err
+				}
+				this.AnimateTextType = string(valueForAnimateTextTypeInt)
+			} else {
+				this.AnimateTextType = valueForAnimateTextType
 			}
 		}
 	}

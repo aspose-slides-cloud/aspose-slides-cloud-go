@@ -77,25 +77,9 @@ type IHtmlExportOptions interface {
 	GetDeletePicturesCroppedAreas() bool
 	SetDeletePicturesCroppedAreas(newValue bool)
 
-	// Gets or sets the position of the notes on the page.
-	GetNotesPosition() string
-	SetNotesPosition(newValue string)
-
-	// Gets or sets the position of the comments on the page.
-	GetCommentsPosition() string
-	SetCommentsPosition(newValue string)
-
-	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	GetCommentsAreaWidth() int32
-	SetCommentsAreaWidth(newValue int32)
-
-	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
-	GetCommentsAreaColor() string
-	SetCommentsAreaColor(newValue string)
-
-	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	GetShowCommentsByNoAuthor() bool
-	SetShowCommentsByNoAuthor(newValue bool)
+	// Slides layouting options
+	GetSlidesLayoutOptions() ISlidesLayoutOptions
+	SetSlidesLayoutOptions(newValue ISlidesLayoutOptions)
 }
 
 type HtmlExportOptions struct {
@@ -133,20 +117,8 @@ type HtmlExportOptions struct {
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
 	DeletePicturesCroppedAreas bool `json:"DeletePicturesCroppedAreas"`
 
-	// Gets or sets the position of the notes on the page.
-	NotesPosition string `json:"NotesPosition,omitempty"`
-
-	// Gets or sets the position of the comments on the page.
-	CommentsPosition string `json:"CommentsPosition,omitempty"`
-
-	// Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).
-	CommentsAreaWidth int32 `json:"CommentsAreaWidth,omitempty"`
-
-	// Gets or sets the color of comments area (Applies only if comments are displayed on the right).
-	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
-
-	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
+	// Slides layouting options
+	SlidesLayoutOptions ISlidesLayoutOptions `json:"SlidesLayoutOptions,omitempty"`
 }
 
 func NewHtmlExportOptions() *HtmlExportOptions {
@@ -231,40 +203,12 @@ func (this *HtmlExportOptions) GetDeletePicturesCroppedAreas() bool {
 func (this *HtmlExportOptions) SetDeletePicturesCroppedAreas(newValue bool) {
 	this.DeletePicturesCroppedAreas = newValue
 }
-func (this *HtmlExportOptions) GetNotesPosition() string {
-	return this.NotesPosition
+func (this *HtmlExportOptions) GetSlidesLayoutOptions() ISlidesLayoutOptions {
+	return this.SlidesLayoutOptions
 }
 
-func (this *HtmlExportOptions) SetNotesPosition(newValue string) {
-	this.NotesPosition = newValue
-}
-func (this *HtmlExportOptions) GetCommentsPosition() string {
-	return this.CommentsPosition
-}
-
-func (this *HtmlExportOptions) SetCommentsPosition(newValue string) {
-	this.CommentsPosition = newValue
-}
-func (this *HtmlExportOptions) GetCommentsAreaWidth() int32 {
-	return this.CommentsAreaWidth
-}
-
-func (this *HtmlExportOptions) SetCommentsAreaWidth(newValue int32) {
-	this.CommentsAreaWidth = newValue
-}
-func (this *HtmlExportOptions) GetCommentsAreaColor() string {
-	return this.CommentsAreaColor
-}
-
-func (this *HtmlExportOptions) SetCommentsAreaColor(newValue string) {
-	this.CommentsAreaColor = newValue
-}
-func (this *HtmlExportOptions) GetShowCommentsByNoAuthor() bool {
-	return this.ShowCommentsByNoAuthor
-}
-
-func (this *HtmlExportOptions) SetShowCommentsByNoAuthor(newValue bool) {
-	this.ShowCommentsByNoAuthor = newValue
+func (this *HtmlExportOptions) SetSlidesLayoutOptions(newValue ISlidesLayoutOptions) {
+	this.SlidesLayoutOptions = newValue
 }
 
 func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
@@ -573,132 +517,46 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 		}
 	}
 	
-	if valNotesPosition, ok := objMap["notesPosition"]; ok {
-		if valNotesPosition != nil {
-			var valueForNotesPosition string
-			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
-			if err != nil {
-				var valueForNotesPositionInt int32
-				err = json.Unmarshal(*valNotesPosition, &valueForNotesPositionInt)
-				if err != nil {
-					return err
-				}
-				this.NotesPosition = string(valueForNotesPositionInt)
-			} else {
-				this.NotesPosition = valueForNotesPosition
-			}
-		}
-	}
-	if valNotesPositionCap, ok := objMap["NotesPosition"]; ok {
-		if valNotesPositionCap != nil {
-			var valueForNotesPosition string
-			err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPosition)
-			if err != nil {
-				var valueForNotesPositionInt int32
-				err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPositionInt)
-				if err != nil {
-					return err
-				}
-				this.NotesPosition = string(valueForNotesPositionInt)
-			} else {
-				this.NotesPosition = valueForNotesPosition
-			}
-		}
-	}
-	
-	if valCommentsPosition, ok := objMap["commentsPosition"]; ok {
-		if valCommentsPosition != nil {
-			var valueForCommentsPosition string
-			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
-			if err != nil {
-				var valueForCommentsPositionInt int32
-				err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPositionInt)
-				if err != nil {
-					return err
-				}
-				this.CommentsPosition = string(valueForCommentsPositionInt)
-			} else {
-				this.CommentsPosition = valueForCommentsPosition
-			}
-		}
-	}
-	if valCommentsPositionCap, ok := objMap["CommentsPosition"]; ok {
-		if valCommentsPositionCap != nil {
-			var valueForCommentsPosition string
-			err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPosition)
-			if err != nil {
-				var valueForCommentsPositionInt int32
-				err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPositionInt)
-				if err != nil {
-					return err
-				}
-				this.CommentsPosition = string(valueForCommentsPositionInt)
-			} else {
-				this.CommentsPosition = valueForCommentsPosition
-			}
-		}
-	}
-	
-	if valCommentsAreaWidth, ok := objMap["commentsAreaWidth"]; ok {
-		if valCommentsAreaWidth != nil {
-			var valueForCommentsAreaWidth int32
-			err = json.Unmarshal(*valCommentsAreaWidth, &valueForCommentsAreaWidth)
+	if valSlidesLayoutOptions, ok := objMap["slidesLayoutOptions"]; ok {
+		if valSlidesLayoutOptions != nil {
+			var valueForSlidesLayoutOptions SlidesLayoutOptions
+			err = json.Unmarshal(*valSlidesLayoutOptions, &valueForSlidesLayoutOptions)
 			if err != nil {
 				return err
 			}
-			this.CommentsAreaWidth = valueForCommentsAreaWidth
-		}
-	}
-	if valCommentsAreaWidthCap, ok := objMap["CommentsAreaWidth"]; ok {
-		if valCommentsAreaWidthCap != nil {
-			var valueForCommentsAreaWidth int32
-			err = json.Unmarshal(*valCommentsAreaWidthCap, &valueForCommentsAreaWidth)
+			vObject, err := createObjectForType("SlidesLayoutOptions", *valSlidesLayoutOptions)
 			if err != nil {
 				return err
 			}
-			this.CommentsAreaWidth = valueForCommentsAreaWidth
-		}
-	}
-	
-	if valCommentsAreaColor, ok := objMap["commentsAreaColor"]; ok {
-		if valCommentsAreaColor != nil {
-			var valueForCommentsAreaColor string
-			err = json.Unmarshal(*valCommentsAreaColor, &valueForCommentsAreaColor)
+			err = json.Unmarshal(*valSlidesLayoutOptions, &vObject)
 			if err != nil {
 				return err
 			}
-			this.CommentsAreaColor = valueForCommentsAreaColor
+			vInterfaceObject, ok := vObject.(ISlidesLayoutOptions)
+			if ok {
+				this.SlidesLayoutOptions = vInterfaceObject
+			}
 		}
 	}
-	if valCommentsAreaColorCap, ok := objMap["CommentsAreaColor"]; ok {
-		if valCommentsAreaColorCap != nil {
-			var valueForCommentsAreaColor string
-			err = json.Unmarshal(*valCommentsAreaColorCap, &valueForCommentsAreaColor)
+	if valSlidesLayoutOptionsCap, ok := objMap["SlidesLayoutOptions"]; ok {
+		if valSlidesLayoutOptionsCap != nil {
+			var valueForSlidesLayoutOptions SlidesLayoutOptions
+			err = json.Unmarshal(*valSlidesLayoutOptionsCap, &valueForSlidesLayoutOptions)
 			if err != nil {
 				return err
 			}
-			this.CommentsAreaColor = valueForCommentsAreaColor
-		}
-	}
-	
-	if valShowCommentsByNoAuthor, ok := objMap["showCommentsByNoAuthor"]; ok {
-		if valShowCommentsByNoAuthor != nil {
-			var valueForShowCommentsByNoAuthor bool
-			err = json.Unmarshal(*valShowCommentsByNoAuthor, &valueForShowCommentsByNoAuthor)
+			vObject, err := createObjectForType("SlidesLayoutOptions", *valSlidesLayoutOptionsCap)
 			if err != nil {
 				return err
 			}
-			this.ShowCommentsByNoAuthor = valueForShowCommentsByNoAuthor
-		}
-	}
-	if valShowCommentsByNoAuthorCap, ok := objMap["ShowCommentsByNoAuthor"]; ok {
-		if valShowCommentsByNoAuthorCap != nil {
-			var valueForShowCommentsByNoAuthor bool
-			err = json.Unmarshal(*valShowCommentsByNoAuthorCap, &valueForShowCommentsByNoAuthor)
+			err = json.Unmarshal(*valSlidesLayoutOptionsCap, &vObject)
 			if err != nil {
 				return err
 			}
-			this.ShowCommentsByNoAuthor = valueForShowCommentsByNoAuthor
+			vInterfaceObject, ok := vObject.(ISlidesLayoutOptions)
+			if ok {
+				this.SlidesLayoutOptions = vInterfaceObject
+			}
 		}
 	}
 

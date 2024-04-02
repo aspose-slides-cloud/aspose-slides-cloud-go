@@ -265,3 +265,43 @@ func TestImageDownloadRequest(t *testing.T) {
 		return
 	}
 }
+
+/*
+   Test for delete picture cropped areas
+*/
+func TestDeletePictureCroppedAreas(t *testing.T) {
+	c := slidescloud.GetTestSlidesApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	 _, e = c.SlidesApi.DeletePictureCroppedAreas(fileName, 2, 2, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+
+/*
+   Test for delete picture cropped areas for wrong shape type
+*/
+func TestDeletePictureCroppedAreasWrongShapeType(t *testing.T) {
+	c := slidescloud.GetTestSlidesApiClient()
+	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	response, e := c.SlidesApi.DeletePictureCroppedAreas(fileName, 2, 3, password, folderName, "")
+	if e == nil {
+		t.Errorf("Should throw an exception if shape is not PictureFrame")
+		return
+	}
+	if response.StatusCode != 400 {
+		t.Errorf("Wrong status code. Expected 400 but was %v.", response.StatusCode)
+		return
+	}
+}

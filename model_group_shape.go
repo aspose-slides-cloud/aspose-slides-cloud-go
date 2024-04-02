@@ -65,6 +65,10 @@ type IGroupShape interface {
 	GetHidden() bool
 	SetHidden(newValue bool)
 
+	// Gets or sets 'Mark as decorative' option.
+	GetIsDecorative() bool
+	SetIsDecorative(newValue bool)
+
 	// Gets or sets the X
 	GetX() float64
 	SetX(newValue float64)
@@ -135,6 +139,9 @@ type GroupShape struct {
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
 	Hidden bool `json:"Hidden"`
+
+	// Gets or sets 'Mark as decorative' option.
+	IsDecorative bool `json:"IsDecorative"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -231,6 +238,13 @@ func (this *GroupShape) GetHidden() bool {
 
 func (this *GroupShape) SetHidden(newValue bool) {
 	this.Hidden = newValue
+}
+func (this *GroupShape) GetIsDecorative() bool {
+	return this.IsDecorative
+}
+
+func (this *GroupShape) SetIsDecorative(newValue bool) {
+	this.IsDecorative = newValue
 }
 func (this *GroupShape) GetX() float64 {
 	return this.X
@@ -532,6 +546,27 @@ func (this *GroupShape) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.Hidden = valueForHidden
+		}
+	}
+	
+	if valIsDecorative, ok := objMap["isDecorative"]; ok {
+		if valIsDecorative != nil {
+			var valueForIsDecorative bool
+			err = json.Unmarshal(*valIsDecorative, &valueForIsDecorative)
+			if err != nil {
+				return err
+			}
+			this.IsDecorative = valueForIsDecorative
+		}
+	}
+	if valIsDecorativeCap, ok := objMap["IsDecorative"]; ok {
+		if valIsDecorativeCap != nil {
+			var valueForIsDecorative bool
+			err = json.Unmarshal(*valIsDecorativeCap, &valueForIsDecorative)
+			if err != nil {
+				return err
+			}
+			this.IsDecorative = valueForIsDecorative
 		}
 	}
 	
