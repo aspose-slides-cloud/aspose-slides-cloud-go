@@ -49,6 +49,10 @@ type IBubbleChartDataPoint interface {
 	GetLineFormat() ILineFormat
 	SetLineFormat(newValue ILineFormat)
 
+	// Gets or sets the marker.
+	GetMarker() ISeriesMarker
+	SetMarker(newValue ISeriesMarker)
+
 	// Data point type.
 	GetType() string
 	SetType(newValue string)
@@ -91,6 +95,9 @@ type BubbleChartDataPoint struct {
 
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
+
+	// Gets or sets the marker.
+	Marker ISeriesMarker `json:"Marker,omitempty"`
 
 	// Data point type.
 	Type_ string `json:"Type"`
@@ -147,6 +154,13 @@ func (this *BubbleChartDataPoint) GetLineFormat() ILineFormat {
 
 func (this *BubbleChartDataPoint) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
+}
+func (this *BubbleChartDataPoint) GetMarker() ISeriesMarker {
+	return this.Marker
+}
+
+func (this *BubbleChartDataPoint) SetMarker(newValue ISeriesMarker) {
+	this.Marker = newValue
 }
 func (this *BubbleChartDataPoint) GetType() string {
 	return this.Type_
@@ -373,6 +387,49 @@ func (this *BubbleChartDataPoint) UnmarshalJSON(b []byte) error {
 			vInterfaceObject, ok := vObject.(ILineFormat)
 			if ok {
 				this.LineFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valMarker, ok := objMap["marker"]; ok {
+		if valMarker != nil {
+			var valueForMarker SeriesMarker
+			err = json.Unmarshal(*valMarker, &valueForMarker)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("SeriesMarker", *valMarker)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMarker, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISeriesMarker)
+			if ok {
+				this.Marker = vInterfaceObject
+			}
+		}
+	}
+	if valMarkerCap, ok := objMap["Marker"]; ok {
+		if valMarkerCap != nil {
+			var valueForMarker SeriesMarker
+			err = json.Unmarshal(*valMarkerCap, &valueForMarker)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("SeriesMarker", *valMarkerCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMarkerCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISeriesMarker)
+			if ok {
+				this.Marker = vInterfaceObject
 			}
 		}
 	}

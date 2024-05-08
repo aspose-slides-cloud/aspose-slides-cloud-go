@@ -49,6 +49,10 @@ type IDataPoint interface {
 	GetLineFormat() ILineFormat
 	SetLineFormat(newValue ILineFormat)
 
+	// Gets or sets the marker.
+	GetMarker() ISeriesMarker
+	SetMarker(newValue ISeriesMarker)
+
 	GetType() string
 	SetType(newValue string)
 }
@@ -66,6 +70,9 @@ type DataPoint struct {
 
 	// Gets or sets the line format.
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
+
+	// Gets or sets the marker.
+	Marker ISeriesMarker `json:"Marker,omitempty"`
 
 	Type_ string `json:"Type,omitempty"`
 }
@@ -102,6 +109,13 @@ func (this *DataPoint) GetLineFormat() ILineFormat {
 
 func (this *DataPoint) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
+}
+func (this *DataPoint) GetMarker() ISeriesMarker {
+	return this.Marker
+}
+
+func (this *DataPoint) SetMarker(newValue ISeriesMarker) {
+	this.Marker = newValue
 }
 func (this *DataPoint) GetType() string {
 	return this.Type_
@@ -286,6 +300,49 @@ func (this *DataPoint) UnmarshalJSON(b []byte) error {
 			vInterfaceObject, ok := vObject.(ILineFormat)
 			if ok {
 				this.LineFormat = vInterfaceObject
+			}
+		}
+	}
+	
+	if valMarker, ok := objMap["marker"]; ok {
+		if valMarker != nil {
+			var valueForMarker SeriesMarker
+			err = json.Unmarshal(*valMarker, &valueForMarker)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("SeriesMarker", *valMarker)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMarker, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISeriesMarker)
+			if ok {
+				this.Marker = vInterfaceObject
+			}
+		}
+	}
+	if valMarkerCap, ok := objMap["Marker"]; ok {
+		if valMarkerCap != nil {
+			var valueForMarker SeriesMarker
+			err = json.Unmarshal(*valMarkerCap, &valueForMarker)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("SeriesMarker", *valMarkerCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valMarkerCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(ISeriesMarker)
+			if ok {
+				this.Marker = vInterfaceObject
 			}
 		}
 	}

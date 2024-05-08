@@ -27,6 +27,11 @@ You may want to check out Aspose free [Powerpoint to PDF](https://products.aspos
 **Web:** HTML/HTML5
 **Other:** MPEG4, SWF (export whole presentations)
 
+## Enhancements in Version 24.4
+
+* Added **DownloadMathPortion** and **SaveMathPortion** methods to convert math portions to math markup formats (MathML or LaTeX). See [documentation](https://docs.aspose.cloud/slides/export-a-math-formula/) for more info. **DownloadPortionAsMathML** and **SavePortionAsMathML** methods are deprecated and will be removed after 24.6.
+* Added **Marker** property to **DataPoint** class.
+
 ## Enhancements in Version 24.3
 
 * Added Markdown (**Md**) to the list of allowed export formats.
@@ -38,6 +43,7 @@ You may want to check out Aspose free [Powerpoint to PDF](https://products.aspos
 * Added **EmbedImages** boolean property to **Html5ExportOptions** class.
 * Added **ShowMediaControls** boolean property to **SlideShowProperties** class.
 * Added **IsDecorative** boolean property to **ShapeBase** class.
+
 
 ## Enhancements in Version 24.2
 
@@ -55,7 +61,6 @@ The complete source code is available in this repository folder.
 
 ## Prerequisites
 To use Aspose Slides Cloud SDK for Go you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
-
 
 ### Installation
 

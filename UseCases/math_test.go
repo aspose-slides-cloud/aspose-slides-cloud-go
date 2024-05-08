@@ -252,7 +252,7 @@ func TestMathDownload(t *testing.T) {
 		return
 	}
 
-	mathMl, _, e := c.SlidesApi.DownloadPortionAsMathMl(fileName, 2, 3, 1, 1, password, folderName, "")
+	mathMl, _, e := c.SlidesApi.DownloadMathPortion(fileName, 2, 3, 1, 1, "MathML", password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

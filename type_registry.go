@@ -425,6 +425,9 @@ func init() {
 	derivedTypes["LuminanceEffect"] = "ImageTransformEffect"
 	typeDeterminers["LuminanceEffect"] = make(map[string]string)
 	typeDeterminers["LuminanceEffect"]["Type"] = "Luminance"
+	typeRegistry["MarkdownExportOptions"] = reflect.TypeOf(MarkdownExportOptions{})
+	derivedTypes["MarkdownExportOptions"] = "ExportOptions"
+	typeDeterminers["MarkdownExportOptions"] = make(map[string]string)
 	typeRegistry["MasterSlide"] = reflect.TypeOf(MasterSlide{})
 	derivedTypes["MasterSlide"] = "ResourceBase"
 	typeDeterminers["MasterSlide"] = make(map[string]string)
