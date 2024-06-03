@@ -20341,11 +20341,12 @@ func (a *SlidesApiService) ImportFromHtml(name string, html string, password str
  @param name Document name.
  @param pdf PDF data.
  @param optional (nil or map[string]interface{}) with one or more of:
+     @param "options" (PdfImportOptions) Import options.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return Document*/
-func (a *SlidesApiService) ImportFromPdf(name string, pdf []byte, password string, folder string, storage string) (IDocument, *http.Response, error) {
+func (a *SlidesApiService) ImportFromPdf(name string, pdf []byte, options IPdfImportOptions, password string, folder string, storage string) (IDocument, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -20412,6 +20413,7 @@ func (a *SlidesApiService) ImportFromPdf(name string, pdf []byte, password strin
 	if len(pdf) > 0 {
 		localVarFiles = append(localVarFiles, pdf)
 	}
+	localVarPostBody = &options
 	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
 	responseBody := bytes.NewReader(responseBytes)
 	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {

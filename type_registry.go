@@ -536,6 +536,9 @@ func init() {
 	typeRegistry["PdfExportOptions"] = reflect.TypeOf(PdfExportOptions{})
 	derivedTypes["PdfExportOptions"] = "ExportOptions"
 	typeDeterminers["PdfExportOptions"] = make(map[string]string)
+	typeRegistry["PdfImportOptions"] = reflect.TypeOf(PdfImportOptions{})
+	
+	typeDeterminers["PdfImportOptions"] = make(map[string]string)
 	typeRegistry["PictureFill"] = reflect.TypeOf(PictureFill{})
 	derivedTypes["PictureFill"] = "FillFormat"
 	typeDeterminers["PictureFill"] = make(map[string]string)

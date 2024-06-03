@@ -41,6 +41,10 @@ type IAxis interface {
 	GetHasTitle() bool
 	SetHasTitle(newValue bool)
 
+	// Axis title
+	GetTitle() IChartTitle
+	SetTitle(newValue IChartTitle)
+
 	// Axis position
 	GetPosition() string
 	SetPosition(newValue string)
@@ -194,6 +198,9 @@ type Axis struct {
 	// True if the axis has a visible title
 	HasTitle bool `json:"HasTitle"`
 
+	// Axis title
+	Title IChartTitle `json:"Title,omitempty"`
+
 	// Axis position
 	Position string `json:"Position,omitempty"`
 
@@ -321,6 +328,13 @@ func (this *Axis) GetHasTitle() bool {
 
 func (this *Axis) SetHasTitle(newValue bool) {
 	this.HasTitle = newValue
+}
+func (this *Axis) GetTitle() IChartTitle {
+	return this.Title
+}
+
+func (this *Axis) SetTitle(newValue IChartTitle) {
+	this.Title = newValue
 }
 func (this *Axis) GetPosition() string {
 	return this.Position
@@ -621,6 +635,49 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.HasTitle = valueForHasTitle
+		}
+	}
+	
+	if valTitle, ok := objMap["title"]; ok {
+		if valTitle != nil {
+			var valueForTitle ChartTitle
+			err = json.Unmarshal(*valTitle, &valueForTitle)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ChartTitle", *valTitle)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valTitle, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IChartTitle)
+			if ok {
+				this.Title = vInterfaceObject
+			}
+		}
+	}
+	if valTitleCap, ok := objMap["Title"]; ok {
+		if valTitleCap != nil {
+			var valueForTitle ChartTitle
+			err = json.Unmarshal(*valTitleCap, &valueForTitle)
+			if err != nil {
+				return err
+			}
+			vObject, err := createObjectForType("ChartTitle", *valTitleCap)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valTitleCap, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IChartTitle)
+			if ok {
+				this.Title = vInterfaceObject
+			}
 		}
 	}
 	

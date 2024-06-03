@@ -60,8 +60,8 @@ func TestNullableProperties(t *testing.T) {
 	dto1.SetChartType("Line")
 	dto1.SetWidth(400)
 	dto1.SetHeight(300)
+	dto1.SetHasTitle(true)
 	var title slidescloud.ChartTitle
-	title.SetHasTitle(true)
 	title.SetText("MyTitle")
 	dto1.SetTitle(&title)
 	var series slidescloud.OneValueSeries

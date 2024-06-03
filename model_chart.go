@@ -129,6 +129,10 @@ type IChart interface {
 	GetDataSourceForCategories() IDataSource
 	SetDataSourceForCategories(newValue IDataSource)
 
+	// True if the chart has a title.
+	GetHasTitle() bool
+	SetHasTitle(newValue bool)
+
 	// Gets or sets the title.
 	GetTitle() IChartTitle
 	SetTitle(newValue IChartTitle)
@@ -239,6 +243,9 @@ type Chart struct {
 
 	// Data source type for categories.
 	DataSourceForCategories IDataSource `json:"DataSourceForCategories,omitempty"`
+
+	// True if the chart has a title.
+	HasTitle bool `json:"HasTitle"`
 
 	// Gets or sets the title.
 	Title IChartTitle `json:"Title,omitempty"`
@@ -442,6 +449,13 @@ func (this *Chart) GetDataSourceForCategories() IDataSource {
 
 func (this *Chart) SetDataSourceForCategories(newValue IDataSource) {
 	this.DataSourceForCategories = newValue
+}
+func (this *Chart) GetHasTitle() bool {
+	return this.HasTitle
+}
+
+func (this *Chart) SetHasTitle(newValue bool) {
+	this.HasTitle = newValue
 }
 func (this *Chart) GetTitle() IChartTitle {
 	return this.Title
@@ -1299,6 +1313,27 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 			if ok {
 				this.DataSourceForCategories = vInterfaceObject
 			}
+		}
+	}
+	
+	if valHasTitle, ok := objMap["hasTitle"]; ok {
+		if valHasTitle != nil {
+			var valueForHasTitle bool
+			err = json.Unmarshal(*valHasTitle, &valueForHasTitle)
+			if err != nil {
+				return err
+			}
+			this.HasTitle = valueForHasTitle
+		}
+	}
+	if valHasTitleCap, ok := objMap["HasTitle"]; ok {
+		if valHasTitleCap != nil {
+			var valueForHasTitle bool
+			err = json.Unmarshal(*valHasTitleCap, &valueForHasTitle)
+			if err != nil {
+				return err
+			}
+			this.HasTitle = valueForHasTitle
 		}
 	}
 	

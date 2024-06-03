@@ -29,6 +29,7 @@ package asposeslidescloud
 
 import (
 	"bytes"
+	"crypto/tls"
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
@@ -72,6 +73,12 @@ type service struct {
 // optionally a custom http.Client to allow for advanced features such as caching.
 func NewAPIClient(cfg *Configuration) *APIClient {
 	if cfg.HTTPClient == nil {
+		if (cfg.AllowInsecureRequests) {
+			tr := &http.Transport{
+				TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+			}
+			http.DefaultClient.Transport = tr
+		}
 		cfg.HTTPClient = http.DefaultClient
 	}
 

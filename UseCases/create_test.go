@@ -183,7 +183,7 @@ func TestCreateFromPdf(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, _, e = c.SlidesApi.ImportFromPdf(fileName, source, "", folderName, "")
+	_, _, e = c.SlidesApi.ImportFromPdf(fileName, source, nil, "", folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -211,7 +211,9 @@ func TestAppendFromPdf(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, _, e = c.SlidesApi.ImportFromPdf(fileName, source, password, folderName, "")
+	options := slidescloud.NewPdfImportOptions()
+	options.SetDetectTables(false)
+	_, _, e = c.SlidesApi.ImportFromPdf(fileName, source, options, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

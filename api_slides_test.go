@@ -45826,6 +45826,7 @@ func TestImportFromHtmlInvalidStorage(t *testing.T) {
 func TestImportFromPdf(t *testing.T) {
     testname, _ := createTestParamValue("ImportFromPdf", "name", "string").(string)
     testpdf, _ := createTestParamValue("ImportFromPdf", "pdf", "[]byte").([]byte)
+    testoptions, _ := createTestParamValue("ImportFromPdf", "options", "PdfImportOptions").(IPdfImportOptions)
     testpassword, _ := createTestParamValue("ImportFromPdf", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportFromPdf", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportFromPdf", "storage", "string").(string)
@@ -45835,7 +45836,7 @@ func TestImportFromPdf(t *testing.T) {
        return
     }
     c := GetTestSlidesApiClient()
-    _, _, e = c.SlidesApi.ImportFromPdf(testname, testpdf, testpassword, testfolder, teststorage)
+    _, _, e = c.SlidesApi.ImportFromPdf(testname, testpdf, testoptions, testpassword, testfolder, teststorage)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -45848,6 +45849,7 @@ func TestImportFromPdf(t *testing.T) {
 func TestImportFromPdfInvalidName(t *testing.T) {
     testname, _ := createTestParamValue("ImportFromPdf", "name", "string").(string)
     testpdf, _ := createTestParamValue("ImportFromPdf", "pdf", "[]byte").([]byte)
+    testoptions, _ := createTestParamValue("ImportFromPdf", "options", "PdfImportOptions").(IPdfImportOptions)
     testpassword, _ := createTestParamValue("ImportFromPdf", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportFromPdf", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportFromPdf", "storage", "string").(string)
@@ -45865,7 +45867,7 @@ func TestImportFromPdfInvalidName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ImportFromPdf(testname, testpdf, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ImportFromPdf(testname, testpdf, testoptions, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -45879,6 +45881,7 @@ func TestImportFromPdfInvalidName(t *testing.T) {
 func TestImportFromPdfInvalidPdf(t *testing.T) {
     testname, _ := createTestParamValue("ImportFromPdf", "name", "string").(string)
     testpdf, _ := createTestParamValue("ImportFromPdf", "pdf", "[]byte").([]byte)
+    testoptions, _ := createTestParamValue("ImportFromPdf", "options", "PdfImportOptions").(IPdfImportOptions)
     testpassword, _ := createTestParamValue("ImportFromPdf", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportFromPdf", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportFromPdf", "storage", "string").(string)
@@ -45895,7 +45898,7 @@ func TestImportFromPdfInvalidPdf(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ImportFromPdf(testname, testpdf, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ImportFromPdf(testname, testpdf, testoptions, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -45904,11 +45907,43 @@ func TestImportFromPdfInvalidPdf(t *testing.T) {
 }
 
 /* SlidesApiServiceTests Create presentation document from pdf or append pdf to an existing presentation.
+   Test for SlidesApi.ImportFromPdf method with invalid options
+*/
+func TestImportFromPdfInvalidOptions(t *testing.T) {
+    testname, _ := createTestParamValue("ImportFromPdf", "name", "string").(string)
+    testpdf, _ := createTestParamValue("ImportFromPdf", "pdf", "[]byte").([]byte)
+    testoptions, _ := createTestParamValue("ImportFromPdf", "options", "PdfImportOptions").(IPdfImportOptions)
+    testpassword, _ := createTestParamValue("ImportFromPdf", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ImportFromPdf", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ImportFromPdf", "storage", "string").(string)
+
+    invalidValue := invalidizeTestParamValue(testoptions, "ImportFromPdf", "options", "PdfImportOptions")
+    if (invalidValue == nil) {
+        testoptions = nil
+    } else {
+        testoptions, _ = invalidValue.(IPdfImportOptions)
+    }
+
+    e := InitializeTest("ImportFromPdf", "options", testoptions)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ImportFromPdf(testname, testpdf, testoptions, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ImportFromPdf", "options", "PdfImportOptions", testoptions, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Create presentation document from pdf or append pdf to an existing presentation.
    Test for SlidesApi.ImportFromPdf method with invalid password
 */
 func TestImportFromPdfInvalidPassword(t *testing.T) {
     testname, _ := createTestParamValue("ImportFromPdf", "name", "string").(string)
     testpdf, _ := createTestParamValue("ImportFromPdf", "pdf", "[]byte").([]byte)
+    testoptions, _ := createTestParamValue("ImportFromPdf", "options", "PdfImportOptions").(IPdfImportOptions)
     testpassword, _ := createTestParamValue("ImportFromPdf", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportFromPdf", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportFromPdf", "storage", "string").(string)
@@ -45926,7 +45961,7 @@ func TestImportFromPdfInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ImportFromPdf(testname, testpdf, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ImportFromPdf(testname, testpdf, testoptions, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -45940,6 +45975,7 @@ func TestImportFromPdfInvalidPassword(t *testing.T) {
 func TestImportFromPdfInvalidFolder(t *testing.T) {
     testname, _ := createTestParamValue("ImportFromPdf", "name", "string").(string)
     testpdf, _ := createTestParamValue("ImportFromPdf", "pdf", "[]byte").([]byte)
+    testoptions, _ := createTestParamValue("ImportFromPdf", "options", "PdfImportOptions").(IPdfImportOptions)
     testpassword, _ := createTestParamValue("ImportFromPdf", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportFromPdf", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportFromPdf", "storage", "string").(string)
@@ -45957,7 +45993,7 @@ func TestImportFromPdfInvalidFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ImportFromPdf(testname, testpdf, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ImportFromPdf(testname, testpdf, testoptions, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -45971,6 +46007,7 @@ func TestImportFromPdfInvalidFolder(t *testing.T) {
 func TestImportFromPdfInvalidStorage(t *testing.T) {
     testname, _ := createTestParamValue("ImportFromPdf", "name", "string").(string)
     testpdf, _ := createTestParamValue("ImportFromPdf", "pdf", "[]byte").([]byte)
+    testoptions, _ := createTestParamValue("ImportFromPdf", "options", "PdfImportOptions").(IPdfImportOptions)
     testpassword, _ := createTestParamValue("ImportFromPdf", "password", "string").(string)
     testfolder, _ := createTestParamValue("ImportFromPdf", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ImportFromPdf", "storage", "string").(string)
@@ -45988,7 +46025,7 @@ func TestImportFromPdfInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ImportFromPdf(testname, testpdf, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ImportFromPdf(testname, testpdf, testoptions, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
