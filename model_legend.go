@@ -54,8 +54,8 @@ type ILegend interface {
 	SetHeight(newValue float64)
 
 	// true if other elements are allowed to overlay the legend
-	GetOverlay() bool
-	SetOverlay(newValue bool)
+	GetOverlay() *bool
+	SetOverlay(newValue *bool)
 
 	// Get or sets the fill format.
 	GetFillFormat() IFillFormat
@@ -70,8 +70,8 @@ type ILegend interface {
 	SetLineFormat(newValue ILineFormat)
 
 	// Get or sets value determines the visibility of legend
-	GetHasLegend() bool
-	SetHasLegend(newValue bool)
+	GetHasLegend() *bool
+	SetHasLegend(newValue *bool)
 }
 
 type Legend struct {
@@ -92,7 +92,7 @@ type Legend struct {
 	Height float64 `json:"Height,omitempty"`
 
 	// true if other elements are allowed to overlay the legend
-	Overlay bool `json:"Overlay"`
+	Overlay *bool `json:"Overlay"`
 
 	// Get or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -104,7 +104,7 @@ type Legend struct {
 	LineFormat ILineFormat `json:"LineFormat,omitempty"`
 
 	// Get or sets value determines the visibility of legend
-	HasLegend bool `json:"HasLegend"`
+	HasLegend *bool `json:"HasLegend"`
 }
 
 func NewLegend() *Legend {
@@ -147,11 +147,11 @@ func (this *Legend) GetHeight() float64 {
 func (this *Legend) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *Legend) GetOverlay() bool {
+func (this *Legend) GetOverlay() *bool {
 	return this.Overlay
 }
 
-func (this *Legend) SetOverlay(newValue bool) {
+func (this *Legend) SetOverlay(newValue *bool) {
 	this.Overlay = newValue
 }
 func (this *Legend) GetFillFormat() IFillFormat {
@@ -175,11 +175,11 @@ func (this *Legend) GetLineFormat() ILineFormat {
 func (this *Legend) SetLineFormat(newValue ILineFormat) {
 	this.LineFormat = newValue
 }
-func (this *Legend) GetHasLegend() bool {
+func (this *Legend) GetHasLegend() *bool {
 	return this.HasLegend
 }
 
-func (this *Legend) SetHasLegend(newValue bool) {
+func (this *Legend) SetHasLegend(newValue *bool) {
 	this.HasLegend = newValue
 }
 
@@ -309,7 +309,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 	
 	if valOverlay, ok := objMap["overlay"]; ok {
 		if valOverlay != nil {
-			var valueForOverlay bool
+			var valueForOverlay *bool
 			err = json.Unmarshal(*valOverlay, &valueForOverlay)
 			if err != nil {
 				return err
@@ -319,7 +319,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 	}
 	if valOverlayCap, ok := objMap["Overlay"]; ok {
 		if valOverlayCap != nil {
-			var valueForOverlay bool
+			var valueForOverlay *bool
 			err = json.Unmarshal(*valOverlayCap, &valueForOverlay)
 			if err != nil {
 				return err
@@ -459,7 +459,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 	
 	if valHasLegend, ok := objMap["hasLegend"]; ok {
 		if valHasLegend != nil {
-			var valueForHasLegend bool
+			var valueForHasLegend *bool
 			err = json.Unmarshal(*valHasLegend, &valueForHasLegend)
 			if err != nil {
 				return err
@@ -469,7 +469,7 @@ func (this *Legend) UnmarshalJSON(b []byte) error {
 	}
 	if valHasLegendCap, ok := objMap["HasLegend"]; ok {
 		if valHasLegendCap != nil {
-			var valueForHasLegend bool
+			var valueForHasLegend *bool
 			err = json.Unmarshal(*valHasLegendCap, &valueForHasLegend)
 			if err != nil {
 				return err

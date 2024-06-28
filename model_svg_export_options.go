@@ -50,24 +50,24 @@ type ISvgExportOptions interface {
 	SetFormat(newValue string)
 
 	// Determines whether the text on a slide will be saved as graphics.
-	GetVectorizeText() bool
-	SetVectorizeText(newValue bool)
+	GetVectorizeText() *bool
+	SetVectorizeText(newValue *bool)
 
 	// Returns or sets the lower resolution limit for metafile rasterization.
 	GetMetafileRasterizationDpi() int32
 	SetMetafileRasterizationDpi(newValue int32)
 
 	// Determines whether the 3D text is disabled in SVG.
-	GetDisable3DText() bool
-	SetDisable3DText(newValue bool)
+	GetDisable3DText() *bool
+	SetDisable3DText(newValue *bool)
 
 	// Disables splitting FromCornerX and FromCenter gradients.
-	GetDisableGradientSplit() bool
-	SetDisableGradientSplit(newValue bool)
+	GetDisableGradientSplit() *bool
+	SetDisableGradientSplit(newValue *bool)
 
 	// SVG 1.1 lacks ability to define insets for markers. Aspose.Slides SVG writing engine has workaround for that problem: it crops end of line with arrow, so, line doesn't overlap markers. This option switches off such behavior.
-	GetDisableLineEndCropping() bool
-	SetDisableLineEndCropping(newValue bool)
+	GetDisableLineEndCropping() *bool
+	SetDisableLineEndCropping(newValue *bool)
 
 	// Determines JPEG encoding quality.
 	GetJpegQuality() int32
@@ -78,20 +78,20 @@ type ISvgExportOptions interface {
 	SetPicturesCompression(newValue string)
 
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
-	GetDeletePicturesCroppedAreas() bool
-	SetDeletePicturesCroppedAreas(newValue bool)
+	GetDeletePicturesCroppedAreas() *bool
+	SetDeletePicturesCroppedAreas(newValue *bool)
 
 	// Determines a way of handling externally loaded fonts.
 	GetExternalFontsHandling() string
 	SetExternalFontsHandling(newValue string)
 
 	// Determines whether the text frame will be included in a rendering area or not.
-	GetUseFrameSize() bool
-	SetUseFrameSize(newValue bool)
+	GetUseFrameSize() *bool
+	SetUseFrameSize(newValue *bool)
 
 	// Determines whether to perform the specified rotation of the shape when rendering or not.
-	GetUseFrameRotation() bool
-	SetUseFrameRotation(newValue bool)
+	GetUseFrameRotation() *bool
+	SetUseFrameRotation(newValue *bool)
 }
 
 type SvgExportOptions struct {
@@ -109,19 +109,19 @@ type SvgExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Determines whether the text on a slide will be saved as graphics.
-	VectorizeText bool `json:"VectorizeText"`
+	VectorizeText *bool `json:"VectorizeText"`
 
 	// Returns or sets the lower resolution limit for metafile rasterization.
 	MetafileRasterizationDpi int32 `json:"MetafileRasterizationDpi,omitempty"`
 
 	// Determines whether the 3D text is disabled in SVG.
-	Disable3DText bool `json:"Disable3DText"`
+	Disable3DText *bool `json:"Disable3DText"`
 
 	// Disables splitting FromCornerX and FromCenter gradients.
-	DisableGradientSplit bool `json:"DisableGradientSplit"`
+	DisableGradientSplit *bool `json:"DisableGradientSplit"`
 
 	// SVG 1.1 lacks ability to define insets for markers. Aspose.Slides SVG writing engine has workaround for that problem: it crops end of line with arrow, so, line doesn't overlap markers. This option switches off such behavior.
-	DisableLineEndCropping bool `json:"DisableLineEndCropping"`
+	DisableLineEndCropping *bool `json:"DisableLineEndCropping"`
 
 	// Determines JPEG encoding quality.
 	JpegQuality int32 `json:"JpegQuality,omitempty"`
@@ -130,16 +130,16 @@ type SvgExportOptions struct {
 	PicturesCompression string `json:"PicturesCompression,omitempty"`
 
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
-	DeletePicturesCroppedAreas bool `json:"DeletePicturesCroppedAreas"`
+	DeletePicturesCroppedAreas *bool `json:"DeletePicturesCroppedAreas"`
 
 	// Determines a way of handling externally loaded fonts.
 	ExternalFontsHandling string `json:"ExternalFontsHandling,omitempty"`
 
 	// Determines whether the text frame will be included in a rendering area or not.
-	UseFrameSize bool `json:"UseFrameSize"`
+	UseFrameSize *bool `json:"UseFrameSize"`
 
 	// Determines whether to perform the specified rotation of the shape when rendering or not.
-	UseFrameRotation bool `json:"UseFrameRotation"`
+	UseFrameRotation *bool `json:"UseFrameRotation"`
 }
 
 func NewSvgExportOptions() *SvgExportOptions {
@@ -175,11 +175,11 @@ func (this *SvgExportOptions) GetFormat() string {
 func (this *SvgExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *SvgExportOptions) GetVectorizeText() bool {
+func (this *SvgExportOptions) GetVectorizeText() *bool {
 	return this.VectorizeText
 }
 
-func (this *SvgExportOptions) SetVectorizeText(newValue bool) {
+func (this *SvgExportOptions) SetVectorizeText(newValue *bool) {
 	this.VectorizeText = newValue
 }
 func (this *SvgExportOptions) GetMetafileRasterizationDpi() int32 {
@@ -189,25 +189,25 @@ func (this *SvgExportOptions) GetMetafileRasterizationDpi() int32 {
 func (this *SvgExportOptions) SetMetafileRasterizationDpi(newValue int32) {
 	this.MetafileRasterizationDpi = newValue
 }
-func (this *SvgExportOptions) GetDisable3DText() bool {
+func (this *SvgExportOptions) GetDisable3DText() *bool {
 	return this.Disable3DText
 }
 
-func (this *SvgExportOptions) SetDisable3DText(newValue bool) {
+func (this *SvgExportOptions) SetDisable3DText(newValue *bool) {
 	this.Disable3DText = newValue
 }
-func (this *SvgExportOptions) GetDisableGradientSplit() bool {
+func (this *SvgExportOptions) GetDisableGradientSplit() *bool {
 	return this.DisableGradientSplit
 }
 
-func (this *SvgExportOptions) SetDisableGradientSplit(newValue bool) {
+func (this *SvgExportOptions) SetDisableGradientSplit(newValue *bool) {
 	this.DisableGradientSplit = newValue
 }
-func (this *SvgExportOptions) GetDisableLineEndCropping() bool {
+func (this *SvgExportOptions) GetDisableLineEndCropping() *bool {
 	return this.DisableLineEndCropping
 }
 
-func (this *SvgExportOptions) SetDisableLineEndCropping(newValue bool) {
+func (this *SvgExportOptions) SetDisableLineEndCropping(newValue *bool) {
 	this.DisableLineEndCropping = newValue
 }
 func (this *SvgExportOptions) GetJpegQuality() int32 {
@@ -224,11 +224,11 @@ func (this *SvgExportOptions) GetPicturesCompression() string {
 func (this *SvgExportOptions) SetPicturesCompression(newValue string) {
 	this.PicturesCompression = newValue
 }
-func (this *SvgExportOptions) GetDeletePicturesCroppedAreas() bool {
+func (this *SvgExportOptions) GetDeletePicturesCroppedAreas() *bool {
 	return this.DeletePicturesCroppedAreas
 }
 
-func (this *SvgExportOptions) SetDeletePicturesCroppedAreas(newValue bool) {
+func (this *SvgExportOptions) SetDeletePicturesCroppedAreas(newValue *bool) {
 	this.DeletePicturesCroppedAreas = newValue
 }
 func (this *SvgExportOptions) GetExternalFontsHandling() string {
@@ -238,18 +238,18 @@ func (this *SvgExportOptions) GetExternalFontsHandling() string {
 func (this *SvgExportOptions) SetExternalFontsHandling(newValue string) {
 	this.ExternalFontsHandling = newValue
 }
-func (this *SvgExportOptions) GetUseFrameSize() bool {
+func (this *SvgExportOptions) GetUseFrameSize() *bool {
 	return this.UseFrameSize
 }
 
-func (this *SvgExportOptions) SetUseFrameSize(newValue bool) {
+func (this *SvgExportOptions) SetUseFrameSize(newValue *bool) {
 	this.UseFrameSize = newValue
 }
-func (this *SvgExportOptions) GetUseFrameRotation() bool {
+func (this *SvgExportOptions) GetUseFrameRotation() *bool {
 	return this.UseFrameRotation
 }
 
-func (this *SvgExportOptions) SetUseFrameRotation(newValue bool) {
+func (this *SvgExportOptions) SetUseFrameRotation(newValue *bool) {
 	this.UseFrameRotation = newValue
 }
 
@@ -402,7 +402,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valVectorizeText, ok := objMap["vectorizeText"]; ok {
 		if valVectorizeText != nil {
-			var valueForVectorizeText bool
+			var valueForVectorizeText *bool
 			err = json.Unmarshal(*valVectorizeText, &valueForVectorizeText)
 			if err != nil {
 				return err
@@ -412,7 +412,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valVectorizeTextCap, ok := objMap["VectorizeText"]; ok {
 		if valVectorizeTextCap != nil {
-			var valueForVectorizeText bool
+			var valueForVectorizeText *bool
 			err = json.Unmarshal(*valVectorizeTextCap, &valueForVectorizeText)
 			if err != nil {
 				return err
@@ -444,7 +444,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valDisable3DText, ok := objMap["disable3DText"]; ok {
 		if valDisable3DText != nil {
-			var valueForDisable3DText bool
+			var valueForDisable3DText *bool
 			err = json.Unmarshal(*valDisable3DText, &valueForDisable3DText)
 			if err != nil {
 				return err
@@ -454,7 +454,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valDisable3DTextCap, ok := objMap["Disable3DText"]; ok {
 		if valDisable3DTextCap != nil {
-			var valueForDisable3DText bool
+			var valueForDisable3DText *bool
 			err = json.Unmarshal(*valDisable3DTextCap, &valueForDisable3DText)
 			if err != nil {
 				return err
@@ -465,7 +465,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valDisableGradientSplit, ok := objMap["disableGradientSplit"]; ok {
 		if valDisableGradientSplit != nil {
-			var valueForDisableGradientSplit bool
+			var valueForDisableGradientSplit *bool
 			err = json.Unmarshal(*valDisableGradientSplit, &valueForDisableGradientSplit)
 			if err != nil {
 				return err
@@ -475,7 +475,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valDisableGradientSplitCap, ok := objMap["DisableGradientSplit"]; ok {
 		if valDisableGradientSplitCap != nil {
-			var valueForDisableGradientSplit bool
+			var valueForDisableGradientSplit *bool
 			err = json.Unmarshal(*valDisableGradientSplitCap, &valueForDisableGradientSplit)
 			if err != nil {
 				return err
@@ -486,7 +486,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valDisableLineEndCropping, ok := objMap["disableLineEndCropping"]; ok {
 		if valDisableLineEndCropping != nil {
-			var valueForDisableLineEndCropping bool
+			var valueForDisableLineEndCropping *bool
 			err = json.Unmarshal(*valDisableLineEndCropping, &valueForDisableLineEndCropping)
 			if err != nil {
 				return err
@@ -496,7 +496,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valDisableLineEndCroppingCap, ok := objMap["DisableLineEndCropping"]; ok {
 		if valDisableLineEndCroppingCap != nil {
-			var valueForDisableLineEndCropping bool
+			var valueForDisableLineEndCropping *bool
 			err = json.Unmarshal(*valDisableLineEndCroppingCap, &valueForDisableLineEndCropping)
 			if err != nil {
 				return err
@@ -561,7 +561,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valDeletePicturesCroppedAreas, ok := objMap["deletePicturesCroppedAreas"]; ok {
 		if valDeletePicturesCroppedAreas != nil {
-			var valueForDeletePicturesCroppedAreas bool
+			var valueForDeletePicturesCroppedAreas *bool
 			err = json.Unmarshal(*valDeletePicturesCroppedAreas, &valueForDeletePicturesCroppedAreas)
 			if err != nil {
 				return err
@@ -571,7 +571,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valDeletePicturesCroppedAreasCap, ok := objMap["DeletePicturesCroppedAreas"]; ok {
 		if valDeletePicturesCroppedAreasCap != nil {
-			var valueForDeletePicturesCroppedAreas bool
+			var valueForDeletePicturesCroppedAreas *bool
 			err = json.Unmarshal(*valDeletePicturesCroppedAreasCap, &valueForDeletePicturesCroppedAreas)
 			if err != nil {
 				return err
@@ -615,7 +615,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valUseFrameSize, ok := objMap["useFrameSize"]; ok {
 		if valUseFrameSize != nil {
-			var valueForUseFrameSize bool
+			var valueForUseFrameSize *bool
 			err = json.Unmarshal(*valUseFrameSize, &valueForUseFrameSize)
 			if err != nil {
 				return err
@@ -625,7 +625,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valUseFrameSizeCap, ok := objMap["UseFrameSize"]; ok {
 		if valUseFrameSizeCap != nil {
-			var valueForUseFrameSize bool
+			var valueForUseFrameSize *bool
 			err = json.Unmarshal(*valUseFrameSizeCap, &valueForUseFrameSize)
 			if err != nil {
 				return err
@@ -636,7 +636,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valUseFrameRotation, ok := objMap["useFrameRotation"]; ok {
 		if valUseFrameRotation != nil {
-			var valueForUseFrameRotation bool
+			var valueForUseFrameRotation *bool
 			err = json.Unmarshal(*valUseFrameRotation, &valueForUseFrameRotation)
 			if err != nil {
 				return err
@@ -646,7 +646,7 @@ func (this *SvgExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valUseFrameRotationCap, ok := objMap["UseFrameRotation"]; ok {
 		if valUseFrameRotationCap != nil {
-			var valueForUseFrameRotation bool
+			var valueForUseFrameRotation *bool
 			err = json.Unmarshal(*valUseFrameRotationCap, &valueForUseFrameRotation)
 			if err != nil {
 				return err

@@ -54,8 +54,8 @@ type IViewProperties interface {
 	SetVerticalBarState(newValue string)
 
 	// True to prefer single view.
-	GetPreferSingleView() bool
-	SetPreferSingleView(newValue bool)
+	GetPreferSingleView() *bool
+	SetPreferSingleView(newValue *bool)
 
 	// The sizing of the side content region of the normal view, when the region is of a variable restored size.
 	GetRestoredLeft() INormalViewRestoredProperties
@@ -96,7 +96,7 @@ type ViewProperties struct {
 	VerticalBarState string `json:"VerticalBarState,omitempty"`
 
 	// True to prefer single view.
-	PreferSingleView bool `json:"PreferSingleView"`
+	PreferSingleView *bool `json:"PreferSingleView"`
 
 	// The sizing of the side content region of the normal view, when the region is of a variable restored size.
 	RestoredLeft INormalViewRestoredProperties `json:"RestoredLeft,omitempty"`
@@ -154,11 +154,11 @@ func (this *ViewProperties) GetVerticalBarState() string {
 func (this *ViewProperties) SetVerticalBarState(newValue string) {
 	this.VerticalBarState = newValue
 }
-func (this *ViewProperties) GetPreferSingleView() bool {
+func (this *ViewProperties) GetPreferSingleView() *bool {
 	return this.PreferSingleView
 }
 
-func (this *ViewProperties) SetPreferSingleView(newValue bool) {
+func (this *ViewProperties) SetPreferSingleView(newValue *bool) {
 	this.PreferSingleView = newValue
 }
 func (this *ViewProperties) GetRestoredLeft() INormalViewRestoredProperties {
@@ -397,7 +397,7 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 	
 	if valPreferSingleView, ok := objMap["preferSingleView"]; ok {
 		if valPreferSingleView != nil {
-			var valueForPreferSingleView bool
+			var valueForPreferSingleView *bool
 			err = json.Unmarshal(*valPreferSingleView, &valueForPreferSingleView)
 			if err != nil {
 				return err
@@ -407,7 +407,7 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valPreferSingleViewCap, ok := objMap["PreferSingleView"]; ok {
 		if valPreferSingleViewCap != nil {
-			var valueForPreferSingleView bool
+			var valueForPreferSingleView *bool
 			err = json.Unmarshal(*valPreferSingleViewCap, &valueForPreferSingleView)
 			if err != nil {
 				return err

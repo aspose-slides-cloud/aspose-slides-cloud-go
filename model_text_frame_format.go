@@ -86,8 +86,8 @@ type ITextFrameFormat interface {
 	SetColumnSpacing(newValue float64)
 
 	// Returns or set keeping text out of 3D scene entirely.
-	GetKeepTextFlat() bool
-	SetKeepTextFlat(newValue bool)
+	GetKeepTextFlat() *bool
+	SetKeepTextFlat(newValue *bool)
 
 	// Specifies the custom rotation that is being applied to the text within the bounding box.
 	GetRotationAngle() float64
@@ -140,7 +140,7 @@ type TextFrameFormat struct {
 	ColumnSpacing float64 `json:"ColumnSpacing,omitempty"`
 
 	// Returns or set keeping text out of 3D scene entirely.
-	KeepTextFlat bool `json:"KeepTextFlat"`
+	KeepTextFlat *bool `json:"KeepTextFlat"`
 
 	// Specifies the custom rotation that is being applied to the text within the bounding box.
 	RotationAngle float64 `json:"RotationAngle,omitempty"`
@@ -245,11 +245,11 @@ func (this *TextFrameFormat) GetColumnSpacing() float64 {
 func (this *TextFrameFormat) SetColumnSpacing(newValue float64) {
 	this.ColumnSpacing = newValue
 }
-func (this *TextFrameFormat) GetKeepTextFlat() bool {
+func (this *TextFrameFormat) GetKeepTextFlat() *bool {
 	return this.KeepTextFlat
 }
 
-func (this *TextFrameFormat) SetKeepTextFlat(newValue bool) {
+func (this *TextFrameFormat) SetKeepTextFlat(newValue *bool) {
 	this.KeepTextFlat = newValue
 }
 func (this *TextFrameFormat) GetRotationAngle() float64 {
@@ -643,7 +643,7 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 	
 	if valKeepTextFlat, ok := objMap["keepTextFlat"]; ok {
 		if valKeepTextFlat != nil {
-			var valueForKeepTextFlat bool
+			var valueForKeepTextFlat *bool
 			err = json.Unmarshal(*valKeepTextFlat, &valueForKeepTextFlat)
 			if err != nil {
 				return err
@@ -653,7 +653,7 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 	}
 	if valKeepTextFlatCap, ok := objMap["KeepTextFlat"]; ok {
 		if valKeepTextFlatCap != nil {
-			var valueForKeepTextFlat bool
+			var valueForKeepTextFlat *bool
 			err = json.Unmarshal(*valKeepTextFlatCap, &valueForKeepTextFlat)
 			if err != nil {
 				return err

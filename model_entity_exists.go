@@ -34,14 +34,14 @@ import (
 type IEntityExists interface {
 
 	// True if the object exists.
-	GetExists() bool
-	SetExists(newValue bool)
+	GetExists() *bool
+	SetExists(newValue *bool)
 }
 
 type EntityExists struct {
 
 	// True if the object exists.
-	Exists bool `json:"Exists"`
+	Exists *bool `json:"Exists"`
 }
 
 func NewEntityExists() *EntityExists {
@@ -49,11 +49,11 @@ func NewEntityExists() *EntityExists {
 	return instance
 }
 
-func (this *EntityExists) GetExists() bool {
+func (this *EntityExists) GetExists() *bool {
 	return this.Exists
 }
 
-func (this *EntityExists) SetExists(newValue bool) {
+func (this *EntityExists) SetExists(newValue *bool) {
 	this.Exists = newValue
 }
 
@@ -66,7 +66,7 @@ func (this *EntityExists) UnmarshalJSON(b []byte) error {
 	
 	if valExists, ok := objMap["exists"]; ok {
 		if valExists != nil {
-			var valueForExists bool
+			var valueForExists *bool
 			err = json.Unmarshal(*valExists, &valueForExists)
 			if err != nil {
 				return err
@@ -76,7 +76,7 @@ func (this *EntityExists) UnmarshalJSON(b []byte) error {
 	}
 	if valExistsCap, ok := objMap["Exists"]; ok {
 		if valExistsCap != nil {
-			var valueForExists bool
+			var valueForExists *bool
 			err = json.Unmarshal(*valExistsCap, &valueForExists)
 			if err != nil {
 				return err

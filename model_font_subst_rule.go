@@ -42,8 +42,8 @@ type IFontSubstRule interface {
 	SetTargetFont(newValue string)
 
 	// Substitute when font is not found. Default: true.
-	GetNotFoundOnly() bool
-	SetNotFoundOnly(newValue bool)
+	GetNotFoundOnly() *bool
+	SetNotFoundOnly(newValue *bool)
 }
 
 type FontSubstRule struct {
@@ -55,7 +55,7 @@ type FontSubstRule struct {
 	TargetFont string `json:"TargetFont,omitempty"`
 
 	// Substitute when font is not found. Default: true.
-	NotFoundOnly bool `json:"NotFoundOnly"`
+	NotFoundOnly *bool `json:"NotFoundOnly"`
 }
 
 func NewFontSubstRule() *FontSubstRule {
@@ -77,11 +77,11 @@ func (this *FontSubstRule) GetTargetFont() string {
 func (this *FontSubstRule) SetTargetFont(newValue string) {
 	this.TargetFont = newValue
 }
-func (this *FontSubstRule) GetNotFoundOnly() bool {
+func (this *FontSubstRule) GetNotFoundOnly() *bool {
 	return this.NotFoundOnly
 }
 
-func (this *FontSubstRule) SetNotFoundOnly(newValue bool) {
+func (this *FontSubstRule) SetNotFoundOnly(newValue *bool) {
 	this.NotFoundOnly = newValue
 }
 
@@ -136,7 +136,7 @@ func (this *FontSubstRule) UnmarshalJSON(b []byte) error {
 	
 	if valNotFoundOnly, ok := objMap["notFoundOnly"]; ok {
 		if valNotFoundOnly != nil {
-			var valueForNotFoundOnly bool
+			var valueForNotFoundOnly *bool
 			err = json.Unmarshal(*valNotFoundOnly, &valueForNotFoundOnly)
 			if err != nil {
 				return err
@@ -146,7 +146,7 @@ func (this *FontSubstRule) UnmarshalJSON(b []byte) error {
 	}
 	if valNotFoundOnlyCap, ok := objMap["NotFoundOnly"]; ok {
 		if valNotFoundOnlyCap != nil {
-			var valueForNotFoundOnly bool
+			var valueForNotFoundOnly *bool
 			err = json.Unmarshal(*valNotFoundOnlyCap, &valueForNotFoundOnly)
 			if err != nil {
 				return err

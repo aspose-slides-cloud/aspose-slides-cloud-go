@@ -50,12 +50,12 @@ type IChartSeriesGroup interface {
 	SetFirstSliceAngle(newValue int32)
 
 	// Specifies that each data marker in the series has a different color.
-	GetIsColorVaried() bool
-	SetIsColorVaried(newValue bool)
+	GetIsColorVaried() *bool
+	SetIsColorVaried(newValue *bool)
 
 	// True if chart has series lines. Applied to stacked bar and OfPie charts.
-	GetHasSeriesLines() bool
-	SetHasSeriesLines(newValue bool)
+	GetHasSeriesLines() *bool
+	SetHasSeriesLines(newValue *bool)
 
 	// Specifies how much bars and columns shall overlap on 2-D charts (from -100 to 100).
 	GetOverlap() int32
@@ -105,10 +105,10 @@ type ChartSeriesGroup struct {
 	FirstSliceAngle int32 `json:"FirstSliceAngle,omitempty"`
 
 	// Specifies that each data marker in the series has a different color.
-	IsColorVaried bool `json:"IsColorVaried"`
+	IsColorVaried *bool `json:"IsColorVaried"`
 
 	// True if chart has series lines. Applied to stacked bar and OfPie charts.
-	HasSeriesLines bool `json:"HasSeriesLines"`
+	HasSeriesLines *bool `json:"HasSeriesLines"`
 
 	// Specifies how much bars and columns shall overlap on 2-D charts (from -100 to 100).
 	Overlap int32 `json:"Overlap,omitempty"`
@@ -168,18 +168,18 @@ func (this *ChartSeriesGroup) GetFirstSliceAngle() int32 {
 func (this *ChartSeriesGroup) SetFirstSliceAngle(newValue int32) {
 	this.FirstSliceAngle = newValue
 }
-func (this *ChartSeriesGroup) GetIsColorVaried() bool {
+func (this *ChartSeriesGroup) GetIsColorVaried() *bool {
 	return this.IsColorVaried
 }
 
-func (this *ChartSeriesGroup) SetIsColorVaried(newValue bool) {
+func (this *ChartSeriesGroup) SetIsColorVaried(newValue *bool) {
 	this.IsColorVaried = newValue
 }
-func (this *ChartSeriesGroup) GetHasSeriesLines() bool {
+func (this *ChartSeriesGroup) GetHasSeriesLines() *bool {
 	return this.HasSeriesLines
 }
 
-func (this *ChartSeriesGroup) SetHasSeriesLines(newValue bool) {
+func (this *ChartSeriesGroup) SetHasSeriesLines(newValue *bool) {
 	this.HasSeriesLines = newValue
 }
 func (this *ChartSeriesGroup) GetOverlap() int32 {
@@ -344,7 +344,7 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 	
 	if valIsColorVaried, ok := objMap["isColorVaried"]; ok {
 		if valIsColorVaried != nil {
-			var valueForIsColorVaried bool
+			var valueForIsColorVaried *bool
 			err = json.Unmarshal(*valIsColorVaried, &valueForIsColorVaried)
 			if err != nil {
 				return err
@@ -354,7 +354,7 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 	}
 	if valIsColorVariedCap, ok := objMap["IsColorVaried"]; ok {
 		if valIsColorVariedCap != nil {
-			var valueForIsColorVaried bool
+			var valueForIsColorVaried *bool
 			err = json.Unmarshal(*valIsColorVariedCap, &valueForIsColorVaried)
 			if err != nil {
 				return err
@@ -365,7 +365,7 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 	
 	if valHasSeriesLines, ok := objMap["hasSeriesLines"]; ok {
 		if valHasSeriesLines != nil {
-			var valueForHasSeriesLines bool
+			var valueForHasSeriesLines *bool
 			err = json.Unmarshal(*valHasSeriesLines, &valueForHasSeriesLines)
 			if err != nil {
 				return err
@@ -375,7 +375,7 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 	}
 	if valHasSeriesLinesCap, ok := objMap["HasSeriesLines"]; ok {
 		if valHasSeriesLinesCap != nil {
-			var valueForHasSeriesLines bool
+			var valueForHasSeriesLines *bool
 			err = json.Unmarshal(*valHasSeriesLinesCap, &valueForHasSeriesLines)
 			if err != nil {
 				return err

@@ -86,8 +86,8 @@ type IReflectionEffect interface {
 	SetRectangleAlign(newValue string)
 
 	// true if the reflection should rotate with the shape when the shape is rotated
-	GetRotateShadowWithShape() bool
-	SetRotateShadowWithShape(newValue bool)
+	GetRotateShadowWithShape() *bool
+	SetRotateShadowWithShape(newValue *bool)
 }
 
 type ReflectionEffect struct {
@@ -132,7 +132,7 @@ type ReflectionEffect struct {
 	RectangleAlign string `json:"RectangleAlign"`
 
 	// true if the reflection should rotate with the shape when the shape is rotated
-	RotateShadowWithShape bool `json:"RotateShadowWithShape"`
+	RotateShadowWithShape *bool `json:"RotateShadowWithShape"`
 }
 
 func NewReflectionEffect() *ReflectionEffect {
@@ -232,11 +232,11 @@ func (this *ReflectionEffect) GetRectangleAlign() string {
 func (this *ReflectionEffect) SetRectangleAlign(newValue string) {
 	this.RectangleAlign = newValue
 }
-func (this *ReflectionEffect) GetRotateShadowWithShape() bool {
+func (this *ReflectionEffect) GetRotateShadowWithShape() *bool {
 	return this.RotateShadowWithShape
 }
 
-func (this *ReflectionEffect) SetRotateShadowWithShape(newValue bool) {
+func (this *ReflectionEffect) SetRotateShadowWithShape(newValue *bool) {
 	this.RotateShadowWithShape = newValue
 }
 
@@ -534,7 +534,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 	
 	if valRotateShadowWithShape, ok := objMap["rotateShadowWithShape"]; ok {
 		if valRotateShadowWithShape != nil {
-			var valueForRotateShadowWithShape bool
+			var valueForRotateShadowWithShape *bool
 			err = json.Unmarshal(*valRotateShadowWithShape, &valueForRotateShadowWithShape)
 			if err != nil {
 				return err
@@ -544,7 +544,7 @@ func (this *ReflectionEffect) UnmarshalJSON(b []byte) error {
 	}
 	if valRotateShadowWithShapeCap, ok := objMap["RotateShadowWithShape"]; ok {
 		if valRotateShadowWithShapeCap != nil {
-			var valueForRotateShadowWithShape bool
+			var valueForRotateShadowWithShape *bool
 			err = json.Unmarshal(*valRotateShadowWithShapeCap, &valueForRotateShadowWithShape)
 			if err != nil {
 				return err

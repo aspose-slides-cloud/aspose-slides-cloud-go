@@ -34,21 +34,21 @@ import (
 type IObjectExist interface {
 
 	// Indicates that the file or folder exists.
-	GetExists() bool
-	SetExists(newValue bool)
+	GetExists() *bool
+	SetExists(newValue *bool)
 
 	// True if it is a folder, false if it is a file.
-	GetIsFolder() bool
-	SetIsFolder(newValue bool)
+	GetIsFolder() *bool
+	SetIsFolder(newValue *bool)
 }
 
 type ObjectExist struct {
 
 	// Indicates that the file or folder exists.
-	Exists bool `json:"Exists"`
+	Exists *bool `json:"Exists"`
 
 	// True if it is a folder, false if it is a file.
-	IsFolder bool `json:"IsFolder"`
+	IsFolder *bool `json:"IsFolder"`
 }
 
 func NewObjectExist() *ObjectExist {
@@ -56,18 +56,18 @@ func NewObjectExist() *ObjectExist {
 	return instance
 }
 
-func (this *ObjectExist) GetExists() bool {
+func (this *ObjectExist) GetExists() *bool {
 	return this.Exists
 }
 
-func (this *ObjectExist) SetExists(newValue bool) {
+func (this *ObjectExist) SetExists(newValue *bool) {
 	this.Exists = newValue
 }
-func (this *ObjectExist) GetIsFolder() bool {
+func (this *ObjectExist) GetIsFolder() *bool {
 	return this.IsFolder
 }
 
-func (this *ObjectExist) SetIsFolder(newValue bool) {
+func (this *ObjectExist) SetIsFolder(newValue *bool) {
 	this.IsFolder = newValue
 }
 
@@ -80,7 +80,7 @@ func (this *ObjectExist) UnmarshalJSON(b []byte) error {
 	
 	if valExists, ok := objMap["exists"]; ok {
 		if valExists != nil {
-			var valueForExists bool
+			var valueForExists *bool
 			err = json.Unmarshal(*valExists, &valueForExists)
 			if err != nil {
 				return err
@@ -90,7 +90,7 @@ func (this *ObjectExist) UnmarshalJSON(b []byte) error {
 	}
 	if valExistsCap, ok := objMap["Exists"]; ok {
 		if valExistsCap != nil {
-			var valueForExists bool
+			var valueForExists *bool
 			err = json.Unmarshal(*valExistsCap, &valueForExists)
 			if err != nil {
 				return err
@@ -101,7 +101,7 @@ func (this *ObjectExist) UnmarshalJSON(b []byte) error {
 	
 	if valIsFolder, ok := objMap["isFolder"]; ok {
 		if valIsFolder != nil {
-			var valueForIsFolder bool
+			var valueForIsFolder *bool
 			err = json.Unmarshal(*valIsFolder, &valueForIsFolder)
 			if err != nil {
 				return err
@@ -111,7 +111,7 @@ func (this *ObjectExist) UnmarshalJSON(b []byte) error {
 	}
 	if valIsFolderCap, ok := objMap["IsFolder"]; ok {
 		if valIsFolderCap != nil {
-			var valueForIsFolder bool
+			var valueForIsFolder *bool
 			err = json.Unmarshal(*valIsFolderCap, &valueForIsFolder)
 			if err != nil {
 				return err

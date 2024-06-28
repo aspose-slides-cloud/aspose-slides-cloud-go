@@ -58,8 +58,8 @@ type IGifExportOptions interface {
 	SetWidth(newValue int32)
 
 	// Determines whether hidden slides will be exported.
-	GetExportHiddenSlides() bool
-	SetExportHiddenSlides(newValue bool)
+	GetExportHiddenSlides() *bool
+	SetExportHiddenSlides(newValue *bool)
 
 	// Gets or sets transition FPS [frames/sec]
 	GetTransitionFps() int32
@@ -91,7 +91,7 @@ type GifExportOptions struct {
 	Width int32 `json:"Width,omitempty"`
 
 	// Determines whether hidden slides will be exported.
-	ExportHiddenSlides bool `json:"ExportHiddenSlides"`
+	ExportHiddenSlides *bool `json:"ExportHiddenSlides"`
 
 	// Gets or sets transition FPS [frames/sec]
 	TransitionFps int32 `json:"TransitionFps,omitempty"`
@@ -147,11 +147,11 @@ func (this *GifExportOptions) GetWidth() int32 {
 func (this *GifExportOptions) SetWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this *GifExportOptions) GetExportHiddenSlides() bool {
+func (this *GifExportOptions) GetExportHiddenSlides() *bool {
 	return this.ExportHiddenSlides
 }
 
-func (this *GifExportOptions) SetExportHiddenSlides(newValue bool) {
+func (this *GifExportOptions) SetExportHiddenSlides(newValue *bool) {
 	this.ExportHiddenSlides = newValue
 }
 func (this *GifExportOptions) GetTransitionFps() int32 {
@@ -360,7 +360,7 @@ func (this *GifExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valExportHiddenSlides, ok := objMap["exportHiddenSlides"]; ok {
 		if valExportHiddenSlides != nil {
-			var valueForExportHiddenSlides bool
+			var valueForExportHiddenSlides *bool
 			err = json.Unmarshal(*valExportHiddenSlides, &valueForExportHiddenSlides)
 			if err != nil {
 				return err
@@ -370,7 +370,7 @@ func (this *GifExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valExportHiddenSlidesCap, ok := objMap["ExportHiddenSlides"]; ok {
 		if valExportHiddenSlidesCap != nil {
-			var valueForExportHiddenSlides bool
+			var valueForExportHiddenSlides *bool
 			err = json.Unmarshal(*valExportHiddenSlidesCap, &valueForExportHiddenSlides)
 			if err != nil {
 				return err

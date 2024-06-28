@@ -144,7 +144,7 @@ func TestMergeAndSaveRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}

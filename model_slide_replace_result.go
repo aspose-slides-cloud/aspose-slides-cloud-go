@@ -50,8 +50,8 @@ type ISlideReplaceResult interface {
 	SetHeight(newValue float64)
 
 	// Specifies if shapes of the master slide should be shown on the slide. True by default.
-	GetShowMasterShapes() bool
-	SetShowMasterShapes(newValue bool)
+	GetShowMasterShapes() *bool
+	SetShowMasterShapes(newValue *bool)
 
 	// Specifies if shapes of the master slide should be shown on the slide. True by default.
 	GetSlideShowTransition() ISlideShowTransition
@@ -109,7 +109,7 @@ type SlideReplaceResult struct {
 	Height float64 `json:"Height"`
 
 	// Specifies if shapes of the master slide should be shown on the slide. True by default.
-	ShowMasterShapes bool `json:"ShowMasterShapes"`
+	ShowMasterShapes *bool `json:"ShowMasterShapes"`
 
 	// Specifies if shapes of the master slide should be shown on the slide. True by default.
 	SlideShowTransition ISlideShowTransition `json:"SlideShowTransition,omitempty"`
@@ -175,11 +175,11 @@ func (this *SlideReplaceResult) GetHeight() float64 {
 func (this *SlideReplaceResult) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *SlideReplaceResult) GetShowMasterShapes() bool {
+func (this *SlideReplaceResult) GetShowMasterShapes() *bool {
 	return this.ShowMasterShapes
 }
 
-func (this *SlideReplaceResult) SetShowMasterShapes(newValue bool) {
+func (this *SlideReplaceResult) SetShowMasterShapes(newValue *bool) {
 	this.ShowMasterShapes = newValue
 }
 func (this *SlideReplaceResult) GetSlideShowTransition() ISlideShowTransition {
@@ -396,7 +396,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	
 	if valShowMasterShapes, ok := objMap["showMasterShapes"]; ok {
 		if valShowMasterShapes != nil {
-			var valueForShowMasterShapes bool
+			var valueForShowMasterShapes *bool
 			err = json.Unmarshal(*valShowMasterShapes, &valueForShowMasterShapes)
 			if err != nil {
 				return err
@@ -406,7 +406,7 @@ func (this *SlideReplaceResult) UnmarshalJSON(b []byte) error {
 	}
 	if valShowMasterShapesCap, ok := objMap["ShowMasterShapes"]; ok {
 		if valShowMasterShapesCap != nil {
-			var valueForShowMasterShapes bool
+			var valueForShowMasterShapes *bool
 			err = json.Unmarshal(*valShowMasterShapesCap, &valueForShowMasterShapes)
 			if err != nil {
 				return err

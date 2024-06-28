@@ -156,6 +156,7 @@ func TestAsyncConvertAndSave(t *testing.T) {
 	var sleepTimeout int32 = 3
 	maxRetries := 10
 
+	a := slidescloud.GetTestSlidesApiClient()
 	c := slidescloud.GetTestSlidesAsyncApiClient()
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
@@ -190,12 +191,12 @@ func TestAsyncConvertAndSave(t *testing.T) {
 		t.Errorf("Unexpected error: %v.", operation.GetError())
 	}
 
-	resultExists, _, e := c.SlidesApi.ObjectExists(outPath, "", "")
+	resultExists, _, e := a.SlidesApi.ObjectExists(outPath, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !(*resultExists.GetExists()) {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
@@ -255,7 +256,7 @@ func TestAsyncSavePresentation(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !(*resultExists.GetExists()) {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
@@ -401,7 +402,7 @@ func TestAsyncMergeAndSave(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !(*resultExists.GetExists()) {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}

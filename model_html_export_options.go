@@ -50,20 +50,20 @@ type IHtmlExportOptions interface {
 	SetFormat(newValue string)
 
 	// Get or sets flag for save presentation as zip file
-	GetSaveAsZip() bool
-	SetSaveAsZip(newValue bool)
+	GetSaveAsZip() *bool
+	SetSaveAsZip(newValue *bool)
 
 	// Get or set name of subdirectory in zip-file for store external files
 	GetSubDirectoryName() string
 	SetSubDirectoryName(newValue string)
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	GetShowHiddenSlides() bool
-	SetShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() *bool
+	SetShowHiddenSlides(newValue *bool)
 
 	// True to make layout responsive by excluding width and height attributes from svg container.
-	GetSvgResponsiveLayout() bool
-	SetSvgResponsiveLayout(newValue bool)
+	GetSvgResponsiveLayout() *bool
+	SetSvgResponsiveLayout(newValue *bool)
 
 	// Returns or sets a value determining the quality of the JPEG images inside PDF document.
 	GetJpegQuality() int32
@@ -74,8 +74,8 @@ type IHtmlExportOptions interface {
 	SetPicturesCompression(newValue string)
 
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
-	GetDeletePicturesCroppedAreas() bool
-	SetDeletePicturesCroppedAreas(newValue bool)
+	GetDeletePicturesCroppedAreas() *bool
+	SetDeletePicturesCroppedAreas(newValue *bool)
 
 	// Slides layouting options
 	GetSlidesLayoutOptions() ISlidesLayoutOptions
@@ -97,16 +97,16 @@ type HtmlExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Get or sets flag for save presentation as zip file
-	SaveAsZip bool `json:"SaveAsZip"`
+	SaveAsZip *bool `json:"SaveAsZip"`
 
 	// Get or set name of subdirectory in zip-file for store external files
 	SubDirectoryName string `json:"SubDirectoryName,omitempty"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
+	ShowHiddenSlides *bool `json:"ShowHiddenSlides"`
 
 	// True to make layout responsive by excluding width and height attributes from svg container.
-	SvgResponsiveLayout bool `json:"SvgResponsiveLayout"`
+	SvgResponsiveLayout *bool `json:"SvgResponsiveLayout"`
 
 	// Returns or sets a value determining the quality of the JPEG images inside PDF document.
 	JpegQuality int32 `json:"JpegQuality,omitempty"`
@@ -115,7 +115,7 @@ type HtmlExportOptions struct {
 	PicturesCompression string `json:"PicturesCompression,omitempty"`
 
 	// A boolean flag indicates if the cropped parts remain as part of the document. If true the cropped  parts will removed, if false they will be serialized in the document (which can possible lead to a  larger file)
-	DeletePicturesCroppedAreas bool `json:"DeletePicturesCroppedAreas"`
+	DeletePicturesCroppedAreas *bool `json:"DeletePicturesCroppedAreas"`
 
 	// Slides layouting options
 	SlidesLayoutOptions ISlidesLayoutOptions `json:"SlidesLayoutOptions,omitempty"`
@@ -154,11 +154,11 @@ func (this *HtmlExportOptions) GetFormat() string {
 func (this *HtmlExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *HtmlExportOptions) GetSaveAsZip() bool {
+func (this *HtmlExportOptions) GetSaveAsZip() *bool {
 	return this.SaveAsZip
 }
 
-func (this *HtmlExportOptions) SetSaveAsZip(newValue bool) {
+func (this *HtmlExportOptions) SetSaveAsZip(newValue *bool) {
 	this.SaveAsZip = newValue
 }
 func (this *HtmlExportOptions) GetSubDirectoryName() string {
@@ -168,18 +168,18 @@ func (this *HtmlExportOptions) GetSubDirectoryName() string {
 func (this *HtmlExportOptions) SetSubDirectoryName(newValue string) {
 	this.SubDirectoryName = newValue
 }
-func (this *HtmlExportOptions) GetShowHiddenSlides() bool {
+func (this *HtmlExportOptions) GetShowHiddenSlides() *bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *HtmlExportOptions) SetShowHiddenSlides(newValue bool) {
+func (this *HtmlExportOptions) SetShowHiddenSlides(newValue *bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this *HtmlExportOptions) GetSvgResponsiveLayout() bool {
+func (this *HtmlExportOptions) GetSvgResponsiveLayout() *bool {
 	return this.SvgResponsiveLayout
 }
 
-func (this *HtmlExportOptions) SetSvgResponsiveLayout(newValue bool) {
+func (this *HtmlExportOptions) SetSvgResponsiveLayout(newValue *bool) {
 	this.SvgResponsiveLayout = newValue
 }
 func (this *HtmlExportOptions) GetJpegQuality() int32 {
@@ -196,11 +196,11 @@ func (this *HtmlExportOptions) GetPicturesCompression() string {
 func (this *HtmlExportOptions) SetPicturesCompression(newValue string) {
 	this.PicturesCompression = newValue
 }
-func (this *HtmlExportOptions) GetDeletePicturesCroppedAreas() bool {
+func (this *HtmlExportOptions) GetDeletePicturesCroppedAreas() *bool {
 	return this.DeletePicturesCroppedAreas
 }
 
-func (this *HtmlExportOptions) SetDeletePicturesCroppedAreas(newValue bool) {
+func (this *HtmlExportOptions) SetDeletePicturesCroppedAreas(newValue *bool) {
 	this.DeletePicturesCroppedAreas = newValue
 }
 func (this *HtmlExportOptions) GetSlidesLayoutOptions() ISlidesLayoutOptions {
@@ -360,7 +360,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valSaveAsZip, ok := objMap["saveAsZip"]; ok {
 		if valSaveAsZip != nil {
-			var valueForSaveAsZip bool
+			var valueForSaveAsZip *bool
 			err = json.Unmarshal(*valSaveAsZip, &valueForSaveAsZip)
 			if err != nil {
 				return err
@@ -370,7 +370,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valSaveAsZipCap, ok := objMap["SaveAsZip"]; ok {
 		if valSaveAsZipCap != nil {
-			var valueForSaveAsZip bool
+			var valueForSaveAsZip *bool
 			err = json.Unmarshal(*valSaveAsZipCap, &valueForSaveAsZip)
 			if err != nil {
 				return err
@@ -402,7 +402,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
 			if err != nil {
 				return err
@@ -412,7 +412,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
 		if valShowHiddenSlidesCap != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
 			if err != nil {
 				return err
@@ -423,7 +423,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valSvgResponsiveLayout, ok := objMap["svgResponsiveLayout"]; ok {
 		if valSvgResponsiveLayout != nil {
-			var valueForSvgResponsiveLayout bool
+			var valueForSvgResponsiveLayout *bool
 			err = json.Unmarshal(*valSvgResponsiveLayout, &valueForSvgResponsiveLayout)
 			if err != nil {
 				return err
@@ -433,7 +433,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valSvgResponsiveLayoutCap, ok := objMap["SvgResponsiveLayout"]; ok {
 		if valSvgResponsiveLayoutCap != nil {
-			var valueForSvgResponsiveLayout bool
+			var valueForSvgResponsiveLayout *bool
 			err = json.Unmarshal(*valSvgResponsiveLayoutCap, &valueForSvgResponsiveLayout)
 			if err != nil {
 				return err
@@ -498,7 +498,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valDeletePicturesCroppedAreas, ok := objMap["deletePicturesCroppedAreas"]; ok {
 		if valDeletePicturesCroppedAreas != nil {
-			var valueForDeletePicturesCroppedAreas bool
+			var valueForDeletePicturesCroppedAreas *bool
 			err = json.Unmarshal(*valDeletePicturesCroppedAreas, &valueForDeletePicturesCroppedAreas)
 			if err != nil {
 				return err
@@ -508,7 +508,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valDeletePicturesCroppedAreasCap, ok := objMap["DeletePicturesCroppedAreas"]; ok {
 		if valDeletePicturesCroppedAreasCap != nil {
-			var valueForDeletePicturesCroppedAreas bool
+			var valueForDeletePicturesCroppedAreas *bool
 			err = json.Unmarshal(*valDeletePicturesCroppedAreasCap, &valueForDeletePicturesCroppedAreas)
 			if err != nil {
 				return err

@@ -60,7 +60,8 @@ func TestNullableProperties(t *testing.T) {
 	dto1.SetChartType("Line")
 	dto1.SetWidth(400)
 	dto1.SetHeight(300)
-	dto1.SetHasTitle(true)
+	hasTitle := true
+	dto1.SetHasTitle(&hasTitle)
 	var title slidescloud.ChartTitle
 	title.SetText("MyTitle")
 	dto1.SetTitle(&title)
@@ -81,9 +82,11 @@ func TestNullableProperties(t *testing.T) {
 	dto1.SetSeries(serieses)
 	var axes slidescloud.Axes
 	var axis1 slidescloud.Axis
-	axis1.SetIsAutomaticMinValue(false)
+	isAutomaticMinValue := false
+	axis1.SetIsAutomaticMinValue(&isAutomaticMinValue)
 	axis1.SetMinValue(min1)
-	axis1.SetIsAutomaticMaxValue(false)
+	isAutomaticMaxValue := false
+	axis1.SetIsAutomaticMaxValue(&isAutomaticMaxValue)
 	axis1.SetMaxValue(max1)
 	axes.SetHorizontalAxis(&axis1)
 	dto1.SetAxes(&axes)

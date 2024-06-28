@@ -62,12 +62,12 @@ type IShapeBase interface {
 	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	GetHidden() bool
-	SetHidden(newValue bool)
+	GetHidden() *bool
+	SetHidden(newValue *bool)
 
 	// Gets or sets 'Mark as decorative' option.
-	GetIsDecorative() bool
-	SetIsDecorative(newValue bool)
+	GetIsDecorative() *bool
+	SetIsDecorative(newValue *bool)
 
 	// Gets or sets the X
 	GetX() float64
@@ -133,10 +133,10 @@ type ShapeBase struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden"`
+	Hidden *bool `json:"Hidden"`
 
 	// Gets or sets 'Mark as decorative' option.
-	IsDecorative bool `json:"IsDecorative"`
+	IsDecorative *bool `json:"IsDecorative"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -222,18 +222,18 @@ func (this *ShapeBase) GetAlternativeTextTitle() string {
 func (this *ShapeBase) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *ShapeBase) GetHidden() bool {
+func (this *ShapeBase) GetHidden() *bool {
 	return this.Hidden
 }
 
-func (this *ShapeBase) SetHidden(newValue bool) {
+func (this *ShapeBase) SetHidden(newValue *bool) {
 	this.Hidden = newValue
 }
-func (this *ShapeBase) GetIsDecorative() bool {
+func (this *ShapeBase) GetIsDecorative() *bool {
 	return this.IsDecorative
 }
 
-func (this *ShapeBase) SetIsDecorative(newValue bool) {
+func (this *ShapeBase) SetIsDecorative(newValue *bool) {
 	this.IsDecorative = newValue
 }
 func (this *ShapeBase) GetX() float64 {
@@ -513,7 +513,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 	
 	if valHidden, ok := objMap["hidden"]; ok {
 		if valHidden != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
 			if err != nil {
 				return err
@@ -523,7 +523,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 	}
 	if valHiddenCap, ok := objMap["Hidden"]; ok {
 		if valHiddenCap != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
 			if err != nil {
 				return err
@@ -534,7 +534,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 	
 	if valIsDecorative, ok := objMap["isDecorative"]; ok {
 		if valIsDecorative != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorative, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -544,7 +544,7 @@ func (this *ShapeBase) UnmarshalJSON(b []byte) error {
 	}
 	if valIsDecorativeCap, ok := objMap["IsDecorative"]; ok {
 		if valIsDecorativeCap != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorativeCap, &valueForIsDecorative)
 			if err != nil {
 				return err

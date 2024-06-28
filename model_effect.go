@@ -66,8 +66,8 @@ type IEffect interface {
 	SetAccelerate(newValue float64)
 
 	// True to automatically play the animation in reverse after playing it in the forward direction.
-	GetAutoReverse() bool
-	SetAutoReverse(newValue bool)
+	GetAutoReverse() *bool
+	SetAutoReverse(newValue *bool)
 
 	// The percentage of duration decelerate behavior effect.
 	GetDecelerate() float64
@@ -98,20 +98,20 @@ type IEffect interface {
 	SetTriggerDelayTime(newValue float64)
 
 	// Specifies if the effect will repeat until the end of slide.
-	GetRepeatUntilEndSlide() bool
-	SetRepeatUntilEndSlide(newValue bool)
+	GetRepeatUntilEndSlide() *bool
+	SetRepeatUntilEndSlide(newValue *bool)
 
 	// Specifies if the effect will repeat until the next click.
-	GetRepeatUntilNextClick() bool
-	SetRepeatUntilNextClick(newValue bool)
+	GetRepeatUntilNextClick() *bool
+	SetRepeatUntilNextClick(newValue *bool)
 
 	// This attribute specifies if the animation effect stops the previous sound.
-	GetStopPreviousSound() bool
-	SetStopPreviousSound(newValue bool)
+	GetStopPreviousSound() *bool
+	SetStopPreviousSound(newValue *bool)
 
 	// This attribute specifies if the effect will rewind when done playing.
-	GetRewind() bool
-	SetRewind(newValue bool)
+	GetRewind() *bool
+	SetRewind(newValue *bool)
 
 	// Defined an after animation color for effect.
 	GetAfterAnimationType() string
@@ -149,7 +149,7 @@ type Effect struct {
 	Accelerate float64 `json:"Accelerate,omitempty"`
 
 	// True to automatically play the animation in reverse after playing it in the forward direction.
-	AutoReverse bool `json:"AutoReverse"`
+	AutoReverse *bool `json:"AutoReverse"`
 
 	// The percentage of duration decelerate behavior effect.
 	Decelerate float64 `json:"Decelerate,omitempty"`
@@ -173,16 +173,16 @@ type Effect struct {
 	TriggerDelayTime float64 `json:"TriggerDelayTime,omitempty"`
 
 	// Specifies if the effect will repeat until the end of slide.
-	RepeatUntilEndSlide bool `json:"RepeatUntilEndSlide"`
+	RepeatUntilEndSlide *bool `json:"RepeatUntilEndSlide"`
 
 	// Specifies if the effect will repeat until the next click.
-	RepeatUntilNextClick bool `json:"RepeatUntilNextClick"`
+	RepeatUntilNextClick *bool `json:"RepeatUntilNextClick"`
 
 	// This attribute specifies if the animation effect stops the previous sound.
-	StopPreviousSound bool `json:"StopPreviousSound"`
+	StopPreviousSound *bool `json:"StopPreviousSound"`
 
 	// This attribute specifies if the effect will rewind when done playing.
-	Rewind bool `json:"Rewind"`
+	Rewind *bool `json:"Rewind"`
 
 	// Defined an after animation color for effect.
 	AfterAnimationType string `json:"AfterAnimationType,omitempty"`
@@ -252,11 +252,11 @@ func (this *Effect) GetAccelerate() float64 {
 func (this *Effect) SetAccelerate(newValue float64) {
 	this.Accelerate = newValue
 }
-func (this *Effect) GetAutoReverse() bool {
+func (this *Effect) GetAutoReverse() *bool {
 	return this.AutoReverse
 }
 
-func (this *Effect) SetAutoReverse(newValue bool) {
+func (this *Effect) SetAutoReverse(newValue *bool) {
 	this.AutoReverse = newValue
 }
 func (this *Effect) GetDecelerate() float64 {
@@ -308,32 +308,32 @@ func (this *Effect) GetTriggerDelayTime() float64 {
 func (this *Effect) SetTriggerDelayTime(newValue float64) {
 	this.TriggerDelayTime = newValue
 }
-func (this *Effect) GetRepeatUntilEndSlide() bool {
+func (this *Effect) GetRepeatUntilEndSlide() *bool {
 	return this.RepeatUntilEndSlide
 }
 
-func (this *Effect) SetRepeatUntilEndSlide(newValue bool) {
+func (this *Effect) SetRepeatUntilEndSlide(newValue *bool) {
 	this.RepeatUntilEndSlide = newValue
 }
-func (this *Effect) GetRepeatUntilNextClick() bool {
+func (this *Effect) GetRepeatUntilNextClick() *bool {
 	return this.RepeatUntilNextClick
 }
 
-func (this *Effect) SetRepeatUntilNextClick(newValue bool) {
+func (this *Effect) SetRepeatUntilNextClick(newValue *bool) {
 	this.RepeatUntilNextClick = newValue
 }
-func (this *Effect) GetStopPreviousSound() bool {
+func (this *Effect) GetStopPreviousSound() *bool {
 	return this.StopPreviousSound
 }
 
-func (this *Effect) SetStopPreviousSound(newValue bool) {
+func (this *Effect) SetStopPreviousSound(newValue *bool) {
 	this.StopPreviousSound = newValue
 }
-func (this *Effect) GetRewind() bool {
+func (this *Effect) GetRewind() *bool {
 	return this.Rewind
 }
 
-func (this *Effect) SetRewind(newValue bool) {
+func (this *Effect) SetRewind(newValue *bool) {
 	this.Rewind = newValue
 }
 func (this *Effect) GetAfterAnimationType() string {
@@ -588,7 +588,7 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 	
 	if valAutoReverse, ok := objMap["autoReverse"]; ok {
 		if valAutoReverse != nil {
-			var valueForAutoReverse bool
+			var valueForAutoReverse *bool
 			err = json.Unmarshal(*valAutoReverse, &valueForAutoReverse)
 			if err != nil {
 				return err
@@ -598,7 +598,7 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 	}
 	if valAutoReverseCap, ok := objMap["AutoReverse"]; ok {
 		if valAutoReverseCap != nil {
-			var valueForAutoReverse bool
+			var valueForAutoReverse *bool
 			err = json.Unmarshal(*valAutoReverseCap, &valueForAutoReverse)
 			if err != nil {
 				return err
@@ -768,7 +768,7 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 	
 	if valRepeatUntilEndSlide, ok := objMap["repeatUntilEndSlide"]; ok {
 		if valRepeatUntilEndSlide != nil {
-			var valueForRepeatUntilEndSlide bool
+			var valueForRepeatUntilEndSlide *bool
 			err = json.Unmarshal(*valRepeatUntilEndSlide, &valueForRepeatUntilEndSlide)
 			if err != nil {
 				return err
@@ -778,7 +778,7 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 	}
 	if valRepeatUntilEndSlideCap, ok := objMap["RepeatUntilEndSlide"]; ok {
 		if valRepeatUntilEndSlideCap != nil {
-			var valueForRepeatUntilEndSlide bool
+			var valueForRepeatUntilEndSlide *bool
 			err = json.Unmarshal(*valRepeatUntilEndSlideCap, &valueForRepeatUntilEndSlide)
 			if err != nil {
 				return err
@@ -789,7 +789,7 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 	
 	if valRepeatUntilNextClick, ok := objMap["repeatUntilNextClick"]; ok {
 		if valRepeatUntilNextClick != nil {
-			var valueForRepeatUntilNextClick bool
+			var valueForRepeatUntilNextClick *bool
 			err = json.Unmarshal(*valRepeatUntilNextClick, &valueForRepeatUntilNextClick)
 			if err != nil {
 				return err
@@ -799,7 +799,7 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 	}
 	if valRepeatUntilNextClickCap, ok := objMap["RepeatUntilNextClick"]; ok {
 		if valRepeatUntilNextClickCap != nil {
-			var valueForRepeatUntilNextClick bool
+			var valueForRepeatUntilNextClick *bool
 			err = json.Unmarshal(*valRepeatUntilNextClickCap, &valueForRepeatUntilNextClick)
 			if err != nil {
 				return err
@@ -810,7 +810,7 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 	
 	if valStopPreviousSound, ok := objMap["stopPreviousSound"]; ok {
 		if valStopPreviousSound != nil {
-			var valueForStopPreviousSound bool
+			var valueForStopPreviousSound *bool
 			err = json.Unmarshal(*valStopPreviousSound, &valueForStopPreviousSound)
 			if err != nil {
 				return err
@@ -820,7 +820,7 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 	}
 	if valStopPreviousSoundCap, ok := objMap["StopPreviousSound"]; ok {
 		if valStopPreviousSoundCap != nil {
-			var valueForStopPreviousSound bool
+			var valueForStopPreviousSound *bool
 			err = json.Unmarshal(*valStopPreviousSoundCap, &valueForStopPreviousSound)
 			if err != nil {
 				return err
@@ -831,7 +831,7 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 	
 	if valRewind, ok := objMap["rewind"]; ok {
 		if valRewind != nil {
-			var valueForRewind bool
+			var valueForRewind *bool
 			err = json.Unmarshal(*valRewind, &valueForRewind)
 			if err != nil {
 				return err
@@ -841,7 +841,7 @@ func (this *Effect) UnmarshalJSON(b []byte) error {
 	}
 	if valRewindCap, ok := objMap["Rewind"]; ok {
 		if valRewindCap != nil {
-			var valueForRewind bool
+			var valueForRewind *bool
 			err = json.Unmarshal(*valRewindCap, &valueForRewind)
 			if err != nil {
 				return err

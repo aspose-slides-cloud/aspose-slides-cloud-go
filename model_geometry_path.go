@@ -38,8 +38,8 @@ type IGeometryPath interface {
 	SetFillMode(newValue string)
 
 	// Stroke
-	GetStroke() bool
-	SetStroke(newValue bool)
+	GetStroke() *bool
+	SetStroke(newValue *bool)
 
 	// List of PathSegmen objects
 	GetPathData() []IPathSegment
@@ -52,7 +52,7 @@ type GeometryPath struct {
 	FillMode string `json:"FillMode,omitempty"`
 
 	// Stroke
-	Stroke bool `json:"Stroke"`
+	Stroke *bool `json:"Stroke"`
 
 	// List of PathSegmen objects
 	PathData []IPathSegment `json:"PathData,omitempty"`
@@ -70,11 +70,11 @@ func (this *GeometryPath) GetFillMode() string {
 func (this *GeometryPath) SetFillMode(newValue string) {
 	this.FillMode = newValue
 }
-func (this *GeometryPath) GetStroke() bool {
+func (this *GeometryPath) GetStroke() *bool {
 	return this.Stroke
 }
 
-func (this *GeometryPath) SetStroke(newValue bool) {
+func (this *GeometryPath) SetStroke(newValue *bool) {
 	this.Stroke = newValue
 }
 func (this *GeometryPath) GetPathData() []IPathSegment {
@@ -127,7 +127,7 @@ func (this *GeometryPath) UnmarshalJSON(b []byte) error {
 	
 	if valStroke, ok := objMap["stroke"]; ok {
 		if valStroke != nil {
-			var valueForStroke bool
+			var valueForStroke *bool
 			err = json.Unmarshal(*valStroke, &valueForStroke)
 			if err != nil {
 				return err
@@ -137,7 +137,7 @@ func (this *GeometryPath) UnmarshalJSON(b []byte) error {
 	}
 	if valStrokeCap, ok := objMap["Stroke"]; ok {
 		if valStrokeCap != nil {
-			var valueForStroke bool
+			var valueForStroke *bool
 			err = json.Unmarshal(*valStrokeCap, &valueForStroke)
 			if err != nil {
 				return err

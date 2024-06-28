@@ -62,12 +62,12 @@ type ISummaryZoomSection interface {
 	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	GetHidden() bool
-	SetHidden(newValue bool)
+	GetHidden() *bool
+	SetHidden(newValue *bool)
 
 	// Gets or sets 'Mark as decorative' option.
-	GetIsDecorative() bool
-	SetIsDecorative(newValue bool)
+	GetIsDecorative() *bool
+	SetIsDecorative(newValue *bool)
 
 	// Gets or sets the X
 	GetX() float64
@@ -114,12 +114,12 @@ type ISummaryZoomSection interface {
 	SetImageType(newValue string)
 
 	// Navigation behavior in slideshow. 
-	GetReturnToParent() bool
-	SetReturnToParent(newValue bool)
+	GetReturnToParent() *bool
+	SetReturnToParent(newValue *bool)
 
 	// Specifies whether the Zoom will use the background of the destination slide.
-	GetShowBackground() bool
-	SetShowBackground(newValue bool)
+	GetShowBackground() *bool
+	SetShowBackground(newValue *bool)
 
 	// Internal image link for zoom object
 	GetImage() IResourceUri
@@ -166,10 +166,10 @@ type SummaryZoomSection struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden"`
+	Hidden *bool `json:"Hidden"`
 
 	// Gets or sets 'Mark as decorative' option.
-	IsDecorative bool `json:"IsDecorative"`
+	IsDecorative *bool `json:"IsDecorative"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -205,10 +205,10 @@ type SummaryZoomSection struct {
 	ImageType string `json:"ImageType,omitempty"`
 
 	// Navigation behavior in slideshow. 
-	ReturnToParent bool `json:"ReturnToParent"`
+	ReturnToParent *bool `json:"ReturnToParent"`
 
 	// Specifies whether the Zoom will use the background of the destination slide.
-	ShowBackground bool `json:"ShowBackground"`
+	ShowBackground *bool `json:"ShowBackground"`
 
 	// Internal image link for zoom object
 	Image IResourceUri `json:"Image,omitempty"`
@@ -281,18 +281,18 @@ func (this *SummaryZoomSection) GetAlternativeTextTitle() string {
 func (this *SummaryZoomSection) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *SummaryZoomSection) GetHidden() bool {
+func (this *SummaryZoomSection) GetHidden() *bool {
 	return this.Hidden
 }
 
-func (this *SummaryZoomSection) SetHidden(newValue bool) {
+func (this *SummaryZoomSection) SetHidden(newValue *bool) {
 	this.Hidden = newValue
 }
-func (this *SummaryZoomSection) GetIsDecorative() bool {
+func (this *SummaryZoomSection) GetIsDecorative() *bool {
 	return this.IsDecorative
 }
 
-func (this *SummaryZoomSection) SetIsDecorative(newValue bool) {
+func (this *SummaryZoomSection) SetIsDecorative(newValue *bool) {
 	this.IsDecorative = newValue
 }
 func (this *SummaryZoomSection) GetX() float64 {
@@ -372,18 +372,18 @@ func (this *SummaryZoomSection) GetImageType() string {
 func (this *SummaryZoomSection) SetImageType(newValue string) {
 	this.ImageType = newValue
 }
-func (this *SummaryZoomSection) GetReturnToParent() bool {
+func (this *SummaryZoomSection) GetReturnToParent() *bool {
 	return this.ReturnToParent
 }
 
-func (this *SummaryZoomSection) SetReturnToParent(newValue bool) {
+func (this *SummaryZoomSection) SetReturnToParent(newValue *bool) {
 	this.ReturnToParent = newValue
 }
-func (this *SummaryZoomSection) GetShowBackground() bool {
+func (this *SummaryZoomSection) GetShowBackground() *bool {
 	return this.ShowBackground
 }
 
-func (this *SummaryZoomSection) SetShowBackground(newValue bool) {
+func (this *SummaryZoomSection) SetShowBackground(newValue *bool) {
 	this.ShowBackground = newValue
 }
 func (this *SummaryZoomSection) GetImage() IResourceUri {
@@ -628,7 +628,7 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 	
 	if valHidden, ok := objMap["hidden"]; ok {
 		if valHidden != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
 			if err != nil {
 				return err
@@ -638,7 +638,7 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 	}
 	if valHiddenCap, ok := objMap["Hidden"]; ok {
 		if valHiddenCap != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
 			if err != nil {
 				return err
@@ -649,7 +649,7 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 	
 	if valIsDecorative, ok := objMap["isDecorative"]; ok {
 		if valIsDecorative != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorative, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -659,7 +659,7 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 	}
 	if valIsDecorativeCap, ok := objMap["IsDecorative"]; ok {
 		if valIsDecorativeCap != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorativeCap, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -1057,7 +1057,7 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 	
 	if valReturnToParent, ok := objMap["returnToParent"]; ok {
 		if valReturnToParent != nil {
-			var valueForReturnToParent bool
+			var valueForReturnToParent *bool
 			err = json.Unmarshal(*valReturnToParent, &valueForReturnToParent)
 			if err != nil {
 				return err
@@ -1067,7 +1067,7 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 	}
 	if valReturnToParentCap, ok := objMap["ReturnToParent"]; ok {
 		if valReturnToParentCap != nil {
-			var valueForReturnToParent bool
+			var valueForReturnToParent *bool
 			err = json.Unmarshal(*valReturnToParentCap, &valueForReturnToParent)
 			if err != nil {
 				return err
@@ -1078,7 +1078,7 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 	
 	if valShowBackground, ok := objMap["showBackground"]; ok {
 		if valShowBackground != nil {
-			var valueForShowBackground bool
+			var valueForShowBackground *bool
 			err = json.Unmarshal(*valShowBackground, &valueForShowBackground)
 			if err != nil {
 				return err
@@ -1088,7 +1088,7 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 	}
 	if valShowBackgroundCap, ok := objMap["ShowBackground"]; ok {
 		if valShowBackgroundCap != nil {
-			var valueForShowBackground bool
+			var valueForShowBackground *bool
 			err = json.Unmarshal(*valShowBackgroundCap, &valueForShowBackground)
 			if err != nil {
 				return err

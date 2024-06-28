@@ -42,36 +42,36 @@ type IBorderBoxElement interface {
 	SetBase(newValue IMathElement)
 
 	// Hide Top Edge
-	GetHideTop() bool
-	SetHideTop(newValue bool)
+	GetHideTop() *bool
+	SetHideTop(newValue *bool)
 
 	// Hide Bottom Edge
-	GetHideBottom() bool
-	SetHideBottom(newValue bool)
+	GetHideBottom() *bool
+	SetHideBottom(newValue *bool)
 
 	// Hide Left Edge
-	GetHideLeft() bool
-	SetHideLeft(newValue bool)
+	GetHideLeft() *bool
+	SetHideLeft(newValue *bool)
 
 	// Hide Right Edge
-	GetHideRight() bool
-	SetHideRight(newValue bool)
+	GetHideRight() *bool
+	SetHideRight(newValue *bool)
 
 	// Strikethrough Horizontal
-	GetStrikethroughHorizontal() bool
-	SetStrikethroughHorizontal(newValue bool)
+	GetStrikethroughHorizontal() *bool
+	SetStrikethroughHorizontal(newValue *bool)
 
 	// Strikethrough Vertical
-	GetStrikethroughVertical() bool
-	SetStrikethroughVertical(newValue bool)
+	GetStrikethroughVertical() *bool
+	SetStrikethroughVertical(newValue *bool)
 
 	// Strikethrough Bottom-Left to Top-Right
-	GetStrikethroughBottomLeftToTopRight() bool
-	SetStrikethroughBottomLeftToTopRight(newValue bool)
+	GetStrikethroughBottomLeftToTopRight() *bool
+	SetStrikethroughBottomLeftToTopRight(newValue *bool)
 
 	// Strikethrough Top-Left to Bottom-Right.
-	GetStrikethroughTopLeftToBottomRight() bool
-	SetStrikethroughTopLeftToBottomRight(newValue bool)
+	GetStrikethroughTopLeftToBottomRight() *bool
+	SetStrikethroughTopLeftToBottomRight(newValue *bool)
 }
 
 type BorderBoxElement struct {
@@ -83,28 +83,28 @@ type BorderBoxElement struct {
 	Base IMathElement `json:"Base,omitempty"`
 
 	// Hide Top Edge
-	HideTop bool `json:"HideTop"`
+	HideTop *bool `json:"HideTop"`
 
 	// Hide Bottom Edge
-	HideBottom bool `json:"HideBottom"`
+	HideBottom *bool `json:"HideBottom"`
 
 	// Hide Left Edge
-	HideLeft bool `json:"HideLeft"`
+	HideLeft *bool `json:"HideLeft"`
 
 	// Hide Right Edge
-	HideRight bool `json:"HideRight"`
+	HideRight *bool `json:"HideRight"`
 
 	// Strikethrough Horizontal
-	StrikethroughHorizontal bool `json:"StrikethroughHorizontal"`
+	StrikethroughHorizontal *bool `json:"StrikethroughHorizontal"`
 
 	// Strikethrough Vertical
-	StrikethroughVertical bool `json:"StrikethroughVertical"`
+	StrikethroughVertical *bool `json:"StrikethroughVertical"`
 
 	// Strikethrough Bottom-Left to Top-Right
-	StrikethroughBottomLeftToTopRight bool `json:"StrikethroughBottomLeftToTopRight"`
+	StrikethroughBottomLeftToTopRight *bool `json:"StrikethroughBottomLeftToTopRight"`
 
 	// Strikethrough Top-Left to Bottom-Right.
-	StrikethroughTopLeftToBottomRight bool `json:"StrikethroughTopLeftToBottomRight"`
+	StrikethroughTopLeftToBottomRight *bool `json:"StrikethroughTopLeftToBottomRight"`
 }
 
 func NewBorderBoxElement() *BorderBoxElement {
@@ -127,60 +127,60 @@ func (this *BorderBoxElement) GetBase() IMathElement {
 func (this *BorderBoxElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *BorderBoxElement) GetHideTop() bool {
+func (this *BorderBoxElement) GetHideTop() *bool {
 	return this.HideTop
 }
 
-func (this *BorderBoxElement) SetHideTop(newValue bool) {
+func (this *BorderBoxElement) SetHideTop(newValue *bool) {
 	this.HideTop = newValue
 }
-func (this *BorderBoxElement) GetHideBottom() bool {
+func (this *BorderBoxElement) GetHideBottom() *bool {
 	return this.HideBottom
 }
 
-func (this *BorderBoxElement) SetHideBottom(newValue bool) {
+func (this *BorderBoxElement) SetHideBottom(newValue *bool) {
 	this.HideBottom = newValue
 }
-func (this *BorderBoxElement) GetHideLeft() bool {
+func (this *BorderBoxElement) GetHideLeft() *bool {
 	return this.HideLeft
 }
 
-func (this *BorderBoxElement) SetHideLeft(newValue bool) {
+func (this *BorderBoxElement) SetHideLeft(newValue *bool) {
 	this.HideLeft = newValue
 }
-func (this *BorderBoxElement) GetHideRight() bool {
+func (this *BorderBoxElement) GetHideRight() *bool {
 	return this.HideRight
 }
 
-func (this *BorderBoxElement) SetHideRight(newValue bool) {
+func (this *BorderBoxElement) SetHideRight(newValue *bool) {
 	this.HideRight = newValue
 }
-func (this *BorderBoxElement) GetStrikethroughHorizontal() bool {
+func (this *BorderBoxElement) GetStrikethroughHorizontal() *bool {
 	return this.StrikethroughHorizontal
 }
 
-func (this *BorderBoxElement) SetStrikethroughHorizontal(newValue bool) {
+func (this *BorderBoxElement) SetStrikethroughHorizontal(newValue *bool) {
 	this.StrikethroughHorizontal = newValue
 }
-func (this *BorderBoxElement) GetStrikethroughVertical() bool {
+func (this *BorderBoxElement) GetStrikethroughVertical() *bool {
 	return this.StrikethroughVertical
 }
 
-func (this *BorderBoxElement) SetStrikethroughVertical(newValue bool) {
+func (this *BorderBoxElement) SetStrikethroughVertical(newValue *bool) {
 	this.StrikethroughVertical = newValue
 }
-func (this *BorderBoxElement) GetStrikethroughBottomLeftToTopRight() bool {
+func (this *BorderBoxElement) GetStrikethroughBottomLeftToTopRight() *bool {
 	return this.StrikethroughBottomLeftToTopRight
 }
 
-func (this *BorderBoxElement) SetStrikethroughBottomLeftToTopRight(newValue bool) {
+func (this *BorderBoxElement) SetStrikethroughBottomLeftToTopRight(newValue *bool) {
 	this.StrikethroughBottomLeftToTopRight = newValue
 }
-func (this *BorderBoxElement) GetStrikethroughTopLeftToBottomRight() bool {
+func (this *BorderBoxElement) GetStrikethroughTopLeftToBottomRight() *bool {
 	return this.StrikethroughTopLeftToBottomRight
 }
 
-func (this *BorderBoxElement) SetStrikethroughTopLeftToBottomRight(newValue bool) {
+func (this *BorderBoxElement) SetStrikethroughTopLeftToBottomRight(newValue *bool) {
 	this.StrikethroughTopLeftToBottomRight = newValue
 }
 
@@ -269,7 +269,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valHideTop, ok := objMap["hideTop"]; ok {
 		if valHideTop != nil {
-			var valueForHideTop bool
+			var valueForHideTop *bool
 			err = json.Unmarshal(*valHideTop, &valueForHideTop)
 			if err != nil {
 				return err
@@ -279,7 +279,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valHideTopCap, ok := objMap["HideTop"]; ok {
 		if valHideTopCap != nil {
-			var valueForHideTop bool
+			var valueForHideTop *bool
 			err = json.Unmarshal(*valHideTopCap, &valueForHideTop)
 			if err != nil {
 				return err
@@ -290,7 +290,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valHideBottom, ok := objMap["hideBottom"]; ok {
 		if valHideBottom != nil {
-			var valueForHideBottom bool
+			var valueForHideBottom *bool
 			err = json.Unmarshal(*valHideBottom, &valueForHideBottom)
 			if err != nil {
 				return err
@@ -300,7 +300,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valHideBottomCap, ok := objMap["HideBottom"]; ok {
 		if valHideBottomCap != nil {
-			var valueForHideBottom bool
+			var valueForHideBottom *bool
 			err = json.Unmarshal(*valHideBottomCap, &valueForHideBottom)
 			if err != nil {
 				return err
@@ -311,7 +311,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valHideLeft, ok := objMap["hideLeft"]; ok {
 		if valHideLeft != nil {
-			var valueForHideLeft bool
+			var valueForHideLeft *bool
 			err = json.Unmarshal(*valHideLeft, &valueForHideLeft)
 			if err != nil {
 				return err
@@ -321,7 +321,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valHideLeftCap, ok := objMap["HideLeft"]; ok {
 		if valHideLeftCap != nil {
-			var valueForHideLeft bool
+			var valueForHideLeft *bool
 			err = json.Unmarshal(*valHideLeftCap, &valueForHideLeft)
 			if err != nil {
 				return err
@@ -332,7 +332,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valHideRight, ok := objMap["hideRight"]; ok {
 		if valHideRight != nil {
-			var valueForHideRight bool
+			var valueForHideRight *bool
 			err = json.Unmarshal(*valHideRight, &valueForHideRight)
 			if err != nil {
 				return err
@@ -342,7 +342,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valHideRightCap, ok := objMap["HideRight"]; ok {
 		if valHideRightCap != nil {
-			var valueForHideRight bool
+			var valueForHideRight *bool
 			err = json.Unmarshal(*valHideRightCap, &valueForHideRight)
 			if err != nil {
 				return err
@@ -353,7 +353,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valStrikethroughHorizontal, ok := objMap["strikethroughHorizontal"]; ok {
 		if valStrikethroughHorizontal != nil {
-			var valueForStrikethroughHorizontal bool
+			var valueForStrikethroughHorizontal *bool
 			err = json.Unmarshal(*valStrikethroughHorizontal, &valueForStrikethroughHorizontal)
 			if err != nil {
 				return err
@@ -363,7 +363,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valStrikethroughHorizontalCap, ok := objMap["StrikethroughHorizontal"]; ok {
 		if valStrikethroughHorizontalCap != nil {
-			var valueForStrikethroughHorizontal bool
+			var valueForStrikethroughHorizontal *bool
 			err = json.Unmarshal(*valStrikethroughHorizontalCap, &valueForStrikethroughHorizontal)
 			if err != nil {
 				return err
@@ -374,7 +374,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valStrikethroughVertical, ok := objMap["strikethroughVertical"]; ok {
 		if valStrikethroughVertical != nil {
-			var valueForStrikethroughVertical bool
+			var valueForStrikethroughVertical *bool
 			err = json.Unmarshal(*valStrikethroughVertical, &valueForStrikethroughVertical)
 			if err != nil {
 				return err
@@ -384,7 +384,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valStrikethroughVerticalCap, ok := objMap["StrikethroughVertical"]; ok {
 		if valStrikethroughVerticalCap != nil {
-			var valueForStrikethroughVertical bool
+			var valueForStrikethroughVertical *bool
 			err = json.Unmarshal(*valStrikethroughVerticalCap, &valueForStrikethroughVertical)
 			if err != nil {
 				return err
@@ -395,7 +395,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valStrikethroughBottomLeftToTopRight, ok := objMap["strikethroughBottomLeftToTopRight"]; ok {
 		if valStrikethroughBottomLeftToTopRight != nil {
-			var valueForStrikethroughBottomLeftToTopRight bool
+			var valueForStrikethroughBottomLeftToTopRight *bool
 			err = json.Unmarshal(*valStrikethroughBottomLeftToTopRight, &valueForStrikethroughBottomLeftToTopRight)
 			if err != nil {
 				return err
@@ -405,7 +405,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valStrikethroughBottomLeftToTopRightCap, ok := objMap["StrikethroughBottomLeftToTopRight"]; ok {
 		if valStrikethroughBottomLeftToTopRightCap != nil {
-			var valueForStrikethroughBottomLeftToTopRight bool
+			var valueForStrikethroughBottomLeftToTopRight *bool
 			err = json.Unmarshal(*valStrikethroughBottomLeftToTopRightCap, &valueForStrikethroughBottomLeftToTopRight)
 			if err != nil {
 				return err
@@ -416,7 +416,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valStrikethroughTopLeftToBottomRight, ok := objMap["strikethroughTopLeftToBottomRight"]; ok {
 		if valStrikethroughTopLeftToBottomRight != nil {
-			var valueForStrikethroughTopLeftToBottomRight bool
+			var valueForStrikethroughTopLeftToBottomRight *bool
 			err = json.Unmarshal(*valStrikethroughTopLeftToBottomRight, &valueForStrikethroughTopLeftToBottomRight)
 			if err != nil {
 				return err
@@ -426,7 +426,7 @@ func (this *BorderBoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valStrikethroughTopLeftToBottomRightCap, ok := objMap["StrikethroughTopLeftToBottomRight"]; ok {
 		if valStrikethroughTopLeftToBottomRightCap != nil {
-			var valueForStrikethroughTopLeftToBottomRight bool
+			var valueForStrikethroughTopLeftToBottomRight *bool
 			err = json.Unmarshal(*valStrikethroughTopLeftToBottomRightCap, &valueForStrikethroughTopLeftToBottomRight)
 			if err != nil {
 				return err

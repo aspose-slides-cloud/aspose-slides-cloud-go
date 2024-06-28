@@ -660,8 +660,10 @@ func TestTableAdd(t *testing.T) {
 	column4 := slidescloud.NewTableColumn()
 	column4.Width = 100
 	dto.Columns = []slidescloud.ITableColumn{column1, column2, column3, column4}
-	dto.FirstRow = true
-	dto.HorizontalBanding = true
+	firstRow := true
+	dto.FirstRow = &firstRow
+	horizontalBanding := true
+	dto.HorizontalBanding = &horizontalBanding
 	result, _, e := c.SlidesApi.CreateShape(fileName, 1, dto, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

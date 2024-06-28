@@ -62,12 +62,12 @@ type IAudioFrame interface {
 	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	GetHidden() bool
-	SetHidden(newValue bool)
+	GetHidden() *bool
+	SetHidden(newValue *bool)
 
 	// Gets or sets 'Mark as decorative' option.
-	GetIsDecorative() bool
-	SetIsDecorative(newValue bool)
+	GetIsDecorative() *bool
+	SetIsDecorative(newValue *bool)
 
 	// Gets or sets the X
 	GetX() float64
@@ -130,16 +130,16 @@ type IAudioFrame interface {
 	SetAudioCdStartTrackTime(newValue int32)
 
 	// Determines whether a sound is embedded to a presentation.
-	GetEmbedded() bool
-	SetEmbedded(newValue bool)
+	GetEmbedded() *bool
+	SetEmbedded(newValue *bool)
 
 	// Determines whether an AudioFrame is hidden.
-	GetHideAtShowing() bool
-	SetHideAtShowing(newValue bool)
+	GetHideAtShowing() *bool
+	SetHideAtShowing(newValue *bool)
 
 	// Determines whether an audio is looped. 
-	GetPlayLoopMode() bool
-	SetPlayLoopMode(newValue bool)
+	GetPlayLoopMode() *bool
+	SetPlayLoopMode(newValue *bool)
 
 	// Returns or sets the audio play mode.
 	GetPlayMode() string
@@ -154,12 +154,12 @@ type IAudioFrame interface {
 	SetBase64Data(newValue string)
 
 	// Determines whether an audio is playing across the slides.
-	GetPlayAcrossSlides() bool
-	SetPlayAcrossSlides(newValue bool)
+	GetPlayAcrossSlides() *bool
+	SetPlayAcrossSlides(newValue *bool)
 
 	// Determines whether audio is automatically rewound to start after playing.
-	GetRewindAudio() bool
-	SetRewindAudio(newValue bool)
+	GetRewindAudio() *bool
+	SetRewindAudio(newValue *bool)
 
 	// Picture fill format.
 	GetPictureFillFormat() IPictureFill
@@ -190,10 +190,10 @@ type AudioFrame struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden"`
+	Hidden *bool `json:"Hidden"`
 
 	// Gets or sets 'Mark as decorative' option.
-	IsDecorative bool `json:"IsDecorative"`
+	IsDecorative *bool `json:"IsDecorative"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -241,13 +241,13 @@ type AudioFrame struct {
 	AudioCdStartTrackTime int32 `json:"AudioCdStartTrackTime,omitempty"`
 
 	// Determines whether a sound is embedded to a presentation.
-	Embedded bool `json:"Embedded"`
+	Embedded *bool `json:"Embedded"`
 
 	// Determines whether an AudioFrame is hidden.
-	HideAtShowing bool `json:"HideAtShowing"`
+	HideAtShowing *bool `json:"HideAtShowing"`
 
 	// Determines whether an audio is looped. 
-	PlayLoopMode bool `json:"PlayLoopMode"`
+	PlayLoopMode *bool `json:"PlayLoopMode"`
 
 	// Returns or sets the audio play mode.
 	PlayMode string `json:"PlayMode,omitempty"`
@@ -259,10 +259,10 @@ type AudioFrame struct {
 	Base64Data string `json:"Base64Data,omitempty"`
 
 	// Determines whether an audio is playing across the slides.
-	PlayAcrossSlides bool `json:"PlayAcrossSlides"`
+	PlayAcrossSlides *bool `json:"PlayAcrossSlides"`
 
 	// Determines whether audio is automatically rewound to start after playing.
-	RewindAudio bool `json:"RewindAudio"`
+	RewindAudio *bool `json:"RewindAudio"`
 
 	// Picture fill format.
 	PictureFillFormat IPictureFill `json:"PictureFillFormat,omitempty"`
@@ -324,18 +324,18 @@ func (this *AudioFrame) GetAlternativeTextTitle() string {
 func (this *AudioFrame) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *AudioFrame) GetHidden() bool {
+func (this *AudioFrame) GetHidden() *bool {
 	return this.Hidden
 }
 
-func (this *AudioFrame) SetHidden(newValue bool) {
+func (this *AudioFrame) SetHidden(newValue *bool) {
 	this.Hidden = newValue
 }
-func (this *AudioFrame) GetIsDecorative() bool {
+func (this *AudioFrame) GetIsDecorative() *bool {
 	return this.IsDecorative
 }
 
-func (this *AudioFrame) SetIsDecorative(newValue bool) {
+func (this *AudioFrame) SetIsDecorative(newValue *bool) {
 	this.IsDecorative = newValue
 }
 func (this *AudioFrame) GetX() float64 {
@@ -443,25 +443,25 @@ func (this *AudioFrame) GetAudioCdStartTrackTime() int32 {
 func (this *AudioFrame) SetAudioCdStartTrackTime(newValue int32) {
 	this.AudioCdStartTrackTime = newValue
 }
-func (this *AudioFrame) GetEmbedded() bool {
+func (this *AudioFrame) GetEmbedded() *bool {
 	return this.Embedded
 }
 
-func (this *AudioFrame) SetEmbedded(newValue bool) {
+func (this *AudioFrame) SetEmbedded(newValue *bool) {
 	this.Embedded = newValue
 }
-func (this *AudioFrame) GetHideAtShowing() bool {
+func (this *AudioFrame) GetHideAtShowing() *bool {
 	return this.HideAtShowing
 }
 
-func (this *AudioFrame) SetHideAtShowing(newValue bool) {
+func (this *AudioFrame) SetHideAtShowing(newValue *bool) {
 	this.HideAtShowing = newValue
 }
-func (this *AudioFrame) GetPlayLoopMode() bool {
+func (this *AudioFrame) GetPlayLoopMode() *bool {
 	return this.PlayLoopMode
 }
 
-func (this *AudioFrame) SetPlayLoopMode(newValue bool) {
+func (this *AudioFrame) SetPlayLoopMode(newValue *bool) {
 	this.PlayLoopMode = newValue
 }
 func (this *AudioFrame) GetPlayMode() string {
@@ -485,18 +485,18 @@ func (this *AudioFrame) GetBase64Data() string {
 func (this *AudioFrame) SetBase64Data(newValue string) {
 	this.Base64Data = newValue
 }
-func (this *AudioFrame) GetPlayAcrossSlides() bool {
+func (this *AudioFrame) GetPlayAcrossSlides() *bool {
 	return this.PlayAcrossSlides
 }
 
-func (this *AudioFrame) SetPlayAcrossSlides(newValue bool) {
+func (this *AudioFrame) SetPlayAcrossSlides(newValue *bool) {
 	this.PlayAcrossSlides = newValue
 }
-func (this *AudioFrame) GetRewindAudio() bool {
+func (this *AudioFrame) GetRewindAudio() *bool {
 	return this.RewindAudio
 }
 
-func (this *AudioFrame) SetRewindAudio(newValue bool) {
+func (this *AudioFrame) SetRewindAudio(newValue *bool) {
 	this.RewindAudio = newValue
 }
 func (this *AudioFrame) GetPictureFillFormat() IPictureFill {
@@ -713,7 +713,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	
 	if valHidden, ok := objMap["hidden"]; ok {
 		if valHidden != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
 			if err != nil {
 				return err
@@ -723,7 +723,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valHiddenCap, ok := objMap["Hidden"]; ok {
 		if valHiddenCap != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
 			if err != nil {
 				return err
@@ -734,7 +734,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	
 	if valIsDecorative, ok := objMap["isDecorative"]; ok {
 		if valIsDecorative != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorative, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -744,7 +744,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valIsDecorativeCap, ok := objMap["IsDecorative"]; ok {
 		if valIsDecorativeCap != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorativeCap, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -1226,7 +1226,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	
 	if valEmbedded, ok := objMap["embedded"]; ok {
 		if valEmbedded != nil {
-			var valueForEmbedded bool
+			var valueForEmbedded *bool
 			err = json.Unmarshal(*valEmbedded, &valueForEmbedded)
 			if err != nil {
 				return err
@@ -1236,7 +1236,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valEmbeddedCap, ok := objMap["Embedded"]; ok {
 		if valEmbeddedCap != nil {
-			var valueForEmbedded bool
+			var valueForEmbedded *bool
 			err = json.Unmarshal(*valEmbeddedCap, &valueForEmbedded)
 			if err != nil {
 				return err
@@ -1247,7 +1247,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	
 	if valHideAtShowing, ok := objMap["hideAtShowing"]; ok {
 		if valHideAtShowing != nil {
-			var valueForHideAtShowing bool
+			var valueForHideAtShowing *bool
 			err = json.Unmarshal(*valHideAtShowing, &valueForHideAtShowing)
 			if err != nil {
 				return err
@@ -1257,7 +1257,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valHideAtShowingCap, ok := objMap["HideAtShowing"]; ok {
 		if valHideAtShowingCap != nil {
-			var valueForHideAtShowing bool
+			var valueForHideAtShowing *bool
 			err = json.Unmarshal(*valHideAtShowingCap, &valueForHideAtShowing)
 			if err != nil {
 				return err
@@ -1268,7 +1268,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	
 	if valPlayLoopMode, ok := objMap["playLoopMode"]; ok {
 		if valPlayLoopMode != nil {
-			var valueForPlayLoopMode bool
+			var valueForPlayLoopMode *bool
 			err = json.Unmarshal(*valPlayLoopMode, &valueForPlayLoopMode)
 			if err != nil {
 				return err
@@ -1278,7 +1278,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valPlayLoopModeCap, ok := objMap["PlayLoopMode"]; ok {
 		if valPlayLoopModeCap != nil {
-			var valueForPlayLoopMode bool
+			var valueForPlayLoopMode *bool
 			err = json.Unmarshal(*valPlayLoopModeCap, &valueForPlayLoopMode)
 			if err != nil {
 				return err
@@ -1376,7 +1376,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	
 	if valPlayAcrossSlides, ok := objMap["playAcrossSlides"]; ok {
 		if valPlayAcrossSlides != nil {
-			var valueForPlayAcrossSlides bool
+			var valueForPlayAcrossSlides *bool
 			err = json.Unmarshal(*valPlayAcrossSlides, &valueForPlayAcrossSlides)
 			if err != nil {
 				return err
@@ -1386,7 +1386,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valPlayAcrossSlidesCap, ok := objMap["PlayAcrossSlides"]; ok {
 		if valPlayAcrossSlidesCap != nil {
-			var valueForPlayAcrossSlides bool
+			var valueForPlayAcrossSlides *bool
 			err = json.Unmarshal(*valPlayAcrossSlidesCap, &valueForPlayAcrossSlides)
 			if err != nil {
 				return err
@@ -1397,7 +1397,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	
 	if valRewindAudio, ok := objMap["rewindAudio"]; ok {
 		if valRewindAudio != nil {
-			var valueForRewindAudio bool
+			var valueForRewindAudio *bool
 			err = json.Unmarshal(*valRewindAudio, &valueForRewindAudio)
 			if err != nil {
 				return err
@@ -1407,7 +1407,7 @@ func (this *AudioFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valRewindAudioCap, ok := objMap["RewindAudio"]; ok {
 		if valRewindAudioCap != nil {
-			var valueForRewindAudio bool
+			var valueForRewindAudio *bool
 			err = json.Unmarshal(*valRewindAudioCap, &valueForRewindAudio)
 			if err != nil {
 				return err

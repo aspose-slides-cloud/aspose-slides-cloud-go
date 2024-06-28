@@ -70,8 +70,8 @@ type ITiffExportOptions interface {
 	SetDpiY(newValue int32)
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	GetShowHiddenSlides() bool
-	SetShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() *bool
+	SetShowHiddenSlides(newValue *bool)
 
 	// Specifies the pixel format for the generated images. Read/write ImagePixelFormat.
 	GetPixelFormat() string
@@ -116,7 +116,7 @@ type TiffExportOptions struct {
 	DpiY int32 `json:"DpiY,omitempty"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
+	ShowHiddenSlides *bool `json:"ShowHiddenSlides"`
 
 	// Specifies the pixel format for the generated images. Read/write ImagePixelFormat.
 	PixelFormat string `json:"PixelFormat,omitempty"`
@@ -196,11 +196,11 @@ func (this *TiffExportOptions) GetDpiY() int32 {
 func (this *TiffExportOptions) SetDpiY(newValue int32) {
 	this.DpiY = newValue
 }
-func (this *TiffExportOptions) GetShowHiddenSlides() bool {
+func (this *TiffExportOptions) GetShowHiddenSlides() *bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *TiffExportOptions) SetShowHiddenSlides(newValue bool) {
+func (this *TiffExportOptions) SetShowHiddenSlides(newValue *bool) {
 	this.ShowHiddenSlides = newValue
 }
 func (this *TiffExportOptions) GetPixelFormat() string {
@@ -491,7 +491,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
 			if err != nil {
 				return err
@@ -501,7 +501,7 @@ func (this *TiffExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
 		if valShowHiddenSlidesCap != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
 			if err != nil {
 				return err

@@ -46,8 +46,8 @@ type IReplaceText interface {
 	SetNewText(newValue string)
 
 	// True to ignore case in replace pattern search.
-	GetIgnoreCase() bool
-	SetIgnoreCase(newValue bool)
+	GetIgnoreCase() *bool
+	SetIgnoreCase(newValue *bool)
 
 	// One-based position of the slide to perform the replace in. 0 to make the replace throughout the presentation.
 	GetSlidePosition() int32
@@ -66,7 +66,7 @@ type ReplaceText struct {
 	NewText string `json:"NewText,omitempty"`
 
 	// True to ignore case in replace pattern search.
-	IgnoreCase bool `json:"IgnoreCase"`
+	IgnoreCase *bool `json:"IgnoreCase"`
 
 	// One-based position of the slide to perform the replace in. 0 to make the replace throughout the presentation.
 	SlidePosition int32 `json:"SlidePosition"`
@@ -99,11 +99,11 @@ func (this *ReplaceText) GetNewText() string {
 func (this *ReplaceText) SetNewText(newValue string) {
 	this.NewText = newValue
 }
-func (this *ReplaceText) GetIgnoreCase() bool {
+func (this *ReplaceText) GetIgnoreCase() *bool {
 	return this.IgnoreCase
 }
 
-func (this *ReplaceText) SetIgnoreCase(newValue bool) {
+func (this *ReplaceText) SetIgnoreCase(newValue *bool) {
 	this.IgnoreCase = newValue
 }
 func (this *ReplaceText) GetSlidePosition() int32 {
@@ -198,7 +198,7 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 	
 	if valIgnoreCase, ok := objMap["ignoreCase"]; ok {
 		if valIgnoreCase != nil {
-			var valueForIgnoreCase bool
+			var valueForIgnoreCase *bool
 			err = json.Unmarshal(*valIgnoreCase, &valueForIgnoreCase)
 			if err != nil {
 				return err
@@ -208,7 +208,7 @@ func (this *ReplaceText) UnmarshalJSON(b []byte) error {
 	}
 	if valIgnoreCaseCap, ok := objMap["IgnoreCase"]; ok {
 		if valIgnoreCaseCap != nil {
-			var valueForIgnoreCase bool
+			var valueForIgnoreCase *bool
 			err = json.Unmarshal(*valIgnoreCaseCap, &valueForIgnoreCase)
 			if err != nil {
 				return err

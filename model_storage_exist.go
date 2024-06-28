@@ -34,14 +34,14 @@ import (
 type IStorageExist interface {
 
 	// Shows that the storage exists.             
-	GetExists() bool
-	SetExists(newValue bool)
+	GetExists() *bool
+	SetExists(newValue *bool)
 }
 
 type StorageExist struct {
 
 	// Shows that the storage exists.             
-	Exists bool `json:"Exists"`
+	Exists *bool `json:"Exists"`
 }
 
 func NewStorageExist() *StorageExist {
@@ -49,11 +49,11 @@ func NewStorageExist() *StorageExist {
 	return instance
 }
 
-func (this *StorageExist) GetExists() bool {
+func (this *StorageExist) GetExists() *bool {
 	return this.Exists
 }
 
-func (this *StorageExist) SetExists(newValue bool) {
+func (this *StorageExist) SetExists(newValue *bool) {
 	this.Exists = newValue
 }
 
@@ -66,7 +66,7 @@ func (this *StorageExist) UnmarshalJSON(b []byte) error {
 	
 	if valExists, ok := objMap["exists"]; ok {
 		if valExists != nil {
-			var valueForExists bool
+			var valueForExists *bool
 			err = json.Unmarshal(*valExists, &valueForExists)
 			if err != nil {
 				return err
@@ -76,7 +76,7 @@ func (this *StorageExist) UnmarshalJSON(b []byte) error {
 	}
 	if valExistsCap, ok := objMap["Exists"]; ok {
 		if valExistsCap != nil {
-			var valueForExists bool
+			var valueForExists *bool
 			err = json.Unmarshal(*valExistsCap, &valueForExists)
 			if err != nil {
 				return err

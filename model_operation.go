@@ -49,9 +49,6 @@ type IOperation interface {
 	GetCreated() time.Time
 	SetCreated(newValue time.Time)
 
-	GetEnqueued() time.Time
-	SetEnqueued(newValue time.Time)
-
 	GetStarted() time.Time
 	SetStarted(newValue time.Time)
 
@@ -79,8 +76,6 @@ type Operation struct {
 	Progress IOperationProgress `json:"Progress,omitempty"`
 
 	Created time.Time `json:"Created,omitempty"`
-
-	Enqueued time.Time `json:"Enqueued,omitempty"`
 
 	Started time.Time `json:"Started,omitempty"`
 
@@ -134,13 +129,6 @@ func (this *Operation) GetCreated() time.Time {
 
 func (this *Operation) SetCreated(newValue time.Time) {
 	this.Created = newValue
-}
-func (this *Operation) GetEnqueued() time.Time {
-	return this.Enqueued
-}
-
-func (this *Operation) SetEnqueued(newValue time.Time) {
-	this.Enqueued = newValue
 }
 func (this *Operation) GetStarted() time.Time {
 	return this.Started
@@ -330,25 +318,6 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 			valueForCreated, err = time.Parse("2006-01-02T21:36:33", string(*valCreatedCap))
 			if err == nil {
 				this.Created = valueForCreated
-			}
-		}
-	}
-	
-	if valEnqueued, ok := objMap["enqueued"]; ok {
-		if valEnqueued != nil {
-			var valueForEnqueued time.Time
-			valueForEnqueued, err = time.Parse("2006-01-02T21:36:33", string(*valEnqueued))
-			if err == nil {
-				this.Enqueued = valueForEnqueued
-			}
-		}
-	}
-	if valEnqueuedCap, ok := objMap["Enqueued"]; ok {
-		if valEnqueuedCap != nil {
-			var valueForEnqueued time.Time
-			valueForEnqueued, err = time.Parse("2006-01-02T21:36:33", string(*valEnqueuedCap))
-			if err == nil {
-				this.Enqueued = valueForEnqueued
 			}
 		}
 	}

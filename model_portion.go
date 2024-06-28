@@ -98,8 +98,8 @@ type IPortion interface {
 	SetProofDisabled(newValue string)
 
 	// True if smart tag should be cleaned.
-	GetSmartTagClean() bool
-	SetSmartTagClean(newValue bool)
+	GetSmartTagClean() *bool
+	SetSmartTagClean(newValue *bool)
 
 	// Minimal font size for kerning.
 	GetKerningMinimalSize() float64
@@ -217,7 +217,7 @@ type Portion struct {
 	ProofDisabled string `json:"ProofDisabled,omitempty"`
 
 	// True if smart tag should be cleaned.
-	SmartTagClean bool `json:"SmartTagClean"`
+	SmartTagClean *bool `json:"SmartTagClean"`
 
 	// Minimal font size for kerning.
 	KerningMinimalSize float64 `json:"KerningMinimalSize,omitempty"`
@@ -385,11 +385,11 @@ func (this *Portion) GetProofDisabled() string {
 func (this *Portion) SetProofDisabled(newValue string) {
 	this.ProofDisabled = newValue
 }
-func (this *Portion) GetSmartTagClean() bool {
+func (this *Portion) GetSmartTagClean() *bool {
 	return this.SmartTagClean
 }
 
-func (this *Portion) SetSmartTagClean(newValue bool) {
+func (this *Portion) SetSmartTagClean(newValue *bool) {
 	this.SmartTagClean = newValue
 }
 func (this *Portion) GetKerningMinimalSize() float64 {
@@ -1006,7 +1006,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 	
 	if valSmartTagClean, ok := objMap["smartTagClean"]; ok {
 		if valSmartTagClean != nil {
-			var valueForSmartTagClean bool
+			var valueForSmartTagClean *bool
 			err = json.Unmarshal(*valSmartTagClean, &valueForSmartTagClean)
 			if err != nil {
 				return err
@@ -1016,7 +1016,7 @@ func (this *Portion) UnmarshalJSON(b []byte) error {
 	}
 	if valSmartTagCleanCap, ok := objMap["SmartTagClean"]; ok {
 		if valSmartTagCleanCap != nil {
-			var valueForSmartTagClean bool
+			var valueForSmartTagClean *bool
 			err = json.Unmarshal(*valSmartTagCleanCap, &valueForSmartTagClean)
 			if err != nil {
 				return err

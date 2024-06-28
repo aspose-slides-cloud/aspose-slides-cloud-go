@@ -34,12 +34,12 @@ import (
 type IAxis interface {
 
 	// True if the axis is visible
-	GetIsVisible() bool
-	SetIsVisible(newValue bool)
+	GetIsVisible() *bool
+	SetIsVisible(newValue *bool)
 
 	// True if the axis has a visible title
-	GetHasTitle() bool
-	SetHasTitle(newValue bool)
+	GetHasTitle() *bool
+	SetHasTitle(newValue *bool)
 
 	// Axis title
 	GetTitle() IChartTitle
@@ -58,8 +58,8 @@ type IAxis interface {
 	SetBaseUnitScale(newValue string)
 
 	// True the major unit of the axis is automatically assigned
-	GetIsAutomaticMajorUnit() bool
-	SetIsAutomaticMajorUnit(newValue bool)
+	GetIsAutomaticMajorUnit() *bool
+	SetIsAutomaticMajorUnit(newValue *bool)
 
 	// The major units for the date or value axis
 	GetMajorUnit() float64
@@ -74,8 +74,8 @@ type IAxis interface {
 	SetMajorTickMark(newValue string)
 
 	// True the minor unit of the axis is automatically assigned
-	GetIsAutomaticMinorUnit() bool
-	SetIsAutomaticMinorUnit(newValue bool)
+	GetIsAutomaticMinorUnit() *bool
+	SetIsAutomaticMinorUnit(newValue *bool)
 
 	// The minor units for the date or value axis
 	GetMinorUnit() float64
@@ -90,24 +90,24 @@ type IAxis interface {
 	SetMinorTickMark(newValue string)
 
 	// True if the max value is automatically assigned
-	GetIsAutomaticMaxValue() bool
-	SetIsAutomaticMaxValue(newValue bool)
+	GetIsAutomaticMaxValue() *bool
+	SetIsAutomaticMaxValue(newValue *bool)
 
 	// The maximum value on the value axis
 	GetMaxValue() float64
 	SetMaxValue(newValue float64)
 
 	// True if the min value is automatically assigned
-	GetIsAutomaticMinValue() bool
-	SetIsAutomaticMinValue(newValue bool)
+	GetIsAutomaticMinValue() *bool
+	SetIsAutomaticMinValue(newValue *bool)
 
 	// The minimum value on the value axis
 	GetMinValue() float64
 	SetMinValue(newValue float64)
 
 	// True if the value axis scale type is logarithmic
-	GetIsLogarithmic() bool
-	SetIsLogarithmic(newValue bool)
+	GetIsLogarithmic() *bool
+	SetIsLogarithmic(newValue *bool)
 
 	// The logarithmic base. Default value is 10
 	GetLogBase() float64
@@ -118,20 +118,20 @@ type IAxis interface {
 	SetCategoryAxisType(newValue string)
 
 	// True if the value axis crosses the category axis between categories. This property applies only to category axes, and it doesn't apply to 3-D charts
-	GetAxisBetweenCategories() bool
-	SetAxisBetweenCategories(newValue bool)
+	GetAxisBetweenCategories() *bool
+	SetAxisBetweenCategories(newValue *bool)
 
 	// The distance of labels from the axis. Applied to category or date axis. Value must be between 0% and 1000%.             
 	GetLabelOffset() int32
 	SetLabelOffset(newValue int32)
 
 	// True if MS PowerPoint plots data points from last to first
-	GetIsPlotOrderReversed() bool
-	SetIsPlotOrderReversed(newValue bool)
+	GetIsPlotOrderReversed() *bool
+	SetIsPlotOrderReversed(newValue *bool)
 
 	// True if the format is linked to source data
-	GetIsNumberFormatLinkedToSource() bool
-	SetIsNumberFormatLinkedToSource(newValue bool)
+	GetIsNumberFormatLinkedToSource() *bool
+	SetIsNumberFormatLinkedToSource(newValue *bool)
 
 	// the format string for the Axis Labels
 	GetNumberFormat() string
@@ -146,16 +146,16 @@ type IAxis interface {
 	SetCrossAt(newValue float64)
 
 	// True for automatic tick marks spacing value
-	GetIsAutomaticTickMarksSpacing() bool
-	SetIsAutomaticTickMarksSpacing(newValue bool)
+	GetIsAutomaticTickMarksSpacing() *bool
+	SetIsAutomaticTickMarksSpacing(newValue *bool)
 
 	// Specifies how many tick marks shall be skipped before the next one shall be drawn. Applied to category or series axis.
 	GetTickMarksSpacing() int32
 	SetTickMarksSpacing(newValue int32)
 
 	// True for automatic tick label spacing value
-	GetIsAutomaticTickLabelSpacing() bool
-	SetIsAutomaticTickLabelSpacing(newValue bool)
+	GetIsAutomaticTickLabelSpacing() *bool
+	SetIsAutomaticTickLabelSpacing(newValue *bool)
 
 	// Specifies how many tick labels to skip between label that is drawn.
 	GetTickLabelSpacing() int32
@@ -193,10 +193,10 @@ type IAxis interface {
 type Axis struct {
 
 	// True if the axis is visible
-	IsVisible bool `json:"IsVisible"`
+	IsVisible *bool `json:"IsVisible"`
 
 	// True if the axis has a visible title
-	HasTitle bool `json:"HasTitle"`
+	HasTitle *bool `json:"HasTitle"`
 
 	// Axis title
 	Title IChartTitle `json:"Title,omitempty"`
@@ -211,7 +211,7 @@ type Axis struct {
 	BaseUnitScale string `json:"BaseUnitScale,omitempty"`
 
 	// True the major unit of the axis is automatically assigned
-	IsAutomaticMajorUnit bool `json:"IsAutomaticMajorUnit"`
+	IsAutomaticMajorUnit *bool `json:"IsAutomaticMajorUnit"`
 
 	// The major units for the date or value axis
 	MajorUnit float64 `json:"MajorUnit,omitempty"`
@@ -223,7 +223,7 @@ type Axis struct {
 	MajorTickMark string `json:"MajorTickMark,omitempty"`
 
 	// True the minor unit of the axis is automatically assigned
-	IsAutomaticMinorUnit bool `json:"IsAutomaticMinorUnit"`
+	IsAutomaticMinorUnit *bool `json:"IsAutomaticMinorUnit"`
 
 	// The minor units for the date or value axis
 	MinorUnit float64 `json:"MinorUnit,omitempty"`
@@ -235,19 +235,19 @@ type Axis struct {
 	MinorTickMark string `json:"MinorTickMark,omitempty"`
 
 	// True if the max value is automatically assigned
-	IsAutomaticMaxValue bool `json:"IsAutomaticMaxValue"`
+	IsAutomaticMaxValue *bool `json:"IsAutomaticMaxValue"`
 
 	// The maximum value on the value axis
 	MaxValue float64 `json:"MaxValue,omitempty"`
 
 	// True if the min value is automatically assigned
-	IsAutomaticMinValue bool `json:"IsAutomaticMinValue"`
+	IsAutomaticMinValue *bool `json:"IsAutomaticMinValue"`
 
 	// The minimum value on the value axis
 	MinValue float64 `json:"MinValue,omitempty"`
 
 	// True if the value axis scale type is logarithmic
-	IsLogarithmic bool `json:"IsLogarithmic"`
+	IsLogarithmic *bool `json:"IsLogarithmic"`
 
 	// The logarithmic base. Default value is 10
 	LogBase float64 `json:"LogBase,omitempty"`
@@ -256,16 +256,16 @@ type Axis struct {
 	CategoryAxisType string `json:"CategoryAxisType,omitempty"`
 
 	// True if the value axis crosses the category axis between categories. This property applies only to category axes, and it doesn't apply to 3-D charts
-	AxisBetweenCategories bool `json:"AxisBetweenCategories"`
+	AxisBetweenCategories *bool `json:"AxisBetweenCategories"`
 
 	// The distance of labels from the axis. Applied to category or date axis. Value must be between 0% and 1000%.             
 	LabelOffset int32 `json:"LabelOffset,omitempty"`
 
 	// True if MS PowerPoint plots data points from last to first
-	IsPlotOrderReversed bool `json:"IsPlotOrderReversed"`
+	IsPlotOrderReversed *bool `json:"IsPlotOrderReversed"`
 
 	// True if the format is linked to source data
-	IsNumberFormatLinkedToSource bool `json:"IsNumberFormatLinkedToSource"`
+	IsNumberFormatLinkedToSource *bool `json:"IsNumberFormatLinkedToSource"`
 
 	// the format string for the Axis Labels
 	NumberFormat string `json:"NumberFormat,omitempty"`
@@ -277,13 +277,13 @@ type Axis struct {
 	CrossAt float64 `json:"CrossAt,omitempty"`
 
 	// True for automatic tick marks spacing value
-	IsAutomaticTickMarksSpacing bool `json:"IsAutomaticTickMarksSpacing"`
+	IsAutomaticTickMarksSpacing *bool `json:"IsAutomaticTickMarksSpacing"`
 
 	// Specifies how many tick marks shall be skipped before the next one shall be drawn. Applied to category or series axis.
 	TickMarksSpacing int32 `json:"TickMarksSpacing,omitempty"`
 
 	// True for automatic tick label spacing value
-	IsAutomaticTickLabelSpacing bool `json:"IsAutomaticTickLabelSpacing"`
+	IsAutomaticTickLabelSpacing *bool `json:"IsAutomaticTickLabelSpacing"`
 
 	// Specifies how many tick labels to skip between label that is drawn.
 	TickLabelSpacing int32 `json:"TickLabelSpacing,omitempty"`
@@ -315,18 +315,18 @@ func NewAxis() *Axis {
 	return instance
 }
 
-func (this *Axis) GetIsVisible() bool {
+func (this *Axis) GetIsVisible() *bool {
 	return this.IsVisible
 }
 
-func (this *Axis) SetIsVisible(newValue bool) {
+func (this *Axis) SetIsVisible(newValue *bool) {
 	this.IsVisible = newValue
 }
-func (this *Axis) GetHasTitle() bool {
+func (this *Axis) GetHasTitle() *bool {
 	return this.HasTitle
 }
 
-func (this *Axis) SetHasTitle(newValue bool) {
+func (this *Axis) SetHasTitle(newValue *bool) {
 	this.HasTitle = newValue
 }
 func (this *Axis) GetTitle() IChartTitle {
@@ -357,11 +357,11 @@ func (this *Axis) GetBaseUnitScale() string {
 func (this *Axis) SetBaseUnitScale(newValue string) {
 	this.BaseUnitScale = newValue
 }
-func (this *Axis) GetIsAutomaticMajorUnit() bool {
+func (this *Axis) GetIsAutomaticMajorUnit() *bool {
 	return this.IsAutomaticMajorUnit
 }
 
-func (this *Axis) SetIsAutomaticMajorUnit(newValue bool) {
+func (this *Axis) SetIsAutomaticMajorUnit(newValue *bool) {
 	this.IsAutomaticMajorUnit = newValue
 }
 func (this *Axis) GetMajorUnit() float64 {
@@ -385,11 +385,11 @@ func (this *Axis) GetMajorTickMark() string {
 func (this *Axis) SetMajorTickMark(newValue string) {
 	this.MajorTickMark = newValue
 }
-func (this *Axis) GetIsAutomaticMinorUnit() bool {
+func (this *Axis) GetIsAutomaticMinorUnit() *bool {
 	return this.IsAutomaticMinorUnit
 }
 
-func (this *Axis) SetIsAutomaticMinorUnit(newValue bool) {
+func (this *Axis) SetIsAutomaticMinorUnit(newValue *bool) {
 	this.IsAutomaticMinorUnit = newValue
 }
 func (this *Axis) GetMinorUnit() float64 {
@@ -413,11 +413,11 @@ func (this *Axis) GetMinorTickMark() string {
 func (this *Axis) SetMinorTickMark(newValue string) {
 	this.MinorTickMark = newValue
 }
-func (this *Axis) GetIsAutomaticMaxValue() bool {
+func (this *Axis) GetIsAutomaticMaxValue() *bool {
 	return this.IsAutomaticMaxValue
 }
 
-func (this *Axis) SetIsAutomaticMaxValue(newValue bool) {
+func (this *Axis) SetIsAutomaticMaxValue(newValue *bool) {
 	this.IsAutomaticMaxValue = newValue
 }
 func (this *Axis) GetMaxValue() float64 {
@@ -427,11 +427,11 @@ func (this *Axis) GetMaxValue() float64 {
 func (this *Axis) SetMaxValue(newValue float64) {
 	this.MaxValue = newValue
 }
-func (this *Axis) GetIsAutomaticMinValue() bool {
+func (this *Axis) GetIsAutomaticMinValue() *bool {
 	return this.IsAutomaticMinValue
 }
 
-func (this *Axis) SetIsAutomaticMinValue(newValue bool) {
+func (this *Axis) SetIsAutomaticMinValue(newValue *bool) {
 	this.IsAutomaticMinValue = newValue
 }
 func (this *Axis) GetMinValue() float64 {
@@ -441,11 +441,11 @@ func (this *Axis) GetMinValue() float64 {
 func (this *Axis) SetMinValue(newValue float64) {
 	this.MinValue = newValue
 }
-func (this *Axis) GetIsLogarithmic() bool {
+func (this *Axis) GetIsLogarithmic() *bool {
 	return this.IsLogarithmic
 }
 
-func (this *Axis) SetIsLogarithmic(newValue bool) {
+func (this *Axis) SetIsLogarithmic(newValue *bool) {
 	this.IsLogarithmic = newValue
 }
 func (this *Axis) GetLogBase() float64 {
@@ -462,11 +462,11 @@ func (this *Axis) GetCategoryAxisType() string {
 func (this *Axis) SetCategoryAxisType(newValue string) {
 	this.CategoryAxisType = newValue
 }
-func (this *Axis) GetAxisBetweenCategories() bool {
+func (this *Axis) GetAxisBetweenCategories() *bool {
 	return this.AxisBetweenCategories
 }
 
-func (this *Axis) SetAxisBetweenCategories(newValue bool) {
+func (this *Axis) SetAxisBetweenCategories(newValue *bool) {
 	this.AxisBetweenCategories = newValue
 }
 func (this *Axis) GetLabelOffset() int32 {
@@ -476,18 +476,18 @@ func (this *Axis) GetLabelOffset() int32 {
 func (this *Axis) SetLabelOffset(newValue int32) {
 	this.LabelOffset = newValue
 }
-func (this *Axis) GetIsPlotOrderReversed() bool {
+func (this *Axis) GetIsPlotOrderReversed() *bool {
 	return this.IsPlotOrderReversed
 }
 
-func (this *Axis) SetIsPlotOrderReversed(newValue bool) {
+func (this *Axis) SetIsPlotOrderReversed(newValue *bool) {
 	this.IsPlotOrderReversed = newValue
 }
-func (this *Axis) GetIsNumberFormatLinkedToSource() bool {
+func (this *Axis) GetIsNumberFormatLinkedToSource() *bool {
 	return this.IsNumberFormatLinkedToSource
 }
 
-func (this *Axis) SetIsNumberFormatLinkedToSource(newValue bool) {
+func (this *Axis) SetIsNumberFormatLinkedToSource(newValue *bool) {
 	this.IsNumberFormatLinkedToSource = newValue
 }
 func (this *Axis) GetNumberFormat() string {
@@ -511,11 +511,11 @@ func (this *Axis) GetCrossAt() float64 {
 func (this *Axis) SetCrossAt(newValue float64) {
 	this.CrossAt = newValue
 }
-func (this *Axis) GetIsAutomaticTickMarksSpacing() bool {
+func (this *Axis) GetIsAutomaticTickMarksSpacing() *bool {
 	return this.IsAutomaticTickMarksSpacing
 }
 
-func (this *Axis) SetIsAutomaticTickMarksSpacing(newValue bool) {
+func (this *Axis) SetIsAutomaticTickMarksSpacing(newValue *bool) {
 	this.IsAutomaticTickMarksSpacing = newValue
 }
 func (this *Axis) GetTickMarksSpacing() int32 {
@@ -525,11 +525,11 @@ func (this *Axis) GetTickMarksSpacing() int32 {
 func (this *Axis) SetTickMarksSpacing(newValue int32) {
 	this.TickMarksSpacing = newValue
 }
-func (this *Axis) GetIsAutomaticTickLabelSpacing() bool {
+func (this *Axis) GetIsAutomaticTickLabelSpacing() *bool {
 	return this.IsAutomaticTickLabelSpacing
 }
 
-func (this *Axis) SetIsAutomaticTickLabelSpacing(newValue bool) {
+func (this *Axis) SetIsAutomaticTickLabelSpacing(newValue *bool) {
 	this.IsAutomaticTickLabelSpacing = newValue
 }
 func (this *Axis) GetTickLabelSpacing() int32 {
@@ -598,7 +598,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valIsVisible, ok := objMap["isVisible"]; ok {
 		if valIsVisible != nil {
-			var valueForIsVisible bool
+			var valueForIsVisible *bool
 			err = json.Unmarshal(*valIsVisible, &valueForIsVisible)
 			if err != nil {
 				return err
@@ -608,7 +608,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valIsVisibleCap, ok := objMap["IsVisible"]; ok {
 		if valIsVisibleCap != nil {
-			var valueForIsVisible bool
+			var valueForIsVisible *bool
 			err = json.Unmarshal(*valIsVisibleCap, &valueForIsVisible)
 			if err != nil {
 				return err
@@ -619,7 +619,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valHasTitle, ok := objMap["hasTitle"]; ok {
 		if valHasTitle != nil {
-			var valueForHasTitle bool
+			var valueForHasTitle *bool
 			err = json.Unmarshal(*valHasTitle, &valueForHasTitle)
 			if err != nil {
 				return err
@@ -629,7 +629,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valHasTitleCap, ok := objMap["HasTitle"]; ok {
 		if valHasTitleCap != nil {
-			var valueForHasTitle bool
+			var valueForHasTitle *bool
 			err = json.Unmarshal(*valHasTitleCap, &valueForHasTitle)
 			if err != nil {
 				return err
@@ -782,7 +782,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valIsAutomaticMajorUnit, ok := objMap["isAutomaticMajorUnit"]; ok {
 		if valIsAutomaticMajorUnit != nil {
-			var valueForIsAutomaticMajorUnit bool
+			var valueForIsAutomaticMajorUnit *bool
 			err = json.Unmarshal(*valIsAutomaticMajorUnit, &valueForIsAutomaticMajorUnit)
 			if err != nil {
 				return err
@@ -792,7 +792,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valIsAutomaticMajorUnitCap, ok := objMap["IsAutomaticMajorUnit"]; ok {
 		if valIsAutomaticMajorUnitCap != nil {
-			var valueForIsAutomaticMajorUnit bool
+			var valueForIsAutomaticMajorUnit *bool
 			err = json.Unmarshal(*valIsAutomaticMajorUnitCap, &valueForIsAutomaticMajorUnit)
 			if err != nil {
 				return err
@@ -890,7 +890,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valIsAutomaticMinorUnit, ok := objMap["isAutomaticMinorUnit"]; ok {
 		if valIsAutomaticMinorUnit != nil {
-			var valueForIsAutomaticMinorUnit bool
+			var valueForIsAutomaticMinorUnit *bool
 			err = json.Unmarshal(*valIsAutomaticMinorUnit, &valueForIsAutomaticMinorUnit)
 			if err != nil {
 				return err
@@ -900,7 +900,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valIsAutomaticMinorUnitCap, ok := objMap["IsAutomaticMinorUnit"]; ok {
 		if valIsAutomaticMinorUnitCap != nil {
-			var valueForIsAutomaticMinorUnit bool
+			var valueForIsAutomaticMinorUnit *bool
 			err = json.Unmarshal(*valIsAutomaticMinorUnitCap, &valueForIsAutomaticMinorUnit)
 			if err != nil {
 				return err
@@ -998,7 +998,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valIsAutomaticMaxValue, ok := objMap["isAutomaticMaxValue"]; ok {
 		if valIsAutomaticMaxValue != nil {
-			var valueForIsAutomaticMaxValue bool
+			var valueForIsAutomaticMaxValue *bool
 			err = json.Unmarshal(*valIsAutomaticMaxValue, &valueForIsAutomaticMaxValue)
 			if err != nil {
 				return err
@@ -1008,7 +1008,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valIsAutomaticMaxValueCap, ok := objMap["IsAutomaticMaxValue"]; ok {
 		if valIsAutomaticMaxValueCap != nil {
-			var valueForIsAutomaticMaxValue bool
+			var valueForIsAutomaticMaxValue *bool
 			err = json.Unmarshal(*valIsAutomaticMaxValueCap, &valueForIsAutomaticMaxValue)
 			if err != nil {
 				return err
@@ -1040,7 +1040,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valIsAutomaticMinValue, ok := objMap["isAutomaticMinValue"]; ok {
 		if valIsAutomaticMinValue != nil {
-			var valueForIsAutomaticMinValue bool
+			var valueForIsAutomaticMinValue *bool
 			err = json.Unmarshal(*valIsAutomaticMinValue, &valueForIsAutomaticMinValue)
 			if err != nil {
 				return err
@@ -1050,7 +1050,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valIsAutomaticMinValueCap, ok := objMap["IsAutomaticMinValue"]; ok {
 		if valIsAutomaticMinValueCap != nil {
-			var valueForIsAutomaticMinValue bool
+			var valueForIsAutomaticMinValue *bool
 			err = json.Unmarshal(*valIsAutomaticMinValueCap, &valueForIsAutomaticMinValue)
 			if err != nil {
 				return err
@@ -1082,7 +1082,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valIsLogarithmic, ok := objMap["isLogarithmic"]; ok {
 		if valIsLogarithmic != nil {
-			var valueForIsLogarithmic bool
+			var valueForIsLogarithmic *bool
 			err = json.Unmarshal(*valIsLogarithmic, &valueForIsLogarithmic)
 			if err != nil {
 				return err
@@ -1092,7 +1092,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valIsLogarithmicCap, ok := objMap["IsLogarithmic"]; ok {
 		if valIsLogarithmicCap != nil {
-			var valueForIsLogarithmic bool
+			var valueForIsLogarithmic *bool
 			err = json.Unmarshal(*valIsLogarithmicCap, &valueForIsLogarithmic)
 			if err != nil {
 				return err
@@ -1157,7 +1157,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valAxisBetweenCategories, ok := objMap["axisBetweenCategories"]; ok {
 		if valAxisBetweenCategories != nil {
-			var valueForAxisBetweenCategories bool
+			var valueForAxisBetweenCategories *bool
 			err = json.Unmarshal(*valAxisBetweenCategories, &valueForAxisBetweenCategories)
 			if err != nil {
 				return err
@@ -1167,7 +1167,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valAxisBetweenCategoriesCap, ok := objMap["AxisBetweenCategories"]; ok {
 		if valAxisBetweenCategoriesCap != nil {
-			var valueForAxisBetweenCategories bool
+			var valueForAxisBetweenCategories *bool
 			err = json.Unmarshal(*valAxisBetweenCategoriesCap, &valueForAxisBetweenCategories)
 			if err != nil {
 				return err
@@ -1199,7 +1199,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valIsPlotOrderReversed, ok := objMap["isPlotOrderReversed"]; ok {
 		if valIsPlotOrderReversed != nil {
-			var valueForIsPlotOrderReversed bool
+			var valueForIsPlotOrderReversed *bool
 			err = json.Unmarshal(*valIsPlotOrderReversed, &valueForIsPlotOrderReversed)
 			if err != nil {
 				return err
@@ -1209,7 +1209,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valIsPlotOrderReversedCap, ok := objMap["IsPlotOrderReversed"]; ok {
 		if valIsPlotOrderReversedCap != nil {
-			var valueForIsPlotOrderReversed bool
+			var valueForIsPlotOrderReversed *bool
 			err = json.Unmarshal(*valIsPlotOrderReversedCap, &valueForIsPlotOrderReversed)
 			if err != nil {
 				return err
@@ -1220,7 +1220,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valIsNumberFormatLinkedToSource, ok := objMap["isNumberFormatLinkedToSource"]; ok {
 		if valIsNumberFormatLinkedToSource != nil {
-			var valueForIsNumberFormatLinkedToSource bool
+			var valueForIsNumberFormatLinkedToSource *bool
 			err = json.Unmarshal(*valIsNumberFormatLinkedToSource, &valueForIsNumberFormatLinkedToSource)
 			if err != nil {
 				return err
@@ -1230,7 +1230,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valIsNumberFormatLinkedToSourceCap, ok := objMap["IsNumberFormatLinkedToSource"]; ok {
 		if valIsNumberFormatLinkedToSourceCap != nil {
-			var valueForIsNumberFormatLinkedToSource bool
+			var valueForIsNumberFormatLinkedToSource *bool
 			err = json.Unmarshal(*valIsNumberFormatLinkedToSourceCap, &valueForIsNumberFormatLinkedToSource)
 			if err != nil {
 				return err
@@ -1316,7 +1316,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valIsAutomaticTickMarksSpacing, ok := objMap["isAutomaticTickMarksSpacing"]; ok {
 		if valIsAutomaticTickMarksSpacing != nil {
-			var valueForIsAutomaticTickMarksSpacing bool
+			var valueForIsAutomaticTickMarksSpacing *bool
 			err = json.Unmarshal(*valIsAutomaticTickMarksSpacing, &valueForIsAutomaticTickMarksSpacing)
 			if err != nil {
 				return err
@@ -1326,7 +1326,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valIsAutomaticTickMarksSpacingCap, ok := objMap["IsAutomaticTickMarksSpacing"]; ok {
 		if valIsAutomaticTickMarksSpacingCap != nil {
-			var valueForIsAutomaticTickMarksSpacing bool
+			var valueForIsAutomaticTickMarksSpacing *bool
 			err = json.Unmarshal(*valIsAutomaticTickMarksSpacingCap, &valueForIsAutomaticTickMarksSpacing)
 			if err != nil {
 				return err
@@ -1358,7 +1358,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	
 	if valIsAutomaticTickLabelSpacing, ok := objMap["isAutomaticTickLabelSpacing"]; ok {
 		if valIsAutomaticTickLabelSpacing != nil {
-			var valueForIsAutomaticTickLabelSpacing bool
+			var valueForIsAutomaticTickLabelSpacing *bool
 			err = json.Unmarshal(*valIsAutomaticTickLabelSpacing, &valueForIsAutomaticTickLabelSpacing)
 			if err != nil {
 				return err
@@ -1368,7 +1368,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 	}
 	if valIsAutomaticTickLabelSpacingCap, ok := objMap["IsAutomaticTickLabelSpacing"]; ok {
 		if valIsAutomaticTickLabelSpacingCap != nil {
-			var valueForIsAutomaticTickLabelSpacing bool
+			var valueForIsAutomaticTickLabelSpacing *bool
 			err = json.Unmarshal(*valIsAutomaticTickLabelSpacingCap, &valueForIsAutomaticTickLabelSpacing)
 			if err != nil {
 				return err

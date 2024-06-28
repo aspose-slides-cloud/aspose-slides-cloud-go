@@ -39,8 +39,8 @@ type IStorageFile interface {
 	SetName(newValue string)
 
 	// True if it is a folder.
-	GetIsFolder() bool
-	SetIsFolder(newValue bool)
+	GetIsFolder() *bool
+	SetIsFolder(newValue *bool)
 
 	// File or folder last modified DateTime.
 	GetModifiedDate() time.Time
@@ -61,7 +61,7 @@ type StorageFile struct {
 	Name string `json:"Name,omitempty"`
 
 	// True if it is a folder.
-	IsFolder bool `json:"IsFolder"`
+	IsFolder *bool `json:"IsFolder"`
 
 	// File or folder last modified DateTime.
 	ModifiedDate time.Time `json:"ModifiedDate,omitempty"`
@@ -85,11 +85,11 @@ func (this *StorageFile) GetName() string {
 func (this *StorageFile) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *StorageFile) GetIsFolder() bool {
+func (this *StorageFile) GetIsFolder() *bool {
 	return this.IsFolder
 }
 
-func (this *StorageFile) SetIsFolder(newValue bool) {
+func (this *StorageFile) SetIsFolder(newValue *bool) {
 	this.IsFolder = newValue
 }
 func (this *StorageFile) GetModifiedDate() time.Time {
@@ -144,7 +144,7 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 	
 	if valIsFolder, ok := objMap["isFolder"]; ok {
 		if valIsFolder != nil {
-			var valueForIsFolder bool
+			var valueForIsFolder *bool
 			err = json.Unmarshal(*valIsFolder, &valueForIsFolder)
 			if err != nil {
 				return err
@@ -154,7 +154,7 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 	}
 	if valIsFolderCap, ok := objMap["IsFolder"]; ok {
 		if valIsFolderCap != nil {
-			var valueForIsFolder bool
+			var valueForIsFolder *bool
 			err = json.Unmarshal(*valIsFolderCap, &valueForIsFolder)
 			if err != nil {
 				return err

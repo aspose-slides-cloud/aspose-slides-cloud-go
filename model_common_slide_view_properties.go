@@ -38,8 +38,8 @@ type ICommonSlideViewProperties interface {
 	SetScale(newValue int32)
 
 	// True if the view content should automatically scale to best fit the current window size.
-	GetVariableScale() bool
-	SetVariableScale(newValue bool)
+	GetVariableScale() *bool
+	SetVariableScale(newValue *bool)
 }
 
 type CommonSlideViewProperties struct {
@@ -48,7 +48,7 @@ type CommonSlideViewProperties struct {
 	Scale int32 `json:"Scale,omitempty"`
 
 	// True if the view content should automatically scale to best fit the current window size.
-	VariableScale bool `json:"VariableScale"`
+	VariableScale *bool `json:"VariableScale"`
 }
 
 func NewCommonSlideViewProperties() *CommonSlideViewProperties {
@@ -63,11 +63,11 @@ func (this *CommonSlideViewProperties) GetScale() int32 {
 func (this *CommonSlideViewProperties) SetScale(newValue int32) {
 	this.Scale = newValue
 }
-func (this *CommonSlideViewProperties) GetVariableScale() bool {
+func (this *CommonSlideViewProperties) GetVariableScale() *bool {
 	return this.VariableScale
 }
 
-func (this *CommonSlideViewProperties) SetVariableScale(newValue bool) {
+func (this *CommonSlideViewProperties) SetVariableScale(newValue *bool) {
 	this.VariableScale = newValue
 }
 
@@ -101,7 +101,7 @@ func (this *CommonSlideViewProperties) UnmarshalJSON(b []byte) error {
 	
 	if valVariableScale, ok := objMap["variableScale"]; ok {
 		if valVariableScale != nil {
-			var valueForVariableScale bool
+			var valueForVariableScale *bool
 			err = json.Unmarshal(*valVariableScale, &valueForVariableScale)
 			if err != nil {
 				return err
@@ -111,7 +111,7 @@ func (this *CommonSlideViewProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valVariableScaleCap, ok := objMap["VariableScale"]; ok {
 		if valVariableScaleCap != nil {
-			var valueForVariableScale bool
+			var valueForVariableScale *bool
 			err = json.Unmarshal(*valVariableScaleCap, &valueForVariableScale)
 			if err != nil {
 				return err

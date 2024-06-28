@@ -58,8 +58,8 @@ type IImageExportOptions interface {
 	SetWidth(newValue int32)
 
 	// Show hidden slides. If true, hidden are exported.
-	GetShowHiddenSlides() bool
-	SetShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() *bool
+	SetShowHiddenSlides(newValue *bool)
 
 	// Slides layouting options
 	GetSlidesLayoutOptions() ISlidesLayoutOptions
@@ -87,7 +87,7 @@ type ImageExportOptions struct {
 	Width int32 `json:"Width,omitempty"`
 
 	// Show hidden slides. If true, hidden are exported.
-	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
+	ShowHiddenSlides *bool `json:"ShowHiddenSlides"`
 
 	// Slides layouting options
 	SlidesLayoutOptions ISlidesLayoutOptions `json:"SlidesLayoutOptions,omitempty"`
@@ -140,11 +140,11 @@ func (this *ImageExportOptions) GetWidth() int32 {
 func (this *ImageExportOptions) SetWidth(newValue int32) {
 	this.Width = newValue
 }
-func (this *ImageExportOptions) GetShowHiddenSlides() bool {
+func (this *ImageExportOptions) GetShowHiddenSlides() *bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *ImageExportOptions) SetShowHiddenSlides(newValue bool) {
+func (this *ImageExportOptions) SetShowHiddenSlides(newValue *bool) {
 	this.ShowHiddenSlides = newValue
 }
 func (this *ImageExportOptions) GetSlidesLayoutOptions() ISlidesLayoutOptions {
@@ -346,7 +346,7 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
 			if err != nil {
 				return err
@@ -356,7 +356,7 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
 		if valShowHiddenSlidesCap != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
 			if err != nil {
 				return err

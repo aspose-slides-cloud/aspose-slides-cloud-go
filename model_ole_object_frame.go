@@ -62,12 +62,12 @@ type IOleObjectFrame interface {
 	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	GetHidden() bool
-	SetHidden(newValue bool)
+	GetHidden() *bool
+	SetHidden(newValue *bool)
 
 	// Gets or sets 'Mark as decorative' option.
-	GetIsDecorative() bool
-	SetIsDecorative(newValue bool)
+	GetIsDecorative() *bool
+	SetIsDecorative(newValue *bool)
 
 	// Gets or sets the X
 	GetX() float64
@@ -110,8 +110,8 @@ type IOleObjectFrame interface {
 	SetType(newValue string)
 
 	// True if an object is visible as icon.
-	GetIsObjectIcon() bool
-	SetIsObjectIcon(newValue bool)
+	GetIsObjectIcon() *bool
+	SetIsObjectIcon(newValue *bool)
 
 	// The title for OleObject icon.             
 	GetSubstitutePictureTitle() string
@@ -142,8 +142,8 @@ type IOleObjectFrame interface {
 	SetLinkPath(newValue string)
 
 	// Determines if the linked embedded object is automatically updated when the presentation is opened or printed. Read/write Boolean.
-	GetUpdateAutomatic() bool
-	SetUpdateAutomatic(newValue bool)
+	GetUpdateAutomatic() *bool
+	SetUpdateAutomatic(newValue *bool)
 }
 
 type OleObjectFrame struct {
@@ -170,10 +170,10 @@ type OleObjectFrame struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden"`
+	Hidden *bool `json:"Hidden"`
 
 	// Gets or sets 'Mark as decorative' option.
-	IsDecorative bool `json:"IsDecorative"`
+	IsDecorative *bool `json:"IsDecorative"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -206,7 +206,7 @@ type OleObjectFrame struct {
 	Type_ string `json:"Type"`
 
 	// True if an object is visible as icon.
-	IsObjectIcon bool `json:"IsObjectIcon"`
+	IsObjectIcon *bool `json:"IsObjectIcon"`
 
 	// The title for OleObject icon.             
 	SubstitutePictureTitle string `json:"SubstitutePictureTitle,omitempty"`
@@ -230,7 +230,7 @@ type OleObjectFrame struct {
 	LinkPath string `json:"LinkPath,omitempty"`
 
 	// Determines if the linked embedded object is automatically updated when the presentation is opened or printed. Read/write Boolean.
-	UpdateAutomatic bool `json:"UpdateAutomatic"`
+	UpdateAutomatic *bool `json:"UpdateAutomatic"`
 }
 
 func NewOleObjectFrame() *OleObjectFrame {
@@ -288,18 +288,18 @@ func (this *OleObjectFrame) GetAlternativeTextTitle() string {
 func (this *OleObjectFrame) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *OleObjectFrame) GetHidden() bool {
+func (this *OleObjectFrame) GetHidden() *bool {
 	return this.Hidden
 }
 
-func (this *OleObjectFrame) SetHidden(newValue bool) {
+func (this *OleObjectFrame) SetHidden(newValue *bool) {
 	this.Hidden = newValue
 }
-func (this *OleObjectFrame) GetIsDecorative() bool {
+func (this *OleObjectFrame) GetIsDecorative() *bool {
 	return this.IsDecorative
 }
 
-func (this *OleObjectFrame) SetIsDecorative(newValue bool) {
+func (this *OleObjectFrame) SetIsDecorative(newValue *bool) {
 	this.IsDecorative = newValue
 }
 func (this *OleObjectFrame) GetX() float64 {
@@ -372,11 +372,11 @@ func (this *OleObjectFrame) GetType() string {
 func (this *OleObjectFrame) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *OleObjectFrame) GetIsObjectIcon() bool {
+func (this *OleObjectFrame) GetIsObjectIcon() *bool {
 	return this.IsObjectIcon
 }
 
-func (this *OleObjectFrame) SetIsObjectIcon(newValue bool) {
+func (this *OleObjectFrame) SetIsObjectIcon(newValue *bool) {
 	this.IsObjectIcon = newValue
 }
 func (this *OleObjectFrame) GetSubstitutePictureTitle() string {
@@ -428,11 +428,11 @@ func (this *OleObjectFrame) GetLinkPath() string {
 func (this *OleObjectFrame) SetLinkPath(newValue string) {
 	this.LinkPath = newValue
 }
-func (this *OleObjectFrame) GetUpdateAutomatic() bool {
+func (this *OleObjectFrame) GetUpdateAutomatic() *bool {
 	return this.UpdateAutomatic
 }
 
-func (this *OleObjectFrame) SetUpdateAutomatic(newValue bool) {
+func (this *OleObjectFrame) SetUpdateAutomatic(newValue *bool) {
 	this.UpdateAutomatic = newValue
 }
 
@@ -642,7 +642,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 	
 	if valHidden, ok := objMap["hidden"]; ok {
 		if valHidden != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
 			if err != nil {
 				return err
@@ -652,7 +652,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valHiddenCap, ok := objMap["Hidden"]; ok {
 		if valHiddenCap != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
 			if err != nil {
 				return err
@@ -663,7 +663,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 	
 	if valIsDecorative, ok := objMap["isDecorative"]; ok {
 		if valIsDecorative != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorative, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -673,7 +673,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valIsDecorativeCap, ok := objMap["IsDecorative"]; ok {
 		if valIsDecorativeCap != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorativeCap, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -1038,7 +1038,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 	
 	if valIsObjectIcon, ok := objMap["isObjectIcon"]; ok {
 		if valIsObjectIcon != nil {
-			var valueForIsObjectIcon bool
+			var valueForIsObjectIcon *bool
 			err = json.Unmarshal(*valIsObjectIcon, &valueForIsObjectIcon)
 			if err != nil {
 				return err
@@ -1048,7 +1048,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valIsObjectIconCap, ok := objMap["IsObjectIcon"]; ok {
 		if valIsObjectIconCap != nil {
-			var valueForIsObjectIcon bool
+			var valueForIsObjectIcon *bool
 			err = json.Unmarshal(*valIsObjectIconCap, &valueForIsObjectIcon)
 			if err != nil {
 				return err
@@ -1228,7 +1228,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 	
 	if valUpdateAutomatic, ok := objMap["updateAutomatic"]; ok {
 		if valUpdateAutomatic != nil {
-			var valueForUpdateAutomatic bool
+			var valueForUpdateAutomatic *bool
 			err = json.Unmarshal(*valUpdateAutomatic, &valueForUpdateAutomatic)
 			if err != nil {
 				return err
@@ -1238,7 +1238,7 @@ func (this *OleObjectFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valUpdateAutomaticCap, ok := objMap["UpdateAutomatic"]; ok {
 		if valUpdateAutomaticCap != nil {
-			var valueForUpdateAutomatic bool
+			var valueForUpdateAutomatic *bool
 			err = json.Unmarshal(*valUpdateAutomaticCap, &valueForUpdateAutomatic)
 			if err != nil {
 				return err

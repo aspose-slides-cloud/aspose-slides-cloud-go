@@ -49,7 +49,8 @@ func TestFontsGetAvailable(t *testing.T) {
 		t.Errorf("Expected greater thatn %v, but was %v", 1, len(response.GetList()))
 		return
 	}
-	if response.GetList()[0].GetIsCustom() {
+	isCustom := response.GetList()[0].GetIsCustom()
+	if isCustom != nil && *isCustom {
 		t.Errorf("Expected false, but was true")
 		return
 	}
@@ -122,7 +123,8 @@ func TestEmbeddedFontSet(t *testing.T) {
 		return
 	}
 
-	if response.GetList()[2].GetIsEmbedded() != true {
+	isEmbedded := response.GetList()[2].GetIsEmbedded()
+	if isEmbedded == nil || !*isEmbedded {
 		t.Errorf("Expected %v, but was %v", true, response.GetList()[2].GetIsEmbedded())
 		return
 	}
@@ -167,7 +169,8 @@ func TestSetEmbeddedFontFromRequest(t *testing.T) {
 		return
 	}
 
-	if response.GetList()[2].GetIsEmbedded() != true {
+	isEmbedded := response.GetList()[2].GetIsEmbedded()
+	if isEmbedded == nil || !*isEmbedded {
 		t.Errorf("Expected %v, but was %v", true, response.GetList()[2].GetIsEmbedded())
 		return
 	}
@@ -217,7 +220,8 @@ func TestEmbeddedFontsCompress(t *testing.T) {
 		return
 	}
 
-	if response.GetList()[2].GetIsEmbedded() != true {
+	isEmbedded := response.GetList()[2].GetIsEmbedded()
+	if isEmbedded == nil || !*isEmbedded {
 		t.Errorf("Expected %v, but was %v", true, response.GetList()[2].GetIsEmbedded())
 		return
 	}
@@ -296,7 +300,8 @@ func TestEmbeddedFontDelete(t *testing.T) {
 		return
 	}
 
-	if response.GetList()[2].GetIsEmbedded() != true {
+	isEmbedded := response.GetList()[2].GetIsEmbedded()
+	if isEmbedded == nil || !*isEmbedded {
 		t.Errorf("Expected %v, but was %v", true, response.GetList()[2].GetIsEmbedded())
 		return
 	}
@@ -308,8 +313,9 @@ func TestEmbeddedFontDelete(t *testing.T) {
 		return
 	}
 
-	if response.GetList()[2].GetIsEmbedded() != false {
-		t.Errorf("Expected %v, but was %v", false, response.GetList()[2].GetIsEmbedded())
+	isEmbedded = response.GetList()[0].GetIsEmbedded()
+	if isEmbedded != nil && *isEmbedded {
+		t.Errorf("Expected %v, but was %v", false, isEmbedded)
 		return
 	}
 }
@@ -382,7 +388,8 @@ func TestReplaceFont(t *testing.T) {
 		return
 	}
 
-	if response.GetList()[2].GetIsEmbedded() != true {
+	isEmbedded := response.GetList()[2].GetIsEmbedded()
+	if isEmbedded == nil || !*isEmbedded {
 		t.Errorf("Expected %v, but was %v", true, response.GetList()[2].GetIsEmbedded())
 		return
 	}
@@ -427,7 +434,8 @@ func TestFontSubstitution(t *testing.T) {
 	fontRule1 := slidescloud.NewFontSubstRule()
 	fontRule1.SetSourceFont("Arial")
 	fontRule1.SetTargetFont(targetFontName)
-	fontRule1.SetNotFoundOnly(false)
+	notFoundOnly := false
+	fontRule1.SetNotFoundOnly(&notFoundOnly)
 	fontRule2 := slidescloud.NewFontSubstRule()
 	fontRule2.SetSourceFont("Calibri")
 	fontRule2.SetTargetFont(targetFontName)

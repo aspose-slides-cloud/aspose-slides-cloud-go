@@ -46,28 +46,28 @@ type IOneValueSeries interface {
 	SetDataSourceForSeriesName(newValue IDataSource)
 
 	// True if each data marker in the series has a different color.
-	GetIsColorVaried() bool
-	SetIsColorVaried(newValue bool)
+	GetIsColorVaried() *bool
+	SetIsColorVaried(newValue *bool)
 
 	// Invert solid color for the series.
 	GetInvertedSolidFillColor() string
 	SetInvertedSolidFillColor(newValue string)
 
 	// True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.
-	GetSmooth() bool
-	SetSmooth(newValue bool)
+	GetSmooth() *bool
+	SetSmooth(newValue *bool)
 
 	// True if the series is plotted on second value axis.
-	GetPlotOnSecondAxis() bool
-	SetPlotOnSecondAxis(newValue bool)
+	GetPlotOnSecondAxis() *bool
+	SetPlotOnSecondAxis(newValue *bool)
 
 	// Series order.
 	GetOrder() int32
 	SetOrder(newValue int32)
 
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	GetInvertIfNegative() bool
-	SetInvertIfNegative(newValue bool)
+	GetInvertIfNegative() *bool
+	SetInvertIfNegative(newValue *bool)
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
 	GetExplosion() int32
@@ -106,28 +106,28 @@ type IOneValueSeries interface {
 	SetDataSourceForValues(newValue IDataSource)
 
 	// True if inner points are shown. Applied to Waterfall series only.
-	GetShowConnectorLines() bool
-	SetShowConnectorLines(newValue bool)
+	GetShowConnectorLines() *bool
+	SetShowConnectorLines(newValue *bool)
 
 	// Quartile method. Applied to BoxAndWhisker series only.
 	GetQuartileMethod() string
 	SetQuartileMethod(newValue string)
 
 	// True if inner points are shown. Applied to BoxAndWhisker series only.
-	GetShowInnerPoints() bool
-	SetShowInnerPoints(newValue bool)
+	GetShowInnerPoints() *bool
+	SetShowInnerPoints(newValue *bool)
 
 	// True if mean line is shown. Applied to BoxAndWhisker series only.
-	GetShowMeanLine() bool
-	SetShowMeanLine(newValue bool)
+	GetShowMeanLine() *bool
+	SetShowMeanLine(newValue *bool)
 
 	// True if mean markers are shown. Applied to BoxAndWhisker series only.
-	GetShowMeanMarkers() bool
-	SetShowMeanMarkers(newValue bool)
+	GetShowMeanMarkers() *bool
+	SetShowMeanMarkers(newValue *bool)
 
 	// True if outlier points are shown. Applied to BoxAndWhisker series only.
-	GetShowOutlierPoints() bool
-	SetShowOutlierPoints(newValue bool)
+	GetShowOutlierPoints() *bool
+	SetShowOutlierPoints(newValue *bool)
 }
 
 type OneValueSeries struct {
@@ -142,22 +142,22 @@ type OneValueSeries struct {
 	DataSourceForSeriesName IDataSource `json:"DataSourceForSeriesName,omitempty"`
 
 	// True if each data marker in the series has a different color.
-	IsColorVaried bool `json:"IsColorVaried"`
+	IsColorVaried *bool `json:"IsColorVaried"`
 
 	// Invert solid color for the series.
 	InvertedSolidFillColor string `json:"InvertedSolidFillColor,omitempty"`
 
 	// True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.
-	Smooth bool `json:"Smooth"`
+	Smooth *bool `json:"Smooth"`
 
 	// True if the series is plotted on second value axis.
-	PlotOnSecondAxis bool `json:"PlotOnSecondAxis"`
+	PlotOnSecondAxis *bool `json:"PlotOnSecondAxis"`
 
 	// Series order.
 	Order int32 `json:"Order,omitempty"`
 
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	InvertIfNegative bool `json:"InvertIfNegative"`
+	InvertIfNegative *bool `json:"InvertIfNegative"`
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
 	Explosion int32 `json:"Explosion,omitempty"`
@@ -187,22 +187,22 @@ type OneValueSeries struct {
 	DataSourceForValues IDataSource `json:"DataSourceForValues,omitempty"`
 
 	// True if inner points are shown. Applied to Waterfall series only.
-	ShowConnectorLines bool `json:"ShowConnectorLines"`
+	ShowConnectorLines *bool `json:"ShowConnectorLines"`
 
 	// Quartile method. Applied to BoxAndWhisker series only.
 	QuartileMethod string `json:"QuartileMethod,omitempty"`
 
 	// True if inner points are shown. Applied to BoxAndWhisker series only.
-	ShowInnerPoints bool `json:"ShowInnerPoints"`
+	ShowInnerPoints *bool `json:"ShowInnerPoints"`
 
 	// True if mean line is shown. Applied to BoxAndWhisker series only.
-	ShowMeanLine bool `json:"ShowMeanLine"`
+	ShowMeanLine *bool `json:"ShowMeanLine"`
 
 	// True if mean markers are shown. Applied to BoxAndWhisker series only.
-	ShowMeanMarkers bool `json:"ShowMeanMarkers"`
+	ShowMeanMarkers *bool `json:"ShowMeanMarkers"`
 
 	// True if outlier points are shown. Applied to BoxAndWhisker series only.
-	ShowOutlierPoints bool `json:"ShowOutlierPoints"`
+	ShowOutlierPoints *bool `json:"ShowOutlierPoints"`
 }
 
 func NewOneValueSeries() *OneValueSeries {
@@ -232,11 +232,11 @@ func (this *OneValueSeries) GetDataSourceForSeriesName() IDataSource {
 func (this *OneValueSeries) SetDataSourceForSeriesName(newValue IDataSource) {
 	this.DataSourceForSeriesName = newValue
 }
-func (this *OneValueSeries) GetIsColorVaried() bool {
+func (this *OneValueSeries) GetIsColorVaried() *bool {
 	return this.IsColorVaried
 }
 
-func (this *OneValueSeries) SetIsColorVaried(newValue bool) {
+func (this *OneValueSeries) SetIsColorVaried(newValue *bool) {
 	this.IsColorVaried = newValue
 }
 func (this *OneValueSeries) GetInvertedSolidFillColor() string {
@@ -246,18 +246,18 @@ func (this *OneValueSeries) GetInvertedSolidFillColor() string {
 func (this *OneValueSeries) SetInvertedSolidFillColor(newValue string) {
 	this.InvertedSolidFillColor = newValue
 }
-func (this *OneValueSeries) GetSmooth() bool {
+func (this *OneValueSeries) GetSmooth() *bool {
 	return this.Smooth
 }
 
-func (this *OneValueSeries) SetSmooth(newValue bool) {
+func (this *OneValueSeries) SetSmooth(newValue *bool) {
 	this.Smooth = newValue
 }
-func (this *OneValueSeries) GetPlotOnSecondAxis() bool {
+func (this *OneValueSeries) GetPlotOnSecondAxis() *bool {
 	return this.PlotOnSecondAxis
 }
 
-func (this *OneValueSeries) SetPlotOnSecondAxis(newValue bool) {
+func (this *OneValueSeries) SetPlotOnSecondAxis(newValue *bool) {
 	this.PlotOnSecondAxis = newValue
 }
 func (this *OneValueSeries) GetOrder() int32 {
@@ -267,11 +267,11 @@ func (this *OneValueSeries) GetOrder() int32 {
 func (this *OneValueSeries) SetOrder(newValue int32) {
 	this.Order = newValue
 }
-func (this *OneValueSeries) GetInvertIfNegative() bool {
+func (this *OneValueSeries) GetInvertIfNegative() *bool {
 	return this.InvertIfNegative
 }
 
-func (this *OneValueSeries) SetInvertIfNegative(newValue bool) {
+func (this *OneValueSeries) SetInvertIfNegative(newValue *bool) {
 	this.InvertIfNegative = newValue
 }
 func (this *OneValueSeries) GetExplosion() int32 {
@@ -337,11 +337,11 @@ func (this *OneValueSeries) GetDataSourceForValues() IDataSource {
 func (this *OneValueSeries) SetDataSourceForValues(newValue IDataSource) {
 	this.DataSourceForValues = newValue
 }
-func (this *OneValueSeries) GetShowConnectorLines() bool {
+func (this *OneValueSeries) GetShowConnectorLines() *bool {
 	return this.ShowConnectorLines
 }
 
-func (this *OneValueSeries) SetShowConnectorLines(newValue bool) {
+func (this *OneValueSeries) SetShowConnectorLines(newValue *bool) {
 	this.ShowConnectorLines = newValue
 }
 func (this *OneValueSeries) GetQuartileMethod() string {
@@ -351,32 +351,32 @@ func (this *OneValueSeries) GetQuartileMethod() string {
 func (this *OneValueSeries) SetQuartileMethod(newValue string) {
 	this.QuartileMethod = newValue
 }
-func (this *OneValueSeries) GetShowInnerPoints() bool {
+func (this *OneValueSeries) GetShowInnerPoints() *bool {
 	return this.ShowInnerPoints
 }
 
-func (this *OneValueSeries) SetShowInnerPoints(newValue bool) {
+func (this *OneValueSeries) SetShowInnerPoints(newValue *bool) {
 	this.ShowInnerPoints = newValue
 }
-func (this *OneValueSeries) GetShowMeanLine() bool {
+func (this *OneValueSeries) GetShowMeanLine() *bool {
 	return this.ShowMeanLine
 }
 
-func (this *OneValueSeries) SetShowMeanLine(newValue bool) {
+func (this *OneValueSeries) SetShowMeanLine(newValue *bool) {
 	this.ShowMeanLine = newValue
 }
-func (this *OneValueSeries) GetShowMeanMarkers() bool {
+func (this *OneValueSeries) GetShowMeanMarkers() *bool {
 	return this.ShowMeanMarkers
 }
 
-func (this *OneValueSeries) SetShowMeanMarkers(newValue bool) {
+func (this *OneValueSeries) SetShowMeanMarkers(newValue *bool) {
 	this.ShowMeanMarkers = newValue
 }
-func (this *OneValueSeries) GetShowOutlierPoints() bool {
+func (this *OneValueSeries) GetShowOutlierPoints() *bool {
 	return this.ShowOutlierPoints
 }
 
-func (this *OneValueSeries) SetShowOutlierPoints(newValue bool) {
+func (this *OneValueSeries) SetShowOutlierPoints(newValue *bool) {
 	this.ShowOutlierPoints = newValue
 }
 
@@ -486,7 +486,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	
 	if valIsColorVaried, ok := objMap["isColorVaried"]; ok {
 		if valIsColorVaried != nil {
-			var valueForIsColorVaried bool
+			var valueForIsColorVaried *bool
 			err = json.Unmarshal(*valIsColorVaried, &valueForIsColorVaried)
 			if err != nil {
 				return err
@@ -496,7 +496,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valIsColorVariedCap, ok := objMap["IsColorVaried"]; ok {
 		if valIsColorVariedCap != nil {
-			var valueForIsColorVaried bool
+			var valueForIsColorVaried *bool
 			err = json.Unmarshal(*valIsColorVariedCap, &valueForIsColorVaried)
 			if err != nil {
 				return err
@@ -528,7 +528,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	
 	if valSmooth, ok := objMap["smooth"]; ok {
 		if valSmooth != nil {
-			var valueForSmooth bool
+			var valueForSmooth *bool
 			err = json.Unmarshal(*valSmooth, &valueForSmooth)
 			if err != nil {
 				return err
@@ -538,7 +538,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valSmoothCap, ok := objMap["Smooth"]; ok {
 		if valSmoothCap != nil {
-			var valueForSmooth bool
+			var valueForSmooth *bool
 			err = json.Unmarshal(*valSmoothCap, &valueForSmooth)
 			if err != nil {
 				return err
@@ -549,7 +549,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	
 	if valPlotOnSecondAxis, ok := objMap["plotOnSecondAxis"]; ok {
 		if valPlotOnSecondAxis != nil {
-			var valueForPlotOnSecondAxis bool
+			var valueForPlotOnSecondAxis *bool
 			err = json.Unmarshal(*valPlotOnSecondAxis, &valueForPlotOnSecondAxis)
 			if err != nil {
 				return err
@@ -559,7 +559,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valPlotOnSecondAxisCap, ok := objMap["PlotOnSecondAxis"]; ok {
 		if valPlotOnSecondAxisCap != nil {
-			var valueForPlotOnSecondAxis bool
+			var valueForPlotOnSecondAxis *bool
 			err = json.Unmarshal(*valPlotOnSecondAxisCap, &valueForPlotOnSecondAxis)
 			if err != nil {
 				return err
@@ -591,7 +591,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	
 	if valInvertIfNegative, ok := objMap["invertIfNegative"]; ok {
 		if valInvertIfNegative != nil {
-			var valueForInvertIfNegative bool
+			var valueForInvertIfNegative *bool
 			err = json.Unmarshal(*valInvertIfNegative, &valueForInvertIfNegative)
 			if err != nil {
 				return err
@@ -601,7 +601,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valInvertIfNegativeCap, ok := objMap["InvertIfNegative"]; ok {
 		if valInvertIfNegativeCap != nil {
-			var valueForInvertIfNegative bool
+			var valueForInvertIfNegative *bool
 			err = json.Unmarshal(*valInvertIfNegativeCap, &valueForInvertIfNegative)
 			if err != nil {
 				return err
@@ -951,7 +951,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	
 	if valShowConnectorLines, ok := objMap["showConnectorLines"]; ok {
 		if valShowConnectorLines != nil {
-			var valueForShowConnectorLines bool
+			var valueForShowConnectorLines *bool
 			err = json.Unmarshal(*valShowConnectorLines, &valueForShowConnectorLines)
 			if err != nil {
 				return err
@@ -961,7 +961,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valShowConnectorLinesCap, ok := objMap["ShowConnectorLines"]; ok {
 		if valShowConnectorLinesCap != nil {
-			var valueForShowConnectorLines bool
+			var valueForShowConnectorLines *bool
 			err = json.Unmarshal(*valShowConnectorLinesCap, &valueForShowConnectorLines)
 			if err != nil {
 				return err
@@ -1005,7 +1005,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	
 	if valShowInnerPoints, ok := objMap["showInnerPoints"]; ok {
 		if valShowInnerPoints != nil {
-			var valueForShowInnerPoints bool
+			var valueForShowInnerPoints *bool
 			err = json.Unmarshal(*valShowInnerPoints, &valueForShowInnerPoints)
 			if err != nil {
 				return err
@@ -1015,7 +1015,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valShowInnerPointsCap, ok := objMap["ShowInnerPoints"]; ok {
 		if valShowInnerPointsCap != nil {
-			var valueForShowInnerPoints bool
+			var valueForShowInnerPoints *bool
 			err = json.Unmarshal(*valShowInnerPointsCap, &valueForShowInnerPoints)
 			if err != nil {
 				return err
@@ -1026,7 +1026,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	
 	if valShowMeanLine, ok := objMap["showMeanLine"]; ok {
 		if valShowMeanLine != nil {
-			var valueForShowMeanLine bool
+			var valueForShowMeanLine *bool
 			err = json.Unmarshal(*valShowMeanLine, &valueForShowMeanLine)
 			if err != nil {
 				return err
@@ -1036,7 +1036,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valShowMeanLineCap, ok := objMap["ShowMeanLine"]; ok {
 		if valShowMeanLineCap != nil {
-			var valueForShowMeanLine bool
+			var valueForShowMeanLine *bool
 			err = json.Unmarshal(*valShowMeanLineCap, &valueForShowMeanLine)
 			if err != nil {
 				return err
@@ -1047,7 +1047,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	
 	if valShowMeanMarkers, ok := objMap["showMeanMarkers"]; ok {
 		if valShowMeanMarkers != nil {
-			var valueForShowMeanMarkers bool
+			var valueForShowMeanMarkers *bool
 			err = json.Unmarshal(*valShowMeanMarkers, &valueForShowMeanMarkers)
 			if err != nil {
 				return err
@@ -1057,7 +1057,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valShowMeanMarkersCap, ok := objMap["ShowMeanMarkers"]; ok {
 		if valShowMeanMarkersCap != nil {
-			var valueForShowMeanMarkers bool
+			var valueForShowMeanMarkers *bool
 			err = json.Unmarshal(*valShowMeanMarkersCap, &valueForShowMeanMarkers)
 			if err != nil {
 				return err
@@ -1068,7 +1068,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	
 	if valShowOutlierPoints, ok := objMap["showOutlierPoints"]; ok {
 		if valShowOutlierPoints != nil {
-			var valueForShowOutlierPoints bool
+			var valueForShowOutlierPoints *bool
 			err = json.Unmarshal(*valShowOutlierPoints, &valueForShowOutlierPoints)
 			if err != nil {
 				return err
@@ -1078,7 +1078,7 @@ func (this *OneValueSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valShowOutlierPointsCap, ok := objMap["ShowOutlierPoints"]; ok {
 		if valShowOutlierPointsCap != nil {
-			var valueForShowOutlierPoints bool
+			var valueForShowOutlierPoints *bool
 			err = json.Unmarshal(*valShowOutlierPointsCap, &valueForShowOutlierPoints)
 			if err != nil {
 				return err

@@ -801,7 +801,8 @@ func TestTemplate(t *testing.T) {
 		return
 	}
 
-	chart.(slidescloud.IChart).GetLegend().SetHasLegend(false)
+	hasLegend := false
+	chart.(slidescloud.IChart).GetLegend().SetHasLegend(&hasLegend)
 
 	response, _, e := c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, chart, password, folderName, "", "")
 
@@ -810,7 +811,7 @@ func TestTemplate(t *testing.T) {
 		return
 	}
 
-	if response.(slidescloud.IChart).GetLegend().GetHasLegend() != false {
+	if *response.(slidescloud.IChart).GetLegend().GetHasLegend() != false {
 		t.Errorf("Expected %v, but was %v", false, true)
 		return
 	}
@@ -964,8 +965,9 @@ func TestChartLegend(t *testing.T) {
 		return
 	}
 
+	overlay := true
 	legendDto := slidescloud.NewLegend()
-	legendDto.Overlay = true
+	legendDto.Overlay = &overlay
 	solidFill := slidescloud.NewSolidFill()
 	solidFill.Color = "#77CEF9"
 	legendDto.FillFormat = solidFill
@@ -977,7 +979,7 @@ func TestChartLegend(t *testing.T) {
 		return
 	}
 
-	if response.GetOverlay() != true {
+	if *response.GetOverlay() != true {
 		t.Errorf("Expected %v, but was %v", true, response.GetOverlay())
 		return
 	}
@@ -1002,9 +1004,11 @@ func TestChartAxisSet(t *testing.T) {
 		return
 	}
 
+	hasTitle := true
+	isAutomaticMaxValue := false
 	axisDto := slidescloud.NewAxis()
-	axisDto.HasTitle = true
-	axisDto.IsAutomaticMaxValue = false
+	axisDto.HasTitle = &hasTitle
+	axisDto.IsAutomaticMaxValue = &isAutomaticMaxValue
 	axisDto.MaxValue = 10
 
 	response, _, e := c.SlidesApi.SetChartAxis(fileName, slideIndex, shapeIndex, "VerticalAxis", axisDto, password, folderName, "")
@@ -1014,12 +1018,12 @@ func TestChartAxisSet(t *testing.T) {
 		return
 	}
 
-	if response.GetHasTitle() != true {
+	if *response.GetHasTitle() != true {
 		t.Errorf("Expected %v, but was %v", true, response.GetHasTitle())
 		return
 	}
 
-	if response.GetIsAutomaticMaxValue() != false {
+	if *response.GetIsAutomaticMaxValue() != false {
 		t.Errorf("Expected %v, but was %v", false, response.GetIsAutomaticMaxValue())
 		return
 	}
@@ -1080,6 +1084,7 @@ func TestUpdateDataPointFormat(t *testing.T) {
 
 	color := "#77CEF9"
 
+	grow := true
 	dto := slidescloud.NewOneValueChartDataPoint()
 	dto.SetValue(40)
 	fillFormat := slidescloud.NewSolidFill()
@@ -1089,7 +1094,7 @@ func TestUpdateDataPointFormat(t *testing.T) {
 	lineFormat.FillFormat.(slidescloud.ISolidFill).SetColor(color)
 	effectFormat := slidescloud.NewEffectFormat()
 	effectFormat.Blur = slidescloud.NewBlurEffect()
-	effectFormat.Blur.SetGrow(true)
+	effectFormat.Blur.SetGrow(&grow)
 	effectFormat.Blur.SetRadius(5)
 	dto.SetFillFormat(fillFormat)
 	dto.SetLineFormat(lineFormat)

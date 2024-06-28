@@ -42,8 +42,8 @@ type ISlideShowProperties interface {
 	SetAlternateLinks(newValue []IResourceUri)
 
 	// Loop slide show.
-	GetLoop() bool
-	SetLoop(newValue bool)
+	GetLoop() *bool
+	SetLoop(newValue *bool)
 
 	// Start slide in the slide show.
 	GetStartSlide() int32
@@ -58,28 +58,28 @@ type ISlideShowProperties interface {
 	SetPenColor(newValue string)
 
 	// Show animation.
-	GetShowAnimation() bool
-	SetShowAnimation(newValue bool)
+	GetShowAnimation() *bool
+	SetShowAnimation(newValue *bool)
 
 	// Show narrration.
-	GetShowNarration() bool
-	SetShowNarration(newValue bool)
+	GetShowNarration() *bool
+	SetShowNarration(newValue *bool)
 
 	// Show media controls.
-	GetShowMediaControls() bool
-	SetShowMediaControls(newValue bool)
+	GetShowMediaControls() *bool
+	SetShowMediaControls(newValue *bool)
 
 	// Use timings.
-	GetUseTimings() bool
-	SetUseTimings(newValue bool)
+	GetUseTimings() *bool
+	SetUseTimings(newValue *bool)
 
 	// Slide show type.
 	GetSlideShowType() string
 	SetSlideShowType(newValue string)
 
 	// Show scroll bar. Applied with BrowsedByIndividual slide show type.
-	GetShowScrollbar() bool
-	SetShowScrollbar(newValue bool)
+	GetShowScrollbar() *bool
+	SetShowScrollbar(newValue *bool)
 }
 
 type SlideShowProperties struct {
@@ -91,7 +91,7 @@ type SlideShowProperties struct {
 	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// Loop slide show.
-	Loop bool `json:"Loop"`
+	Loop *bool `json:"Loop"`
 
 	// Start slide in the slide show.
 	StartSlide int32 `json:"StartSlide,omitempty"`
@@ -103,22 +103,22 @@ type SlideShowProperties struct {
 	PenColor string `json:"PenColor,omitempty"`
 
 	// Show animation.
-	ShowAnimation bool `json:"ShowAnimation"`
+	ShowAnimation *bool `json:"ShowAnimation"`
 
 	// Show narrration.
-	ShowNarration bool `json:"ShowNarration"`
+	ShowNarration *bool `json:"ShowNarration"`
 
 	// Show media controls.
-	ShowMediaControls bool `json:"ShowMediaControls"`
+	ShowMediaControls *bool `json:"ShowMediaControls"`
 
 	// Use timings.
-	UseTimings bool `json:"UseTimings"`
+	UseTimings *bool `json:"UseTimings"`
 
 	// Slide show type.
 	SlideShowType string `json:"SlideShowType,omitempty"`
 
 	// Show scroll bar. Applied with BrowsedByIndividual slide show type.
-	ShowScrollbar bool `json:"ShowScrollbar"`
+	ShowScrollbar *bool `json:"ShowScrollbar"`
 }
 
 func NewSlideShowProperties() *SlideShowProperties {
@@ -140,11 +140,11 @@ func (this *SlideShowProperties) GetAlternateLinks() []IResourceUri {
 func (this *SlideShowProperties) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *SlideShowProperties) GetLoop() bool {
+func (this *SlideShowProperties) GetLoop() *bool {
 	return this.Loop
 }
 
-func (this *SlideShowProperties) SetLoop(newValue bool) {
+func (this *SlideShowProperties) SetLoop(newValue *bool) {
 	this.Loop = newValue
 }
 func (this *SlideShowProperties) GetStartSlide() int32 {
@@ -168,32 +168,32 @@ func (this *SlideShowProperties) GetPenColor() string {
 func (this *SlideShowProperties) SetPenColor(newValue string) {
 	this.PenColor = newValue
 }
-func (this *SlideShowProperties) GetShowAnimation() bool {
+func (this *SlideShowProperties) GetShowAnimation() *bool {
 	return this.ShowAnimation
 }
 
-func (this *SlideShowProperties) SetShowAnimation(newValue bool) {
+func (this *SlideShowProperties) SetShowAnimation(newValue *bool) {
 	this.ShowAnimation = newValue
 }
-func (this *SlideShowProperties) GetShowNarration() bool {
+func (this *SlideShowProperties) GetShowNarration() *bool {
 	return this.ShowNarration
 }
 
-func (this *SlideShowProperties) SetShowNarration(newValue bool) {
+func (this *SlideShowProperties) SetShowNarration(newValue *bool) {
 	this.ShowNarration = newValue
 }
-func (this *SlideShowProperties) GetShowMediaControls() bool {
+func (this *SlideShowProperties) GetShowMediaControls() *bool {
 	return this.ShowMediaControls
 }
 
-func (this *SlideShowProperties) SetShowMediaControls(newValue bool) {
+func (this *SlideShowProperties) SetShowMediaControls(newValue *bool) {
 	this.ShowMediaControls = newValue
 }
-func (this *SlideShowProperties) GetUseTimings() bool {
+func (this *SlideShowProperties) GetUseTimings() *bool {
 	return this.UseTimings
 }
 
-func (this *SlideShowProperties) SetUseTimings(newValue bool) {
+func (this *SlideShowProperties) SetUseTimings(newValue *bool) {
 	this.UseTimings = newValue
 }
 func (this *SlideShowProperties) GetSlideShowType() string {
@@ -203,11 +203,11 @@ func (this *SlideShowProperties) GetSlideShowType() string {
 func (this *SlideShowProperties) SetSlideShowType(newValue string) {
 	this.SlideShowType = newValue
 }
-func (this *SlideShowProperties) GetShowScrollbar() bool {
+func (this *SlideShowProperties) GetShowScrollbar() *bool {
 	return this.ShowScrollbar
 }
 
-func (this *SlideShowProperties) SetShowScrollbar(newValue bool) {
+func (this *SlideShowProperties) SetShowScrollbar(newValue *bool) {
 	this.ShowScrollbar = newValue
 }
 
@@ -312,7 +312,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	
 	if valLoop, ok := objMap["loop"]; ok {
 		if valLoop != nil {
-			var valueForLoop bool
+			var valueForLoop *bool
 			err = json.Unmarshal(*valLoop, &valueForLoop)
 			if err != nil {
 				return err
@@ -322,7 +322,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valLoopCap, ok := objMap["Loop"]; ok {
 		if valLoopCap != nil {
-			var valueForLoop bool
+			var valueForLoop *bool
 			err = json.Unmarshal(*valLoopCap, &valueForLoop)
 			if err != nil {
 				return err
@@ -396,7 +396,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	
 	if valShowAnimation, ok := objMap["showAnimation"]; ok {
 		if valShowAnimation != nil {
-			var valueForShowAnimation bool
+			var valueForShowAnimation *bool
 			err = json.Unmarshal(*valShowAnimation, &valueForShowAnimation)
 			if err != nil {
 				return err
@@ -406,7 +406,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valShowAnimationCap, ok := objMap["ShowAnimation"]; ok {
 		if valShowAnimationCap != nil {
-			var valueForShowAnimation bool
+			var valueForShowAnimation *bool
 			err = json.Unmarshal(*valShowAnimationCap, &valueForShowAnimation)
 			if err != nil {
 				return err
@@ -417,7 +417,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	
 	if valShowNarration, ok := objMap["showNarration"]; ok {
 		if valShowNarration != nil {
-			var valueForShowNarration bool
+			var valueForShowNarration *bool
 			err = json.Unmarshal(*valShowNarration, &valueForShowNarration)
 			if err != nil {
 				return err
@@ -427,7 +427,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valShowNarrationCap, ok := objMap["ShowNarration"]; ok {
 		if valShowNarrationCap != nil {
-			var valueForShowNarration bool
+			var valueForShowNarration *bool
 			err = json.Unmarshal(*valShowNarrationCap, &valueForShowNarration)
 			if err != nil {
 				return err
@@ -438,7 +438,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	
 	if valShowMediaControls, ok := objMap["showMediaControls"]; ok {
 		if valShowMediaControls != nil {
-			var valueForShowMediaControls bool
+			var valueForShowMediaControls *bool
 			err = json.Unmarshal(*valShowMediaControls, &valueForShowMediaControls)
 			if err != nil {
 				return err
@@ -448,7 +448,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valShowMediaControlsCap, ok := objMap["ShowMediaControls"]; ok {
 		if valShowMediaControlsCap != nil {
-			var valueForShowMediaControls bool
+			var valueForShowMediaControls *bool
 			err = json.Unmarshal(*valShowMediaControlsCap, &valueForShowMediaControls)
 			if err != nil {
 				return err
@@ -459,7 +459,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	
 	if valUseTimings, ok := objMap["useTimings"]; ok {
 		if valUseTimings != nil {
-			var valueForUseTimings bool
+			var valueForUseTimings *bool
 			err = json.Unmarshal(*valUseTimings, &valueForUseTimings)
 			if err != nil {
 				return err
@@ -469,7 +469,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valUseTimingsCap, ok := objMap["UseTimings"]; ok {
 		if valUseTimingsCap != nil {
-			var valueForUseTimings bool
+			var valueForUseTimings *bool
 			err = json.Unmarshal(*valUseTimingsCap, &valueForUseTimings)
 			if err != nil {
 				return err
@@ -513,7 +513,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	
 	if valShowScrollbar, ok := objMap["showScrollbar"]; ok {
 		if valShowScrollbar != nil {
-			var valueForShowScrollbar bool
+			var valueForShowScrollbar *bool
 			err = json.Unmarshal(*valShowScrollbar, &valueForShowScrollbar)
 			if err != nil {
 				return err
@@ -523,7 +523,7 @@ func (this *SlideShowProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valShowScrollbarCap, ok := objMap["ShowScrollbar"]; ok {
 		if valShowScrollbarCap != nil {
-			var valueForShowScrollbar bool
+			var valueForShowScrollbar *bool
 			err = json.Unmarshal(*valShowScrollbarCap, &valueForShowScrollbar)
 			if err != nil {
 				return err

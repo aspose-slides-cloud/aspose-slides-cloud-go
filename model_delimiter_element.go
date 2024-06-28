@@ -54,8 +54,8 @@ type IDelimiterElement interface {
 	SetEndingCharacter(newValue string)
 
 	// Grow to match operand height
-	GetGrowToMatchOperandHeight() bool
-	SetGrowToMatchOperandHeight(newValue bool)
+	GetGrowToMatchOperandHeight() *bool
+	SetGrowToMatchOperandHeight(newValue *bool)
 
 	// Delimiter shape
 	GetDelimiterShape() string
@@ -80,7 +80,7 @@ type DelimiterElement struct {
 	EndingCharacter string `json:"EndingCharacter,omitempty"`
 
 	// Grow to match operand height
-	GrowToMatchOperandHeight bool `json:"GrowToMatchOperandHeight"`
+	GrowToMatchOperandHeight *bool `json:"GrowToMatchOperandHeight"`
 
 	// Delimiter shape
 	DelimiterShape string `json:"DelimiterShape,omitempty"`
@@ -127,11 +127,11 @@ func (this *DelimiterElement) GetEndingCharacter() string {
 func (this *DelimiterElement) SetEndingCharacter(newValue string) {
 	this.EndingCharacter = newValue
 }
-func (this *DelimiterElement) GetGrowToMatchOperandHeight() bool {
+func (this *DelimiterElement) GetGrowToMatchOperandHeight() *bool {
 	return this.GrowToMatchOperandHeight
 }
 
-func (this *DelimiterElement) SetGrowToMatchOperandHeight(newValue bool) {
+func (this *DelimiterElement) SetGrowToMatchOperandHeight(newValue *bool) {
 	this.GrowToMatchOperandHeight = newValue
 }
 func (this *DelimiterElement) GetDelimiterShape() string {
@@ -296,7 +296,7 @@ func (this *DelimiterElement) UnmarshalJSON(b []byte) error {
 	
 	if valGrowToMatchOperandHeight, ok := objMap["growToMatchOperandHeight"]; ok {
 		if valGrowToMatchOperandHeight != nil {
-			var valueForGrowToMatchOperandHeight bool
+			var valueForGrowToMatchOperandHeight *bool
 			err = json.Unmarshal(*valGrowToMatchOperandHeight, &valueForGrowToMatchOperandHeight)
 			if err != nil {
 				return err
@@ -306,7 +306,7 @@ func (this *DelimiterElement) UnmarshalJSON(b []byte) error {
 	}
 	if valGrowToMatchOperandHeightCap, ok := objMap["GrowToMatchOperandHeight"]; ok {
 		if valGrowToMatchOperandHeightCap != nil {
-			var valueForGrowToMatchOperandHeight bool
+			var valueForGrowToMatchOperandHeight *bool
 			err = json.Unmarshal(*valGrowToMatchOperandHeightCap, &valueForGrowToMatchOperandHeight)
 			if err != nil {
 				return err

@@ -42,32 +42,32 @@ type INotesSlideHeaderFooter interface {
 	SetAlternateLinks(newValue []IResourceUri)
 
 	// True if date is displayed in the footer
-	GetIsDateTimeVisible() bool
-	SetIsDateTimeVisible(newValue bool)
+	GetIsDateTimeVisible() *bool
+	SetIsDateTimeVisible(newValue *bool)
 
 	// Text to be displayed as date in the footer
 	GetDateTimeText() string
 	SetDateTimeText(newValue string)
 
 	// True if footer is displayed
-	GetIsFooterVisible() bool
-	SetIsFooterVisible(newValue bool)
+	GetIsFooterVisible() *bool
+	SetIsFooterVisible(newValue *bool)
 
 	// Text to be displayed in the footer
 	GetFooterText() string
 	SetFooterText(newValue string)
 
 	// True if header is displayed
-	GetIsHeaderVisible() bool
-	SetIsHeaderVisible(newValue bool)
+	GetIsHeaderVisible() *bool
+	SetIsHeaderVisible(newValue *bool)
 
 	// Text to be displayed in the header
 	GetHeaderText() string
 	SetHeaderText(newValue string)
 
 	// True if slide number is displayed in the footer
-	GetIsSlideNumberVisible() bool
-	SetIsSlideNumberVisible(newValue bool)
+	GetIsSlideNumberVisible() *bool
+	SetIsSlideNumberVisible(newValue *bool)
 }
 
 type NotesSlideHeaderFooter struct {
@@ -79,25 +79,25 @@ type NotesSlideHeaderFooter struct {
 	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// True if date is displayed in the footer
-	IsDateTimeVisible bool `json:"IsDateTimeVisible"`
+	IsDateTimeVisible *bool `json:"IsDateTimeVisible"`
 
 	// Text to be displayed as date in the footer
 	DateTimeText string `json:"DateTimeText,omitempty"`
 
 	// True if footer is displayed
-	IsFooterVisible bool `json:"IsFooterVisible"`
+	IsFooterVisible *bool `json:"IsFooterVisible"`
 
 	// Text to be displayed in the footer
 	FooterText string `json:"FooterText,omitempty"`
 
 	// True if header is displayed
-	IsHeaderVisible bool `json:"IsHeaderVisible"`
+	IsHeaderVisible *bool `json:"IsHeaderVisible"`
 
 	// Text to be displayed in the header
 	HeaderText string `json:"HeaderText,omitempty"`
 
 	// True if slide number is displayed in the footer
-	IsSlideNumberVisible bool `json:"IsSlideNumberVisible"`
+	IsSlideNumberVisible *bool `json:"IsSlideNumberVisible"`
 }
 
 func NewNotesSlideHeaderFooter() *NotesSlideHeaderFooter {
@@ -119,11 +119,11 @@ func (this *NotesSlideHeaderFooter) GetAlternateLinks() []IResourceUri {
 func (this *NotesSlideHeaderFooter) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *NotesSlideHeaderFooter) GetIsDateTimeVisible() bool {
+func (this *NotesSlideHeaderFooter) GetIsDateTimeVisible() *bool {
 	return this.IsDateTimeVisible
 }
 
-func (this *NotesSlideHeaderFooter) SetIsDateTimeVisible(newValue bool) {
+func (this *NotesSlideHeaderFooter) SetIsDateTimeVisible(newValue *bool) {
 	this.IsDateTimeVisible = newValue
 }
 func (this *NotesSlideHeaderFooter) GetDateTimeText() string {
@@ -133,11 +133,11 @@ func (this *NotesSlideHeaderFooter) GetDateTimeText() string {
 func (this *NotesSlideHeaderFooter) SetDateTimeText(newValue string) {
 	this.DateTimeText = newValue
 }
-func (this *NotesSlideHeaderFooter) GetIsFooterVisible() bool {
+func (this *NotesSlideHeaderFooter) GetIsFooterVisible() *bool {
 	return this.IsFooterVisible
 }
 
-func (this *NotesSlideHeaderFooter) SetIsFooterVisible(newValue bool) {
+func (this *NotesSlideHeaderFooter) SetIsFooterVisible(newValue *bool) {
 	this.IsFooterVisible = newValue
 }
 func (this *NotesSlideHeaderFooter) GetFooterText() string {
@@ -147,11 +147,11 @@ func (this *NotesSlideHeaderFooter) GetFooterText() string {
 func (this *NotesSlideHeaderFooter) SetFooterText(newValue string) {
 	this.FooterText = newValue
 }
-func (this *NotesSlideHeaderFooter) GetIsHeaderVisible() bool {
+func (this *NotesSlideHeaderFooter) GetIsHeaderVisible() *bool {
 	return this.IsHeaderVisible
 }
 
-func (this *NotesSlideHeaderFooter) SetIsHeaderVisible(newValue bool) {
+func (this *NotesSlideHeaderFooter) SetIsHeaderVisible(newValue *bool) {
 	this.IsHeaderVisible = newValue
 }
 func (this *NotesSlideHeaderFooter) GetHeaderText() string {
@@ -161,11 +161,11 @@ func (this *NotesSlideHeaderFooter) GetHeaderText() string {
 func (this *NotesSlideHeaderFooter) SetHeaderText(newValue string) {
 	this.HeaderText = newValue
 }
-func (this *NotesSlideHeaderFooter) GetIsSlideNumberVisible() bool {
+func (this *NotesSlideHeaderFooter) GetIsSlideNumberVisible() *bool {
 	return this.IsSlideNumberVisible
 }
 
-func (this *NotesSlideHeaderFooter) SetIsSlideNumberVisible(newValue bool) {
+func (this *NotesSlideHeaderFooter) SetIsSlideNumberVisible(newValue *bool) {
 	this.IsSlideNumberVisible = newValue
 }
 
@@ -270,7 +270,7 @@ func (this *NotesSlideHeaderFooter) UnmarshalJSON(b []byte) error {
 	
 	if valIsDateTimeVisible, ok := objMap["isDateTimeVisible"]; ok {
 		if valIsDateTimeVisible != nil {
-			var valueForIsDateTimeVisible bool
+			var valueForIsDateTimeVisible *bool
 			err = json.Unmarshal(*valIsDateTimeVisible, &valueForIsDateTimeVisible)
 			if err != nil {
 				return err
@@ -280,7 +280,7 @@ func (this *NotesSlideHeaderFooter) UnmarshalJSON(b []byte) error {
 	}
 	if valIsDateTimeVisibleCap, ok := objMap["IsDateTimeVisible"]; ok {
 		if valIsDateTimeVisibleCap != nil {
-			var valueForIsDateTimeVisible bool
+			var valueForIsDateTimeVisible *bool
 			err = json.Unmarshal(*valIsDateTimeVisibleCap, &valueForIsDateTimeVisible)
 			if err != nil {
 				return err
@@ -312,7 +312,7 @@ func (this *NotesSlideHeaderFooter) UnmarshalJSON(b []byte) error {
 	
 	if valIsFooterVisible, ok := objMap["isFooterVisible"]; ok {
 		if valIsFooterVisible != nil {
-			var valueForIsFooterVisible bool
+			var valueForIsFooterVisible *bool
 			err = json.Unmarshal(*valIsFooterVisible, &valueForIsFooterVisible)
 			if err != nil {
 				return err
@@ -322,7 +322,7 @@ func (this *NotesSlideHeaderFooter) UnmarshalJSON(b []byte) error {
 	}
 	if valIsFooterVisibleCap, ok := objMap["IsFooterVisible"]; ok {
 		if valIsFooterVisibleCap != nil {
-			var valueForIsFooterVisible bool
+			var valueForIsFooterVisible *bool
 			err = json.Unmarshal(*valIsFooterVisibleCap, &valueForIsFooterVisible)
 			if err != nil {
 				return err
@@ -354,7 +354,7 @@ func (this *NotesSlideHeaderFooter) UnmarshalJSON(b []byte) error {
 	
 	if valIsHeaderVisible, ok := objMap["isHeaderVisible"]; ok {
 		if valIsHeaderVisible != nil {
-			var valueForIsHeaderVisible bool
+			var valueForIsHeaderVisible *bool
 			err = json.Unmarshal(*valIsHeaderVisible, &valueForIsHeaderVisible)
 			if err != nil {
 				return err
@@ -364,7 +364,7 @@ func (this *NotesSlideHeaderFooter) UnmarshalJSON(b []byte) error {
 	}
 	if valIsHeaderVisibleCap, ok := objMap["IsHeaderVisible"]; ok {
 		if valIsHeaderVisibleCap != nil {
-			var valueForIsHeaderVisible bool
+			var valueForIsHeaderVisible *bool
 			err = json.Unmarshal(*valIsHeaderVisibleCap, &valueForIsHeaderVisible)
 			if err != nil {
 				return err
@@ -396,7 +396,7 @@ func (this *NotesSlideHeaderFooter) UnmarshalJSON(b []byte) error {
 	
 	if valIsSlideNumberVisible, ok := objMap["isSlideNumberVisible"]; ok {
 		if valIsSlideNumberVisible != nil {
-			var valueForIsSlideNumberVisible bool
+			var valueForIsSlideNumberVisible *bool
 			err = json.Unmarshal(*valIsSlideNumberVisible, &valueForIsSlideNumberVisible)
 			if err != nil {
 				return err
@@ -406,7 +406,7 @@ func (this *NotesSlideHeaderFooter) UnmarshalJSON(b []byte) error {
 	}
 	if valIsSlideNumberVisibleCap, ok := objMap["IsSlideNumberVisible"]; ok {
 		if valIsSlideNumberVisibleCap != nil {
-			var valueForIsSlideNumberVisible bool
+			var valueForIsSlideNumberVisible *bool
 			err = json.Unmarshal(*valIsSlideNumberVisibleCap, &valueForIsSlideNumberVisible)
 			if err != nil {
 				return err

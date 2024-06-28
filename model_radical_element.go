@@ -46,8 +46,8 @@ type IRadicalElement interface {
 	SetDegree(newValue IMathElement)
 
 	// Hide degree
-	GetHideDegree() bool
-	SetHideDegree(newValue bool)
+	GetHideDegree() *bool
+	SetHideDegree(newValue *bool)
 }
 
 type RadicalElement struct {
@@ -62,7 +62,7 @@ type RadicalElement struct {
 	Degree IMathElement `json:"Degree,omitempty"`
 
 	// Hide degree
-	HideDegree bool `json:"HideDegree"`
+	HideDegree *bool `json:"HideDegree"`
 }
 
 func NewRadicalElement() *RadicalElement {
@@ -92,11 +92,11 @@ func (this *RadicalElement) GetDegree() IMathElement {
 func (this *RadicalElement) SetDegree(newValue IMathElement) {
 	this.Degree = newValue
 }
-func (this *RadicalElement) GetHideDegree() bool {
+func (this *RadicalElement) GetHideDegree() *bool {
 	return this.HideDegree
 }
 
-func (this *RadicalElement) SetHideDegree(newValue bool) {
+func (this *RadicalElement) SetHideDegree(newValue *bool) {
 	this.HideDegree = newValue
 }
 
@@ -228,7 +228,7 @@ func (this *RadicalElement) UnmarshalJSON(b []byte) error {
 	
 	if valHideDegree, ok := objMap["hideDegree"]; ok {
 		if valHideDegree != nil {
-			var valueForHideDegree bool
+			var valueForHideDegree *bool
 			err = json.Unmarshal(*valHideDegree, &valueForHideDegree)
 			if err != nil {
 				return err
@@ -238,7 +238,7 @@ func (this *RadicalElement) UnmarshalJSON(b []byte) error {
 	}
 	if valHideDegreeCap, ok := objMap["HideDegree"]; ok {
 		if valHideDegreeCap != nil {
-			var valueForHideDegree bool
+			var valueForHideDegree *bool
 			err = json.Unmarshal(*valHideDegreeCap, &valueForHideDegree)
 			if err != nil {
 				return err

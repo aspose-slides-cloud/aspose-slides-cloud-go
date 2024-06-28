@@ -212,7 +212,8 @@ func TestAppendFromPdf(t *testing.T) {
 		return
 	}
 	options := slidescloud.NewPdfImportOptions()
-	options.SetDetectTables(false)
+	detectTables := false
+	options.SetDetectTables(&detectTables)
 	_, _, e = c.SlidesApi.ImportFromPdf(fileName, source, options, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)

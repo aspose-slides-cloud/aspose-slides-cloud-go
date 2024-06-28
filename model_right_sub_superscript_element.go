@@ -50,8 +50,8 @@ type IRightSubSuperscriptElement interface {
 	SetSuperscript(newValue IMathElement)
 
 	// Alignment of subscript/superscript.
-	GetAlignScripts() bool
-	SetAlignScripts(newValue bool)
+	GetAlignScripts() *bool
+	SetAlignScripts(newValue *bool)
 }
 
 type RightSubSuperscriptElement struct {
@@ -69,7 +69,7 @@ type RightSubSuperscriptElement struct {
 	Superscript IMathElement `json:"Superscript,omitempty"`
 
 	// Alignment of subscript/superscript.
-	AlignScripts bool `json:"AlignScripts"`
+	AlignScripts *bool `json:"AlignScripts"`
 }
 
 func NewRightSubSuperscriptElement() *RightSubSuperscriptElement {
@@ -106,11 +106,11 @@ func (this *RightSubSuperscriptElement) GetSuperscript() IMathElement {
 func (this *RightSubSuperscriptElement) SetSuperscript(newValue IMathElement) {
 	this.Superscript = newValue
 }
-func (this *RightSubSuperscriptElement) GetAlignScripts() bool {
+func (this *RightSubSuperscriptElement) GetAlignScripts() *bool {
 	return this.AlignScripts
 }
 
-func (this *RightSubSuperscriptElement) SetAlignScripts(newValue bool) {
+func (this *RightSubSuperscriptElement) SetAlignScripts(newValue *bool) {
 	this.AlignScripts = newValue
 }
 
@@ -285,7 +285,7 @@ func (this *RightSubSuperscriptElement) UnmarshalJSON(b []byte) error {
 	
 	if valAlignScripts, ok := objMap["alignScripts"]; ok {
 		if valAlignScripts != nil {
-			var valueForAlignScripts bool
+			var valueForAlignScripts *bool
 			err = json.Unmarshal(*valAlignScripts, &valueForAlignScripts)
 			if err != nil {
 				return err
@@ -295,7 +295,7 @@ func (this *RightSubSuperscriptElement) UnmarshalJSON(b []byte) error {
 	}
 	if valAlignScriptsCap, ok := objMap["AlignScripts"]; ok {
 		if valAlignScriptsCap != nil {
-			var valueForAlignScripts bool
+			var valueForAlignScripts *bool
 			err = json.Unmarshal(*valAlignScriptsCap, &valueForAlignScripts)
 			if err != nil {
 				return err

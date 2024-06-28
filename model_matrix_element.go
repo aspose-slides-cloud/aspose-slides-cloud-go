@@ -38,8 +38,8 @@ type IMatrixElement interface {
 	SetType(newValue string)
 
 	// Hide the placeholders for empty matrix elements
-	GetHidePlaceholders() bool
-	SetHidePlaceholders(newValue bool)
+	GetHidePlaceholders() *bool
+	SetHidePlaceholders(newValue *bool)
 
 	// Specifies the vertical justification respect to surrounding text. 
 	GetBaseJustification() string
@@ -76,7 +76,7 @@ type MatrixElement struct {
 	Type_ string `json:"Type"`
 
 	// Hide the placeholders for empty matrix elements
-	HidePlaceholders bool `json:"HidePlaceholders"`
+	HidePlaceholders *bool `json:"HidePlaceholders"`
 
 	// Specifies the vertical justification respect to surrounding text. 
 	BaseJustification string `json:"BaseJustification,omitempty"`
@@ -113,11 +113,11 @@ func (this *MatrixElement) GetType() string {
 func (this *MatrixElement) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *MatrixElement) GetHidePlaceholders() bool {
+func (this *MatrixElement) GetHidePlaceholders() *bool {
 	return this.HidePlaceholders
 }
 
-func (this *MatrixElement) SetHidePlaceholders(newValue bool) {
+func (this *MatrixElement) SetHidePlaceholders(newValue *bool) {
 	this.HidePlaceholders = newValue
 }
 func (this *MatrixElement) GetBaseJustification() string {
@@ -212,7 +212,7 @@ func (this *MatrixElement) UnmarshalJSON(b []byte) error {
 	
 	if valHidePlaceholders, ok := objMap["hidePlaceholders"]; ok {
 		if valHidePlaceholders != nil {
-			var valueForHidePlaceholders bool
+			var valueForHidePlaceholders *bool
 			err = json.Unmarshal(*valHidePlaceholders, &valueForHidePlaceholders)
 			if err != nil {
 				return err
@@ -222,7 +222,7 @@ func (this *MatrixElement) UnmarshalJSON(b []byte) error {
 	}
 	if valHidePlaceholdersCap, ok := objMap["HidePlaceholders"]; ok {
 		if valHidePlaceholdersCap != nil {
-			var valueForHidePlaceholders bool
+			var valueForHidePlaceholders *bool
 			err = json.Unmarshal(*valHidePlaceholdersCap, &valueForHidePlaceholders)
 			if err != nil {
 				return err

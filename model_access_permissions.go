@@ -34,63 +34,63 @@ import (
 type IAccessPermissions interface {
 
 	// The user may print the document (possibly not at the highest quality level, depending on whether bit HighQualityPrint is also set).
-	GetPrintDocument() bool
-	SetPrintDocument(newValue bool)
+	GetPrintDocument() *bool
+	SetPrintDocument(newValue *bool)
 
 	// The user may modify the contents of the document by operations other than those controlled by bits AddOrModifyFields, FillExistingFields, AssembleDocument.
-	GetModifyContent() bool
-	SetModifyContent(newValue bool)
+	GetModifyContent() *bool
+	SetModifyContent(newValue *bool)
 
 	// The user may copy or otherwise extract text and graphics from the document by operations other than that controlled by bit ExtractTextAndGraphics.
-	GetCopyTextAndGraphics() bool
-	SetCopyTextAndGraphics(newValue bool)
+	GetCopyTextAndGraphics() *bool
+	SetCopyTextAndGraphics(newValue *bool)
 
 	// The user may add or modify text annotations, fill in interactive form fields, and, if bit ModifyContent is also set, create or modify interactive form fields (including signature fields).
-	GetAddOrModifyFields() bool
-	SetAddOrModifyFields(newValue bool)
+	GetAddOrModifyFields() *bool
+	SetAddOrModifyFields(newValue *bool)
 
 	// The user may fill in existing interactive form fields (including signature fields), even if bit AddOrModifyFields is clear.
-	GetFillExistingFields() bool
-	SetFillExistingFields(newValue bool)
+	GetFillExistingFields() *bool
+	SetFillExistingFields(newValue *bool)
 
 	// The user may extract text and graphics in support of accessibility to users with disabilities or for other purposes.
-	GetExtractTextAndGraphics() bool
-	SetExtractTextAndGraphics(newValue bool)
+	GetExtractTextAndGraphics() *bool
+	SetExtractTextAndGraphics(newValue *bool)
 
 	// The user may assemble the document (insert, rotate, or delete pages and create bookmarks or thumbnail images), even if bit ModifyContent is clear.
-	GetAssembleDocument() bool
-	SetAssembleDocument(newValue bool)
+	GetAssembleDocument() *bool
+	SetAssembleDocument(newValue *bool)
 
 	// The user may print the document to a representation from which a faithful digital copy of the PDF content could be generated. When this bit is clear (and bit PrintDocument is set), printing is limited to a low-level representation of the appearance, possibly of degraded quality.
-	GetHighQualityPrint() bool
-	SetHighQualityPrint(newValue bool)
+	GetHighQualityPrint() *bool
+	SetHighQualityPrint(newValue *bool)
 }
 
 type AccessPermissions struct {
 
 	// The user may print the document (possibly not at the highest quality level, depending on whether bit HighQualityPrint is also set).
-	PrintDocument bool `json:"PrintDocument"`
+	PrintDocument *bool `json:"PrintDocument"`
 
 	// The user may modify the contents of the document by operations other than those controlled by bits AddOrModifyFields, FillExistingFields, AssembleDocument.
-	ModifyContent bool `json:"ModifyContent"`
+	ModifyContent *bool `json:"ModifyContent"`
 
 	// The user may copy or otherwise extract text and graphics from the document by operations other than that controlled by bit ExtractTextAndGraphics.
-	CopyTextAndGraphics bool `json:"CopyTextAndGraphics"`
+	CopyTextAndGraphics *bool `json:"CopyTextAndGraphics"`
 
 	// The user may add or modify text annotations, fill in interactive form fields, and, if bit ModifyContent is also set, create or modify interactive form fields (including signature fields).
-	AddOrModifyFields bool `json:"AddOrModifyFields"`
+	AddOrModifyFields *bool `json:"AddOrModifyFields"`
 
 	// The user may fill in existing interactive form fields (including signature fields), even if bit AddOrModifyFields is clear.
-	FillExistingFields bool `json:"FillExistingFields"`
+	FillExistingFields *bool `json:"FillExistingFields"`
 
 	// The user may extract text and graphics in support of accessibility to users with disabilities or for other purposes.
-	ExtractTextAndGraphics bool `json:"ExtractTextAndGraphics"`
+	ExtractTextAndGraphics *bool `json:"ExtractTextAndGraphics"`
 
 	// The user may assemble the document (insert, rotate, or delete pages and create bookmarks or thumbnail images), even if bit ModifyContent is clear.
-	AssembleDocument bool `json:"AssembleDocument"`
+	AssembleDocument *bool `json:"AssembleDocument"`
 
 	// The user may print the document to a representation from which a faithful digital copy of the PDF content could be generated. When this bit is clear (and bit PrintDocument is set), printing is limited to a low-level representation of the appearance, possibly of degraded quality.
-	HighQualityPrint bool `json:"HighQualityPrint"`
+	HighQualityPrint *bool `json:"HighQualityPrint"`
 }
 
 func NewAccessPermissions() *AccessPermissions {
@@ -98,60 +98,60 @@ func NewAccessPermissions() *AccessPermissions {
 	return instance
 }
 
-func (this *AccessPermissions) GetPrintDocument() bool {
+func (this *AccessPermissions) GetPrintDocument() *bool {
 	return this.PrintDocument
 }
 
-func (this *AccessPermissions) SetPrintDocument(newValue bool) {
+func (this *AccessPermissions) SetPrintDocument(newValue *bool) {
 	this.PrintDocument = newValue
 }
-func (this *AccessPermissions) GetModifyContent() bool {
+func (this *AccessPermissions) GetModifyContent() *bool {
 	return this.ModifyContent
 }
 
-func (this *AccessPermissions) SetModifyContent(newValue bool) {
+func (this *AccessPermissions) SetModifyContent(newValue *bool) {
 	this.ModifyContent = newValue
 }
-func (this *AccessPermissions) GetCopyTextAndGraphics() bool {
+func (this *AccessPermissions) GetCopyTextAndGraphics() *bool {
 	return this.CopyTextAndGraphics
 }
 
-func (this *AccessPermissions) SetCopyTextAndGraphics(newValue bool) {
+func (this *AccessPermissions) SetCopyTextAndGraphics(newValue *bool) {
 	this.CopyTextAndGraphics = newValue
 }
-func (this *AccessPermissions) GetAddOrModifyFields() bool {
+func (this *AccessPermissions) GetAddOrModifyFields() *bool {
 	return this.AddOrModifyFields
 }
 
-func (this *AccessPermissions) SetAddOrModifyFields(newValue bool) {
+func (this *AccessPermissions) SetAddOrModifyFields(newValue *bool) {
 	this.AddOrModifyFields = newValue
 }
-func (this *AccessPermissions) GetFillExistingFields() bool {
+func (this *AccessPermissions) GetFillExistingFields() *bool {
 	return this.FillExistingFields
 }
 
-func (this *AccessPermissions) SetFillExistingFields(newValue bool) {
+func (this *AccessPermissions) SetFillExistingFields(newValue *bool) {
 	this.FillExistingFields = newValue
 }
-func (this *AccessPermissions) GetExtractTextAndGraphics() bool {
+func (this *AccessPermissions) GetExtractTextAndGraphics() *bool {
 	return this.ExtractTextAndGraphics
 }
 
-func (this *AccessPermissions) SetExtractTextAndGraphics(newValue bool) {
+func (this *AccessPermissions) SetExtractTextAndGraphics(newValue *bool) {
 	this.ExtractTextAndGraphics = newValue
 }
-func (this *AccessPermissions) GetAssembleDocument() bool {
+func (this *AccessPermissions) GetAssembleDocument() *bool {
 	return this.AssembleDocument
 }
 
-func (this *AccessPermissions) SetAssembleDocument(newValue bool) {
+func (this *AccessPermissions) SetAssembleDocument(newValue *bool) {
 	this.AssembleDocument = newValue
 }
-func (this *AccessPermissions) GetHighQualityPrint() bool {
+func (this *AccessPermissions) GetHighQualityPrint() *bool {
 	return this.HighQualityPrint
 }
 
-func (this *AccessPermissions) SetHighQualityPrint(newValue bool) {
+func (this *AccessPermissions) SetHighQualityPrint(newValue *bool) {
 	this.HighQualityPrint = newValue
 }
 
@@ -164,7 +164,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	
 	if valPrintDocument, ok := objMap["printDocument"]; ok {
 		if valPrintDocument != nil {
-			var valueForPrintDocument bool
+			var valueForPrintDocument *bool
 			err = json.Unmarshal(*valPrintDocument, &valueForPrintDocument)
 			if err != nil {
 				return err
@@ -174,7 +174,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	}
 	if valPrintDocumentCap, ok := objMap["PrintDocument"]; ok {
 		if valPrintDocumentCap != nil {
-			var valueForPrintDocument bool
+			var valueForPrintDocument *bool
 			err = json.Unmarshal(*valPrintDocumentCap, &valueForPrintDocument)
 			if err != nil {
 				return err
@@ -185,7 +185,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	
 	if valModifyContent, ok := objMap["modifyContent"]; ok {
 		if valModifyContent != nil {
-			var valueForModifyContent bool
+			var valueForModifyContent *bool
 			err = json.Unmarshal(*valModifyContent, &valueForModifyContent)
 			if err != nil {
 				return err
@@ -195,7 +195,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	}
 	if valModifyContentCap, ok := objMap["ModifyContent"]; ok {
 		if valModifyContentCap != nil {
-			var valueForModifyContent bool
+			var valueForModifyContent *bool
 			err = json.Unmarshal(*valModifyContentCap, &valueForModifyContent)
 			if err != nil {
 				return err
@@ -206,7 +206,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	
 	if valCopyTextAndGraphics, ok := objMap["copyTextAndGraphics"]; ok {
 		if valCopyTextAndGraphics != nil {
-			var valueForCopyTextAndGraphics bool
+			var valueForCopyTextAndGraphics *bool
 			err = json.Unmarshal(*valCopyTextAndGraphics, &valueForCopyTextAndGraphics)
 			if err != nil {
 				return err
@@ -216,7 +216,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	}
 	if valCopyTextAndGraphicsCap, ok := objMap["CopyTextAndGraphics"]; ok {
 		if valCopyTextAndGraphicsCap != nil {
-			var valueForCopyTextAndGraphics bool
+			var valueForCopyTextAndGraphics *bool
 			err = json.Unmarshal(*valCopyTextAndGraphicsCap, &valueForCopyTextAndGraphics)
 			if err != nil {
 				return err
@@ -227,7 +227,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	
 	if valAddOrModifyFields, ok := objMap["addOrModifyFields"]; ok {
 		if valAddOrModifyFields != nil {
-			var valueForAddOrModifyFields bool
+			var valueForAddOrModifyFields *bool
 			err = json.Unmarshal(*valAddOrModifyFields, &valueForAddOrModifyFields)
 			if err != nil {
 				return err
@@ -237,7 +237,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	}
 	if valAddOrModifyFieldsCap, ok := objMap["AddOrModifyFields"]; ok {
 		if valAddOrModifyFieldsCap != nil {
-			var valueForAddOrModifyFields bool
+			var valueForAddOrModifyFields *bool
 			err = json.Unmarshal(*valAddOrModifyFieldsCap, &valueForAddOrModifyFields)
 			if err != nil {
 				return err
@@ -248,7 +248,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	
 	if valFillExistingFields, ok := objMap["fillExistingFields"]; ok {
 		if valFillExistingFields != nil {
-			var valueForFillExistingFields bool
+			var valueForFillExistingFields *bool
 			err = json.Unmarshal(*valFillExistingFields, &valueForFillExistingFields)
 			if err != nil {
 				return err
@@ -258,7 +258,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	}
 	if valFillExistingFieldsCap, ok := objMap["FillExistingFields"]; ok {
 		if valFillExistingFieldsCap != nil {
-			var valueForFillExistingFields bool
+			var valueForFillExistingFields *bool
 			err = json.Unmarshal(*valFillExistingFieldsCap, &valueForFillExistingFields)
 			if err != nil {
 				return err
@@ -269,7 +269,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	
 	if valExtractTextAndGraphics, ok := objMap["extractTextAndGraphics"]; ok {
 		if valExtractTextAndGraphics != nil {
-			var valueForExtractTextAndGraphics bool
+			var valueForExtractTextAndGraphics *bool
 			err = json.Unmarshal(*valExtractTextAndGraphics, &valueForExtractTextAndGraphics)
 			if err != nil {
 				return err
@@ -279,7 +279,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	}
 	if valExtractTextAndGraphicsCap, ok := objMap["ExtractTextAndGraphics"]; ok {
 		if valExtractTextAndGraphicsCap != nil {
-			var valueForExtractTextAndGraphics bool
+			var valueForExtractTextAndGraphics *bool
 			err = json.Unmarshal(*valExtractTextAndGraphicsCap, &valueForExtractTextAndGraphics)
 			if err != nil {
 				return err
@@ -290,7 +290,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	
 	if valAssembleDocument, ok := objMap["assembleDocument"]; ok {
 		if valAssembleDocument != nil {
-			var valueForAssembleDocument bool
+			var valueForAssembleDocument *bool
 			err = json.Unmarshal(*valAssembleDocument, &valueForAssembleDocument)
 			if err != nil {
 				return err
@@ -300,7 +300,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	}
 	if valAssembleDocumentCap, ok := objMap["AssembleDocument"]; ok {
 		if valAssembleDocumentCap != nil {
-			var valueForAssembleDocument bool
+			var valueForAssembleDocument *bool
 			err = json.Unmarshal(*valAssembleDocumentCap, &valueForAssembleDocument)
 			if err != nil {
 				return err
@@ -311,7 +311,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	
 	if valHighQualityPrint, ok := objMap["highQualityPrint"]; ok {
 		if valHighQualityPrint != nil {
-			var valueForHighQualityPrint bool
+			var valueForHighQualityPrint *bool
 			err = json.Unmarshal(*valHighQualityPrint, &valueForHighQualityPrint)
 			if err != nil {
 				return err
@@ -321,7 +321,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 	}
 	if valHighQualityPrintCap, ok := objMap["HighQualityPrint"]; ok {
 		if valHighQualityPrintCap != nil {
-			var valueForHighQualityPrint bool
+			var valueForHighQualityPrint *bool
 			err = json.Unmarshal(*valHighQualityPrintCap, &valueForHighQualityPrint)
 			if err != nil {
 				return err

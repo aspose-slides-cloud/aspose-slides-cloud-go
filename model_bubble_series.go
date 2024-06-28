@@ -46,28 +46,28 @@ type IBubbleSeries interface {
 	SetDataSourceForSeriesName(newValue IDataSource)
 
 	// True if each data marker in the series has a different color.
-	GetIsColorVaried() bool
-	SetIsColorVaried(newValue bool)
+	GetIsColorVaried() *bool
+	SetIsColorVaried(newValue *bool)
 
 	// Invert solid color for the series.
 	GetInvertedSolidFillColor() string
 	SetInvertedSolidFillColor(newValue string)
 
 	// True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.
-	GetSmooth() bool
-	SetSmooth(newValue bool)
+	GetSmooth() *bool
+	SetSmooth(newValue *bool)
 
 	// True if the series is plotted on second value axis.
-	GetPlotOnSecondAxis() bool
-	SetPlotOnSecondAxis(newValue bool)
+	GetPlotOnSecondAxis() *bool
+	SetPlotOnSecondAxis(newValue *bool)
 
 	// Series order.
 	GetOrder() int32
 	SetOrder(newValue int32)
 
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	GetInvertIfNegative() bool
-	SetInvertIfNegative(newValue bool)
+	GetInvertIfNegative() *bool
+	SetInvertIfNegative(newValue *bool)
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
 	GetExplosion() int32
@@ -134,22 +134,22 @@ type BubbleSeries struct {
 	DataSourceForSeriesName IDataSource `json:"DataSourceForSeriesName,omitempty"`
 
 	// True if each data marker in the series has a different color.
-	IsColorVaried bool `json:"IsColorVaried"`
+	IsColorVaried *bool `json:"IsColorVaried"`
 
 	// Invert solid color for the series.
 	InvertedSolidFillColor string `json:"InvertedSolidFillColor,omitempty"`
 
 	// True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.
-	Smooth bool `json:"Smooth"`
+	Smooth *bool `json:"Smooth"`
 
 	// True if the series is plotted on second value axis.
-	PlotOnSecondAxis bool `json:"PlotOnSecondAxis"`
+	PlotOnSecondAxis *bool `json:"PlotOnSecondAxis"`
 
 	// Series order.
 	Order int32 `json:"Order,omitempty"`
 
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	InvertIfNegative bool `json:"InvertIfNegative"`
+	InvertIfNegative *bool `json:"InvertIfNegative"`
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
 	Explosion int32 `json:"Explosion,omitempty"`
@@ -218,11 +218,11 @@ func (this *BubbleSeries) GetDataSourceForSeriesName() IDataSource {
 func (this *BubbleSeries) SetDataSourceForSeriesName(newValue IDataSource) {
 	this.DataSourceForSeriesName = newValue
 }
-func (this *BubbleSeries) GetIsColorVaried() bool {
+func (this *BubbleSeries) GetIsColorVaried() *bool {
 	return this.IsColorVaried
 }
 
-func (this *BubbleSeries) SetIsColorVaried(newValue bool) {
+func (this *BubbleSeries) SetIsColorVaried(newValue *bool) {
 	this.IsColorVaried = newValue
 }
 func (this *BubbleSeries) GetInvertedSolidFillColor() string {
@@ -232,18 +232,18 @@ func (this *BubbleSeries) GetInvertedSolidFillColor() string {
 func (this *BubbleSeries) SetInvertedSolidFillColor(newValue string) {
 	this.InvertedSolidFillColor = newValue
 }
-func (this *BubbleSeries) GetSmooth() bool {
+func (this *BubbleSeries) GetSmooth() *bool {
 	return this.Smooth
 }
 
-func (this *BubbleSeries) SetSmooth(newValue bool) {
+func (this *BubbleSeries) SetSmooth(newValue *bool) {
 	this.Smooth = newValue
 }
-func (this *BubbleSeries) GetPlotOnSecondAxis() bool {
+func (this *BubbleSeries) GetPlotOnSecondAxis() *bool {
 	return this.PlotOnSecondAxis
 }
 
-func (this *BubbleSeries) SetPlotOnSecondAxis(newValue bool) {
+func (this *BubbleSeries) SetPlotOnSecondAxis(newValue *bool) {
 	this.PlotOnSecondAxis = newValue
 }
 func (this *BubbleSeries) GetOrder() int32 {
@@ -253,11 +253,11 @@ func (this *BubbleSeries) GetOrder() int32 {
 func (this *BubbleSeries) SetOrder(newValue int32) {
 	this.Order = newValue
 }
-func (this *BubbleSeries) GetInvertIfNegative() bool {
+func (this *BubbleSeries) GetInvertIfNegative() *bool {
 	return this.InvertIfNegative
 }
 
-func (this *BubbleSeries) SetInvertIfNegative(newValue bool) {
+func (this *BubbleSeries) SetInvertIfNegative(newValue *bool) {
 	this.InvertIfNegative = newValue
 }
 func (this *BubbleSeries) GetExplosion() int32 {
@@ -458,7 +458,7 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 	
 	if valIsColorVaried, ok := objMap["isColorVaried"]; ok {
 		if valIsColorVaried != nil {
-			var valueForIsColorVaried bool
+			var valueForIsColorVaried *bool
 			err = json.Unmarshal(*valIsColorVaried, &valueForIsColorVaried)
 			if err != nil {
 				return err
@@ -468,7 +468,7 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valIsColorVariedCap, ok := objMap["IsColorVaried"]; ok {
 		if valIsColorVariedCap != nil {
-			var valueForIsColorVaried bool
+			var valueForIsColorVaried *bool
 			err = json.Unmarshal(*valIsColorVariedCap, &valueForIsColorVaried)
 			if err != nil {
 				return err
@@ -500,7 +500,7 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 	
 	if valSmooth, ok := objMap["smooth"]; ok {
 		if valSmooth != nil {
-			var valueForSmooth bool
+			var valueForSmooth *bool
 			err = json.Unmarshal(*valSmooth, &valueForSmooth)
 			if err != nil {
 				return err
@@ -510,7 +510,7 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valSmoothCap, ok := objMap["Smooth"]; ok {
 		if valSmoothCap != nil {
-			var valueForSmooth bool
+			var valueForSmooth *bool
 			err = json.Unmarshal(*valSmoothCap, &valueForSmooth)
 			if err != nil {
 				return err
@@ -521,7 +521,7 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 	
 	if valPlotOnSecondAxis, ok := objMap["plotOnSecondAxis"]; ok {
 		if valPlotOnSecondAxis != nil {
-			var valueForPlotOnSecondAxis bool
+			var valueForPlotOnSecondAxis *bool
 			err = json.Unmarshal(*valPlotOnSecondAxis, &valueForPlotOnSecondAxis)
 			if err != nil {
 				return err
@@ -531,7 +531,7 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valPlotOnSecondAxisCap, ok := objMap["PlotOnSecondAxis"]; ok {
 		if valPlotOnSecondAxisCap != nil {
-			var valueForPlotOnSecondAxis bool
+			var valueForPlotOnSecondAxis *bool
 			err = json.Unmarshal(*valPlotOnSecondAxisCap, &valueForPlotOnSecondAxis)
 			if err != nil {
 				return err
@@ -563,7 +563,7 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 	
 	if valInvertIfNegative, ok := objMap["invertIfNegative"]; ok {
 		if valInvertIfNegative != nil {
-			var valueForInvertIfNegative bool
+			var valueForInvertIfNegative *bool
 			err = json.Unmarshal(*valInvertIfNegative, &valueForInvertIfNegative)
 			if err != nil {
 				return err
@@ -573,7 +573,7 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valInvertIfNegativeCap, ok := objMap["InvertIfNegative"]; ok {
 		if valInvertIfNegativeCap != nil {
-			var valueForInvertIfNegative bool
+			var valueForInvertIfNegative *bool
 			err = json.Unmarshal(*valInvertIfNegativeCap, &valueForInvertIfNegative)
 			if err != nil {
 				return err

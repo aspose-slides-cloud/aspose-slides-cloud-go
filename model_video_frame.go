@@ -62,12 +62,12 @@ type IVideoFrame interface {
 	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	GetHidden() bool
-	SetHidden(newValue bool)
+	GetHidden() *bool
+	SetHidden(newValue *bool)
 
 	// Gets or sets 'Mark as decorative' option.
-	GetIsDecorative() bool
-	SetIsDecorative(newValue bool)
+	GetIsDecorative() *bool
+	SetIsDecorative(newValue *bool)
 
 	// Gets or sets the X
 	GetX() float64
@@ -114,24 +114,24 @@ type IVideoFrame interface {
 	SetShapeType(newValue string)
 
 	// Determines whether a video is shown in full screen mode.
-	GetFullScreenMode() bool
-	SetFullScreenMode(newValue bool)
+	GetFullScreenMode() *bool
+	SetFullScreenMode(newValue *bool)
 
 	// Determines whether a VideoFrame is hidden. 
-	GetHideAtShowing() bool
-	SetHideAtShowing(newValue bool)
+	GetHideAtShowing() *bool
+	SetHideAtShowing(newValue *bool)
 
 	// Determines whether a video is looped.
-	GetPlayLoopMode() bool
-	SetPlayLoopMode(newValue bool)
+	GetPlayLoopMode() *bool
+	SetPlayLoopMode(newValue *bool)
 
 	// Returns or sets the video play mode.  
 	GetPlayMode() string
 	SetPlayMode(newValue string)
 
 	// Determines whether a video is automatically rewinded to start as soon as the movie has finished playing
-	GetRewindVideo() bool
-	SetRewindVideo(newValue bool)
+	GetRewindVideo() *bool
+	SetRewindVideo(newValue *bool)
 
 	// Returns or sets the audio volume.
 	GetVolume() string
@@ -178,10 +178,10 @@ type VideoFrame struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden"`
+	Hidden *bool `json:"Hidden"`
 
 	// Gets or sets 'Mark as decorative' option.
-	IsDecorative bool `json:"IsDecorative"`
+	IsDecorative *bool `json:"IsDecorative"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -217,19 +217,19 @@ type VideoFrame struct {
 	ShapeType string `json:"ShapeType"`
 
 	// Determines whether a video is shown in full screen mode.
-	FullScreenMode bool `json:"FullScreenMode"`
+	FullScreenMode *bool `json:"FullScreenMode"`
 
 	// Determines whether a VideoFrame is hidden. 
-	HideAtShowing bool `json:"HideAtShowing"`
+	HideAtShowing *bool `json:"HideAtShowing"`
 
 	// Determines whether a video is looped.
-	PlayLoopMode bool `json:"PlayLoopMode"`
+	PlayLoopMode *bool `json:"PlayLoopMode"`
 
 	// Returns or sets the video play mode.  
 	PlayMode string `json:"PlayMode,omitempty"`
 
 	// Determines whether a video is automatically rewinded to start as soon as the movie has finished playing
-	RewindVideo bool `json:"RewindVideo"`
+	RewindVideo *bool `json:"RewindVideo"`
 
 	// Returns or sets the audio volume.
 	Volume string `json:"Volume,omitempty"`
@@ -303,18 +303,18 @@ func (this *VideoFrame) GetAlternativeTextTitle() string {
 func (this *VideoFrame) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *VideoFrame) GetHidden() bool {
+func (this *VideoFrame) GetHidden() *bool {
 	return this.Hidden
 }
 
-func (this *VideoFrame) SetHidden(newValue bool) {
+func (this *VideoFrame) SetHidden(newValue *bool) {
 	this.Hidden = newValue
 }
-func (this *VideoFrame) GetIsDecorative() bool {
+func (this *VideoFrame) GetIsDecorative() *bool {
 	return this.IsDecorative
 }
 
-func (this *VideoFrame) SetIsDecorative(newValue bool) {
+func (this *VideoFrame) SetIsDecorative(newValue *bool) {
 	this.IsDecorative = newValue
 }
 func (this *VideoFrame) GetX() float64 {
@@ -394,25 +394,25 @@ func (this *VideoFrame) GetShapeType() string {
 func (this *VideoFrame) SetShapeType(newValue string) {
 	this.ShapeType = newValue
 }
-func (this *VideoFrame) GetFullScreenMode() bool {
+func (this *VideoFrame) GetFullScreenMode() *bool {
 	return this.FullScreenMode
 }
 
-func (this *VideoFrame) SetFullScreenMode(newValue bool) {
+func (this *VideoFrame) SetFullScreenMode(newValue *bool) {
 	this.FullScreenMode = newValue
 }
-func (this *VideoFrame) GetHideAtShowing() bool {
+func (this *VideoFrame) GetHideAtShowing() *bool {
 	return this.HideAtShowing
 }
 
-func (this *VideoFrame) SetHideAtShowing(newValue bool) {
+func (this *VideoFrame) SetHideAtShowing(newValue *bool) {
 	this.HideAtShowing = newValue
 }
-func (this *VideoFrame) GetPlayLoopMode() bool {
+func (this *VideoFrame) GetPlayLoopMode() *bool {
 	return this.PlayLoopMode
 }
 
-func (this *VideoFrame) SetPlayLoopMode(newValue bool) {
+func (this *VideoFrame) SetPlayLoopMode(newValue *bool) {
 	this.PlayLoopMode = newValue
 }
 func (this *VideoFrame) GetPlayMode() string {
@@ -422,11 +422,11 @@ func (this *VideoFrame) GetPlayMode() string {
 func (this *VideoFrame) SetPlayMode(newValue string) {
 	this.PlayMode = newValue
 }
-func (this *VideoFrame) GetRewindVideo() bool {
+func (this *VideoFrame) GetRewindVideo() *bool {
 	return this.RewindVideo
 }
 
-func (this *VideoFrame) SetRewindVideo(newValue bool) {
+func (this *VideoFrame) SetRewindVideo(newValue *bool) {
 	this.RewindVideo = newValue
 }
 func (this *VideoFrame) GetVolume() string {
@@ -671,7 +671,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	
 	if valHidden, ok := objMap["hidden"]; ok {
 		if valHidden != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
 			if err != nil {
 				return err
@@ -681,7 +681,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valHiddenCap, ok := objMap["Hidden"]; ok {
 		if valHiddenCap != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
 			if err != nil {
 				return err
@@ -692,7 +692,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	
 	if valIsDecorative, ok := objMap["isDecorative"]; ok {
 		if valIsDecorative != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorative, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -702,7 +702,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valIsDecorativeCap, ok := objMap["IsDecorative"]; ok {
 		if valIsDecorativeCap != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorativeCap, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -1100,7 +1100,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	
 	if valFullScreenMode, ok := objMap["fullScreenMode"]; ok {
 		if valFullScreenMode != nil {
-			var valueForFullScreenMode bool
+			var valueForFullScreenMode *bool
 			err = json.Unmarshal(*valFullScreenMode, &valueForFullScreenMode)
 			if err != nil {
 				return err
@@ -1110,7 +1110,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valFullScreenModeCap, ok := objMap["FullScreenMode"]; ok {
 		if valFullScreenModeCap != nil {
-			var valueForFullScreenMode bool
+			var valueForFullScreenMode *bool
 			err = json.Unmarshal(*valFullScreenModeCap, &valueForFullScreenMode)
 			if err != nil {
 				return err
@@ -1121,7 +1121,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	
 	if valHideAtShowing, ok := objMap["hideAtShowing"]; ok {
 		if valHideAtShowing != nil {
-			var valueForHideAtShowing bool
+			var valueForHideAtShowing *bool
 			err = json.Unmarshal(*valHideAtShowing, &valueForHideAtShowing)
 			if err != nil {
 				return err
@@ -1131,7 +1131,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valHideAtShowingCap, ok := objMap["HideAtShowing"]; ok {
 		if valHideAtShowingCap != nil {
-			var valueForHideAtShowing bool
+			var valueForHideAtShowing *bool
 			err = json.Unmarshal(*valHideAtShowingCap, &valueForHideAtShowing)
 			if err != nil {
 				return err
@@ -1142,7 +1142,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	
 	if valPlayLoopMode, ok := objMap["playLoopMode"]; ok {
 		if valPlayLoopMode != nil {
-			var valueForPlayLoopMode bool
+			var valueForPlayLoopMode *bool
 			err = json.Unmarshal(*valPlayLoopMode, &valueForPlayLoopMode)
 			if err != nil {
 				return err
@@ -1152,7 +1152,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valPlayLoopModeCap, ok := objMap["PlayLoopMode"]; ok {
 		if valPlayLoopModeCap != nil {
-			var valueForPlayLoopMode bool
+			var valueForPlayLoopMode *bool
 			err = json.Unmarshal(*valPlayLoopModeCap, &valueForPlayLoopMode)
 			if err != nil {
 				return err
@@ -1196,7 +1196,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	
 	if valRewindVideo, ok := objMap["rewindVideo"]; ok {
 		if valRewindVideo != nil {
-			var valueForRewindVideo bool
+			var valueForRewindVideo *bool
 			err = json.Unmarshal(*valRewindVideo, &valueForRewindVideo)
 			if err != nil {
 				return err
@@ -1206,7 +1206,7 @@ func (this *VideoFrame) UnmarshalJSON(b []byte) error {
 	}
 	if valRewindVideoCap, ok := objMap["RewindVideo"]; ok {
 		if valRewindVideoCap != nil {
-			var valueForRewindVideo bool
+			var valueForRewindVideo *bool
 			err = json.Unmarshal(*valRewindVideoCap, &valueForRewindVideo)
 			if err != nil {
 				return err

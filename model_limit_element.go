@@ -46,8 +46,8 @@ type ILimitElement interface {
 	SetLimit(newValue IMathElement)
 
 	// Specifies upper or lower limit
-	GetUpperLimit() bool
-	SetUpperLimit(newValue bool)
+	GetUpperLimit() *bool
+	SetUpperLimit(newValue *bool)
 }
 
 type LimitElement struct {
@@ -62,7 +62,7 @@ type LimitElement struct {
 	Limit IMathElement `json:"Limit,omitempty"`
 
 	// Specifies upper or lower limit
-	UpperLimit bool `json:"UpperLimit"`
+	UpperLimit *bool `json:"UpperLimit"`
 }
 
 func NewLimitElement() *LimitElement {
@@ -92,11 +92,11 @@ func (this *LimitElement) GetLimit() IMathElement {
 func (this *LimitElement) SetLimit(newValue IMathElement) {
 	this.Limit = newValue
 }
-func (this *LimitElement) GetUpperLimit() bool {
+func (this *LimitElement) GetUpperLimit() *bool {
 	return this.UpperLimit
 }
 
-func (this *LimitElement) SetUpperLimit(newValue bool) {
+func (this *LimitElement) SetUpperLimit(newValue *bool) {
 	this.UpperLimit = newValue
 }
 
@@ -228,7 +228,7 @@ func (this *LimitElement) UnmarshalJSON(b []byte) error {
 	
 	if valUpperLimit, ok := objMap["upperLimit"]; ok {
 		if valUpperLimit != nil {
-			var valueForUpperLimit bool
+			var valueForUpperLimit *bool
 			err = json.Unmarshal(*valUpperLimit, &valueForUpperLimit)
 			if err != nil {
 				return err
@@ -238,7 +238,7 @@ func (this *LimitElement) UnmarshalJSON(b []byte) error {
 	}
 	if valUpperLimitCap, ok := objMap["UpperLimit"]; ok {
 		if valUpperLimitCap != nil {
-			var valueForUpperLimit bool
+			var valueForUpperLimit *bool
 			err = json.Unmarshal(*valUpperLimitCap, &valueForUpperLimit)
 			if err != nil {
 				return err

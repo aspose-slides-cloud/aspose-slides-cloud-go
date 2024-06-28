@@ -50,8 +50,8 @@ type IXamlExportOptions interface {
 	SetFormat(newValue string)
 
 	// Export hidden slides
-	GetExportHiddenSlides() bool
-	SetExportHiddenSlides(newValue bool)
+	GetExportHiddenSlides() *bool
+	SetExportHiddenSlides(newValue *bool)
 }
 
 type XamlExportOptions struct {
@@ -69,7 +69,7 @@ type XamlExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Export hidden slides
-	ExportHiddenSlides bool `json:"ExportHiddenSlides"`
+	ExportHiddenSlides *bool `json:"ExportHiddenSlides"`
 }
 
 func NewXamlExportOptions() *XamlExportOptions {
@@ -105,11 +105,11 @@ func (this *XamlExportOptions) GetFormat() string {
 func (this *XamlExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *XamlExportOptions) GetExportHiddenSlides() bool {
+func (this *XamlExportOptions) GetExportHiddenSlides() *bool {
 	return this.ExportHiddenSlides
 }
 
-func (this *XamlExportOptions) SetExportHiddenSlides(newValue bool) {
+func (this *XamlExportOptions) SetExportHiddenSlides(newValue *bool) {
 	this.ExportHiddenSlides = newValue
 }
 
@@ -262,7 +262,7 @@ func (this *XamlExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valExportHiddenSlides, ok := objMap["exportHiddenSlides"]; ok {
 		if valExportHiddenSlides != nil {
-			var valueForExportHiddenSlides bool
+			var valueForExportHiddenSlides *bool
 			err = json.Unmarshal(*valExportHiddenSlides, &valueForExportHiddenSlides)
 			if err != nil {
 				return err
@@ -272,7 +272,7 @@ func (this *XamlExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valExportHiddenSlidesCap, ok := objMap["ExportHiddenSlides"]; ok {
 		if valExportHiddenSlidesCap != nil {
-			var valueForExportHiddenSlides bool
+			var valueForExportHiddenSlides *bool
 			err = json.Unmarshal(*valExportHiddenSlidesCap, &valueForExportHiddenSlides)
 			if err != nil {
 				return err

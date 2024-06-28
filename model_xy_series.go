@@ -46,28 +46,28 @@ type IXYSeries interface {
 	SetDataSourceForSeriesName(newValue IDataSource)
 
 	// True if each data marker in the series has a different color.
-	GetIsColorVaried() bool
-	SetIsColorVaried(newValue bool)
+	GetIsColorVaried() *bool
+	SetIsColorVaried(newValue *bool)
 
 	// Invert solid color for the series.
 	GetInvertedSolidFillColor() string
 	SetInvertedSolidFillColor(newValue string)
 
 	// True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.
-	GetSmooth() bool
-	SetSmooth(newValue bool)
+	GetSmooth() *bool
+	SetSmooth(newValue *bool)
 
 	// True if the series is plotted on second value axis.
-	GetPlotOnSecondAxis() bool
-	SetPlotOnSecondAxis(newValue bool)
+	GetPlotOnSecondAxis() *bool
+	SetPlotOnSecondAxis(newValue *bool)
 
 	// Series order.
 	GetOrder() int32
 	SetOrder(newValue int32)
 
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	GetInvertIfNegative() bool
-	SetInvertIfNegative(newValue bool)
+	GetInvertIfNegative() *bool
+	SetInvertIfNegative(newValue *bool)
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
 	GetExplosion() int32
@@ -121,22 +121,22 @@ type XYSeries struct {
 	DataSourceForSeriesName IDataSource `json:"DataSourceForSeriesName,omitempty"`
 
 	// True if each data marker in the series has a different color.
-	IsColorVaried bool `json:"IsColorVaried"`
+	IsColorVaried *bool `json:"IsColorVaried"`
 
 	// Invert solid color for the series.
 	InvertedSolidFillColor string `json:"InvertedSolidFillColor,omitempty"`
 
 	// True if curve smoothing is turned on. Applies only to line and scatter connected by lines charts.
-	Smooth bool `json:"Smooth"`
+	Smooth *bool `json:"Smooth"`
 
 	// True if the series is plotted on second value axis.
-	PlotOnSecondAxis bool `json:"PlotOnSecondAxis"`
+	PlotOnSecondAxis *bool `json:"PlotOnSecondAxis"`
 
 	// Series order.
 	Order int32 `json:"Order,omitempty"`
 
 	// True if the series shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	InvertIfNegative bool `json:"InvertIfNegative"`
+	InvertIfNegative *bool `json:"InvertIfNegative"`
 
 	// The distance of an open pie slice from the center of the pie chart is expressed as a percentage of the pie diameter.
 	Explosion int32 `json:"Explosion,omitempty"`
@@ -194,11 +194,11 @@ func (this *XYSeries) GetDataSourceForSeriesName() IDataSource {
 func (this *XYSeries) SetDataSourceForSeriesName(newValue IDataSource) {
 	this.DataSourceForSeriesName = newValue
 }
-func (this *XYSeries) GetIsColorVaried() bool {
+func (this *XYSeries) GetIsColorVaried() *bool {
 	return this.IsColorVaried
 }
 
-func (this *XYSeries) SetIsColorVaried(newValue bool) {
+func (this *XYSeries) SetIsColorVaried(newValue *bool) {
 	this.IsColorVaried = newValue
 }
 func (this *XYSeries) GetInvertedSolidFillColor() string {
@@ -208,18 +208,18 @@ func (this *XYSeries) GetInvertedSolidFillColor() string {
 func (this *XYSeries) SetInvertedSolidFillColor(newValue string) {
 	this.InvertedSolidFillColor = newValue
 }
-func (this *XYSeries) GetSmooth() bool {
+func (this *XYSeries) GetSmooth() *bool {
 	return this.Smooth
 }
 
-func (this *XYSeries) SetSmooth(newValue bool) {
+func (this *XYSeries) SetSmooth(newValue *bool) {
 	this.Smooth = newValue
 }
-func (this *XYSeries) GetPlotOnSecondAxis() bool {
+func (this *XYSeries) GetPlotOnSecondAxis() *bool {
 	return this.PlotOnSecondAxis
 }
 
-func (this *XYSeries) SetPlotOnSecondAxis(newValue bool) {
+func (this *XYSeries) SetPlotOnSecondAxis(newValue *bool) {
 	this.PlotOnSecondAxis = newValue
 }
 func (this *XYSeries) GetOrder() int32 {
@@ -229,11 +229,11 @@ func (this *XYSeries) GetOrder() int32 {
 func (this *XYSeries) SetOrder(newValue int32) {
 	this.Order = newValue
 }
-func (this *XYSeries) GetInvertIfNegative() bool {
+func (this *XYSeries) GetInvertIfNegative() *bool {
 	return this.InvertIfNegative
 }
 
-func (this *XYSeries) SetInvertIfNegative(newValue bool) {
+func (this *XYSeries) SetInvertIfNegative(newValue *bool) {
 	this.InvertIfNegative = newValue
 }
 func (this *XYSeries) GetExplosion() int32 {
@@ -413,7 +413,7 @@ func (this *XYSeries) UnmarshalJSON(b []byte) error {
 	
 	if valIsColorVaried, ok := objMap["isColorVaried"]; ok {
 		if valIsColorVaried != nil {
-			var valueForIsColorVaried bool
+			var valueForIsColorVaried *bool
 			err = json.Unmarshal(*valIsColorVaried, &valueForIsColorVaried)
 			if err != nil {
 				return err
@@ -423,7 +423,7 @@ func (this *XYSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valIsColorVariedCap, ok := objMap["IsColorVaried"]; ok {
 		if valIsColorVariedCap != nil {
-			var valueForIsColorVaried bool
+			var valueForIsColorVaried *bool
 			err = json.Unmarshal(*valIsColorVariedCap, &valueForIsColorVaried)
 			if err != nil {
 				return err
@@ -455,7 +455,7 @@ func (this *XYSeries) UnmarshalJSON(b []byte) error {
 	
 	if valSmooth, ok := objMap["smooth"]; ok {
 		if valSmooth != nil {
-			var valueForSmooth bool
+			var valueForSmooth *bool
 			err = json.Unmarshal(*valSmooth, &valueForSmooth)
 			if err != nil {
 				return err
@@ -465,7 +465,7 @@ func (this *XYSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valSmoothCap, ok := objMap["Smooth"]; ok {
 		if valSmoothCap != nil {
-			var valueForSmooth bool
+			var valueForSmooth *bool
 			err = json.Unmarshal(*valSmoothCap, &valueForSmooth)
 			if err != nil {
 				return err
@@ -476,7 +476,7 @@ func (this *XYSeries) UnmarshalJSON(b []byte) error {
 	
 	if valPlotOnSecondAxis, ok := objMap["plotOnSecondAxis"]; ok {
 		if valPlotOnSecondAxis != nil {
-			var valueForPlotOnSecondAxis bool
+			var valueForPlotOnSecondAxis *bool
 			err = json.Unmarshal(*valPlotOnSecondAxis, &valueForPlotOnSecondAxis)
 			if err != nil {
 				return err
@@ -486,7 +486,7 @@ func (this *XYSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valPlotOnSecondAxisCap, ok := objMap["PlotOnSecondAxis"]; ok {
 		if valPlotOnSecondAxisCap != nil {
-			var valueForPlotOnSecondAxis bool
+			var valueForPlotOnSecondAxis *bool
 			err = json.Unmarshal(*valPlotOnSecondAxisCap, &valueForPlotOnSecondAxis)
 			if err != nil {
 				return err
@@ -518,7 +518,7 @@ func (this *XYSeries) UnmarshalJSON(b []byte) error {
 	
 	if valInvertIfNegative, ok := objMap["invertIfNegative"]; ok {
 		if valInvertIfNegative != nil {
-			var valueForInvertIfNegative bool
+			var valueForInvertIfNegative *bool
 			err = json.Unmarshal(*valInvertIfNegative, &valueForInvertIfNegative)
 			if err != nil {
 				return err
@@ -528,7 +528,7 @@ func (this *XYSeries) UnmarshalJSON(b []byte) error {
 	}
 	if valInvertIfNegativeCap, ok := objMap["InvertIfNegative"]; ok {
 		if valInvertIfNegativeCap != nil {
-			var valueForInvertIfNegative bool
+			var valueForInvertIfNegative *bool
 			err = json.Unmarshal(*valInvertIfNegativeCap, &valueForInvertIfNegative)
 			if err != nil {
 				return err

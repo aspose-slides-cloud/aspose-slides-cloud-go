@@ -74,7 +74,7 @@ func TestNotesSlideExistsFromStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !result.GetExists() {
+	if !*result.GetExists() {
 		t.Errorf("Note does not exist.")
 		return
 	}
@@ -136,7 +136,7 @@ func TestNotesSlideExistsFromRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !result.GetExists() {
+	if !*result.GetExists() {
 		t.Errorf("Note does not exist.")
 		return
 	}

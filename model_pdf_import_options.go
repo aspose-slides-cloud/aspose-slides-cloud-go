@@ -34,14 +34,14 @@ import (
 type IPdfImportOptions interface {
 
 	// True to detect tables.
-	GetDetectTables() bool
-	SetDetectTables(newValue bool)
+	GetDetectTables() *bool
+	SetDetectTables(newValue *bool)
 }
 
 type PdfImportOptions struct {
 
 	// True to detect tables.
-	DetectTables bool `json:"DetectTables"`
+	DetectTables *bool `json:"DetectTables"`
 }
 
 func NewPdfImportOptions() *PdfImportOptions {
@@ -49,11 +49,11 @@ func NewPdfImportOptions() *PdfImportOptions {
 	return instance
 }
 
-func (this *PdfImportOptions) GetDetectTables() bool {
+func (this *PdfImportOptions) GetDetectTables() *bool {
 	return this.DetectTables
 }
 
-func (this *PdfImportOptions) SetDetectTables(newValue bool) {
+func (this *PdfImportOptions) SetDetectTables(newValue *bool) {
 	this.DetectTables = newValue
 }
 
@@ -66,7 +66,7 @@ func (this *PdfImportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valDetectTables, ok := objMap["detectTables"]; ok {
 		if valDetectTables != nil {
-			var valueForDetectTables bool
+			var valueForDetectTables *bool
 			err = json.Unmarshal(*valDetectTables, &valueForDetectTables)
 			if err != nil {
 				return err
@@ -76,7 +76,7 @@ func (this *PdfImportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valDetectTablesCap, ok := objMap["DetectTables"]; ok {
 		if valDetectTablesCap != nil {
-			var valueForDetectTables bool
+			var valueForDetectTables *bool
 			err = json.Unmarshal(*valDetectTablesCap, &valueForDetectTables)
 			if err != nil {
 				return err

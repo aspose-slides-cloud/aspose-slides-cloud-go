@@ -34,8 +34,8 @@ import (
 type INormalViewRestoredProperties interface {
 
 	// True if the size of the side content region should compensate for the new size when resizing the window containing the view within the application.
-	GetAutoAdjust() bool
-	SetAutoAdjust(newValue bool)
+	GetAutoAdjust() *bool
+	SetAutoAdjust(newValue *bool)
 
 	// The size of the slide region.
 	GetDimensionSize() float64
@@ -45,7 +45,7 @@ type INormalViewRestoredProperties interface {
 type NormalViewRestoredProperties struct {
 
 	// True if the size of the side content region should compensate for the new size when resizing the window containing the view within the application.
-	AutoAdjust bool `json:"AutoAdjust"`
+	AutoAdjust *bool `json:"AutoAdjust"`
 
 	// The size of the slide region.
 	DimensionSize float64 `json:"DimensionSize,omitempty"`
@@ -56,11 +56,11 @@ func NewNormalViewRestoredProperties() *NormalViewRestoredProperties {
 	return instance
 }
 
-func (this *NormalViewRestoredProperties) GetAutoAdjust() bool {
+func (this *NormalViewRestoredProperties) GetAutoAdjust() *bool {
 	return this.AutoAdjust
 }
 
-func (this *NormalViewRestoredProperties) SetAutoAdjust(newValue bool) {
+func (this *NormalViewRestoredProperties) SetAutoAdjust(newValue *bool) {
 	this.AutoAdjust = newValue
 }
 func (this *NormalViewRestoredProperties) GetDimensionSize() float64 {
@@ -80,7 +80,7 @@ func (this *NormalViewRestoredProperties) UnmarshalJSON(b []byte) error {
 	
 	if valAutoAdjust, ok := objMap["autoAdjust"]; ok {
 		if valAutoAdjust != nil {
-			var valueForAutoAdjust bool
+			var valueForAutoAdjust *bool
 			err = json.Unmarshal(*valAutoAdjust, &valueForAutoAdjust)
 			if err != nil {
 				return err
@@ -90,7 +90,7 @@ func (this *NormalViewRestoredProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valAutoAdjustCap, ok := objMap["AutoAdjust"]; ok {
 		if valAutoAdjustCap != nil {
-			var valueForAutoAdjust bool
+			var valueForAutoAdjust *bool
 			err = json.Unmarshal(*valAutoAdjustCap, &valueForAutoAdjust)
 			if err != nil {
 				return err

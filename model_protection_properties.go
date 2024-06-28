@@ -42,12 +42,12 @@ type IProtectionProperties interface {
 	SetAlternateLinks(newValue []IResourceUri)
 
 	// True if document properties are encrypted. Has effect only for password protected presentations.
-	GetEncryptDocumentProperties() bool
-	SetEncryptDocumentProperties(newValue bool)
+	GetEncryptDocumentProperties() *bool
+	SetEncryptDocumentProperties(newValue *bool)
 
 	// True if the document should be opened as read-only.
-	GetReadOnlyRecommended() bool
-	SetReadOnlyRecommended(newValue bool)
+	GetReadOnlyRecommended() *bool
+	SetReadOnlyRecommended(newValue *bool)
 
 	// Password for read protection.
 	GetReadPassword() string
@@ -58,12 +58,12 @@ type IProtectionProperties interface {
 	SetWritePassword(newValue string)
 
 	// Returns true if the presentation protected for editing. 
-	GetIsWriteProtected() bool
-	SetIsWriteProtected(newValue bool)
+	GetIsWriteProtected() *bool
+	SetIsWriteProtected(newValue *bool)
 
 	// Returns true if the presentation protected for reading. 
-	GetIsEncrypted() bool
-	SetIsEncrypted(newValue bool)
+	GetIsEncrypted() *bool
+	SetIsEncrypted(newValue *bool)
 }
 
 type ProtectionProperties struct {
@@ -75,10 +75,10 @@ type ProtectionProperties struct {
 	AlternateLinks []IResourceUri `json:"AlternateLinks,omitempty"`
 
 	// True if document properties are encrypted. Has effect only for password protected presentations.
-	EncryptDocumentProperties bool `json:"EncryptDocumentProperties"`
+	EncryptDocumentProperties *bool `json:"EncryptDocumentProperties"`
 
 	// True if the document should be opened as read-only.
-	ReadOnlyRecommended bool `json:"ReadOnlyRecommended"`
+	ReadOnlyRecommended *bool `json:"ReadOnlyRecommended"`
 
 	// Password for read protection.
 	ReadPassword string `json:"ReadPassword,omitempty"`
@@ -87,10 +87,10 @@ type ProtectionProperties struct {
 	WritePassword string `json:"WritePassword,omitempty"`
 
 	// Returns true if the presentation protected for editing. 
-	IsWriteProtected bool `json:"IsWriteProtected"`
+	IsWriteProtected *bool `json:"IsWriteProtected"`
 
 	// Returns true if the presentation protected for reading. 
-	IsEncrypted bool `json:"IsEncrypted"`
+	IsEncrypted *bool `json:"IsEncrypted"`
 }
 
 func NewProtectionProperties() *ProtectionProperties {
@@ -112,18 +112,18 @@ func (this *ProtectionProperties) GetAlternateLinks() []IResourceUri {
 func (this *ProtectionProperties) SetAlternateLinks(newValue []IResourceUri) {
 	this.AlternateLinks = newValue
 }
-func (this *ProtectionProperties) GetEncryptDocumentProperties() bool {
+func (this *ProtectionProperties) GetEncryptDocumentProperties() *bool {
 	return this.EncryptDocumentProperties
 }
 
-func (this *ProtectionProperties) SetEncryptDocumentProperties(newValue bool) {
+func (this *ProtectionProperties) SetEncryptDocumentProperties(newValue *bool) {
 	this.EncryptDocumentProperties = newValue
 }
-func (this *ProtectionProperties) GetReadOnlyRecommended() bool {
+func (this *ProtectionProperties) GetReadOnlyRecommended() *bool {
 	return this.ReadOnlyRecommended
 }
 
-func (this *ProtectionProperties) SetReadOnlyRecommended(newValue bool) {
+func (this *ProtectionProperties) SetReadOnlyRecommended(newValue *bool) {
 	this.ReadOnlyRecommended = newValue
 }
 func (this *ProtectionProperties) GetReadPassword() string {
@@ -140,18 +140,18 @@ func (this *ProtectionProperties) GetWritePassword() string {
 func (this *ProtectionProperties) SetWritePassword(newValue string) {
 	this.WritePassword = newValue
 }
-func (this *ProtectionProperties) GetIsWriteProtected() bool {
+func (this *ProtectionProperties) GetIsWriteProtected() *bool {
 	return this.IsWriteProtected
 }
 
-func (this *ProtectionProperties) SetIsWriteProtected(newValue bool) {
+func (this *ProtectionProperties) SetIsWriteProtected(newValue *bool) {
 	this.IsWriteProtected = newValue
 }
-func (this *ProtectionProperties) GetIsEncrypted() bool {
+func (this *ProtectionProperties) GetIsEncrypted() *bool {
 	return this.IsEncrypted
 }
 
-func (this *ProtectionProperties) SetIsEncrypted(newValue bool) {
+func (this *ProtectionProperties) SetIsEncrypted(newValue *bool) {
 	this.IsEncrypted = newValue
 }
 
@@ -256,7 +256,7 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 	
 	if valEncryptDocumentProperties, ok := objMap["encryptDocumentProperties"]; ok {
 		if valEncryptDocumentProperties != nil {
-			var valueForEncryptDocumentProperties bool
+			var valueForEncryptDocumentProperties *bool
 			err = json.Unmarshal(*valEncryptDocumentProperties, &valueForEncryptDocumentProperties)
 			if err != nil {
 				return err
@@ -266,7 +266,7 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valEncryptDocumentPropertiesCap, ok := objMap["EncryptDocumentProperties"]; ok {
 		if valEncryptDocumentPropertiesCap != nil {
-			var valueForEncryptDocumentProperties bool
+			var valueForEncryptDocumentProperties *bool
 			err = json.Unmarshal(*valEncryptDocumentPropertiesCap, &valueForEncryptDocumentProperties)
 			if err != nil {
 				return err
@@ -277,7 +277,7 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 	
 	if valReadOnlyRecommended, ok := objMap["readOnlyRecommended"]; ok {
 		if valReadOnlyRecommended != nil {
-			var valueForReadOnlyRecommended bool
+			var valueForReadOnlyRecommended *bool
 			err = json.Unmarshal(*valReadOnlyRecommended, &valueForReadOnlyRecommended)
 			if err != nil {
 				return err
@@ -287,7 +287,7 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valReadOnlyRecommendedCap, ok := objMap["ReadOnlyRecommended"]; ok {
 		if valReadOnlyRecommendedCap != nil {
-			var valueForReadOnlyRecommended bool
+			var valueForReadOnlyRecommended *bool
 			err = json.Unmarshal(*valReadOnlyRecommendedCap, &valueForReadOnlyRecommended)
 			if err != nil {
 				return err
@@ -340,7 +340,7 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 	
 	if valIsWriteProtected, ok := objMap["isWriteProtected"]; ok {
 		if valIsWriteProtected != nil {
-			var valueForIsWriteProtected bool
+			var valueForIsWriteProtected *bool
 			err = json.Unmarshal(*valIsWriteProtected, &valueForIsWriteProtected)
 			if err != nil {
 				return err
@@ -350,7 +350,7 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valIsWriteProtectedCap, ok := objMap["IsWriteProtected"]; ok {
 		if valIsWriteProtectedCap != nil {
-			var valueForIsWriteProtected bool
+			var valueForIsWriteProtected *bool
 			err = json.Unmarshal(*valIsWriteProtectedCap, &valueForIsWriteProtected)
 			if err != nil {
 				return err
@@ -361,7 +361,7 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 	
 	if valIsEncrypted, ok := objMap["isEncrypted"]; ok {
 		if valIsEncrypted != nil {
-			var valueForIsEncrypted bool
+			var valueForIsEncrypted *bool
 			err = json.Unmarshal(*valIsEncrypted, &valueForIsEncrypted)
 			if err != nil {
 				return err
@@ -371,7 +371,7 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 	}
 	if valIsEncryptedCap, ok := objMap["IsEncrypted"]; ok {
 		if valIsEncryptedCap != nil {
-			var valueForIsEncrypted bool
+			var valueForIsEncrypted *bool
 			err = json.Unmarshal(*valIsEncryptedCap, &valueForIsEncrypted)
 			if err != nil {
 				return err

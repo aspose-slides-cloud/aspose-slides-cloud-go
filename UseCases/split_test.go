@@ -74,7 +74,7 @@ func TestSplitStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", path)
 		return
 	}
@@ -175,7 +175,7 @@ func TestSplitRequestToStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", path)
 		return
 	}
@@ -206,7 +206,7 @@ func TestSplitWithOptions(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", path)
 		return
 	}

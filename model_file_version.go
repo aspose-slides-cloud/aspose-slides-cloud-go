@@ -39,8 +39,8 @@ type IFileVersion interface {
 	SetName(newValue string)
 
 	// True if it is a folder.
-	GetIsFolder() bool
-	SetIsFolder(newValue bool)
+	GetIsFolder() *bool
+	SetIsFolder(newValue *bool)
 
 	// File or folder last modified DateTime.
 	GetModifiedDate() time.Time
@@ -59,8 +59,8 @@ type IFileVersion interface {
 	SetVersionId(newValue string)
 
 	// Specifies whether the file is (true) or is not (false) the latest version of an file.
-	GetIsLatest() bool
-	SetIsLatest(newValue bool)
+	GetIsLatest() *bool
+	SetIsLatest(newValue *bool)
 }
 
 type FileVersion struct {
@@ -69,7 +69,7 @@ type FileVersion struct {
 	Name string `json:"Name,omitempty"`
 
 	// True if it is a folder.
-	IsFolder bool `json:"IsFolder"`
+	IsFolder *bool `json:"IsFolder"`
 
 	// File or folder last modified DateTime.
 	ModifiedDate time.Time `json:"ModifiedDate,omitempty"`
@@ -84,7 +84,7 @@ type FileVersion struct {
 	VersionId string `json:"VersionId,omitempty"`
 
 	// Specifies whether the file is (true) or is not (false) the latest version of an file.
-	IsLatest bool `json:"IsLatest"`
+	IsLatest *bool `json:"IsLatest"`
 }
 
 func NewFileVersion() *FileVersion {
@@ -99,11 +99,11 @@ func (this *FileVersion) GetName() string {
 func (this *FileVersion) SetName(newValue string) {
 	this.Name = newValue
 }
-func (this *FileVersion) GetIsFolder() bool {
+func (this *FileVersion) GetIsFolder() *bool {
 	return this.IsFolder
 }
 
-func (this *FileVersion) SetIsFolder(newValue bool) {
+func (this *FileVersion) SetIsFolder(newValue *bool) {
 	this.IsFolder = newValue
 }
 func (this *FileVersion) GetModifiedDate() time.Time {
@@ -134,11 +134,11 @@ func (this *FileVersion) GetVersionId() string {
 func (this *FileVersion) SetVersionId(newValue string) {
 	this.VersionId = newValue
 }
-func (this *FileVersion) GetIsLatest() bool {
+func (this *FileVersion) GetIsLatest() *bool {
 	return this.IsLatest
 }
 
-func (this *FileVersion) SetIsLatest(newValue bool) {
+func (this *FileVersion) SetIsLatest(newValue *bool) {
 	this.IsLatest = newValue
 }
 
@@ -172,7 +172,7 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 	
 	if valIsFolder, ok := objMap["isFolder"]; ok {
 		if valIsFolder != nil {
-			var valueForIsFolder bool
+			var valueForIsFolder *bool
 			err = json.Unmarshal(*valIsFolder, &valueForIsFolder)
 			if err != nil {
 				return err
@@ -182,7 +182,7 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 	}
 	if valIsFolderCap, ok := objMap["IsFolder"]; ok {
 		if valIsFolderCap != nil {
-			var valueForIsFolder bool
+			var valueForIsFolder *bool
 			err = json.Unmarshal(*valIsFolderCap, &valueForIsFolder)
 			if err != nil {
 				return err
@@ -275,7 +275,7 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 	
 	if valIsLatest, ok := objMap["isLatest"]; ok {
 		if valIsLatest != nil {
-			var valueForIsLatest bool
+			var valueForIsLatest *bool
 			err = json.Unmarshal(*valIsLatest, &valueForIsLatest)
 			if err != nil {
 				return err
@@ -285,7 +285,7 @@ func (this *FileVersion) UnmarshalJSON(b []byte) error {
 	}
 	if valIsLatestCap, ok := objMap["IsLatest"]; ok {
 		if valIsLatestCap != nil {
-			var valueForIsLatest bool
+			var valueForIsLatest *bool
 			err = json.Unmarshal(*valIsLatestCap, &valueForIsLatest)
 			if err != nil {
 				return err

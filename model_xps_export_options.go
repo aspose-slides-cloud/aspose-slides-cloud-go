@@ -50,16 +50,16 @@ type IXpsExportOptions interface {
 	SetFormat(newValue string)
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	GetShowHiddenSlides() bool
-	SetShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() *bool
+	SetShowHiddenSlides(newValue *bool)
 
 	// True to convert all metafiles used in a presentation to the PNG images.
-	GetSaveMetafilesAsPng() bool
-	SetSaveMetafilesAsPng(newValue bool)
+	GetSaveMetafilesAsPng() *bool
+	SetSaveMetafilesAsPng(newValue *bool)
 
 	// True to draw black frame around each slide.
-	GetDrawSlidesFrame() bool
-	SetDrawSlidesFrame(newValue bool)
+	GetDrawSlidesFrame() *bool
+	SetDrawSlidesFrame(newValue *bool)
 }
 
 type XpsExportOptions struct {
@@ -77,13 +77,13 @@ type XpsExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
+	ShowHiddenSlides *bool `json:"ShowHiddenSlides"`
 
 	// True to convert all metafiles used in a presentation to the PNG images.
-	SaveMetafilesAsPng bool `json:"SaveMetafilesAsPng"`
+	SaveMetafilesAsPng *bool `json:"SaveMetafilesAsPng"`
 
 	// True to draw black frame around each slide.
-	DrawSlidesFrame bool `json:"DrawSlidesFrame"`
+	DrawSlidesFrame *bool `json:"DrawSlidesFrame"`
 }
 
 func NewXpsExportOptions() *XpsExportOptions {
@@ -119,25 +119,25 @@ func (this *XpsExportOptions) GetFormat() string {
 func (this *XpsExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *XpsExportOptions) GetShowHiddenSlides() bool {
+func (this *XpsExportOptions) GetShowHiddenSlides() *bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *XpsExportOptions) SetShowHiddenSlides(newValue bool) {
+func (this *XpsExportOptions) SetShowHiddenSlides(newValue *bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this *XpsExportOptions) GetSaveMetafilesAsPng() bool {
+func (this *XpsExportOptions) GetSaveMetafilesAsPng() *bool {
 	return this.SaveMetafilesAsPng
 }
 
-func (this *XpsExportOptions) SetSaveMetafilesAsPng(newValue bool) {
+func (this *XpsExportOptions) SetSaveMetafilesAsPng(newValue *bool) {
 	this.SaveMetafilesAsPng = newValue
 }
-func (this *XpsExportOptions) GetDrawSlidesFrame() bool {
+func (this *XpsExportOptions) GetDrawSlidesFrame() *bool {
 	return this.DrawSlidesFrame
 }
 
-func (this *XpsExportOptions) SetDrawSlidesFrame(newValue bool) {
+func (this *XpsExportOptions) SetDrawSlidesFrame(newValue *bool) {
 	this.DrawSlidesFrame = newValue
 }
 
@@ -290,7 +290,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
 			if err != nil {
 				return err
@@ -300,7 +300,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
 		if valShowHiddenSlidesCap != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
 			if err != nil {
 				return err
@@ -311,7 +311,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valSaveMetafilesAsPng, ok := objMap["saveMetafilesAsPng"]; ok {
 		if valSaveMetafilesAsPng != nil {
-			var valueForSaveMetafilesAsPng bool
+			var valueForSaveMetafilesAsPng *bool
 			err = json.Unmarshal(*valSaveMetafilesAsPng, &valueForSaveMetafilesAsPng)
 			if err != nil {
 				return err
@@ -321,7 +321,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valSaveMetafilesAsPngCap, ok := objMap["SaveMetafilesAsPng"]; ok {
 		if valSaveMetafilesAsPngCap != nil {
-			var valueForSaveMetafilesAsPng bool
+			var valueForSaveMetafilesAsPng *bool
 			err = json.Unmarshal(*valSaveMetafilesAsPngCap, &valueForSaveMetafilesAsPng)
 			if err != nil {
 				return err
@@ -332,7 +332,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valDrawSlidesFrame, ok := objMap["drawSlidesFrame"]; ok {
 		if valDrawSlidesFrame != nil {
-			var valueForDrawSlidesFrame bool
+			var valueForDrawSlidesFrame *bool
 			err = json.Unmarshal(*valDrawSlidesFrame, &valueForDrawSlidesFrame)
 			if err != nil {
 				return err
@@ -342,7 +342,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valDrawSlidesFrameCap, ok := objMap["DrawSlidesFrame"]; ok {
 		if valDrawSlidesFrameCap != nil {
-			var valueForDrawSlidesFrame bool
+			var valueForDrawSlidesFrame *bool
 			err = json.Unmarshal(*valDrawSlidesFrameCap, &valueForDrawSlidesFrame)
 			if err != nil {
 				return err

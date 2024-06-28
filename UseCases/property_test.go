@@ -57,7 +57,8 @@ func TestPropertyBuiltin(t *testing.T) {
 		t.Errorf("Wrong property name. Expected %v but was %v.", propertyName, result.GetName())
 		return
 	}
-	if !result.GetBuiltIn() {
+	builtIn := result.GetBuiltIn()
+	if builtIn == nil || !*builtIn {
 		t.Errorf("Wrong BuiltIn value. Expected true.")
 		return
 	}
@@ -77,7 +78,8 @@ func TestPropertyBuiltin(t *testing.T) {
 		t.Errorf("Wrong property value. Expected %v but was %v.", updatedPropertyValue, result.GetValue())
 		return
 	}
-	if !result.GetBuiltIn() {
+	builtIn = result.GetBuiltIn()
+	if builtIn == nil || !*builtIn {
 		t.Errorf("Wrong BuiltIn value. Expected true.")
 		return
 	}
@@ -100,7 +102,8 @@ func TestPropertyBuiltin(t *testing.T) {
 		t.Errorf("Wrong property value. Expected not %v but was %v.", updatedPropertyValue, result.GetValue())
 		return
 	}
-	if !result.GetBuiltIn() {
+	builtIn = result.GetBuiltIn()
+	if builtIn == nil || !*builtIn {
 		t.Errorf("Wrong BuiltIn value. Expected true.")
 		return
 	}
@@ -134,7 +137,8 @@ func TestPropertyCustom(t *testing.T) {
 		t.Errorf("Wrong property value. Expected %v but was %v.", updatedPropertyValue, result.GetValue())
 		return
 	}
-	if result.GetBuiltIn() {
+	builtIn := result.GetBuiltIn()
+	if builtIn != nil && *builtIn {
 		t.Errorf("Wrong BuiltIn value. Expected false.")
 		return
 	}
@@ -325,17 +329,19 @@ func TestPropertyProtection(t *testing.T) {
 
 	dto := slidescloud.NewProtectionProperties()
 	dto.EncryptDocumentProperties = GetResult.GetEncryptDocumentProperties()
-	dto.ReadOnlyRecommended = !GetResult.GetReadOnlyRecommended()
+	readOnlyRecommended := GetResult.GetReadOnlyRecommended()
+	readOnlyRecommendedValue := readOnlyRecommended == nil || !*readOnlyRecommended
+	dto.ReadOnlyRecommended = &readOnlyRecommendedValue
 	putResult, _, e := c.SlidesApi.SetProtection(fileName, dto, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if putResult.GetEncryptDocumentProperties() != GetResult.GetEncryptDocumentProperties() {
+	if (putResult.GetEncryptDocumentProperties() == nil || !*putResult.GetEncryptDocumentProperties()) != (GetResult.GetEncryptDocumentProperties() == nil || !*GetResult.GetEncryptDocumentProperties()) {
 		t.Errorf("Wrong EncryptDocumentProperties. Expected %v but was %v.", GetResult.GetEncryptDocumentProperties(), putResult.GetEncryptDocumentProperties())
 		return
 	}
-	if putResult.GetReadOnlyRecommended() == GetResult.GetReadOnlyRecommended() {
+	if (putResult.GetReadOnlyRecommended() == nil || !*putResult.GetReadOnlyRecommended()) == (GetResult.GetReadOnlyRecommended() == nil || !*GetResult.GetReadOnlyRecommended()) {
 		t.Errorf("Wrong ReadOnlyRecommended. Expected not %v but was %v.", GetResult.GetReadOnlyRecommended(), putResult.GetReadOnlyRecommended())
 		return
 	}
@@ -357,11 +363,11 @@ func TestPropertyProtectionDelete(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if result.GetIsEncrypted() {
+	if *result.GetIsEncrypted() {
 		t.Errorf("Wrong IsEncrypted value. Expected false.")
 		return
 	}
-	if result.GetReadOnlyRecommended() {
+	if *result.GetReadOnlyRecommended() {
 		t.Errorf("Wrong ReadOnlyRecommended value. Expected false.")
 		return
 	}
@@ -500,7 +506,8 @@ func TestProtectionCheck(t *testing.T) {
 		return
 	}
 
-	if protectionProperties.GetIsEncrypted() != true {
+	isEncrypted := protectionProperties.GetIsEncrypted()
+	if isEncrypted == nil || !*isEncrypted {
 		t.Errorf("Expected %v, but was %v", true, protectionProperties.GetIsEncrypted())
 		return
 	}
@@ -517,7 +524,8 @@ func TestProtectionCheck(t *testing.T) {
 		return
 	}
 
-	if protectionProperties.GetIsEncrypted() != true {
+	isEncrypted = protectionProperties.GetIsEncrypted()
+	if isEncrypted == nil || !*isEncrypted {
 		t.Errorf("Expected %v, but was %v", true, protectionProperties.GetIsEncrypted())
 		return
 	}
@@ -546,12 +554,14 @@ func TestSlideShowPropertiesGet(t *testing.T) {
 		return
 	}
 
-	if response.GetShowAnimation() != true {
+	showAnimation := response.GetShowAnimation()
+	if showAnimation == nil || !*showAnimation {
 		t.Errorf("Expected %v, but was %v", true, response.GetShowAnimation())
 		return
 	}
 
-	if response.GetShowNarration() != true {
+	showNarration := response.GetShowNarration()
+	if showNarration == nil || !*showNarration {
 		t.Errorf("Expected %v, but was %v", true, response.GetShowAnimation())
 		return
 	}
@@ -569,8 +579,10 @@ func TestSlideShowPropertiesSet(t *testing.T) {
 	}
 
 	dto := slidescloud.NewSlideShowProperties()
-	dto.SetLoop(true)
-	dto.SetUseTimings(true)
+	loop := true
+	dto.SetLoop(&loop)
+	useTimings := true
+	dto.SetUseTimings(&useTimings)
 	dto.SetSlideShowType("PresentedBySpeaker")
 
 	response, _, e := c.SlidesApi.SetSlideShowProperties(fileName, dto, password, folderName, "")

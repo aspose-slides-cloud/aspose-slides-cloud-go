@@ -50,52 +50,52 @@ type ISwfExportOptions interface {
 	SetFormat(newValue string)
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	GetShowHiddenSlides() bool
-	SetShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() *bool
+	SetShowHiddenSlides(newValue *bool)
 
 	// Specifies whether the generated SWF document should be compressed or not. Default is true. 
-	GetCompressed() bool
-	SetCompressed(newValue bool)
+	GetCompressed() *bool
+	SetCompressed(newValue *bool)
 
 	// Specifies whether the generated SWF document should include the integrated document viewer or not. Default is true. 
-	GetViewerIncluded() bool
-	SetViewerIncluded(newValue bool)
+	GetViewerIncluded() *bool
+	SetViewerIncluded(newValue *bool)
 
 	// Specifies whether border around pages should be shown. Default is true. 
-	GetShowPageBorder() bool
-	SetShowPageBorder(newValue bool)
+	GetShowPageBorder() *bool
+	SetShowPageBorder(newValue *bool)
 
 	// Show/hide fullscreen button. Can be overridden in flashvars. Default is true. 
-	GetShowFullScreen() bool
-	SetShowFullScreen(newValue bool)
+	GetShowFullScreen() *bool
+	SetShowFullScreen(newValue *bool)
 
 	// Show/hide page stepper. Can be overridden in flashvars. Default is true. 
-	GetShowPageStepper() bool
-	SetShowPageStepper(newValue bool)
+	GetShowPageStepper() *bool
+	SetShowPageStepper(newValue *bool)
 
 	// Show/hide search section. Can be overridden in flashvars. Default is true. 
-	GetShowSearch() bool
-	SetShowSearch(newValue bool)
+	GetShowSearch() *bool
+	SetShowSearch(newValue *bool)
 
 	// Show/hide whole top pane. Can be overridden in flashvars. Default is true. 
-	GetShowTopPane() bool
-	SetShowTopPane(newValue bool)
+	GetShowTopPane() *bool
+	SetShowTopPane(newValue *bool)
 
 	// Show/hide bottom pane. Can be overridden in flashvars. Default is true. 
-	GetShowBottomPane() bool
-	SetShowBottomPane(newValue bool)
+	GetShowBottomPane() *bool
+	SetShowBottomPane(newValue *bool)
 
 	// Show/hide left pane. Can be overridden in flashvars. Default is true. 
-	GetShowLeftPane() bool
-	SetShowLeftPane(newValue bool)
+	GetShowLeftPane() *bool
+	SetShowLeftPane(newValue *bool)
 
 	// Start with opened left pane. Can be overridden in flashvars. Default is false. 
-	GetStartOpenLeftPane() bool
-	SetStartOpenLeftPane(newValue bool)
+	GetStartOpenLeftPane() *bool
+	SetStartOpenLeftPane(newValue *bool)
 
 	// Enable/disable context menu. Default is true. 
-	GetEnableContextMenu() bool
-	SetEnableContextMenu(newValue bool)
+	GetEnableContextMenu() *bool
+	SetEnableContextMenu(newValue *bool)
 
 	// Image that will be displayed as logo in the top right corner of the viewer. The image data is a base 64 string. Image should be 32x64 pixels PNG image, otherwise logo can be displayed improperly. 
 	GetLogoImage() string
@@ -126,8 +126,8 @@ type ISwfExportOptions interface {
 	SetCommentsAreaColor(newValue string)
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	GetShowCommentsByNoAuthor() bool
-	SetShowCommentsByNoAuthor(newValue bool)
+	GetShowCommentsByNoAuthor() *bool
+	SetShowCommentsByNoAuthor(newValue *bool)
 }
 
 type SwfExportOptions struct {
@@ -145,40 +145,40 @@ type SwfExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
+	ShowHiddenSlides *bool `json:"ShowHiddenSlides"`
 
 	// Specifies whether the generated SWF document should be compressed or not. Default is true. 
-	Compressed bool `json:"Compressed"`
+	Compressed *bool `json:"Compressed"`
 
 	// Specifies whether the generated SWF document should include the integrated document viewer or not. Default is true. 
-	ViewerIncluded bool `json:"ViewerIncluded"`
+	ViewerIncluded *bool `json:"ViewerIncluded"`
 
 	// Specifies whether border around pages should be shown. Default is true. 
-	ShowPageBorder bool `json:"ShowPageBorder"`
+	ShowPageBorder *bool `json:"ShowPageBorder"`
 
 	// Show/hide fullscreen button. Can be overridden in flashvars. Default is true. 
-	ShowFullScreen bool `json:"ShowFullScreen"`
+	ShowFullScreen *bool `json:"ShowFullScreen"`
 
 	// Show/hide page stepper. Can be overridden in flashvars. Default is true. 
-	ShowPageStepper bool `json:"ShowPageStepper"`
+	ShowPageStepper *bool `json:"ShowPageStepper"`
 
 	// Show/hide search section. Can be overridden in flashvars. Default is true. 
-	ShowSearch bool `json:"ShowSearch"`
+	ShowSearch *bool `json:"ShowSearch"`
 
 	// Show/hide whole top pane. Can be overridden in flashvars. Default is true. 
-	ShowTopPane bool `json:"ShowTopPane"`
+	ShowTopPane *bool `json:"ShowTopPane"`
 
 	// Show/hide bottom pane. Can be overridden in flashvars. Default is true. 
-	ShowBottomPane bool `json:"ShowBottomPane"`
+	ShowBottomPane *bool `json:"ShowBottomPane"`
 
 	// Show/hide left pane. Can be overridden in flashvars. Default is true. 
-	ShowLeftPane bool `json:"ShowLeftPane"`
+	ShowLeftPane *bool `json:"ShowLeftPane"`
 
 	// Start with opened left pane. Can be overridden in flashvars. Default is false. 
-	StartOpenLeftPane bool `json:"StartOpenLeftPane"`
+	StartOpenLeftPane *bool `json:"StartOpenLeftPane"`
 
 	// Enable/disable context menu. Default is true. 
-	EnableContextMenu bool `json:"EnableContextMenu"`
+	EnableContextMenu *bool `json:"EnableContextMenu"`
 
 	// Image that will be displayed as logo in the top right corner of the viewer. The image data is a base 64 string. Image should be 32x64 pixels PNG image, otherwise logo can be displayed improperly. 
 	LogoImage string `json:"LogoImage,omitempty"`
@@ -202,7 +202,7 @@ type SwfExportOptions struct {
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
+	ShowCommentsByNoAuthor *bool `json:"ShowCommentsByNoAuthor"`
 }
 
 func NewSwfExportOptions() *SwfExportOptions {
@@ -238,88 +238,88 @@ func (this *SwfExportOptions) GetFormat() string {
 func (this *SwfExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *SwfExportOptions) GetShowHiddenSlides() bool {
+func (this *SwfExportOptions) GetShowHiddenSlides() *bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *SwfExportOptions) SetShowHiddenSlides(newValue bool) {
+func (this *SwfExportOptions) SetShowHiddenSlides(newValue *bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this *SwfExportOptions) GetCompressed() bool {
+func (this *SwfExportOptions) GetCompressed() *bool {
 	return this.Compressed
 }
 
-func (this *SwfExportOptions) SetCompressed(newValue bool) {
+func (this *SwfExportOptions) SetCompressed(newValue *bool) {
 	this.Compressed = newValue
 }
-func (this *SwfExportOptions) GetViewerIncluded() bool {
+func (this *SwfExportOptions) GetViewerIncluded() *bool {
 	return this.ViewerIncluded
 }
 
-func (this *SwfExportOptions) SetViewerIncluded(newValue bool) {
+func (this *SwfExportOptions) SetViewerIncluded(newValue *bool) {
 	this.ViewerIncluded = newValue
 }
-func (this *SwfExportOptions) GetShowPageBorder() bool {
+func (this *SwfExportOptions) GetShowPageBorder() *bool {
 	return this.ShowPageBorder
 }
 
-func (this *SwfExportOptions) SetShowPageBorder(newValue bool) {
+func (this *SwfExportOptions) SetShowPageBorder(newValue *bool) {
 	this.ShowPageBorder = newValue
 }
-func (this *SwfExportOptions) GetShowFullScreen() bool {
+func (this *SwfExportOptions) GetShowFullScreen() *bool {
 	return this.ShowFullScreen
 }
 
-func (this *SwfExportOptions) SetShowFullScreen(newValue bool) {
+func (this *SwfExportOptions) SetShowFullScreen(newValue *bool) {
 	this.ShowFullScreen = newValue
 }
-func (this *SwfExportOptions) GetShowPageStepper() bool {
+func (this *SwfExportOptions) GetShowPageStepper() *bool {
 	return this.ShowPageStepper
 }
 
-func (this *SwfExportOptions) SetShowPageStepper(newValue bool) {
+func (this *SwfExportOptions) SetShowPageStepper(newValue *bool) {
 	this.ShowPageStepper = newValue
 }
-func (this *SwfExportOptions) GetShowSearch() bool {
+func (this *SwfExportOptions) GetShowSearch() *bool {
 	return this.ShowSearch
 }
 
-func (this *SwfExportOptions) SetShowSearch(newValue bool) {
+func (this *SwfExportOptions) SetShowSearch(newValue *bool) {
 	this.ShowSearch = newValue
 }
-func (this *SwfExportOptions) GetShowTopPane() bool {
+func (this *SwfExportOptions) GetShowTopPane() *bool {
 	return this.ShowTopPane
 }
 
-func (this *SwfExportOptions) SetShowTopPane(newValue bool) {
+func (this *SwfExportOptions) SetShowTopPane(newValue *bool) {
 	this.ShowTopPane = newValue
 }
-func (this *SwfExportOptions) GetShowBottomPane() bool {
+func (this *SwfExportOptions) GetShowBottomPane() *bool {
 	return this.ShowBottomPane
 }
 
-func (this *SwfExportOptions) SetShowBottomPane(newValue bool) {
+func (this *SwfExportOptions) SetShowBottomPane(newValue *bool) {
 	this.ShowBottomPane = newValue
 }
-func (this *SwfExportOptions) GetShowLeftPane() bool {
+func (this *SwfExportOptions) GetShowLeftPane() *bool {
 	return this.ShowLeftPane
 }
 
-func (this *SwfExportOptions) SetShowLeftPane(newValue bool) {
+func (this *SwfExportOptions) SetShowLeftPane(newValue *bool) {
 	this.ShowLeftPane = newValue
 }
-func (this *SwfExportOptions) GetStartOpenLeftPane() bool {
+func (this *SwfExportOptions) GetStartOpenLeftPane() *bool {
 	return this.StartOpenLeftPane
 }
 
-func (this *SwfExportOptions) SetStartOpenLeftPane(newValue bool) {
+func (this *SwfExportOptions) SetStartOpenLeftPane(newValue *bool) {
 	this.StartOpenLeftPane = newValue
 }
-func (this *SwfExportOptions) GetEnableContextMenu() bool {
+func (this *SwfExportOptions) GetEnableContextMenu() *bool {
 	return this.EnableContextMenu
 }
 
-func (this *SwfExportOptions) SetEnableContextMenu(newValue bool) {
+func (this *SwfExportOptions) SetEnableContextMenu(newValue *bool) {
 	this.EnableContextMenu = newValue
 }
 func (this *SwfExportOptions) GetLogoImage() string {
@@ -371,11 +371,11 @@ func (this *SwfExportOptions) GetCommentsAreaColor() string {
 func (this *SwfExportOptions) SetCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
-func (this *SwfExportOptions) GetShowCommentsByNoAuthor() bool {
+func (this *SwfExportOptions) GetShowCommentsByNoAuthor() *bool {
 	return this.ShowCommentsByNoAuthor
 }
 
-func (this *SwfExportOptions) SetShowCommentsByNoAuthor(newValue bool) {
+func (this *SwfExportOptions) SetShowCommentsByNoAuthor(newValue *bool) {
 	this.ShowCommentsByNoAuthor = newValue
 }
 
@@ -528,7 +528,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
 			if err != nil {
 				return err
@@ -538,7 +538,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
 		if valShowHiddenSlidesCap != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
 			if err != nil {
 				return err
@@ -549,7 +549,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valCompressed, ok := objMap["compressed"]; ok {
 		if valCompressed != nil {
-			var valueForCompressed bool
+			var valueForCompressed *bool
 			err = json.Unmarshal(*valCompressed, &valueForCompressed)
 			if err != nil {
 				return err
@@ -559,7 +559,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valCompressedCap, ok := objMap["Compressed"]; ok {
 		if valCompressedCap != nil {
-			var valueForCompressed bool
+			var valueForCompressed *bool
 			err = json.Unmarshal(*valCompressedCap, &valueForCompressed)
 			if err != nil {
 				return err
@@ -570,7 +570,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valViewerIncluded, ok := objMap["viewerIncluded"]; ok {
 		if valViewerIncluded != nil {
-			var valueForViewerIncluded bool
+			var valueForViewerIncluded *bool
 			err = json.Unmarshal(*valViewerIncluded, &valueForViewerIncluded)
 			if err != nil {
 				return err
@@ -580,7 +580,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valViewerIncludedCap, ok := objMap["ViewerIncluded"]; ok {
 		if valViewerIncludedCap != nil {
-			var valueForViewerIncluded bool
+			var valueForViewerIncluded *bool
 			err = json.Unmarshal(*valViewerIncludedCap, &valueForViewerIncluded)
 			if err != nil {
 				return err
@@ -591,7 +591,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowPageBorder, ok := objMap["showPageBorder"]; ok {
 		if valShowPageBorder != nil {
-			var valueForShowPageBorder bool
+			var valueForShowPageBorder *bool
 			err = json.Unmarshal(*valShowPageBorder, &valueForShowPageBorder)
 			if err != nil {
 				return err
@@ -601,7 +601,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowPageBorderCap, ok := objMap["ShowPageBorder"]; ok {
 		if valShowPageBorderCap != nil {
-			var valueForShowPageBorder bool
+			var valueForShowPageBorder *bool
 			err = json.Unmarshal(*valShowPageBorderCap, &valueForShowPageBorder)
 			if err != nil {
 				return err
@@ -612,7 +612,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowFullScreen, ok := objMap["showFullScreen"]; ok {
 		if valShowFullScreen != nil {
-			var valueForShowFullScreen bool
+			var valueForShowFullScreen *bool
 			err = json.Unmarshal(*valShowFullScreen, &valueForShowFullScreen)
 			if err != nil {
 				return err
@@ -622,7 +622,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowFullScreenCap, ok := objMap["ShowFullScreen"]; ok {
 		if valShowFullScreenCap != nil {
-			var valueForShowFullScreen bool
+			var valueForShowFullScreen *bool
 			err = json.Unmarshal(*valShowFullScreenCap, &valueForShowFullScreen)
 			if err != nil {
 				return err
@@ -633,7 +633,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowPageStepper, ok := objMap["showPageStepper"]; ok {
 		if valShowPageStepper != nil {
-			var valueForShowPageStepper bool
+			var valueForShowPageStepper *bool
 			err = json.Unmarshal(*valShowPageStepper, &valueForShowPageStepper)
 			if err != nil {
 				return err
@@ -643,7 +643,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowPageStepperCap, ok := objMap["ShowPageStepper"]; ok {
 		if valShowPageStepperCap != nil {
-			var valueForShowPageStepper bool
+			var valueForShowPageStepper *bool
 			err = json.Unmarshal(*valShowPageStepperCap, &valueForShowPageStepper)
 			if err != nil {
 				return err
@@ -654,7 +654,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowSearch, ok := objMap["showSearch"]; ok {
 		if valShowSearch != nil {
-			var valueForShowSearch bool
+			var valueForShowSearch *bool
 			err = json.Unmarshal(*valShowSearch, &valueForShowSearch)
 			if err != nil {
 				return err
@@ -664,7 +664,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowSearchCap, ok := objMap["ShowSearch"]; ok {
 		if valShowSearchCap != nil {
-			var valueForShowSearch bool
+			var valueForShowSearch *bool
 			err = json.Unmarshal(*valShowSearchCap, &valueForShowSearch)
 			if err != nil {
 				return err
@@ -675,7 +675,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowTopPane, ok := objMap["showTopPane"]; ok {
 		if valShowTopPane != nil {
-			var valueForShowTopPane bool
+			var valueForShowTopPane *bool
 			err = json.Unmarshal(*valShowTopPane, &valueForShowTopPane)
 			if err != nil {
 				return err
@@ -685,7 +685,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowTopPaneCap, ok := objMap["ShowTopPane"]; ok {
 		if valShowTopPaneCap != nil {
-			var valueForShowTopPane bool
+			var valueForShowTopPane *bool
 			err = json.Unmarshal(*valShowTopPaneCap, &valueForShowTopPane)
 			if err != nil {
 				return err
@@ -696,7 +696,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowBottomPane, ok := objMap["showBottomPane"]; ok {
 		if valShowBottomPane != nil {
-			var valueForShowBottomPane bool
+			var valueForShowBottomPane *bool
 			err = json.Unmarshal(*valShowBottomPane, &valueForShowBottomPane)
 			if err != nil {
 				return err
@@ -706,7 +706,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowBottomPaneCap, ok := objMap["ShowBottomPane"]; ok {
 		if valShowBottomPaneCap != nil {
-			var valueForShowBottomPane bool
+			var valueForShowBottomPane *bool
 			err = json.Unmarshal(*valShowBottomPaneCap, &valueForShowBottomPane)
 			if err != nil {
 				return err
@@ -717,7 +717,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowLeftPane, ok := objMap["showLeftPane"]; ok {
 		if valShowLeftPane != nil {
-			var valueForShowLeftPane bool
+			var valueForShowLeftPane *bool
 			err = json.Unmarshal(*valShowLeftPane, &valueForShowLeftPane)
 			if err != nil {
 				return err
@@ -727,7 +727,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowLeftPaneCap, ok := objMap["ShowLeftPane"]; ok {
 		if valShowLeftPaneCap != nil {
-			var valueForShowLeftPane bool
+			var valueForShowLeftPane *bool
 			err = json.Unmarshal(*valShowLeftPaneCap, &valueForShowLeftPane)
 			if err != nil {
 				return err
@@ -738,7 +738,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valStartOpenLeftPane, ok := objMap["startOpenLeftPane"]; ok {
 		if valStartOpenLeftPane != nil {
-			var valueForStartOpenLeftPane bool
+			var valueForStartOpenLeftPane *bool
 			err = json.Unmarshal(*valStartOpenLeftPane, &valueForStartOpenLeftPane)
 			if err != nil {
 				return err
@@ -748,7 +748,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valStartOpenLeftPaneCap, ok := objMap["StartOpenLeftPane"]; ok {
 		if valStartOpenLeftPaneCap != nil {
-			var valueForStartOpenLeftPane bool
+			var valueForStartOpenLeftPane *bool
 			err = json.Unmarshal(*valStartOpenLeftPaneCap, &valueForStartOpenLeftPane)
 			if err != nil {
 				return err
@@ -759,7 +759,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valEnableContextMenu, ok := objMap["enableContextMenu"]; ok {
 		if valEnableContextMenu != nil {
-			var valueForEnableContextMenu bool
+			var valueForEnableContextMenu *bool
 			err = json.Unmarshal(*valEnableContextMenu, &valueForEnableContextMenu)
 			if err != nil {
 				return err
@@ -769,7 +769,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valEnableContextMenuCap, ok := objMap["EnableContextMenu"]; ok {
 		if valEnableContextMenuCap != nil {
-			var valueForEnableContextMenu bool
+			var valueForEnableContextMenu *bool
 			err = json.Unmarshal(*valEnableContextMenuCap, &valueForEnableContextMenu)
 			if err != nil {
 				return err
@@ -951,7 +951,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowCommentsByNoAuthor, ok := objMap["showCommentsByNoAuthor"]; ok {
 		if valShowCommentsByNoAuthor != nil {
-			var valueForShowCommentsByNoAuthor bool
+			var valueForShowCommentsByNoAuthor *bool
 			err = json.Unmarshal(*valShowCommentsByNoAuthor, &valueForShowCommentsByNoAuthor)
 			if err != nil {
 				return err
@@ -961,7 +961,7 @@ func (this *SwfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowCommentsByNoAuthorCap, ok := objMap["ShowCommentsByNoAuthor"]; ok {
 		if valShowCommentsByNoAuthorCap != nil {
-			var valueForShowCommentsByNoAuthor bool
+			var valueForShowCommentsByNoAuthor *bool
 			err = json.Unmarshal(*valShowCommentsByNoAuthorCap, &valueForShowCommentsByNoAuthor)
 			if err != nil {
 				return err

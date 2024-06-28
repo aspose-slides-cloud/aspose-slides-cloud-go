@@ -46,8 +46,8 @@ type IAddMasterSlide interface {
 	SetCloneFromPosition(newValue int32)
 
 	// True if cloned master slide is applied to all slides.
-	GetApplyToAll() bool
-	SetApplyToAll(newValue bool)
+	GetApplyToAll() *bool
+	SetApplyToAll(newValue *bool)
 }
 
 type AddMasterSlide struct {
@@ -62,7 +62,7 @@ type AddMasterSlide struct {
 	CloneFromPosition int32 `json:"CloneFromPosition"`
 
 	// True if cloned master slide is applied to all slides.
-	ApplyToAll bool `json:"ApplyToAll"`
+	ApplyToAll *bool `json:"ApplyToAll"`
 }
 
 func NewAddMasterSlide() *AddMasterSlide {
@@ -92,11 +92,11 @@ func (this *AddMasterSlide) GetCloneFromPosition() int32 {
 func (this *AddMasterSlide) SetCloneFromPosition(newValue int32) {
 	this.CloneFromPosition = newValue
 }
-func (this *AddMasterSlide) GetApplyToAll() bool {
+func (this *AddMasterSlide) GetApplyToAll() *bool {
 	return this.ApplyToAll
 }
 
-func (this *AddMasterSlide) SetApplyToAll(newValue bool) {
+func (this *AddMasterSlide) SetApplyToAll(newValue *bool) {
 	this.ApplyToAll = newValue
 }
 
@@ -206,7 +206,7 @@ func (this *AddMasterSlide) UnmarshalJSON(b []byte) error {
 	
 	if valApplyToAll, ok := objMap["applyToAll"]; ok {
 		if valApplyToAll != nil {
-			var valueForApplyToAll bool
+			var valueForApplyToAll *bool
 			err = json.Unmarshal(*valApplyToAll, &valueForApplyToAll)
 			if err != nil {
 				return err
@@ -216,7 +216,7 @@ func (this *AddMasterSlide) UnmarshalJSON(b []byte) error {
 	}
 	if valApplyToAllCap, ok := objMap["ApplyToAll"]; ok {
 		if valApplyToAllCap != nil {
-			var valueForApplyToAll bool
+			var valueForApplyToAll *bool
 			err = json.Unmarshal(*valApplyToAllCap, &valueForApplyToAll)
 			if err != nil {
 				return err

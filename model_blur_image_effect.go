@@ -42,8 +42,8 @@ type IBlurImageEffect interface {
 	SetRadius(newValue float64)
 
 	// Determines whether the bounds of the object should be grown as a result of the blurring. True indicates the bounds are grown while false indicates that they are not.
-	GetGrow() bool
-	SetGrow(newValue bool)
+	GetGrow() *bool
+	SetGrow(newValue *bool)
 }
 
 type BlurImageEffect struct {
@@ -55,7 +55,7 @@ type BlurImageEffect struct {
 	Radius float64 `json:"Radius"`
 
 	// Determines whether the bounds of the object should be grown as a result of the blurring. True indicates the bounds are grown while false indicates that they are not.
-	Grow bool `json:"Grow"`
+	Grow *bool `json:"Grow"`
 }
 
 func NewBlurImageEffect() *BlurImageEffect {
@@ -78,11 +78,11 @@ func (this *BlurImageEffect) GetRadius() float64 {
 func (this *BlurImageEffect) SetRadius(newValue float64) {
 	this.Radius = newValue
 }
-func (this *BlurImageEffect) GetGrow() bool {
+func (this *BlurImageEffect) GetGrow() *bool {
 	return this.Grow
 }
 
-func (this *BlurImageEffect) SetGrow(newValue bool) {
+func (this *BlurImageEffect) SetGrow(newValue *bool) {
 	this.Grow = newValue
 }
 
@@ -149,7 +149,7 @@ func (this *BlurImageEffect) UnmarshalJSON(b []byte) error {
 	
 	if valGrow, ok := objMap["grow"]; ok {
 		if valGrow != nil {
-			var valueForGrow bool
+			var valueForGrow *bool
 			err = json.Unmarshal(*valGrow, &valueForGrow)
 			if err != nil {
 				return err
@@ -159,7 +159,7 @@ func (this *BlurImageEffect) UnmarshalJSON(b []byte) error {
 	}
 	if valGrowCap, ok := objMap["Grow"]; ok {
 		if valGrowCap != nil {
-			var valueForGrow bool
+			var valueForGrow *bool
 			err = json.Unmarshal(*valGrowCap, &valueForGrow)
 			if err != nil {
 				return err

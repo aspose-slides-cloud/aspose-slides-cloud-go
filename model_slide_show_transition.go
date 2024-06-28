@@ -38,24 +38,24 @@ type ISlideShowTransition interface {
 	SetType(newValue string)
 
 	// Advance After
-	GetAdvanceAfter() bool
-	SetAdvanceAfter(newValue bool)
+	GetAdvanceAfter() *bool
+	SetAdvanceAfter(newValue *bool)
 
 	// Advance After Time
 	GetAdvanceAfterTime() int32
 	SetAdvanceAfterTime(newValue int32)
 
 	// Advance On Click
-	GetAdvanceOnClick() bool
-	SetAdvanceOnClick(newValue bool)
+	GetAdvanceOnClick() *bool
+	SetAdvanceOnClick(newValue *bool)
 
 	// Sound Is Built In
-	GetSoundIsBuiltIn() bool
-	SetSoundIsBuiltIn(newValue bool)
+	GetSoundIsBuiltIn() *bool
+	SetSoundIsBuiltIn(newValue *bool)
 
 	// Sound Loop
-	GetSoundLoop() bool
-	SetSoundLoop(newValue bool)
+	GetSoundLoop() *bool
+	SetSoundLoop(newValue *bool)
 
 	// Sound Mode
 	GetSoundMode() string
@@ -82,8 +82,8 @@ type ISlideShowTransition interface {
 	SetInOutDirection(newValue string)
 
 	// Has Bounce.
-	GetHasBounce() bool
-	SetHasBounce(newValue bool)
+	GetHasBounce() *bool
+	SetHasBounce(newValue *bool)
 
 	// Side Direction.
 	GetSideDirection() string
@@ -102,16 +102,16 @@ type ISlideShowTransition interface {
 	SetMorphType(newValue string)
 
 	// From Black.
-	GetFromBlack() bool
-	SetFromBlack(newValue bool)
+	GetFromBlack() *bool
+	SetFromBlack(newValue *bool)
 
 	// Orientation Direction.
 	GetOrientationDirection() string
 	SetOrientationDirection(newValue string)
 
 	// Through Black.
-	GetThroughBlack() bool
-	SetThroughBlack(newValue bool)
+	GetThroughBlack() *bool
+	SetThroughBlack(newValue *bool)
 
 	// Orientation.
 	GetCornerAndCenterDirection() string
@@ -136,19 +136,19 @@ type SlideShowTransition struct {
 	Type_ string `json:"Type,omitempty"`
 
 	// Advance After
-	AdvanceAfter bool `json:"AdvanceAfter"`
+	AdvanceAfter *bool `json:"AdvanceAfter"`
 
 	// Advance After Time
 	AdvanceAfterTime int32 `json:"AdvanceAfterTime,omitempty"`
 
 	// Advance On Click
-	AdvanceOnClick bool `json:"AdvanceOnClick"`
+	AdvanceOnClick *bool `json:"AdvanceOnClick"`
 
 	// Sound Is Built In
-	SoundIsBuiltIn bool `json:"SoundIsBuiltIn"`
+	SoundIsBuiltIn *bool `json:"SoundIsBuiltIn"`
 
 	// Sound Loop
-	SoundLoop bool `json:"SoundLoop"`
+	SoundLoop *bool `json:"SoundLoop"`
 
 	// Sound Mode
 	SoundMode string `json:"SoundMode,omitempty"`
@@ -169,7 +169,7 @@ type SlideShowTransition struct {
 	InOutDirection string `json:"InOutDirection,omitempty"`
 
 	// Has Bounce.
-	HasBounce bool `json:"HasBounce"`
+	HasBounce *bool `json:"HasBounce"`
 
 	// Side Direction.
 	SideDirection string `json:"SideDirection,omitempty"`
@@ -184,13 +184,13 @@ type SlideShowTransition struct {
 	MorphType string `json:"MorphType,omitempty"`
 
 	// From Black.
-	FromBlack bool `json:"FromBlack"`
+	FromBlack *bool `json:"FromBlack"`
 
 	// Orientation Direction.
 	OrientationDirection string `json:"OrientationDirection,omitempty"`
 
 	// Through Black.
-	ThroughBlack bool `json:"ThroughBlack"`
+	ThroughBlack *bool `json:"ThroughBlack"`
 
 	// Orientation.
 	CornerAndCenterDirection string `json:"CornerAndCenterDirection,omitempty"`
@@ -217,11 +217,11 @@ func (this *SlideShowTransition) GetType() string {
 func (this *SlideShowTransition) SetType(newValue string) {
 	this.Type_ = newValue
 }
-func (this *SlideShowTransition) GetAdvanceAfter() bool {
+func (this *SlideShowTransition) GetAdvanceAfter() *bool {
 	return this.AdvanceAfter
 }
 
-func (this *SlideShowTransition) SetAdvanceAfter(newValue bool) {
+func (this *SlideShowTransition) SetAdvanceAfter(newValue *bool) {
 	this.AdvanceAfter = newValue
 }
 func (this *SlideShowTransition) GetAdvanceAfterTime() int32 {
@@ -231,25 +231,25 @@ func (this *SlideShowTransition) GetAdvanceAfterTime() int32 {
 func (this *SlideShowTransition) SetAdvanceAfterTime(newValue int32) {
 	this.AdvanceAfterTime = newValue
 }
-func (this *SlideShowTransition) GetAdvanceOnClick() bool {
+func (this *SlideShowTransition) GetAdvanceOnClick() *bool {
 	return this.AdvanceOnClick
 }
 
-func (this *SlideShowTransition) SetAdvanceOnClick(newValue bool) {
+func (this *SlideShowTransition) SetAdvanceOnClick(newValue *bool) {
 	this.AdvanceOnClick = newValue
 }
-func (this *SlideShowTransition) GetSoundIsBuiltIn() bool {
+func (this *SlideShowTransition) GetSoundIsBuiltIn() *bool {
 	return this.SoundIsBuiltIn
 }
 
-func (this *SlideShowTransition) SetSoundIsBuiltIn(newValue bool) {
+func (this *SlideShowTransition) SetSoundIsBuiltIn(newValue *bool) {
 	this.SoundIsBuiltIn = newValue
 }
-func (this *SlideShowTransition) GetSoundLoop() bool {
+func (this *SlideShowTransition) GetSoundLoop() *bool {
 	return this.SoundLoop
 }
 
-func (this *SlideShowTransition) SetSoundLoop(newValue bool) {
+func (this *SlideShowTransition) SetSoundLoop(newValue *bool) {
 	this.SoundLoop = newValue
 }
 func (this *SlideShowTransition) GetSoundMode() string {
@@ -294,11 +294,11 @@ func (this *SlideShowTransition) GetInOutDirection() string {
 func (this *SlideShowTransition) SetInOutDirection(newValue string) {
 	this.InOutDirection = newValue
 }
-func (this *SlideShowTransition) GetHasBounce() bool {
+func (this *SlideShowTransition) GetHasBounce() *bool {
 	return this.HasBounce
 }
 
-func (this *SlideShowTransition) SetHasBounce(newValue bool) {
+func (this *SlideShowTransition) SetHasBounce(newValue *bool) {
 	this.HasBounce = newValue
 }
 func (this *SlideShowTransition) GetSideDirection() string {
@@ -329,11 +329,11 @@ func (this *SlideShowTransition) GetMorphType() string {
 func (this *SlideShowTransition) SetMorphType(newValue string) {
 	this.MorphType = newValue
 }
-func (this *SlideShowTransition) GetFromBlack() bool {
+func (this *SlideShowTransition) GetFromBlack() *bool {
 	return this.FromBlack
 }
 
-func (this *SlideShowTransition) SetFromBlack(newValue bool) {
+func (this *SlideShowTransition) SetFromBlack(newValue *bool) {
 	this.FromBlack = newValue
 }
 func (this *SlideShowTransition) GetOrientationDirection() string {
@@ -343,11 +343,11 @@ func (this *SlideShowTransition) GetOrientationDirection() string {
 func (this *SlideShowTransition) SetOrientationDirection(newValue string) {
 	this.OrientationDirection = newValue
 }
-func (this *SlideShowTransition) GetThroughBlack() bool {
+func (this *SlideShowTransition) GetThroughBlack() *bool {
 	return this.ThroughBlack
 }
 
-func (this *SlideShowTransition) SetThroughBlack(newValue bool) {
+func (this *SlideShowTransition) SetThroughBlack(newValue *bool) {
 	this.ThroughBlack = newValue
 }
 func (this *SlideShowTransition) GetCornerAndCenterDirection() string {
@@ -421,7 +421,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	
 	if valAdvanceAfter, ok := objMap["advanceAfter"]; ok {
 		if valAdvanceAfter != nil {
-			var valueForAdvanceAfter bool
+			var valueForAdvanceAfter *bool
 			err = json.Unmarshal(*valAdvanceAfter, &valueForAdvanceAfter)
 			if err != nil {
 				return err
@@ -431,7 +431,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	}
 	if valAdvanceAfterCap, ok := objMap["AdvanceAfter"]; ok {
 		if valAdvanceAfterCap != nil {
-			var valueForAdvanceAfter bool
+			var valueForAdvanceAfter *bool
 			err = json.Unmarshal(*valAdvanceAfterCap, &valueForAdvanceAfter)
 			if err != nil {
 				return err
@@ -463,7 +463,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	
 	if valAdvanceOnClick, ok := objMap["advanceOnClick"]; ok {
 		if valAdvanceOnClick != nil {
-			var valueForAdvanceOnClick bool
+			var valueForAdvanceOnClick *bool
 			err = json.Unmarshal(*valAdvanceOnClick, &valueForAdvanceOnClick)
 			if err != nil {
 				return err
@@ -473,7 +473,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	}
 	if valAdvanceOnClickCap, ok := objMap["AdvanceOnClick"]; ok {
 		if valAdvanceOnClickCap != nil {
-			var valueForAdvanceOnClick bool
+			var valueForAdvanceOnClick *bool
 			err = json.Unmarshal(*valAdvanceOnClickCap, &valueForAdvanceOnClick)
 			if err != nil {
 				return err
@@ -484,7 +484,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	
 	if valSoundIsBuiltIn, ok := objMap["soundIsBuiltIn"]; ok {
 		if valSoundIsBuiltIn != nil {
-			var valueForSoundIsBuiltIn bool
+			var valueForSoundIsBuiltIn *bool
 			err = json.Unmarshal(*valSoundIsBuiltIn, &valueForSoundIsBuiltIn)
 			if err != nil {
 				return err
@@ -494,7 +494,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	}
 	if valSoundIsBuiltInCap, ok := objMap["SoundIsBuiltIn"]; ok {
 		if valSoundIsBuiltInCap != nil {
-			var valueForSoundIsBuiltIn bool
+			var valueForSoundIsBuiltIn *bool
 			err = json.Unmarshal(*valSoundIsBuiltInCap, &valueForSoundIsBuiltIn)
 			if err != nil {
 				return err
@@ -505,7 +505,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	
 	if valSoundLoop, ok := objMap["soundLoop"]; ok {
 		if valSoundLoop != nil {
-			var valueForSoundLoop bool
+			var valueForSoundLoop *bool
 			err = json.Unmarshal(*valSoundLoop, &valueForSoundLoop)
 			if err != nil {
 				return err
@@ -515,7 +515,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	}
 	if valSoundLoopCap, ok := objMap["SoundLoop"]; ok {
 		if valSoundLoopCap != nil {
-			var valueForSoundLoop bool
+			var valueForSoundLoop *bool
 			err = json.Unmarshal(*valSoundLoopCap, &valueForSoundLoop)
 			if err != nil {
 				return err
@@ -712,7 +712,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	
 	if valHasBounce, ok := objMap["hasBounce"]; ok {
 		if valHasBounce != nil {
-			var valueForHasBounce bool
+			var valueForHasBounce *bool
 			err = json.Unmarshal(*valHasBounce, &valueForHasBounce)
 			if err != nil {
 				return err
@@ -722,7 +722,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	}
 	if valHasBounceCap, ok := objMap["HasBounce"]; ok {
 		if valHasBounceCap != nil {
-			var valueForHasBounce bool
+			var valueForHasBounce *bool
 			err = json.Unmarshal(*valHasBounceCap, &valueForHasBounce)
 			if err != nil {
 				return err
@@ -865,7 +865,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	
 	if valFromBlack, ok := objMap["fromBlack"]; ok {
 		if valFromBlack != nil {
-			var valueForFromBlack bool
+			var valueForFromBlack *bool
 			err = json.Unmarshal(*valFromBlack, &valueForFromBlack)
 			if err != nil {
 				return err
@@ -875,7 +875,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	}
 	if valFromBlackCap, ok := objMap["FromBlack"]; ok {
 		if valFromBlackCap != nil {
-			var valueForFromBlack bool
+			var valueForFromBlack *bool
 			err = json.Unmarshal(*valFromBlackCap, &valueForFromBlack)
 			if err != nil {
 				return err
@@ -919,7 +919,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	
 	if valThroughBlack, ok := objMap["throughBlack"]; ok {
 		if valThroughBlack != nil {
-			var valueForThroughBlack bool
+			var valueForThroughBlack *bool
 			err = json.Unmarshal(*valThroughBlack, &valueForThroughBlack)
 			if err != nil {
 				return err
@@ -929,7 +929,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 	}
 	if valThroughBlackCap, ok := objMap["ThroughBlack"]; ok {
 		if valThroughBlackCap != nil {
-			var valueForThroughBlack bool
+			var valueForThroughBlack *bool
 			err = json.Unmarshal(*valThroughBlackCap, &valueForThroughBlack)
 			if err != nil {
 				return err

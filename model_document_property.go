@@ -50,8 +50,8 @@ type IDocumentProperty interface {
 	SetValue(newValue string)
 
 	// True for builtin property.
-	GetBuiltIn() bool
-	SetBuiltIn(newValue bool)
+	GetBuiltIn() *bool
+	SetBuiltIn(newValue *bool)
 }
 
 type DocumentProperty struct {
@@ -69,7 +69,7 @@ type DocumentProperty struct {
 	Value string `json:"Value,omitempty"`
 
 	// True for builtin property.
-	BuiltIn bool `json:"BuiltIn"`
+	BuiltIn *bool `json:"BuiltIn"`
 }
 
 func NewDocumentProperty() *DocumentProperty {
@@ -105,11 +105,11 @@ func (this *DocumentProperty) GetValue() string {
 func (this *DocumentProperty) SetValue(newValue string) {
 	this.Value = newValue
 }
-func (this *DocumentProperty) GetBuiltIn() bool {
+func (this *DocumentProperty) GetBuiltIn() *bool {
 	return this.BuiltIn
 }
 
-func (this *DocumentProperty) SetBuiltIn(newValue bool) {
+func (this *DocumentProperty) SetBuiltIn(newValue *bool) {
 	this.BuiltIn = newValue
 }
 
@@ -256,7 +256,7 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 	
 	if valBuiltIn, ok := objMap["builtIn"]; ok {
 		if valBuiltIn != nil {
-			var valueForBuiltIn bool
+			var valueForBuiltIn *bool
 			err = json.Unmarshal(*valBuiltIn, &valueForBuiltIn)
 			if err != nil {
 				return err
@@ -266,7 +266,7 @@ func (this *DocumentProperty) UnmarshalJSON(b []byte) error {
 	}
 	if valBuiltInCap, ok := objMap["BuiltIn"]; ok {
 		if valBuiltInCap != nil {
-			var valueForBuiltIn bool
+			var valueForBuiltIn *bool
 			err = json.Unmarshal(*valBuiltInCap, &valueForBuiltIn)
 			if err != nil {
 				return err

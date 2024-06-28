@@ -58,16 +58,16 @@ type INaryOperatorElement interface {
 	SetLimitLocation(newValue string)
 
 	// Operator Character grows vertically to match its operand height
-	GetGrowToMatchOperandHeight() bool
-	SetGrowToMatchOperandHeight(newValue bool)
+	GetGrowToMatchOperandHeight() *bool
+	SetGrowToMatchOperandHeight(newValue *bool)
 
 	// Hide Subscript
-	GetHideSubscript() bool
-	SetHideSubscript(newValue bool)
+	GetHideSubscript() *bool
+	SetHideSubscript(newValue *bool)
 
 	// Hide Superscript
-	GetHideSuperscript() bool
-	SetHideSuperscript(newValue bool)
+	GetHideSuperscript() *bool
+	SetHideSuperscript(newValue *bool)
 }
 
 type NaryOperatorElement struct {
@@ -91,13 +91,13 @@ type NaryOperatorElement struct {
 	LimitLocation string `json:"LimitLocation,omitempty"`
 
 	// Operator Character grows vertically to match its operand height
-	GrowToMatchOperandHeight bool `json:"GrowToMatchOperandHeight"`
+	GrowToMatchOperandHeight *bool `json:"GrowToMatchOperandHeight"`
 
 	// Hide Subscript
-	HideSubscript bool `json:"HideSubscript"`
+	HideSubscript *bool `json:"HideSubscript"`
 
 	// Hide Superscript
-	HideSuperscript bool `json:"HideSuperscript"`
+	HideSuperscript *bool `json:"HideSuperscript"`
 }
 
 func NewNaryOperatorElement() *NaryOperatorElement {
@@ -148,25 +148,25 @@ func (this *NaryOperatorElement) GetLimitLocation() string {
 func (this *NaryOperatorElement) SetLimitLocation(newValue string) {
 	this.LimitLocation = newValue
 }
-func (this *NaryOperatorElement) GetGrowToMatchOperandHeight() bool {
+func (this *NaryOperatorElement) GetGrowToMatchOperandHeight() *bool {
 	return this.GrowToMatchOperandHeight
 }
 
-func (this *NaryOperatorElement) SetGrowToMatchOperandHeight(newValue bool) {
+func (this *NaryOperatorElement) SetGrowToMatchOperandHeight(newValue *bool) {
 	this.GrowToMatchOperandHeight = newValue
 }
-func (this *NaryOperatorElement) GetHideSubscript() bool {
+func (this *NaryOperatorElement) GetHideSubscript() *bool {
 	return this.HideSubscript
 }
 
-func (this *NaryOperatorElement) SetHideSubscript(newValue bool) {
+func (this *NaryOperatorElement) SetHideSubscript(newValue *bool) {
 	this.HideSubscript = newValue
 }
-func (this *NaryOperatorElement) GetHideSuperscript() bool {
+func (this *NaryOperatorElement) GetHideSuperscript() *bool {
 	return this.HideSuperscript
 }
 
-func (this *NaryOperatorElement) SetHideSuperscript(newValue bool) {
+func (this *NaryOperatorElement) SetHideSuperscript(newValue *bool) {
 	this.HideSuperscript = newValue
 }
 
@@ -395,7 +395,7 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 	
 	if valGrowToMatchOperandHeight, ok := objMap["growToMatchOperandHeight"]; ok {
 		if valGrowToMatchOperandHeight != nil {
-			var valueForGrowToMatchOperandHeight bool
+			var valueForGrowToMatchOperandHeight *bool
 			err = json.Unmarshal(*valGrowToMatchOperandHeight, &valueForGrowToMatchOperandHeight)
 			if err != nil {
 				return err
@@ -405,7 +405,7 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 	}
 	if valGrowToMatchOperandHeightCap, ok := objMap["GrowToMatchOperandHeight"]; ok {
 		if valGrowToMatchOperandHeightCap != nil {
-			var valueForGrowToMatchOperandHeight bool
+			var valueForGrowToMatchOperandHeight *bool
 			err = json.Unmarshal(*valGrowToMatchOperandHeightCap, &valueForGrowToMatchOperandHeight)
 			if err != nil {
 				return err
@@ -416,7 +416,7 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 	
 	if valHideSubscript, ok := objMap["hideSubscript"]; ok {
 		if valHideSubscript != nil {
-			var valueForHideSubscript bool
+			var valueForHideSubscript *bool
 			err = json.Unmarshal(*valHideSubscript, &valueForHideSubscript)
 			if err != nil {
 				return err
@@ -426,7 +426,7 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 	}
 	if valHideSubscriptCap, ok := objMap["HideSubscript"]; ok {
 		if valHideSubscriptCap != nil {
-			var valueForHideSubscript bool
+			var valueForHideSubscript *bool
 			err = json.Unmarshal(*valHideSubscriptCap, &valueForHideSubscript)
 			if err != nil {
 				return err
@@ -437,7 +437,7 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 	
 	if valHideSuperscript, ok := objMap["hideSuperscript"]; ok {
 		if valHideSuperscript != nil {
-			var valueForHideSuperscript bool
+			var valueForHideSuperscript *bool
 			err = json.Unmarshal(*valHideSuperscript, &valueForHideSuperscript)
 			if err != nil {
 				return err
@@ -447,7 +447,7 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 	}
 	if valHideSuperscriptCap, ok := objMap["HideSuperscript"]; ok {
 		if valHideSuperscriptCap != nil {
-			var valueForHideSuperscript bool
+			var valueForHideSuperscript *bool
 			err = json.Unmarshal(*valHideSuperscriptCap, &valueForHideSuperscript)
 			if err != nil {
 				return err

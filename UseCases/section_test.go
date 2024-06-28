@@ -77,7 +77,7 @@ func TestMathSave(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
@@ -95,9 +95,11 @@ func TestHeaderFooterSlides(t *testing.T) {
 	}
 
 	dto := slidescloud.NewHeaderFooter()
-	dto.IsFooterVisible = true
+	isFooterVisible := true
+	dto.IsFooterVisible = &isFooterVisible
 	dto.FooterText = "footer"
-	dto.IsDateTimeVisible = false
+	isDateTimeVisible := false
+	dto.IsDateTimeVisible = &isDateTimeVisible
 	_, _, e = c.SlidesApi.SetPresentationHeaderFooter(fileName, dto, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -108,11 +110,11 @@ func TestHeaderFooterSlides(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !result.GetIsFooterVisible() {
+	if !*result.GetIsFooterVisible() {
 		t.Errorf("Wrong IsFooterVisible value. Expected to be true.")
 		return
 	}
-	if result.GetIsDateTimeVisible() {
+	if *result.GetIsDateTimeVisible() {
 		t.Errorf("Wrong IsDateTimeVisible value. Expected to be false.")
 		return
 	}
@@ -131,19 +133,21 @@ func TestHeaderFooterSlide(t *testing.T) {
 	}
 
 	dto := slidescloud.NewHeaderFooter()
-	dto.IsFooterVisible = true
+	isFooterVisible := true
+	dto.IsFooterVisible = &isFooterVisible
 	dto.FooterText = "footer"
-	dto.IsDateTimeVisible = false
+	isDateTimeVisible := false
+	dto.IsDateTimeVisible = &isDateTimeVisible
 	result, _, e := c.SlidesApi.SetSlideHeaderFooter(fileName, slideIndex, dto, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !result.GetIsFooterVisible() {
+	if !*result.GetIsFooterVisible() {
 		t.Errorf("Wrong IsFooterVisible value. Expected to be true.")
 		return
 	}
-	if result.GetIsDateTimeVisible() {
+	if *result.GetIsDateTimeVisible() {
 		t.Errorf("Wrong IsDateTimeVisible value. Expected to be false.")
 		return
 	}
@@ -152,11 +156,11 @@ func TestHeaderFooterSlide(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !result.GetIsFooterVisible() {
+	if !*result.GetIsFooterVisible() {
 		t.Errorf("Wrong IsFooterVisible value. Expected to be true.")
 		return
 	}
-	if result.GetIsDateTimeVisible() {
+	if *result.GetIsDateTimeVisible() {
 		t.Errorf("Wrong IsDateTimeVisible value. Expected to be false.")
 		return
 	}
@@ -175,19 +179,21 @@ func TestHeaderFooterNotesSlide(t *testing.T) {
 	}
 
 	dto := slidescloud.NewNotesSlideHeaderFooter()
-	dto.IsHeaderVisible = true
+	isHeaderVisible := true
+	dto.IsHeaderVisible = &isHeaderVisible
 	dto.FooterText = "footer"
-	dto.IsDateTimeVisible = false
+	isDateTimeVisible := false
+	dto.IsDateTimeVisible = &isDateTimeVisible
 	result, _, e := c.SlidesApi.SetNotesSlideHeaderFooter(fileName, slideIndex, dto, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !result.GetIsHeaderVisible() {
+	if !*result.GetIsHeaderVisible() {
 		t.Errorf("Wrong IsHeaderVisible value. Expected to be true.")
 		return
 	}
-	if result.GetIsDateTimeVisible() {
+	if *result.GetIsDateTimeVisible() {
 		t.Errorf("Wrong IsDateTimeVisible value. Expected to be false.")
 		return
 	}
@@ -196,11 +202,11 @@ func TestHeaderFooterNotesSlide(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !result.GetIsHeaderVisible() {
+	if !*result.GetIsHeaderVisible() {
 		t.Errorf("Wrong IsHeaderVisible value. Expected to be true.")
 		return
 	}
-	if result.GetIsDateTimeVisible() {
+	if *result.GetIsDateTimeVisible() {
 		t.Errorf("Wrong IsDateTimeVisible value. Expected to be false.")
 		return
 	}

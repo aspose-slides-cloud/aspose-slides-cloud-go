@@ -54,8 +54,8 @@ type IPdfExportOptions interface {
 	SetTextCompression(newValue string)
 
 	// Determines if all characters of font should be embedded or only used subset.
-	GetEmbedFullFonts() bool
-	SetEmbedFullFonts(newValue bool)
+	GetEmbedFullFonts() *bool
+	SetEmbedFullFonts(newValue *bool)
 
 	// Desired conformance level for generated PDF document.
 	GetCompliance() string
@@ -70,24 +70,24 @@ type IPdfExportOptions interface {
 	SetJpegQuality(newValue int32)
 
 	// True to draw black frame around each slide.
-	GetDrawSlidesFrame() bool
-	SetDrawSlidesFrame(newValue bool)
+	GetDrawSlidesFrame() *bool
+	SetDrawSlidesFrame(newValue *bool)
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	GetShowHiddenSlides() bool
-	SetShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() *bool
+	SetShowHiddenSlides(newValue *bool)
 
 	// True to convert all metafiles used in a presentation to the PNG images.
-	GetSaveMetafilesAsPng() bool
-	SetSaveMetafilesAsPng(newValue bool)
+	GetSaveMetafilesAsPng() *bool
+	SetSaveMetafilesAsPng(newValue *bool)
 
 	// Setting user password to protect the PDF document. 
 	GetPassword() string
 	SetPassword(newValue string)
 
 	// Determines if Aspose.Slides will embed common fonts for ASCII (33..127 code range) text. Fonts for character codes greater than 127 are always embedded. Common fonts list includes PDF's base 14 fonts and additional user specified fonts.
-	GetEmbedTrueTypeFontsForASCII() bool
-	SetEmbedTrueTypeFontsForASCII(newValue bool)
+	GetEmbedTrueTypeFontsForASCII() *bool
+	SetEmbedTrueTypeFontsForASCII(newValue *bool)
 
 	// Returns or sets an array of user-defined names of font families which Aspose.Slides should consider common.
 	GetAdditionalCommonFontFamilies() []string
@@ -102,12 +102,20 @@ type IPdfExportOptions interface {
 	SetImageTransparentColor(newValue string)
 
 	// True to apply specified ImageTransparentColor  to an image.
-	GetApplyImageTransparent() bool
-	SetApplyImageTransparent(newValue bool)
+	GetApplyImageTransparent() *bool
+	SetApplyImageTransparent(newValue *bool)
 
 	// Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.             
 	GetAccessPermissions() IAccessPermissions
 	SetAccessPermissions(newValue IAccessPermissions)
+
+	// True to hide Ink elements in exported document.
+	GetHideInk() *bool
+	SetHideInk(newValue *bool)
+
+	// True to use ROP operation or Opacity for rendering brush.
+	GetInterpretMaskOpAsOpacity() *bool
+	SetInterpretMaskOpAsOpacity(newValue *bool)
 }
 
 type PdfExportOptions struct {
@@ -128,7 +136,7 @@ type PdfExportOptions struct {
 	TextCompression string `json:"TextCompression,omitempty"`
 
 	// Determines if all characters of font should be embedded or only used subset.
-	EmbedFullFonts bool `json:"EmbedFullFonts"`
+	EmbedFullFonts *bool `json:"EmbedFullFonts"`
 
 	// Desired conformance level for generated PDF document.
 	Compliance string `json:"Compliance,omitempty"`
@@ -140,19 +148,19 @@ type PdfExportOptions struct {
 	JpegQuality int32 `json:"JpegQuality,omitempty"`
 
 	// True to draw black frame around each slide.
-	DrawSlidesFrame bool `json:"DrawSlidesFrame"`
+	DrawSlidesFrame *bool `json:"DrawSlidesFrame"`
 
 	// Specifies whether the generated document should include hidden slides or not. Default is false. 
-	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
+	ShowHiddenSlides *bool `json:"ShowHiddenSlides"`
 
 	// True to convert all metafiles used in a presentation to the PNG images.
-	SaveMetafilesAsPng bool `json:"SaveMetafilesAsPng"`
+	SaveMetafilesAsPng *bool `json:"SaveMetafilesAsPng"`
 
 	// Setting user password to protect the PDF document. 
 	Password string `json:"Password,omitempty"`
 
 	// Determines if Aspose.Slides will embed common fonts for ASCII (33..127 code range) text. Fonts for character codes greater than 127 are always embedded. Common fonts list includes PDF's base 14 fonts and additional user specified fonts.
-	EmbedTrueTypeFontsForASCII bool `json:"EmbedTrueTypeFontsForASCII"`
+	EmbedTrueTypeFontsForASCII *bool `json:"EmbedTrueTypeFontsForASCII"`
 
 	// Returns or sets an array of user-defined names of font families which Aspose.Slides should consider common.
 	AdditionalCommonFontFamilies []string `json:"AdditionalCommonFontFamilies,omitempty"`
@@ -164,10 +172,16 @@ type PdfExportOptions struct {
 	ImageTransparentColor string `json:"ImageTransparentColor,omitempty"`
 
 	// True to apply specified ImageTransparentColor  to an image.
-	ApplyImageTransparent bool `json:"ApplyImageTransparent"`
+	ApplyImageTransparent *bool `json:"ApplyImageTransparent"`
 
 	// Access permissions that should be granted when the document is opened with user access.  Default is AccessPermissions.None.             
 	AccessPermissions IAccessPermissions `json:"AccessPermissions,omitempty"`
+
+	// True to hide Ink elements in exported document.
+	HideInk *bool `json:"HideInk"`
+
+	// True to use ROP operation or Opacity for rendering brush.
+	InterpretMaskOpAsOpacity *bool `json:"InterpretMaskOpAsOpacity"`
 }
 
 func NewPdfExportOptions() *PdfExportOptions {
@@ -210,11 +224,11 @@ func (this *PdfExportOptions) GetTextCompression() string {
 func (this *PdfExportOptions) SetTextCompression(newValue string) {
 	this.TextCompression = newValue
 }
-func (this *PdfExportOptions) GetEmbedFullFonts() bool {
+func (this *PdfExportOptions) GetEmbedFullFonts() *bool {
 	return this.EmbedFullFonts
 }
 
-func (this *PdfExportOptions) SetEmbedFullFonts(newValue bool) {
+func (this *PdfExportOptions) SetEmbedFullFonts(newValue *bool) {
 	this.EmbedFullFonts = newValue
 }
 func (this *PdfExportOptions) GetCompliance() string {
@@ -238,25 +252,25 @@ func (this *PdfExportOptions) GetJpegQuality() int32 {
 func (this *PdfExportOptions) SetJpegQuality(newValue int32) {
 	this.JpegQuality = newValue
 }
-func (this *PdfExportOptions) GetDrawSlidesFrame() bool {
+func (this *PdfExportOptions) GetDrawSlidesFrame() *bool {
 	return this.DrawSlidesFrame
 }
 
-func (this *PdfExportOptions) SetDrawSlidesFrame(newValue bool) {
+func (this *PdfExportOptions) SetDrawSlidesFrame(newValue *bool) {
 	this.DrawSlidesFrame = newValue
 }
-func (this *PdfExportOptions) GetShowHiddenSlides() bool {
+func (this *PdfExportOptions) GetShowHiddenSlides() *bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *PdfExportOptions) SetShowHiddenSlides(newValue bool) {
+func (this *PdfExportOptions) SetShowHiddenSlides(newValue *bool) {
 	this.ShowHiddenSlides = newValue
 }
-func (this *PdfExportOptions) GetSaveMetafilesAsPng() bool {
+func (this *PdfExportOptions) GetSaveMetafilesAsPng() *bool {
 	return this.SaveMetafilesAsPng
 }
 
-func (this *PdfExportOptions) SetSaveMetafilesAsPng(newValue bool) {
+func (this *PdfExportOptions) SetSaveMetafilesAsPng(newValue *bool) {
 	this.SaveMetafilesAsPng = newValue
 }
 func (this *PdfExportOptions) GetPassword() string {
@@ -266,11 +280,11 @@ func (this *PdfExportOptions) GetPassword() string {
 func (this *PdfExportOptions) SetPassword(newValue string) {
 	this.Password = newValue
 }
-func (this *PdfExportOptions) GetEmbedTrueTypeFontsForASCII() bool {
+func (this *PdfExportOptions) GetEmbedTrueTypeFontsForASCII() *bool {
 	return this.EmbedTrueTypeFontsForASCII
 }
 
-func (this *PdfExportOptions) SetEmbedTrueTypeFontsForASCII(newValue bool) {
+func (this *PdfExportOptions) SetEmbedTrueTypeFontsForASCII(newValue *bool) {
 	this.EmbedTrueTypeFontsForASCII = newValue
 }
 func (this *PdfExportOptions) GetAdditionalCommonFontFamilies() []string {
@@ -294,11 +308,11 @@ func (this *PdfExportOptions) GetImageTransparentColor() string {
 func (this *PdfExportOptions) SetImageTransparentColor(newValue string) {
 	this.ImageTransparentColor = newValue
 }
-func (this *PdfExportOptions) GetApplyImageTransparent() bool {
+func (this *PdfExportOptions) GetApplyImageTransparent() *bool {
 	return this.ApplyImageTransparent
 }
 
-func (this *PdfExportOptions) SetApplyImageTransparent(newValue bool) {
+func (this *PdfExportOptions) SetApplyImageTransparent(newValue *bool) {
 	this.ApplyImageTransparent = newValue
 }
 func (this *PdfExportOptions) GetAccessPermissions() IAccessPermissions {
@@ -307,6 +321,20 @@ func (this *PdfExportOptions) GetAccessPermissions() IAccessPermissions {
 
 func (this *PdfExportOptions) SetAccessPermissions(newValue IAccessPermissions) {
 	this.AccessPermissions = newValue
+}
+func (this *PdfExportOptions) GetHideInk() *bool {
+	return this.HideInk
+}
+
+func (this *PdfExportOptions) SetHideInk(newValue *bool) {
+	this.HideInk = newValue
+}
+func (this *PdfExportOptions) GetInterpretMaskOpAsOpacity() *bool {
+	return this.InterpretMaskOpAsOpacity
+}
+
+func (this *PdfExportOptions) SetInterpretMaskOpAsOpacity(newValue *bool) {
+	this.InterpretMaskOpAsOpacity = newValue
 }
 
 func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
@@ -491,7 +519,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valEmbedFullFonts, ok := objMap["embedFullFonts"]; ok {
 		if valEmbedFullFonts != nil {
-			var valueForEmbedFullFonts bool
+			var valueForEmbedFullFonts *bool
 			err = json.Unmarshal(*valEmbedFullFonts, &valueForEmbedFullFonts)
 			if err != nil {
 				return err
@@ -501,7 +529,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valEmbedFullFontsCap, ok := objMap["EmbedFullFonts"]; ok {
 		if valEmbedFullFontsCap != nil {
-			var valueForEmbedFullFonts bool
+			var valueForEmbedFullFonts *bool
 			err = json.Unmarshal(*valEmbedFullFontsCap, &valueForEmbedFullFonts)
 			if err != nil {
 				return err
@@ -587,7 +615,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valDrawSlidesFrame, ok := objMap["drawSlidesFrame"]; ok {
 		if valDrawSlidesFrame != nil {
-			var valueForDrawSlidesFrame bool
+			var valueForDrawSlidesFrame *bool
 			err = json.Unmarshal(*valDrawSlidesFrame, &valueForDrawSlidesFrame)
 			if err != nil {
 				return err
@@ -597,7 +625,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valDrawSlidesFrameCap, ok := objMap["DrawSlidesFrame"]; ok {
 		if valDrawSlidesFrameCap != nil {
-			var valueForDrawSlidesFrame bool
+			var valueForDrawSlidesFrame *bool
 			err = json.Unmarshal(*valDrawSlidesFrameCap, &valueForDrawSlidesFrame)
 			if err != nil {
 				return err
@@ -608,7 +636,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
 			if err != nil {
 				return err
@@ -618,7 +646,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
 		if valShowHiddenSlidesCap != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
 			if err != nil {
 				return err
@@ -629,7 +657,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valSaveMetafilesAsPng, ok := objMap["saveMetafilesAsPng"]; ok {
 		if valSaveMetafilesAsPng != nil {
-			var valueForSaveMetafilesAsPng bool
+			var valueForSaveMetafilesAsPng *bool
 			err = json.Unmarshal(*valSaveMetafilesAsPng, &valueForSaveMetafilesAsPng)
 			if err != nil {
 				return err
@@ -639,7 +667,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valSaveMetafilesAsPngCap, ok := objMap["SaveMetafilesAsPng"]; ok {
 		if valSaveMetafilesAsPngCap != nil {
-			var valueForSaveMetafilesAsPng bool
+			var valueForSaveMetafilesAsPng *bool
 			err = json.Unmarshal(*valSaveMetafilesAsPngCap, &valueForSaveMetafilesAsPng)
 			if err != nil {
 				return err
@@ -671,7 +699,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valEmbedTrueTypeFontsForASCII, ok := objMap["embedTrueTypeFontsForASCII"]; ok {
 		if valEmbedTrueTypeFontsForASCII != nil {
-			var valueForEmbedTrueTypeFontsForASCII bool
+			var valueForEmbedTrueTypeFontsForASCII *bool
 			err = json.Unmarshal(*valEmbedTrueTypeFontsForASCII, &valueForEmbedTrueTypeFontsForASCII)
 			if err != nil {
 				return err
@@ -681,7 +709,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valEmbedTrueTypeFontsForASCIICap, ok := objMap["EmbedTrueTypeFontsForASCII"]; ok {
 		if valEmbedTrueTypeFontsForASCIICap != nil {
-			var valueForEmbedTrueTypeFontsForASCII bool
+			var valueForEmbedTrueTypeFontsForASCII *bool
 			err = json.Unmarshal(*valEmbedTrueTypeFontsForASCIICap, &valueForEmbedTrueTypeFontsForASCII)
 			if err != nil {
 				return err
@@ -777,7 +805,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valApplyImageTransparent, ok := objMap["applyImageTransparent"]; ok {
 		if valApplyImageTransparent != nil {
-			var valueForApplyImageTransparent bool
+			var valueForApplyImageTransparent *bool
 			err = json.Unmarshal(*valApplyImageTransparent, &valueForApplyImageTransparent)
 			if err != nil {
 				return err
@@ -787,7 +815,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valApplyImageTransparentCap, ok := objMap["ApplyImageTransparent"]; ok {
 		if valApplyImageTransparentCap != nil {
-			var valueForApplyImageTransparent bool
+			var valueForApplyImageTransparent *bool
 			err = json.Unmarshal(*valApplyImageTransparentCap, &valueForApplyImageTransparent)
 			if err != nil {
 				return err
@@ -836,6 +864,48 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			if ok {
 				this.AccessPermissions = vInterfaceObject
 			}
+		}
+	}
+	
+	if valHideInk, ok := objMap["hideInk"]; ok {
+		if valHideInk != nil {
+			var valueForHideInk *bool
+			err = json.Unmarshal(*valHideInk, &valueForHideInk)
+			if err != nil {
+				return err
+			}
+			this.HideInk = valueForHideInk
+		}
+	}
+	if valHideInkCap, ok := objMap["HideInk"]; ok {
+		if valHideInkCap != nil {
+			var valueForHideInk *bool
+			err = json.Unmarshal(*valHideInkCap, &valueForHideInk)
+			if err != nil {
+				return err
+			}
+			this.HideInk = valueForHideInk
+		}
+	}
+	
+	if valInterpretMaskOpAsOpacity, ok := objMap["interpretMaskOpAsOpacity"]; ok {
+		if valInterpretMaskOpAsOpacity != nil {
+			var valueForInterpretMaskOpAsOpacity *bool
+			err = json.Unmarshal(*valInterpretMaskOpAsOpacity, &valueForInterpretMaskOpAsOpacity)
+			if err != nil {
+				return err
+			}
+			this.InterpretMaskOpAsOpacity = valueForInterpretMaskOpAsOpacity
+		}
+	}
+	if valInterpretMaskOpAsOpacityCap, ok := objMap["InterpretMaskOpAsOpacity"]; ok {
+		if valInterpretMaskOpAsOpacityCap != nil {
+			var valueForInterpretMaskOpAsOpacity *bool
+			err = json.Unmarshal(*valInterpretMaskOpAsOpacityCap, &valueForInterpretMaskOpAsOpacity)
+			if err != nil {
+				return err
+			}
+			this.InterpretMaskOpAsOpacity = valueForInterpretMaskOpAsOpacity
 		}
 	}
 

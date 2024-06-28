@@ -212,7 +212,10 @@ func (c *APIClient) makeRequestWithAuthCheck(
 		return resp, nil, false, err
 	}
 	if c.cfg.Debug {
-		fmt.Printf("-->: %v\n", r)
+		fmt.Printf("-->: %v %v %v\n", r.Method, r.URL, r.Header)
+		if !strings.Contains(r.Header.Get("Content-Type"), "multipart") && r.Body != nil {
+			fmt.Printf("-->BODY: %v\n", r.Body)
+		}
 	}
 	localVarHttpResponse, err := c.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
@@ -225,7 +228,7 @@ func (c *APIClient) makeRequestWithAuthCheck(
         responseLength := 0
 	responseBytes, err = ioutil.ReadAll(localVarHttpResponse.Body)
 	if err == nil && localVarHttpResponse != nil {
-		if c.cfg.Debug {
+		if c.cfg.Debug && (strings.Contains(localVarHttpResponse.Header.Get("Content-Type"), "text") || strings.Contains(localVarHttpResponse.Header.Get("Content-Type"), "json")) {
 			fmt.Printf("<--BODY: %v\n", string(responseBytes))
 		}
 		responseBytes = bytes.Replace(responseBytes, []byte(":\"NaN\""), []byte(":null"), -1)

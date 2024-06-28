@@ -54,8 +54,8 @@ type IGradientFill interface {
 	SetLinearAngle(newValue float64)
 
 	// True if the gradient is scaled.
-	GetIsScaled() bool
-	SetIsScaled(newValue bool)
+	GetIsScaled() *bool
+	SetIsScaled(newValue *bool)
 
 	// Gradient flipping mode.
 	GetTileFlip() string
@@ -80,7 +80,7 @@ type GradientFill struct {
 	LinearAngle float64 `json:"LinearAngle"`
 
 	// True if the gradient is scaled.
-	IsScaled bool `json:"IsScaled"`
+	IsScaled *bool `json:"IsScaled"`
 
 	// Gradient flipping mode.
 	TileFlip string `json:"TileFlip"`
@@ -130,11 +130,11 @@ func (this *GradientFill) GetLinearAngle() float64 {
 func (this *GradientFill) SetLinearAngle(newValue float64) {
 	this.LinearAngle = newValue
 }
-func (this *GradientFill) GetIsScaled() bool {
+func (this *GradientFill) GetIsScaled() *bool {
 	return this.IsScaled
 }
 
-func (this *GradientFill) SetIsScaled(newValue bool) {
+func (this *GradientFill) SetIsScaled(newValue *bool) {
 	this.IsScaled = newValue
 }
 func (this *GradientFill) GetTileFlip() string {
@@ -323,7 +323,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 	
 	if valIsScaled, ok := objMap["isScaled"]; ok {
 		if valIsScaled != nil {
-			var valueForIsScaled bool
+			var valueForIsScaled *bool
 			err = json.Unmarshal(*valIsScaled, &valueForIsScaled)
 			if err != nil {
 				return err
@@ -333,7 +333,7 @@ func (this *GradientFill) UnmarshalJSON(b []byte) error {
 	}
 	if valIsScaledCap, ok := objMap["IsScaled"]; ok {
 		if valIsScaledCap != nil {
-			var valueForIsScaled bool
+			var valueForIsScaled *bool
 			err = json.Unmarshal(*valIsScaledCap, &valueForIsScaled)
 			if err != nil {
 				return err

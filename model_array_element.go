@@ -46,12 +46,12 @@ type IArrayElement interface {
 	SetBaseJustification(newValue string)
 
 	// Maximum Distribution
-	GetMaximumDistribution() bool
-	SetMaximumDistribution(newValue bool)
+	GetMaximumDistribution() *bool
+	SetMaximumDistribution(newValue *bool)
 
 	// Object Distribution
-	GetObjectDistribution() bool
-	SetObjectDistribution(newValue bool)
+	GetObjectDistribution() *bool
+	SetObjectDistribution(newValue *bool)
 
 	// The type of vertical spacing between array elements
 	GetRowSpacingRule() string
@@ -74,10 +74,10 @@ type ArrayElement struct {
 	BaseJustification string `json:"BaseJustification,omitempty"`
 
 	// Maximum Distribution
-	MaximumDistribution bool `json:"MaximumDistribution"`
+	MaximumDistribution *bool `json:"MaximumDistribution"`
 
 	// Object Distribution
-	ObjectDistribution bool `json:"ObjectDistribution"`
+	ObjectDistribution *bool `json:"ObjectDistribution"`
 
 	// The type of vertical spacing between array elements
 	RowSpacingRule string `json:"RowSpacingRule,omitempty"`
@@ -113,18 +113,18 @@ func (this *ArrayElement) GetBaseJustification() string {
 func (this *ArrayElement) SetBaseJustification(newValue string) {
 	this.BaseJustification = newValue
 }
-func (this *ArrayElement) GetMaximumDistribution() bool {
+func (this *ArrayElement) GetMaximumDistribution() *bool {
 	return this.MaximumDistribution
 }
 
-func (this *ArrayElement) SetMaximumDistribution(newValue bool) {
+func (this *ArrayElement) SetMaximumDistribution(newValue *bool) {
 	this.MaximumDistribution = newValue
 }
-func (this *ArrayElement) GetObjectDistribution() bool {
+func (this *ArrayElement) GetObjectDistribution() *bool {
 	return this.ObjectDistribution
 }
 
-func (this *ArrayElement) SetObjectDistribution(newValue bool) {
+func (this *ArrayElement) SetObjectDistribution(newValue *bool) {
 	this.ObjectDistribution = newValue
 }
 func (this *ArrayElement) GetRowSpacingRule() string {
@@ -266,7 +266,7 @@ func (this *ArrayElement) UnmarshalJSON(b []byte) error {
 	
 	if valMaximumDistribution, ok := objMap["maximumDistribution"]; ok {
 		if valMaximumDistribution != nil {
-			var valueForMaximumDistribution bool
+			var valueForMaximumDistribution *bool
 			err = json.Unmarshal(*valMaximumDistribution, &valueForMaximumDistribution)
 			if err != nil {
 				return err
@@ -276,7 +276,7 @@ func (this *ArrayElement) UnmarshalJSON(b []byte) error {
 	}
 	if valMaximumDistributionCap, ok := objMap["MaximumDistribution"]; ok {
 		if valMaximumDistributionCap != nil {
-			var valueForMaximumDistribution bool
+			var valueForMaximumDistribution *bool
 			err = json.Unmarshal(*valMaximumDistributionCap, &valueForMaximumDistribution)
 			if err != nil {
 				return err
@@ -287,7 +287,7 @@ func (this *ArrayElement) UnmarshalJSON(b []byte) error {
 	
 	if valObjectDistribution, ok := objMap["objectDistribution"]; ok {
 		if valObjectDistribution != nil {
-			var valueForObjectDistribution bool
+			var valueForObjectDistribution *bool
 			err = json.Unmarshal(*valObjectDistribution, &valueForObjectDistribution)
 			if err != nil {
 				return err
@@ -297,7 +297,7 @@ func (this *ArrayElement) UnmarshalJSON(b []byte) error {
 	}
 	if valObjectDistributionCap, ok := objMap["ObjectDistribution"]; ok {
 		if valObjectDistributionCap != nil {
-			var valueForObjectDistribution bool
+			var valueForObjectDistribution *bool
 			err = json.Unmarshal(*valObjectDistributionCap, &valueForObjectDistribution)
 			if err != nil {
 				return err

@@ -50,16 +50,16 @@ type IHtml5ExportOptions interface {
 	SetFormat(newValue string)
 
 	// Gets or sets transitions animation option.
-	GetAnimateTransitions() bool
-	SetAnimateTransitions(newValue bool)
+	GetAnimateTransitions() *bool
+	SetAnimateTransitions(newValue *bool)
 
 	// Gets or sets shapes animation option.
-	GetAnimateShapes() bool
-	SetAnimateShapes(newValue bool)
+	GetAnimateShapes() *bool
+	SetAnimateShapes(newValue *bool)
 
 	// Gets or sets embed images option.
-	GetEmbedImages() bool
-	SetEmbedImages(newValue bool)
+	GetEmbedImages() *bool
+	SetEmbedImages(newValue *bool)
 
 	// Slides layouting options
 	GetNotesCommentsLayouting() INotesCommentsLayoutingOptions
@@ -81,13 +81,13 @@ type Html5ExportOptions struct {
 	Format string `json:"Format,omitempty"`
 
 	// Gets or sets transitions animation option.
-	AnimateTransitions bool `json:"AnimateTransitions"`
+	AnimateTransitions *bool `json:"AnimateTransitions"`
 
 	// Gets or sets shapes animation option.
-	AnimateShapes bool `json:"AnimateShapes"`
+	AnimateShapes *bool `json:"AnimateShapes"`
 
 	// Gets or sets embed images option.
-	EmbedImages bool `json:"EmbedImages"`
+	EmbedImages *bool `json:"EmbedImages"`
 
 	// Slides layouting options
 	NotesCommentsLayouting INotesCommentsLayoutingOptions `json:"NotesCommentsLayouting,omitempty"`
@@ -126,25 +126,25 @@ func (this *Html5ExportOptions) GetFormat() string {
 func (this *Html5ExportOptions) SetFormat(newValue string) {
 	this.Format = newValue
 }
-func (this *Html5ExportOptions) GetAnimateTransitions() bool {
+func (this *Html5ExportOptions) GetAnimateTransitions() *bool {
 	return this.AnimateTransitions
 }
 
-func (this *Html5ExportOptions) SetAnimateTransitions(newValue bool) {
+func (this *Html5ExportOptions) SetAnimateTransitions(newValue *bool) {
 	this.AnimateTransitions = newValue
 }
-func (this *Html5ExportOptions) GetAnimateShapes() bool {
+func (this *Html5ExportOptions) GetAnimateShapes() *bool {
 	return this.AnimateShapes
 }
 
-func (this *Html5ExportOptions) SetAnimateShapes(newValue bool) {
+func (this *Html5ExportOptions) SetAnimateShapes(newValue *bool) {
 	this.AnimateShapes = newValue
 }
-func (this *Html5ExportOptions) GetEmbedImages() bool {
+func (this *Html5ExportOptions) GetEmbedImages() *bool {
 	return this.EmbedImages
 }
 
-func (this *Html5ExportOptions) SetEmbedImages(newValue bool) {
+func (this *Html5ExportOptions) SetEmbedImages(newValue *bool) {
 	this.EmbedImages = newValue
 }
 func (this *Html5ExportOptions) GetNotesCommentsLayouting() INotesCommentsLayoutingOptions {
@@ -304,7 +304,7 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valAnimateTransitions, ok := objMap["animateTransitions"]; ok {
 		if valAnimateTransitions != nil {
-			var valueForAnimateTransitions bool
+			var valueForAnimateTransitions *bool
 			err = json.Unmarshal(*valAnimateTransitions, &valueForAnimateTransitions)
 			if err != nil {
 				return err
@@ -314,7 +314,7 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valAnimateTransitionsCap, ok := objMap["AnimateTransitions"]; ok {
 		if valAnimateTransitionsCap != nil {
-			var valueForAnimateTransitions bool
+			var valueForAnimateTransitions *bool
 			err = json.Unmarshal(*valAnimateTransitionsCap, &valueForAnimateTransitions)
 			if err != nil {
 				return err
@@ -325,7 +325,7 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valAnimateShapes, ok := objMap["animateShapes"]; ok {
 		if valAnimateShapes != nil {
-			var valueForAnimateShapes bool
+			var valueForAnimateShapes *bool
 			err = json.Unmarshal(*valAnimateShapes, &valueForAnimateShapes)
 			if err != nil {
 				return err
@@ -335,7 +335,7 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valAnimateShapesCap, ok := objMap["AnimateShapes"]; ok {
 		if valAnimateShapesCap != nil {
-			var valueForAnimateShapes bool
+			var valueForAnimateShapes *bool
 			err = json.Unmarshal(*valAnimateShapesCap, &valueForAnimateShapes)
 			if err != nil {
 				return err
@@ -346,7 +346,7 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valEmbedImages, ok := objMap["embedImages"]; ok {
 		if valEmbedImages != nil {
-			var valueForEmbedImages bool
+			var valueForEmbedImages *bool
 			err = json.Unmarshal(*valEmbedImages, &valueForEmbedImages)
 			if err != nil {
 				return err
@@ -356,7 +356,7 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valEmbedImagesCap, ok := objMap["EmbedImages"]; ok {
 		if valEmbedImagesCap != nil {
-			var valueForEmbedImages bool
+			var valueForEmbedImages *bool
 			err = json.Unmarshal(*valEmbedImagesCap, &valueForEmbedImages)
 			if err != nil {
 				return err

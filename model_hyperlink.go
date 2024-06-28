@@ -34,8 +34,8 @@ import (
 type IHyperlink interface {
 
 	// If true Hypelink is not applied. 
-	GetIsDisabled() bool
-	SetIsDisabled(newValue bool)
+	GetIsDisabled() *bool
+	SetIsDisabled(newValue *bool)
 
 	// Type of HyperLink action             
 	GetActionType() string
@@ -58,16 +58,16 @@ type IHyperlink interface {
 	SetTooltip(newValue string)
 
 	// Makes hyperlink viewed when it is invoked.             
-	GetHistory() bool
-	SetHistory(newValue bool)
+	GetHistory() *bool
+	SetHistory(newValue *bool)
 
 	// Determines whether the hyperlink should be highlighted on click.
-	GetHighlightClick() bool
-	SetHighlightClick(newValue bool)
+	GetHighlightClick() *bool
+	SetHighlightClick(newValue *bool)
 
 	// Determines whether the sound should be stopped on hyperlink click
-	GetStopSoundOnClick() bool
-	SetStopSoundOnClick(newValue bool)
+	GetStopSoundOnClick() *bool
+	SetStopSoundOnClick(newValue *bool)
 
 	// Represents the source of hyperlink color
 	GetColorSource() string
@@ -81,7 +81,7 @@ type IHyperlink interface {
 type Hyperlink struct {
 
 	// If true Hypelink is not applied. 
-	IsDisabled bool `json:"IsDisabled"`
+	IsDisabled *bool `json:"IsDisabled"`
 
 	// Type of HyperLink action             
 	ActionType string `json:"ActionType"`
@@ -99,13 +99,13 @@ type Hyperlink struct {
 	Tooltip string `json:"Tooltip,omitempty"`
 
 	// Makes hyperlink viewed when it is invoked.             
-	History bool `json:"History"`
+	History *bool `json:"History"`
 
 	// Determines whether the hyperlink should be highlighted on click.
-	HighlightClick bool `json:"HighlightClick"`
+	HighlightClick *bool `json:"HighlightClick"`
 
 	// Determines whether the sound should be stopped on hyperlink click
-	StopSoundOnClick bool `json:"StopSoundOnClick"`
+	StopSoundOnClick *bool `json:"StopSoundOnClick"`
 
 	// Represents the source of hyperlink color
 	ColorSource string `json:"ColorSource,omitempty"`
@@ -120,11 +120,11 @@ func NewHyperlink() *Hyperlink {
 	return instance
 }
 
-func (this *Hyperlink) GetIsDisabled() bool {
+func (this *Hyperlink) GetIsDisabled() *bool {
 	return this.IsDisabled
 }
 
-func (this *Hyperlink) SetIsDisabled(newValue bool) {
+func (this *Hyperlink) SetIsDisabled(newValue *bool) {
 	this.IsDisabled = newValue
 }
 func (this *Hyperlink) GetActionType() string {
@@ -162,25 +162,25 @@ func (this *Hyperlink) GetTooltip() string {
 func (this *Hyperlink) SetTooltip(newValue string) {
 	this.Tooltip = newValue
 }
-func (this *Hyperlink) GetHistory() bool {
+func (this *Hyperlink) GetHistory() *bool {
 	return this.History
 }
 
-func (this *Hyperlink) SetHistory(newValue bool) {
+func (this *Hyperlink) SetHistory(newValue *bool) {
 	this.History = newValue
 }
-func (this *Hyperlink) GetHighlightClick() bool {
+func (this *Hyperlink) GetHighlightClick() *bool {
 	return this.HighlightClick
 }
 
-func (this *Hyperlink) SetHighlightClick(newValue bool) {
+func (this *Hyperlink) SetHighlightClick(newValue *bool) {
 	this.HighlightClick = newValue
 }
-func (this *Hyperlink) GetStopSoundOnClick() bool {
+func (this *Hyperlink) GetStopSoundOnClick() *bool {
 	return this.StopSoundOnClick
 }
 
-func (this *Hyperlink) SetStopSoundOnClick(newValue bool) {
+func (this *Hyperlink) SetStopSoundOnClick(newValue *bool) {
 	this.StopSoundOnClick = newValue
 }
 func (this *Hyperlink) GetColorSource() string {
@@ -207,7 +207,7 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 	
 	if valIsDisabled, ok := objMap["isDisabled"]; ok {
 		if valIsDisabled != nil {
-			var valueForIsDisabled bool
+			var valueForIsDisabled *bool
 			err = json.Unmarshal(*valIsDisabled, &valueForIsDisabled)
 			if err != nil {
 				return err
@@ -217,7 +217,7 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 	}
 	if valIsDisabledCap, ok := objMap["IsDisabled"]; ok {
 		if valIsDisabledCap != nil {
-			var valueForIsDisabled bool
+			var valueForIsDisabled *bool
 			err = json.Unmarshal(*valIsDisabledCap, &valueForIsDisabled)
 			if err != nil {
 				return err
@@ -345,7 +345,7 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 	
 	if valHistory, ok := objMap["history"]; ok {
 		if valHistory != nil {
-			var valueForHistory bool
+			var valueForHistory *bool
 			err = json.Unmarshal(*valHistory, &valueForHistory)
 			if err != nil {
 				return err
@@ -355,7 +355,7 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 	}
 	if valHistoryCap, ok := objMap["History"]; ok {
 		if valHistoryCap != nil {
-			var valueForHistory bool
+			var valueForHistory *bool
 			err = json.Unmarshal(*valHistoryCap, &valueForHistory)
 			if err != nil {
 				return err
@@ -366,7 +366,7 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 	
 	if valHighlightClick, ok := objMap["highlightClick"]; ok {
 		if valHighlightClick != nil {
-			var valueForHighlightClick bool
+			var valueForHighlightClick *bool
 			err = json.Unmarshal(*valHighlightClick, &valueForHighlightClick)
 			if err != nil {
 				return err
@@ -376,7 +376,7 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 	}
 	if valHighlightClickCap, ok := objMap["HighlightClick"]; ok {
 		if valHighlightClickCap != nil {
-			var valueForHighlightClick bool
+			var valueForHighlightClick *bool
 			err = json.Unmarshal(*valHighlightClickCap, &valueForHighlightClick)
 			if err != nil {
 				return err
@@ -387,7 +387,7 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 	
 	if valStopSoundOnClick, ok := objMap["stopSoundOnClick"]; ok {
 		if valStopSoundOnClick != nil {
-			var valueForStopSoundOnClick bool
+			var valueForStopSoundOnClick *bool
 			err = json.Unmarshal(*valStopSoundOnClick, &valueForStopSoundOnClick)
 			if err != nil {
 				return err
@@ -397,7 +397,7 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 	}
 	if valStopSoundOnClickCap, ok := objMap["StopSoundOnClick"]; ok {
 		if valStopSoundOnClickCap != nil {
-			var valueForStopSoundOnClick bool
+			var valueForStopSoundOnClick *bool
 			err = json.Unmarshal(*valStopSoundOnClickCap, &valueForStopSoundOnClick)
 			if err != nil {
 				return err

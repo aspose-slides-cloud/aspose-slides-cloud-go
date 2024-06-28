@@ -62,12 +62,12 @@ type ITable interface {
 	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	GetHidden() bool
-	SetHidden(newValue bool)
+	GetHidden() *bool
+	SetHidden(newValue *bool)
 
 	// Gets or sets 'Mark as decorative' option.
-	GetIsDecorative() bool
-	SetIsDecorative(newValue bool)
+	GetIsDecorative() *bool
+	SetIsDecorative(newValue *bool)
 
 	// Gets or sets the X
 	GetX() float64
@@ -122,32 +122,32 @@ type ITable interface {
 	SetColumns(newValue []ITableColumn)
 
 	// Determines whether the first column of a table has to be drawn with a special formatting.
-	GetFirstCol() bool
-	SetFirstCol(newValue bool)
+	GetFirstCol() *bool
+	SetFirstCol(newValue *bool)
 
 	// Determines whether the first row of a table has to be drawn with a special formatting.
-	GetFirstRow() bool
-	SetFirstRow(newValue bool)
+	GetFirstRow() *bool
+	SetFirstRow(newValue *bool)
 
 	// Determines whether the even rows has to be drawn with a different formatting.
-	GetHorizontalBanding() bool
-	SetHorizontalBanding(newValue bool)
+	GetHorizontalBanding() *bool
+	SetHorizontalBanding(newValue *bool)
 
 	// Determines whether the last column of a table has to be drawn with a special formatting.
-	GetLastCol() bool
-	SetLastCol(newValue bool)
+	GetLastCol() *bool
+	SetLastCol(newValue *bool)
 
 	// Determines whether the last row of a table has to be drawn with a special formatting.
-	GetLastRow() bool
-	SetLastRow(newValue bool)
+	GetLastRow() *bool
+	SetLastRow(newValue *bool)
 
 	// Determines whether the table has right to left reading order.
-	GetRightToLeft() bool
-	SetRightToLeft(newValue bool)
+	GetRightToLeft() *bool
+	SetRightToLeft(newValue *bool)
 
 	// Determines whether the even columns has to be drawn with a different formatting.
-	GetVerticalBanding() bool
-	SetVerticalBanding(newValue bool)
+	GetVerticalBanding() *bool
+	SetVerticalBanding(newValue *bool)
 }
 
 type Table struct {
@@ -174,10 +174,10 @@ type Table struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden"`
+	Hidden *bool `json:"Hidden"`
 
 	// Gets or sets 'Mark as decorative' option.
-	IsDecorative bool `json:"IsDecorative"`
+	IsDecorative *bool `json:"IsDecorative"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -219,25 +219,25 @@ type Table struct {
 	Columns []ITableColumn `json:"Columns,omitempty"`
 
 	// Determines whether the first column of a table has to be drawn with a special formatting.
-	FirstCol bool `json:"FirstCol"`
+	FirstCol *bool `json:"FirstCol"`
 
 	// Determines whether the first row of a table has to be drawn with a special formatting.
-	FirstRow bool `json:"FirstRow"`
+	FirstRow *bool `json:"FirstRow"`
 
 	// Determines whether the even rows has to be drawn with a different formatting.
-	HorizontalBanding bool `json:"HorizontalBanding"`
+	HorizontalBanding *bool `json:"HorizontalBanding"`
 
 	// Determines whether the last column of a table has to be drawn with a special formatting.
-	LastCol bool `json:"LastCol"`
+	LastCol *bool `json:"LastCol"`
 
 	// Determines whether the last row of a table has to be drawn with a special formatting.
-	LastRow bool `json:"LastRow"`
+	LastRow *bool `json:"LastRow"`
 
 	// Determines whether the table has right to left reading order.
-	RightToLeft bool `json:"RightToLeft"`
+	RightToLeft *bool `json:"RightToLeft"`
 
 	// Determines whether the even columns has to be drawn with a different formatting.
-	VerticalBanding bool `json:"VerticalBanding"`
+	VerticalBanding *bool `json:"VerticalBanding"`
 }
 
 func NewTable() *Table {
@@ -295,18 +295,18 @@ func (this *Table) GetAlternativeTextTitle() string {
 func (this *Table) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *Table) GetHidden() bool {
+func (this *Table) GetHidden() *bool {
 	return this.Hidden
 }
 
-func (this *Table) SetHidden(newValue bool) {
+func (this *Table) SetHidden(newValue *bool) {
 	this.Hidden = newValue
 }
-func (this *Table) GetIsDecorative() bool {
+func (this *Table) GetIsDecorative() *bool {
 	return this.IsDecorative
 }
 
-func (this *Table) SetIsDecorative(newValue bool) {
+func (this *Table) SetIsDecorative(newValue *bool) {
 	this.IsDecorative = newValue
 }
 func (this *Table) GetX() float64 {
@@ -400,53 +400,53 @@ func (this *Table) GetColumns() []ITableColumn {
 func (this *Table) SetColumns(newValue []ITableColumn) {
 	this.Columns = newValue
 }
-func (this *Table) GetFirstCol() bool {
+func (this *Table) GetFirstCol() *bool {
 	return this.FirstCol
 }
 
-func (this *Table) SetFirstCol(newValue bool) {
+func (this *Table) SetFirstCol(newValue *bool) {
 	this.FirstCol = newValue
 }
-func (this *Table) GetFirstRow() bool {
+func (this *Table) GetFirstRow() *bool {
 	return this.FirstRow
 }
 
-func (this *Table) SetFirstRow(newValue bool) {
+func (this *Table) SetFirstRow(newValue *bool) {
 	this.FirstRow = newValue
 }
-func (this *Table) GetHorizontalBanding() bool {
+func (this *Table) GetHorizontalBanding() *bool {
 	return this.HorizontalBanding
 }
 
-func (this *Table) SetHorizontalBanding(newValue bool) {
+func (this *Table) SetHorizontalBanding(newValue *bool) {
 	this.HorizontalBanding = newValue
 }
-func (this *Table) GetLastCol() bool {
+func (this *Table) GetLastCol() *bool {
 	return this.LastCol
 }
 
-func (this *Table) SetLastCol(newValue bool) {
+func (this *Table) SetLastCol(newValue *bool) {
 	this.LastCol = newValue
 }
-func (this *Table) GetLastRow() bool {
+func (this *Table) GetLastRow() *bool {
 	return this.LastRow
 }
 
-func (this *Table) SetLastRow(newValue bool) {
+func (this *Table) SetLastRow(newValue *bool) {
 	this.LastRow = newValue
 }
-func (this *Table) GetRightToLeft() bool {
+func (this *Table) GetRightToLeft() *bool {
 	return this.RightToLeft
 }
 
-func (this *Table) SetRightToLeft(newValue bool) {
+func (this *Table) SetRightToLeft(newValue *bool) {
 	this.RightToLeft = newValue
 }
-func (this *Table) GetVerticalBanding() bool {
+func (this *Table) GetVerticalBanding() *bool {
 	return this.VerticalBanding
 }
 
-func (this *Table) SetVerticalBanding(newValue bool) {
+func (this *Table) SetVerticalBanding(newValue *bool) {
 	this.VerticalBanding = newValue
 }
 
@@ -656,7 +656,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valHidden, ok := objMap["hidden"]; ok {
 		if valHidden != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
 			if err != nil {
 				return err
@@ -666,7 +666,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	}
 	if valHiddenCap, ok := objMap["Hidden"]; ok {
 		if valHiddenCap != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
 			if err != nil {
 				return err
@@ -677,7 +677,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valIsDecorative, ok := objMap["isDecorative"]; ok {
 		if valIsDecorative != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorative, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -687,7 +687,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	}
 	if valIsDecorativeCap, ok := objMap["IsDecorative"]; ok {
 		if valIsDecorativeCap != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorativeCap, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -1183,7 +1183,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valFirstCol, ok := objMap["firstCol"]; ok {
 		if valFirstCol != nil {
-			var valueForFirstCol bool
+			var valueForFirstCol *bool
 			err = json.Unmarshal(*valFirstCol, &valueForFirstCol)
 			if err != nil {
 				return err
@@ -1193,7 +1193,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	}
 	if valFirstColCap, ok := objMap["FirstCol"]; ok {
 		if valFirstColCap != nil {
-			var valueForFirstCol bool
+			var valueForFirstCol *bool
 			err = json.Unmarshal(*valFirstColCap, &valueForFirstCol)
 			if err != nil {
 				return err
@@ -1204,7 +1204,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valFirstRow, ok := objMap["firstRow"]; ok {
 		if valFirstRow != nil {
-			var valueForFirstRow bool
+			var valueForFirstRow *bool
 			err = json.Unmarshal(*valFirstRow, &valueForFirstRow)
 			if err != nil {
 				return err
@@ -1214,7 +1214,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	}
 	if valFirstRowCap, ok := objMap["FirstRow"]; ok {
 		if valFirstRowCap != nil {
-			var valueForFirstRow bool
+			var valueForFirstRow *bool
 			err = json.Unmarshal(*valFirstRowCap, &valueForFirstRow)
 			if err != nil {
 				return err
@@ -1225,7 +1225,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valHorizontalBanding, ok := objMap["horizontalBanding"]; ok {
 		if valHorizontalBanding != nil {
-			var valueForHorizontalBanding bool
+			var valueForHorizontalBanding *bool
 			err = json.Unmarshal(*valHorizontalBanding, &valueForHorizontalBanding)
 			if err != nil {
 				return err
@@ -1235,7 +1235,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	}
 	if valHorizontalBandingCap, ok := objMap["HorizontalBanding"]; ok {
 		if valHorizontalBandingCap != nil {
-			var valueForHorizontalBanding bool
+			var valueForHorizontalBanding *bool
 			err = json.Unmarshal(*valHorizontalBandingCap, &valueForHorizontalBanding)
 			if err != nil {
 				return err
@@ -1246,7 +1246,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valLastCol, ok := objMap["lastCol"]; ok {
 		if valLastCol != nil {
-			var valueForLastCol bool
+			var valueForLastCol *bool
 			err = json.Unmarshal(*valLastCol, &valueForLastCol)
 			if err != nil {
 				return err
@@ -1256,7 +1256,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	}
 	if valLastColCap, ok := objMap["LastCol"]; ok {
 		if valLastColCap != nil {
-			var valueForLastCol bool
+			var valueForLastCol *bool
 			err = json.Unmarshal(*valLastColCap, &valueForLastCol)
 			if err != nil {
 				return err
@@ -1267,7 +1267,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valLastRow, ok := objMap["lastRow"]; ok {
 		if valLastRow != nil {
-			var valueForLastRow bool
+			var valueForLastRow *bool
 			err = json.Unmarshal(*valLastRow, &valueForLastRow)
 			if err != nil {
 				return err
@@ -1277,7 +1277,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	}
 	if valLastRowCap, ok := objMap["LastRow"]; ok {
 		if valLastRowCap != nil {
-			var valueForLastRow bool
+			var valueForLastRow *bool
 			err = json.Unmarshal(*valLastRowCap, &valueForLastRow)
 			if err != nil {
 				return err
@@ -1288,7 +1288,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valRightToLeft, ok := objMap["rightToLeft"]; ok {
 		if valRightToLeft != nil {
-			var valueForRightToLeft bool
+			var valueForRightToLeft *bool
 			err = json.Unmarshal(*valRightToLeft, &valueForRightToLeft)
 			if err != nil {
 				return err
@@ -1298,7 +1298,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	}
 	if valRightToLeftCap, ok := objMap["RightToLeft"]; ok {
 		if valRightToLeftCap != nil {
-			var valueForRightToLeft bool
+			var valueForRightToLeft *bool
 			err = json.Unmarshal(*valRightToLeftCap, &valueForRightToLeft)
 			if err != nil {
 				return err
@@ -1309,7 +1309,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	
 	if valVerticalBanding, ok := objMap["verticalBanding"]; ok {
 		if valVerticalBanding != nil {
-			var valueForVerticalBanding bool
+			var valueForVerticalBanding *bool
 			err = json.Unmarshal(*valVerticalBanding, &valueForVerticalBanding)
 			if err != nil {
 				return err
@@ -1319,7 +1319,7 @@ func (this *Table) UnmarshalJSON(b []byte) error {
 	}
 	if valVerticalBandingCap, ok := objMap["VerticalBanding"]; ok {
 		if valVerticalBandingCap != nil {
-			var valueForVerticalBanding bool
+			var valueForVerticalBanding *bool
 			err = json.Unmarshal(*valVerticalBandingCap, &valueForVerticalBanding)
 			if err != nil {
 				return err

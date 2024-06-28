@@ -62,12 +62,12 @@ type IChart interface {
 	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	GetHidden() bool
-	SetHidden(newValue bool)
+	GetHidden() *bool
+	SetHidden(newValue *bool)
 
 	// Gets or sets 'Mark as decorative' option.
-	GetIsDecorative() bool
-	SetIsDecorative(newValue bool)
+	GetIsDecorative() *bool
+	SetIsDecorative(newValue *bool)
 
 	// Gets or sets the X
 	GetX() float64
@@ -114,8 +114,8 @@ type IChart interface {
 	SetChartType(newValue string)
 
 	// True if data labels over the maximum of the chart shall be shown.
-	GetShowDataLabelsOverMaximum() bool
-	SetShowDataLabelsOverMaximum(newValue bool)
+	GetShowDataLabelsOverMaximum() *bool
+	SetShowDataLabelsOverMaximum(newValue *bool)
 
 	// Gets or sets the series of chart data values.
 	GetSeries() []ISeries
@@ -130,8 +130,8 @@ type IChart interface {
 	SetDataSourceForCategories(newValue IDataSource)
 
 	// True if the chart has a title.
-	GetHasTitle() bool
-	SetHasTitle(newValue bool)
+	GetHasTitle() *bool
+	SetHasTitle(newValue *bool)
 
 	// Gets or sets the title.
 	GetTitle() IChartTitle
@@ -162,8 +162,8 @@ type IChart interface {
 	SetPlotArea(newValue IPlotArea)
 
 	// Specifies the chart area shall have rounded corners.
-	GetHasRoundedCorners() bool
-	SetHasRoundedCorners(newValue bool)
+	GetHasRoundedCorners() *bool
+	SetHasRoundedCorners(newValue *bool)
 
 	// Gets groups of series. 
 	GetSeriesGroups() []IChartSeriesGroup
@@ -194,10 +194,10 @@ type Chart struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden"`
+	Hidden *bool `json:"Hidden"`
 
 	// Gets or sets 'Mark as decorative' option.
-	IsDecorative bool `json:"IsDecorative"`
+	IsDecorative *bool `json:"IsDecorative"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -233,7 +233,7 @@ type Chart struct {
 	ChartType string `json:"ChartType"`
 
 	// True if data labels over the maximum of the chart shall be shown.
-	ShowDataLabelsOverMaximum bool `json:"ShowDataLabelsOverMaximum"`
+	ShowDataLabelsOverMaximum *bool `json:"ShowDataLabelsOverMaximum"`
 
 	// Gets or sets the series of chart data values.
 	Series []ISeries `json:"Series,omitempty"`
@@ -245,7 +245,7 @@ type Chart struct {
 	DataSourceForCategories IDataSource `json:"DataSourceForCategories,omitempty"`
 
 	// True if the chart has a title.
-	HasTitle bool `json:"HasTitle"`
+	HasTitle *bool `json:"HasTitle"`
 
 	// Gets or sets the title.
 	Title IChartTitle `json:"Title,omitempty"`
@@ -269,7 +269,7 @@ type Chart struct {
 	PlotArea IPlotArea `json:"PlotArea,omitempty"`
 
 	// Specifies the chart area shall have rounded corners.
-	HasRoundedCorners bool `json:"HasRoundedCorners"`
+	HasRoundedCorners *bool `json:"HasRoundedCorners"`
 
 	// Gets groups of series. 
 	SeriesGroups []IChartSeriesGroup `json:"SeriesGroups,omitempty"`
@@ -331,18 +331,18 @@ func (this *Chart) GetAlternativeTextTitle() string {
 func (this *Chart) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *Chart) GetHidden() bool {
+func (this *Chart) GetHidden() *bool {
 	return this.Hidden
 }
 
-func (this *Chart) SetHidden(newValue bool) {
+func (this *Chart) SetHidden(newValue *bool) {
 	this.Hidden = newValue
 }
-func (this *Chart) GetIsDecorative() bool {
+func (this *Chart) GetIsDecorative() *bool {
 	return this.IsDecorative
 }
 
-func (this *Chart) SetIsDecorative(newValue bool) {
+func (this *Chart) SetIsDecorative(newValue *bool) {
 	this.IsDecorative = newValue
 }
 func (this *Chart) GetX() float64 {
@@ -422,11 +422,11 @@ func (this *Chart) GetChartType() string {
 func (this *Chart) SetChartType(newValue string) {
 	this.ChartType = newValue
 }
-func (this *Chart) GetShowDataLabelsOverMaximum() bool {
+func (this *Chart) GetShowDataLabelsOverMaximum() *bool {
 	return this.ShowDataLabelsOverMaximum
 }
 
-func (this *Chart) SetShowDataLabelsOverMaximum(newValue bool) {
+func (this *Chart) SetShowDataLabelsOverMaximum(newValue *bool) {
 	this.ShowDataLabelsOverMaximum = newValue
 }
 func (this *Chart) GetSeries() []ISeries {
@@ -450,11 +450,11 @@ func (this *Chart) GetDataSourceForCategories() IDataSource {
 func (this *Chart) SetDataSourceForCategories(newValue IDataSource) {
 	this.DataSourceForCategories = newValue
 }
-func (this *Chart) GetHasTitle() bool {
+func (this *Chart) GetHasTitle() *bool {
 	return this.HasTitle
 }
 
-func (this *Chart) SetHasTitle(newValue bool) {
+func (this *Chart) SetHasTitle(newValue *bool) {
 	this.HasTitle = newValue
 }
 func (this *Chart) GetTitle() IChartTitle {
@@ -506,11 +506,11 @@ func (this *Chart) GetPlotArea() IPlotArea {
 func (this *Chart) SetPlotArea(newValue IPlotArea) {
 	this.PlotArea = newValue
 }
-func (this *Chart) GetHasRoundedCorners() bool {
+func (this *Chart) GetHasRoundedCorners() *bool {
 	return this.HasRoundedCorners
 }
 
-func (this *Chart) SetHasRoundedCorners(newValue bool) {
+func (this *Chart) SetHasRoundedCorners(newValue *bool) {
 	this.HasRoundedCorners = newValue
 }
 func (this *Chart) GetSeriesGroups() []IChartSeriesGroup {
@@ -727,7 +727,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	
 	if valHidden, ok := objMap["hidden"]; ok {
 		if valHidden != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
 			if err != nil {
 				return err
@@ -737,7 +737,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	}
 	if valHiddenCap, ok := objMap["Hidden"]; ok {
 		if valHiddenCap != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
 			if err != nil {
 				return err
@@ -748,7 +748,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	
 	if valIsDecorative, ok := objMap["isDecorative"]; ok {
 		if valIsDecorative != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorative, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -758,7 +758,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	}
 	if valIsDecorativeCap, ok := objMap["IsDecorative"]; ok {
 		if valIsDecorativeCap != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorativeCap, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -1156,7 +1156,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	
 	if valShowDataLabelsOverMaximum, ok := objMap["showDataLabelsOverMaximum"]; ok {
 		if valShowDataLabelsOverMaximum != nil {
-			var valueForShowDataLabelsOverMaximum bool
+			var valueForShowDataLabelsOverMaximum *bool
 			err = json.Unmarshal(*valShowDataLabelsOverMaximum, &valueForShowDataLabelsOverMaximum)
 			if err != nil {
 				return err
@@ -1166,7 +1166,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	}
 	if valShowDataLabelsOverMaximumCap, ok := objMap["ShowDataLabelsOverMaximum"]; ok {
 		if valShowDataLabelsOverMaximumCap != nil {
-			var valueForShowDataLabelsOverMaximum bool
+			var valueForShowDataLabelsOverMaximum *bool
 			err = json.Unmarshal(*valShowDataLabelsOverMaximumCap, &valueForShowDataLabelsOverMaximum)
 			if err != nil {
 				return err
@@ -1318,7 +1318,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	
 	if valHasTitle, ok := objMap["hasTitle"]; ok {
 		if valHasTitle != nil {
-			var valueForHasTitle bool
+			var valueForHasTitle *bool
 			err = json.Unmarshal(*valHasTitle, &valueForHasTitle)
 			if err != nil {
 				return err
@@ -1328,7 +1328,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	}
 	if valHasTitleCap, ok := objMap["HasTitle"]; ok {
 		if valHasTitleCap != nil {
-			var valueForHasTitle bool
+			var valueForHasTitle *bool
 			err = json.Unmarshal(*valHasTitleCap, &valueForHasTitle)
 			if err != nil {
 				return err
@@ -1640,7 +1640,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	
 	if valHasRoundedCorners, ok := objMap["hasRoundedCorners"]; ok {
 		if valHasRoundedCorners != nil {
-			var valueForHasRoundedCorners bool
+			var valueForHasRoundedCorners *bool
 			err = json.Unmarshal(*valHasRoundedCorners, &valueForHasRoundedCorners)
 			if err != nil {
 				return err
@@ -1650,7 +1650,7 @@ func (this *Chart) UnmarshalJSON(b []byte) error {
 	}
 	if valHasRoundedCornersCap, ok := objMap["HasRoundedCorners"]; ok {
 		if valHasRoundedCornersCap != nil {
-			var valueForHasRoundedCorners bool
+			var valueForHasRoundedCorners *bool
 			err = json.Unmarshal(*valHasRoundedCornersCap, &valueForHasRoundedCorners)
 			if err != nil {
 				return err

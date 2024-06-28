@@ -38,8 +38,8 @@ type IBlurEffect interface {
 	SetRadius(newValue float64)
 
 	// true if the bounds are grown
-	GetGrow() bool
-	SetGrow(newValue bool)
+	GetGrow() *bool
+	SetGrow(newValue *bool)
 }
 
 type BlurEffect struct {
@@ -48,7 +48,7 @@ type BlurEffect struct {
 	Radius float64 `json:"Radius"`
 
 	// true if the bounds are grown
-	Grow bool `json:"Grow"`
+	Grow *bool `json:"Grow"`
 }
 
 func NewBlurEffect() *BlurEffect {
@@ -63,11 +63,11 @@ func (this *BlurEffect) GetRadius() float64 {
 func (this *BlurEffect) SetRadius(newValue float64) {
 	this.Radius = newValue
 }
-func (this *BlurEffect) GetGrow() bool {
+func (this *BlurEffect) GetGrow() *bool {
 	return this.Grow
 }
 
-func (this *BlurEffect) SetGrow(newValue bool) {
+func (this *BlurEffect) SetGrow(newValue *bool) {
 	this.Grow = newValue
 }
 
@@ -101,7 +101,7 @@ func (this *BlurEffect) UnmarshalJSON(b []byte) error {
 	
 	if valGrow, ok := objMap["grow"]; ok {
 		if valGrow != nil {
-			var valueForGrow bool
+			var valueForGrow *bool
 			err = json.Unmarshal(*valGrow, &valueForGrow)
 			if err != nil {
 				return err
@@ -111,7 +111,7 @@ func (this *BlurEffect) UnmarshalJSON(b []byte) error {
 	}
 	if valGrowCap, ok := objMap["Grow"]; ok {
 		if valGrowCap != nil {
-			var valueForGrow bool
+			var valueForGrow *bool
 			err = json.Unmarshal(*valGrowCap, &valueForGrow)
 			if err != nil {
 				return err

@@ -168,7 +168,8 @@ func TestHyperlinkDelete(t *testing.T) {
 
 	shape := slidescloud.NewPictureFrame()
 	hyperlink := slidescloud.NewHyperlink()
-	hyperlink.IsDisabled = true
+	isDisabled := true
+	hyperlink.IsDisabled = &isDisabled
 	shape.HyperlinkClick = hyperlink
 	updatedShape, _, e := c.SlidesApi.UpdateShape(fileName, 1, 1, shape, password, folderName, "", "")
 	if e != nil {

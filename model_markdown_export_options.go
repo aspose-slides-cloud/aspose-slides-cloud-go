@@ -66,16 +66,16 @@ type IMarkdownExportOptions interface {
 	SetImagesSaveFolderName(newValue string)
 
 	// Specifies whether the generated document should include slide number. Default is false. 
-	GetShowSlideNumber() bool
-	SetShowSlideNumber(newValue bool)
+	GetShowSlideNumber() *bool
+	SetShowSlideNumber(newValue *bool)
 
 	// Specifies whether the generated document should include comments. Default is false. 
-	GetShowComments() bool
-	SetShowComments(newValue bool)
+	GetShowComments() *bool
+	SetShowComments(newValue *bool)
 
 	// Specifies whether the generated document should include hidden slides. Default is false. 
-	GetShowHiddenSlides() bool
-	SetShowHiddenSlides(newValue bool)
+	GetShowHiddenSlides() *bool
+	SetShowHiddenSlides(newValue *bool)
 }
 
 type MarkdownExportOptions struct {
@@ -105,13 +105,13 @@ type MarkdownExportOptions struct {
 	ImagesSaveFolderName string `json:"ImagesSaveFolderName,omitempty"`
 
 	// Specifies whether the generated document should include slide number. Default is false. 
-	ShowSlideNumber bool `json:"ShowSlideNumber"`
+	ShowSlideNumber *bool `json:"ShowSlideNumber"`
 
 	// Specifies whether the generated document should include comments. Default is false. 
-	ShowComments bool `json:"ShowComments"`
+	ShowComments *bool `json:"ShowComments"`
 
 	// Specifies whether the generated document should include hidden slides. Default is false. 
-	ShowHiddenSlides bool `json:"ShowHiddenSlides"`
+	ShowHiddenSlides *bool `json:"ShowHiddenSlides"`
 }
 
 func NewMarkdownExportOptions() *MarkdownExportOptions {
@@ -175,25 +175,25 @@ func (this *MarkdownExportOptions) GetImagesSaveFolderName() string {
 func (this *MarkdownExportOptions) SetImagesSaveFolderName(newValue string) {
 	this.ImagesSaveFolderName = newValue
 }
-func (this *MarkdownExportOptions) GetShowSlideNumber() bool {
+func (this *MarkdownExportOptions) GetShowSlideNumber() *bool {
 	return this.ShowSlideNumber
 }
 
-func (this *MarkdownExportOptions) SetShowSlideNumber(newValue bool) {
+func (this *MarkdownExportOptions) SetShowSlideNumber(newValue *bool) {
 	this.ShowSlideNumber = newValue
 }
-func (this *MarkdownExportOptions) GetShowComments() bool {
+func (this *MarkdownExportOptions) GetShowComments() *bool {
 	return this.ShowComments
 }
 
-func (this *MarkdownExportOptions) SetShowComments(newValue bool) {
+func (this *MarkdownExportOptions) SetShowComments(newValue *bool) {
 	this.ShowComments = newValue
 }
-func (this *MarkdownExportOptions) GetShowHiddenSlides() bool {
+func (this *MarkdownExportOptions) GetShowHiddenSlides() *bool {
 	return this.ShowHiddenSlides
 }
 
-func (this *MarkdownExportOptions) SetShowHiddenSlides(newValue bool) {
+func (this *MarkdownExportOptions) SetShowHiddenSlides(newValue *bool) {
 	this.ShowHiddenSlides = newValue
 }
 
@@ -466,7 +466,7 @@ func (this *MarkdownExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowSlideNumber, ok := objMap["showSlideNumber"]; ok {
 		if valShowSlideNumber != nil {
-			var valueForShowSlideNumber bool
+			var valueForShowSlideNumber *bool
 			err = json.Unmarshal(*valShowSlideNumber, &valueForShowSlideNumber)
 			if err != nil {
 				return err
@@ -476,7 +476,7 @@ func (this *MarkdownExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowSlideNumberCap, ok := objMap["ShowSlideNumber"]; ok {
 		if valShowSlideNumberCap != nil {
-			var valueForShowSlideNumber bool
+			var valueForShowSlideNumber *bool
 			err = json.Unmarshal(*valShowSlideNumberCap, &valueForShowSlideNumber)
 			if err != nil {
 				return err
@@ -487,7 +487,7 @@ func (this *MarkdownExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowComments, ok := objMap["showComments"]; ok {
 		if valShowComments != nil {
-			var valueForShowComments bool
+			var valueForShowComments *bool
 			err = json.Unmarshal(*valShowComments, &valueForShowComments)
 			if err != nil {
 				return err
@@ -497,7 +497,7 @@ func (this *MarkdownExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowCommentsCap, ok := objMap["ShowComments"]; ok {
 		if valShowCommentsCap != nil {
-			var valueForShowComments bool
+			var valueForShowComments *bool
 			err = json.Unmarshal(*valShowCommentsCap, &valueForShowComments)
 			if err != nil {
 				return err
@@ -508,7 +508,7 @@ func (this *MarkdownExportOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
 		if valShowHiddenSlides != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
 			if err != nil {
 				return err
@@ -518,7 +518,7 @@ func (this *MarkdownExportOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
 		if valShowHiddenSlidesCap != nil {
-			var valueForShowHiddenSlides bool
+			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
 			if err != nil {
 				return err

@@ -50,8 +50,8 @@ type ITableCellMergeOptions interface {
 	SetLastCellIndex(newValue int32)
 
 	// Allow splitting
-	GetAllowSplitting() bool
-	SetAllowSplitting(newValue bool)
+	GetAllowSplitting() *bool
+	SetAllowSplitting(newValue *bool)
 }
 
 type TableCellMergeOptions struct {
@@ -69,7 +69,7 @@ type TableCellMergeOptions struct {
 	LastCellIndex int32 `json:"LastCellIndex"`
 
 	// Allow splitting
-	AllowSplitting bool `json:"AllowSplitting"`
+	AllowSplitting *bool `json:"AllowSplitting"`
 }
 
 func NewTableCellMergeOptions() *TableCellMergeOptions {
@@ -105,11 +105,11 @@ func (this *TableCellMergeOptions) GetLastCellIndex() int32 {
 func (this *TableCellMergeOptions) SetLastCellIndex(newValue int32) {
 	this.LastCellIndex = newValue
 }
-func (this *TableCellMergeOptions) GetAllowSplitting() bool {
+func (this *TableCellMergeOptions) GetAllowSplitting() *bool {
 	return this.AllowSplitting
 }
 
-func (this *TableCellMergeOptions) SetAllowSplitting(newValue bool) {
+func (this *TableCellMergeOptions) SetAllowSplitting(newValue *bool) {
 	this.AllowSplitting = newValue
 }
 
@@ -206,7 +206,7 @@ func (this *TableCellMergeOptions) UnmarshalJSON(b []byte) error {
 	
 	if valAllowSplitting, ok := objMap["allowSplitting"]; ok {
 		if valAllowSplitting != nil {
-			var valueForAllowSplitting bool
+			var valueForAllowSplitting *bool
 			err = json.Unmarshal(*valAllowSplitting, &valueForAllowSplitting)
 			if err != nil {
 				return err
@@ -216,7 +216,7 @@ func (this *TableCellMergeOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valAllowSplittingCap, ok := objMap["AllowSplitting"]; ok {
 		if valAllowSplittingCap != nil {
-			var valueForAllowSplitting bool
+			var valueForAllowSplitting *bool
 			err = json.Unmarshal(*valAllowSplittingCap, &valueForAllowSplitting)
 			if err != nil {
 				return err

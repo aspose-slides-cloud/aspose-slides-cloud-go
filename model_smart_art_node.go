@@ -42,8 +42,8 @@ type ISmartArtNode interface {
 	SetShapes(newValue IResourceUri)
 
 	// True for and assistant node.
-	GetIsAssistant() bool
-	SetIsAssistant(newValue bool)
+	GetIsAssistant() *bool
+	SetIsAssistant(newValue *bool)
 
 	// Node text.
 	GetText() string
@@ -67,7 +67,7 @@ type SmartArtNode struct {
 	Shapes IResourceUri `json:"Shapes,omitempty"`
 
 	// True for and assistant node.
-	IsAssistant bool `json:"IsAssistant"`
+	IsAssistant *bool `json:"IsAssistant"`
 
 	// Node text.
 	Text string `json:"Text,omitempty"`
@@ -99,11 +99,11 @@ func (this *SmartArtNode) GetShapes() IResourceUri {
 func (this *SmartArtNode) SetShapes(newValue IResourceUri) {
 	this.Shapes = newValue
 }
-func (this *SmartArtNode) GetIsAssistant() bool {
+func (this *SmartArtNode) GetIsAssistant() *bool {
 	return this.IsAssistant
 }
 
-func (this *SmartArtNode) SetIsAssistant(newValue bool) {
+func (this *SmartArtNode) SetIsAssistant(newValue *bool) {
 	this.IsAssistant = newValue
 }
 func (this *SmartArtNode) GetText() string {
@@ -229,7 +229,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 	
 	if valIsAssistant, ok := objMap["isAssistant"]; ok {
 		if valIsAssistant != nil {
-			var valueForIsAssistant bool
+			var valueForIsAssistant *bool
 			err = json.Unmarshal(*valIsAssistant, &valueForIsAssistant)
 			if err != nil {
 				return err
@@ -239,7 +239,7 @@ func (this *SmartArtNode) UnmarshalJSON(b []byte) error {
 	}
 	if valIsAssistantCap, ok := objMap["IsAssistant"]; ok {
 		if valIsAssistantCap != nil {
-			var valueForIsAssistant bool
+			var valueForIsAssistant *bool
 			err = json.Unmarshal(*valIsAssistantCap, &valueForIsAssistant)
 			if err != nil {
 				return err

@@ -62,12 +62,12 @@ type ISmartArt interface {
 	SetAlternativeTextTitle(newValue string)
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	GetHidden() bool
-	SetHidden(newValue bool)
+	GetHidden() *bool
+	SetHidden(newValue *bool)
 
 	// Gets or sets 'Mark as decorative' option.
-	GetIsDecorative() bool
-	SetIsDecorative(newValue bool)
+	GetIsDecorative() *bool
+	SetIsDecorative(newValue *bool)
 
 	// Gets or sets the X
 	GetX() float64
@@ -126,8 +126,8 @@ type ISmartArt interface {
 	SetNodes(newValue []ISmartArtNode)
 
 	// The state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
-	GetIsReversed() bool
-	SetIsReversed(newValue bool)
+	GetIsReversed() *bool
+	SetIsReversed(newValue *bool)
 }
 
 type SmartArt struct {
@@ -154,10 +154,10 @@ type SmartArt struct {
 	AlternativeTextTitle string `json:"AlternativeTextTitle,omitempty"`
 
 	// Gets or sets a value indicating whether this ShapeBase is hidden.
-	Hidden bool `json:"Hidden"`
+	Hidden *bool `json:"Hidden"`
 
 	// Gets or sets 'Mark as decorative' option.
-	IsDecorative bool `json:"IsDecorative"`
+	IsDecorative *bool `json:"IsDecorative"`
 
 	// Gets or sets the X
 	X float64 `json:"X,omitempty"`
@@ -202,7 +202,7 @@ type SmartArt struct {
 	Nodes []ISmartArtNode `json:"Nodes,omitempty"`
 
 	// The state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
-	IsReversed bool `json:"IsReversed"`
+	IsReversed *bool `json:"IsReversed"`
 }
 
 func NewSmartArt() *SmartArt {
@@ -263,18 +263,18 @@ func (this *SmartArt) GetAlternativeTextTitle() string {
 func (this *SmartArt) SetAlternativeTextTitle(newValue string) {
 	this.AlternativeTextTitle = newValue
 }
-func (this *SmartArt) GetHidden() bool {
+func (this *SmartArt) GetHidden() *bool {
 	return this.Hidden
 }
 
-func (this *SmartArt) SetHidden(newValue bool) {
+func (this *SmartArt) SetHidden(newValue *bool) {
 	this.Hidden = newValue
 }
-func (this *SmartArt) GetIsDecorative() bool {
+func (this *SmartArt) GetIsDecorative() *bool {
 	return this.IsDecorative
 }
 
-func (this *SmartArt) SetIsDecorative(newValue bool) {
+func (this *SmartArt) SetIsDecorative(newValue *bool) {
 	this.IsDecorative = newValue
 }
 func (this *SmartArt) GetX() float64 {
@@ -375,11 +375,11 @@ func (this *SmartArt) GetNodes() []ISmartArtNode {
 func (this *SmartArt) SetNodes(newValue []ISmartArtNode) {
 	this.Nodes = newValue
 }
-func (this *SmartArt) GetIsReversed() bool {
+func (this *SmartArt) GetIsReversed() *bool {
 	return this.IsReversed
 }
 
-func (this *SmartArt) SetIsReversed(newValue bool) {
+func (this *SmartArt) SetIsReversed(newValue *bool) {
 	this.IsReversed = newValue
 }
 
@@ -589,7 +589,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 	
 	if valHidden, ok := objMap["hidden"]; ok {
 		if valHidden != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
 			if err != nil {
 				return err
@@ -599,7 +599,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 	}
 	if valHiddenCap, ok := objMap["Hidden"]; ok {
 		if valHiddenCap != nil {
-			var valueForHidden bool
+			var valueForHidden *bool
 			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
 			if err != nil {
 				return err
@@ -610,7 +610,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 	
 	if valIsDecorative, ok := objMap["isDecorative"]; ok {
 		if valIsDecorative != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorative, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -620,7 +620,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 	}
 	if valIsDecorativeCap, ok := objMap["IsDecorative"]; ok {
 		if valIsDecorativeCap != nil {
-			var valueForIsDecorative bool
+			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorativeCap, &valueForIsDecorative)
 			if err != nil {
 				return err
@@ -1133,7 +1133,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 	
 	if valIsReversed, ok := objMap["isReversed"]; ok {
 		if valIsReversed != nil {
-			var valueForIsReversed bool
+			var valueForIsReversed *bool
 			err = json.Unmarshal(*valIsReversed, &valueForIsReversed)
 			if err != nil {
 				return err
@@ -1143,7 +1143,7 @@ func (this *SmartArt) UnmarshalJSON(b []byte) error {
 	}
 	if valIsReversedCap, ok := objMap["IsReversed"]; ok {
 		if valIsReversedCap != nil {
-			var valueForIsReversed bool
+			var valueForIsReversed *bool
 			err = json.Unmarshal(*valIsReversedCap, &valueForIsReversed)
 			if err != nil {
 				return err

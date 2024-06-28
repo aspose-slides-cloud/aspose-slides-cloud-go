@@ -42,20 +42,20 @@ type IBoxElement interface {
 	SetBase(newValue IMathElement)
 
 	// Operator emulator
-	GetOperatorEmulator() bool
-	SetOperatorEmulator(newValue bool)
+	GetOperatorEmulator() *bool
+	SetOperatorEmulator(newValue *bool)
 
 	// No break
-	GetNoBreak() bool
-	SetNoBreak(newValue bool)
+	GetNoBreak() *bool
+	SetNoBreak(newValue *bool)
 
 	// Differential
-	GetDifferential() bool
-	SetDifferential(newValue bool)
+	GetDifferential() *bool
+	SetDifferential(newValue *bool)
 
 	// Alignment point
-	GetAlignmentPoint() bool
-	SetAlignmentPoint(newValue bool)
+	GetAlignmentPoint() *bool
+	SetAlignmentPoint(newValue *bool)
 
 	// Explicit break
 	GetExplicitBreak() int32
@@ -71,16 +71,16 @@ type BoxElement struct {
 	Base IMathElement `json:"Base,omitempty"`
 
 	// Operator emulator
-	OperatorEmulator bool `json:"OperatorEmulator"`
+	OperatorEmulator *bool `json:"OperatorEmulator"`
 
 	// No break
-	NoBreak bool `json:"NoBreak"`
+	NoBreak *bool `json:"NoBreak"`
 
 	// Differential
-	Differential bool `json:"Differential"`
+	Differential *bool `json:"Differential"`
 
 	// Alignment point
-	AlignmentPoint bool `json:"AlignmentPoint"`
+	AlignmentPoint *bool `json:"AlignmentPoint"`
 
 	// Explicit break
 	ExplicitBreak int32 `json:"ExplicitBreak,omitempty"`
@@ -106,32 +106,32 @@ func (this *BoxElement) GetBase() IMathElement {
 func (this *BoxElement) SetBase(newValue IMathElement) {
 	this.Base = newValue
 }
-func (this *BoxElement) GetOperatorEmulator() bool {
+func (this *BoxElement) GetOperatorEmulator() *bool {
 	return this.OperatorEmulator
 }
 
-func (this *BoxElement) SetOperatorEmulator(newValue bool) {
+func (this *BoxElement) SetOperatorEmulator(newValue *bool) {
 	this.OperatorEmulator = newValue
 }
-func (this *BoxElement) GetNoBreak() bool {
+func (this *BoxElement) GetNoBreak() *bool {
 	return this.NoBreak
 }
 
-func (this *BoxElement) SetNoBreak(newValue bool) {
+func (this *BoxElement) SetNoBreak(newValue *bool) {
 	this.NoBreak = newValue
 }
-func (this *BoxElement) GetDifferential() bool {
+func (this *BoxElement) GetDifferential() *bool {
 	return this.Differential
 }
 
-func (this *BoxElement) SetDifferential(newValue bool) {
+func (this *BoxElement) SetDifferential(newValue *bool) {
 	this.Differential = newValue
 }
-func (this *BoxElement) GetAlignmentPoint() bool {
+func (this *BoxElement) GetAlignmentPoint() *bool {
 	return this.AlignmentPoint
 }
 
-func (this *BoxElement) SetAlignmentPoint(newValue bool) {
+func (this *BoxElement) SetAlignmentPoint(newValue *bool) {
 	this.AlignmentPoint = newValue
 }
 func (this *BoxElement) GetExplicitBreak() int32 {
@@ -227,7 +227,7 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valOperatorEmulator, ok := objMap["operatorEmulator"]; ok {
 		if valOperatorEmulator != nil {
-			var valueForOperatorEmulator bool
+			var valueForOperatorEmulator *bool
 			err = json.Unmarshal(*valOperatorEmulator, &valueForOperatorEmulator)
 			if err != nil {
 				return err
@@ -237,7 +237,7 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valOperatorEmulatorCap, ok := objMap["OperatorEmulator"]; ok {
 		if valOperatorEmulatorCap != nil {
-			var valueForOperatorEmulator bool
+			var valueForOperatorEmulator *bool
 			err = json.Unmarshal(*valOperatorEmulatorCap, &valueForOperatorEmulator)
 			if err != nil {
 				return err
@@ -248,7 +248,7 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valNoBreak, ok := objMap["noBreak"]; ok {
 		if valNoBreak != nil {
-			var valueForNoBreak bool
+			var valueForNoBreak *bool
 			err = json.Unmarshal(*valNoBreak, &valueForNoBreak)
 			if err != nil {
 				return err
@@ -258,7 +258,7 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valNoBreakCap, ok := objMap["NoBreak"]; ok {
 		if valNoBreakCap != nil {
-			var valueForNoBreak bool
+			var valueForNoBreak *bool
 			err = json.Unmarshal(*valNoBreakCap, &valueForNoBreak)
 			if err != nil {
 				return err
@@ -269,7 +269,7 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valDifferential, ok := objMap["differential"]; ok {
 		if valDifferential != nil {
-			var valueForDifferential bool
+			var valueForDifferential *bool
 			err = json.Unmarshal(*valDifferential, &valueForDifferential)
 			if err != nil {
 				return err
@@ -279,7 +279,7 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valDifferentialCap, ok := objMap["Differential"]; ok {
 		if valDifferentialCap != nil {
-			var valueForDifferential bool
+			var valueForDifferential *bool
 			err = json.Unmarshal(*valDifferentialCap, &valueForDifferential)
 			if err != nil {
 				return err
@@ -290,7 +290,7 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 	
 	if valAlignmentPoint, ok := objMap["alignmentPoint"]; ok {
 		if valAlignmentPoint != nil {
-			var valueForAlignmentPoint bool
+			var valueForAlignmentPoint *bool
 			err = json.Unmarshal(*valAlignmentPoint, &valueForAlignmentPoint)
 			if err != nil {
 				return err
@@ -300,7 +300,7 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 	}
 	if valAlignmentPointCap, ok := objMap["AlignmentPoint"]; ok {
 		if valAlignmentPointCap != nil {
-			var valueForAlignmentPoint bool
+			var valueForAlignmentPoint *bool
 			err = json.Unmarshal(*valAlignmentPointCap, &valueForAlignmentPoint)
 			if err != nil {
 				return err

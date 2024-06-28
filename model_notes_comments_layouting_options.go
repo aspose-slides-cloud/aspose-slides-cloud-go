@@ -53,8 +53,8 @@ type INotesCommentsLayoutingOptions interface {
 	SetCommentsAreaColor(newValue string)
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	GetShowCommentsByNoAuthor() bool
-	SetShowCommentsByNoAuthor(newValue bool)
+	GetShowCommentsByNoAuthor() *bool
+	SetShowCommentsByNoAuthor(newValue *bool)
 }
 
 type NotesCommentsLayoutingOptions struct {
@@ -74,7 +74,7 @@ type NotesCommentsLayoutingOptions struct {
 	CommentsAreaColor string `json:"CommentsAreaColor,omitempty"`
 
 	// True if comments that have no author are displayed. (Applies only if comments are displayed).
-	ShowCommentsByNoAuthor bool `json:"ShowCommentsByNoAuthor"`
+	ShowCommentsByNoAuthor *bool `json:"ShowCommentsByNoAuthor"`
 }
 
 func NewNotesCommentsLayoutingOptions() *NotesCommentsLayoutingOptions {
@@ -118,11 +118,11 @@ func (this *NotesCommentsLayoutingOptions) GetCommentsAreaColor() string {
 func (this *NotesCommentsLayoutingOptions) SetCommentsAreaColor(newValue string) {
 	this.CommentsAreaColor = newValue
 }
-func (this *NotesCommentsLayoutingOptions) GetShowCommentsByNoAuthor() bool {
+func (this *NotesCommentsLayoutingOptions) GetShowCommentsByNoAuthor() *bool {
 	return this.ShowCommentsByNoAuthor
 }
 
-func (this *NotesCommentsLayoutingOptions) SetShowCommentsByNoAuthor(newValue bool) {
+func (this *NotesCommentsLayoutingOptions) SetShowCommentsByNoAuthor(newValue *bool) {
 	this.ShowCommentsByNoAuthor = newValue
 }
 
@@ -276,7 +276,7 @@ func (this *NotesCommentsLayoutingOptions) UnmarshalJSON(b []byte) error {
 	
 	if valShowCommentsByNoAuthor, ok := objMap["showCommentsByNoAuthor"]; ok {
 		if valShowCommentsByNoAuthor != nil {
-			var valueForShowCommentsByNoAuthor bool
+			var valueForShowCommentsByNoAuthor *bool
 			err = json.Unmarshal(*valShowCommentsByNoAuthor, &valueForShowCommentsByNoAuthor)
 			if err != nil {
 				return err
@@ -286,7 +286,7 @@ func (this *NotesCommentsLayoutingOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valShowCommentsByNoAuthorCap, ok := objMap["ShowCommentsByNoAuthor"]; ok {
 		if valShowCommentsByNoAuthorCap != nil {
-			var valueForShowCommentsByNoAuthor bool
+			var valueForShowCommentsByNoAuthor *bool
 			err = json.Unmarshal(*valShowCommentsByNoAuthorCap, &valueForShowCommentsByNoAuthor)
 			if err != nil {
 				return err

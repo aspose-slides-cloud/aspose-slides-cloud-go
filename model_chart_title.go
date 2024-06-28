@@ -54,8 +54,8 @@ type IChartTitle interface {
 	SetHeight(newValue float64)
 
 	// true if other elements are allowed to overlay the legend
-	GetOverlay() bool
-	SetOverlay(newValue bool)
+	GetOverlay() *bool
+	SetOverlay(newValue *bool)
 
 	// Get or sets the fill format.
 	GetFillFormat() IFillFormat
@@ -88,7 +88,7 @@ type ChartTitle struct {
 	Height float64 `json:"Height,omitempty"`
 
 	// true if other elements are allowed to overlay the legend
-	Overlay bool `json:"Overlay"`
+	Overlay *bool `json:"Overlay"`
 
 	// Get or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`
@@ -140,11 +140,11 @@ func (this *ChartTitle) GetHeight() float64 {
 func (this *ChartTitle) SetHeight(newValue float64) {
 	this.Height = newValue
 }
-func (this *ChartTitle) GetOverlay() bool {
+func (this *ChartTitle) GetOverlay() *bool {
 	return this.Overlay
 }
 
-func (this *ChartTitle) SetOverlay(newValue bool) {
+func (this *ChartTitle) SetOverlay(newValue *bool) {
 	this.Overlay = newValue
 }
 func (this *ChartTitle) GetFillFormat() IFillFormat {
@@ -283,7 +283,7 @@ func (this *ChartTitle) UnmarshalJSON(b []byte) error {
 	
 	if valOverlay, ok := objMap["overlay"]; ok {
 		if valOverlay != nil {
-			var valueForOverlay bool
+			var valueForOverlay *bool
 			err = json.Unmarshal(*valOverlay, &valueForOverlay)
 			if err != nil {
 				return err
@@ -293,7 +293,7 @@ func (this *ChartTitle) UnmarshalJSON(b []byte) error {
 	}
 	if valOverlayCap, ok := objMap["Overlay"]; ok {
 		if valOverlayCap != nil {
-			var valueForOverlay bool
+			var valueForOverlay *bool
 			err = json.Unmarshal(*valOverlayCap, &valueForOverlay)
 			if err != nil {
 				return err

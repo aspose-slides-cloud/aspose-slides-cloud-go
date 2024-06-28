@@ -95,7 +95,7 @@ func TestConvertPutFromRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
@@ -142,7 +142,7 @@ func TestConvertPutFromStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
@@ -171,7 +171,8 @@ func TestConvertWithOptionsFromRequest(t *testing.T) {
 	}
 
 	options := slidescloud.NewPdfExportOptions()
-	options.DrawSlidesFrame = true
+	drawSlidesFrame := true
+	options.DrawSlidesFrame = &drawSlidesFrame
 	resultOptions, _, e := c.SlidesApi.Convert(source, "pdf", password, "", "", nil, options)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -267,7 +268,7 @@ func TestConvertSlidePutFromRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
@@ -313,7 +314,7 @@ func TestConvertSlidePutFromStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
@@ -342,7 +343,8 @@ func TestConvertSlideWithOptionsFromRequest(t *testing.T) {
 	}
 
 	options := slidescloud.NewPdfExportOptions()
-	options.DrawSlidesFrame = true
+	drawSlidesFrame := true
+	options.DrawSlidesFrame = &drawSlidesFrame
 	resultOptions, _, e := c.SlidesApi.DownloadSlideOnline(source, 1, "pdf", nil, nil, password, "", "", options)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -382,7 +384,8 @@ func TestConvertSlideWithOptionsFromStorage(t *testing.T) {
 	}
 
 	options := slidescloud.NewPdfExportOptions()
-	options.DrawSlidesFrame = true
+	drawSlidesFrame := true
+	options.DrawSlidesFrame = &drawSlidesFrame
 	resultOptions, _, e := c.SlidesApi.DownloadSlide(fileName, 1, "pdf", options, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -437,7 +440,7 @@ func TestConvertShapePutFromRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
@@ -503,7 +506,7 @@ func TestConvertShapePutFromStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
@@ -534,7 +537,7 @@ func TestConvertSubshapePutFromStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if !resultExists.GetExists() {
+	if !*resultExists.GetExists() {
 		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
@@ -586,7 +589,8 @@ func TestConvertWithSlideLayoutOptions(t *testing.T) {
 
 	slideLayoutOptions := slidescloud.NewHandoutLayoutingOptions()
 	slideLayoutOptions.SetHandout("Handouts2")
-	slideLayoutOptions.SetPrintSlideNumbers(true)
+	printSlideNumbers := true
+	slideLayoutOptions.SetPrintSlideNumbers(&printSlideNumbers)
 
 	exportOptions := slidescloud.NewPdfExportOptions()
 	exportOptions.SetSlidesLayoutOptions(slideLayoutOptions)

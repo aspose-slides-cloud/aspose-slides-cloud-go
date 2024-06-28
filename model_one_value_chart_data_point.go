@@ -66,12 +66,12 @@ type IOneValueChartDataPoint interface {
 	SetValueFormula(newValue string)
 
 	// SetAsTotal. Applied to Waterfall data points only.
-	GetSetAsTotal() bool
-	SetSetAsTotal(newValue bool)
+	GetSetAsTotal() *bool
+	SetSetAsTotal(newValue *bool)
 
 	// True if the data point shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	GetInvertIfNegative() bool
-	SetInvertIfNegative(newValue bool)
+	GetInvertIfNegative() *bool
+	SetInvertIfNegative(newValue *bool)
 }
 
 type OneValueChartDataPoint struct {
@@ -101,10 +101,10 @@ type OneValueChartDataPoint struct {
 	ValueFormula string `json:"ValueFormula,omitempty"`
 
 	// SetAsTotal. Applied to Waterfall data points only.
-	SetAsTotal bool `json:"SetAsTotal"`
+	SetAsTotal *bool `json:"SetAsTotal"`
 
 	// True if the data point shall invert its colors if the value is negative. Applies to bar, column and bubble series.
-	InvertIfNegative bool `json:"InvertIfNegative"`
+	InvertIfNegative *bool `json:"InvertIfNegative"`
 }
 
 func NewOneValueChartDataPoint() *OneValueChartDataPoint {
@@ -169,18 +169,18 @@ func (this *OneValueChartDataPoint) GetValueFormula() string {
 func (this *OneValueChartDataPoint) SetValueFormula(newValue string) {
 	this.ValueFormula = newValue
 }
-func (this *OneValueChartDataPoint) GetSetAsTotal() bool {
+func (this *OneValueChartDataPoint) GetSetAsTotal() *bool {
 	return this.SetAsTotal
 }
 
-func (this *OneValueChartDataPoint) SetSetAsTotal(newValue bool) {
+func (this *OneValueChartDataPoint) SetSetAsTotal(newValue *bool) {
 	this.SetAsTotal = newValue
 }
-func (this *OneValueChartDataPoint) GetInvertIfNegative() bool {
+func (this *OneValueChartDataPoint) GetInvertIfNegative() *bool {
 	return this.InvertIfNegative
 }
 
-func (this *OneValueChartDataPoint) SetInvertIfNegative(newValue bool) {
+func (this *OneValueChartDataPoint) SetInvertIfNegative(newValue *bool) {
 	this.InvertIfNegative = newValue
 }
 
@@ -483,7 +483,7 @@ func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
 	
 	if valSetAsTotal, ok := objMap["setAsTotal"]; ok {
 		if valSetAsTotal != nil {
-			var valueForSetAsTotal bool
+			var valueForSetAsTotal *bool
 			err = json.Unmarshal(*valSetAsTotal, &valueForSetAsTotal)
 			if err != nil {
 				return err
@@ -493,7 +493,7 @@ func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
 	}
 	if valSetAsTotalCap, ok := objMap["SetAsTotal"]; ok {
 		if valSetAsTotalCap != nil {
-			var valueForSetAsTotal bool
+			var valueForSetAsTotal *bool
 			err = json.Unmarshal(*valSetAsTotalCap, &valueForSetAsTotal)
 			if err != nil {
 				return err
@@ -504,7 +504,7 @@ func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
 	
 	if valInvertIfNegative, ok := objMap["invertIfNegative"]; ok {
 		if valInvertIfNegative != nil {
-			var valueForInvertIfNegative bool
+			var valueForInvertIfNegative *bool
 			err = json.Unmarshal(*valInvertIfNegative, &valueForInvertIfNegative)
 			if err != nil {
 				return err
@@ -514,7 +514,7 @@ func (this *OneValueChartDataPoint) UnmarshalJSON(b []byte) error {
 	}
 	if valInvertIfNegativeCap, ok := objMap["InvertIfNegative"]; ok {
 		if valInvertIfNegativeCap != nil {
-			var valueForInvertIfNegative bool
+			var valueForInvertIfNegative *bool
 			err = json.Unmarshal(*valInvertIfNegativeCap, &valueForInvertIfNegative)
 			if err != nil {
 				return err

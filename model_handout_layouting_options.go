@@ -41,16 +41,16 @@ type IHandoutLayoutingOptions interface {
 	SetHandout(newValue string)
 
 	// True to print the displayed slide numbers.
-	GetPrintSlideNumbers() bool
-	SetPrintSlideNumbers(newValue bool)
+	GetPrintSlideNumbers() *bool
+	SetPrintSlideNumbers(newValue *bool)
 
 	// True to display comments on slide.
-	GetPrintComments() bool
-	SetPrintComments(newValue bool)
+	GetPrintComments() *bool
+	SetPrintComments(newValue *bool)
 
 	// True to draw frames around the displayed slides.
-	GetPrintFrameSlide() bool
-	SetPrintFrameSlide(newValue bool)
+	GetPrintFrameSlide() *bool
+	SetPrintFrameSlide(newValue *bool)
 }
 
 type HandoutLayoutingOptions struct {
@@ -61,13 +61,13 @@ type HandoutLayoutingOptions struct {
 	Handout string `json:"Handout,omitempty"`
 
 	// True to print the displayed slide numbers.
-	PrintSlideNumbers bool `json:"PrintSlideNumbers"`
+	PrintSlideNumbers *bool `json:"PrintSlideNumbers"`
 
 	// True to display comments on slide.
-	PrintComments bool `json:"PrintComments"`
+	PrintComments *bool `json:"PrintComments"`
 
 	// True to draw frames around the displayed slides.
-	PrintFrameSlide bool `json:"PrintFrameSlide"`
+	PrintFrameSlide *bool `json:"PrintFrameSlide"`
 }
 
 func NewHandoutLayoutingOptions() *HandoutLayoutingOptions {
@@ -90,25 +90,25 @@ func (this *HandoutLayoutingOptions) GetHandout() string {
 func (this *HandoutLayoutingOptions) SetHandout(newValue string) {
 	this.Handout = newValue
 }
-func (this *HandoutLayoutingOptions) GetPrintSlideNumbers() bool {
+func (this *HandoutLayoutingOptions) GetPrintSlideNumbers() *bool {
 	return this.PrintSlideNumbers
 }
 
-func (this *HandoutLayoutingOptions) SetPrintSlideNumbers(newValue bool) {
+func (this *HandoutLayoutingOptions) SetPrintSlideNumbers(newValue *bool) {
 	this.PrintSlideNumbers = newValue
 }
-func (this *HandoutLayoutingOptions) GetPrintComments() bool {
+func (this *HandoutLayoutingOptions) GetPrintComments() *bool {
 	return this.PrintComments
 }
 
-func (this *HandoutLayoutingOptions) SetPrintComments(newValue bool) {
+func (this *HandoutLayoutingOptions) SetPrintComments(newValue *bool) {
 	this.PrintComments = newValue
 }
-func (this *HandoutLayoutingOptions) GetPrintFrameSlide() bool {
+func (this *HandoutLayoutingOptions) GetPrintFrameSlide() *bool {
 	return this.PrintFrameSlide
 }
 
-func (this *HandoutLayoutingOptions) SetPrintFrameSlide(newValue bool) {
+func (this *HandoutLayoutingOptions) SetPrintFrameSlide(newValue *bool) {
 	this.PrintFrameSlide = newValue
 }
 
@@ -187,7 +187,7 @@ func (this *HandoutLayoutingOptions) UnmarshalJSON(b []byte) error {
 	
 	if valPrintSlideNumbers, ok := objMap["printSlideNumbers"]; ok {
 		if valPrintSlideNumbers != nil {
-			var valueForPrintSlideNumbers bool
+			var valueForPrintSlideNumbers *bool
 			err = json.Unmarshal(*valPrintSlideNumbers, &valueForPrintSlideNumbers)
 			if err != nil {
 				return err
@@ -197,7 +197,7 @@ func (this *HandoutLayoutingOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valPrintSlideNumbersCap, ok := objMap["PrintSlideNumbers"]; ok {
 		if valPrintSlideNumbersCap != nil {
-			var valueForPrintSlideNumbers bool
+			var valueForPrintSlideNumbers *bool
 			err = json.Unmarshal(*valPrintSlideNumbersCap, &valueForPrintSlideNumbers)
 			if err != nil {
 				return err
@@ -208,7 +208,7 @@ func (this *HandoutLayoutingOptions) UnmarshalJSON(b []byte) error {
 	
 	if valPrintComments, ok := objMap["printComments"]; ok {
 		if valPrintComments != nil {
-			var valueForPrintComments bool
+			var valueForPrintComments *bool
 			err = json.Unmarshal(*valPrintComments, &valueForPrintComments)
 			if err != nil {
 				return err
@@ -218,7 +218,7 @@ func (this *HandoutLayoutingOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valPrintCommentsCap, ok := objMap["PrintComments"]; ok {
 		if valPrintCommentsCap != nil {
-			var valueForPrintComments bool
+			var valueForPrintComments *bool
 			err = json.Unmarshal(*valPrintCommentsCap, &valueForPrintComments)
 			if err != nil {
 				return err
@@ -229,7 +229,7 @@ func (this *HandoutLayoutingOptions) UnmarshalJSON(b []byte) error {
 	
 	if valPrintFrameSlide, ok := objMap["printFrameSlide"]; ok {
 		if valPrintFrameSlide != nil {
-			var valueForPrintFrameSlide bool
+			var valueForPrintFrameSlide *bool
 			err = json.Unmarshal(*valPrintFrameSlide, &valueForPrintFrameSlide)
 			if err != nil {
 				return err
@@ -239,7 +239,7 @@ func (this *HandoutLayoutingOptions) UnmarshalJSON(b []byte) error {
 	}
 	if valPrintFrameSlideCap, ok := objMap["PrintFrameSlide"]; ok {
 		if valPrintFrameSlideCap != nil {
-			var valueForPrintFrameSlide bool
+			var valueForPrintFrameSlide *bool
 			err = json.Unmarshal(*valPrintFrameSlideCap, &valueForPrintFrameSlide)
 			if err != nil {
 				return err
