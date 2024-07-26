@@ -119,7 +119,7 @@ func (this *HandoutLayoutingOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.LayoutType = "Handout"
-	if valLayoutType, ok := objMap["layoutType"]; ok {
+	if valLayoutType, ok := GetMapValue(objMap, "layoutType"); ok {
 		if valLayoutType != nil {
 			var valueForLayoutType string
 			err = json.Unmarshal(*valLayoutType, &valueForLayoutType)
@@ -135,24 +135,8 @@ func (this *HandoutLayoutingOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLayoutTypeCap, ok := objMap["LayoutType"]; ok {
-		if valLayoutTypeCap != nil {
-			var valueForLayoutType string
-			err = json.Unmarshal(*valLayoutTypeCap, &valueForLayoutType)
-			if err != nil {
-				var valueForLayoutTypeInt int32
-				err = json.Unmarshal(*valLayoutTypeCap, &valueForLayoutTypeInt)
-				if err != nil {
-					return err
-				}
-				this.LayoutType = string(valueForLayoutTypeInt)
-			} else {
-				this.LayoutType = valueForLayoutType
-			}
-		}
-	}
 	
-	if valHandout, ok := objMap["handout"]; ok {
+	if valHandout, ok := GetMapValue(objMap, "handout"); ok {
 		if valHandout != nil {
 			var valueForHandout string
 			err = json.Unmarshal(*valHandout, &valueForHandout)
@@ -168,24 +152,8 @@ func (this *HandoutLayoutingOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valHandoutCap, ok := objMap["Handout"]; ok {
-		if valHandoutCap != nil {
-			var valueForHandout string
-			err = json.Unmarshal(*valHandoutCap, &valueForHandout)
-			if err != nil {
-				var valueForHandoutInt int32
-				err = json.Unmarshal(*valHandoutCap, &valueForHandoutInt)
-				if err != nil {
-					return err
-				}
-				this.Handout = string(valueForHandoutInt)
-			} else {
-				this.Handout = valueForHandout
-			}
-		}
-	}
 	
-	if valPrintSlideNumbers, ok := objMap["printSlideNumbers"]; ok {
+	if valPrintSlideNumbers, ok := GetMapValue(objMap, "printSlideNumbers"); ok {
 		if valPrintSlideNumbers != nil {
 			var valueForPrintSlideNumbers *bool
 			err = json.Unmarshal(*valPrintSlideNumbers, &valueForPrintSlideNumbers)
@@ -195,18 +163,8 @@ func (this *HandoutLayoutingOptions) UnmarshalJSON(b []byte) error {
 			this.PrintSlideNumbers = valueForPrintSlideNumbers
 		}
 	}
-	if valPrintSlideNumbersCap, ok := objMap["PrintSlideNumbers"]; ok {
-		if valPrintSlideNumbersCap != nil {
-			var valueForPrintSlideNumbers *bool
-			err = json.Unmarshal(*valPrintSlideNumbersCap, &valueForPrintSlideNumbers)
-			if err != nil {
-				return err
-			}
-			this.PrintSlideNumbers = valueForPrintSlideNumbers
-		}
-	}
 	
-	if valPrintComments, ok := objMap["printComments"]; ok {
+	if valPrintComments, ok := GetMapValue(objMap, "printComments"); ok {
 		if valPrintComments != nil {
 			var valueForPrintComments *bool
 			err = json.Unmarshal(*valPrintComments, &valueForPrintComments)
@@ -216,31 +174,11 @@ func (this *HandoutLayoutingOptions) UnmarshalJSON(b []byte) error {
 			this.PrintComments = valueForPrintComments
 		}
 	}
-	if valPrintCommentsCap, ok := objMap["PrintComments"]; ok {
-		if valPrintCommentsCap != nil {
-			var valueForPrintComments *bool
-			err = json.Unmarshal(*valPrintCommentsCap, &valueForPrintComments)
-			if err != nil {
-				return err
-			}
-			this.PrintComments = valueForPrintComments
-		}
-	}
 	
-	if valPrintFrameSlide, ok := objMap["printFrameSlide"]; ok {
+	if valPrintFrameSlide, ok := GetMapValue(objMap, "printFrameSlide"); ok {
 		if valPrintFrameSlide != nil {
 			var valueForPrintFrameSlide *bool
 			err = json.Unmarshal(*valPrintFrameSlide, &valueForPrintFrameSlide)
-			if err != nil {
-				return err
-			}
-			this.PrintFrameSlide = valueForPrintFrameSlide
-		}
-	}
-	if valPrintFrameSlideCap, ok := objMap["PrintFrameSlide"]; ok {
-		if valPrintFrameSlideCap != nil {
-			var valueForPrintFrameSlide *bool
-			err = json.Unmarshal(*valPrintFrameSlideCap, &valueForPrintFrameSlide)
 			if err != nil {
 				return err
 			}

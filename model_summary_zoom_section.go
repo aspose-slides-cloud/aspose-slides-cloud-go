@@ -429,7 +429,7 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["selfUri"]; ok {
+	if valSelfUri, ok := GetMapValue(objMap, "selfUri"); ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -450,29 +450,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
-		if valSelfUriCap != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
-		}
-	}
 	
-	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
+	if valAlternateLinks, ok := GetMapValue(objMap, "alternateLinks"); ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -496,32 +475,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
-	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
-		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
-			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
-			}
-			this.AlternateLinks = valueForIAlternateLinks
-		}
-	}
 	
-	if valName, ok := objMap["name"]; ok {
+	if valName, ok := GetMapValue(objMap, "name"); ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -531,18 +486,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-	if valNameCap, ok := objMap["Name"]; ok {
-		if valNameCap != nil {
-			var valueForName string
-			err = json.Unmarshal(*valNameCap, &valueForName)
-			if err != nil {
-				return err
-			}
-			this.Name = valueForName
-		}
-	}
 	
-	if valWidth, ok := objMap["width"]; ok {
+	if valWidth, ok := GetMapValue(objMap, "width"); ok {
 		if valWidth != nil {
 			var valueForWidth float64
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -552,18 +497,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth float64
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
 	
-	if valHeight, ok := objMap["height"]; ok {
+	if valHeight, ok := GetMapValue(objMap, "height"); ok {
 		if valHeight != nil {
 			var valueForHeight float64
 			err = json.Unmarshal(*valHeight, &valueForHeight)
@@ -573,18 +508,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight float64
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
 	
-	if valAlternativeText, ok := objMap["alternativeText"]; ok {
+	if valAlternativeText, ok := GetMapValue(objMap, "alternativeText"); ok {
 		if valAlternativeText != nil {
 			var valueForAlternativeText string
 			err = json.Unmarshal(*valAlternativeText, &valueForAlternativeText)
@@ -594,18 +519,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.AlternativeText = valueForAlternativeText
 		}
 	}
-	if valAlternativeTextCap, ok := objMap["AlternativeText"]; ok {
-		if valAlternativeTextCap != nil {
-			var valueForAlternativeText string
-			err = json.Unmarshal(*valAlternativeTextCap, &valueForAlternativeText)
-			if err != nil {
-				return err
-			}
-			this.AlternativeText = valueForAlternativeText
-		}
-	}
 	
-	if valAlternativeTextTitle, ok := objMap["alternativeTextTitle"]; ok {
+	if valAlternativeTextTitle, ok := GetMapValue(objMap, "alternativeTextTitle"); ok {
 		if valAlternativeTextTitle != nil {
 			var valueForAlternativeTextTitle string
 			err = json.Unmarshal(*valAlternativeTextTitle, &valueForAlternativeTextTitle)
@@ -615,18 +530,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.AlternativeTextTitle = valueForAlternativeTextTitle
 		}
 	}
-	if valAlternativeTextTitleCap, ok := objMap["AlternativeTextTitle"]; ok {
-		if valAlternativeTextTitleCap != nil {
-			var valueForAlternativeTextTitle string
-			err = json.Unmarshal(*valAlternativeTextTitleCap, &valueForAlternativeTextTitle)
-			if err != nil {
-				return err
-			}
-			this.AlternativeTextTitle = valueForAlternativeTextTitle
-		}
-	}
 	
-	if valHidden, ok := objMap["hidden"]; ok {
+	if valHidden, ok := GetMapValue(objMap, "hidden"); ok {
 		if valHidden != nil {
 			var valueForHidden *bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
@@ -636,18 +541,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.Hidden = valueForHidden
 		}
 	}
-	if valHiddenCap, ok := objMap["Hidden"]; ok {
-		if valHiddenCap != nil {
-			var valueForHidden *bool
-			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
-			if err != nil {
-				return err
-			}
-			this.Hidden = valueForHidden
-		}
-	}
 	
-	if valIsDecorative, ok := objMap["isDecorative"]; ok {
+	if valIsDecorative, ok := GetMapValue(objMap, "isDecorative"); ok {
 		if valIsDecorative != nil {
 			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorative, &valueForIsDecorative)
@@ -657,18 +552,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.IsDecorative = valueForIsDecorative
 		}
 	}
-	if valIsDecorativeCap, ok := objMap["IsDecorative"]; ok {
-		if valIsDecorativeCap != nil {
-			var valueForIsDecorative *bool
-			err = json.Unmarshal(*valIsDecorativeCap, &valueForIsDecorative)
-			if err != nil {
-				return err
-			}
-			this.IsDecorative = valueForIsDecorative
-		}
-	}
 	
-	if valX, ok := objMap["x"]; ok {
+	if valX, ok := GetMapValue(objMap, "x"); ok {
 		if valX != nil {
 			var valueForX float64
 			err = json.Unmarshal(*valX, &valueForX)
@@ -678,18 +563,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.X = valueForX
 		}
 	}
-	if valXCap, ok := objMap["X"]; ok {
-		if valXCap != nil {
-			var valueForX float64
-			err = json.Unmarshal(*valXCap, &valueForX)
-			if err != nil {
-				return err
-			}
-			this.X = valueForX
-		}
-	}
 	
-	if valY, ok := objMap["y"]; ok {
+	if valY, ok := GetMapValue(objMap, "y"); ok {
 		if valY != nil {
 			var valueForY float64
 			err = json.Unmarshal(*valY, &valueForY)
@@ -699,18 +574,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.Y = valueForY
 		}
 	}
-	if valYCap, ok := objMap["Y"]; ok {
-		if valYCap != nil {
-			var valueForY float64
-			err = json.Unmarshal(*valYCap, &valueForY)
-			if err != nil {
-				return err
-			}
-			this.Y = valueForY
-		}
-	}
 	
-	if valZOrderPosition, ok := objMap["zOrderPosition"]; ok {
+	if valZOrderPosition, ok := GetMapValue(objMap, "zOrderPosition"); ok {
 		if valZOrderPosition != nil {
 			var valueForZOrderPosition int32
 			err = json.Unmarshal(*valZOrderPosition, &valueForZOrderPosition)
@@ -720,18 +585,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.ZOrderPosition = valueForZOrderPosition
 		}
 	}
-	if valZOrderPositionCap, ok := objMap["ZOrderPosition"]; ok {
-		if valZOrderPositionCap != nil {
-			var valueForZOrderPosition int32
-			err = json.Unmarshal(*valZOrderPositionCap, &valueForZOrderPosition)
-			if err != nil {
-				return err
-			}
-			this.ZOrderPosition = valueForZOrderPosition
-		}
-	}
 	
-	if valFillFormat, ok := objMap["fillFormat"]; ok {
+	if valFillFormat, ok := GetMapValue(objMap, "fillFormat"); ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -752,29 +607,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
-		if valFillFormatCap != nil {
-			var valueForFillFormat FillFormat
-			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFillFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IFillFormat)
-			if ok {
-				this.FillFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valEffectFormat, ok := objMap["effectFormat"]; ok {
+	if valEffectFormat, ok := GetMapValue(objMap, "effectFormat"); ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
 			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
@@ -795,29 +629,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
-		if valEffectFormatCap != nil {
-			var valueForEffectFormat EffectFormat
-			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valEffectFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IEffectFormat)
-			if ok {
-				this.EffectFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valThreeDFormat, ok := objMap["threeDFormat"]; ok {
+	if valThreeDFormat, ok := GetMapValue(objMap, "threeDFormat"); ok {
 		if valThreeDFormat != nil {
 			var valueForThreeDFormat ThreeDFormat
 			err = json.Unmarshal(*valThreeDFormat, &valueForThreeDFormat)
@@ -838,29 +651,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valThreeDFormatCap, ok := objMap["ThreeDFormat"]; ok {
-		if valThreeDFormatCap != nil {
-			var valueForThreeDFormat ThreeDFormat
-			err = json.Unmarshal(*valThreeDFormatCap, &valueForThreeDFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ThreeDFormat", *valThreeDFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valThreeDFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IThreeDFormat)
-			if ok {
-				this.ThreeDFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valLineFormat, ok := objMap["lineFormat"]; ok {
+	if valLineFormat, ok := GetMapValue(objMap, "lineFormat"); ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
 			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
@@ -881,29 +673,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
-		if valLineFormatCap != nil {
-			var valueForLineFormat LineFormat
-			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valLineFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.LineFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valHyperlinkClick, ok := objMap["hyperlinkClick"]; ok {
+	if valHyperlinkClick, ok := GetMapValue(objMap, "hyperlinkClick"); ok {
 		if valHyperlinkClick != nil {
 			var valueForHyperlinkClick Hyperlink
 			err = json.Unmarshal(*valHyperlinkClick, &valueForHyperlinkClick)
@@ -924,29 +695,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valHyperlinkClickCap, ok := objMap["HyperlinkClick"]; ok {
-		if valHyperlinkClickCap != nil {
-			var valueForHyperlinkClick Hyperlink
-			err = json.Unmarshal(*valHyperlinkClickCap, &valueForHyperlinkClick)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("Hyperlink", *valHyperlinkClickCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valHyperlinkClickCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IHyperlink)
-			if ok {
-				this.HyperlinkClick = vInterfaceObject
-			}
-		}
-	}
 	
-	if valHyperlinkMouseOver, ok := objMap["hyperlinkMouseOver"]; ok {
+	if valHyperlinkMouseOver, ok := GetMapValue(objMap, "hyperlinkMouseOver"); ok {
 		if valHyperlinkMouseOver != nil {
 			var valueForHyperlinkMouseOver Hyperlink
 			err = json.Unmarshal(*valHyperlinkMouseOver, &valueForHyperlinkMouseOver)
@@ -967,29 +717,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valHyperlinkMouseOverCap, ok := objMap["HyperlinkMouseOver"]; ok {
-		if valHyperlinkMouseOverCap != nil {
-			var valueForHyperlinkMouseOver Hyperlink
-			err = json.Unmarshal(*valHyperlinkMouseOverCap, &valueForHyperlinkMouseOver)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("Hyperlink", *valHyperlinkMouseOverCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valHyperlinkMouseOverCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IHyperlink)
-			if ok {
-				this.HyperlinkMouseOver = vInterfaceObject
-			}
-		}
-	}
 	this.Type_ = "SummaryZoomSection"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -1005,24 +734,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valImageType, ok := objMap["imageType"]; ok {
+	if valImageType, ok := GetMapValue(objMap, "imageType"); ok {
 		if valImageType != nil {
 			var valueForImageType string
 			err = json.Unmarshal(*valImageType, &valueForImageType)
@@ -1038,24 +751,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valImageTypeCap, ok := objMap["ImageType"]; ok {
-		if valImageTypeCap != nil {
-			var valueForImageType string
-			err = json.Unmarshal(*valImageTypeCap, &valueForImageType)
-			if err != nil {
-				var valueForImageTypeInt int32
-				err = json.Unmarshal(*valImageTypeCap, &valueForImageTypeInt)
-				if err != nil {
-					return err
-				}
-				this.ImageType = string(valueForImageTypeInt)
-			} else {
-				this.ImageType = valueForImageType
-			}
-		}
-	}
 	
-	if valReturnToParent, ok := objMap["returnToParent"]; ok {
+	if valReturnToParent, ok := GetMapValue(objMap, "returnToParent"); ok {
 		if valReturnToParent != nil {
 			var valueForReturnToParent *bool
 			err = json.Unmarshal(*valReturnToParent, &valueForReturnToParent)
@@ -1065,18 +762,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.ReturnToParent = valueForReturnToParent
 		}
 	}
-	if valReturnToParentCap, ok := objMap["ReturnToParent"]; ok {
-		if valReturnToParentCap != nil {
-			var valueForReturnToParent *bool
-			err = json.Unmarshal(*valReturnToParentCap, &valueForReturnToParent)
-			if err != nil {
-				return err
-			}
-			this.ReturnToParent = valueForReturnToParent
-		}
-	}
 	
-	if valShowBackground, ok := objMap["showBackground"]; ok {
+	if valShowBackground, ok := GetMapValue(objMap, "showBackground"); ok {
 		if valShowBackground != nil {
 			var valueForShowBackground *bool
 			err = json.Unmarshal(*valShowBackground, &valueForShowBackground)
@@ -1086,18 +773,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.ShowBackground = valueForShowBackground
 		}
 	}
-	if valShowBackgroundCap, ok := objMap["ShowBackground"]; ok {
-		if valShowBackgroundCap != nil {
-			var valueForShowBackground *bool
-			err = json.Unmarshal(*valShowBackgroundCap, &valueForShowBackground)
-			if err != nil {
-				return err
-			}
-			this.ShowBackground = valueForShowBackground
-		}
-	}
 	
-	if valImage, ok := objMap["image"]; ok {
+	if valImage, ok := GetMapValue(objMap, "image"); ok {
 		if valImage != nil {
 			var valueForImage ResourceUri
 			err = json.Unmarshal(*valImage, &valueForImage)
@@ -1118,29 +795,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valImageCap, ok := objMap["Image"]; ok {
-		if valImageCap != nil {
-			var valueForImage ResourceUri
-			err = json.Unmarshal(*valImageCap, &valueForImage)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valImageCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valImageCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Image = vInterfaceObject
-			}
-		}
-	}
 	
-	if valTransitionDuration, ok := objMap["transitionDuration"]; ok {
+	if valTransitionDuration, ok := GetMapValue(objMap, "transitionDuration"); ok {
 		if valTransitionDuration != nil {
 			var valueForTransitionDuration float64
 			err = json.Unmarshal(*valTransitionDuration, &valueForTransitionDuration)
@@ -1150,18 +806,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.TransitionDuration = valueForTransitionDuration
 		}
 	}
-	if valTransitionDurationCap, ok := objMap["TransitionDuration"]; ok {
-		if valTransitionDurationCap != nil {
-			var valueForTransitionDuration float64
-			err = json.Unmarshal(*valTransitionDurationCap, &valueForTransitionDuration)
-			if err != nil {
-				return err
-			}
-			this.TransitionDuration = valueForTransitionDuration
-		}
-	}
 	
-	if valTargetSectionIndex, ok := objMap["targetSectionIndex"]; ok {
+	if valTargetSectionIndex, ok := GetMapValue(objMap, "targetSectionIndex"); ok {
 		if valTargetSectionIndex != nil {
 			var valueForTargetSectionIndex int32
 			err = json.Unmarshal(*valTargetSectionIndex, &valueForTargetSectionIndex)
@@ -1171,18 +817,8 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.TargetSectionIndex = valueForTargetSectionIndex
 		}
 	}
-	if valTargetSectionIndexCap, ok := objMap["TargetSectionIndex"]; ok {
-		if valTargetSectionIndexCap != nil {
-			var valueForTargetSectionIndex int32
-			err = json.Unmarshal(*valTargetSectionIndexCap, &valueForTargetSectionIndex)
-			if err != nil {
-				return err
-			}
-			this.TargetSectionIndex = valueForTargetSectionIndex
-		}
-	}
 	
-	if valTitle, ok := objMap["title"]; ok {
+	if valTitle, ok := GetMapValue(objMap, "title"); ok {
 		if valTitle != nil {
 			var valueForTitle string
 			err = json.Unmarshal(*valTitle, &valueForTitle)
@@ -1192,31 +828,11 @@ func (this *SummaryZoomSection) UnmarshalJSON(b []byte) error {
 			this.Title = valueForTitle
 		}
 	}
-	if valTitleCap, ok := objMap["Title"]; ok {
-		if valTitleCap != nil {
-			var valueForTitle string
-			err = json.Unmarshal(*valTitleCap, &valueForTitle)
-			if err != nil {
-				return err
-			}
-			this.Title = valueForTitle
-		}
-	}
 	
-	if valDescription, ok := objMap["description"]; ok {
+	if valDescription, ok := GetMapValue(objMap, "description"); ok {
 		if valDescription != nil {
 			var valueForDescription string
 			err = json.Unmarshal(*valDescription, &valueForDescription)
-			if err != nil {
-				return err
-			}
-			this.Description = valueForDescription
-		}
-	}
-	if valDescriptionCap, ok := objMap["Description"]; ok {
-		if valDescriptionCap != nil {
-			var valueForDescription string
-			err = json.Unmarshal(*valDescriptionCap, &valueForDescription)
 			if err != nil {
 				return err
 			}

@@ -64,20 +64,10 @@ func (this *TableColumn) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valWidth, ok := objMap["width"]; ok {
+	if valWidth, ok := GetMapValue(objMap, "width"); ok {
 		if valWidth != nil {
 			var valueForWidth float64
 			err = json.Unmarshal(*valWidth, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth float64
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
 			if err != nil {
 				return err
 			}

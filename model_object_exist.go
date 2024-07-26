@@ -78,7 +78,7 @@ func (this *ObjectExist) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valExists, ok := objMap["exists"]; ok {
+	if valExists, ok := GetMapValue(objMap, "exists"); ok {
 		if valExists != nil {
 			var valueForExists *bool
 			err = json.Unmarshal(*valExists, &valueForExists)
@@ -88,31 +88,11 @@ func (this *ObjectExist) UnmarshalJSON(b []byte) error {
 			this.Exists = valueForExists
 		}
 	}
-	if valExistsCap, ok := objMap["Exists"]; ok {
-		if valExistsCap != nil {
-			var valueForExists *bool
-			err = json.Unmarshal(*valExistsCap, &valueForExists)
-			if err != nil {
-				return err
-			}
-			this.Exists = valueForExists
-		}
-	}
 	
-	if valIsFolder, ok := objMap["isFolder"]; ok {
+	if valIsFolder, ok := GetMapValue(objMap, "isFolder"); ok {
 		if valIsFolder != nil {
 			var valueForIsFolder *bool
 			err = json.Unmarshal(*valIsFolder, &valueForIsFolder)
-			if err != nil {
-				return err
-			}
-			this.IsFolder = valueForIsFolder
-		}
-	}
-	if valIsFolderCap, ok := objMap["IsFolder"]; ok {
-		if valIsFolderCap != nil {
-			var valueForIsFolder *bool
-			err = json.Unmarshal(*valIsFolderCap, &valueForIsFolder)
 			if err != nil {
 				return err
 			}

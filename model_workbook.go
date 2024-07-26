@@ -107,7 +107,7 @@ func (this *Workbook) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Workbook"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -123,24 +123,8 @@ func (this *Workbook) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valWorksheetIndex, ok := objMap["worksheetIndex"]; ok {
+	if valWorksheetIndex, ok := GetMapValue(objMap, "worksheetIndex"); ok {
 		if valWorksheetIndex != nil {
 			var valueForWorksheetIndex int32
 			err = json.Unmarshal(*valWorksheetIndex, &valueForWorksheetIndex)
@@ -150,18 +134,8 @@ func (this *Workbook) UnmarshalJSON(b []byte) error {
 			this.WorksheetIndex = valueForWorksheetIndex
 		}
 	}
-	if valWorksheetIndexCap, ok := objMap["WorksheetIndex"]; ok {
-		if valWorksheetIndexCap != nil {
-			var valueForWorksheetIndex int32
-			err = json.Unmarshal(*valWorksheetIndexCap, &valueForWorksheetIndex)
-			if err != nil {
-				return err
-			}
-			this.WorksheetIndex = valueForWorksheetIndex
-		}
-	}
 	
-	if valColumnIndex, ok := objMap["columnIndex"]; ok {
+	if valColumnIndex, ok := GetMapValue(objMap, "columnIndex"); ok {
 		if valColumnIndex != nil {
 			var valueForColumnIndex int32
 			err = json.Unmarshal(*valColumnIndex, &valueForColumnIndex)
@@ -171,31 +145,11 @@ func (this *Workbook) UnmarshalJSON(b []byte) error {
 			this.ColumnIndex = valueForColumnIndex
 		}
 	}
-	if valColumnIndexCap, ok := objMap["ColumnIndex"]; ok {
-		if valColumnIndexCap != nil {
-			var valueForColumnIndex int32
-			err = json.Unmarshal(*valColumnIndexCap, &valueForColumnIndex)
-			if err != nil {
-				return err
-			}
-			this.ColumnIndex = valueForColumnIndex
-		}
-	}
 	
-	if valRowIndex, ok := objMap["rowIndex"]; ok {
+	if valRowIndex, ok := GetMapValue(objMap, "rowIndex"); ok {
 		if valRowIndex != nil {
 			var valueForRowIndex int32
 			err = json.Unmarshal(*valRowIndex, &valueForRowIndex)
-			if err != nil {
-				return err
-			}
-			this.RowIndex = valueForRowIndex
-		}
-	}
-	if valRowIndexCap, ok := objMap["RowIndex"]; ok {
-		if valRowIndexCap != nil {
-			var valueForRowIndex int32
-			err = json.Unmarshal(*valRowIndexCap, &valueForRowIndex)
 			if err != nil {
 				return err
 			}

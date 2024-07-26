@@ -78,7 +78,7 @@ func (this *VbaReference) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valName, ok := objMap["name"]; ok {
+	if valName, ok := GetMapValue(objMap, "name"); ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -88,31 +88,11 @@ func (this *VbaReference) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-	if valNameCap, ok := objMap["Name"]; ok {
-		if valNameCap != nil {
-			var valueForName string
-			err = json.Unmarshal(*valNameCap, &valueForName)
-			if err != nil {
-				return err
-			}
-			this.Name = valueForName
-		}
-	}
 	
-	if valLibId, ok := objMap["libId"]; ok {
+	if valLibId, ok := GetMapValue(objMap, "libId"); ok {
 		if valLibId != nil {
 			var valueForLibId string
 			err = json.Unmarshal(*valLibId, &valueForLibId)
-			if err != nil {
-				return err
-			}
-			this.LibId = valueForLibId
-		}
-	}
-	if valLibIdCap, ok := objMap["LibId"]; ok {
-		if valLibIdCap != nil {
-			var valueForLibId string
-			err = json.Unmarshal(*valLibIdCap, &valueForLibId)
 			if err != nil {
 				return err
 			}

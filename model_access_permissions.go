@@ -162,7 +162,7 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valPrintDocument, ok := objMap["printDocument"]; ok {
+	if valPrintDocument, ok := GetMapValue(objMap, "printDocument"); ok {
 		if valPrintDocument != nil {
 			var valueForPrintDocument *bool
 			err = json.Unmarshal(*valPrintDocument, &valueForPrintDocument)
@@ -172,18 +172,8 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 			this.PrintDocument = valueForPrintDocument
 		}
 	}
-	if valPrintDocumentCap, ok := objMap["PrintDocument"]; ok {
-		if valPrintDocumentCap != nil {
-			var valueForPrintDocument *bool
-			err = json.Unmarshal(*valPrintDocumentCap, &valueForPrintDocument)
-			if err != nil {
-				return err
-			}
-			this.PrintDocument = valueForPrintDocument
-		}
-	}
 	
-	if valModifyContent, ok := objMap["modifyContent"]; ok {
+	if valModifyContent, ok := GetMapValue(objMap, "modifyContent"); ok {
 		if valModifyContent != nil {
 			var valueForModifyContent *bool
 			err = json.Unmarshal(*valModifyContent, &valueForModifyContent)
@@ -193,18 +183,8 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 			this.ModifyContent = valueForModifyContent
 		}
 	}
-	if valModifyContentCap, ok := objMap["ModifyContent"]; ok {
-		if valModifyContentCap != nil {
-			var valueForModifyContent *bool
-			err = json.Unmarshal(*valModifyContentCap, &valueForModifyContent)
-			if err != nil {
-				return err
-			}
-			this.ModifyContent = valueForModifyContent
-		}
-	}
 	
-	if valCopyTextAndGraphics, ok := objMap["copyTextAndGraphics"]; ok {
+	if valCopyTextAndGraphics, ok := GetMapValue(objMap, "copyTextAndGraphics"); ok {
 		if valCopyTextAndGraphics != nil {
 			var valueForCopyTextAndGraphics *bool
 			err = json.Unmarshal(*valCopyTextAndGraphics, &valueForCopyTextAndGraphics)
@@ -214,18 +194,8 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 			this.CopyTextAndGraphics = valueForCopyTextAndGraphics
 		}
 	}
-	if valCopyTextAndGraphicsCap, ok := objMap["CopyTextAndGraphics"]; ok {
-		if valCopyTextAndGraphicsCap != nil {
-			var valueForCopyTextAndGraphics *bool
-			err = json.Unmarshal(*valCopyTextAndGraphicsCap, &valueForCopyTextAndGraphics)
-			if err != nil {
-				return err
-			}
-			this.CopyTextAndGraphics = valueForCopyTextAndGraphics
-		}
-	}
 	
-	if valAddOrModifyFields, ok := objMap["addOrModifyFields"]; ok {
+	if valAddOrModifyFields, ok := GetMapValue(objMap, "addOrModifyFields"); ok {
 		if valAddOrModifyFields != nil {
 			var valueForAddOrModifyFields *bool
 			err = json.Unmarshal(*valAddOrModifyFields, &valueForAddOrModifyFields)
@@ -235,18 +205,8 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 			this.AddOrModifyFields = valueForAddOrModifyFields
 		}
 	}
-	if valAddOrModifyFieldsCap, ok := objMap["AddOrModifyFields"]; ok {
-		if valAddOrModifyFieldsCap != nil {
-			var valueForAddOrModifyFields *bool
-			err = json.Unmarshal(*valAddOrModifyFieldsCap, &valueForAddOrModifyFields)
-			if err != nil {
-				return err
-			}
-			this.AddOrModifyFields = valueForAddOrModifyFields
-		}
-	}
 	
-	if valFillExistingFields, ok := objMap["fillExistingFields"]; ok {
+	if valFillExistingFields, ok := GetMapValue(objMap, "fillExistingFields"); ok {
 		if valFillExistingFields != nil {
 			var valueForFillExistingFields *bool
 			err = json.Unmarshal(*valFillExistingFields, &valueForFillExistingFields)
@@ -256,18 +216,8 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 			this.FillExistingFields = valueForFillExistingFields
 		}
 	}
-	if valFillExistingFieldsCap, ok := objMap["FillExistingFields"]; ok {
-		if valFillExistingFieldsCap != nil {
-			var valueForFillExistingFields *bool
-			err = json.Unmarshal(*valFillExistingFieldsCap, &valueForFillExistingFields)
-			if err != nil {
-				return err
-			}
-			this.FillExistingFields = valueForFillExistingFields
-		}
-	}
 	
-	if valExtractTextAndGraphics, ok := objMap["extractTextAndGraphics"]; ok {
+	if valExtractTextAndGraphics, ok := GetMapValue(objMap, "extractTextAndGraphics"); ok {
 		if valExtractTextAndGraphics != nil {
 			var valueForExtractTextAndGraphics *bool
 			err = json.Unmarshal(*valExtractTextAndGraphics, &valueForExtractTextAndGraphics)
@@ -277,18 +227,8 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 			this.ExtractTextAndGraphics = valueForExtractTextAndGraphics
 		}
 	}
-	if valExtractTextAndGraphicsCap, ok := objMap["ExtractTextAndGraphics"]; ok {
-		if valExtractTextAndGraphicsCap != nil {
-			var valueForExtractTextAndGraphics *bool
-			err = json.Unmarshal(*valExtractTextAndGraphicsCap, &valueForExtractTextAndGraphics)
-			if err != nil {
-				return err
-			}
-			this.ExtractTextAndGraphics = valueForExtractTextAndGraphics
-		}
-	}
 	
-	if valAssembleDocument, ok := objMap["assembleDocument"]; ok {
+	if valAssembleDocument, ok := GetMapValue(objMap, "assembleDocument"); ok {
 		if valAssembleDocument != nil {
 			var valueForAssembleDocument *bool
 			err = json.Unmarshal(*valAssembleDocument, &valueForAssembleDocument)
@@ -298,31 +238,11 @@ func (this *AccessPermissions) UnmarshalJSON(b []byte) error {
 			this.AssembleDocument = valueForAssembleDocument
 		}
 	}
-	if valAssembleDocumentCap, ok := objMap["AssembleDocument"]; ok {
-		if valAssembleDocumentCap != nil {
-			var valueForAssembleDocument *bool
-			err = json.Unmarshal(*valAssembleDocumentCap, &valueForAssembleDocument)
-			if err != nil {
-				return err
-			}
-			this.AssembleDocument = valueForAssembleDocument
-		}
-	}
 	
-	if valHighQualityPrint, ok := objMap["highQualityPrint"]; ok {
+	if valHighQualityPrint, ok := GetMapValue(objMap, "highQualityPrint"); ok {
 		if valHighQualityPrint != nil {
 			var valueForHighQualityPrint *bool
 			err = json.Unmarshal(*valHighQualityPrint, &valueForHighQualityPrint)
-			if err != nil {
-				return err
-			}
-			this.HighQualityPrint = valueForHighQualityPrint
-		}
-	}
-	if valHighQualityPrintCap, ok := objMap["HighQualityPrint"]; ok {
-		if valHighQualityPrintCap != nil {
-			var valueForHighQualityPrint *bool
-			err = json.Unmarshal(*valHighQualityPrintCap, &valueForHighQualityPrint)
 			if err != nil {
 				return err
 			}

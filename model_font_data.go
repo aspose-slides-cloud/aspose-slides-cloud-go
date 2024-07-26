@@ -92,7 +92,7 @@ func (this *FontData) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFontName, ok := objMap["fontName"]; ok {
+	if valFontName, ok := GetMapValue(objMap, "fontName"); ok {
 		if valFontName != nil {
 			var valueForFontName string
 			err = json.Unmarshal(*valFontName, &valueForFontName)
@@ -102,18 +102,8 @@ func (this *FontData) UnmarshalJSON(b []byte) error {
 			this.FontName = valueForFontName
 		}
 	}
-	if valFontNameCap, ok := objMap["FontName"]; ok {
-		if valFontNameCap != nil {
-			var valueForFontName string
-			err = json.Unmarshal(*valFontNameCap, &valueForFontName)
-			if err != nil {
-				return err
-			}
-			this.FontName = valueForFontName
-		}
-	}
 	
-	if valIsEmbedded, ok := objMap["isEmbedded"]; ok {
+	if valIsEmbedded, ok := GetMapValue(objMap, "isEmbedded"); ok {
 		if valIsEmbedded != nil {
 			var valueForIsEmbedded *bool
 			err = json.Unmarshal(*valIsEmbedded, &valueForIsEmbedded)
@@ -123,31 +113,11 @@ func (this *FontData) UnmarshalJSON(b []byte) error {
 			this.IsEmbedded = valueForIsEmbedded
 		}
 	}
-	if valIsEmbeddedCap, ok := objMap["IsEmbedded"]; ok {
-		if valIsEmbeddedCap != nil {
-			var valueForIsEmbedded *bool
-			err = json.Unmarshal(*valIsEmbeddedCap, &valueForIsEmbedded)
-			if err != nil {
-				return err
-			}
-			this.IsEmbedded = valueForIsEmbedded
-		}
-	}
 	
-	if valIsCustom, ok := objMap["isCustom"]; ok {
+	if valIsCustom, ok := GetMapValue(objMap, "isCustom"); ok {
 		if valIsCustom != nil {
 			var valueForIsCustom *bool
 			err = json.Unmarshal(*valIsCustom, &valueForIsCustom)
-			if err != nil {
-				return err
-			}
-			this.IsCustom = valueForIsCustom
-		}
-	}
-	if valIsCustomCap, ok := objMap["IsCustom"]; ok {
-		if valIsCustomCap != nil {
-			var valueForIsCustom *bool
-			err = json.Unmarshal(*valIsCustomCap, &valueForIsCustom)
 			if err != nil {
 				return err
 			}

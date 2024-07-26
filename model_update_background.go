@@ -93,7 +93,7 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "UpdateBackground"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,24 +109,8 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valSlides, ok := objMap["slides"]; ok {
+	if valSlides, ok := GetMapValue(objMap, "slides"); ok {
 		if valSlides != nil {
 			var valueForSlides []int32
 			err = json.Unmarshal(*valSlides, &valueForSlides)
@@ -136,18 +120,8 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 			this.Slides = valueForSlides
 		}
 	}
-	if valSlidesCap, ok := objMap["Slides"]; ok {
-		if valSlidesCap != nil {
-			var valueForSlides []int32
-			err = json.Unmarshal(*valSlidesCap, &valueForSlides)
-			if err != nil {
-				return err
-			}
-			this.Slides = valueForSlides
-		}
-	}
 	
-	if valBackground, ok := objMap["background"]; ok {
+	if valBackground, ok := GetMapValue(objMap, "background"); ok {
 		if valBackground != nil {
 			var valueForBackground SlideBackground
 			err = json.Unmarshal(*valBackground, &valueForBackground)
@@ -159,27 +133,6 @@ func (this *UpdateBackground) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valBackground, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ISlideBackground)
-			if ok {
-				this.Background = vInterfaceObject
-			}
-		}
-	}
-	if valBackgroundCap, ok := objMap["Background"]; ok {
-		if valBackgroundCap != nil {
-			var valueForBackground SlideBackground
-			err = json.Unmarshal(*valBackgroundCap, &valueForBackground)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("SlideBackground", *valBackgroundCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBackgroundCap, &vObject)
 			if err != nil {
 				return err
 			}

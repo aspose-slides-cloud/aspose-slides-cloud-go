@@ -78,7 +78,7 @@ func (this *MathParagraph) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valMathBlockList, ok := objMap["mathBlockList"]; ok {
+	if valMathBlockList, ok := GetMapValue(objMap, "mathBlockList"); ok {
 		if valMathBlockList != nil {
 			var valueForMathBlockList []json.RawMessage
 			err = json.Unmarshal(*valMathBlockList, &valueForMathBlockList)
@@ -102,54 +102,14 @@ func (this *MathParagraph) UnmarshalJSON(b []byte) error {
 			this.MathBlockList = valueForIMathBlockList
 		}
 	}
-	if valMathBlockListCap, ok := objMap["MathBlockList"]; ok {
-		if valMathBlockListCap != nil {
-			var valueForMathBlockList []json.RawMessage
-			err = json.Unmarshal(*valMathBlockListCap, &valueForMathBlockList)
-			if err != nil {
-				return err
-			}
-			valueForIMathBlockList := make([]IBlockElement, len(valueForMathBlockList))
-			for i, v := range valueForMathBlockList {
-				vObject, err := createObjectForType("BlockElement", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIMathBlockList[i] = vObject.(IBlockElement)
-				}
-			}
-			this.MathBlockList = valueForIMathBlockList
-		}
-	}
 	
-	if valJustification, ok := objMap["justification"]; ok {
+	if valJustification, ok := GetMapValue(objMap, "justification"); ok {
 		if valJustification != nil {
 			var valueForJustification string
 			err = json.Unmarshal(*valJustification, &valueForJustification)
 			if err != nil {
 				var valueForJustificationInt int32
 				err = json.Unmarshal(*valJustification, &valueForJustificationInt)
-				if err != nil {
-					return err
-				}
-				this.Justification = string(valueForJustificationInt)
-			} else {
-				this.Justification = valueForJustification
-			}
-		}
-	}
-	if valJustificationCap, ok := objMap["Justification"]; ok {
-		if valJustificationCap != nil {
-			var valueForJustification string
-			err = json.Unmarshal(*valJustificationCap, &valueForJustification)
-			if err != nil {
-				var valueForJustificationInt int32
-				err = json.Unmarshal(*valJustificationCap, &valueForJustificationInt)
 				if err != nil {
 					return err
 				}

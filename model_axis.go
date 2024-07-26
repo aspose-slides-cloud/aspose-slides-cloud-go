@@ -596,7 +596,7 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valIsVisible, ok := objMap["isVisible"]; ok {
+	if valIsVisible, ok := GetMapValue(objMap, "isVisible"); ok {
 		if valIsVisible != nil {
 			var valueForIsVisible *bool
 			err = json.Unmarshal(*valIsVisible, &valueForIsVisible)
@@ -606,18 +606,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsVisible = valueForIsVisible
 		}
 	}
-	if valIsVisibleCap, ok := objMap["IsVisible"]; ok {
-		if valIsVisibleCap != nil {
-			var valueForIsVisible *bool
-			err = json.Unmarshal(*valIsVisibleCap, &valueForIsVisible)
-			if err != nil {
-				return err
-			}
-			this.IsVisible = valueForIsVisible
-		}
-	}
 	
-	if valHasTitle, ok := objMap["hasTitle"]; ok {
+	if valHasTitle, ok := GetMapValue(objMap, "hasTitle"); ok {
 		if valHasTitle != nil {
 			var valueForHasTitle *bool
 			err = json.Unmarshal(*valHasTitle, &valueForHasTitle)
@@ -627,18 +617,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.HasTitle = valueForHasTitle
 		}
 	}
-	if valHasTitleCap, ok := objMap["HasTitle"]; ok {
-		if valHasTitleCap != nil {
-			var valueForHasTitle *bool
-			err = json.Unmarshal(*valHasTitleCap, &valueForHasTitle)
-			if err != nil {
-				return err
-			}
-			this.HasTitle = valueForHasTitle
-		}
-	}
 	
-	if valTitle, ok := objMap["title"]; ok {
+	if valTitle, ok := GetMapValue(objMap, "title"); ok {
 		if valTitle != nil {
 			var valueForTitle ChartTitle
 			err = json.Unmarshal(*valTitle, &valueForTitle)
@@ -659,29 +639,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTitleCap, ok := objMap["Title"]; ok {
-		if valTitleCap != nil {
-			var valueForTitle ChartTitle
-			err = json.Unmarshal(*valTitleCap, &valueForTitle)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ChartTitle", *valTitleCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valTitleCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IChartTitle)
-			if ok {
-				this.Title = vInterfaceObject
-			}
-		}
-	}
 	
-	if valPosition, ok := objMap["position"]; ok {
+	if valPosition, ok := GetMapValue(objMap, "position"); ok {
 		if valPosition != nil {
 			var valueForPosition string
 			err = json.Unmarshal(*valPosition, &valueForPosition)
@@ -697,24 +656,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valPositionCap, ok := objMap["Position"]; ok {
-		if valPositionCap != nil {
-			var valueForPosition string
-			err = json.Unmarshal(*valPositionCap, &valueForPosition)
-			if err != nil {
-				var valueForPositionInt int32
-				err = json.Unmarshal(*valPositionCap, &valueForPositionInt)
-				if err != nil {
-					return err
-				}
-				this.Position = string(valueForPositionInt)
-			} else {
-				this.Position = valueForPosition
-			}
-		}
-	}
 	
-	if valDisplayUnit, ok := objMap["displayUnit"]; ok {
+	if valDisplayUnit, ok := GetMapValue(objMap, "displayUnit"); ok {
 		if valDisplayUnit != nil {
 			var valueForDisplayUnit string
 			err = json.Unmarshal(*valDisplayUnit, &valueForDisplayUnit)
@@ -730,24 +673,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valDisplayUnitCap, ok := objMap["DisplayUnit"]; ok {
-		if valDisplayUnitCap != nil {
-			var valueForDisplayUnit string
-			err = json.Unmarshal(*valDisplayUnitCap, &valueForDisplayUnit)
-			if err != nil {
-				var valueForDisplayUnitInt int32
-				err = json.Unmarshal(*valDisplayUnitCap, &valueForDisplayUnitInt)
-				if err != nil {
-					return err
-				}
-				this.DisplayUnit = string(valueForDisplayUnitInt)
-			} else {
-				this.DisplayUnit = valueForDisplayUnit
-			}
-		}
-	}
 	
-	if valBaseUnitScale, ok := objMap["baseUnitScale"]; ok {
+	if valBaseUnitScale, ok := GetMapValue(objMap, "baseUnitScale"); ok {
 		if valBaseUnitScale != nil {
 			var valueForBaseUnitScale string
 			err = json.Unmarshal(*valBaseUnitScale, &valueForBaseUnitScale)
@@ -763,24 +690,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBaseUnitScaleCap, ok := objMap["BaseUnitScale"]; ok {
-		if valBaseUnitScaleCap != nil {
-			var valueForBaseUnitScale string
-			err = json.Unmarshal(*valBaseUnitScaleCap, &valueForBaseUnitScale)
-			if err != nil {
-				var valueForBaseUnitScaleInt int32
-				err = json.Unmarshal(*valBaseUnitScaleCap, &valueForBaseUnitScaleInt)
-				if err != nil {
-					return err
-				}
-				this.BaseUnitScale = string(valueForBaseUnitScaleInt)
-			} else {
-				this.BaseUnitScale = valueForBaseUnitScale
-			}
-		}
-	}
 	
-	if valIsAutomaticMajorUnit, ok := objMap["isAutomaticMajorUnit"]; ok {
+	if valIsAutomaticMajorUnit, ok := GetMapValue(objMap, "isAutomaticMajorUnit"); ok {
 		if valIsAutomaticMajorUnit != nil {
 			var valueForIsAutomaticMajorUnit *bool
 			err = json.Unmarshal(*valIsAutomaticMajorUnit, &valueForIsAutomaticMajorUnit)
@@ -790,18 +701,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticMajorUnit = valueForIsAutomaticMajorUnit
 		}
 	}
-	if valIsAutomaticMajorUnitCap, ok := objMap["IsAutomaticMajorUnit"]; ok {
-		if valIsAutomaticMajorUnitCap != nil {
-			var valueForIsAutomaticMajorUnit *bool
-			err = json.Unmarshal(*valIsAutomaticMajorUnitCap, &valueForIsAutomaticMajorUnit)
-			if err != nil {
-				return err
-			}
-			this.IsAutomaticMajorUnit = valueForIsAutomaticMajorUnit
-		}
-	}
 	
-	if valMajorUnit, ok := objMap["majorUnit"]; ok {
+	if valMajorUnit, ok := GetMapValue(objMap, "majorUnit"); ok {
 		if valMajorUnit != nil {
 			var valueForMajorUnit float64
 			err = json.Unmarshal(*valMajorUnit, &valueForMajorUnit)
@@ -811,18 +712,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MajorUnit = valueForMajorUnit
 		}
 	}
-	if valMajorUnitCap, ok := objMap["MajorUnit"]; ok {
-		if valMajorUnitCap != nil {
-			var valueForMajorUnit float64
-			err = json.Unmarshal(*valMajorUnitCap, &valueForMajorUnit)
-			if err != nil {
-				return err
-			}
-			this.MajorUnit = valueForMajorUnit
-		}
-	}
 	
-	if valMajorUnitScale, ok := objMap["majorUnitScale"]; ok {
+	if valMajorUnitScale, ok := GetMapValue(objMap, "majorUnitScale"); ok {
 		if valMajorUnitScale != nil {
 			var valueForMajorUnitScale string
 			err = json.Unmarshal(*valMajorUnitScale, &valueForMajorUnitScale)
@@ -838,24 +729,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valMajorUnitScaleCap, ok := objMap["MajorUnitScale"]; ok {
-		if valMajorUnitScaleCap != nil {
-			var valueForMajorUnitScale string
-			err = json.Unmarshal(*valMajorUnitScaleCap, &valueForMajorUnitScale)
-			if err != nil {
-				var valueForMajorUnitScaleInt int32
-				err = json.Unmarshal(*valMajorUnitScaleCap, &valueForMajorUnitScaleInt)
-				if err != nil {
-					return err
-				}
-				this.MajorUnitScale = string(valueForMajorUnitScaleInt)
-			} else {
-				this.MajorUnitScale = valueForMajorUnitScale
-			}
-		}
-	}
 	
-	if valMajorTickMark, ok := objMap["majorTickMark"]; ok {
+	if valMajorTickMark, ok := GetMapValue(objMap, "majorTickMark"); ok {
 		if valMajorTickMark != nil {
 			var valueForMajorTickMark string
 			err = json.Unmarshal(*valMajorTickMark, &valueForMajorTickMark)
@@ -871,24 +746,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valMajorTickMarkCap, ok := objMap["MajorTickMark"]; ok {
-		if valMajorTickMarkCap != nil {
-			var valueForMajorTickMark string
-			err = json.Unmarshal(*valMajorTickMarkCap, &valueForMajorTickMark)
-			if err != nil {
-				var valueForMajorTickMarkInt int32
-				err = json.Unmarshal(*valMajorTickMarkCap, &valueForMajorTickMarkInt)
-				if err != nil {
-					return err
-				}
-				this.MajorTickMark = string(valueForMajorTickMarkInt)
-			} else {
-				this.MajorTickMark = valueForMajorTickMark
-			}
-		}
-	}
 	
-	if valIsAutomaticMinorUnit, ok := objMap["isAutomaticMinorUnit"]; ok {
+	if valIsAutomaticMinorUnit, ok := GetMapValue(objMap, "isAutomaticMinorUnit"); ok {
 		if valIsAutomaticMinorUnit != nil {
 			var valueForIsAutomaticMinorUnit *bool
 			err = json.Unmarshal(*valIsAutomaticMinorUnit, &valueForIsAutomaticMinorUnit)
@@ -898,18 +757,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticMinorUnit = valueForIsAutomaticMinorUnit
 		}
 	}
-	if valIsAutomaticMinorUnitCap, ok := objMap["IsAutomaticMinorUnit"]; ok {
-		if valIsAutomaticMinorUnitCap != nil {
-			var valueForIsAutomaticMinorUnit *bool
-			err = json.Unmarshal(*valIsAutomaticMinorUnitCap, &valueForIsAutomaticMinorUnit)
-			if err != nil {
-				return err
-			}
-			this.IsAutomaticMinorUnit = valueForIsAutomaticMinorUnit
-		}
-	}
 	
-	if valMinorUnit, ok := objMap["minorUnit"]; ok {
+	if valMinorUnit, ok := GetMapValue(objMap, "minorUnit"); ok {
 		if valMinorUnit != nil {
 			var valueForMinorUnit float64
 			err = json.Unmarshal(*valMinorUnit, &valueForMinorUnit)
@@ -919,18 +768,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MinorUnit = valueForMinorUnit
 		}
 	}
-	if valMinorUnitCap, ok := objMap["MinorUnit"]; ok {
-		if valMinorUnitCap != nil {
-			var valueForMinorUnit float64
-			err = json.Unmarshal(*valMinorUnitCap, &valueForMinorUnit)
-			if err != nil {
-				return err
-			}
-			this.MinorUnit = valueForMinorUnit
-		}
-	}
 	
-	if valMinorUnitScale, ok := objMap["minorUnitScale"]; ok {
+	if valMinorUnitScale, ok := GetMapValue(objMap, "minorUnitScale"); ok {
 		if valMinorUnitScale != nil {
 			var valueForMinorUnitScale string
 			err = json.Unmarshal(*valMinorUnitScale, &valueForMinorUnitScale)
@@ -946,24 +785,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valMinorUnitScaleCap, ok := objMap["MinorUnitScale"]; ok {
-		if valMinorUnitScaleCap != nil {
-			var valueForMinorUnitScale string
-			err = json.Unmarshal(*valMinorUnitScaleCap, &valueForMinorUnitScale)
-			if err != nil {
-				var valueForMinorUnitScaleInt int32
-				err = json.Unmarshal(*valMinorUnitScaleCap, &valueForMinorUnitScaleInt)
-				if err != nil {
-					return err
-				}
-				this.MinorUnitScale = string(valueForMinorUnitScaleInt)
-			} else {
-				this.MinorUnitScale = valueForMinorUnitScale
-			}
-		}
-	}
 	
-	if valMinorTickMark, ok := objMap["minorTickMark"]; ok {
+	if valMinorTickMark, ok := GetMapValue(objMap, "minorTickMark"); ok {
 		if valMinorTickMark != nil {
 			var valueForMinorTickMark string
 			err = json.Unmarshal(*valMinorTickMark, &valueForMinorTickMark)
@@ -979,24 +802,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valMinorTickMarkCap, ok := objMap["MinorTickMark"]; ok {
-		if valMinorTickMarkCap != nil {
-			var valueForMinorTickMark string
-			err = json.Unmarshal(*valMinorTickMarkCap, &valueForMinorTickMark)
-			if err != nil {
-				var valueForMinorTickMarkInt int32
-				err = json.Unmarshal(*valMinorTickMarkCap, &valueForMinorTickMarkInt)
-				if err != nil {
-					return err
-				}
-				this.MinorTickMark = string(valueForMinorTickMarkInt)
-			} else {
-				this.MinorTickMark = valueForMinorTickMark
-			}
-		}
-	}
 	
-	if valIsAutomaticMaxValue, ok := objMap["isAutomaticMaxValue"]; ok {
+	if valIsAutomaticMaxValue, ok := GetMapValue(objMap, "isAutomaticMaxValue"); ok {
 		if valIsAutomaticMaxValue != nil {
 			var valueForIsAutomaticMaxValue *bool
 			err = json.Unmarshal(*valIsAutomaticMaxValue, &valueForIsAutomaticMaxValue)
@@ -1006,18 +813,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticMaxValue = valueForIsAutomaticMaxValue
 		}
 	}
-	if valIsAutomaticMaxValueCap, ok := objMap["IsAutomaticMaxValue"]; ok {
-		if valIsAutomaticMaxValueCap != nil {
-			var valueForIsAutomaticMaxValue *bool
-			err = json.Unmarshal(*valIsAutomaticMaxValueCap, &valueForIsAutomaticMaxValue)
-			if err != nil {
-				return err
-			}
-			this.IsAutomaticMaxValue = valueForIsAutomaticMaxValue
-		}
-	}
 	
-	if valMaxValue, ok := objMap["maxValue"]; ok {
+	if valMaxValue, ok := GetMapValue(objMap, "maxValue"); ok {
 		if valMaxValue != nil {
 			var valueForMaxValue float64
 			err = json.Unmarshal(*valMaxValue, &valueForMaxValue)
@@ -1027,18 +824,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MaxValue = valueForMaxValue
 		}
 	}
-	if valMaxValueCap, ok := objMap["MaxValue"]; ok {
-		if valMaxValueCap != nil {
-			var valueForMaxValue float64
-			err = json.Unmarshal(*valMaxValueCap, &valueForMaxValue)
-			if err != nil {
-				return err
-			}
-			this.MaxValue = valueForMaxValue
-		}
-	}
 	
-	if valIsAutomaticMinValue, ok := objMap["isAutomaticMinValue"]; ok {
+	if valIsAutomaticMinValue, ok := GetMapValue(objMap, "isAutomaticMinValue"); ok {
 		if valIsAutomaticMinValue != nil {
 			var valueForIsAutomaticMinValue *bool
 			err = json.Unmarshal(*valIsAutomaticMinValue, &valueForIsAutomaticMinValue)
@@ -1048,18 +835,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticMinValue = valueForIsAutomaticMinValue
 		}
 	}
-	if valIsAutomaticMinValueCap, ok := objMap["IsAutomaticMinValue"]; ok {
-		if valIsAutomaticMinValueCap != nil {
-			var valueForIsAutomaticMinValue *bool
-			err = json.Unmarshal(*valIsAutomaticMinValueCap, &valueForIsAutomaticMinValue)
-			if err != nil {
-				return err
-			}
-			this.IsAutomaticMinValue = valueForIsAutomaticMinValue
-		}
-	}
 	
-	if valMinValue, ok := objMap["minValue"]; ok {
+	if valMinValue, ok := GetMapValue(objMap, "minValue"); ok {
 		if valMinValue != nil {
 			var valueForMinValue float64
 			err = json.Unmarshal(*valMinValue, &valueForMinValue)
@@ -1069,18 +846,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.MinValue = valueForMinValue
 		}
 	}
-	if valMinValueCap, ok := objMap["MinValue"]; ok {
-		if valMinValueCap != nil {
-			var valueForMinValue float64
-			err = json.Unmarshal(*valMinValueCap, &valueForMinValue)
-			if err != nil {
-				return err
-			}
-			this.MinValue = valueForMinValue
-		}
-	}
 	
-	if valIsLogarithmic, ok := objMap["isLogarithmic"]; ok {
+	if valIsLogarithmic, ok := GetMapValue(objMap, "isLogarithmic"); ok {
 		if valIsLogarithmic != nil {
 			var valueForIsLogarithmic *bool
 			err = json.Unmarshal(*valIsLogarithmic, &valueForIsLogarithmic)
@@ -1090,18 +857,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsLogarithmic = valueForIsLogarithmic
 		}
 	}
-	if valIsLogarithmicCap, ok := objMap["IsLogarithmic"]; ok {
-		if valIsLogarithmicCap != nil {
-			var valueForIsLogarithmic *bool
-			err = json.Unmarshal(*valIsLogarithmicCap, &valueForIsLogarithmic)
-			if err != nil {
-				return err
-			}
-			this.IsLogarithmic = valueForIsLogarithmic
-		}
-	}
 	
-	if valLogBase, ok := objMap["logBase"]; ok {
+	if valLogBase, ok := GetMapValue(objMap, "logBase"); ok {
 		if valLogBase != nil {
 			var valueForLogBase float64
 			err = json.Unmarshal(*valLogBase, &valueForLogBase)
@@ -1111,18 +868,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.LogBase = valueForLogBase
 		}
 	}
-	if valLogBaseCap, ok := objMap["LogBase"]; ok {
-		if valLogBaseCap != nil {
-			var valueForLogBase float64
-			err = json.Unmarshal(*valLogBaseCap, &valueForLogBase)
-			if err != nil {
-				return err
-			}
-			this.LogBase = valueForLogBase
-		}
-	}
 	
-	if valCategoryAxisType, ok := objMap["categoryAxisType"]; ok {
+	if valCategoryAxisType, ok := GetMapValue(objMap, "categoryAxisType"); ok {
 		if valCategoryAxisType != nil {
 			var valueForCategoryAxisType string
 			err = json.Unmarshal(*valCategoryAxisType, &valueForCategoryAxisType)
@@ -1138,24 +885,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valCategoryAxisTypeCap, ok := objMap["CategoryAxisType"]; ok {
-		if valCategoryAxisTypeCap != nil {
-			var valueForCategoryAxisType string
-			err = json.Unmarshal(*valCategoryAxisTypeCap, &valueForCategoryAxisType)
-			if err != nil {
-				var valueForCategoryAxisTypeInt int32
-				err = json.Unmarshal(*valCategoryAxisTypeCap, &valueForCategoryAxisTypeInt)
-				if err != nil {
-					return err
-				}
-				this.CategoryAxisType = string(valueForCategoryAxisTypeInt)
-			} else {
-				this.CategoryAxisType = valueForCategoryAxisType
-			}
-		}
-	}
 	
-	if valAxisBetweenCategories, ok := objMap["axisBetweenCategories"]; ok {
+	if valAxisBetweenCategories, ok := GetMapValue(objMap, "axisBetweenCategories"); ok {
 		if valAxisBetweenCategories != nil {
 			var valueForAxisBetweenCategories *bool
 			err = json.Unmarshal(*valAxisBetweenCategories, &valueForAxisBetweenCategories)
@@ -1165,18 +896,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.AxisBetweenCategories = valueForAxisBetweenCategories
 		}
 	}
-	if valAxisBetweenCategoriesCap, ok := objMap["AxisBetweenCategories"]; ok {
-		if valAxisBetweenCategoriesCap != nil {
-			var valueForAxisBetweenCategories *bool
-			err = json.Unmarshal(*valAxisBetweenCategoriesCap, &valueForAxisBetweenCategories)
-			if err != nil {
-				return err
-			}
-			this.AxisBetweenCategories = valueForAxisBetweenCategories
-		}
-	}
 	
-	if valLabelOffset, ok := objMap["labelOffset"]; ok {
+	if valLabelOffset, ok := GetMapValue(objMap, "labelOffset"); ok {
 		if valLabelOffset != nil {
 			var valueForLabelOffset int32
 			err = json.Unmarshal(*valLabelOffset, &valueForLabelOffset)
@@ -1186,18 +907,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.LabelOffset = valueForLabelOffset
 		}
 	}
-	if valLabelOffsetCap, ok := objMap["LabelOffset"]; ok {
-		if valLabelOffsetCap != nil {
-			var valueForLabelOffset int32
-			err = json.Unmarshal(*valLabelOffsetCap, &valueForLabelOffset)
-			if err != nil {
-				return err
-			}
-			this.LabelOffset = valueForLabelOffset
-		}
-	}
 	
-	if valIsPlotOrderReversed, ok := objMap["isPlotOrderReversed"]; ok {
+	if valIsPlotOrderReversed, ok := GetMapValue(objMap, "isPlotOrderReversed"); ok {
 		if valIsPlotOrderReversed != nil {
 			var valueForIsPlotOrderReversed *bool
 			err = json.Unmarshal(*valIsPlotOrderReversed, &valueForIsPlotOrderReversed)
@@ -1207,18 +918,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsPlotOrderReversed = valueForIsPlotOrderReversed
 		}
 	}
-	if valIsPlotOrderReversedCap, ok := objMap["IsPlotOrderReversed"]; ok {
-		if valIsPlotOrderReversedCap != nil {
-			var valueForIsPlotOrderReversed *bool
-			err = json.Unmarshal(*valIsPlotOrderReversedCap, &valueForIsPlotOrderReversed)
-			if err != nil {
-				return err
-			}
-			this.IsPlotOrderReversed = valueForIsPlotOrderReversed
-		}
-	}
 	
-	if valIsNumberFormatLinkedToSource, ok := objMap["isNumberFormatLinkedToSource"]; ok {
+	if valIsNumberFormatLinkedToSource, ok := GetMapValue(objMap, "isNumberFormatLinkedToSource"); ok {
 		if valIsNumberFormatLinkedToSource != nil {
 			var valueForIsNumberFormatLinkedToSource *bool
 			err = json.Unmarshal(*valIsNumberFormatLinkedToSource, &valueForIsNumberFormatLinkedToSource)
@@ -1228,18 +929,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsNumberFormatLinkedToSource = valueForIsNumberFormatLinkedToSource
 		}
 	}
-	if valIsNumberFormatLinkedToSourceCap, ok := objMap["IsNumberFormatLinkedToSource"]; ok {
-		if valIsNumberFormatLinkedToSourceCap != nil {
-			var valueForIsNumberFormatLinkedToSource *bool
-			err = json.Unmarshal(*valIsNumberFormatLinkedToSourceCap, &valueForIsNumberFormatLinkedToSource)
-			if err != nil {
-				return err
-			}
-			this.IsNumberFormatLinkedToSource = valueForIsNumberFormatLinkedToSource
-		}
-	}
 	
-	if valNumberFormat, ok := objMap["numberFormat"]; ok {
+	if valNumberFormat, ok := GetMapValue(objMap, "numberFormat"); ok {
 		if valNumberFormat != nil {
 			var valueForNumberFormat string
 			err = json.Unmarshal(*valNumberFormat, &valueForNumberFormat)
@@ -1249,18 +940,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.NumberFormat = valueForNumberFormat
 		}
 	}
-	if valNumberFormatCap, ok := objMap["NumberFormat"]; ok {
-		if valNumberFormatCap != nil {
-			var valueForNumberFormat string
-			err = json.Unmarshal(*valNumberFormatCap, &valueForNumberFormat)
-			if err != nil {
-				return err
-			}
-			this.NumberFormat = valueForNumberFormat
-		}
-	}
 	
-	if valCrossType, ok := objMap["crossType"]; ok {
+	if valCrossType, ok := GetMapValue(objMap, "crossType"); ok {
 		if valCrossType != nil {
 			var valueForCrossType string
 			err = json.Unmarshal(*valCrossType, &valueForCrossType)
@@ -1276,24 +957,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valCrossTypeCap, ok := objMap["CrossType"]; ok {
-		if valCrossTypeCap != nil {
-			var valueForCrossType string
-			err = json.Unmarshal(*valCrossTypeCap, &valueForCrossType)
-			if err != nil {
-				var valueForCrossTypeInt int32
-				err = json.Unmarshal(*valCrossTypeCap, &valueForCrossTypeInt)
-				if err != nil {
-					return err
-				}
-				this.CrossType = string(valueForCrossTypeInt)
-			} else {
-				this.CrossType = valueForCrossType
-			}
-		}
-	}
 	
-	if valCrossAt, ok := objMap["crossAt"]; ok {
+	if valCrossAt, ok := GetMapValue(objMap, "crossAt"); ok {
 		if valCrossAt != nil {
 			var valueForCrossAt float64
 			err = json.Unmarshal(*valCrossAt, &valueForCrossAt)
@@ -1303,18 +968,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.CrossAt = valueForCrossAt
 		}
 	}
-	if valCrossAtCap, ok := objMap["CrossAt"]; ok {
-		if valCrossAtCap != nil {
-			var valueForCrossAt float64
-			err = json.Unmarshal(*valCrossAtCap, &valueForCrossAt)
-			if err != nil {
-				return err
-			}
-			this.CrossAt = valueForCrossAt
-		}
-	}
 	
-	if valIsAutomaticTickMarksSpacing, ok := objMap["isAutomaticTickMarksSpacing"]; ok {
+	if valIsAutomaticTickMarksSpacing, ok := GetMapValue(objMap, "isAutomaticTickMarksSpacing"); ok {
 		if valIsAutomaticTickMarksSpacing != nil {
 			var valueForIsAutomaticTickMarksSpacing *bool
 			err = json.Unmarshal(*valIsAutomaticTickMarksSpacing, &valueForIsAutomaticTickMarksSpacing)
@@ -1324,18 +979,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticTickMarksSpacing = valueForIsAutomaticTickMarksSpacing
 		}
 	}
-	if valIsAutomaticTickMarksSpacingCap, ok := objMap["IsAutomaticTickMarksSpacing"]; ok {
-		if valIsAutomaticTickMarksSpacingCap != nil {
-			var valueForIsAutomaticTickMarksSpacing *bool
-			err = json.Unmarshal(*valIsAutomaticTickMarksSpacingCap, &valueForIsAutomaticTickMarksSpacing)
-			if err != nil {
-				return err
-			}
-			this.IsAutomaticTickMarksSpacing = valueForIsAutomaticTickMarksSpacing
-		}
-	}
 	
-	if valTickMarksSpacing, ok := objMap["tickMarksSpacing"]; ok {
+	if valTickMarksSpacing, ok := GetMapValue(objMap, "tickMarksSpacing"); ok {
 		if valTickMarksSpacing != nil {
 			var valueForTickMarksSpacing int32
 			err = json.Unmarshal(*valTickMarksSpacing, &valueForTickMarksSpacing)
@@ -1345,18 +990,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.TickMarksSpacing = valueForTickMarksSpacing
 		}
 	}
-	if valTickMarksSpacingCap, ok := objMap["TickMarksSpacing"]; ok {
-		if valTickMarksSpacingCap != nil {
-			var valueForTickMarksSpacing int32
-			err = json.Unmarshal(*valTickMarksSpacingCap, &valueForTickMarksSpacing)
-			if err != nil {
-				return err
-			}
-			this.TickMarksSpacing = valueForTickMarksSpacing
-		}
-	}
 	
-	if valIsAutomaticTickLabelSpacing, ok := objMap["isAutomaticTickLabelSpacing"]; ok {
+	if valIsAutomaticTickLabelSpacing, ok := GetMapValue(objMap, "isAutomaticTickLabelSpacing"); ok {
 		if valIsAutomaticTickLabelSpacing != nil {
 			var valueForIsAutomaticTickLabelSpacing *bool
 			err = json.Unmarshal(*valIsAutomaticTickLabelSpacing, &valueForIsAutomaticTickLabelSpacing)
@@ -1366,18 +1001,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.IsAutomaticTickLabelSpacing = valueForIsAutomaticTickLabelSpacing
 		}
 	}
-	if valIsAutomaticTickLabelSpacingCap, ok := objMap["IsAutomaticTickLabelSpacing"]; ok {
-		if valIsAutomaticTickLabelSpacingCap != nil {
-			var valueForIsAutomaticTickLabelSpacing *bool
-			err = json.Unmarshal(*valIsAutomaticTickLabelSpacingCap, &valueForIsAutomaticTickLabelSpacing)
-			if err != nil {
-				return err
-			}
-			this.IsAutomaticTickLabelSpacing = valueForIsAutomaticTickLabelSpacing
-		}
-	}
 	
-	if valTickLabelSpacing, ok := objMap["tickLabelSpacing"]; ok {
+	if valTickLabelSpacing, ok := GetMapValue(objMap, "tickLabelSpacing"); ok {
 		if valTickLabelSpacing != nil {
 			var valueForTickLabelSpacing int32
 			err = json.Unmarshal(*valTickLabelSpacing, &valueForTickLabelSpacing)
@@ -1387,18 +1012,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.TickLabelSpacing = valueForTickLabelSpacing
 		}
 	}
-	if valTickLabelSpacingCap, ok := objMap["TickLabelSpacing"]; ok {
-		if valTickLabelSpacingCap != nil {
-			var valueForTickLabelSpacing int32
-			err = json.Unmarshal(*valTickLabelSpacingCap, &valueForTickLabelSpacing)
-			if err != nil {
-				return err
-			}
-			this.TickLabelSpacing = valueForTickLabelSpacing
-		}
-	}
 	
-	if valTickLabelPosition, ok := objMap["tickLabelPosition"]; ok {
+	if valTickLabelPosition, ok := GetMapValue(objMap, "tickLabelPosition"); ok {
 		if valTickLabelPosition != nil {
 			var valueForTickLabelPosition string
 			err = json.Unmarshal(*valTickLabelPosition, &valueForTickLabelPosition)
@@ -1414,24 +1029,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTickLabelPositionCap, ok := objMap["TickLabelPosition"]; ok {
-		if valTickLabelPositionCap != nil {
-			var valueForTickLabelPosition string
-			err = json.Unmarshal(*valTickLabelPositionCap, &valueForTickLabelPosition)
-			if err != nil {
-				var valueForTickLabelPositionInt int32
-				err = json.Unmarshal(*valTickLabelPositionCap, &valueForTickLabelPositionInt)
-				if err != nil {
-					return err
-				}
-				this.TickLabelPosition = string(valueForTickLabelPositionInt)
-			} else {
-				this.TickLabelPosition = valueForTickLabelPosition
-			}
-		}
-	}
 	
-	if valTickLabelRotationAngle, ok := objMap["tickLabelRotationAngle"]; ok {
+	if valTickLabelRotationAngle, ok := GetMapValue(objMap, "tickLabelRotationAngle"); ok {
 		if valTickLabelRotationAngle != nil {
 			var valueForTickLabelRotationAngle float64
 			err = json.Unmarshal(*valTickLabelRotationAngle, &valueForTickLabelRotationAngle)
@@ -1441,18 +1040,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			this.TickLabelRotationAngle = valueForTickLabelRotationAngle
 		}
 	}
-	if valTickLabelRotationAngleCap, ok := objMap["TickLabelRotationAngle"]; ok {
-		if valTickLabelRotationAngleCap != nil {
-			var valueForTickLabelRotationAngle float64
-			err = json.Unmarshal(*valTickLabelRotationAngleCap, &valueForTickLabelRotationAngle)
-			if err != nil {
-				return err
-			}
-			this.TickLabelRotationAngle = valueForTickLabelRotationAngle
-		}
-	}
 	
-	if valFillFormat, ok := objMap["fillFormat"]; ok {
+	if valFillFormat, ok := GetMapValue(objMap, "fillFormat"); ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -1473,29 +1062,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
-		if valFillFormatCap != nil {
-			var valueForFillFormat FillFormat
-			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFillFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IFillFormat)
-			if ok {
-				this.FillFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valEffectFormat, ok := objMap["effectFormat"]; ok {
+	if valEffectFormat, ok := GetMapValue(objMap, "effectFormat"); ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
 			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
@@ -1516,29 +1084,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
-		if valEffectFormatCap != nil {
-			var valueForEffectFormat EffectFormat
-			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valEffectFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IEffectFormat)
-			if ok {
-				this.EffectFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valLineFormat, ok := objMap["lineFormat"]; ok {
+	if valLineFormat, ok := GetMapValue(objMap, "lineFormat"); ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
 			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
@@ -1559,29 +1106,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
-		if valLineFormatCap != nil {
-			var valueForLineFormat LineFormat
-			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valLineFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.LineFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valMajorGridLinesFormat, ok := objMap["majorGridLinesFormat"]; ok {
+	if valMajorGridLinesFormat, ok := GetMapValue(objMap, "majorGridLinesFormat"); ok {
 		if valMajorGridLinesFormat != nil {
 			var valueForMajorGridLinesFormat ChartLinesFormat
 			err = json.Unmarshal(*valMajorGridLinesFormat, &valueForMajorGridLinesFormat)
@@ -1602,29 +1128,8 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valMajorGridLinesFormatCap, ok := objMap["MajorGridLinesFormat"]; ok {
-		if valMajorGridLinesFormatCap != nil {
-			var valueForMajorGridLinesFormat ChartLinesFormat
-			err = json.Unmarshal(*valMajorGridLinesFormatCap, &valueForMajorGridLinesFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ChartLinesFormat", *valMajorGridLinesFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valMajorGridLinesFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IChartLinesFormat)
-			if ok {
-				this.MajorGridLinesFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valMinorGridLinesFormat, ok := objMap["minorGridLinesFormat"]; ok {
+	if valMinorGridLinesFormat, ok := GetMapValue(objMap, "minorGridLinesFormat"); ok {
 		if valMinorGridLinesFormat != nil {
 			var valueForMinorGridLinesFormat ChartLinesFormat
 			err = json.Unmarshal(*valMinorGridLinesFormat, &valueForMinorGridLinesFormat)
@@ -1636,27 +1141,6 @@ func (this *Axis) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valMinorGridLinesFormat, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IChartLinesFormat)
-			if ok {
-				this.MinorGridLinesFormat = vInterfaceObject
-			}
-		}
-	}
-	if valMinorGridLinesFormatCap, ok := objMap["MinorGridLinesFormat"]; ok {
-		if valMinorGridLinesFormatCap != nil {
-			var valueForMinorGridLinesFormat ChartLinesFormat
-			err = json.Unmarshal(*valMinorGridLinesFormatCap, &valueForMinorGridLinesFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ChartLinesFormat", *valMinorGridLinesFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valMinorGridLinesFormatCap, &vObject)
 			if err != nil {
 				return err
 			}

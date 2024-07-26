@@ -93,7 +93,7 @@ func (this *ColorChangeEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "ColorChange"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,24 +109,8 @@ func (this *ColorChangeEffect) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valFromColor, ok := objMap["fromColor"]; ok {
+	if valFromColor, ok := GetMapValue(objMap, "fromColor"); ok {
 		if valFromColor != nil {
 			var valueForFromColor string
 			err = json.Unmarshal(*valFromColor, &valueForFromColor)
@@ -136,31 +120,11 @@ func (this *ColorChangeEffect) UnmarshalJSON(b []byte) error {
 			this.FromColor = valueForFromColor
 		}
 	}
-	if valFromColorCap, ok := objMap["FromColor"]; ok {
-		if valFromColorCap != nil {
-			var valueForFromColor string
-			err = json.Unmarshal(*valFromColorCap, &valueForFromColor)
-			if err != nil {
-				return err
-			}
-			this.FromColor = valueForFromColor
-		}
-	}
 	
-	if valToColor, ok := objMap["toColor"]; ok {
+	if valToColor, ok := GetMapValue(objMap, "toColor"); ok {
 		if valToColor != nil {
 			var valueForToColor string
 			err = json.Unmarshal(*valToColor, &valueForToColor)
-			if err != nil {
-				return err
-			}
-			this.ToColor = valueForToColor
-		}
-	}
-	if valToColorCap, ok := objMap["ToColor"]; ok {
-		if valToColorCap != nil {
-			var valueForToColor string
-			err = json.Unmarshal(*valToColorCap, &valueForToColor)
 			if err != nil {
 				return err
 			}

@@ -61,6 +61,10 @@ type ITableCell interface {
 	GetMarginBottom() float64
 	SetMarginBottom(newValue float64)
 
+	// Transparency.
+	GetTransparency() float64
+	SetTransparency(newValue float64)
+
 	// Text anchor type.
 	GetTextAnchorType() string
 	SetTextAnchorType(newValue string)
@@ -136,6 +140,9 @@ type TableCell struct {
 
 	// The bottom margin of the cell.
 	MarginBottom float64 `json:"MarginBottom,omitempty"`
+
+	// Transparency.
+	Transparency float64 `json:"Transparency,omitempty"`
 
 	// Text anchor type.
 	TextAnchorType string `json:"TextAnchorType,omitempty"`
@@ -230,6 +237,13 @@ func (this *TableCell) GetMarginBottom() float64 {
 
 func (this *TableCell) SetMarginBottom(newValue float64) {
 	this.MarginBottom = newValue
+}
+func (this *TableCell) GetTransparency() float64 {
+	return this.Transparency
+}
+
+func (this *TableCell) SetTransparency(newValue float64) {
+	this.Transparency = newValue
 }
 func (this *TableCell) GetTextAnchorType() string {
 	return this.TextAnchorType
@@ -330,7 +344,7 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valText, ok := objMap["text"]; ok {
+	if valText, ok := GetMapValue(objMap, "text"); ok {
 		if valText != nil {
 			var valueForText string
 			err = json.Unmarshal(*valText, &valueForText)
@@ -340,18 +354,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
-	if valTextCap, ok := objMap["Text"]; ok {
-		if valTextCap != nil {
-			var valueForText string
-			err = json.Unmarshal(*valTextCap, &valueForText)
-			if err != nil {
-				return err
-			}
-			this.Text = valueForText
-		}
-	}
 	
-	if valRowSpan, ok := objMap["rowSpan"]; ok {
+	if valRowSpan, ok := GetMapValue(objMap, "rowSpan"); ok {
 		if valRowSpan != nil {
 			var valueForRowSpan int32
 			err = json.Unmarshal(*valRowSpan, &valueForRowSpan)
@@ -361,18 +365,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.RowSpan = valueForRowSpan
 		}
 	}
-	if valRowSpanCap, ok := objMap["RowSpan"]; ok {
-		if valRowSpanCap != nil {
-			var valueForRowSpan int32
-			err = json.Unmarshal(*valRowSpanCap, &valueForRowSpan)
-			if err != nil {
-				return err
-			}
-			this.RowSpan = valueForRowSpan
-		}
-	}
 	
-	if valColSpan, ok := objMap["colSpan"]; ok {
+	if valColSpan, ok := GetMapValue(objMap, "colSpan"); ok {
 		if valColSpan != nil {
 			var valueForColSpan int32
 			err = json.Unmarshal(*valColSpan, &valueForColSpan)
@@ -382,18 +376,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.ColSpan = valueForColSpan
 		}
 	}
-	if valColSpanCap, ok := objMap["ColSpan"]; ok {
-		if valColSpanCap != nil {
-			var valueForColSpan int32
-			err = json.Unmarshal(*valColSpanCap, &valueForColSpan)
-			if err != nil {
-				return err
-			}
-			this.ColSpan = valueForColSpan
-		}
-	}
 	
-	if valMarginTop, ok := objMap["marginTop"]; ok {
+	if valMarginTop, ok := GetMapValue(objMap, "marginTop"); ok {
 		if valMarginTop != nil {
 			var valueForMarginTop float64
 			err = json.Unmarshal(*valMarginTop, &valueForMarginTop)
@@ -403,18 +387,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginTop = valueForMarginTop
 		}
 	}
-	if valMarginTopCap, ok := objMap["MarginTop"]; ok {
-		if valMarginTopCap != nil {
-			var valueForMarginTop float64
-			err = json.Unmarshal(*valMarginTopCap, &valueForMarginTop)
-			if err != nil {
-				return err
-			}
-			this.MarginTop = valueForMarginTop
-		}
-	}
 	
-	if valMarginRight, ok := objMap["marginRight"]; ok {
+	if valMarginRight, ok := GetMapValue(objMap, "marginRight"); ok {
 		if valMarginRight != nil {
 			var valueForMarginRight float64
 			err = json.Unmarshal(*valMarginRight, &valueForMarginRight)
@@ -424,18 +398,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginRight = valueForMarginRight
 		}
 	}
-	if valMarginRightCap, ok := objMap["MarginRight"]; ok {
-		if valMarginRightCap != nil {
-			var valueForMarginRight float64
-			err = json.Unmarshal(*valMarginRightCap, &valueForMarginRight)
-			if err != nil {
-				return err
-			}
-			this.MarginRight = valueForMarginRight
-		}
-	}
 	
-	if valMarginLeft, ok := objMap["marginLeft"]; ok {
+	if valMarginLeft, ok := GetMapValue(objMap, "marginLeft"); ok {
 		if valMarginLeft != nil {
 			var valueForMarginLeft float64
 			err = json.Unmarshal(*valMarginLeft, &valueForMarginLeft)
@@ -445,18 +409,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginLeft = valueForMarginLeft
 		}
 	}
-	if valMarginLeftCap, ok := objMap["MarginLeft"]; ok {
-		if valMarginLeftCap != nil {
-			var valueForMarginLeft float64
-			err = json.Unmarshal(*valMarginLeftCap, &valueForMarginLeft)
-			if err != nil {
-				return err
-			}
-			this.MarginLeft = valueForMarginLeft
-		}
-	}
 	
-	if valMarginBottom, ok := objMap["marginBottom"]; ok {
+	if valMarginBottom, ok := GetMapValue(objMap, "marginBottom"); ok {
 		if valMarginBottom != nil {
 			var valueForMarginBottom float64
 			err = json.Unmarshal(*valMarginBottom, &valueForMarginBottom)
@@ -466,18 +420,19 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.MarginBottom = valueForMarginBottom
 		}
 	}
-	if valMarginBottomCap, ok := objMap["MarginBottom"]; ok {
-		if valMarginBottomCap != nil {
-			var valueForMarginBottom float64
-			err = json.Unmarshal(*valMarginBottomCap, &valueForMarginBottom)
+	
+	if valTransparency, ok := GetMapValue(objMap, "transparency"); ok {
+		if valTransparency != nil {
+			var valueForTransparency float64
+			err = json.Unmarshal(*valTransparency, &valueForTransparency)
 			if err != nil {
 				return err
 			}
-			this.MarginBottom = valueForMarginBottom
+			this.Transparency = valueForTransparency
 		}
 	}
 	
-	if valTextAnchorType, ok := objMap["textAnchorType"]; ok {
+	if valTextAnchorType, ok := GetMapValue(objMap, "textAnchorType"); ok {
 		if valTextAnchorType != nil {
 			var valueForTextAnchorType string
 			err = json.Unmarshal(*valTextAnchorType, &valueForTextAnchorType)
@@ -493,24 +448,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTextAnchorTypeCap, ok := objMap["TextAnchorType"]; ok {
-		if valTextAnchorTypeCap != nil {
-			var valueForTextAnchorType string
-			err = json.Unmarshal(*valTextAnchorTypeCap, &valueForTextAnchorType)
-			if err != nil {
-				var valueForTextAnchorTypeInt int32
-				err = json.Unmarshal(*valTextAnchorTypeCap, &valueForTextAnchorTypeInt)
-				if err != nil {
-					return err
-				}
-				this.TextAnchorType = string(valueForTextAnchorTypeInt)
-			} else {
-				this.TextAnchorType = valueForTextAnchorType
-			}
-		}
-	}
 	
-	if valTextVerticalType, ok := objMap["textVerticalType"]; ok {
+	if valTextVerticalType, ok := GetMapValue(objMap, "textVerticalType"); ok {
 		if valTextVerticalType != nil {
 			var valueForTextVerticalType string
 			err = json.Unmarshal(*valTextVerticalType, &valueForTextVerticalType)
@@ -526,24 +465,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTextVerticalTypeCap, ok := objMap["TextVerticalType"]; ok {
-		if valTextVerticalTypeCap != nil {
-			var valueForTextVerticalType string
-			err = json.Unmarshal(*valTextVerticalTypeCap, &valueForTextVerticalType)
-			if err != nil {
-				var valueForTextVerticalTypeInt int32
-				err = json.Unmarshal(*valTextVerticalTypeCap, &valueForTextVerticalTypeInt)
-				if err != nil {
-					return err
-				}
-				this.TextVerticalType = string(valueForTextVerticalTypeInt)
-			} else {
-				this.TextVerticalType = valueForTextVerticalType
-			}
-		}
-	}
 	
-	if valFillFormat, ok := objMap["fillFormat"]; ok {
+	if valFillFormat, ok := GetMapValue(objMap, "fillFormat"); ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -564,29 +487,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
-		if valFillFormatCap != nil {
-			var valueForFillFormat FillFormat
-			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFillFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IFillFormat)
-			if ok {
-				this.FillFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valBorderTop, ok := objMap["borderTop"]; ok {
+	if valBorderTop, ok := GetMapValue(objMap, "borderTop"); ok {
 		if valBorderTop != nil {
 			var valueForBorderTop LineFormat
 			err = json.Unmarshal(*valBorderTop, &valueForBorderTop)
@@ -607,29 +509,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBorderTopCap, ok := objMap["BorderTop"]; ok {
-		if valBorderTopCap != nil {
-			var valueForBorderTop LineFormat
-			err = json.Unmarshal(*valBorderTopCap, &valueForBorderTop)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valBorderTopCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBorderTopCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.BorderTop = vInterfaceObject
-			}
-		}
-	}
 	
-	if valBorderRight, ok := objMap["borderRight"]; ok {
+	if valBorderRight, ok := GetMapValue(objMap, "borderRight"); ok {
 		if valBorderRight != nil {
 			var valueForBorderRight LineFormat
 			err = json.Unmarshal(*valBorderRight, &valueForBorderRight)
@@ -650,29 +531,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBorderRightCap, ok := objMap["BorderRight"]; ok {
-		if valBorderRightCap != nil {
-			var valueForBorderRight LineFormat
-			err = json.Unmarshal(*valBorderRightCap, &valueForBorderRight)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valBorderRightCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBorderRightCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.BorderRight = vInterfaceObject
-			}
-		}
-	}
 	
-	if valBorderLeft, ok := objMap["borderLeft"]; ok {
+	if valBorderLeft, ok := GetMapValue(objMap, "borderLeft"); ok {
 		if valBorderLeft != nil {
 			var valueForBorderLeft LineFormat
 			err = json.Unmarshal(*valBorderLeft, &valueForBorderLeft)
@@ -693,29 +553,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBorderLeftCap, ok := objMap["BorderLeft"]; ok {
-		if valBorderLeftCap != nil {
-			var valueForBorderLeft LineFormat
-			err = json.Unmarshal(*valBorderLeftCap, &valueForBorderLeft)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valBorderLeftCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBorderLeftCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.BorderLeft = vInterfaceObject
-			}
-		}
-	}
 	
-	if valBorderBottom, ok := objMap["borderBottom"]; ok {
+	if valBorderBottom, ok := GetMapValue(objMap, "borderBottom"); ok {
 		if valBorderBottom != nil {
 			var valueForBorderBottom LineFormat
 			err = json.Unmarshal(*valBorderBottom, &valueForBorderBottom)
@@ -736,29 +575,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBorderBottomCap, ok := objMap["BorderBottom"]; ok {
-		if valBorderBottomCap != nil {
-			var valueForBorderBottom LineFormat
-			err = json.Unmarshal(*valBorderBottomCap, &valueForBorderBottom)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valBorderBottomCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBorderBottomCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.BorderBottom = vInterfaceObject
-			}
-		}
-	}
 	
-	if valBorderDiagonalUp, ok := objMap["borderDiagonalUp"]; ok {
+	if valBorderDiagonalUp, ok := GetMapValue(objMap, "borderDiagonalUp"); ok {
 		if valBorderDiagonalUp != nil {
 			var valueForBorderDiagonalUp LineFormat
 			err = json.Unmarshal(*valBorderDiagonalUp, &valueForBorderDiagonalUp)
@@ -779,29 +597,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBorderDiagonalUpCap, ok := objMap["BorderDiagonalUp"]; ok {
-		if valBorderDiagonalUpCap != nil {
-			var valueForBorderDiagonalUp LineFormat
-			err = json.Unmarshal(*valBorderDiagonalUpCap, &valueForBorderDiagonalUp)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valBorderDiagonalUpCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBorderDiagonalUpCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.BorderDiagonalUp = vInterfaceObject
-			}
-		}
-	}
 	
-	if valBorderDiagonalDown, ok := objMap["borderDiagonalDown"]; ok {
+	if valBorderDiagonalDown, ok := GetMapValue(objMap, "borderDiagonalDown"); ok {
 		if valBorderDiagonalDown != nil {
 			var valueForBorderDiagonalDown LineFormat
 			err = json.Unmarshal(*valBorderDiagonalDown, &valueForBorderDiagonalDown)
@@ -822,29 +619,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBorderDiagonalDownCap, ok := objMap["BorderDiagonalDown"]; ok {
-		if valBorderDiagonalDownCap != nil {
-			var valueForBorderDiagonalDown LineFormat
-			err = json.Unmarshal(*valBorderDiagonalDownCap, &valueForBorderDiagonalDown)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valBorderDiagonalDownCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBorderDiagonalDownCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.BorderDiagonalDown = vInterfaceObject
-			}
-		}
-	}
 	
-	if valColumnIndex, ok := objMap["columnIndex"]; ok {
+	if valColumnIndex, ok := GetMapValue(objMap, "columnIndex"); ok {
 		if valColumnIndex != nil {
 			var valueForColumnIndex int32
 			err = json.Unmarshal(*valColumnIndex, &valueForColumnIndex)
@@ -854,18 +630,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.ColumnIndex = valueForColumnIndex
 		}
 	}
-	if valColumnIndexCap, ok := objMap["ColumnIndex"]; ok {
-		if valColumnIndexCap != nil {
-			var valueForColumnIndex int32
-			err = json.Unmarshal(*valColumnIndexCap, &valueForColumnIndex)
-			if err != nil {
-				return err
-			}
-			this.ColumnIndex = valueForColumnIndex
-		}
-	}
 	
-	if valRowIndex, ok := objMap["rowIndex"]; ok {
+	if valRowIndex, ok := GetMapValue(objMap, "rowIndex"); ok {
 		if valRowIndex != nil {
 			var valueForRowIndex int32
 			err = json.Unmarshal(*valRowIndex, &valueForRowIndex)
@@ -875,18 +641,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			this.RowIndex = valueForRowIndex
 		}
 	}
-	if valRowIndexCap, ok := objMap["RowIndex"]; ok {
-		if valRowIndexCap != nil {
-			var valueForRowIndex int32
-			err = json.Unmarshal(*valRowIndexCap, &valueForRowIndex)
-			if err != nil {
-				return err
-			}
-			this.RowIndex = valueForRowIndex
-		}
-	}
 	
-	if valTextFrameFormat, ok := objMap["textFrameFormat"]; ok {
+	if valTextFrameFormat, ok := GetMapValue(objMap, "textFrameFormat"); ok {
 		if valTextFrameFormat != nil {
 			var valueForTextFrameFormat TextFrameFormat
 			err = json.Unmarshal(*valTextFrameFormat, &valueForTextFrameFormat)
@@ -907,29 +663,8 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTextFrameFormatCap, ok := objMap["TextFrameFormat"]; ok {
-		if valTextFrameFormatCap != nil {
-			var valueForTextFrameFormat TextFrameFormat
-			err = json.Unmarshal(*valTextFrameFormatCap, &valueForTextFrameFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("TextFrameFormat", *valTextFrameFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valTextFrameFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ITextFrameFormat)
-			if ok {
-				this.TextFrameFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valParagraphs, ok := objMap["paragraphs"]; ok {
+	if valParagraphs, ok := GetMapValue(objMap, "paragraphs"); ok {
 		if valParagraphs != nil {
 			var valueForParagraphs ResourceUri
 			err = json.Unmarshal(*valParagraphs, &valueForParagraphs)
@@ -941,27 +676,6 @@ func (this *TableCell) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valParagraphs, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Paragraphs = vInterfaceObject
-			}
-		}
-	}
-	if valParagraphsCap, ok := objMap["Paragraphs"]; ok {
-		if valParagraphsCap != nil {
-			var valueForParagraphs ResourceUri
-			err = json.Unmarshal(*valParagraphsCap, &valueForParagraphs)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valParagraphsCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valParagraphsCap, &vObject)
 			if err != nil {
 				return err
 			}

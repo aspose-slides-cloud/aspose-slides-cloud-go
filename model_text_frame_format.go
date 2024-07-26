@@ -274,7 +274,7 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valThreeDFormat, ok := objMap["threeDFormat"]; ok {
+	if valThreeDFormat, ok := GetMapValue(objMap, "threeDFormat"); ok {
 		if valThreeDFormat != nil {
 			var valueForThreeDFormat ThreeDFormat
 			err = json.Unmarshal(*valThreeDFormat, &valueForThreeDFormat)
@@ -295,29 +295,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valThreeDFormatCap, ok := objMap["ThreeDFormat"]; ok {
-		if valThreeDFormatCap != nil {
-			var valueForThreeDFormat ThreeDFormat
-			err = json.Unmarshal(*valThreeDFormatCap, &valueForThreeDFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ThreeDFormat", *valThreeDFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valThreeDFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IThreeDFormat)
-			if ok {
-				this.ThreeDFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valTransform, ok := objMap["transform"]; ok {
+	if valTransform, ok := GetMapValue(objMap, "transform"); ok {
 		if valTransform != nil {
 			var valueForTransform string
 			err = json.Unmarshal(*valTransform, &valueForTransform)
@@ -333,24 +312,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTransformCap, ok := objMap["Transform"]; ok {
-		if valTransformCap != nil {
-			var valueForTransform string
-			err = json.Unmarshal(*valTransformCap, &valueForTransform)
-			if err != nil {
-				var valueForTransformInt int32
-				err = json.Unmarshal(*valTransformCap, &valueForTransformInt)
-				if err != nil {
-					return err
-				}
-				this.Transform = string(valueForTransformInt)
-			} else {
-				this.Transform = valueForTransform
-			}
-		}
-	}
 	
-	if valMarginLeft, ok := objMap["marginLeft"]; ok {
+	if valMarginLeft, ok := GetMapValue(objMap, "marginLeft"); ok {
 		if valMarginLeft != nil {
 			var valueForMarginLeft float64
 			err = json.Unmarshal(*valMarginLeft, &valueForMarginLeft)
@@ -360,18 +323,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			this.MarginLeft = valueForMarginLeft
 		}
 	}
-	if valMarginLeftCap, ok := objMap["MarginLeft"]; ok {
-		if valMarginLeftCap != nil {
-			var valueForMarginLeft float64
-			err = json.Unmarshal(*valMarginLeftCap, &valueForMarginLeft)
-			if err != nil {
-				return err
-			}
-			this.MarginLeft = valueForMarginLeft
-		}
-	}
 	
-	if valMarginRight, ok := objMap["marginRight"]; ok {
+	if valMarginRight, ok := GetMapValue(objMap, "marginRight"); ok {
 		if valMarginRight != nil {
 			var valueForMarginRight float64
 			err = json.Unmarshal(*valMarginRight, &valueForMarginRight)
@@ -381,18 +334,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			this.MarginRight = valueForMarginRight
 		}
 	}
-	if valMarginRightCap, ok := objMap["MarginRight"]; ok {
-		if valMarginRightCap != nil {
-			var valueForMarginRight float64
-			err = json.Unmarshal(*valMarginRightCap, &valueForMarginRight)
-			if err != nil {
-				return err
-			}
-			this.MarginRight = valueForMarginRight
-		}
-	}
 	
-	if valMarginTop, ok := objMap["marginTop"]; ok {
+	if valMarginTop, ok := GetMapValue(objMap, "marginTop"); ok {
 		if valMarginTop != nil {
 			var valueForMarginTop float64
 			err = json.Unmarshal(*valMarginTop, &valueForMarginTop)
@@ -402,18 +345,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			this.MarginTop = valueForMarginTop
 		}
 	}
-	if valMarginTopCap, ok := objMap["MarginTop"]; ok {
-		if valMarginTopCap != nil {
-			var valueForMarginTop float64
-			err = json.Unmarshal(*valMarginTopCap, &valueForMarginTop)
-			if err != nil {
-				return err
-			}
-			this.MarginTop = valueForMarginTop
-		}
-	}
 	
-	if valMarginBottom, ok := objMap["marginBottom"]; ok {
+	if valMarginBottom, ok := GetMapValue(objMap, "marginBottom"); ok {
 		if valMarginBottom != nil {
 			var valueForMarginBottom float64
 			err = json.Unmarshal(*valMarginBottom, &valueForMarginBottom)
@@ -423,18 +356,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			this.MarginBottom = valueForMarginBottom
 		}
 	}
-	if valMarginBottomCap, ok := objMap["MarginBottom"]; ok {
-		if valMarginBottomCap != nil {
-			var valueForMarginBottom float64
-			err = json.Unmarshal(*valMarginBottomCap, &valueForMarginBottom)
-			if err != nil {
-				return err
-			}
-			this.MarginBottom = valueForMarginBottom
-		}
-	}
 	
-	if valWrapText, ok := objMap["wrapText"]; ok {
+	if valWrapText, ok := GetMapValue(objMap, "wrapText"); ok {
 		if valWrapText != nil {
 			var valueForWrapText string
 			err = json.Unmarshal(*valWrapText, &valueForWrapText)
@@ -450,24 +373,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valWrapTextCap, ok := objMap["WrapText"]; ok {
-		if valWrapTextCap != nil {
-			var valueForWrapText string
-			err = json.Unmarshal(*valWrapTextCap, &valueForWrapText)
-			if err != nil {
-				var valueForWrapTextInt int32
-				err = json.Unmarshal(*valWrapTextCap, &valueForWrapTextInt)
-				if err != nil {
-					return err
-				}
-				this.WrapText = string(valueForWrapTextInt)
-			} else {
-				this.WrapText = valueForWrapText
-			}
-		}
-	}
 	
-	if valAnchoringType, ok := objMap["anchoringType"]; ok {
+	if valAnchoringType, ok := GetMapValue(objMap, "anchoringType"); ok {
 		if valAnchoringType != nil {
 			var valueForAnchoringType string
 			err = json.Unmarshal(*valAnchoringType, &valueForAnchoringType)
@@ -483,24 +390,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valAnchoringTypeCap, ok := objMap["AnchoringType"]; ok {
-		if valAnchoringTypeCap != nil {
-			var valueForAnchoringType string
-			err = json.Unmarshal(*valAnchoringTypeCap, &valueForAnchoringType)
-			if err != nil {
-				var valueForAnchoringTypeInt int32
-				err = json.Unmarshal(*valAnchoringTypeCap, &valueForAnchoringTypeInt)
-				if err != nil {
-					return err
-				}
-				this.AnchoringType = string(valueForAnchoringTypeInt)
-			} else {
-				this.AnchoringType = valueForAnchoringType
-			}
-		}
-	}
 	
-	if valCenterText, ok := objMap["centerText"]; ok {
+	if valCenterText, ok := GetMapValue(objMap, "centerText"); ok {
 		if valCenterText != nil {
 			var valueForCenterText string
 			err = json.Unmarshal(*valCenterText, &valueForCenterText)
@@ -516,24 +407,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valCenterTextCap, ok := objMap["CenterText"]; ok {
-		if valCenterTextCap != nil {
-			var valueForCenterText string
-			err = json.Unmarshal(*valCenterTextCap, &valueForCenterText)
-			if err != nil {
-				var valueForCenterTextInt int32
-				err = json.Unmarshal(*valCenterTextCap, &valueForCenterTextInt)
-				if err != nil {
-					return err
-				}
-				this.CenterText = string(valueForCenterTextInt)
-			} else {
-				this.CenterText = valueForCenterText
-			}
-		}
-	}
 	
-	if valTextVerticalType, ok := objMap["textVerticalType"]; ok {
+	if valTextVerticalType, ok := GetMapValue(objMap, "textVerticalType"); ok {
 		if valTextVerticalType != nil {
 			var valueForTextVerticalType string
 			err = json.Unmarshal(*valTextVerticalType, &valueForTextVerticalType)
@@ -549,24 +424,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTextVerticalTypeCap, ok := objMap["TextVerticalType"]; ok {
-		if valTextVerticalTypeCap != nil {
-			var valueForTextVerticalType string
-			err = json.Unmarshal(*valTextVerticalTypeCap, &valueForTextVerticalType)
-			if err != nil {
-				var valueForTextVerticalTypeInt int32
-				err = json.Unmarshal(*valTextVerticalTypeCap, &valueForTextVerticalTypeInt)
-				if err != nil {
-					return err
-				}
-				this.TextVerticalType = string(valueForTextVerticalTypeInt)
-			} else {
-				this.TextVerticalType = valueForTextVerticalType
-			}
-		}
-	}
 	
-	if valAutofitType, ok := objMap["autofitType"]; ok {
+	if valAutofitType, ok := GetMapValue(objMap, "autofitType"); ok {
 		if valAutofitType != nil {
 			var valueForAutofitType string
 			err = json.Unmarshal(*valAutofitType, &valueForAutofitType)
@@ -582,24 +441,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valAutofitTypeCap, ok := objMap["AutofitType"]; ok {
-		if valAutofitTypeCap != nil {
-			var valueForAutofitType string
-			err = json.Unmarshal(*valAutofitTypeCap, &valueForAutofitType)
-			if err != nil {
-				var valueForAutofitTypeInt int32
-				err = json.Unmarshal(*valAutofitTypeCap, &valueForAutofitTypeInt)
-				if err != nil {
-					return err
-				}
-				this.AutofitType = string(valueForAutofitTypeInt)
-			} else {
-				this.AutofitType = valueForAutofitType
-			}
-		}
-	}
 	
-	if valColumnCount, ok := objMap["columnCount"]; ok {
+	if valColumnCount, ok := GetMapValue(objMap, "columnCount"); ok {
 		if valColumnCount != nil {
 			var valueForColumnCount int32
 			err = json.Unmarshal(*valColumnCount, &valueForColumnCount)
@@ -609,18 +452,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			this.ColumnCount = valueForColumnCount
 		}
 	}
-	if valColumnCountCap, ok := objMap["ColumnCount"]; ok {
-		if valColumnCountCap != nil {
-			var valueForColumnCount int32
-			err = json.Unmarshal(*valColumnCountCap, &valueForColumnCount)
-			if err != nil {
-				return err
-			}
-			this.ColumnCount = valueForColumnCount
-		}
-	}
 	
-	if valColumnSpacing, ok := objMap["columnSpacing"]; ok {
+	if valColumnSpacing, ok := GetMapValue(objMap, "columnSpacing"); ok {
 		if valColumnSpacing != nil {
 			var valueForColumnSpacing float64
 			err = json.Unmarshal(*valColumnSpacing, &valueForColumnSpacing)
@@ -630,18 +463,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			this.ColumnSpacing = valueForColumnSpacing
 		}
 	}
-	if valColumnSpacingCap, ok := objMap["ColumnSpacing"]; ok {
-		if valColumnSpacingCap != nil {
-			var valueForColumnSpacing float64
-			err = json.Unmarshal(*valColumnSpacingCap, &valueForColumnSpacing)
-			if err != nil {
-				return err
-			}
-			this.ColumnSpacing = valueForColumnSpacing
-		}
-	}
 	
-	if valKeepTextFlat, ok := objMap["keepTextFlat"]; ok {
+	if valKeepTextFlat, ok := GetMapValue(objMap, "keepTextFlat"); ok {
 		if valKeepTextFlat != nil {
 			var valueForKeepTextFlat *bool
 			err = json.Unmarshal(*valKeepTextFlat, &valueForKeepTextFlat)
@@ -651,18 +474,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			this.KeepTextFlat = valueForKeepTextFlat
 		}
 	}
-	if valKeepTextFlatCap, ok := objMap["KeepTextFlat"]; ok {
-		if valKeepTextFlatCap != nil {
-			var valueForKeepTextFlat *bool
-			err = json.Unmarshal(*valKeepTextFlatCap, &valueForKeepTextFlat)
-			if err != nil {
-				return err
-			}
-			this.KeepTextFlat = valueForKeepTextFlat
-		}
-	}
 	
-	if valRotationAngle, ok := objMap["rotationAngle"]; ok {
+	if valRotationAngle, ok := GetMapValue(objMap, "rotationAngle"); ok {
 		if valRotationAngle != nil {
 			var valueForRotationAngle float64
 			err = json.Unmarshal(*valRotationAngle, &valueForRotationAngle)
@@ -672,18 +485,8 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 			this.RotationAngle = valueForRotationAngle
 		}
 	}
-	if valRotationAngleCap, ok := objMap["RotationAngle"]; ok {
-		if valRotationAngleCap != nil {
-			var valueForRotationAngle float64
-			err = json.Unmarshal(*valRotationAngleCap, &valueForRotationAngle)
-			if err != nil {
-				return err
-			}
-			this.RotationAngle = valueForRotationAngle
-		}
-	}
 	
-	if valDefaultParagraphFormat, ok := objMap["defaultParagraphFormat"]; ok {
+	if valDefaultParagraphFormat, ok := GetMapValue(objMap, "defaultParagraphFormat"); ok {
 		if valDefaultParagraphFormat != nil {
 			var valueForDefaultParagraphFormat ParagraphFormat
 			err = json.Unmarshal(*valDefaultParagraphFormat, &valueForDefaultParagraphFormat)
@@ -695,27 +498,6 @@ func (this *TextFrameFormat) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valDefaultParagraphFormat, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IParagraphFormat)
-			if ok {
-				this.DefaultParagraphFormat = vInterfaceObject
-			}
-		}
-	}
-	if valDefaultParagraphFormatCap, ok := objMap["DefaultParagraphFormat"]; ok {
-		if valDefaultParagraphFormatCap != nil {
-			var valueForDefaultParagraphFormat ParagraphFormat
-			err = json.Unmarshal(*valDefaultParagraphFormatCap, &valueForDefaultParagraphFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ParagraphFormat", *valDefaultParagraphFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valDefaultParagraphFormatCap, &vObject)
 			if err != nil {
 				return err
 			}

@@ -78,7 +78,7 @@ func (this *CommentAuthor) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valName, ok := objMap["name"]; ok {
+	if valName, ok := GetMapValue(objMap, "name"); ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -88,31 +88,11 @@ func (this *CommentAuthor) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-	if valNameCap, ok := objMap["Name"]; ok {
-		if valNameCap != nil {
-			var valueForName string
-			err = json.Unmarshal(*valNameCap, &valueForName)
-			if err != nil {
-				return err
-			}
-			this.Name = valueForName
-		}
-	}
 	
-	if valInitials, ok := objMap["initials"]; ok {
+	if valInitials, ok := GetMapValue(objMap, "initials"); ok {
 		if valInitials != nil {
 			var valueForInitials string
 			err = json.Unmarshal(*valInitials, &valueForInitials)
-			if err != nil {
-				return err
-			}
-			this.Initials = valueForInitials
-		}
-	}
-	if valInitialsCap, ok := objMap["Initials"]; ok {
-		if valInitialsCap != nil {
-			var valueForInitials string
-			err = json.Unmarshal(*valInitialsCap, &valueForInitials)
 			if err != nil {
 				return err
 			}

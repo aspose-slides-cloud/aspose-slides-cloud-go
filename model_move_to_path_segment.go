@@ -93,7 +93,7 @@ func (this *MoveToPathSegment) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "MoveTo"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,24 +109,8 @@ func (this *MoveToPathSegment) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valX, ok := objMap["x"]; ok {
+	if valX, ok := GetMapValue(objMap, "x"); ok {
 		if valX != nil {
 			var valueForX float64
 			err = json.Unmarshal(*valX, &valueForX)
@@ -136,31 +120,11 @@ func (this *MoveToPathSegment) UnmarshalJSON(b []byte) error {
 			this.X = valueForX
 		}
 	}
-	if valXCap, ok := objMap["X"]; ok {
-		if valXCap != nil {
-			var valueForX float64
-			err = json.Unmarshal(*valXCap, &valueForX)
-			if err != nil {
-				return err
-			}
-			this.X = valueForX
-		}
-	}
 	
-	if valY, ok := objMap["y"]; ok {
+	if valY, ok := GetMapValue(objMap, "y"); ok {
 		if valY != nil {
 			var valueForY float64
 			err = json.Unmarshal(*valY, &valueForY)
-			if err != nil {
-				return err
-			}
-			this.Y = valueForY
-		}
-	}
-	if valYCap, ok := objMap["Y"]; ok {
-		if valYCap != nil {
-			var valueForY float64
-			err = json.Unmarshal(*valYCap, &valueForY)
 			if err != nil {
 				return err
 			}

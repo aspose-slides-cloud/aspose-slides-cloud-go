@@ -120,7 +120,7 @@ func (this *MasterSlide) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["selfUri"]; ok {
+	if valSelfUri, ok := GetMapValue(objMap, "selfUri"); ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -141,29 +141,8 @@ func (this *MasterSlide) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
-		if valSelfUriCap != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
-		}
-	}
 	
-	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
+	if valAlternateLinks, ok := GetMapValue(objMap, "alternateLinks"); ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -187,32 +166,8 @@ func (this *MasterSlide) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
-	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
-		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
-			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
-			}
-			this.AlternateLinks = valueForIAlternateLinks
-		}
-	}
 	
-	if valName, ok := objMap["name"]; ok {
+	if valName, ok := GetMapValue(objMap, "name"); ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -222,18 +177,8 @@ func (this *MasterSlide) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-	if valNameCap, ok := objMap["Name"]; ok {
-		if valNameCap != nil {
-			var valueForName string
-			err = json.Unmarshal(*valNameCap, &valueForName)
-			if err != nil {
-				return err
-			}
-			this.Name = valueForName
-		}
-	}
 	
-	if valLayoutSlides, ok := objMap["layoutSlides"]; ok {
+	if valLayoutSlides, ok := GetMapValue(objMap, "layoutSlides"); ok {
 		if valLayoutSlides != nil {
 			var valueForLayoutSlides []json.RawMessage
 			err = json.Unmarshal(*valLayoutSlides, &valueForLayoutSlides)
@@ -257,59 +202,11 @@ func (this *MasterSlide) UnmarshalJSON(b []byte) error {
 			this.LayoutSlides = valueForILayoutSlides
 		}
 	}
-	if valLayoutSlidesCap, ok := objMap["LayoutSlides"]; ok {
-		if valLayoutSlidesCap != nil {
-			var valueForLayoutSlides []json.RawMessage
-			err = json.Unmarshal(*valLayoutSlidesCap, &valueForLayoutSlides)
-			if err != nil {
-				return err
-			}
-			valueForILayoutSlides := make([]IResourceUri, len(valueForLayoutSlides))
-			for i, v := range valueForLayoutSlides {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForILayoutSlides[i] = vObject.(IResourceUri)
-				}
-			}
-			this.LayoutSlides = valueForILayoutSlides
-		}
-	}
 	
-	if valDependingSlides, ok := objMap["dependingSlides"]; ok {
+	if valDependingSlides, ok := GetMapValue(objMap, "dependingSlides"); ok {
 		if valDependingSlides != nil {
 			var valueForDependingSlides []json.RawMessage
 			err = json.Unmarshal(*valDependingSlides, &valueForDependingSlides)
-			if err != nil {
-				return err
-			}
-			valueForIDependingSlides := make([]IResourceUri, len(valueForDependingSlides))
-			for i, v := range valueForDependingSlides {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIDependingSlides[i] = vObject.(IResourceUri)
-				}
-			}
-			this.DependingSlides = valueForIDependingSlides
-		}
-	}
-	if valDependingSlidesCap, ok := objMap["DependingSlides"]; ok {
-		if valDependingSlidesCap != nil {
-			var valueForDependingSlides []json.RawMessage
-			err = json.Unmarshal(*valDependingSlidesCap, &valueForDependingSlides)
 			if err != nil {
 				return err
 			}

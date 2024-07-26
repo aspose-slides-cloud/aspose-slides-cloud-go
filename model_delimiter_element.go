@@ -149,7 +149,7 @@ func (this *DelimiterElement) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Delimiter"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -165,24 +165,8 @@ func (this *DelimiterElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valArguments, ok := objMap["arguments"]; ok {
+	if valArguments, ok := GetMapValue(objMap, "arguments"); ok {
 		if valArguments != nil {
 			var valueForArguments []json.RawMessage
 			err = json.Unmarshal(*valArguments, &valueForArguments)
@@ -206,32 +190,8 @@ func (this *DelimiterElement) UnmarshalJSON(b []byte) error {
 			this.Arguments = valueForIArguments
 		}
 	}
-	if valArgumentsCap, ok := objMap["Arguments"]; ok {
-		if valArgumentsCap != nil {
-			var valueForArguments []json.RawMessage
-			err = json.Unmarshal(*valArgumentsCap, &valueForArguments)
-			if err != nil {
-				return err
-			}
-			valueForIArguments := make([]IMathElement, len(valueForArguments))
-			for i, v := range valueForArguments {
-				vObject, err := createObjectForType("MathElement", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIArguments[i] = vObject.(IMathElement)
-				}
-			}
-			this.Arguments = valueForIArguments
-		}
-	}
 	
-	if valBeginningCharacter, ok := objMap["beginningCharacter"]; ok {
+	if valBeginningCharacter, ok := GetMapValue(objMap, "beginningCharacter"); ok {
 		if valBeginningCharacter != nil {
 			var valueForBeginningCharacter string
 			err = json.Unmarshal(*valBeginningCharacter, &valueForBeginningCharacter)
@@ -241,18 +201,8 @@ func (this *DelimiterElement) UnmarshalJSON(b []byte) error {
 			this.BeginningCharacter = valueForBeginningCharacter
 		}
 	}
-	if valBeginningCharacterCap, ok := objMap["BeginningCharacter"]; ok {
-		if valBeginningCharacterCap != nil {
-			var valueForBeginningCharacter string
-			err = json.Unmarshal(*valBeginningCharacterCap, &valueForBeginningCharacter)
-			if err != nil {
-				return err
-			}
-			this.BeginningCharacter = valueForBeginningCharacter
-		}
-	}
 	
-	if valSeparatorCharacter, ok := objMap["separatorCharacter"]; ok {
+	if valSeparatorCharacter, ok := GetMapValue(objMap, "separatorCharacter"); ok {
 		if valSeparatorCharacter != nil {
 			var valueForSeparatorCharacter string
 			err = json.Unmarshal(*valSeparatorCharacter, &valueForSeparatorCharacter)
@@ -262,18 +212,8 @@ func (this *DelimiterElement) UnmarshalJSON(b []byte) error {
 			this.SeparatorCharacter = valueForSeparatorCharacter
 		}
 	}
-	if valSeparatorCharacterCap, ok := objMap["SeparatorCharacter"]; ok {
-		if valSeparatorCharacterCap != nil {
-			var valueForSeparatorCharacter string
-			err = json.Unmarshal(*valSeparatorCharacterCap, &valueForSeparatorCharacter)
-			if err != nil {
-				return err
-			}
-			this.SeparatorCharacter = valueForSeparatorCharacter
-		}
-	}
 	
-	if valEndingCharacter, ok := objMap["endingCharacter"]; ok {
+	if valEndingCharacter, ok := GetMapValue(objMap, "endingCharacter"); ok {
 		if valEndingCharacter != nil {
 			var valueForEndingCharacter string
 			err = json.Unmarshal(*valEndingCharacter, &valueForEndingCharacter)
@@ -283,18 +223,8 @@ func (this *DelimiterElement) UnmarshalJSON(b []byte) error {
 			this.EndingCharacter = valueForEndingCharacter
 		}
 	}
-	if valEndingCharacterCap, ok := objMap["EndingCharacter"]; ok {
-		if valEndingCharacterCap != nil {
-			var valueForEndingCharacter string
-			err = json.Unmarshal(*valEndingCharacterCap, &valueForEndingCharacter)
-			if err != nil {
-				return err
-			}
-			this.EndingCharacter = valueForEndingCharacter
-		}
-	}
 	
-	if valGrowToMatchOperandHeight, ok := objMap["growToMatchOperandHeight"]; ok {
+	if valGrowToMatchOperandHeight, ok := GetMapValue(objMap, "growToMatchOperandHeight"); ok {
 		if valGrowToMatchOperandHeight != nil {
 			var valueForGrowToMatchOperandHeight *bool
 			err = json.Unmarshal(*valGrowToMatchOperandHeight, &valueForGrowToMatchOperandHeight)
@@ -304,40 +234,14 @@ func (this *DelimiterElement) UnmarshalJSON(b []byte) error {
 			this.GrowToMatchOperandHeight = valueForGrowToMatchOperandHeight
 		}
 	}
-	if valGrowToMatchOperandHeightCap, ok := objMap["GrowToMatchOperandHeight"]; ok {
-		if valGrowToMatchOperandHeightCap != nil {
-			var valueForGrowToMatchOperandHeight *bool
-			err = json.Unmarshal(*valGrowToMatchOperandHeightCap, &valueForGrowToMatchOperandHeight)
-			if err != nil {
-				return err
-			}
-			this.GrowToMatchOperandHeight = valueForGrowToMatchOperandHeight
-		}
-	}
 	
-	if valDelimiterShape, ok := objMap["delimiterShape"]; ok {
+	if valDelimiterShape, ok := GetMapValue(objMap, "delimiterShape"); ok {
 		if valDelimiterShape != nil {
 			var valueForDelimiterShape string
 			err = json.Unmarshal(*valDelimiterShape, &valueForDelimiterShape)
 			if err != nil {
 				var valueForDelimiterShapeInt int32
 				err = json.Unmarshal(*valDelimiterShape, &valueForDelimiterShapeInt)
-				if err != nil {
-					return err
-				}
-				this.DelimiterShape = string(valueForDelimiterShapeInt)
-			} else {
-				this.DelimiterShape = valueForDelimiterShape
-			}
-		}
-	}
-	if valDelimiterShapeCap, ok := objMap["DelimiterShape"]; ok {
-		if valDelimiterShapeCap != nil {
-			var valueForDelimiterShape string
-			err = json.Unmarshal(*valDelimiterShapeCap, &valueForDelimiterShape)
-			if err != nil {
-				var valueForDelimiterShapeInt int32
-				err = json.Unmarshal(*valDelimiterShapeCap, &valueForDelimiterShapeInt)
 				if err != nil {
 					return err
 				}

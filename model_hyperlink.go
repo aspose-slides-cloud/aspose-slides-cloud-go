@@ -205,7 +205,7 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valIsDisabled, ok := objMap["isDisabled"]; ok {
+	if valIsDisabled, ok := GetMapValue(objMap, "isDisabled"); ok {
 		if valIsDisabled != nil {
 			var valueForIsDisabled *bool
 			err = json.Unmarshal(*valIsDisabled, &valueForIsDisabled)
@@ -215,18 +215,8 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 			this.IsDisabled = valueForIsDisabled
 		}
 	}
-	if valIsDisabledCap, ok := objMap["IsDisabled"]; ok {
-		if valIsDisabledCap != nil {
-			var valueForIsDisabled *bool
-			err = json.Unmarshal(*valIsDisabledCap, &valueForIsDisabled)
-			if err != nil {
-				return err
-			}
-			this.IsDisabled = valueForIsDisabled
-		}
-	}
 	this.ActionType = "NoAction"
-	if valActionType, ok := objMap["actionType"]; ok {
+	if valActionType, ok := GetMapValue(objMap, "actionType"); ok {
 		if valActionType != nil {
 			var valueForActionType string
 			err = json.Unmarshal(*valActionType, &valueForActionType)
@@ -242,24 +232,8 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valActionTypeCap, ok := objMap["ActionType"]; ok {
-		if valActionTypeCap != nil {
-			var valueForActionType string
-			err = json.Unmarshal(*valActionTypeCap, &valueForActionType)
-			if err != nil {
-				var valueForActionTypeInt int32
-				err = json.Unmarshal(*valActionTypeCap, &valueForActionTypeInt)
-				if err != nil {
-					return err
-				}
-				this.ActionType = string(valueForActionTypeInt)
-			} else {
-				this.ActionType = valueForActionType
-			}
-		}
-	}
 	
-	if valExternalUrl, ok := objMap["externalUrl"]; ok {
+	if valExternalUrl, ok := GetMapValue(objMap, "externalUrl"); ok {
 		if valExternalUrl != nil {
 			var valueForExternalUrl string
 			err = json.Unmarshal(*valExternalUrl, &valueForExternalUrl)
@@ -269,18 +243,8 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 			this.ExternalUrl = valueForExternalUrl
 		}
 	}
-	if valExternalUrlCap, ok := objMap["ExternalUrl"]; ok {
-		if valExternalUrlCap != nil {
-			var valueForExternalUrl string
-			err = json.Unmarshal(*valExternalUrlCap, &valueForExternalUrl)
-			if err != nil {
-				return err
-			}
-			this.ExternalUrl = valueForExternalUrl
-		}
-	}
 	
-	if valTargetSlideIndex, ok := objMap["targetSlideIndex"]; ok {
+	if valTargetSlideIndex, ok := GetMapValue(objMap, "targetSlideIndex"); ok {
 		if valTargetSlideIndex != nil {
 			var valueForTargetSlideIndex int32
 			err = json.Unmarshal(*valTargetSlideIndex, &valueForTargetSlideIndex)
@@ -290,18 +254,8 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 			this.TargetSlideIndex = valueForTargetSlideIndex
 		}
 	}
-	if valTargetSlideIndexCap, ok := objMap["TargetSlideIndex"]; ok {
-		if valTargetSlideIndexCap != nil {
-			var valueForTargetSlideIndex int32
-			err = json.Unmarshal(*valTargetSlideIndexCap, &valueForTargetSlideIndex)
-			if err != nil {
-				return err
-			}
-			this.TargetSlideIndex = valueForTargetSlideIndex
-		}
-	}
 	
-	if valTargetFrame, ok := objMap["targetFrame"]; ok {
+	if valTargetFrame, ok := GetMapValue(objMap, "targetFrame"); ok {
 		if valTargetFrame != nil {
 			var valueForTargetFrame string
 			err = json.Unmarshal(*valTargetFrame, &valueForTargetFrame)
@@ -311,18 +265,8 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 			this.TargetFrame = valueForTargetFrame
 		}
 	}
-	if valTargetFrameCap, ok := objMap["TargetFrame"]; ok {
-		if valTargetFrameCap != nil {
-			var valueForTargetFrame string
-			err = json.Unmarshal(*valTargetFrameCap, &valueForTargetFrame)
-			if err != nil {
-				return err
-			}
-			this.TargetFrame = valueForTargetFrame
-		}
-	}
 	
-	if valTooltip, ok := objMap["tooltip"]; ok {
+	if valTooltip, ok := GetMapValue(objMap, "tooltip"); ok {
 		if valTooltip != nil {
 			var valueForTooltip string
 			err = json.Unmarshal(*valTooltip, &valueForTooltip)
@@ -332,18 +276,8 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 			this.Tooltip = valueForTooltip
 		}
 	}
-	if valTooltipCap, ok := objMap["Tooltip"]; ok {
-		if valTooltipCap != nil {
-			var valueForTooltip string
-			err = json.Unmarshal(*valTooltipCap, &valueForTooltip)
-			if err != nil {
-				return err
-			}
-			this.Tooltip = valueForTooltip
-		}
-	}
 	
-	if valHistory, ok := objMap["history"]; ok {
+	if valHistory, ok := GetMapValue(objMap, "history"); ok {
 		if valHistory != nil {
 			var valueForHistory *bool
 			err = json.Unmarshal(*valHistory, &valueForHistory)
@@ -353,18 +287,8 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 			this.History = valueForHistory
 		}
 	}
-	if valHistoryCap, ok := objMap["History"]; ok {
-		if valHistoryCap != nil {
-			var valueForHistory *bool
-			err = json.Unmarshal(*valHistoryCap, &valueForHistory)
-			if err != nil {
-				return err
-			}
-			this.History = valueForHistory
-		}
-	}
 	
-	if valHighlightClick, ok := objMap["highlightClick"]; ok {
+	if valHighlightClick, ok := GetMapValue(objMap, "highlightClick"); ok {
 		if valHighlightClick != nil {
 			var valueForHighlightClick *bool
 			err = json.Unmarshal(*valHighlightClick, &valueForHighlightClick)
@@ -374,18 +298,8 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 			this.HighlightClick = valueForHighlightClick
 		}
 	}
-	if valHighlightClickCap, ok := objMap["HighlightClick"]; ok {
-		if valHighlightClickCap != nil {
-			var valueForHighlightClick *bool
-			err = json.Unmarshal(*valHighlightClickCap, &valueForHighlightClick)
-			if err != nil {
-				return err
-			}
-			this.HighlightClick = valueForHighlightClick
-		}
-	}
 	
-	if valStopSoundOnClick, ok := objMap["stopSoundOnClick"]; ok {
+	if valStopSoundOnClick, ok := GetMapValue(objMap, "stopSoundOnClick"); ok {
 		if valStopSoundOnClick != nil {
 			var valueForStopSoundOnClick *bool
 			err = json.Unmarshal(*valStopSoundOnClick, &valueForStopSoundOnClick)
@@ -395,18 +309,8 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 			this.StopSoundOnClick = valueForStopSoundOnClick
 		}
 	}
-	if valStopSoundOnClickCap, ok := objMap["StopSoundOnClick"]; ok {
-		if valStopSoundOnClickCap != nil {
-			var valueForStopSoundOnClick *bool
-			err = json.Unmarshal(*valStopSoundOnClickCap, &valueForStopSoundOnClick)
-			if err != nil {
-				return err
-			}
-			this.StopSoundOnClick = valueForStopSoundOnClick
-		}
-	}
 	
-	if valColorSource, ok := objMap["colorSource"]; ok {
+	if valColorSource, ok := GetMapValue(objMap, "colorSource"); ok {
 		if valColorSource != nil {
 			var valueForColorSource string
 			err = json.Unmarshal(*valColorSource, &valueForColorSource)
@@ -422,37 +326,11 @@ func (this *Hyperlink) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valColorSourceCap, ok := objMap["ColorSource"]; ok {
-		if valColorSourceCap != nil {
-			var valueForColorSource string
-			err = json.Unmarshal(*valColorSourceCap, &valueForColorSource)
-			if err != nil {
-				var valueForColorSourceInt int32
-				err = json.Unmarshal(*valColorSourceCap, &valueForColorSourceInt)
-				if err != nil {
-					return err
-				}
-				this.ColorSource = string(valueForColorSourceInt)
-			} else {
-				this.ColorSource = valueForColorSource
-			}
-		}
-	}
 	
-	if valSoundBase64, ok := objMap["soundBase64"]; ok {
+	if valSoundBase64, ok := GetMapValue(objMap, "soundBase64"); ok {
 		if valSoundBase64 != nil {
 			var valueForSoundBase64 string
 			err = json.Unmarshal(*valSoundBase64, &valueForSoundBase64)
-			if err != nil {
-				return err
-			}
-			this.SoundBase64 = valueForSoundBase64
-		}
-	}
-	if valSoundBase64Cap, ok := objMap["SoundBase64"]; ok {
-		if valSoundBase64Cap != nil {
-			var valueForSoundBase64 string
-			err = json.Unmarshal(*valSoundBase64Cap, &valueForSoundBase64)
 			if err != nil {
 				return err
 			}

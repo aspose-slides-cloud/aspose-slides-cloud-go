@@ -79,7 +79,7 @@ func (this *TextElement) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Text"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -95,37 +95,11 @@ func (this *TextElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valValue, ok := objMap["value"]; ok {
+	if valValue, ok := GetMapValue(objMap, "value"); ok {
 		if valValue != nil {
 			var valueForValue string
 			err = json.Unmarshal(*valValue, &valueForValue)
-			if err != nil {
-				return err
-			}
-			this.Value = valueForValue
-		}
-	}
-	if valValueCap, ok := objMap["Value"]; ok {
-		if valValueCap != nil {
-			var valueForValue string
-			err = json.Unmarshal(*valValueCap, &valueForValue)
 			if err != nil {
 				return err
 			}

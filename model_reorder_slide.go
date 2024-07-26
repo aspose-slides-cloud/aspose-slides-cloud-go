@@ -93,7 +93,7 @@ func (this *ReorderSlide) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "ReoderSlide"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,24 +109,8 @@ func (this *ReorderSlide) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valOldPosition, ok := objMap["oldPosition"]; ok {
+	if valOldPosition, ok := GetMapValue(objMap, "oldPosition"); ok {
 		if valOldPosition != nil {
 			var valueForOldPosition int32
 			err = json.Unmarshal(*valOldPosition, &valueForOldPosition)
@@ -136,31 +120,11 @@ func (this *ReorderSlide) UnmarshalJSON(b []byte) error {
 			this.OldPosition = valueForOldPosition
 		}
 	}
-	if valOldPositionCap, ok := objMap["OldPosition"]; ok {
-		if valOldPositionCap != nil {
-			var valueForOldPosition int32
-			err = json.Unmarshal(*valOldPositionCap, &valueForOldPosition)
-			if err != nil {
-				return err
-			}
-			this.OldPosition = valueForOldPosition
-		}
-	}
 	
-	if valNewPosition, ok := objMap["newPosition"]; ok {
+	if valNewPosition, ok := GetMapValue(objMap, "newPosition"); ok {
 		if valNewPosition != nil {
 			var valueForNewPosition int32
 			err = json.Unmarshal(*valNewPosition, &valueForNewPosition)
-			if err != nil {
-				return err
-			}
-			this.NewPosition = valueForNewPosition
-		}
-	}
-	if valNewPositionCap, ok := objMap["NewPosition"]; ok {
-		if valNewPositionCap != nil {
-			var valueForNewPosition int32
-			err = json.Unmarshal(*valNewPositionCap, &valueForNewPosition)
 			if err != nil {
 				return err
 			}

@@ -92,7 +92,7 @@ func (this *FontSet) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valComplexScript, ok := objMap["complexScript"]; ok {
+	if valComplexScript, ok := GetMapValue(objMap, "complexScript"); ok {
 		if valComplexScript != nil {
 			var valueForComplexScript string
 			err = json.Unmarshal(*valComplexScript, &valueForComplexScript)
@@ -102,18 +102,8 @@ func (this *FontSet) UnmarshalJSON(b []byte) error {
 			this.ComplexScript = valueForComplexScript
 		}
 	}
-	if valComplexScriptCap, ok := objMap["ComplexScript"]; ok {
-		if valComplexScriptCap != nil {
-			var valueForComplexScript string
-			err = json.Unmarshal(*valComplexScriptCap, &valueForComplexScript)
-			if err != nil {
-				return err
-			}
-			this.ComplexScript = valueForComplexScript
-		}
-	}
 	
-	if valEastAsian, ok := objMap["eastAsian"]; ok {
+	if valEastAsian, ok := GetMapValue(objMap, "eastAsian"); ok {
 		if valEastAsian != nil {
 			var valueForEastAsian string
 			err = json.Unmarshal(*valEastAsian, &valueForEastAsian)
@@ -123,31 +113,11 @@ func (this *FontSet) UnmarshalJSON(b []byte) error {
 			this.EastAsian = valueForEastAsian
 		}
 	}
-	if valEastAsianCap, ok := objMap["EastAsian"]; ok {
-		if valEastAsianCap != nil {
-			var valueForEastAsian string
-			err = json.Unmarshal(*valEastAsianCap, &valueForEastAsian)
-			if err != nil {
-				return err
-			}
-			this.EastAsian = valueForEastAsian
-		}
-	}
 	
-	if valLatin, ok := objMap["latin"]; ok {
+	if valLatin, ok := GetMapValue(objMap, "latin"); ok {
 		if valLatin != nil {
 			var valueForLatin string
 			err = json.Unmarshal(*valLatin, &valueForLatin)
-			if err != nil {
-				return err
-			}
-			this.Latin = valueForLatin
-		}
-	}
-	if valLatinCap, ok := objMap["Latin"]; ok {
-		if valLatinCap != nil {
-			var valueForLatin string
-			err = json.Unmarshal(*valLatinCap, &valueForLatin)
 			if err != nil {
 				return err
 			}

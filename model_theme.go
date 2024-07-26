@@ -134,7 +134,7 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["selfUri"]; ok {
+	if valSelfUri, ok := GetMapValue(objMap, "selfUri"); ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -155,29 +155,8 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
-		if valSelfUriCap != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
-		}
-	}
 	
-	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
+	if valAlternateLinks, ok := GetMapValue(objMap, "alternateLinks"); ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -201,32 +180,8 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
-	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
-		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
-			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
-			}
-			this.AlternateLinks = valueForIAlternateLinks
-		}
-	}
 	
-	if valName, ok := objMap["name"]; ok {
+	if valName, ok := GetMapValue(objMap, "name"); ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -236,18 +191,8 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-	if valNameCap, ok := objMap["Name"]; ok {
-		if valNameCap != nil {
-			var valueForName string
-			err = json.Unmarshal(*valNameCap, &valueForName)
-			if err != nil {
-				return err
-			}
-			this.Name = valueForName
-		}
-	}
 	
-	if valColorScheme, ok := objMap["colorScheme"]; ok {
+	if valColorScheme, ok := GetMapValue(objMap, "colorScheme"); ok {
 		if valColorScheme != nil {
 			var valueForColorScheme ResourceUri
 			err = json.Unmarshal(*valColorScheme, &valueForColorScheme)
@@ -268,29 +213,8 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valColorSchemeCap, ok := objMap["ColorScheme"]; ok {
-		if valColorSchemeCap != nil {
-			var valueForColorScheme ResourceUri
-			err = json.Unmarshal(*valColorSchemeCap, &valueForColorScheme)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valColorSchemeCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valColorSchemeCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.ColorScheme = vInterfaceObject
-			}
-		}
-	}
 	
-	if valFontScheme, ok := objMap["fontScheme"]; ok {
+	if valFontScheme, ok := GetMapValue(objMap, "fontScheme"); ok {
 		if valFontScheme != nil {
 			var valueForFontScheme ResourceUri
 			err = json.Unmarshal(*valFontScheme, &valueForFontScheme)
@@ -311,29 +235,8 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFontSchemeCap, ok := objMap["FontScheme"]; ok {
-		if valFontSchemeCap != nil {
-			var valueForFontScheme ResourceUri
-			err = json.Unmarshal(*valFontSchemeCap, &valueForFontScheme)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valFontSchemeCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFontSchemeCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.FontScheme = vInterfaceObject
-			}
-		}
-	}
 	
-	if valFormatScheme, ok := objMap["formatScheme"]; ok {
+	if valFormatScheme, ok := GetMapValue(objMap, "formatScheme"); ok {
 		if valFormatScheme != nil {
 			var valueForFormatScheme ResourceUri
 			err = json.Unmarshal(*valFormatScheme, &valueForFormatScheme)
@@ -345,27 +248,6 @@ func (this *Theme) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valFormatScheme, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.FormatScheme = vInterfaceObject
-			}
-		}
-	}
-	if valFormatSchemeCap, ok := objMap["FormatScheme"]; ok {
-		if valFormatSchemeCap != nil {
-			var valueForFormatScheme ResourceUri
-			err = json.Unmarshal(*valFormatSchemeCap, &valueForFormatScheme)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valFormatSchemeCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFormatSchemeCap, &vObject)
 			if err != nil {
 				return err
 			}

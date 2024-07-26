@@ -79,7 +79,7 @@ func (this *Merge) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Merge"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -95,51 +95,11 @@ func (this *Merge) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valPresentations, ok := objMap["presentations"]; ok {
+	if valPresentations, ok := GetMapValue(objMap, "presentations"); ok {
 		if valPresentations != nil {
 			var valueForPresentations []json.RawMessage
 			err = json.Unmarshal(*valPresentations, &valueForPresentations)
-			if err != nil {
-				return err
-			}
-			valueForIPresentations := make([]IMergingSource, len(valueForPresentations))
-			for i, v := range valueForPresentations {
-				vObject, err := createObjectForType("MergingSource", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIPresentations[i] = vObject.(IMergingSource)
-				}
-			}
-			this.Presentations = valueForIPresentations
-		}
-	}
-	if valPresentationsCap, ok := objMap["Presentations"]; ok {
-		if valPresentationsCap != nil {
-			var valueForPresentations []json.RawMessage
-			err = json.Unmarshal(*valPresentationsCap, &valueForPresentations)
 			if err != nil {
 				return err
 			}

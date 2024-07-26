@@ -92,7 +92,7 @@ func (this *ShapeBevel) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valBevelType, ok := objMap["bevelType"]; ok {
+	if valBevelType, ok := GetMapValue(objMap, "bevelType"); ok {
 		if valBevelType != nil {
 			var valueForBevelType string
 			err = json.Unmarshal(*valBevelType, &valueForBevelType)
@@ -108,24 +108,8 @@ func (this *ShapeBevel) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBevelTypeCap, ok := objMap["BevelType"]; ok {
-		if valBevelTypeCap != nil {
-			var valueForBevelType string
-			err = json.Unmarshal(*valBevelTypeCap, &valueForBevelType)
-			if err != nil {
-				var valueForBevelTypeInt int32
-				err = json.Unmarshal(*valBevelTypeCap, &valueForBevelTypeInt)
-				if err != nil {
-					return err
-				}
-				this.BevelType = string(valueForBevelTypeInt)
-			} else {
-				this.BevelType = valueForBevelType
-			}
-		}
-	}
 	
-	if valWidth, ok := objMap["width"]; ok {
+	if valWidth, ok := GetMapValue(objMap, "width"); ok {
 		if valWidth != nil {
 			var valueForWidth float64
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -135,31 +119,11 @@ func (this *ShapeBevel) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth float64
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
 	
-	if valHeight, ok := objMap["height"]; ok {
+	if valHeight, ok := GetMapValue(objMap, "height"); ok {
 		if valHeight != nil {
 			var valueForHeight float64
 			err = json.Unmarshal(*valHeight, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight float64
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
 			if err != nil {
 				return err
 			}

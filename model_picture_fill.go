@@ -206,7 +206,7 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Picture"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -222,24 +222,8 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valCropBottom, ok := objMap["cropBottom"]; ok {
+	if valCropBottom, ok := GetMapValue(objMap, "cropBottom"); ok {
 		if valCropBottom != nil {
 			var valueForCropBottom float64
 			err = json.Unmarshal(*valCropBottom, &valueForCropBottom)
@@ -249,18 +233,8 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropBottom = valueForCropBottom
 		}
 	}
-	if valCropBottomCap, ok := objMap["CropBottom"]; ok {
-		if valCropBottomCap != nil {
-			var valueForCropBottom float64
-			err = json.Unmarshal(*valCropBottomCap, &valueForCropBottom)
-			if err != nil {
-				return err
-			}
-			this.CropBottom = valueForCropBottom
-		}
-	}
 	
-	if valCropLeft, ok := objMap["cropLeft"]; ok {
+	if valCropLeft, ok := GetMapValue(objMap, "cropLeft"); ok {
 		if valCropLeft != nil {
 			var valueForCropLeft float64
 			err = json.Unmarshal(*valCropLeft, &valueForCropLeft)
@@ -270,18 +244,8 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropLeft = valueForCropLeft
 		}
 	}
-	if valCropLeftCap, ok := objMap["CropLeft"]; ok {
-		if valCropLeftCap != nil {
-			var valueForCropLeft float64
-			err = json.Unmarshal(*valCropLeftCap, &valueForCropLeft)
-			if err != nil {
-				return err
-			}
-			this.CropLeft = valueForCropLeft
-		}
-	}
 	
-	if valCropRight, ok := objMap["cropRight"]; ok {
+	if valCropRight, ok := GetMapValue(objMap, "cropRight"); ok {
 		if valCropRight != nil {
 			var valueForCropRight float64
 			err = json.Unmarshal(*valCropRight, &valueForCropRight)
@@ -291,18 +255,8 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropRight = valueForCropRight
 		}
 	}
-	if valCropRightCap, ok := objMap["CropRight"]; ok {
-		if valCropRightCap != nil {
-			var valueForCropRight float64
-			err = json.Unmarshal(*valCropRightCap, &valueForCropRight)
-			if err != nil {
-				return err
-			}
-			this.CropRight = valueForCropRight
-		}
-	}
 	
-	if valCropTop, ok := objMap["cropTop"]; ok {
+	if valCropTop, ok := GetMapValue(objMap, "cropTop"); ok {
 		if valCropTop != nil {
 			var valueForCropTop float64
 			err = json.Unmarshal(*valCropTop, &valueForCropTop)
@@ -312,18 +266,8 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.CropTop = valueForCropTop
 		}
 	}
-	if valCropTopCap, ok := objMap["CropTop"]; ok {
-		if valCropTopCap != nil {
-			var valueForCropTop float64
-			err = json.Unmarshal(*valCropTopCap, &valueForCropTop)
-			if err != nil {
-				return err
-			}
-			this.CropTop = valueForCropTop
-		}
-	}
 	
-	if valDpi, ok := objMap["dpi"]; ok {
+	if valDpi, ok := GetMapValue(objMap, "dpi"); ok {
 		if valDpi != nil {
 			var valueForDpi int32
 			err = json.Unmarshal(*valDpi, &valueForDpi)
@@ -333,18 +277,8 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.Dpi = valueForDpi
 		}
 	}
-	if valDpiCap, ok := objMap["Dpi"]; ok {
-		if valDpiCap != nil {
-			var valueForDpi int32
-			err = json.Unmarshal(*valDpiCap, &valueForDpi)
-			if err != nil {
-				return err
-			}
-			this.Dpi = valueForDpi
-		}
-	}
 	
-	if valImage, ok := objMap["image"]; ok {
+	if valImage, ok := GetMapValue(objMap, "image"); ok {
 		if valImage != nil {
 			var valueForImage ResourceUri
 			err = json.Unmarshal(*valImage, &valueForImage)
@@ -365,29 +299,8 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valImageCap, ok := objMap["Image"]; ok {
-		if valImageCap != nil {
-			var valueForImage ResourceUri
-			err = json.Unmarshal(*valImageCap, &valueForImage)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valImageCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valImageCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Image = vInterfaceObject
-			}
-		}
-	}
 	
-	if valBase64Data, ok := objMap["base64Data"]; ok {
+	if valBase64Data, ok := GetMapValue(objMap, "base64Data"); ok {
 		if valBase64Data != nil {
 			var valueForBase64Data string
 			err = json.Unmarshal(*valBase64Data, &valueForBase64Data)
@@ -397,18 +310,8 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.Base64Data = valueForBase64Data
 		}
 	}
-	if valBase64DataCap, ok := objMap["Base64Data"]; ok {
-		if valBase64DataCap != nil {
-			var valueForBase64Data string
-			err = json.Unmarshal(*valBase64DataCap, &valueForBase64Data)
-			if err != nil {
-				return err
-			}
-			this.Base64Data = valueForBase64Data
-		}
-	}
 	
-	if valSvgData, ok := objMap["svgData"]; ok {
+	if valSvgData, ok := GetMapValue(objMap, "svgData"); ok {
 		if valSvgData != nil {
 			var valueForSvgData string
 			err = json.Unmarshal(*valSvgData, &valueForSvgData)
@@ -418,18 +321,8 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			this.SvgData = valueForSvgData
 		}
 	}
-	if valSvgDataCap, ok := objMap["SvgData"]; ok {
-		if valSvgDataCap != nil {
-			var valueForSvgData string
-			err = json.Unmarshal(*valSvgDataCap, &valueForSvgData)
-			if err != nil {
-				return err
-			}
-			this.SvgData = valueForSvgData
-		}
-	}
 	this.PictureFillMode = "Tile"
-	if valPictureFillMode, ok := objMap["pictureFillMode"]; ok {
+	if valPictureFillMode, ok := GetMapValue(objMap, "pictureFillMode"); ok {
 		if valPictureFillMode != nil {
 			var valueForPictureFillMode string
 			err = json.Unmarshal(*valPictureFillMode, &valueForPictureFillMode)
@@ -445,51 +338,11 @@ func (this *PictureFill) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valPictureFillModeCap, ok := objMap["PictureFillMode"]; ok {
-		if valPictureFillModeCap != nil {
-			var valueForPictureFillMode string
-			err = json.Unmarshal(*valPictureFillModeCap, &valueForPictureFillMode)
-			if err != nil {
-				var valueForPictureFillModeInt int32
-				err = json.Unmarshal(*valPictureFillModeCap, &valueForPictureFillModeInt)
-				if err != nil {
-					return err
-				}
-				this.PictureFillMode = string(valueForPictureFillModeInt)
-			} else {
-				this.PictureFillMode = valueForPictureFillMode
-			}
-		}
-	}
 	
-	if valImageTransformList, ok := objMap["imageTransformList"]; ok {
+	if valImageTransformList, ok := GetMapValue(objMap, "imageTransformList"); ok {
 		if valImageTransformList != nil {
 			var valueForImageTransformList []json.RawMessage
 			err = json.Unmarshal(*valImageTransformList, &valueForImageTransformList)
-			if err != nil {
-				return err
-			}
-			valueForIImageTransformList := make([]IImageTransformEffect, len(valueForImageTransformList))
-			for i, v := range valueForImageTransformList {
-				vObject, err := createObjectForType("ImageTransformEffect", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIImageTransformList[i] = vObject.(IImageTransformEffect)
-				}
-			}
-			this.ImageTransformList = valueForIImageTransformList
-		}
-	}
-	if valImageTransformListCap, ok := objMap["ImageTransformList"]; ok {
-		if valImageTransformListCap != nil {
-			var valueForImageTransformList []json.RawMessage
-			err = json.Unmarshal(*valImageTransformListCap, &valueForImageTransformList)
 			if err != nil {
 				return err
 			}

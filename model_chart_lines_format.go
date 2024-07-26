@@ -78,7 +78,7 @@ func (this *ChartLinesFormat) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valEffectFormat, ok := objMap["effectFormat"]; ok {
+	if valEffectFormat, ok := GetMapValue(objMap, "effectFormat"); ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
 			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
@@ -99,29 +99,8 @@ func (this *ChartLinesFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
-		if valEffectFormatCap != nil {
-			var valueForEffectFormat EffectFormat
-			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valEffectFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IEffectFormat)
-			if ok {
-				this.EffectFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valLineFormat, ok := objMap["lineFormat"]; ok {
+	if valLineFormat, ok := GetMapValue(objMap, "lineFormat"); ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
 			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
@@ -133,27 +112,6 @@ func (this *ChartLinesFormat) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valLineFormat, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.LineFormat = vInterfaceObject
-			}
-		}
-	}
-	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
-		if valLineFormatCap != nil {
-			var valueForLineFormat LineFormat
-			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valLineFormatCap, &vObject)
 			if err != nil {
 				return err
 			}

@@ -191,7 +191,7 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFillFormat, ok := objMap["fillFormat"]; ok {
+	if valFillFormat, ok := GetMapValue(objMap, "fillFormat"); ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -212,29 +212,8 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
-		if valFillFormatCap != nil {
-			var valueForFillFormat FillFormat
-			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFillFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IFillFormat)
-			if ok {
-				this.FillFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valEffectFormat, ok := objMap["effectFormat"]; ok {
+	if valEffectFormat, ok := GetMapValue(objMap, "effectFormat"); ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
 			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
@@ -255,29 +234,8 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
-		if valEffectFormatCap != nil {
-			var valueForEffectFormat EffectFormat
-			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valEffectFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IEffectFormat)
-			if ok {
-				this.EffectFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valThreeDFormat, ok := objMap["threeDFormat"]; ok {
+	if valThreeDFormat, ok := GetMapValue(objMap, "threeDFormat"); ok {
 		if valThreeDFormat != nil {
 			var valueForThreeDFormat ThreeDFormat
 			err = json.Unmarshal(*valThreeDFormat, &valueForThreeDFormat)
@@ -298,29 +256,8 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valThreeDFormatCap, ok := objMap["ThreeDFormat"]; ok {
-		if valThreeDFormatCap != nil {
-			var valueForThreeDFormat ThreeDFormat
-			err = json.Unmarshal(*valThreeDFormatCap, &valueForThreeDFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ThreeDFormat", *valThreeDFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valThreeDFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IThreeDFormat)
-			if ok {
-				this.ThreeDFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valLineFormat, ok := objMap["lineFormat"]; ok {
+	if valLineFormat, ok := GetMapValue(objMap, "lineFormat"); ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
 			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
@@ -341,29 +278,8 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
-		if valLineFormatCap != nil {
-			var valueForLineFormat LineFormat
-			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valLineFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.LineFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valMarker, ok := objMap["marker"]; ok {
+	if valMarker, ok := GetMapValue(objMap, "marker"); ok {
 		if valMarker != nil {
 			var valueForMarker SeriesMarker
 			err = json.Unmarshal(*valMarker, &valueForMarker)
@@ -384,29 +300,8 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valMarkerCap, ok := objMap["Marker"]; ok {
-		if valMarkerCap != nil {
-			var valueForMarker SeriesMarker
-			err = json.Unmarshal(*valMarkerCap, &valueForMarker)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("SeriesMarker", *valMarkerCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valMarkerCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ISeriesMarker)
-			if ok {
-				this.Marker = vInterfaceObject
-			}
-		}
-	}
 	this.Type_ = "Scatter"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -422,24 +317,8 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valXValue, ok := objMap["xValue"]; ok {
+	if valXValue, ok := GetMapValue(objMap, "xValue"); ok {
 		if valXValue != nil {
 			var valueForXValue float64
 			err = json.Unmarshal(*valXValue, &valueForXValue)
@@ -449,18 +328,8 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 			this.XValue = valueForXValue
 		}
 	}
-	if valXValueCap, ok := objMap["XValue"]; ok {
-		if valXValueCap != nil {
-			var valueForXValue float64
-			err = json.Unmarshal(*valXValueCap, &valueForXValue)
-			if err != nil {
-				return err
-			}
-			this.XValue = valueForXValue
-		}
-	}
 	
-	if valYValue, ok := objMap["yValue"]; ok {
+	if valYValue, ok := GetMapValue(objMap, "yValue"); ok {
 		if valYValue != nil {
 			var valueForYValue float64
 			err = json.Unmarshal(*valYValue, &valueForYValue)
@@ -470,18 +339,8 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 			this.YValue = valueForYValue
 		}
 	}
-	if valYValueCap, ok := objMap["YValue"]; ok {
-		if valYValueCap != nil {
-			var valueForYValue float64
-			err = json.Unmarshal(*valYValueCap, &valueForYValue)
-			if err != nil {
-				return err
-			}
-			this.YValue = valueForYValue
-		}
-	}
 	
-	if valXValueFormula, ok := objMap["xValueFormula"]; ok {
+	if valXValueFormula, ok := GetMapValue(objMap, "xValueFormula"); ok {
 		if valXValueFormula != nil {
 			var valueForXValueFormula string
 			err = json.Unmarshal(*valXValueFormula, &valueForXValueFormula)
@@ -491,31 +350,11 @@ func (this *ScatterChartDataPoint) UnmarshalJSON(b []byte) error {
 			this.XValueFormula = valueForXValueFormula
 		}
 	}
-	if valXValueFormulaCap, ok := objMap["XValueFormula"]; ok {
-		if valXValueFormulaCap != nil {
-			var valueForXValueFormula string
-			err = json.Unmarshal(*valXValueFormulaCap, &valueForXValueFormula)
-			if err != nil {
-				return err
-			}
-			this.XValueFormula = valueForXValueFormula
-		}
-	}
 	
-	if valYValueFormula, ok := objMap["yValueFormula"]; ok {
+	if valYValueFormula, ok := GetMapValue(objMap, "yValueFormula"); ok {
 		if valYValueFormula != nil {
 			var valueForYValueFormula string
 			err = json.Unmarshal(*valYValueFormula, &valueForYValueFormula)
-			if err != nil {
-				return err
-			}
-			this.YValueFormula = valueForYValueFormula
-		}
-	}
-	if valYValueFormulaCap, ok := objMap["YValueFormula"]; ok {
-		if valYValueFormulaCap != nil {
-			var valueForYValueFormula string
-			err = json.Unmarshal(*valYValueFormulaCap, &valueForYValueFormula)
 			if err != nil {
 				return err
 			}

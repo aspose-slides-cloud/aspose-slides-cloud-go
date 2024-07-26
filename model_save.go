@@ -108,7 +108,7 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Save"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -124,24 +124,8 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	this.Format = "Pdf"
-	if valFormat, ok := objMap["format"]; ok {
+	if valFormat, ok := GetMapValue(objMap, "format"); ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -157,24 +141,8 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFormatCap, ok := objMap["Format"]; ok {
-		if valFormatCap != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormatCap, &valueForFormat)
-			if err != nil {
-				var valueForFormatInt int32
-				err = json.Unmarshal(*valFormatCap, &valueForFormatInt)
-				if err != nil {
-					return err
-				}
-				this.Format = string(valueForFormatInt)
-			} else {
-				this.Format = valueForFormat
-			}
-		}
-	}
 	
-	if valOutput, ok := objMap["output"]; ok {
+	if valOutput, ok := GetMapValue(objMap, "output"); ok {
 		if valOutput != nil {
 			var valueForOutput OutputFile
 			err = json.Unmarshal(*valOutput, &valueForOutput)
@@ -195,29 +163,8 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valOutputCap, ok := objMap["Output"]; ok {
-		if valOutputCap != nil {
-			var valueForOutput OutputFile
-			err = json.Unmarshal(*valOutputCap, &valueForOutput)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("OutputFile", *valOutputCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valOutputCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IOutputFile)
-			if ok {
-				this.Output = vInterfaceObject
-			}
-		}
-	}
 	
-	if valOptions, ok := objMap["options"]; ok {
+	if valOptions, ok := GetMapValue(objMap, "options"); ok {
 		if valOptions != nil {
 			var valueForOptions ExportOptions
 			err = json.Unmarshal(*valOptions, &valueForOptions)
@@ -229,27 +176,6 @@ func (this *Save) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valOptions, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IExportOptions)
-			if ok {
-				this.Options = vInterfaceObject
-			}
-		}
-	}
-	if valOptionsCap, ok := objMap["Options"]; ok {
-		if valOptionsCap != nil {
-			var valueForOptions ExportOptions
-			err = json.Unmarshal(*valOptionsCap, &valueForOptions)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ExportOptions", *valOptionsCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valOptionsCap, &vObject)
 			if err != nil {
 				return err
 			}

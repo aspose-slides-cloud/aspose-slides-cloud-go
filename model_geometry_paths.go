@@ -64,34 +64,10 @@ func (this *GeometryPaths) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valPaths, ok := objMap["paths"]; ok {
+	if valPaths, ok := GetMapValue(objMap, "paths"); ok {
 		if valPaths != nil {
 			var valueForPaths []json.RawMessage
 			err = json.Unmarshal(*valPaths, &valueForPaths)
-			if err != nil {
-				return err
-			}
-			valueForIPaths := make([]IGeometryPath, len(valueForPaths))
-			for i, v := range valueForPaths {
-				vObject, err := createObjectForType("GeometryPath", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIPaths[i] = vObject.(IGeometryPath)
-				}
-			}
-			this.Paths = valueForIPaths
-		}
-	}
-	if valPathsCap, ok := objMap["Paths"]; ok {
-		if valPathsCap != nil {
-			var valueForPaths []json.RawMessage
-			err = json.Unmarshal(*valPathsCap, &valueForPaths)
 			if err != nil {
 				return err
 			}

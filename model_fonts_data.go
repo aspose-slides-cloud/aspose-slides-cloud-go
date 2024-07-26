@@ -64,34 +64,10 @@ func (this *FontsData) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valList, ok := objMap["list"]; ok {
+	if valList, ok := GetMapValue(objMap, "list"); ok {
 		if valList != nil {
 			var valueForList []json.RawMessage
 			err = json.Unmarshal(*valList, &valueForList)
-			if err != nil {
-				return err
-			}
-			valueForIList := make([]IFontData, len(valueForList))
-			for i, v := range valueForList {
-				vObject, err := createObjectForType("FontData", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIList[i] = vObject.(IFontData)
-				}
-			}
-			this.List = valueForIList
-		}
-	}
-	if valListCap, ok := objMap["List"]; ok {
-		if valListCap != nil {
-			var valueForList []json.RawMessage
-			err = json.Unmarshal(*valListCap, &valueForList)
 			if err != nil {
 				return err
 			}

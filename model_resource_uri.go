@@ -134,7 +134,7 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valHref, ok := objMap["href"]; ok {
+	if valHref, ok := GetMapValue(objMap, "href"); ok {
 		if valHref != nil {
 			var valueForHref string
 			err = json.Unmarshal(*valHref, &valueForHref)
@@ -144,18 +144,8 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 			this.Href = valueForHref
 		}
 	}
-	if valHrefCap, ok := objMap["Href"]; ok {
-		if valHrefCap != nil {
-			var valueForHref string
-			err = json.Unmarshal(*valHrefCap, &valueForHref)
-			if err != nil {
-				return err
-			}
-			this.Href = valueForHref
-		}
-	}
 	
-	if valRelation, ok := objMap["relation"]; ok {
+	if valRelation, ok := GetMapValue(objMap, "relation"); ok {
 		if valRelation != nil {
 			var valueForRelation string
 			err = json.Unmarshal(*valRelation, &valueForRelation)
@@ -165,18 +155,8 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 			this.Relation = valueForRelation
 		}
 	}
-	if valRelationCap, ok := objMap["Relation"]; ok {
-		if valRelationCap != nil {
-			var valueForRelation string
-			err = json.Unmarshal(*valRelationCap, &valueForRelation)
-			if err != nil {
-				return err
-			}
-			this.Relation = valueForRelation
-		}
-	}
 	
-	if valLinkType, ok := objMap["linkType"]; ok {
+	if valLinkType, ok := GetMapValue(objMap, "linkType"); ok {
 		if valLinkType != nil {
 			var valueForLinkType string
 			err = json.Unmarshal(*valLinkType, &valueForLinkType)
@@ -186,18 +166,8 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 			this.LinkType = valueForLinkType
 		}
 	}
-	if valLinkTypeCap, ok := objMap["LinkType"]; ok {
-		if valLinkTypeCap != nil {
-			var valueForLinkType string
-			err = json.Unmarshal(*valLinkTypeCap, &valueForLinkType)
-			if err != nil {
-				return err
-			}
-			this.LinkType = valueForLinkType
-		}
-	}
 	
-	if valTitle, ok := objMap["title"]; ok {
+	if valTitle, ok := GetMapValue(objMap, "title"); ok {
 		if valTitle != nil {
 			var valueForTitle string
 			err = json.Unmarshal(*valTitle, &valueForTitle)
@@ -207,18 +177,8 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 			this.Title = valueForTitle
 		}
 	}
-	if valTitleCap, ok := objMap["Title"]; ok {
-		if valTitleCap != nil {
-			var valueForTitle string
-			err = json.Unmarshal(*valTitleCap, &valueForTitle)
-			if err != nil {
-				return err
-			}
-			this.Title = valueForTitle
-		}
-	}
 	
-	if valSlideIndex, ok := objMap["slideIndex"]; ok {
+	if valSlideIndex, ok := GetMapValue(objMap, "slideIndex"); ok {
 		if valSlideIndex != nil {
 			var valueForSlideIndex int32
 			err = json.Unmarshal(*valSlideIndex, &valueForSlideIndex)
@@ -228,31 +188,11 @@ func (this *ResourceUri) UnmarshalJSON(b []byte) error {
 			this.SlideIndex = valueForSlideIndex
 		}
 	}
-	if valSlideIndexCap, ok := objMap["SlideIndex"]; ok {
-		if valSlideIndexCap != nil {
-			var valueForSlideIndex int32
-			err = json.Unmarshal(*valSlideIndexCap, &valueForSlideIndex)
-			if err != nil {
-				return err
-			}
-			this.SlideIndex = valueForSlideIndex
-		}
-	}
 	
-	if valShapeIndex, ok := objMap["shapeIndex"]; ok {
+	if valShapeIndex, ok := GetMapValue(objMap, "shapeIndex"); ok {
 		if valShapeIndex != nil {
 			var valueForShapeIndex int32
 			err = json.Unmarshal(*valShapeIndex, &valueForShapeIndex)
-			if err != nil {
-				return err
-			}
-			this.ShapeIndex = valueForShapeIndex
-		}
-	}
-	if valShapeIndexCap, ok := objMap["ShapeIndex"]; ok {
-		if valShapeIndexCap != nil {
-			var valueForShapeIndex int32
-			err = json.Unmarshal(*valShapeIndexCap, &valueForShapeIndex)
 			if err != nil {
 				return err
 			}

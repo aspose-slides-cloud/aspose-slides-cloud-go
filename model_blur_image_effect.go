@@ -93,7 +93,7 @@ func (this *BlurImageEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Blur"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,24 +109,8 @@ func (this *BlurImageEffect) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valRadius, ok := objMap["radius"]; ok {
+	if valRadius, ok := GetMapValue(objMap, "radius"); ok {
 		if valRadius != nil {
 			var valueForRadius float64
 			err = json.Unmarshal(*valRadius, &valueForRadius)
@@ -136,31 +120,11 @@ func (this *BlurImageEffect) UnmarshalJSON(b []byte) error {
 			this.Radius = valueForRadius
 		}
 	}
-	if valRadiusCap, ok := objMap["Radius"]; ok {
-		if valRadiusCap != nil {
-			var valueForRadius float64
-			err = json.Unmarshal(*valRadiusCap, &valueForRadius)
-			if err != nil {
-				return err
-			}
-			this.Radius = valueForRadius
-		}
-	}
 	
-	if valGrow, ok := objMap["grow"]; ok {
+	if valGrow, ok := GetMapValue(objMap, "grow"); ok {
 		if valGrow != nil {
 			var valueForGrow *bool
 			err = json.Unmarshal(*valGrow, &valueForGrow)
-			if err != nil {
-				return err
-			}
-			this.Grow = valueForGrow
-		}
-	}
-	if valGrowCap, ok := objMap["Grow"]; ok {
-		if valGrowCap != nil {
-			var valueForGrow *bool
-			err = json.Unmarshal(*valGrowCap, &valueForGrow)
 			if err != nil {
 				return err
 			}

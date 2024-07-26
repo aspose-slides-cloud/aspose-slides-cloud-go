@@ -45,6 +45,7 @@ import (
 	"reflect"
 	"regexp"
 	"strings"
+	"unicode"
 	"unicode/utf8"
 	"strconv"
 )
@@ -509,4 +510,40 @@ func processFileResponse(reader io.Reader) (*os.File, error) {
 		return out, err
 	}
 	return out, nil
+}
+
+func GetMapValue(objMap map[string]*json.RawMessage, key string) (*json.RawMessage, bool) {
+	key = firstToLower(key)
+	if value, ok := objMap[key]; ok {
+		return value, true
+	}
+	key = firstToUpper(key)
+	if value, ok := objMap[key]; ok {
+		return value, true
+	}
+	return nil, false
+}
+
+func firstToLower(s string) string {
+    r, size := utf8.DecodeRuneInString(s)
+    if r == utf8.RuneError && size <= 1 {
+        return s
+    }
+    lc := unicode.ToLower(r)
+    if r == lc {
+        return s
+    }
+    return string(lc) + s[size:]
+}
+
+func firstToUpper(s string) string {
+    r, size := utf8.DecodeRuneInString(s)
+    if r == utf8.RuneError && size <= 1 {
+        return s
+    }
+    lc := unicode.ToUpper(r)
+    if r == lc {
+        return s
+    }
+    return string(lc) + s[size:]
 }

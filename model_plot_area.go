@@ -162,7 +162,7 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valX, ok := objMap["x"]; ok {
+	if valX, ok := GetMapValue(objMap, "x"); ok {
 		if valX != nil {
 			var valueForX float64
 			err = json.Unmarshal(*valX, &valueForX)
@@ -172,18 +172,8 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			this.X = valueForX
 		}
 	}
-	if valXCap, ok := objMap["X"]; ok {
-		if valXCap != nil {
-			var valueForX float64
-			err = json.Unmarshal(*valXCap, &valueForX)
-			if err != nil {
-				return err
-			}
-			this.X = valueForX
-		}
-	}
 	
-	if valY, ok := objMap["y"]; ok {
+	if valY, ok := GetMapValue(objMap, "y"); ok {
 		if valY != nil {
 			var valueForY float64
 			err = json.Unmarshal(*valY, &valueForY)
@@ -193,18 +183,8 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			this.Y = valueForY
 		}
 	}
-	if valYCap, ok := objMap["Y"]; ok {
-		if valYCap != nil {
-			var valueForY float64
-			err = json.Unmarshal(*valYCap, &valueForY)
-			if err != nil {
-				return err
-			}
-			this.Y = valueForY
-		}
-	}
 	
-	if valWidth, ok := objMap["width"]; ok {
+	if valWidth, ok := GetMapValue(objMap, "width"); ok {
 		if valWidth != nil {
 			var valueForWidth float64
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -214,18 +194,8 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth float64
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
 	
-	if valHeight, ok := objMap["height"]; ok {
+	if valHeight, ok := GetMapValue(objMap, "height"); ok {
 		if valHeight != nil {
 			var valueForHeight float64
 			err = json.Unmarshal(*valHeight, &valueForHeight)
@@ -235,18 +205,8 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight float64
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
 	
-	if valLayoutTargetType, ok := objMap["layoutTargetType"]; ok {
+	if valLayoutTargetType, ok := GetMapValue(objMap, "layoutTargetType"); ok {
 		if valLayoutTargetType != nil {
 			var valueForLayoutTargetType string
 			err = json.Unmarshal(*valLayoutTargetType, &valueForLayoutTargetType)
@@ -262,24 +222,8 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLayoutTargetTypeCap, ok := objMap["LayoutTargetType"]; ok {
-		if valLayoutTargetTypeCap != nil {
-			var valueForLayoutTargetType string
-			err = json.Unmarshal(*valLayoutTargetTypeCap, &valueForLayoutTargetType)
-			if err != nil {
-				var valueForLayoutTargetTypeInt int32
-				err = json.Unmarshal(*valLayoutTargetTypeCap, &valueForLayoutTargetTypeInt)
-				if err != nil {
-					return err
-				}
-				this.LayoutTargetType = string(valueForLayoutTargetTypeInt)
-			} else {
-				this.LayoutTargetType = valueForLayoutTargetType
-			}
-		}
-	}
 	
-	if valFillFormat, ok := objMap["fillFormat"]; ok {
+	if valFillFormat, ok := GetMapValue(objMap, "fillFormat"); ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -300,29 +244,8 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
-		if valFillFormatCap != nil {
-			var valueForFillFormat FillFormat
-			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFillFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IFillFormat)
-			if ok {
-				this.FillFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valEffectFormat, ok := objMap["effectFormat"]; ok {
+	if valEffectFormat, ok := GetMapValue(objMap, "effectFormat"); ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
 			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
@@ -343,29 +266,8 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
-		if valEffectFormatCap != nil {
-			var valueForEffectFormat EffectFormat
-			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valEffectFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IEffectFormat)
-			if ok {
-				this.EffectFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valLineFormat, ok := objMap["lineFormat"]; ok {
+	if valLineFormat, ok := GetMapValue(objMap, "lineFormat"); ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
 			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
@@ -377,27 +279,6 @@ func (this *PlotArea) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valLineFormat, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.LineFormat = vInterfaceObject
-			}
-		}
-	}
-	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
-		if valLineFormatCap != nil {
-			var valueForLineFormat LineFormat
-			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valLineFormatCap, &vObject)
 			if err != nil {
 				return err
 			}

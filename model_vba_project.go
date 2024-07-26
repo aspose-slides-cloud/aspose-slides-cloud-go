@@ -106,7 +106,7 @@ func (this *VbaProject) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["selfUri"]; ok {
+	if valSelfUri, ok := GetMapValue(objMap, "selfUri"); ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -127,29 +127,8 @@ func (this *VbaProject) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
-		if valSelfUriCap != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
-		}
-	}
 	
-	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
+	if valAlternateLinks, ok := GetMapValue(objMap, "alternateLinks"); ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -173,32 +152,8 @@ func (this *VbaProject) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
-	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
-		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
-			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
-			}
-			this.AlternateLinks = valueForIAlternateLinks
-		}
-	}
 	
-	if valModules, ok := objMap["modules"]; ok {
+	if valModules, ok := GetMapValue(objMap, "modules"); ok {
 		if valModules != nil {
 			var valueForModules []json.RawMessage
 			err = json.Unmarshal(*valModules, &valueForModules)
@@ -222,59 +177,11 @@ func (this *VbaProject) UnmarshalJSON(b []byte) error {
 			this.Modules = valueForIModules
 		}
 	}
-	if valModulesCap, ok := objMap["Modules"]; ok {
-		if valModulesCap != nil {
-			var valueForModules []json.RawMessage
-			err = json.Unmarshal(*valModulesCap, &valueForModules)
-			if err != nil {
-				return err
-			}
-			valueForIModules := make([]IResourceUri, len(valueForModules))
-			for i, v := range valueForModules {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIModules[i] = vObject.(IResourceUri)
-				}
-			}
-			this.Modules = valueForIModules
-		}
-	}
 	
-	if valReferences, ok := objMap["references"]; ok {
+	if valReferences, ok := GetMapValue(objMap, "references"); ok {
 		if valReferences != nil {
 			var valueForReferences []json.RawMessage
 			err = json.Unmarshal(*valReferences, &valueForReferences)
-			if err != nil {
-				return err
-			}
-			valueForIReferences := make([]IVbaReference, len(valueForReferences))
-			for i, v := range valueForReferences {
-				vObject, err := createObjectForType("VbaReference", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIReferences[i] = vObject.(IVbaReference)
-				}
-			}
-			this.References = valueForIReferences
-		}
-	}
-	if valReferencesCap, ok := objMap["References"]; ok {
-		if valReferencesCap != nil {
-			var valueForReferences []json.RawMessage
-			err = json.Unmarshal(*valReferencesCap, &valueForReferences)
 			if err != nil {
 				return err
 			}

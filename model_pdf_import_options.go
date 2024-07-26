@@ -64,20 +64,10 @@ func (this *PdfImportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valDetectTables, ok := objMap["detectTables"]; ok {
+	if valDetectTables, ok := GetMapValue(objMap, "detectTables"); ok {
 		if valDetectTables != nil {
 			var valueForDetectTables *bool
 			err = json.Unmarshal(*valDetectTables, &valueForDetectTables)
-			if err != nil {
-				return err
-			}
-			this.DetectTables = valueForDetectTables
-		}
-	}
-	if valDetectTablesCap, ok := objMap["DetectTables"]; ok {
-		if valDetectTablesCap != nil {
-			var valueForDetectTables *bool
-			err = json.Unmarshal(*valDetectTablesCap, &valueForDetectTables)
 			if err != nil {
 				return err
 			}

@@ -78,7 +78,7 @@ func (this *BlurEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valRadius, ok := objMap["radius"]; ok {
+	if valRadius, ok := GetMapValue(objMap, "radius"); ok {
 		if valRadius != nil {
 			var valueForRadius float64
 			err = json.Unmarshal(*valRadius, &valueForRadius)
@@ -88,31 +88,11 @@ func (this *BlurEffect) UnmarshalJSON(b []byte) error {
 			this.Radius = valueForRadius
 		}
 	}
-	if valRadiusCap, ok := objMap["Radius"]; ok {
-		if valRadiusCap != nil {
-			var valueForRadius float64
-			err = json.Unmarshal(*valRadiusCap, &valueForRadius)
-			if err != nil {
-				return err
-			}
-			this.Radius = valueForRadius
-		}
-	}
 	
-	if valGrow, ok := objMap["grow"]; ok {
+	if valGrow, ok := GetMapValue(objMap, "grow"); ok {
 		if valGrow != nil {
 			var valueForGrow *bool
 			err = json.Unmarshal(*valGrow, &valueForGrow)
-			if err != nil {
-				return err
-			}
-			this.Grow = valueForGrow
-		}
-	}
-	if valGrowCap, ok := objMap["Grow"]; ok {
-		if valGrowCap != nil {
-			var valueForGrow *bool
-			err = json.Unmarshal(*valGrowCap, &valueForGrow)
 			if err != nil {
 				return err
 			}

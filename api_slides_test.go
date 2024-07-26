@@ -27995,304 +27995,6 @@ func TestDownloadNotesSlideOnlineInvalidFontsFolder(t *testing.T) {
     assertError(t, "DownloadNotesSlideOnline", "fontsFolder", "string", testfontsFolder, int32(statusCode), e)
 }
 
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
-   Test for SlidesApi.DownloadPortionAsMathMl method
-*/
-func TestDownloadPortionAsMathMl(t *testing.T) {
-    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
-    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
-    e := InitializeTest("DownloadPortionAsMathMl", "", "")
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    c := GetTestSlidesApiClient()
-    r, _, e := c.SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    assertBinaryResponse(r, t)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
-   Test for SlidesApi.DownloadPortionAsMathMl method with invalid name
-*/
-func TestDownloadPortionAsMathMlInvalidName(t *testing.T) {
-    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
-    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testname, "DownloadPortionAsMathMl", "name", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testname = nullValue
-    } else {
-        testname, _ = invalidValue.(string)
-    }
-
-    e := InitializeTest("DownloadPortionAsMathMl", "name", testname)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DownloadPortionAsMathMl", "name", "string", testname, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
-   Test for SlidesApi.DownloadPortionAsMathMl method with invalid slideIndex
-*/
-func TestDownloadPortionAsMathMlInvalidSlideIndex(t *testing.T) {
-    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
-    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testslideIndex, "DownloadPortionAsMathMl", "slideIndex", "int32")
-    if (invalidValue == nil) {
-        var nullValue int32
-        testslideIndex = nullValue
-    } else {
-        testslideIndex, _ = invalidValue.(int32)
-    }
-
-    e := InitializeTest("DownloadPortionAsMathMl", "slideIndex", testslideIndex)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DownloadPortionAsMathMl", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
-   Test for SlidesApi.DownloadPortionAsMathMl method with invalid shapeIndex
-*/
-func TestDownloadPortionAsMathMlInvalidShapeIndex(t *testing.T) {
-    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
-    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testshapeIndex, "DownloadPortionAsMathMl", "shapeIndex", "int32")
-    if (invalidValue == nil) {
-        var nullValue int32
-        testshapeIndex = nullValue
-    } else {
-        testshapeIndex, _ = invalidValue.(int32)
-    }
-
-    e := InitializeTest("DownloadPortionAsMathMl", "shapeIndex", testshapeIndex)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DownloadPortionAsMathMl", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
-   Test for SlidesApi.DownloadPortionAsMathMl method with invalid paragraphIndex
-*/
-func TestDownloadPortionAsMathMlInvalidParagraphIndex(t *testing.T) {
-    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
-    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testparagraphIndex, "DownloadPortionAsMathMl", "paragraphIndex", "int32")
-    if (invalidValue == nil) {
-        var nullValue int32
-        testparagraphIndex = nullValue
-    } else {
-        testparagraphIndex, _ = invalidValue.(int32)
-    }
-
-    e := InitializeTest("DownloadPortionAsMathMl", "paragraphIndex", testparagraphIndex)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DownloadPortionAsMathMl", "paragraphIndex", "int32", testparagraphIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
-   Test for SlidesApi.DownloadPortionAsMathMl method with invalid portionIndex
-*/
-func TestDownloadPortionAsMathMlInvalidPortionIndex(t *testing.T) {
-    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
-    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testportionIndex, "DownloadPortionAsMathMl", "portionIndex", "int32")
-    if (invalidValue == nil) {
-        var nullValue int32
-        testportionIndex = nullValue
-    } else {
-        testportionIndex, _ = invalidValue.(int32)
-    }
-
-    e := InitializeTest("DownloadPortionAsMathMl", "portionIndex", testportionIndex)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DownloadPortionAsMathMl", "portionIndex", "int32", testportionIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
-   Test for SlidesApi.DownloadPortionAsMathMl method with invalid password
-*/
-func TestDownloadPortionAsMathMlInvalidPassword(t *testing.T) {
-    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
-    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testpassword, "DownloadPortionAsMathMl", "password", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testpassword = nullValue
-    } else {
-        testpassword, _ = invalidValue.(string)
-    }
-
-    e := InitializeTest("DownloadPortionAsMathMl", "password", testpassword)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DownloadPortionAsMathMl", "password", "string", testpassword, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
-   Test for SlidesApi.DownloadPortionAsMathMl method with invalid folder
-*/
-func TestDownloadPortionAsMathMlInvalidFolder(t *testing.T) {
-    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
-    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testfolder, "DownloadPortionAsMathMl", "folder", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testfolder = nullValue
-    } else {
-        testfolder, _ = invalidValue.(string)
-    }
-
-    e := InitializeTest("DownloadPortionAsMathMl", "folder", testfolder)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DownloadPortionAsMathMl", "folder", "string", testfolder, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format
-   Test for SlidesApi.DownloadPortionAsMathMl method with invalid storage
-*/
-func TestDownloadPortionAsMathMlInvalidStorage(t *testing.T) {
-    testname, _ := createTestParamValue("DownloadPortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("DownloadPortionAsMathMl", "portionIndex", "int32").(int32)
-    testpassword, _ := createTestParamValue("DownloadPortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("DownloadPortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("DownloadPortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(teststorage, "DownloadPortionAsMathMl", "storage", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        teststorage = nullValue
-    } else {
-        teststorage, _ = invalidValue.(string)
-    }
-
-    e := InitializeTest("DownloadPortionAsMathMl", "storage", teststorage)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.DownloadPortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "DownloadPortionAsMathMl", "storage", "string", teststorage, int32(statusCode), e)
-}
-
 /* SlidesApiServiceTests Save a presentation to a specified format.
    Test for SlidesApi.DownloadPresentation method
 */
@@ -33587,6 +33289,24 @@ func TestGetFormatSchemeInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "GetFormatScheme", "storage", "string", teststorage, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Get default templates for HTML5 export.
+   Test for SlidesApi.GetHtml5Templates method
+*/
+func TestGetHtml5Templates(t *testing.T) {
+    e := InitializeTest("GetHtml5Templates", "", "")
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    c := GetTestSlidesApiClient()
+    r, _, e := c.SlidesApi.GetHtml5Templates()
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    assertBinaryResponse(r, t)
 }
 
 /* SlidesApiServiceTests Read presentation layoutSlide info.
@@ -50083,6 +49803,12 @@ func TestReplacePresentationText(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationText", "password", "string").(string)
     testfolder, _ := createTestParamValue("ReplacePresentationText", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ReplacePresentationText", "storage", "string").(string)
@@ -50092,7 +49818,7 @@ func TestReplacePresentationText(t *testing.T) {
        return
     }
     c := GetTestSlidesApiClient()
-    _, _, e = c.SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testpassword, testfolder, teststorage)
+    _, _, e = c.SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword, testfolder, teststorage)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -50112,6 +49838,12 @@ func TestReplacePresentationTextInvalidName(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationText", "password", "string").(string)
     testfolder, _ := createTestParamValue("ReplacePresentationText", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ReplacePresentationText", "storage", "string").(string)
@@ -50129,7 +49861,7 @@ func TestReplacePresentationTextInvalidName(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -50150,6 +49882,12 @@ func TestReplacePresentationTextInvalidOldValue(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationText", "password", "string").(string)
     testfolder, _ := createTestParamValue("ReplacePresentationText", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ReplacePresentationText", "storage", "string").(string)
@@ -50167,7 +49905,7 @@ func TestReplacePresentationTextInvalidOldValue(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -50188,6 +49926,12 @@ func TestReplacePresentationTextInvalidNewValue(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationText", "password", "string").(string)
     testfolder, _ := createTestParamValue("ReplacePresentationText", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ReplacePresentationText", "storage", "string").(string)
@@ -50205,7 +49949,7 @@ func TestReplacePresentationTextInvalidNewValue(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -50226,6 +49970,12 @@ func TestReplacePresentationTextInvalidIgnoreCase(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationText", "password", "string").(string)
     testfolder, _ := createTestParamValue("ReplacePresentationText", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ReplacePresentationText", "storage", "string").(string)
@@ -50244,12 +49994,57 @@ func TestReplacePresentationTextInvalidIgnoreCase(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "ReplacePresentationText", "ignoreCase", "bool", testignoreCase, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replace text with a new value.
+   Test for SlidesApi.ReplacePresentationText method with invalid wholeWordsOnly
+*/
+func TestReplacePresentationTextInvalidWholeWordsOnly(t *testing.T) {
+    testname, _ := createTestParamValue("ReplacePresentationText", "name", "string").(string)
+    testoldValue, _ := createTestParamValue("ReplacePresentationText", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplacePresentationText", "newValue", "string").(string)
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("ReplacePresentationText", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplacePresentationText", "password", "string").(string)
+    testfolder, _ := createTestParamValue("ReplacePresentationText", "folder", "string").(string)
+    teststorage, _ := createTestParamValue("ReplacePresentationText", "storage", "string").(string)
+    testwholeWordsOnly = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testwholeWordsOnly, "ReplacePresentationText", "wholeWordsOnly", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testwholeWordsOnly = nullValue
+    } else {
+        *testwholeWordsOnly, _ = invalidValue.(bool)
+    }
+
+    e := InitializeTest("ReplacePresentationText", "wholeWordsOnly", testwholeWordsOnly)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword, testfolder, teststorage)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplacePresentationText", "wholeWordsOnly", "bool", testwholeWordsOnly, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Replace text with a new value.
@@ -50264,6 +50059,12 @@ func TestReplacePresentationTextInvalidPassword(t *testing.T) {
     if (testignoreCaseValue != nil) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
     }
     testpassword, _ := createTestParamValue("ReplacePresentationText", "password", "string").(string)
     testfolder, _ := createTestParamValue("ReplacePresentationText", "folder", "string").(string)
@@ -50282,7 +50083,7 @@ func TestReplacePresentationTextInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -50303,6 +50104,12 @@ func TestReplacePresentationTextInvalidFolder(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationText", "password", "string").(string)
     testfolder, _ := createTestParamValue("ReplacePresentationText", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ReplacePresentationText", "storage", "string").(string)
@@ -50320,7 +50127,7 @@ func TestReplacePresentationTextInvalidFolder(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -50341,6 +50148,12 @@ func TestReplacePresentationTextInvalidStorage(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationText", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationText", "password", "string").(string)
     testfolder, _ := createTestParamValue("ReplacePresentationText", "folder", "string").(string)
     teststorage, _ := createTestParamValue("ReplacePresentationText", "storage", "string").(string)
@@ -50358,7 +50171,7 @@ func TestReplacePresentationTextInvalidStorage(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testpassword, testfolder, teststorage)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationText(testname, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword, testfolder, teststorage)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -50379,6 +50192,12 @@ func TestReplacePresentationTextOnline(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationTextOnline", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationTextOnline", "password", "string").(string)
     e := InitializeTest("ReplacePresentationTextOnline", "", "")
     if e != nil {
@@ -50386,7 +50205,7 @@ func TestReplacePresentationTextOnline(t *testing.T) {
        return
     }
     c := GetTestSlidesApiClient()
-    r, _, e := c.SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testpassword)
+    r, _, e := c.SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword)
     if e != nil {
        t.Errorf("Error: %v.", e)
        return
@@ -50407,6 +50226,12 @@ func TestReplacePresentationTextOnlineInvalidDocument(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationTextOnline", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationTextOnline", "password", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testdocument, "ReplacePresentationTextOnline", "document", "[]byte")
@@ -50421,7 +50246,7 @@ func TestReplacePresentationTextOnlineInvalidDocument(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testpassword)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -50442,6 +50267,12 @@ func TestReplacePresentationTextOnlineInvalidOldValue(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationTextOnline", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationTextOnline", "password", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testoldValue, "ReplacePresentationTextOnline", "oldValue", "string")
@@ -50457,7 +50288,7 @@ func TestReplacePresentationTextOnlineInvalidOldValue(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testpassword)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -50478,6 +50309,12 @@ func TestReplacePresentationTextOnlineInvalidNewValue(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationTextOnline", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationTextOnline", "password", "string").(string)
 
     invalidValue := invalidizeTestParamValue(testnewValue, "ReplacePresentationTextOnline", "newValue", "string")
@@ -50493,7 +50330,7 @@ func TestReplacePresentationTextOnlineInvalidNewValue(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testpassword)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -50514,6 +50351,12 @@ func TestReplacePresentationTextOnlineInvalidIgnoreCase(t *testing.T) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
     }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationTextOnline", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
     testpassword, _ := createTestParamValue("ReplacePresentationTextOnline", "password", "string").(string)
     testignoreCase = new(bool)
 
@@ -50530,12 +50373,55 @@ func TestReplacePresentationTextOnlineInvalidIgnoreCase(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testpassword)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
     }
     assertError(t, "ReplacePresentationTextOnline", "ignoreCase", "bool", testignoreCase, int32(statusCode), e)
+}
+
+/* SlidesApiServiceTests Replace text with a new value.
+   Test for SlidesApi.ReplacePresentationTextOnline method with invalid wholeWordsOnly
+*/
+func TestReplacePresentationTextOnlineInvalidWholeWordsOnly(t *testing.T) {
+    testdocument, _ := createTestParamValue("ReplacePresentationTextOnline", "document", "[]byte").([]byte)
+    testoldValue, _ := createTestParamValue("ReplacePresentationTextOnline", "oldValue", "string").(string)
+    testnewValue, _ := createTestParamValue("ReplacePresentationTextOnline", "newValue", "string").(string)
+    var testignoreCase *bool
+    testignoreCaseValue := createTestParamValue("ReplacePresentationTextOnline", "ignoreCase", "bool")
+    if (testignoreCaseValue != nil) {
+        testignoreCase = new(bool)
+        *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationTextOnline", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
+    }
+    testpassword, _ := createTestParamValue("ReplacePresentationTextOnline", "password", "string").(string)
+    testwholeWordsOnly = new(bool)
+
+    invalidValue := invalidizeTestParamValue(testwholeWordsOnly, "ReplacePresentationTextOnline", "wholeWordsOnly", "bool")
+    if (invalidValue == nil) {
+        var nullValue *bool
+        testwholeWordsOnly = nullValue
+    } else {
+        *testwholeWordsOnly, _ = invalidValue.(bool)
+    }
+
+    e := InitializeTest("ReplacePresentationTextOnline", "wholeWordsOnly", testwholeWordsOnly)
+    if e != nil {
+       t.Errorf("Error: %v.", e)
+       return
+    }
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword)
+    statusCode := 400
+    if r != nil {
+        statusCode = r.StatusCode
+    }
+    assertError(t, "ReplacePresentationTextOnline", "wholeWordsOnly", "bool", testwholeWordsOnly, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Replace text with a new value.
@@ -50550,6 +50436,12 @@ func TestReplacePresentationTextOnlineInvalidPassword(t *testing.T) {
     if (testignoreCaseValue != nil) {
         testignoreCase = new(bool)
         *testignoreCase, _ = testignoreCaseValue.(bool)
+    }
+    var testwholeWordsOnly *bool
+    testwholeWordsOnlyValue := createTestParamValue("ReplacePresentationTextOnline", "wholeWordsOnly", "bool")
+    if (testwholeWordsOnlyValue != nil) {
+        testwholeWordsOnly = new(bool)
+        *testwholeWordsOnly, _ = testwholeWordsOnlyValue.(bool)
     }
     testpassword, _ := createTestParamValue("ReplacePresentationTextOnline", "password", "string").(string)
 
@@ -50566,7 +50458,7 @@ func TestReplacePresentationTextOnlineInvalidPassword(t *testing.T) {
        t.Errorf("Error: %v.", e)
        return
     }
-    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testpassword)
+    _, r, e := GetTestSlidesApiClient().SlidesApi.ReplacePresentationTextOnline(testdocument, testoldValue, testnewValue, testignoreCase, testwholeWordsOnly, testpassword)
     statusCode := 400
     if r != nil {
         statusCode = r.StatusCode
@@ -52145,347 +52037,6 @@ func TestSaveMathPortionInvalidStorage(t *testing.T) {
         statusCode = r.StatusCode
     }
     assertError(t, "SaveMathPortion", "storage", "string", teststorage, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
-   Test for SlidesApi.SavePortionAsMathMl method
-*/
-func TestSavePortionAsMathMl(t *testing.T) {
-    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
-    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
-    e := InitializeTest("SavePortionAsMathMl", "", "")
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    c := GetTestSlidesApiClient()
-    _, e = c.SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
-   Test for SlidesApi.SavePortionAsMathMl method with invalid name
-*/
-func TestSavePortionAsMathMlInvalidName(t *testing.T) {
-    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
-    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testname, "SavePortionAsMathMl", "name", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testname = nullValue
-    } else {
-        testname, _ = invalidValue.(string)
-    }
-
-    e := InitializeTest("SavePortionAsMathMl", "name", testname)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := GetTestSlidesApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "SavePortionAsMathMl", "name", "string", testname, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
-   Test for SlidesApi.SavePortionAsMathMl method with invalid slideIndex
-*/
-func TestSavePortionAsMathMlInvalidSlideIndex(t *testing.T) {
-    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
-    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testslideIndex, "SavePortionAsMathMl", "slideIndex", "int32")
-    if (invalidValue == nil) {
-        var nullValue int32
-        testslideIndex = nullValue
-    } else {
-        testslideIndex, _ = invalidValue.(int32)
-    }
-
-    e := InitializeTest("SavePortionAsMathMl", "slideIndex", testslideIndex)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := GetTestSlidesApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "SavePortionAsMathMl", "slideIndex", "int32", testslideIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
-   Test for SlidesApi.SavePortionAsMathMl method with invalid shapeIndex
-*/
-func TestSavePortionAsMathMlInvalidShapeIndex(t *testing.T) {
-    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
-    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testshapeIndex, "SavePortionAsMathMl", "shapeIndex", "int32")
-    if (invalidValue == nil) {
-        var nullValue int32
-        testshapeIndex = nullValue
-    } else {
-        testshapeIndex, _ = invalidValue.(int32)
-    }
-
-    e := InitializeTest("SavePortionAsMathMl", "shapeIndex", testshapeIndex)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := GetTestSlidesApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "SavePortionAsMathMl", "shapeIndex", "int32", testshapeIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
-   Test for SlidesApi.SavePortionAsMathMl method with invalid paragraphIndex
-*/
-func TestSavePortionAsMathMlInvalidParagraphIndex(t *testing.T) {
-    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
-    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testparagraphIndex, "SavePortionAsMathMl", "paragraphIndex", "int32")
-    if (invalidValue == nil) {
-        var nullValue int32
-        testparagraphIndex = nullValue
-    } else {
-        testparagraphIndex, _ = invalidValue.(int32)
-    }
-
-    e := InitializeTest("SavePortionAsMathMl", "paragraphIndex", testparagraphIndex)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := GetTestSlidesApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "SavePortionAsMathMl", "paragraphIndex", "int32", testparagraphIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
-   Test for SlidesApi.SavePortionAsMathMl method with invalid portionIndex
-*/
-func TestSavePortionAsMathMlInvalidPortionIndex(t *testing.T) {
-    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
-    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testportionIndex, "SavePortionAsMathMl", "portionIndex", "int32")
-    if (invalidValue == nil) {
-        var nullValue int32
-        testportionIndex = nullValue
-    } else {
-        testportionIndex, _ = invalidValue.(int32)
-    }
-
-    e := InitializeTest("SavePortionAsMathMl", "portionIndex", testportionIndex)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := GetTestSlidesApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "SavePortionAsMathMl", "portionIndex", "int32", testportionIndex, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
-   Test for SlidesApi.SavePortionAsMathMl method with invalid outPath
-*/
-func TestSavePortionAsMathMlInvalidOutPath(t *testing.T) {
-    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
-    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testoutPath, "SavePortionAsMathMl", "outPath", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testoutPath = nullValue
-    } else {
-        testoutPath, _ = invalidValue.(string)
-    }
-
-    e := InitializeTest("SavePortionAsMathMl", "outPath", testoutPath)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := GetTestSlidesApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "SavePortionAsMathMl", "outPath", "string", testoutPath, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
-   Test for SlidesApi.SavePortionAsMathMl method with invalid password
-*/
-func TestSavePortionAsMathMlInvalidPassword(t *testing.T) {
-    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
-    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testpassword, "SavePortionAsMathMl", "password", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testpassword = nullValue
-    } else {
-        testpassword, _ = invalidValue.(string)
-    }
-
-    e := InitializeTest("SavePortionAsMathMl", "password", testpassword)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := GetTestSlidesApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "SavePortionAsMathMl", "password", "string", testpassword, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
-   Test for SlidesApi.SavePortionAsMathMl method with invalid folder
-*/
-func TestSavePortionAsMathMlInvalidFolder(t *testing.T) {
-    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
-    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(testfolder, "SavePortionAsMathMl", "folder", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        testfolder = nullValue
-    } else {
-        testfolder, _ = invalidValue.(string)
-    }
-
-    e := InitializeTest("SavePortionAsMathMl", "folder", testfolder)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := GetTestSlidesApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "SavePortionAsMathMl", "folder", "string", testfolder, int32(statusCode), e)
-}
-
-/* SlidesApiServiceTests Convert Mathematical Text to MathML Format and saves result to the storage
-   Test for SlidesApi.SavePortionAsMathMl method with invalid storage
-*/
-func TestSavePortionAsMathMlInvalidStorage(t *testing.T) {
-    testname, _ := createTestParamValue("SavePortionAsMathMl", "name", "string").(string)
-    testslideIndex, _ := createTestParamValue("SavePortionAsMathMl", "slideIndex", "int32").(int32)
-    testshapeIndex, _ := createTestParamValue("SavePortionAsMathMl", "shapeIndex", "int32").(int32)
-    testparagraphIndex, _ := createTestParamValue("SavePortionAsMathMl", "paragraphIndex", "int32").(int32)
-    testportionIndex, _ := createTestParamValue("SavePortionAsMathMl", "portionIndex", "int32").(int32)
-    testoutPath, _ := createTestParamValue("SavePortionAsMathMl", "outPath", "string").(string)
-    testpassword, _ := createTestParamValue("SavePortionAsMathMl", "password", "string").(string)
-    testfolder, _ := createTestParamValue("SavePortionAsMathMl", "folder", "string").(string)
-    teststorage, _ := createTestParamValue("SavePortionAsMathMl", "storage", "string").(string)
-
-    invalidValue := invalidizeTestParamValue(teststorage, "SavePortionAsMathMl", "storage", "string")
-    if (invalidValue == nil) {
-        var nullValue string
-        teststorage = nullValue
-    } else {
-        teststorage, _ = invalidValue.(string)
-    }
-
-    e := InitializeTest("SavePortionAsMathMl", "storage", teststorage)
-    if e != nil {
-       t.Errorf("Error: %v.", e)
-       return
-    }
-    r, e := GetTestSlidesApiClient().SlidesApi.SavePortionAsMathMl(testname, testslideIndex, testshapeIndex, testparagraphIndex, testportionIndex, testoutPath, testpassword, testfolder, teststorage)
-    statusCode := 400
-    if r != nil {
-        statusCode = r.StatusCode
-    }
-    assertError(t, "SavePortionAsMathMl", "storage", "string", teststorage, int32(statusCode), e)
 }
 
 /* SlidesApiServiceTests Save a presentation to a specified format.

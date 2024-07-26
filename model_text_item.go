@@ -78,7 +78,7 @@ func (this *TextItem) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valUri, ok := objMap["uri"]; ok {
+	if valUri, ok := GetMapValue(objMap, "uri"); ok {
 		if valUri != nil {
 			var valueForUri ResourceUri
 			err = json.Unmarshal(*valUri, &valueForUri)
@@ -99,42 +99,11 @@ func (this *TextItem) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valUriCap, ok := objMap["Uri"]; ok {
-		if valUriCap != nil {
-			var valueForUri ResourceUri
-			err = json.Unmarshal(*valUriCap, &valueForUri)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Uri = vInterfaceObject
-			}
-		}
-	}
 	
-	if valText, ok := objMap["text"]; ok {
+	if valText, ok := GetMapValue(objMap, "text"); ok {
 		if valText != nil {
 			var valueForText string
 			err = json.Unmarshal(*valText, &valueForText)
-			if err != nil {
-				return err
-			}
-			this.Text = valueForText
-		}
-	}
-	if valTextCap, ok := objMap["Text"]; ok {
-		if valTextCap != nil {
-			var valueForText string
-			err = json.Unmarshal(*valTextCap, &valueForText)
 			if err != nil {
 				return err
 			}

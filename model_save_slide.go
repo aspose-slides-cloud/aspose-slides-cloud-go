@@ -150,7 +150,7 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "SaveSlide"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -166,24 +166,8 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valOutput, ok := objMap["output"]; ok {
+	if valOutput, ok := GetMapValue(objMap, "output"); ok {
 		if valOutput != nil {
 			var valueForOutput OutputFile
 			err = json.Unmarshal(*valOutput, &valueForOutput)
@@ -204,29 +188,8 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valOutputCap, ok := objMap["Output"]; ok {
-		if valOutputCap != nil {
-			var valueForOutput OutputFile
-			err = json.Unmarshal(*valOutputCap, &valueForOutput)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("OutputFile", *valOutputCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valOutputCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IOutputFile)
-			if ok {
-				this.Output = vInterfaceObject
-			}
-		}
-	}
 	this.Format = "Jpeg"
-	if valFormat, ok := objMap["format"]; ok {
+	if valFormat, ok := GetMapValue(objMap, "format"); ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -242,24 +205,8 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFormatCap, ok := objMap["Format"]; ok {
-		if valFormatCap != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormatCap, &valueForFormat)
-			if err != nil {
-				var valueForFormatInt int32
-				err = json.Unmarshal(*valFormatCap, &valueForFormatInt)
-				if err != nil {
-					return err
-				}
-				this.Format = string(valueForFormatInt)
-			} else {
-				this.Format = valueForFormat
-			}
-		}
-	}
 	
-	if valOptions, ok := objMap["options"]; ok {
+	if valOptions, ok := GetMapValue(objMap, "options"); ok {
 		if valOptions != nil {
 			var valueForOptions ExportOptions
 			err = json.Unmarshal(*valOptions, &valueForOptions)
@@ -280,29 +227,8 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valOptionsCap, ok := objMap["Options"]; ok {
-		if valOptionsCap != nil {
-			var valueForOptions ExportOptions
-			err = json.Unmarshal(*valOptionsCap, &valueForOptions)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ExportOptions", *valOptionsCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valOptionsCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IExportOptions)
-			if ok {
-				this.Options = vInterfaceObject
-			}
-		}
-	}
 	
-	if valWidth, ok := objMap["width"]; ok {
+	if valWidth, ok := GetMapValue(objMap, "width"); ok {
 		if valWidth != nil {
 			var valueForWidth int32
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -312,18 +238,8 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth int32
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
 	
-	if valHeight, ok := objMap["height"]; ok {
+	if valHeight, ok := GetMapValue(objMap, "height"); ok {
 		if valHeight != nil {
 			var valueForHeight int32
 			err = json.Unmarshal(*valHeight, &valueForHeight)
@@ -333,31 +249,11 @@ func (this *SaveSlide) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight int32
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
 	
-	if valPosition, ok := objMap["position"]; ok {
+	if valPosition, ok := GetMapValue(objMap, "position"); ok {
 		if valPosition != nil {
 			var valueForPosition int32
 			err = json.Unmarshal(*valPosition, &valueForPosition)
-			if err != nil {
-				return err
-			}
-			this.Position = valueForPosition
-		}
-	}
-	if valPositionCap, ok := objMap["Position"]; ok {
-		if valPositionCap != nil {
-			var valueForPosition int32
-			err = json.Unmarshal(*valPositionCap, &valueForPosition)
 			if err != nil {
 				return err
 			}

@@ -93,7 +93,7 @@ func (this *LuminanceEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Luminance"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,24 +109,8 @@ func (this *LuminanceEffect) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valBrightness, ok := objMap["brightness"]; ok {
+	if valBrightness, ok := GetMapValue(objMap, "brightness"); ok {
 		if valBrightness != nil {
 			var valueForBrightness float64
 			err = json.Unmarshal(*valBrightness, &valueForBrightness)
@@ -136,31 +120,11 @@ func (this *LuminanceEffect) UnmarshalJSON(b []byte) error {
 			this.Brightness = valueForBrightness
 		}
 	}
-	if valBrightnessCap, ok := objMap["Brightness"]; ok {
-		if valBrightnessCap != nil {
-			var valueForBrightness float64
-			err = json.Unmarshal(*valBrightnessCap, &valueForBrightness)
-			if err != nil {
-				return err
-			}
-			this.Brightness = valueForBrightness
-		}
-	}
 	
-	if valContrast, ok := objMap["contrast"]; ok {
+	if valContrast, ok := GetMapValue(objMap, "contrast"); ok {
 		if valContrast != nil {
 			var valueForContrast float64
 			err = json.Unmarshal(*valContrast, &valueForContrast)
-			if err != nil {
-				return err
-			}
-			this.Contrast = valueForContrast
-		}
-	}
-	if valContrastCap, ok := objMap["Contrast"]; ok {
-		if valContrastCap != nil {
-			var valueForContrast float64
-			err = json.Unmarshal(*valContrastCap, &valueForContrast)
 			if err != nil {
 				return err
 			}

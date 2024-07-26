@@ -93,7 +93,7 @@ func (this *PathOutputFile) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Path"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,24 +109,8 @@ func (this *PathOutputFile) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valPath, ok := objMap["path"]; ok {
+	if valPath, ok := GetMapValue(objMap, "path"); ok {
 		if valPath != nil {
 			var valueForPath string
 			err = json.Unmarshal(*valPath, &valueForPath)
@@ -136,31 +120,11 @@ func (this *PathOutputFile) UnmarshalJSON(b []byte) error {
 			this.Path = valueForPath
 		}
 	}
-	if valPathCap, ok := objMap["Path"]; ok {
-		if valPathCap != nil {
-			var valueForPath string
-			err = json.Unmarshal(*valPathCap, &valueForPath)
-			if err != nil {
-				return err
-			}
-			this.Path = valueForPath
-		}
-	}
 	
-	if valStorage, ok := objMap["storage"]; ok {
+	if valStorage, ok := GetMapValue(objMap, "storage"); ok {
 		if valStorage != nil {
 			var valueForStorage string
 			err = json.Unmarshal(*valStorage, &valueForStorage)
-			if err != nil {
-				return err
-			}
-			this.Storage = valueForStorage
-		}
-	}
-	if valStorageCap, ok := objMap["Storage"]; ok {
-		if valStorageCap != nil {
-			var valueForStorage string
-			err = json.Unmarshal(*valStorageCap, &valueForStorage)
 			if err != nil {
 				return err
 			}

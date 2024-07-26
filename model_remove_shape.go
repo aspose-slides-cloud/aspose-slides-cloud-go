@@ -79,7 +79,7 @@ func (this *RemoveShape) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "RemoveShape"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -95,37 +95,11 @@ func (this *RemoveShape) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valShapePath, ok := objMap["shapePath"]; ok {
+	if valShapePath, ok := GetMapValue(objMap, "shapePath"); ok {
 		if valShapePath != nil {
 			var valueForShapePath string
 			err = json.Unmarshal(*valShapePath, &valueForShapePath)
-			if err != nil {
-				return err
-			}
-			this.ShapePath = valueForShapePath
-		}
-	}
-	if valShapePathCap, ok := objMap["ShapePath"]; ok {
-		if valShapePathCap != nil {
-			var valueForShapePath string
-			err = json.Unmarshal(*valShapePathCap, &valueForShapePath)
 			if err != nil {
 				return err
 			}

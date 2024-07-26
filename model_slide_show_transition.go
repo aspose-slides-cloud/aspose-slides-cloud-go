@@ -386,7 +386,7 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -402,24 +402,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valAdvanceAfter, ok := objMap["advanceAfter"]; ok {
+	if valAdvanceAfter, ok := GetMapValue(objMap, "advanceAfter"); ok {
 		if valAdvanceAfter != nil {
 			var valueForAdvanceAfter *bool
 			err = json.Unmarshal(*valAdvanceAfter, &valueForAdvanceAfter)
@@ -429,18 +413,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			this.AdvanceAfter = valueForAdvanceAfter
 		}
 	}
-	if valAdvanceAfterCap, ok := objMap["AdvanceAfter"]; ok {
-		if valAdvanceAfterCap != nil {
-			var valueForAdvanceAfter *bool
-			err = json.Unmarshal(*valAdvanceAfterCap, &valueForAdvanceAfter)
-			if err != nil {
-				return err
-			}
-			this.AdvanceAfter = valueForAdvanceAfter
-		}
-	}
 	
-	if valAdvanceAfterTime, ok := objMap["advanceAfterTime"]; ok {
+	if valAdvanceAfterTime, ok := GetMapValue(objMap, "advanceAfterTime"); ok {
 		if valAdvanceAfterTime != nil {
 			var valueForAdvanceAfterTime int32
 			err = json.Unmarshal(*valAdvanceAfterTime, &valueForAdvanceAfterTime)
@@ -450,18 +424,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			this.AdvanceAfterTime = valueForAdvanceAfterTime
 		}
 	}
-	if valAdvanceAfterTimeCap, ok := objMap["AdvanceAfterTime"]; ok {
-		if valAdvanceAfterTimeCap != nil {
-			var valueForAdvanceAfterTime int32
-			err = json.Unmarshal(*valAdvanceAfterTimeCap, &valueForAdvanceAfterTime)
-			if err != nil {
-				return err
-			}
-			this.AdvanceAfterTime = valueForAdvanceAfterTime
-		}
-	}
 	
-	if valAdvanceOnClick, ok := objMap["advanceOnClick"]; ok {
+	if valAdvanceOnClick, ok := GetMapValue(objMap, "advanceOnClick"); ok {
 		if valAdvanceOnClick != nil {
 			var valueForAdvanceOnClick *bool
 			err = json.Unmarshal(*valAdvanceOnClick, &valueForAdvanceOnClick)
@@ -471,18 +435,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			this.AdvanceOnClick = valueForAdvanceOnClick
 		}
 	}
-	if valAdvanceOnClickCap, ok := objMap["AdvanceOnClick"]; ok {
-		if valAdvanceOnClickCap != nil {
-			var valueForAdvanceOnClick *bool
-			err = json.Unmarshal(*valAdvanceOnClickCap, &valueForAdvanceOnClick)
-			if err != nil {
-				return err
-			}
-			this.AdvanceOnClick = valueForAdvanceOnClick
-		}
-	}
 	
-	if valSoundIsBuiltIn, ok := objMap["soundIsBuiltIn"]; ok {
+	if valSoundIsBuiltIn, ok := GetMapValue(objMap, "soundIsBuiltIn"); ok {
 		if valSoundIsBuiltIn != nil {
 			var valueForSoundIsBuiltIn *bool
 			err = json.Unmarshal(*valSoundIsBuiltIn, &valueForSoundIsBuiltIn)
@@ -492,18 +446,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			this.SoundIsBuiltIn = valueForSoundIsBuiltIn
 		}
 	}
-	if valSoundIsBuiltInCap, ok := objMap["SoundIsBuiltIn"]; ok {
-		if valSoundIsBuiltInCap != nil {
-			var valueForSoundIsBuiltIn *bool
-			err = json.Unmarshal(*valSoundIsBuiltInCap, &valueForSoundIsBuiltIn)
-			if err != nil {
-				return err
-			}
-			this.SoundIsBuiltIn = valueForSoundIsBuiltIn
-		}
-	}
 	
-	if valSoundLoop, ok := objMap["soundLoop"]; ok {
+	if valSoundLoop, ok := GetMapValue(objMap, "soundLoop"); ok {
 		if valSoundLoop != nil {
 			var valueForSoundLoop *bool
 			err = json.Unmarshal(*valSoundLoop, &valueForSoundLoop)
@@ -513,18 +457,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			this.SoundLoop = valueForSoundLoop
 		}
 	}
-	if valSoundLoopCap, ok := objMap["SoundLoop"]; ok {
-		if valSoundLoopCap != nil {
-			var valueForSoundLoop *bool
-			err = json.Unmarshal(*valSoundLoopCap, &valueForSoundLoop)
-			if err != nil {
-				return err
-			}
-			this.SoundLoop = valueForSoundLoop
-		}
-	}
 	
-	if valSoundMode, ok := objMap["soundMode"]; ok {
+	if valSoundMode, ok := GetMapValue(objMap, "soundMode"); ok {
 		if valSoundMode != nil {
 			var valueForSoundMode string
 			err = json.Unmarshal(*valSoundMode, &valueForSoundMode)
@@ -540,24 +474,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSoundModeCap, ok := objMap["SoundMode"]; ok {
-		if valSoundModeCap != nil {
-			var valueForSoundMode string
-			err = json.Unmarshal(*valSoundModeCap, &valueForSoundMode)
-			if err != nil {
-				var valueForSoundModeInt int32
-				err = json.Unmarshal(*valSoundModeCap, &valueForSoundModeInt)
-				if err != nil {
-					return err
-				}
-				this.SoundMode = string(valueForSoundModeInt)
-			} else {
-				this.SoundMode = valueForSoundMode
-			}
-		}
-	}
 	
-	if valSoundName, ok := objMap["soundName"]; ok {
+	if valSoundName, ok := GetMapValue(objMap, "soundName"); ok {
 		if valSoundName != nil {
 			var valueForSoundName string
 			err = json.Unmarshal(*valSoundName, &valueForSoundName)
@@ -567,18 +485,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			this.SoundName = valueForSoundName
 		}
 	}
-	if valSoundNameCap, ok := objMap["SoundName"]; ok {
-		if valSoundNameCap != nil {
-			var valueForSoundName string
-			err = json.Unmarshal(*valSoundNameCap, &valueForSoundName)
-			if err != nil {
-				return err
-			}
-			this.SoundName = valueForSoundName
-		}
-	}
 	
-	if valSpeed, ok := objMap["speed"]; ok {
+	if valSpeed, ok := GetMapValue(objMap, "speed"); ok {
 		if valSpeed != nil {
 			var valueForSpeed string
 			err = json.Unmarshal(*valSpeed, &valueForSpeed)
@@ -594,24 +502,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSpeedCap, ok := objMap["Speed"]; ok {
-		if valSpeedCap != nil {
-			var valueForSpeed string
-			err = json.Unmarshal(*valSpeedCap, &valueForSpeed)
-			if err != nil {
-				var valueForSpeedInt int32
-				err = json.Unmarshal(*valSpeedCap, &valueForSpeedInt)
-				if err != nil {
-					return err
-				}
-				this.Speed = string(valueForSpeedInt)
-			} else {
-				this.Speed = valueForSpeed
-			}
-		}
-	}
 	
-	if valCornerDirection, ok := objMap["cornerDirection"]; ok {
+	if valCornerDirection, ok := GetMapValue(objMap, "cornerDirection"); ok {
 		if valCornerDirection != nil {
 			var valueForCornerDirection string
 			err = json.Unmarshal(*valCornerDirection, &valueForCornerDirection)
@@ -627,24 +519,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valCornerDirectionCap, ok := objMap["CornerDirection"]; ok {
-		if valCornerDirectionCap != nil {
-			var valueForCornerDirection string
-			err = json.Unmarshal(*valCornerDirectionCap, &valueForCornerDirection)
-			if err != nil {
-				var valueForCornerDirectionInt int32
-				err = json.Unmarshal(*valCornerDirectionCap, &valueForCornerDirectionInt)
-				if err != nil {
-					return err
-				}
-				this.CornerDirection = string(valueForCornerDirectionInt)
-			} else {
-				this.CornerDirection = valueForCornerDirection
-			}
-		}
-	}
 	
-	if valEightDirection, ok := objMap["eightDirection"]; ok {
+	if valEightDirection, ok := GetMapValue(objMap, "eightDirection"); ok {
 		if valEightDirection != nil {
 			var valueForEightDirection string
 			err = json.Unmarshal(*valEightDirection, &valueForEightDirection)
@@ -660,24 +536,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valEightDirectionCap, ok := objMap["EightDirection"]; ok {
-		if valEightDirectionCap != nil {
-			var valueForEightDirection string
-			err = json.Unmarshal(*valEightDirectionCap, &valueForEightDirection)
-			if err != nil {
-				var valueForEightDirectionInt int32
-				err = json.Unmarshal(*valEightDirectionCap, &valueForEightDirectionInt)
-				if err != nil {
-					return err
-				}
-				this.EightDirection = string(valueForEightDirectionInt)
-			} else {
-				this.EightDirection = valueForEightDirection
-			}
-		}
-	}
 	
-	if valInOutDirection, ok := objMap["inOutDirection"]; ok {
+	if valInOutDirection, ok := GetMapValue(objMap, "inOutDirection"); ok {
 		if valInOutDirection != nil {
 			var valueForInOutDirection string
 			err = json.Unmarshal(*valInOutDirection, &valueForInOutDirection)
@@ -693,24 +553,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valInOutDirectionCap, ok := objMap["InOutDirection"]; ok {
-		if valInOutDirectionCap != nil {
-			var valueForInOutDirection string
-			err = json.Unmarshal(*valInOutDirectionCap, &valueForInOutDirection)
-			if err != nil {
-				var valueForInOutDirectionInt int32
-				err = json.Unmarshal(*valInOutDirectionCap, &valueForInOutDirectionInt)
-				if err != nil {
-					return err
-				}
-				this.InOutDirection = string(valueForInOutDirectionInt)
-			} else {
-				this.InOutDirection = valueForInOutDirection
-			}
-		}
-	}
 	
-	if valHasBounce, ok := objMap["hasBounce"]; ok {
+	if valHasBounce, ok := GetMapValue(objMap, "hasBounce"); ok {
 		if valHasBounce != nil {
 			var valueForHasBounce *bool
 			err = json.Unmarshal(*valHasBounce, &valueForHasBounce)
@@ -720,18 +564,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			this.HasBounce = valueForHasBounce
 		}
 	}
-	if valHasBounceCap, ok := objMap["HasBounce"]; ok {
-		if valHasBounceCap != nil {
-			var valueForHasBounce *bool
-			err = json.Unmarshal(*valHasBounceCap, &valueForHasBounce)
-			if err != nil {
-				return err
-			}
-			this.HasBounce = valueForHasBounce
-		}
-	}
 	
-	if valSideDirection, ok := objMap["sideDirection"]; ok {
+	if valSideDirection, ok := GetMapValue(objMap, "sideDirection"); ok {
 		if valSideDirection != nil {
 			var valueForSideDirection string
 			err = json.Unmarshal(*valSideDirection, &valueForSideDirection)
@@ -747,24 +581,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSideDirectionCap, ok := objMap["SideDirection"]; ok {
-		if valSideDirectionCap != nil {
-			var valueForSideDirection string
-			err = json.Unmarshal(*valSideDirectionCap, &valueForSideDirection)
-			if err != nil {
-				var valueForSideDirectionInt int32
-				err = json.Unmarshal(*valSideDirectionCap, &valueForSideDirectionInt)
-				if err != nil {
-					return err
-				}
-				this.SideDirection = string(valueForSideDirectionInt)
-			} else {
-				this.SideDirection = valueForSideDirection
-			}
-		}
-	}
 	
-	if valPattern, ok := objMap["pattern"]; ok {
+	if valPattern, ok := GetMapValue(objMap, "pattern"); ok {
 		if valPattern != nil {
 			var valueForPattern string
 			err = json.Unmarshal(*valPattern, &valueForPattern)
@@ -780,24 +598,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valPatternCap, ok := objMap["Pattern"]; ok {
-		if valPatternCap != nil {
-			var valueForPattern string
-			err = json.Unmarshal(*valPatternCap, &valueForPattern)
-			if err != nil {
-				var valueForPatternInt int32
-				err = json.Unmarshal(*valPatternCap, &valueForPatternInt)
-				if err != nil {
-					return err
-				}
-				this.Pattern = string(valueForPatternInt)
-			} else {
-				this.Pattern = valueForPattern
-			}
-		}
-	}
 	
-	if valLeftRightDirection, ok := objMap["leftRightDirection"]; ok {
+	if valLeftRightDirection, ok := GetMapValue(objMap, "leftRightDirection"); ok {
 		if valLeftRightDirection != nil {
 			var valueForLeftRightDirection string
 			err = json.Unmarshal(*valLeftRightDirection, &valueForLeftRightDirection)
@@ -813,24 +615,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLeftRightDirectionCap, ok := objMap["LeftRightDirection"]; ok {
-		if valLeftRightDirectionCap != nil {
-			var valueForLeftRightDirection string
-			err = json.Unmarshal(*valLeftRightDirectionCap, &valueForLeftRightDirection)
-			if err != nil {
-				var valueForLeftRightDirectionInt int32
-				err = json.Unmarshal(*valLeftRightDirectionCap, &valueForLeftRightDirectionInt)
-				if err != nil {
-					return err
-				}
-				this.LeftRightDirection = string(valueForLeftRightDirectionInt)
-			} else {
-				this.LeftRightDirection = valueForLeftRightDirection
-			}
-		}
-	}
 	
-	if valMorphType, ok := objMap["morphType"]; ok {
+	if valMorphType, ok := GetMapValue(objMap, "morphType"); ok {
 		if valMorphType != nil {
 			var valueForMorphType string
 			err = json.Unmarshal(*valMorphType, &valueForMorphType)
@@ -846,24 +632,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valMorphTypeCap, ok := objMap["MorphType"]; ok {
-		if valMorphTypeCap != nil {
-			var valueForMorphType string
-			err = json.Unmarshal(*valMorphTypeCap, &valueForMorphType)
-			if err != nil {
-				var valueForMorphTypeInt int32
-				err = json.Unmarshal(*valMorphTypeCap, &valueForMorphTypeInt)
-				if err != nil {
-					return err
-				}
-				this.MorphType = string(valueForMorphTypeInt)
-			} else {
-				this.MorphType = valueForMorphType
-			}
-		}
-	}
 	
-	if valFromBlack, ok := objMap["fromBlack"]; ok {
+	if valFromBlack, ok := GetMapValue(objMap, "fromBlack"); ok {
 		if valFromBlack != nil {
 			var valueForFromBlack *bool
 			err = json.Unmarshal(*valFromBlack, &valueForFromBlack)
@@ -873,18 +643,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			this.FromBlack = valueForFromBlack
 		}
 	}
-	if valFromBlackCap, ok := objMap["FromBlack"]; ok {
-		if valFromBlackCap != nil {
-			var valueForFromBlack *bool
-			err = json.Unmarshal(*valFromBlackCap, &valueForFromBlack)
-			if err != nil {
-				return err
-			}
-			this.FromBlack = valueForFromBlack
-		}
-	}
 	
-	if valOrientationDirection, ok := objMap["orientationDirection"]; ok {
+	if valOrientationDirection, ok := GetMapValue(objMap, "orientationDirection"); ok {
 		if valOrientationDirection != nil {
 			var valueForOrientationDirection string
 			err = json.Unmarshal(*valOrientationDirection, &valueForOrientationDirection)
@@ -900,24 +660,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valOrientationDirectionCap, ok := objMap["OrientationDirection"]; ok {
-		if valOrientationDirectionCap != nil {
-			var valueForOrientationDirection string
-			err = json.Unmarshal(*valOrientationDirectionCap, &valueForOrientationDirection)
-			if err != nil {
-				var valueForOrientationDirectionInt int32
-				err = json.Unmarshal(*valOrientationDirectionCap, &valueForOrientationDirectionInt)
-				if err != nil {
-					return err
-				}
-				this.OrientationDirection = string(valueForOrientationDirectionInt)
-			} else {
-				this.OrientationDirection = valueForOrientationDirection
-			}
-		}
-	}
 	
-	if valThroughBlack, ok := objMap["throughBlack"]; ok {
+	if valThroughBlack, ok := GetMapValue(objMap, "throughBlack"); ok {
 		if valThroughBlack != nil {
 			var valueForThroughBlack *bool
 			err = json.Unmarshal(*valThroughBlack, &valueForThroughBlack)
@@ -927,18 +671,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			this.ThroughBlack = valueForThroughBlack
 		}
 	}
-	if valThroughBlackCap, ok := objMap["ThroughBlack"]; ok {
-		if valThroughBlackCap != nil {
-			var valueForThroughBlack *bool
-			err = json.Unmarshal(*valThroughBlackCap, &valueForThroughBlack)
-			if err != nil {
-				return err
-			}
-			this.ThroughBlack = valueForThroughBlack
-		}
-	}
 	
-	if valCornerAndCenterDirection, ok := objMap["cornerAndCenterDirection"]; ok {
+	if valCornerAndCenterDirection, ok := GetMapValue(objMap, "cornerAndCenterDirection"); ok {
 		if valCornerAndCenterDirection != nil {
 			var valueForCornerAndCenterDirection string
 			err = json.Unmarshal(*valCornerAndCenterDirection, &valueForCornerAndCenterDirection)
@@ -954,24 +688,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valCornerAndCenterDirectionCap, ok := objMap["CornerAndCenterDirection"]; ok {
-		if valCornerAndCenterDirectionCap != nil {
-			var valueForCornerAndCenterDirection string
-			err = json.Unmarshal(*valCornerAndCenterDirectionCap, &valueForCornerAndCenterDirection)
-			if err != nil {
-				var valueForCornerAndCenterDirectionInt int32
-				err = json.Unmarshal(*valCornerAndCenterDirectionCap, &valueForCornerAndCenterDirectionInt)
-				if err != nil {
-					return err
-				}
-				this.CornerAndCenterDirection = string(valueForCornerAndCenterDirectionInt)
-			} else {
-				this.CornerAndCenterDirection = valueForCornerAndCenterDirection
-			}
-		}
-	}
 	
-	if valShredPattern, ok := objMap["shredPattern"]; ok {
+	if valShredPattern, ok := GetMapValue(objMap, "shredPattern"); ok {
 		if valShredPattern != nil {
 			var valueForShredPattern string
 			err = json.Unmarshal(*valShredPattern, &valueForShredPattern)
@@ -987,24 +705,8 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valShredPatternCap, ok := objMap["ShredPattern"]; ok {
-		if valShredPatternCap != nil {
-			var valueForShredPattern string
-			err = json.Unmarshal(*valShredPatternCap, &valueForShredPattern)
-			if err != nil {
-				var valueForShredPatternInt int32
-				err = json.Unmarshal(*valShredPatternCap, &valueForShredPatternInt)
-				if err != nil {
-					return err
-				}
-				this.ShredPattern = string(valueForShredPatternInt)
-			} else {
-				this.ShredPattern = valueForShredPattern
-			}
-		}
-	}
 	
-	if valOrientation, ok := objMap["orientation"]; ok {
+	if valOrientation, ok := GetMapValue(objMap, "orientation"); ok {
 		if valOrientation != nil {
 			var valueForOrientation string
 			err = json.Unmarshal(*valOrientation, &valueForOrientation)
@@ -1020,37 +722,11 @@ func (this *SlideShowTransition) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valOrientationCap, ok := objMap["Orientation"]; ok {
-		if valOrientationCap != nil {
-			var valueForOrientation string
-			err = json.Unmarshal(*valOrientationCap, &valueForOrientation)
-			if err != nil {
-				var valueForOrientationInt int32
-				err = json.Unmarshal(*valOrientationCap, &valueForOrientationInt)
-				if err != nil {
-					return err
-				}
-				this.Orientation = string(valueForOrientationInt)
-			} else {
-				this.Orientation = valueForOrientation
-			}
-		}
-	}
 	
-	if valSpokes, ok := objMap["spokes"]; ok {
+	if valSpokes, ok := GetMapValue(objMap, "spokes"); ok {
 		if valSpokes != nil {
 			var valueForSpokes int32
 			err = json.Unmarshal(*valSpokes, &valueForSpokes)
-			if err != nil {
-				return err
-			}
-			this.Spokes = valueForSpokes
-		}
-	}
-	if valSpokesCap, ok := objMap["Spokes"]; ok {
-		if valSpokesCap != nil {
-			var valueForSpokes int32
-			err = json.Unmarshal(*valSpokesCap, &valueForSpokes)
 			if err != nil {
 				return err
 			}

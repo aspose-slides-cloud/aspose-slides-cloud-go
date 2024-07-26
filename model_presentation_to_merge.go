@@ -106,7 +106,7 @@ func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valPath, ok := objMap["path"]; ok {
+	if valPath, ok := GetMapValue(objMap, "path"); ok {
 		if valPath != nil {
 			var valueForPath string
 			err = json.Unmarshal(*valPath, &valueForPath)
@@ -116,18 +116,8 @@ func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
 			this.Path = valueForPath
 		}
 	}
-	if valPathCap, ok := objMap["Path"]; ok {
-		if valPathCap != nil {
-			var valueForPath string
-			err = json.Unmarshal(*valPathCap, &valueForPath)
-			if err != nil {
-				return err
-			}
-			this.Path = valueForPath
-		}
-	}
 	
-	if valPassword, ok := objMap["password"]; ok {
+	if valPassword, ok := GetMapValue(objMap, "password"); ok {
 		if valPassword != nil {
 			var valueForPassword string
 			err = json.Unmarshal(*valPassword, &valueForPassword)
@@ -137,18 +127,8 @@ func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
 			this.Password = valueForPassword
 		}
 	}
-	if valPasswordCap, ok := objMap["Password"]; ok {
-		if valPasswordCap != nil {
-			var valueForPassword string
-			err = json.Unmarshal(*valPasswordCap, &valueForPassword)
-			if err != nil {
-				return err
-			}
-			this.Password = valueForPassword
-		}
-	}
 	
-	if valSlides, ok := objMap["slides"]; ok {
+	if valSlides, ok := GetMapValue(objMap, "slides"); ok {
 		if valSlides != nil {
 			var valueForSlides []int32
 			err = json.Unmarshal(*valSlides, &valueForSlides)
@@ -158,40 +138,14 @@ func (this *PresentationToMerge) UnmarshalJSON(b []byte) error {
 			this.Slides = valueForSlides
 		}
 	}
-	if valSlidesCap, ok := objMap["Slides"]; ok {
-		if valSlidesCap != nil {
-			var valueForSlides []int32
-			err = json.Unmarshal(*valSlidesCap, &valueForSlides)
-			if err != nil {
-				return err
-			}
-			this.Slides = valueForSlides
-		}
-	}
 	
-	if valSource, ok := objMap["source"]; ok {
+	if valSource, ok := GetMapValue(objMap, "source"); ok {
 		if valSource != nil {
 			var valueForSource string
 			err = json.Unmarshal(*valSource, &valueForSource)
 			if err != nil {
 				var valueForSourceInt int32
 				err = json.Unmarshal(*valSource, &valueForSourceInt)
-				if err != nil {
-					return err
-				}
-				this.Source = string(valueForSourceInt)
-			} else {
-				this.Source = valueForSource
-			}
-		}
-	}
-	if valSourceCap, ok := objMap["Source"]; ok {
-		if valSourceCap != nil {
-			var valueForSource string
-			err = json.Unmarshal(*valSourceCap, &valueForSource)
-			if err != nil {
-				var valueForSourceInt int32
-				err = json.Unmarshal(*valSourceCap, &valueForSourceInt)
 				if err != nil {
 					return err
 				}

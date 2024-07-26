@@ -64,34 +64,10 @@ func (this *OrderedMergeRequest) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valPresentations, ok := objMap["presentations"]; ok {
+	if valPresentations, ok := GetMapValue(objMap, "presentations"); ok {
 		if valPresentations != nil {
 			var valueForPresentations []json.RawMessage
 			err = json.Unmarshal(*valPresentations, &valueForPresentations)
-			if err != nil {
-				return err
-			}
-			valueForIPresentations := make([]IPresentationToMerge, len(valueForPresentations))
-			for i, v := range valueForPresentations {
-				vObject, err := createObjectForType("PresentationToMerge", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIPresentations[i] = vObject.(IPresentationToMerge)
-				}
-			}
-			this.Presentations = valueForIPresentations
-		}
-	}
-	if valPresentationsCap, ok := objMap["Presentations"]; ok {
-		if valPresentationsCap != nil {
-			var valueForPresentations []json.RawMessage
-			err = json.Unmarshal(*valPresentationsCap, &valueForPresentations)
 			if err != nil {
 				return err
 			}

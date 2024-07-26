@@ -78,7 +78,7 @@ func (this *MergingSource) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valInput, ok := objMap["input"]; ok {
+	if valInput, ok := GetMapValue(objMap, "input"); ok {
 		if valInput != nil {
 			var valueForInput InputFile
 			err = json.Unmarshal(*valInput, &valueForInput)
@@ -99,42 +99,11 @@ func (this *MergingSource) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valInputCap, ok := objMap["Input"]; ok {
-		if valInputCap != nil {
-			var valueForInput InputFile
-			err = json.Unmarshal(*valInputCap, &valueForInput)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("InputFile", *valInputCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valInputCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IInputFile)
-			if ok {
-				this.Input = vInterfaceObject
-			}
-		}
-	}
 	
-	if valSlides, ok := objMap["slides"]; ok {
+	if valSlides, ok := GetMapValue(objMap, "slides"); ok {
 		if valSlides != nil {
 			var valueForSlides []int32
 			err = json.Unmarshal(*valSlides, &valueForSlides)
-			if err != nil {
-				return err
-			}
-			this.Slides = valueForSlides
-		}
-	}
-	if valSlidesCap, ok := objMap["Slides"]; ok {
-		if valSlidesCap != nil {
-			var valueForSlides []int32
-			err = json.Unmarshal(*valSlidesCap, &valueForSlides)
 			if err != nil {
 				return err
 			}

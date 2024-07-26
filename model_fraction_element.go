@@ -107,7 +107,7 @@ func (this *FractionElement) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Fraction"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -123,24 +123,8 @@ func (this *FractionElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valFractionType, ok := objMap["fractionType"]; ok {
+	if valFractionType, ok := GetMapValue(objMap, "fractionType"); ok {
 		if valFractionType != nil {
 			var valueForFractionType string
 			err = json.Unmarshal(*valFractionType, &valueForFractionType)
@@ -156,24 +140,8 @@ func (this *FractionElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFractionTypeCap, ok := objMap["FractionType"]; ok {
-		if valFractionTypeCap != nil {
-			var valueForFractionType string
-			err = json.Unmarshal(*valFractionTypeCap, &valueForFractionType)
-			if err != nil {
-				var valueForFractionTypeInt int32
-				err = json.Unmarshal(*valFractionTypeCap, &valueForFractionTypeInt)
-				if err != nil {
-					return err
-				}
-				this.FractionType = string(valueForFractionTypeInt)
-			} else {
-				this.FractionType = valueForFractionType
-			}
-		}
-	}
 	
-	if valNumerator, ok := objMap["numerator"]; ok {
+	if valNumerator, ok := GetMapValue(objMap, "numerator"); ok {
 		if valNumerator != nil {
 			var valueForNumerator MathElement
 			err = json.Unmarshal(*valNumerator, &valueForNumerator)
@@ -194,29 +162,8 @@ func (this *FractionElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valNumeratorCap, ok := objMap["Numerator"]; ok {
-		if valNumeratorCap != nil {
-			var valueForNumerator MathElement
-			err = json.Unmarshal(*valNumeratorCap, &valueForNumerator)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valNumeratorCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valNumeratorCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Numerator = vInterfaceObject
-			}
-		}
-	}
 	
-	if valDenominator, ok := objMap["denominator"]; ok {
+	if valDenominator, ok := GetMapValue(objMap, "denominator"); ok {
 		if valDenominator != nil {
 			var valueForDenominator MathElement
 			err = json.Unmarshal(*valDenominator, &valueForDenominator)
@@ -228,27 +175,6 @@ func (this *FractionElement) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valDenominator, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Denominator = vInterfaceObject
-			}
-		}
-	}
-	if valDenominatorCap, ok := objMap["Denominator"]; ok {
-		if valDenominatorCap != nil {
-			var valueForDenominator MathElement
-			err = json.Unmarshal(*valDenominatorCap, &valueForDenominator)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valDenominatorCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valDenominatorCap, &vObject)
 			if err != nil {
 				return err
 			}

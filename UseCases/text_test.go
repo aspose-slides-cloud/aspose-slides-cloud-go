@@ -90,13 +90,14 @@ func TestTextReplaceStorage(t *testing.T) {
 	newValue := "new_text"
 	c := slidescloud.GetTestSlidesApiClient()
 	var ignoreCase bool = true
+	var wholeWordsOnly bool = true
 
 	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	result, _, e := c.SlidesApi.ReplacePresentationText(fileName, oldValue, newValue, nil, password, folderName, "")
+	result, _, e := c.SlidesApi.ReplacePresentationText(fileName, oldValue, newValue, nil, nil, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -107,7 +108,18 @@ func TestTextReplaceStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	resultWithEmpty, _, e := c.SlidesApi.ReplacePresentationText(fileName, oldValue, newValue, &ignoreCase, password, folderName, "")
+	resultWithEmpty, _, e := c.SlidesApi.ReplacePresentationText(fileName, oldValue, newValue, &ignoreCase, nil, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	resultWholeWords, _, e := c.SlidesApi.ReplacePresentationText(fileName, oldValue, newValue, &ignoreCase, &wholeWordsOnly, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -139,6 +151,10 @@ func TestTextReplaceStorage(t *testing.T) {
 		t.Errorf("Wrong item count. Expected less than %v but was %v.", result.GetMatches(), resultWithEmpty.GetMatches())
 		return
 	}
+	if resultWholeWords.GetMatches() >= resultWithEmpty.GetMatches() {
+		t.Errorf("Wrong item count. Expected less than %v but was %v.", resultWholeWords.GetMatches(), resultWithEmpty.GetMatches())
+		return
+	}
 	if slideResult.GetMatches() >= result.GetMatches() {
 		t.Errorf("Wrong item count. Expected less than %v but was %v.", slideResult.GetMatches(), result.GetMatches())
 		return
@@ -164,12 +180,12 @@ func TestTextReplaceRequest(t *testing.T) {
 	c := slidescloud.GetTestSlidesApiClient()
 
 	var withEmpty bool = true
-	_, _, e = c.SlidesApi.ReplacePresentationTextOnline(source, oldValue, newValue, nil, password)
+	_, _, e = c.SlidesApi.ReplacePresentationTextOnline(source, oldValue, newValue, nil, nil, password)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, _, e = c.SlidesApi.ReplacePresentationTextOnline(source, oldValue, newValue, &withEmpty, password)
+	_, _, e = c.SlidesApi.ReplacePresentationTextOnline(source, oldValue, newValue, &withEmpty, nil, password)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

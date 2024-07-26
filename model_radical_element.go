@@ -107,7 +107,7 @@ func (this *RadicalElement) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Radical"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -123,24 +123,8 @@ func (this *RadicalElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valBase, ok := objMap["base"]; ok {
+	if valBase, ok := GetMapValue(objMap, "base"); ok {
 		if valBase != nil {
 			var valueForBase MathElement
 			err = json.Unmarshal(*valBase, &valueForBase)
@@ -161,29 +145,8 @@ func (this *RadicalElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBaseCap, ok := objMap["Base"]; ok {
-		if valBaseCap != nil {
-			var valueForBase MathElement
-			err = json.Unmarshal(*valBaseCap, &valueForBase)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valBaseCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBaseCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Base = vInterfaceObject
-			}
-		}
-	}
 	
-	if valDegree, ok := objMap["degree"]; ok {
+	if valDegree, ok := GetMapValue(objMap, "degree"); ok {
 		if valDegree != nil {
 			var valueForDegree MathElement
 			err = json.Unmarshal(*valDegree, &valueForDegree)
@@ -204,42 +167,11 @@ func (this *RadicalElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valDegreeCap, ok := objMap["Degree"]; ok {
-		if valDegreeCap != nil {
-			var valueForDegree MathElement
-			err = json.Unmarshal(*valDegreeCap, &valueForDegree)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valDegreeCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valDegreeCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Degree = vInterfaceObject
-			}
-		}
-	}
 	
-	if valHideDegree, ok := objMap["hideDegree"]; ok {
+	if valHideDegree, ok := GetMapValue(objMap, "hideDegree"); ok {
 		if valHideDegree != nil {
 			var valueForHideDegree *bool
 			err = json.Unmarshal(*valHideDegree, &valueForHideDegree)
-			if err != nil {
-				return err
-			}
-			this.HideDegree = valueForHideDegree
-		}
-	}
-	if valHideDegreeCap, ok := objMap["HideDegree"]; ok {
-		if valHideDegreeCap != nil {
-			var valueForHideDegree *bool
-			err = json.Unmarshal(*valHideDegreeCap, &valueForHideDegree)
 			if err != nil {
 				return err
 			}

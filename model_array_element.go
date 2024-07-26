@@ -149,7 +149,7 @@ func (this *ArrayElement) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Array"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -165,24 +165,8 @@ func (this *ArrayElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valArguments, ok := objMap["arguments"]; ok {
+	if valArguments, ok := GetMapValue(objMap, "arguments"); ok {
 		if valArguments != nil {
 			var valueForArguments []json.RawMessage
 			err = json.Unmarshal(*valArguments, &valueForArguments)
@@ -206,32 +190,8 @@ func (this *ArrayElement) UnmarshalJSON(b []byte) error {
 			this.Arguments = valueForIArguments
 		}
 	}
-	if valArgumentsCap, ok := objMap["Arguments"]; ok {
-		if valArgumentsCap != nil {
-			var valueForArguments []json.RawMessage
-			err = json.Unmarshal(*valArgumentsCap, &valueForArguments)
-			if err != nil {
-				return err
-			}
-			valueForIArguments := make([]IMathElement, len(valueForArguments))
-			for i, v := range valueForArguments {
-				vObject, err := createObjectForType("MathElement", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIArguments[i] = vObject.(IMathElement)
-				}
-			}
-			this.Arguments = valueForIArguments
-		}
-	}
 	
-	if valBaseJustification, ok := objMap["baseJustification"]; ok {
+	if valBaseJustification, ok := GetMapValue(objMap, "baseJustification"); ok {
 		if valBaseJustification != nil {
 			var valueForBaseJustification string
 			err = json.Unmarshal(*valBaseJustification, &valueForBaseJustification)
@@ -247,24 +207,8 @@ func (this *ArrayElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBaseJustificationCap, ok := objMap["BaseJustification"]; ok {
-		if valBaseJustificationCap != nil {
-			var valueForBaseJustification string
-			err = json.Unmarshal(*valBaseJustificationCap, &valueForBaseJustification)
-			if err != nil {
-				var valueForBaseJustificationInt int32
-				err = json.Unmarshal(*valBaseJustificationCap, &valueForBaseJustificationInt)
-				if err != nil {
-					return err
-				}
-				this.BaseJustification = string(valueForBaseJustificationInt)
-			} else {
-				this.BaseJustification = valueForBaseJustification
-			}
-		}
-	}
 	
-	if valMaximumDistribution, ok := objMap["maximumDistribution"]; ok {
+	if valMaximumDistribution, ok := GetMapValue(objMap, "maximumDistribution"); ok {
 		if valMaximumDistribution != nil {
 			var valueForMaximumDistribution *bool
 			err = json.Unmarshal(*valMaximumDistribution, &valueForMaximumDistribution)
@@ -274,18 +218,8 @@ func (this *ArrayElement) UnmarshalJSON(b []byte) error {
 			this.MaximumDistribution = valueForMaximumDistribution
 		}
 	}
-	if valMaximumDistributionCap, ok := objMap["MaximumDistribution"]; ok {
-		if valMaximumDistributionCap != nil {
-			var valueForMaximumDistribution *bool
-			err = json.Unmarshal(*valMaximumDistributionCap, &valueForMaximumDistribution)
-			if err != nil {
-				return err
-			}
-			this.MaximumDistribution = valueForMaximumDistribution
-		}
-	}
 	
-	if valObjectDistribution, ok := objMap["objectDistribution"]; ok {
+	if valObjectDistribution, ok := GetMapValue(objMap, "objectDistribution"); ok {
 		if valObjectDistribution != nil {
 			var valueForObjectDistribution *bool
 			err = json.Unmarshal(*valObjectDistribution, &valueForObjectDistribution)
@@ -295,18 +229,8 @@ func (this *ArrayElement) UnmarshalJSON(b []byte) error {
 			this.ObjectDistribution = valueForObjectDistribution
 		}
 	}
-	if valObjectDistributionCap, ok := objMap["ObjectDistribution"]; ok {
-		if valObjectDistributionCap != nil {
-			var valueForObjectDistribution *bool
-			err = json.Unmarshal(*valObjectDistributionCap, &valueForObjectDistribution)
-			if err != nil {
-				return err
-			}
-			this.ObjectDistribution = valueForObjectDistribution
-		}
-	}
 	
-	if valRowSpacingRule, ok := objMap["rowSpacingRule"]; ok {
+	if valRowSpacingRule, ok := GetMapValue(objMap, "rowSpacingRule"); ok {
 		if valRowSpacingRule != nil {
 			var valueForRowSpacingRule string
 			err = json.Unmarshal(*valRowSpacingRule, &valueForRowSpacingRule)
@@ -322,37 +246,11 @@ func (this *ArrayElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valRowSpacingRuleCap, ok := objMap["RowSpacingRule"]; ok {
-		if valRowSpacingRuleCap != nil {
-			var valueForRowSpacingRule string
-			err = json.Unmarshal(*valRowSpacingRuleCap, &valueForRowSpacingRule)
-			if err != nil {
-				var valueForRowSpacingRuleInt int32
-				err = json.Unmarshal(*valRowSpacingRuleCap, &valueForRowSpacingRuleInt)
-				if err != nil {
-					return err
-				}
-				this.RowSpacingRule = string(valueForRowSpacingRuleInt)
-			} else {
-				this.RowSpacingRule = valueForRowSpacingRule
-			}
-		}
-	}
 	
-	if valRowSpacing, ok := objMap["rowSpacing"]; ok {
+	if valRowSpacing, ok := GetMapValue(objMap, "rowSpacing"); ok {
 		if valRowSpacing != nil {
 			var valueForRowSpacing int32
 			err = json.Unmarshal(*valRowSpacing, &valueForRowSpacing)
-			if err != nil {
-				return err
-			}
-			this.RowSpacing = valueForRowSpacing
-		}
-	}
-	if valRowSpacingCap, ok := objMap["RowSpacing"]; ok {
-		if valRowSpacingCap != nil {
-			var valueForRowSpacing int32
-			err = json.Unmarshal(*valRowSpacingCap, &valueForRowSpacing)
 			if err != nil {
 				return err
 			}

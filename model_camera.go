@@ -134,7 +134,7 @@ func (this *Camera) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valCameraType, ok := objMap["cameraType"]; ok {
+	if valCameraType, ok := GetMapValue(objMap, "cameraType"); ok {
 		if valCameraType != nil {
 			var valueForCameraType string
 			err = json.Unmarshal(*valCameraType, &valueForCameraType)
@@ -150,24 +150,8 @@ func (this *Camera) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valCameraTypeCap, ok := objMap["CameraType"]; ok {
-		if valCameraTypeCap != nil {
-			var valueForCameraType string
-			err = json.Unmarshal(*valCameraTypeCap, &valueForCameraType)
-			if err != nil {
-				var valueForCameraTypeInt int32
-				err = json.Unmarshal(*valCameraTypeCap, &valueForCameraTypeInt)
-				if err != nil {
-					return err
-				}
-				this.CameraType = string(valueForCameraTypeInt)
-			} else {
-				this.CameraType = valueForCameraType
-			}
-		}
-	}
 	
-	if valFieldOfViewAngle, ok := objMap["fieldOfViewAngle"]; ok {
+	if valFieldOfViewAngle, ok := GetMapValue(objMap, "fieldOfViewAngle"); ok {
 		if valFieldOfViewAngle != nil {
 			var valueForFieldOfViewAngle float64
 			err = json.Unmarshal(*valFieldOfViewAngle, &valueForFieldOfViewAngle)
@@ -177,18 +161,8 @@ func (this *Camera) UnmarshalJSON(b []byte) error {
 			this.FieldOfViewAngle = valueForFieldOfViewAngle
 		}
 	}
-	if valFieldOfViewAngleCap, ok := objMap["FieldOfViewAngle"]; ok {
-		if valFieldOfViewAngleCap != nil {
-			var valueForFieldOfViewAngle float64
-			err = json.Unmarshal(*valFieldOfViewAngleCap, &valueForFieldOfViewAngle)
-			if err != nil {
-				return err
-			}
-			this.FieldOfViewAngle = valueForFieldOfViewAngle
-		}
-	}
 	
-	if valZoom, ok := objMap["zoom"]; ok {
+	if valZoom, ok := GetMapValue(objMap, "zoom"); ok {
 		if valZoom != nil {
 			var valueForZoom float64
 			err = json.Unmarshal(*valZoom, &valueForZoom)
@@ -198,18 +172,8 @@ func (this *Camera) UnmarshalJSON(b []byte) error {
 			this.Zoom = valueForZoom
 		}
 	}
-	if valZoomCap, ok := objMap["Zoom"]; ok {
-		if valZoomCap != nil {
-			var valueForZoom float64
-			err = json.Unmarshal(*valZoomCap, &valueForZoom)
-			if err != nil {
-				return err
-			}
-			this.Zoom = valueForZoom
-		}
-	}
 	
-	if valXRotation, ok := objMap["xRotation"]; ok {
+	if valXRotation, ok := GetMapValue(objMap, "xRotation"); ok {
 		if valXRotation != nil {
 			var valueForXRotation float64
 			err = json.Unmarshal(*valXRotation, &valueForXRotation)
@@ -219,18 +183,8 @@ func (this *Camera) UnmarshalJSON(b []byte) error {
 			this.XRotation = valueForXRotation
 		}
 	}
-	if valXRotationCap, ok := objMap["XRotation"]; ok {
-		if valXRotationCap != nil {
-			var valueForXRotation float64
-			err = json.Unmarshal(*valXRotationCap, &valueForXRotation)
-			if err != nil {
-				return err
-			}
-			this.XRotation = valueForXRotation
-		}
-	}
 	
-	if valYRotation, ok := objMap["yRotation"]; ok {
+	if valYRotation, ok := GetMapValue(objMap, "yRotation"); ok {
 		if valYRotation != nil {
 			var valueForYRotation float64
 			err = json.Unmarshal(*valYRotation, &valueForYRotation)
@@ -240,31 +194,11 @@ func (this *Camera) UnmarshalJSON(b []byte) error {
 			this.YRotation = valueForYRotation
 		}
 	}
-	if valYRotationCap, ok := objMap["YRotation"]; ok {
-		if valYRotationCap != nil {
-			var valueForYRotation float64
-			err = json.Unmarshal(*valYRotationCap, &valueForYRotation)
-			if err != nil {
-				return err
-			}
-			this.YRotation = valueForYRotation
-		}
-	}
 	
-	if valZRotation, ok := objMap["zRotation"]; ok {
+	if valZRotation, ok := GetMapValue(objMap, "zRotation"); ok {
 		if valZRotation != nil {
 			var valueForZRotation float64
 			err = json.Unmarshal(*valZRotation, &valueForZRotation)
-			if err != nil {
-				return err
-			}
-			this.ZRotation = valueForZRotation
-		}
-	}
-	if valZRotationCap, ok := objMap["ZRotation"]; ok {
-		if valZRotationCap != nil {
-			var valueForZRotation float64
-			err = json.Unmarshal(*valZRotationCap, &valueForZRotation)
 			if err != nil {
 				return err
 			}

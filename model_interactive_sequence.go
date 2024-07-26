@@ -78,7 +78,7 @@ func (this *InteractiveSequence) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valEffects, ok := objMap["effects"]; ok {
+	if valEffects, ok := GetMapValue(objMap, "effects"); ok {
 		if valEffects != nil {
 			var valueForEffects []json.RawMessage
 			err = json.Unmarshal(*valEffects, &valueForEffects)
@@ -102,45 +102,11 @@ func (this *InteractiveSequence) UnmarshalJSON(b []byte) error {
 			this.Effects = valueForIEffects
 		}
 	}
-	if valEffectsCap, ok := objMap["Effects"]; ok {
-		if valEffectsCap != nil {
-			var valueForEffects []json.RawMessage
-			err = json.Unmarshal(*valEffectsCap, &valueForEffects)
-			if err != nil {
-				return err
-			}
-			valueForIEffects := make([]IEffect, len(valueForEffects))
-			for i, v := range valueForEffects {
-				vObject, err := createObjectForType("Effect", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIEffects[i] = vObject.(IEffect)
-				}
-			}
-			this.Effects = valueForIEffects
-		}
-	}
 	
-	if valTriggerShapeIndex, ok := objMap["triggerShapeIndex"]; ok {
+	if valTriggerShapeIndex, ok := GetMapValue(objMap, "triggerShapeIndex"); ok {
 		if valTriggerShapeIndex != nil {
 			var valueForTriggerShapeIndex int32
 			err = json.Unmarshal(*valTriggerShapeIndex, &valueForTriggerShapeIndex)
-			if err != nil {
-				return err
-			}
-			this.TriggerShapeIndex = valueForTriggerShapeIndex
-		}
-	}
-	if valTriggerShapeIndexCap, ok := objMap["TriggerShapeIndex"]; ok {
-		if valTriggerShapeIndexCap != nil {
-			var valueForTriggerShapeIndex int32
-			err = json.Unmarshal(*valTriggerShapeIndexCap, &valueForTriggerShapeIndex)
 			if err != nil {
 				return err
 			}

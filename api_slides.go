@@ -12278,121 +12278,6 @@ func (a *SlidesApiService) DownloadNotesSlideOnline(document []byte, slideIndex 
 	return successPayload, localVarHttpResponse, err
 }
 
-/* SlidesApiService Convert Mathematical Text to MathML Format
- @param name Document name.
- @param slideIndex Slide index.
- @param shapeIndex Shape index.
- @param paragraphIndex Paragraph index.
- @param portionIndex Portion index.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "password" (string) Document password.
-     @param "folder" (string) Document folder.
-     @param "storage" (string) Document storage.
- @return *os.File*/
-func (a *SlidesApiService) DownloadPortionAsMathMl(name string, slideIndex int32, shapeIndex int32, paragraphIndex int32, portionIndex int32, password string, folder string, storage string) (*os.File, *http.Response, error) {
-	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFiles [][]byte
-	 	successPayload *os.File
-	)
-
-	if len(name) == 0 {
-		return successPayload, nil, reportError("Missing required parameter name")
-	}
-	// create path and map variables
-	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/mathml"
-	namePathStringValue := fmt.Sprintf("%v", name)
-	if len(namePathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
-	}
-	slideIndexPathStringValue := fmt.Sprintf("%v", slideIndex)
-	if len(slideIndexPathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
-	}
-	shapeIndexPathStringValue := fmt.Sprintf("%v", shapeIndex)
-	if len(shapeIndexPathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"shapeIndex"+"}", shapeIndexPathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"shapeIndex"+"}", "", -1)
-	}
-	paragraphIndexPathStringValue := fmt.Sprintf("%v", paragraphIndex)
-	if len(paragraphIndexPathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"paragraphIndex"+"}", paragraphIndexPathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"paragraphIndex"+"}", "", -1)
-	}
-	portionIndexPathStringValue := fmt.Sprintf("%v", portionIndex)
-	if len(portionIndexPathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"portionIndex"+"}", portionIndexPathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"portionIndex"+"}", "", -1)
-	}
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-
-	if err := typeCheckParameter(password, "string", "password"); err != nil {
-		return successPayload, nil, err
-	}
-	if err := typeCheckParameter(folder, "string", "folder"); err != nil {
-		return successPayload, nil, err
-	}
-	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
-		return successPayload, nil, err
-	}
-
-	if localVarTempParam := folder; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
-	}
-	if localVarTempParam := storage; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
-	}
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json" }
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{
-		"multipart/form-data",
-		}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	if localVarTempParam := password; len(localVarTempParam) > 0 {
-		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
-	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
-	responseBody := bytes.NewReader(responseBytes)
-	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {
-		var errorMessage ErrorMessage
-		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
-			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
-		}
-		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
-	}
-
-	defer successPayload.Close()
-        successPayload, err = processFileResponse(responseBody)
-        if err != nil {
-		return successPayload, localVarHttpResponse, err
-        }
-
-	return successPayload, localVarHttpResponse, err
-}
-
 /* SlidesApiService Save a presentation to a specified format.
  @param name Document name.
  @param format Export format.
@@ -14658,6 +14543,61 @@ func (a *SlidesApiService) GetFormatScheme(name string, slideIndex int32, passwo
 	}
 	if successPayload, _ = successPayloadObject.(IFormatScheme); true {
 	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* SlidesApiService Get default templates for HTML5 export.
+ @return *os.File*/
+func (a *SlidesApiService) GetHtml5Templates() (*os.File, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload *os.File
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/html5Templates"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"multipart/form-data",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	defer successPayload.Close()
+        successPayload, err = processFileResponse(responseBody)
+        if err != nil {
+		return successPayload, localVarHttpResponse, err
+        }
 
 	return successPayload, localVarHttpResponse, err
 }
@@ -22267,11 +22207,12 @@ func (a *SlidesApiService) ReplaceImageOnline(document []byte, imageIndex int32,
  @param newValue Text value to replace with.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "ignoreCase" (bool) True if character case must be ignored.
+     @param "wholeWordsOnly" (bool) True to replace whole words only.
      @param "password" (string) Document password.
      @param "folder" (string) Document folder.
      @param "storage" (string) Document storage.
  @return DocumentReplaceResult*/
-func (a *SlidesApiService) ReplacePresentationText(name string, oldValue string, newValue string, ignoreCase *bool, password string, folder string, storage string) (IDocumentReplaceResult, *http.Response, error) {
+func (a *SlidesApiService) ReplacePresentationText(name string, oldValue string, newValue string, ignoreCase *bool, wholeWordsOnly *bool, password string, folder string, storage string) (IDocumentReplaceResult, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -22305,6 +22246,11 @@ func (a *SlidesApiService) ReplacePresentationText(name string, oldValue string,
 			return successPayload, nil, err
 		}
 	}
+	if wholeWordsOnly != nil {
+		if err := typeCheckParameter(*wholeWordsOnly, "bool", "wholeWordsOnly"); err != nil {
+			return successPayload, nil, err
+		}
+	}
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
 	}
@@ -22319,6 +22265,9 @@ func (a *SlidesApiService) ReplacePresentationText(name string, oldValue string,
 	localVarQueryParams.Add("NewValue", parameterToString(newValue, ""))
 	if ignoreCase != nil {
 		localVarQueryParams.Add("IgnoreCase", parameterToString(ignoreCase, ""))
+	}
+	if wholeWordsOnly != nil {
+		localVarQueryParams.Add("WholeWordsOnly", parameterToString(wholeWordsOnly, ""))
 	}
 	if localVarTempParam := folder; len(localVarTempParam) > 0 {
 		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
@@ -22380,9 +22329,10 @@ func (a *SlidesApiService) ReplacePresentationText(name string, oldValue string,
  @param newValue Text value to replace with.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "ignoreCase" (bool) True if character case must be ignored.
+     @param "wholeWordsOnly" (bool) True to replace whole words only.
      @param "password" (string) Document password.
  @return *os.File*/
-func (a *SlidesApiService) ReplacePresentationTextOnline(document []byte, oldValue string, newValue string, ignoreCase *bool, password string) (*os.File, *http.Response, error) {
+func (a *SlidesApiService) ReplacePresentationTextOnline(document []byte, oldValue string, newValue string, ignoreCase *bool, wholeWordsOnly *bool, password string) (*os.File, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody interface{}
@@ -22410,6 +22360,11 @@ func (a *SlidesApiService) ReplacePresentationTextOnline(document []byte, oldVal
 			return successPayload, nil, err
 		}
 	}
+	if wholeWordsOnly != nil {
+		if err := typeCheckParameter(*wholeWordsOnly, "bool", "wholeWordsOnly"); err != nil {
+			return successPayload, nil, err
+		}
+	}
 	if err := typeCheckParameter(password, "string", "password"); err != nil {
 		return successPayload, nil, err
 	}
@@ -22418,6 +22373,9 @@ func (a *SlidesApiService) ReplacePresentationTextOnline(document []byte, oldVal
 	localVarQueryParams.Add("NewValue", parameterToString(newValue, ""))
 	if ignoreCase != nil {
 		localVarQueryParams.Add("IgnoreCase", parameterToString(ignoreCase, ""))
+	}
+	if wholeWordsOnly != nil {
+		localVarQueryParams.Add("WholeWordsOnly", parameterToString(wholeWordsOnly, ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{ "application/json" }
@@ -22954,120 +22912,6 @@ func (a *SlidesApiService) SaveMathPortion(name string, slideIndex int32, shapeI
 		localVarPath = strings.Replace(localVarPath, "{"+"format"+"}", formatPathStringValue, -1)
 	} else {
 		localVarPath = strings.Replace(localVarPath, "/{"+"format"+"}", "", -1)
-	}
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-
-	if err := typeCheckParameter(password, "string", "password"); err != nil {
-		return nil, err
-	}
-	if err := typeCheckParameter(folder, "string", "folder"); err != nil {
-		return nil, err
-	}
-	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
-		return nil, err
-	}
-
-	localVarQueryParams.Add("OutPath", parameterToString(outPath, ""))
-	if localVarTempParam := folder; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
-	}
-	if localVarTempParam := storage; len(localVarTempParam) > 0 {
-		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
-	}
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json" }
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{
-		"application/json",
-		}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	if localVarTempParam := password; len(localVarTempParam) > 0 {
-		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
-	}
-	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
-	responseBody := bytes.NewReader(responseBytes)
-	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {
-		var errorMessage ErrorMessage
-		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
-			return localVarHttpResponse, reportError(localVarHttpResponse.Status)
-		}
-		return localVarHttpResponse, reportError(string(responseBytes))
-	}
-
-
-	return localVarHttpResponse, err
-}
-
-/* SlidesApiService Convert Mathematical Text to MathML Format and saves result to the storage
- @param name Document name.
- @param slideIndex Slide index.
- @param shapeIndex Shape index.
- @param paragraphIndex Paragraph index.
- @param portionIndex Portion index.
- @param outPath Path to save result.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "password" (string) Document password.
-     @param "folder" (string) Presentation folder.
-     @param "storage" (string) Presentation storage.
- @return */
-func (a *SlidesApiService) SavePortionAsMathMl(name string, slideIndex int32, shapeIndex int32, paragraphIndex int32, portionIndex int32, outPath string, password string, folder string, storage string) (*http.Response, error) {
-	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFiles [][]byte
-	)
-
-	if len(name) == 0 {
-		return nil, reportError("Missing required parameter name")
-	}
-	if len(outPath) == 0 {
-		return nil, reportError("Missing required parameter outPath")
-	}
-	// create path and map variables
-	localVarPath := a.client.cfg.GetApiUrl() + "/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/mathml"
-	namePathStringValue := fmt.Sprintf("%v", name)
-	if len(namePathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
-	}
-	slideIndexPathStringValue := fmt.Sprintf("%v", slideIndex)
-	if len(slideIndexPathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"slideIndex"+"}", slideIndexPathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"slideIndex"+"}", "", -1)
-	}
-	shapeIndexPathStringValue := fmt.Sprintf("%v", shapeIndex)
-	if len(shapeIndexPathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"shapeIndex"+"}", shapeIndexPathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"shapeIndex"+"}", "", -1)
-	}
-	paragraphIndexPathStringValue := fmt.Sprintf("%v", paragraphIndex)
-	if len(paragraphIndexPathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"paragraphIndex"+"}", paragraphIndexPathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"paragraphIndex"+"}", "", -1)
-	}
-	portionIndexPathStringValue := fmt.Sprintf("%v", portionIndex)
-	if len(portionIndexPathStringValue) > 0 {
-		localVarPath = strings.Replace(localVarPath, "{"+"portionIndex"+"}", portionIndexPathStringValue, -1)
-	} else {
-		localVarPath = strings.Replace(localVarPath, "/{"+"portionIndex"+"}", "", -1)
 	}
 
 	localVarHeaderParams := make(map[string]string)

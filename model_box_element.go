@@ -149,7 +149,7 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Box"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -165,24 +165,8 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valBase, ok := objMap["base"]; ok {
+	if valBase, ok := GetMapValue(objMap, "base"); ok {
 		if valBase != nil {
 			var valueForBase MathElement
 			err = json.Unmarshal(*valBase, &valueForBase)
@@ -203,29 +187,8 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBaseCap, ok := objMap["Base"]; ok {
-		if valBaseCap != nil {
-			var valueForBase MathElement
-			err = json.Unmarshal(*valBaseCap, &valueForBase)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valBaseCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBaseCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Base = vInterfaceObject
-			}
-		}
-	}
 	
-	if valOperatorEmulator, ok := objMap["operatorEmulator"]; ok {
+	if valOperatorEmulator, ok := GetMapValue(objMap, "operatorEmulator"); ok {
 		if valOperatorEmulator != nil {
 			var valueForOperatorEmulator *bool
 			err = json.Unmarshal(*valOperatorEmulator, &valueForOperatorEmulator)
@@ -235,18 +198,8 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 			this.OperatorEmulator = valueForOperatorEmulator
 		}
 	}
-	if valOperatorEmulatorCap, ok := objMap["OperatorEmulator"]; ok {
-		if valOperatorEmulatorCap != nil {
-			var valueForOperatorEmulator *bool
-			err = json.Unmarshal(*valOperatorEmulatorCap, &valueForOperatorEmulator)
-			if err != nil {
-				return err
-			}
-			this.OperatorEmulator = valueForOperatorEmulator
-		}
-	}
 	
-	if valNoBreak, ok := objMap["noBreak"]; ok {
+	if valNoBreak, ok := GetMapValue(objMap, "noBreak"); ok {
 		if valNoBreak != nil {
 			var valueForNoBreak *bool
 			err = json.Unmarshal(*valNoBreak, &valueForNoBreak)
@@ -256,18 +209,8 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 			this.NoBreak = valueForNoBreak
 		}
 	}
-	if valNoBreakCap, ok := objMap["NoBreak"]; ok {
-		if valNoBreakCap != nil {
-			var valueForNoBreak *bool
-			err = json.Unmarshal(*valNoBreakCap, &valueForNoBreak)
-			if err != nil {
-				return err
-			}
-			this.NoBreak = valueForNoBreak
-		}
-	}
 	
-	if valDifferential, ok := objMap["differential"]; ok {
+	if valDifferential, ok := GetMapValue(objMap, "differential"); ok {
 		if valDifferential != nil {
 			var valueForDifferential *bool
 			err = json.Unmarshal(*valDifferential, &valueForDifferential)
@@ -277,18 +220,8 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 			this.Differential = valueForDifferential
 		}
 	}
-	if valDifferentialCap, ok := objMap["Differential"]; ok {
-		if valDifferentialCap != nil {
-			var valueForDifferential *bool
-			err = json.Unmarshal(*valDifferentialCap, &valueForDifferential)
-			if err != nil {
-				return err
-			}
-			this.Differential = valueForDifferential
-		}
-	}
 	
-	if valAlignmentPoint, ok := objMap["alignmentPoint"]; ok {
+	if valAlignmentPoint, ok := GetMapValue(objMap, "alignmentPoint"); ok {
 		if valAlignmentPoint != nil {
 			var valueForAlignmentPoint *bool
 			err = json.Unmarshal(*valAlignmentPoint, &valueForAlignmentPoint)
@@ -298,31 +231,11 @@ func (this *BoxElement) UnmarshalJSON(b []byte) error {
 			this.AlignmentPoint = valueForAlignmentPoint
 		}
 	}
-	if valAlignmentPointCap, ok := objMap["AlignmentPoint"]; ok {
-		if valAlignmentPointCap != nil {
-			var valueForAlignmentPoint *bool
-			err = json.Unmarshal(*valAlignmentPointCap, &valueForAlignmentPoint)
-			if err != nil {
-				return err
-			}
-			this.AlignmentPoint = valueForAlignmentPoint
-		}
-	}
 	
-	if valExplicitBreak, ok := objMap["explicitBreak"]; ok {
+	if valExplicitBreak, ok := GetMapValue(objMap, "explicitBreak"); ok {
 		if valExplicitBreak != nil {
 			var valueForExplicitBreak int32
 			err = json.Unmarshal(*valExplicitBreak, &valueForExplicitBreak)
-			if err != nil {
-				return err
-			}
-			this.ExplicitBreak = valueForExplicitBreak
-		}
-	}
-	if valExplicitBreakCap, ok := objMap["ExplicitBreak"]; ok {
-		if valExplicitBreakCap != nil {
-			var valueForExplicitBreak int32
-			err = json.Unmarshal(*valExplicitBreakCap, &valueForExplicitBreak)
 			if err != nil {
 				return err
 			}

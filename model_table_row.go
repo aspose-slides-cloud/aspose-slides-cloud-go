@@ -92,7 +92,7 @@ func (this *TableRow) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valCells, ok := objMap["cells"]; ok {
+	if valCells, ok := GetMapValue(objMap, "cells"); ok {
 		if valCells != nil {
 			var valueForCells []json.RawMessage
 			err = json.Unmarshal(*valCells, &valueForCells)
@@ -116,32 +116,8 @@ func (this *TableRow) UnmarshalJSON(b []byte) error {
 			this.Cells = valueForICells
 		}
 	}
-	if valCellsCap, ok := objMap["Cells"]; ok {
-		if valCellsCap != nil {
-			var valueForCells []json.RawMessage
-			err = json.Unmarshal(*valCellsCap, &valueForCells)
-			if err != nil {
-				return err
-			}
-			valueForICells := make([]ITableCell, len(valueForCells))
-			for i, v := range valueForCells {
-				vObject, err := createObjectForType("TableCell", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForICells[i] = vObject.(ITableCell)
-				}
-			}
-			this.Cells = valueForICells
-		}
-	}
 	
-	if valMinimalHeight, ok := objMap["minimalHeight"]; ok {
+	if valMinimalHeight, ok := GetMapValue(objMap, "minimalHeight"); ok {
 		if valMinimalHeight != nil {
 			var valueForMinimalHeight float64
 			err = json.Unmarshal(*valMinimalHeight, &valueForMinimalHeight)
@@ -151,31 +127,11 @@ func (this *TableRow) UnmarshalJSON(b []byte) error {
 			this.MinimalHeight = valueForMinimalHeight
 		}
 	}
-	if valMinimalHeightCap, ok := objMap["MinimalHeight"]; ok {
-		if valMinimalHeightCap != nil {
-			var valueForMinimalHeight float64
-			err = json.Unmarshal(*valMinimalHeightCap, &valueForMinimalHeight)
-			if err != nil {
-				return err
-			}
-			this.MinimalHeight = valueForMinimalHeight
-		}
-	}
 	
-	if valHeight, ok := objMap["height"]; ok {
+	if valHeight, ok := GetMapValue(objMap, "height"); ok {
 		if valHeight != nil {
 			var valueForHeight float64
 			err = json.Unmarshal(*valHeight, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight float64
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
 			if err != nil {
 				return err
 			}

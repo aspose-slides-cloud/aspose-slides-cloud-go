@@ -93,7 +93,7 @@ func (this *DuotoneEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Duotone"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,24 +109,8 @@ func (this *DuotoneEffect) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valColor1, ok := objMap["color1"]; ok {
+	if valColor1, ok := GetMapValue(objMap, "color1"); ok {
 		if valColor1 != nil {
 			var valueForColor1 string
 			err = json.Unmarshal(*valColor1, &valueForColor1)
@@ -136,31 +120,11 @@ func (this *DuotoneEffect) UnmarshalJSON(b []byte) error {
 			this.Color1 = valueForColor1
 		}
 	}
-	if valColor1Cap, ok := objMap["Color1"]; ok {
-		if valColor1Cap != nil {
-			var valueForColor1 string
-			err = json.Unmarshal(*valColor1Cap, &valueForColor1)
-			if err != nil {
-				return err
-			}
-			this.Color1 = valueForColor1
-		}
-	}
 	
-	if valColor2, ok := objMap["color2"]; ok {
+	if valColor2, ok := GetMapValue(objMap, "color2"); ok {
 		if valColor2 != nil {
 			var valueForColor2 string
 			err = json.Unmarshal(*valColor2, &valueForColor2)
-			if err != nil {
-				return err
-			}
-			this.Color2 = valueForColor2
-		}
-	}
-	if valColor2Cap, ok := objMap["Color2"]; ok {
-		if valColor2Cap != nil {
-			var valueForColor2 string
-			err = json.Unmarshal(*valColor2Cap, &valueForColor2)
 			if err != nil {
 				return err
 			}

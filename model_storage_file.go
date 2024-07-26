@@ -121,7 +121,7 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valName, ok := objMap["name"]; ok {
+	if valName, ok := GetMapValue(objMap, "name"); ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -131,18 +131,8 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-	if valNameCap, ok := objMap["Name"]; ok {
-		if valNameCap != nil {
-			var valueForName string
-			err = json.Unmarshal(*valNameCap, &valueForName)
-			if err != nil {
-				return err
-			}
-			this.Name = valueForName
-		}
-	}
 	
-	if valIsFolder, ok := objMap["isFolder"]; ok {
+	if valIsFolder, ok := GetMapValue(objMap, "isFolder"); ok {
 		if valIsFolder != nil {
 			var valueForIsFolder *bool
 			err = json.Unmarshal(*valIsFolder, &valueForIsFolder)
@@ -152,18 +142,8 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 			this.IsFolder = valueForIsFolder
 		}
 	}
-	if valIsFolderCap, ok := objMap["IsFolder"]; ok {
-		if valIsFolderCap != nil {
-			var valueForIsFolder *bool
-			err = json.Unmarshal(*valIsFolderCap, &valueForIsFolder)
-			if err != nil {
-				return err
-			}
-			this.IsFolder = valueForIsFolder
-		}
-	}
 	
-	if valModifiedDate, ok := objMap["modifiedDate"]; ok {
+	if valModifiedDate, ok := GetMapValue(objMap, "modifiedDate"); ok {
 		if valModifiedDate != nil {
 			var valueForModifiedDate time.Time
 			valueForModifiedDate, err = time.Parse("2006-01-02T21:36:33", string(*valModifiedDate))
@@ -172,17 +152,8 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valModifiedDateCap, ok := objMap["ModifiedDate"]; ok {
-		if valModifiedDateCap != nil {
-			var valueForModifiedDate time.Time
-			valueForModifiedDate, err = time.Parse("2006-01-02T21:36:33", string(*valModifiedDateCap))
-			if err == nil {
-				this.ModifiedDate = valueForModifiedDate
-			}
-		}
-	}
 	
-	if valSize, ok := objMap["size"]; ok {
+	if valSize, ok := GetMapValue(objMap, "size"); ok {
 		if valSize != nil {
 			var valueForSize int64
 			err = json.Unmarshal(*valSize, &valueForSize)
@@ -192,31 +163,11 @@ func (this *StorageFile) UnmarshalJSON(b []byte) error {
 			this.Size = valueForSize
 		}
 	}
-	if valSizeCap, ok := objMap["Size"]; ok {
-		if valSizeCap != nil {
-			var valueForSize int64
-			err = json.Unmarshal(*valSizeCap, &valueForSize)
-			if err != nil {
-				return err
-			}
-			this.Size = valueForSize
-		}
-	}
 	
-	if valPath, ok := objMap["path"]; ok {
+	if valPath, ok := GetMapValue(objMap, "path"); ok {
 		if valPath != nil {
 			var valueForPath string
 			err = json.Unmarshal(*valPath, &valueForPath)
-			if err != nil {
-				return err
-			}
-			this.Path = valueForPath
-		}
-	}
-	if valPathCap, ok := objMap["Path"]; ok {
-		if valPathCap != nil {
-			var valueForPath string
-			err = json.Unmarshal(*valPathCap, &valueForPath)
 			if err != nil {
 				return err
 			}

@@ -78,7 +78,7 @@ func (this *Pipeline) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valInput, ok := objMap["input"]; ok {
+	if valInput, ok := GetMapValue(objMap, "input"); ok {
 		if valInput != nil {
 			var valueForInput Input
 			err = json.Unmarshal(*valInput, &valueForInput)
@@ -99,56 +99,11 @@ func (this *Pipeline) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valInputCap, ok := objMap["Input"]; ok {
-		if valInputCap != nil {
-			var valueForInput Input
-			err = json.Unmarshal(*valInputCap, &valueForInput)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("Input", *valInputCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valInputCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IInput)
-			if ok {
-				this.Input = vInterfaceObject
-			}
-		}
-	}
 	
-	if valTasks, ok := objMap["tasks"]; ok {
+	if valTasks, ok := GetMapValue(objMap, "tasks"); ok {
 		if valTasks != nil {
 			var valueForTasks []json.RawMessage
 			err = json.Unmarshal(*valTasks, &valueForTasks)
-			if err != nil {
-				return err
-			}
-			valueForITasks := make([]ITask, len(valueForTasks))
-			for i, v := range valueForTasks {
-				vObject, err := createObjectForType("Task", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForITasks[i] = vObject.(ITask)
-				}
-			}
-			this.Tasks = valueForITasks
-		}
-	}
-	if valTasksCap, ok := objMap["Tasks"]; ok {
-		if valTasksCap != nil {
-			var valueForTasks []json.RawMessage
-			err = json.Unmarshal(*valTasksCap, &valueForTasks)
 			if err != nil {
 				return err
 			}

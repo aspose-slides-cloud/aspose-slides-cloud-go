@@ -601,3 +601,44 @@ func TestConvertWithSlideLayoutOptions(t *testing.T) {
 		return
 	}
 }
+
+func TestConvertWithCustomHtml5Templates(t *testing.T) {
+	templatesPath := "Html5Templates"
+	templateFileName := "pictureFrame.html"
+	c := slidescloud.GetTestSlidesApiClient()
+	_, e := c.SlidesApi.CreateFolder(templatesPath, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile("TempTests/"+templateFileName, templatesPath+"/"+templateFileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	exportOptions := slidescloud.NewHtml5ExportOptions()
+	exportOptions.SetTemplatesPath(templatesPath)
+	animateTransitions := true
+	exportOptions.SetAnimateTransitions(&animateTransitions)
+	_, _, e = c.SlidesApi.DownloadPresentation(fileName, "html5", exportOptions, "password", folderName, "", "", nil)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+
+func TestGetHtml5Templates(t *testing.T) {
+	c := slidescloud.GetTestSlidesApiClient()
+	_, _, e := c.SlidesApi.GetHtml5Templates()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+

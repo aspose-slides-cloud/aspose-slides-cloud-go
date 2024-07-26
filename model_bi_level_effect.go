@@ -79,7 +79,7 @@ func (this *BiLevelEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "BiLevel"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -95,37 +95,11 @@ func (this *BiLevelEffect) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valThreshold, ok := objMap["threshold"]; ok {
+	if valThreshold, ok := GetMapValue(objMap, "threshold"); ok {
 		if valThreshold != nil {
 			var valueForThreshold float64
 			err = json.Unmarshal(*valThreshold, &valueForThreshold)
-			if err != nil {
-				return err
-			}
-			this.Threshold = valueForThreshold
-		}
-	}
-	if valThresholdCap, ok := objMap["Threshold"]; ok {
-		if valThresholdCap != nil {
-			var valueForThreshold float64
-			err = json.Unmarshal(*valThresholdCap, &valueForThreshold)
 			if err != nil {
 				return err
 			}

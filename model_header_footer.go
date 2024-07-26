@@ -148,7 +148,7 @@ func (this *HeaderFooter) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["selfUri"]; ok {
+	if valSelfUri, ok := GetMapValue(objMap, "selfUri"); ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -169,29 +169,8 @@ func (this *HeaderFooter) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
-		if valSelfUriCap != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
-		}
-	}
 	
-	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
+	if valAlternateLinks, ok := GetMapValue(objMap, "alternateLinks"); ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -215,32 +194,8 @@ func (this *HeaderFooter) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
-	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
-		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
-			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
-			}
-			this.AlternateLinks = valueForIAlternateLinks
-		}
-	}
 	
-	if valIsDateTimeVisible, ok := objMap["isDateTimeVisible"]; ok {
+	if valIsDateTimeVisible, ok := GetMapValue(objMap, "isDateTimeVisible"); ok {
 		if valIsDateTimeVisible != nil {
 			var valueForIsDateTimeVisible *bool
 			err = json.Unmarshal(*valIsDateTimeVisible, &valueForIsDateTimeVisible)
@@ -250,18 +205,8 @@ func (this *HeaderFooter) UnmarshalJSON(b []byte) error {
 			this.IsDateTimeVisible = valueForIsDateTimeVisible
 		}
 	}
-	if valIsDateTimeVisibleCap, ok := objMap["IsDateTimeVisible"]; ok {
-		if valIsDateTimeVisibleCap != nil {
-			var valueForIsDateTimeVisible *bool
-			err = json.Unmarshal(*valIsDateTimeVisibleCap, &valueForIsDateTimeVisible)
-			if err != nil {
-				return err
-			}
-			this.IsDateTimeVisible = valueForIsDateTimeVisible
-		}
-	}
 	
-	if valDateTimeText, ok := objMap["dateTimeText"]; ok {
+	if valDateTimeText, ok := GetMapValue(objMap, "dateTimeText"); ok {
 		if valDateTimeText != nil {
 			var valueForDateTimeText string
 			err = json.Unmarshal(*valDateTimeText, &valueForDateTimeText)
@@ -271,18 +216,8 @@ func (this *HeaderFooter) UnmarshalJSON(b []byte) error {
 			this.DateTimeText = valueForDateTimeText
 		}
 	}
-	if valDateTimeTextCap, ok := objMap["DateTimeText"]; ok {
-		if valDateTimeTextCap != nil {
-			var valueForDateTimeText string
-			err = json.Unmarshal(*valDateTimeTextCap, &valueForDateTimeText)
-			if err != nil {
-				return err
-			}
-			this.DateTimeText = valueForDateTimeText
-		}
-	}
 	
-	if valIsFooterVisible, ok := objMap["isFooterVisible"]; ok {
+	if valIsFooterVisible, ok := GetMapValue(objMap, "isFooterVisible"); ok {
 		if valIsFooterVisible != nil {
 			var valueForIsFooterVisible *bool
 			err = json.Unmarshal(*valIsFooterVisible, &valueForIsFooterVisible)
@@ -292,18 +227,8 @@ func (this *HeaderFooter) UnmarshalJSON(b []byte) error {
 			this.IsFooterVisible = valueForIsFooterVisible
 		}
 	}
-	if valIsFooterVisibleCap, ok := objMap["IsFooterVisible"]; ok {
-		if valIsFooterVisibleCap != nil {
-			var valueForIsFooterVisible *bool
-			err = json.Unmarshal(*valIsFooterVisibleCap, &valueForIsFooterVisible)
-			if err != nil {
-				return err
-			}
-			this.IsFooterVisible = valueForIsFooterVisible
-		}
-	}
 	
-	if valFooterText, ok := objMap["footerText"]; ok {
+	if valFooterText, ok := GetMapValue(objMap, "footerText"); ok {
 		if valFooterText != nil {
 			var valueForFooterText string
 			err = json.Unmarshal(*valFooterText, &valueForFooterText)
@@ -313,31 +238,11 @@ func (this *HeaderFooter) UnmarshalJSON(b []byte) error {
 			this.FooterText = valueForFooterText
 		}
 	}
-	if valFooterTextCap, ok := objMap["FooterText"]; ok {
-		if valFooterTextCap != nil {
-			var valueForFooterText string
-			err = json.Unmarshal(*valFooterTextCap, &valueForFooterText)
-			if err != nil {
-				return err
-			}
-			this.FooterText = valueForFooterText
-		}
-	}
 	
-	if valIsSlideNumberVisible, ok := objMap["isSlideNumberVisible"]; ok {
+	if valIsSlideNumberVisible, ok := GetMapValue(objMap, "isSlideNumberVisible"); ok {
 		if valIsSlideNumberVisible != nil {
 			var valueForIsSlideNumberVisible *bool
 			err = json.Unmarshal(*valIsSlideNumberVisible, &valueForIsSlideNumberVisible)
-			if err != nil {
-				return err
-			}
-			this.IsSlideNumberVisible = valueForIsSlideNumberVisible
-		}
-	}
-	if valIsSlideNumberVisibleCap, ok := objMap["IsSlideNumberVisible"]; ok {
-		if valIsSlideNumberVisibleCap != nil {
-			var valueForIsSlideNumberVisible *bool
-			err = json.Unmarshal(*valIsSlideNumberVisibleCap, &valueForIsSlideNumberVisible)
 			if err != nil {
 				return err
 			}

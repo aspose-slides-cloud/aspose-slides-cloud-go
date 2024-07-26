@@ -92,7 +92,7 @@ func (this *FontFallbackRule) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valRangeStartIndex, ok := objMap["rangeStartIndex"]; ok {
+	if valRangeStartIndex, ok := GetMapValue(objMap, "rangeStartIndex"); ok {
 		if valRangeStartIndex != nil {
 			var valueForRangeStartIndex int32
 			err = json.Unmarshal(*valRangeStartIndex, &valueForRangeStartIndex)
@@ -102,18 +102,8 @@ func (this *FontFallbackRule) UnmarshalJSON(b []byte) error {
 			this.RangeStartIndex = valueForRangeStartIndex
 		}
 	}
-	if valRangeStartIndexCap, ok := objMap["RangeStartIndex"]; ok {
-		if valRangeStartIndexCap != nil {
-			var valueForRangeStartIndex int32
-			err = json.Unmarshal(*valRangeStartIndexCap, &valueForRangeStartIndex)
-			if err != nil {
-				return err
-			}
-			this.RangeStartIndex = valueForRangeStartIndex
-		}
-	}
 	
-	if valRangeEndIndex, ok := objMap["rangeEndIndex"]; ok {
+	if valRangeEndIndex, ok := GetMapValue(objMap, "rangeEndIndex"); ok {
 		if valRangeEndIndex != nil {
 			var valueForRangeEndIndex int32
 			err = json.Unmarshal(*valRangeEndIndex, &valueForRangeEndIndex)
@@ -123,31 +113,11 @@ func (this *FontFallbackRule) UnmarshalJSON(b []byte) error {
 			this.RangeEndIndex = valueForRangeEndIndex
 		}
 	}
-	if valRangeEndIndexCap, ok := objMap["RangeEndIndex"]; ok {
-		if valRangeEndIndexCap != nil {
-			var valueForRangeEndIndex int32
-			err = json.Unmarshal(*valRangeEndIndexCap, &valueForRangeEndIndex)
-			if err != nil {
-				return err
-			}
-			this.RangeEndIndex = valueForRangeEndIndex
-		}
-	}
 	
-	if valFallbackFontList, ok := objMap["fallbackFontList"]; ok {
+	if valFallbackFontList, ok := GetMapValue(objMap, "fallbackFontList"); ok {
 		if valFallbackFontList != nil {
 			var valueForFallbackFontList []string
 			err = json.Unmarshal(*valFallbackFontList, &valueForFallbackFontList)
-			if err != nil {
-				return err
-			}
-			this.FallbackFontList = valueForFallbackFontList
-		}
-	}
-	if valFallbackFontListCap, ok := objMap["FallbackFontList"]; ok {
-		if valFallbackFontListCap != nil {
-			var valueForFallbackFontList []string
-			err = json.Unmarshal(*valFallbackFontListCap, &valueForFallbackFontList)
 			if err != nil {
 				return err
 			}

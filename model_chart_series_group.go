@@ -246,7 +246,7 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -262,24 +262,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valGapWidth, ok := objMap["gapWidth"]; ok {
+	if valGapWidth, ok := GetMapValue(objMap, "gapWidth"); ok {
 		if valGapWidth != nil {
 			var valueForGapWidth int32
 			err = json.Unmarshal(*valGapWidth, &valueForGapWidth)
@@ -289,18 +273,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			this.GapWidth = valueForGapWidth
 		}
 	}
-	if valGapWidthCap, ok := objMap["GapWidth"]; ok {
-		if valGapWidthCap != nil {
-			var valueForGapWidth int32
-			err = json.Unmarshal(*valGapWidthCap, &valueForGapWidth)
-			if err != nil {
-				return err
-			}
-			this.GapWidth = valueForGapWidth
-		}
-	}
 	
-	if valGapDepth, ok := objMap["gapDepth"]; ok {
+	if valGapDepth, ok := GetMapValue(objMap, "gapDepth"); ok {
 		if valGapDepth != nil {
 			var valueForGapDepth int32
 			err = json.Unmarshal(*valGapDepth, &valueForGapDepth)
@@ -310,18 +284,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			this.GapDepth = valueForGapDepth
 		}
 	}
-	if valGapDepthCap, ok := objMap["GapDepth"]; ok {
-		if valGapDepthCap != nil {
-			var valueForGapDepth int32
-			err = json.Unmarshal(*valGapDepthCap, &valueForGapDepth)
-			if err != nil {
-				return err
-			}
-			this.GapDepth = valueForGapDepth
-		}
-	}
 	
-	if valFirstSliceAngle, ok := objMap["firstSliceAngle"]; ok {
+	if valFirstSliceAngle, ok := GetMapValue(objMap, "firstSliceAngle"); ok {
 		if valFirstSliceAngle != nil {
 			var valueForFirstSliceAngle int32
 			err = json.Unmarshal(*valFirstSliceAngle, &valueForFirstSliceAngle)
@@ -331,18 +295,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			this.FirstSliceAngle = valueForFirstSliceAngle
 		}
 	}
-	if valFirstSliceAngleCap, ok := objMap["FirstSliceAngle"]; ok {
-		if valFirstSliceAngleCap != nil {
-			var valueForFirstSliceAngle int32
-			err = json.Unmarshal(*valFirstSliceAngleCap, &valueForFirstSliceAngle)
-			if err != nil {
-				return err
-			}
-			this.FirstSliceAngle = valueForFirstSliceAngle
-		}
-	}
 	
-	if valIsColorVaried, ok := objMap["isColorVaried"]; ok {
+	if valIsColorVaried, ok := GetMapValue(objMap, "isColorVaried"); ok {
 		if valIsColorVaried != nil {
 			var valueForIsColorVaried *bool
 			err = json.Unmarshal(*valIsColorVaried, &valueForIsColorVaried)
@@ -352,18 +306,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			this.IsColorVaried = valueForIsColorVaried
 		}
 	}
-	if valIsColorVariedCap, ok := objMap["IsColorVaried"]; ok {
-		if valIsColorVariedCap != nil {
-			var valueForIsColorVaried *bool
-			err = json.Unmarshal(*valIsColorVariedCap, &valueForIsColorVaried)
-			if err != nil {
-				return err
-			}
-			this.IsColorVaried = valueForIsColorVaried
-		}
-	}
 	
-	if valHasSeriesLines, ok := objMap["hasSeriesLines"]; ok {
+	if valHasSeriesLines, ok := GetMapValue(objMap, "hasSeriesLines"); ok {
 		if valHasSeriesLines != nil {
 			var valueForHasSeriesLines *bool
 			err = json.Unmarshal(*valHasSeriesLines, &valueForHasSeriesLines)
@@ -373,18 +317,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			this.HasSeriesLines = valueForHasSeriesLines
 		}
 	}
-	if valHasSeriesLinesCap, ok := objMap["HasSeriesLines"]; ok {
-		if valHasSeriesLinesCap != nil {
-			var valueForHasSeriesLines *bool
-			err = json.Unmarshal(*valHasSeriesLinesCap, &valueForHasSeriesLines)
-			if err != nil {
-				return err
-			}
-			this.HasSeriesLines = valueForHasSeriesLines
-		}
-	}
 	
-	if valOverlap, ok := objMap["overlap"]; ok {
+	if valOverlap, ok := GetMapValue(objMap, "overlap"); ok {
 		if valOverlap != nil {
 			var valueForOverlap int32
 			err = json.Unmarshal(*valOverlap, &valueForOverlap)
@@ -394,18 +328,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			this.Overlap = valueForOverlap
 		}
 	}
-	if valOverlapCap, ok := objMap["Overlap"]; ok {
-		if valOverlapCap != nil {
-			var valueForOverlap int32
-			err = json.Unmarshal(*valOverlapCap, &valueForOverlap)
-			if err != nil {
-				return err
-			}
-			this.Overlap = valueForOverlap
-		}
-	}
 	
-	if valSecondPieSize, ok := objMap["secondPieSize"]; ok {
+	if valSecondPieSize, ok := GetMapValue(objMap, "secondPieSize"); ok {
 		if valSecondPieSize != nil {
 			var valueForSecondPieSize int32
 			err = json.Unmarshal(*valSecondPieSize, &valueForSecondPieSize)
@@ -415,18 +339,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			this.SecondPieSize = valueForSecondPieSize
 		}
 	}
-	if valSecondPieSizeCap, ok := objMap["SecondPieSize"]; ok {
-		if valSecondPieSizeCap != nil {
-			var valueForSecondPieSize int32
-			err = json.Unmarshal(*valSecondPieSizeCap, &valueForSecondPieSize)
-			if err != nil {
-				return err
-			}
-			this.SecondPieSize = valueForSecondPieSize
-		}
-	}
 	
-	if valPieSplitPosition, ok := objMap["pieSplitPosition"]; ok {
+	if valPieSplitPosition, ok := GetMapValue(objMap, "pieSplitPosition"); ok {
 		if valPieSplitPosition != nil {
 			var valueForPieSplitPosition float64
 			err = json.Unmarshal(*valPieSplitPosition, &valueForPieSplitPosition)
@@ -436,18 +350,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			this.PieSplitPosition = valueForPieSplitPosition
 		}
 	}
-	if valPieSplitPositionCap, ok := objMap["PieSplitPosition"]; ok {
-		if valPieSplitPositionCap != nil {
-			var valueForPieSplitPosition float64
-			err = json.Unmarshal(*valPieSplitPositionCap, &valueForPieSplitPosition)
-			if err != nil {
-				return err
-			}
-			this.PieSplitPosition = valueForPieSplitPosition
-		}
-	}
 	
-	if valPieSplitBy, ok := objMap["pieSplitBy"]; ok {
+	if valPieSplitBy, ok := GetMapValue(objMap, "pieSplitBy"); ok {
 		if valPieSplitBy != nil {
 			var valueForPieSplitBy string
 			err = json.Unmarshal(*valPieSplitBy, &valueForPieSplitBy)
@@ -463,24 +367,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valPieSplitByCap, ok := objMap["PieSplitBy"]; ok {
-		if valPieSplitByCap != nil {
-			var valueForPieSplitBy string
-			err = json.Unmarshal(*valPieSplitByCap, &valueForPieSplitBy)
-			if err != nil {
-				var valueForPieSplitByInt int32
-				err = json.Unmarshal(*valPieSplitByCap, &valueForPieSplitByInt)
-				if err != nil {
-					return err
-				}
-				this.PieSplitBy = string(valueForPieSplitByInt)
-			} else {
-				this.PieSplitBy = valueForPieSplitBy
-			}
-		}
-	}
 	
-	if valDoughnutHoleSize, ok := objMap["doughnutHoleSize"]; ok {
+	if valDoughnutHoleSize, ok := GetMapValue(objMap, "doughnutHoleSize"); ok {
 		if valDoughnutHoleSize != nil {
 			var valueForDoughnutHoleSize int32
 			err = json.Unmarshal(*valDoughnutHoleSize, &valueForDoughnutHoleSize)
@@ -490,18 +378,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			this.DoughnutHoleSize = valueForDoughnutHoleSize
 		}
 	}
-	if valDoughnutHoleSizeCap, ok := objMap["DoughnutHoleSize"]; ok {
-		if valDoughnutHoleSizeCap != nil {
-			var valueForDoughnutHoleSize int32
-			err = json.Unmarshal(*valDoughnutHoleSizeCap, &valueForDoughnutHoleSize)
-			if err != nil {
-				return err
-			}
-			this.DoughnutHoleSize = valueForDoughnutHoleSize
-		}
-	}
 	
-	if valBubbleSizeScale, ok := objMap["bubbleSizeScale"]; ok {
+	if valBubbleSizeScale, ok := GetMapValue(objMap, "bubbleSizeScale"); ok {
 		if valBubbleSizeScale != nil {
 			var valueForBubbleSizeScale int32
 			err = json.Unmarshal(*valBubbleSizeScale, &valueForBubbleSizeScale)
@@ -511,18 +389,8 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			this.BubbleSizeScale = valueForBubbleSizeScale
 		}
 	}
-	if valBubbleSizeScaleCap, ok := objMap["BubbleSizeScale"]; ok {
-		if valBubbleSizeScaleCap != nil {
-			var valueForBubbleSizeScale int32
-			err = json.Unmarshal(*valBubbleSizeScaleCap, &valueForBubbleSizeScale)
-			if err != nil {
-				return err
-			}
-			this.BubbleSizeScale = valueForBubbleSizeScale
-		}
-	}
 	
-	if valHiLowLinesFormat, ok := objMap["hiLowLinesFormat"]; ok {
+	if valHiLowLinesFormat, ok := GetMapValue(objMap, "hiLowLinesFormat"); ok {
 		if valHiLowLinesFormat != nil {
 			var valueForHiLowLinesFormat ChartLinesFormat
 			err = json.Unmarshal(*valHiLowLinesFormat, &valueForHiLowLinesFormat)
@@ -543,51 +411,14 @@ func (this *ChartSeriesGroup) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valHiLowLinesFormatCap, ok := objMap["HiLowLinesFormat"]; ok {
-		if valHiLowLinesFormatCap != nil {
-			var valueForHiLowLinesFormat ChartLinesFormat
-			err = json.Unmarshal(*valHiLowLinesFormatCap, &valueForHiLowLinesFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ChartLinesFormat", *valHiLowLinesFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valHiLowLinesFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IChartLinesFormat)
-			if ok {
-				this.HiLowLinesFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valBubbleSizeRepresentation, ok := objMap["bubbleSizeRepresentation"]; ok {
+	if valBubbleSizeRepresentation, ok := GetMapValue(objMap, "bubbleSizeRepresentation"); ok {
 		if valBubbleSizeRepresentation != nil {
 			var valueForBubbleSizeRepresentation string
 			err = json.Unmarshal(*valBubbleSizeRepresentation, &valueForBubbleSizeRepresentation)
 			if err != nil {
 				var valueForBubbleSizeRepresentationInt int32
 				err = json.Unmarshal(*valBubbleSizeRepresentation, &valueForBubbleSizeRepresentationInt)
-				if err != nil {
-					return err
-				}
-				this.BubbleSizeRepresentation = string(valueForBubbleSizeRepresentationInt)
-			} else {
-				this.BubbleSizeRepresentation = valueForBubbleSizeRepresentation
-			}
-		}
-	}
-	if valBubbleSizeRepresentationCap, ok := objMap["BubbleSizeRepresentation"]; ok {
-		if valBubbleSizeRepresentationCap != nil {
-			var valueForBubbleSizeRepresentation string
-			err = json.Unmarshal(*valBubbleSizeRepresentationCap, &valueForBubbleSizeRepresentation)
-			if err != nil {
-				var valueForBubbleSizeRepresentationInt int32
-				err = json.Unmarshal(*valBubbleSizeRepresentationCap, &valueForBubbleSizeRepresentationInt)
 				if err != nil {
 					return err
 				}

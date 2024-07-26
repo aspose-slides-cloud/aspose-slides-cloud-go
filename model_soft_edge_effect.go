@@ -64,20 +64,10 @@ func (this *SoftEdgeEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valRadius, ok := objMap["radius"]; ok {
+	if valRadius, ok := GetMapValue(objMap, "radius"); ok {
 		if valRadius != nil {
 			var valueForRadius float64
 			err = json.Unmarshal(*valRadius, &valueForRadius)
-			if err != nil {
-				return err
-			}
-			this.Radius = valueForRadius
-		}
-	}
-	if valRadiusCap, ok := objMap["Radius"]; ok {
-		if valRadiusCap != nil {
-			var valueForRadius float64
-			err = json.Unmarshal(*valRadiusCap, &valueForRadius)
 			if err != nil {
 				return err
 			}

@@ -93,7 +93,7 @@ func (this *AccentElement) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Accent"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,24 +109,8 @@ func (this *AccentElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valBase, ok := objMap["base"]; ok {
+	if valBase, ok := GetMapValue(objMap, "base"); ok {
 		if valBase != nil {
 			var valueForBase MathElement
 			err = json.Unmarshal(*valBase, &valueForBase)
@@ -147,42 +131,11 @@ func (this *AccentElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBaseCap, ok := objMap["Base"]; ok {
-		if valBaseCap != nil {
-			var valueForBase MathElement
-			err = json.Unmarshal(*valBaseCap, &valueForBase)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valBaseCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBaseCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Base = vInterfaceObject
-			}
-		}
-	}
 	
-	if valCharacter, ok := objMap["character"]; ok {
+	if valCharacter, ok := GetMapValue(objMap, "character"); ok {
 		if valCharacter != nil {
 			var valueForCharacter string
 			err = json.Unmarshal(*valCharacter, &valueForCharacter)
-			if err != nil {
-				return err
-			}
-			this.Character = valueForCharacter
-		}
-	}
-	if valCharacterCap, ok := objMap["Character"]; ok {
-		if valCharacterCap != nil {
-			var valueForCharacter string
-			err = json.Unmarshal(*valCharacterCap, &valueForCharacter)
 			if err != nil {
 				return err
 			}

@@ -37,6 +37,10 @@ type IVideoExportOptions interface {
 	GetDefaultRegularFont() string
 	SetDefaultRegularFont(newValue string)
 
+	// Default regular font for rendering the presentation. 
+	GetGradientStyle() string
+	SetGradientStyle(newValue string)
+
 	// Gets of sets list of font fallback rules.
 	GetFontFallbackRules() []IFontFallbackRule
 	SetFontFallbackRules(newValue []IFontFallbackRule)
@@ -71,6 +75,9 @@ type VideoExportOptions struct {
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
+	// Default regular font for rendering the presentation. 
+	GradientStyle string `json:"GradientStyle,omitempty"`
+
 	// Gets of sets list of font fallback rules.
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
 
@@ -104,6 +111,13 @@ func (this *VideoExportOptions) GetDefaultRegularFont() string {
 
 func (this *VideoExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *VideoExportOptions) GetGradientStyle() string {
+	return this.GradientStyle
+}
+
+func (this *VideoExportOptions) SetGradientStyle(newValue string) {
+	this.GradientStyle = newValue
 }
 func (this *VideoExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
@@ -162,7 +176,7 @@ func (this *VideoExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valDefaultRegularFont, ok := objMap["defaultRegularFont"]; ok {
+	if valDefaultRegularFont, ok := GetMapValue(objMap, "defaultRegularFont"); ok {
 		if valDefaultRegularFont != nil {
 			var valueForDefaultRegularFont string
 			err = json.Unmarshal(*valDefaultRegularFont, &valueForDefaultRegularFont)
@@ -172,18 +186,25 @@ func (this *VideoExportOptions) UnmarshalJSON(b []byte) error {
 			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
-	if valDefaultRegularFontCap, ok := objMap["DefaultRegularFont"]; ok {
-		if valDefaultRegularFontCap != nil {
-			var valueForDefaultRegularFont string
-			err = json.Unmarshal(*valDefaultRegularFontCap, &valueForDefaultRegularFont)
+	
+	if valGradientStyle, ok := GetMapValue(objMap, "gradientStyle"); ok {
+		if valGradientStyle != nil {
+			var valueForGradientStyle string
+			err = json.Unmarshal(*valGradientStyle, &valueForGradientStyle)
 			if err != nil {
-				return err
+				var valueForGradientStyleInt int32
+				err = json.Unmarshal(*valGradientStyle, &valueForGradientStyleInt)
+				if err != nil {
+					return err
+				}
+				this.GradientStyle = string(valueForGradientStyleInt)
+			} else {
+				this.GradientStyle = valueForGradientStyle
 			}
-			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
 	
-	if valFontFallbackRules, ok := objMap["fontFallbackRules"]; ok {
+	if valFontFallbackRules, ok := GetMapValue(objMap, "fontFallbackRules"); ok {
 		if valFontFallbackRules != nil {
 			var valueForFontFallbackRules []json.RawMessage
 			err = json.Unmarshal(*valFontFallbackRules, &valueForFontFallbackRules)
@@ -207,32 +228,8 @@ func (this *VideoExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontFallbackRules = valueForIFontFallbackRules
 		}
 	}
-	if valFontFallbackRulesCap, ok := objMap["FontFallbackRules"]; ok {
-		if valFontFallbackRulesCap != nil {
-			var valueForFontFallbackRules []json.RawMessage
-			err = json.Unmarshal(*valFontFallbackRulesCap, &valueForFontFallbackRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontFallbackRules := make([]IFontFallbackRule, len(valueForFontFallbackRules))
-			for i, v := range valueForFontFallbackRules {
-				vObject, err := createObjectForType("FontFallbackRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontFallbackRules[i] = vObject.(IFontFallbackRule)
-				}
-			}
-			this.FontFallbackRules = valueForIFontFallbackRules
-		}
-	}
 	
-	if valFontSubstRules, ok := objMap["fontSubstRules"]; ok {
+	if valFontSubstRules, ok := GetMapValue(objMap, "fontSubstRules"); ok {
 		if valFontSubstRules != nil {
 			var valueForFontSubstRules []json.RawMessage
 			err = json.Unmarshal(*valFontSubstRules, &valueForFontSubstRules)
@@ -256,32 +253,8 @@ func (this *VideoExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontSubstRules = valueForIFontSubstRules
 		}
 	}
-	if valFontSubstRulesCap, ok := objMap["FontSubstRules"]; ok {
-		if valFontSubstRulesCap != nil {
-			var valueForFontSubstRules []json.RawMessage
-			err = json.Unmarshal(*valFontSubstRulesCap, &valueForFontSubstRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontSubstRules := make([]IFontSubstRule, len(valueForFontSubstRules))
-			for i, v := range valueForFontSubstRules {
-				vObject, err := createObjectForType("FontSubstRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontSubstRules[i] = vObject.(IFontSubstRule)
-				}
-			}
-			this.FontSubstRules = valueForIFontSubstRules
-		}
-	}
 	
-	if valFormat, ok := objMap["format"]; ok {
+	if valFormat, ok := GetMapValue(objMap, "format"); ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -291,18 +264,8 @@ func (this *VideoExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-	if valFormatCap, ok := objMap["Format"]; ok {
-		if valFormatCap != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormatCap, &valueForFormat)
-			if err != nil {
-				return err
-			}
-			this.Format = valueForFormat
-		}
-	}
 	
-	if valSlidesTransitionDuration, ok := objMap["slidesTransitionDuration"]; ok {
+	if valSlidesTransitionDuration, ok := GetMapValue(objMap, "slidesTransitionDuration"); ok {
 		if valSlidesTransitionDuration != nil {
 			var valueForSlidesTransitionDuration int32
 			err = json.Unmarshal(*valSlidesTransitionDuration, &valueForSlidesTransitionDuration)
@@ -312,18 +275,8 @@ func (this *VideoExportOptions) UnmarshalJSON(b []byte) error {
 			this.SlidesTransitionDuration = valueForSlidesTransitionDuration
 		}
 	}
-	if valSlidesTransitionDurationCap, ok := objMap["SlidesTransitionDuration"]; ok {
-		if valSlidesTransitionDurationCap != nil {
-			var valueForSlidesTransitionDuration int32
-			err = json.Unmarshal(*valSlidesTransitionDurationCap, &valueForSlidesTransitionDuration)
-			if err != nil {
-				return err
-			}
-			this.SlidesTransitionDuration = valueForSlidesTransitionDuration
-		}
-	}
 	
-	if valTransitionType, ok := objMap["transitionType"]; ok {
+	if valTransitionType, ok := GetMapValue(objMap, "transitionType"); ok {
 		if valTransitionType != nil {
 			var valueForTransitionType string
 			err = json.Unmarshal(*valTransitionType, &valueForTransitionType)
@@ -339,24 +292,8 @@ func (this *VideoExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTransitionTypeCap, ok := objMap["TransitionType"]; ok {
-		if valTransitionTypeCap != nil {
-			var valueForTransitionType string
-			err = json.Unmarshal(*valTransitionTypeCap, &valueForTransitionType)
-			if err != nil {
-				var valueForTransitionTypeInt int32
-				err = json.Unmarshal(*valTransitionTypeCap, &valueForTransitionTypeInt)
-				if err != nil {
-					return err
-				}
-				this.TransitionType = string(valueForTransitionTypeInt)
-			} else {
-				this.TransitionType = valueForTransitionType
-			}
-		}
-	}
 	
-	if valTransitionDuration, ok := objMap["transitionDuration"]; ok {
+	if valTransitionDuration, ok := GetMapValue(objMap, "transitionDuration"); ok {
 		if valTransitionDuration != nil {
 			var valueForTransitionDuration int32
 			err = json.Unmarshal(*valTransitionDuration, &valueForTransitionDuration)
@@ -366,40 +303,14 @@ func (this *VideoExportOptions) UnmarshalJSON(b []byte) error {
 			this.TransitionDuration = valueForTransitionDuration
 		}
 	}
-	if valTransitionDurationCap, ok := objMap["TransitionDuration"]; ok {
-		if valTransitionDurationCap != nil {
-			var valueForTransitionDuration int32
-			err = json.Unmarshal(*valTransitionDurationCap, &valueForTransitionDuration)
-			if err != nil {
-				return err
-			}
-			this.TransitionDuration = valueForTransitionDuration
-		}
-	}
 	
-	if valVideoResolutionType, ok := objMap["videoResolutionType"]; ok {
+	if valVideoResolutionType, ok := GetMapValue(objMap, "videoResolutionType"); ok {
 		if valVideoResolutionType != nil {
 			var valueForVideoResolutionType string
 			err = json.Unmarshal(*valVideoResolutionType, &valueForVideoResolutionType)
 			if err != nil {
 				var valueForVideoResolutionTypeInt int32
 				err = json.Unmarshal(*valVideoResolutionType, &valueForVideoResolutionTypeInt)
-				if err != nil {
-					return err
-				}
-				this.VideoResolutionType = string(valueForVideoResolutionTypeInt)
-			} else {
-				this.VideoResolutionType = valueForVideoResolutionType
-			}
-		}
-	}
-	if valVideoResolutionTypeCap, ok := objMap["VideoResolutionType"]; ok {
-		if valVideoResolutionTypeCap != nil {
-			var valueForVideoResolutionType string
-			err = json.Unmarshal(*valVideoResolutionTypeCap, &valueForVideoResolutionType)
-			if err != nil {
-				var valueForVideoResolutionTypeInt int32
-				err = json.Unmarshal(*valVideoResolutionTypeCap, &valueForVideoResolutionTypeInt)
 				if err != nil {
 					return err
 				}

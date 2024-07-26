@@ -37,6 +37,10 @@ type IHtml5ExportOptions interface {
 	GetDefaultRegularFont() string
 	SetDefaultRegularFont(newValue string)
 
+	// Default regular font for rendering the presentation. 
+	GetGradientStyle() string
+	SetGradientStyle(newValue string)
+
 	// Gets of sets list of font fallback rules.
 	GetFontFallbackRules() []IFontFallbackRule
 	SetFontFallbackRules(newValue []IFontFallbackRule)
@@ -64,12 +68,19 @@ type IHtml5ExportOptions interface {
 	// Slides layouting options
 	GetNotesCommentsLayouting() INotesCommentsLayoutingOptions
 	SetNotesCommentsLayouting(newValue INotesCommentsLayoutingOptions)
+
+	// Path to custom templates
+	GetTemplatesPath() string
+	SetTemplatesPath(newValue string)
 }
 
 type Html5ExportOptions struct {
 
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
+
+	// Default regular font for rendering the presentation. 
+	GradientStyle string `json:"GradientStyle,omitempty"`
 
 	// Gets of sets list of font fallback rules.
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
@@ -91,6 +102,9 @@ type Html5ExportOptions struct {
 
 	// Slides layouting options
 	NotesCommentsLayouting INotesCommentsLayoutingOptions `json:"NotesCommentsLayouting,omitempty"`
+
+	// Path to custom templates
+	TemplatesPath string `json:"TemplatesPath,omitempty"`
 }
 
 func NewHtml5ExportOptions() *Html5ExportOptions {
@@ -104,6 +118,13 @@ func (this *Html5ExportOptions) GetDefaultRegularFont() string {
 
 func (this *Html5ExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *Html5ExportOptions) GetGradientStyle() string {
+	return this.GradientStyle
+}
+
+func (this *Html5ExportOptions) SetGradientStyle(newValue string) {
+	this.GradientStyle = newValue
 }
 func (this *Html5ExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
@@ -154,6 +175,13 @@ func (this *Html5ExportOptions) GetNotesCommentsLayouting() INotesCommentsLayout
 func (this *Html5ExportOptions) SetNotesCommentsLayouting(newValue INotesCommentsLayoutingOptions) {
 	this.NotesCommentsLayouting = newValue
 }
+func (this *Html5ExportOptions) GetTemplatesPath() string {
+	return this.TemplatesPath
+}
+
+func (this *Html5ExportOptions) SetTemplatesPath(newValue string) {
+	this.TemplatesPath = newValue
+}
 
 func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
@@ -162,7 +190,7 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valDefaultRegularFont, ok := objMap["defaultRegularFont"]; ok {
+	if valDefaultRegularFont, ok := GetMapValue(objMap, "defaultRegularFont"); ok {
 		if valDefaultRegularFont != nil {
 			var valueForDefaultRegularFont string
 			err = json.Unmarshal(*valDefaultRegularFont, &valueForDefaultRegularFont)
@@ -172,18 +200,25 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
-	if valDefaultRegularFontCap, ok := objMap["DefaultRegularFont"]; ok {
-		if valDefaultRegularFontCap != nil {
-			var valueForDefaultRegularFont string
-			err = json.Unmarshal(*valDefaultRegularFontCap, &valueForDefaultRegularFont)
+	
+	if valGradientStyle, ok := GetMapValue(objMap, "gradientStyle"); ok {
+		if valGradientStyle != nil {
+			var valueForGradientStyle string
+			err = json.Unmarshal(*valGradientStyle, &valueForGradientStyle)
 			if err != nil {
-				return err
+				var valueForGradientStyleInt int32
+				err = json.Unmarshal(*valGradientStyle, &valueForGradientStyleInt)
+				if err != nil {
+					return err
+				}
+				this.GradientStyle = string(valueForGradientStyleInt)
+			} else {
+				this.GradientStyle = valueForGradientStyle
 			}
-			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
 	
-	if valFontFallbackRules, ok := objMap["fontFallbackRules"]; ok {
+	if valFontFallbackRules, ok := GetMapValue(objMap, "fontFallbackRules"); ok {
 		if valFontFallbackRules != nil {
 			var valueForFontFallbackRules []json.RawMessage
 			err = json.Unmarshal(*valFontFallbackRules, &valueForFontFallbackRules)
@@ -207,32 +242,8 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontFallbackRules = valueForIFontFallbackRules
 		}
 	}
-	if valFontFallbackRulesCap, ok := objMap["FontFallbackRules"]; ok {
-		if valFontFallbackRulesCap != nil {
-			var valueForFontFallbackRules []json.RawMessage
-			err = json.Unmarshal(*valFontFallbackRulesCap, &valueForFontFallbackRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontFallbackRules := make([]IFontFallbackRule, len(valueForFontFallbackRules))
-			for i, v := range valueForFontFallbackRules {
-				vObject, err := createObjectForType("FontFallbackRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontFallbackRules[i] = vObject.(IFontFallbackRule)
-				}
-			}
-			this.FontFallbackRules = valueForIFontFallbackRules
-		}
-	}
 	
-	if valFontSubstRules, ok := objMap["fontSubstRules"]; ok {
+	if valFontSubstRules, ok := GetMapValue(objMap, "fontSubstRules"); ok {
 		if valFontSubstRules != nil {
 			var valueForFontSubstRules []json.RawMessage
 			err = json.Unmarshal(*valFontSubstRules, &valueForFontSubstRules)
@@ -256,32 +267,8 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontSubstRules = valueForIFontSubstRules
 		}
 	}
-	if valFontSubstRulesCap, ok := objMap["FontSubstRules"]; ok {
-		if valFontSubstRulesCap != nil {
-			var valueForFontSubstRules []json.RawMessage
-			err = json.Unmarshal(*valFontSubstRulesCap, &valueForFontSubstRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontSubstRules := make([]IFontSubstRule, len(valueForFontSubstRules))
-			for i, v := range valueForFontSubstRules {
-				vObject, err := createObjectForType("FontSubstRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontSubstRules[i] = vObject.(IFontSubstRule)
-				}
-			}
-			this.FontSubstRules = valueForIFontSubstRules
-		}
-	}
 	
-	if valFormat, ok := objMap["format"]; ok {
+	if valFormat, ok := GetMapValue(objMap, "format"); ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -291,18 +278,8 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-	if valFormatCap, ok := objMap["Format"]; ok {
-		if valFormatCap != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormatCap, &valueForFormat)
-			if err != nil {
-				return err
-			}
-			this.Format = valueForFormat
-		}
-	}
 	
-	if valAnimateTransitions, ok := objMap["animateTransitions"]; ok {
+	if valAnimateTransitions, ok := GetMapValue(objMap, "animateTransitions"); ok {
 		if valAnimateTransitions != nil {
 			var valueForAnimateTransitions *bool
 			err = json.Unmarshal(*valAnimateTransitions, &valueForAnimateTransitions)
@@ -312,18 +289,8 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 			this.AnimateTransitions = valueForAnimateTransitions
 		}
 	}
-	if valAnimateTransitionsCap, ok := objMap["AnimateTransitions"]; ok {
-		if valAnimateTransitionsCap != nil {
-			var valueForAnimateTransitions *bool
-			err = json.Unmarshal(*valAnimateTransitionsCap, &valueForAnimateTransitions)
-			if err != nil {
-				return err
-			}
-			this.AnimateTransitions = valueForAnimateTransitions
-		}
-	}
 	
-	if valAnimateShapes, ok := objMap["animateShapes"]; ok {
+	if valAnimateShapes, ok := GetMapValue(objMap, "animateShapes"); ok {
 		if valAnimateShapes != nil {
 			var valueForAnimateShapes *bool
 			err = json.Unmarshal(*valAnimateShapes, &valueForAnimateShapes)
@@ -333,18 +300,8 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 			this.AnimateShapes = valueForAnimateShapes
 		}
 	}
-	if valAnimateShapesCap, ok := objMap["AnimateShapes"]; ok {
-		if valAnimateShapesCap != nil {
-			var valueForAnimateShapes *bool
-			err = json.Unmarshal(*valAnimateShapesCap, &valueForAnimateShapes)
-			if err != nil {
-				return err
-			}
-			this.AnimateShapes = valueForAnimateShapes
-		}
-	}
 	
-	if valEmbedImages, ok := objMap["embedImages"]; ok {
+	if valEmbedImages, ok := GetMapValue(objMap, "embedImages"); ok {
 		if valEmbedImages != nil {
 			var valueForEmbedImages *bool
 			err = json.Unmarshal(*valEmbedImages, &valueForEmbedImages)
@@ -354,18 +311,8 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 			this.EmbedImages = valueForEmbedImages
 		}
 	}
-	if valEmbedImagesCap, ok := objMap["EmbedImages"]; ok {
-		if valEmbedImagesCap != nil {
-			var valueForEmbedImages *bool
-			err = json.Unmarshal(*valEmbedImagesCap, &valueForEmbedImages)
-			if err != nil {
-				return err
-			}
-			this.EmbedImages = valueForEmbedImages
-		}
-	}
 	
-	if valNotesCommentsLayouting, ok := objMap["notesCommentsLayouting"]; ok {
+	if valNotesCommentsLayouting, ok := GetMapValue(objMap, "notesCommentsLayouting"); ok {
 		if valNotesCommentsLayouting != nil {
 			var valueForNotesCommentsLayouting NotesCommentsLayoutingOptions
 			err = json.Unmarshal(*valNotesCommentsLayouting, &valueForNotesCommentsLayouting)
@@ -386,25 +333,15 @@ func (this *Html5ExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valNotesCommentsLayoutingCap, ok := objMap["NotesCommentsLayouting"]; ok {
-		if valNotesCommentsLayoutingCap != nil {
-			var valueForNotesCommentsLayouting NotesCommentsLayoutingOptions
-			err = json.Unmarshal(*valNotesCommentsLayoutingCap, &valueForNotesCommentsLayouting)
+	
+	if valTemplatesPath, ok := GetMapValue(objMap, "templatesPath"); ok {
+		if valTemplatesPath != nil {
+			var valueForTemplatesPath string
+			err = json.Unmarshal(*valTemplatesPath, &valueForTemplatesPath)
 			if err != nil {
 				return err
 			}
-			vObject, err := createObjectForType("NotesCommentsLayoutingOptions", *valNotesCommentsLayoutingCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valNotesCommentsLayoutingCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(INotesCommentsLayoutingOptions)
-			if ok {
-				this.NotesCommentsLayouting = vInterfaceObject
-			}
+			this.TemplatesPath = valueForTemplatesPath
 		}
 	}
 

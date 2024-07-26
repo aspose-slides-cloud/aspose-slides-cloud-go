@@ -107,7 +107,7 @@ func (this *LimitElement) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Limit"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -123,24 +123,8 @@ func (this *LimitElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valBase, ok := objMap["base"]; ok {
+	if valBase, ok := GetMapValue(objMap, "base"); ok {
 		if valBase != nil {
 			var valueForBase MathElement
 			err = json.Unmarshal(*valBase, &valueForBase)
@@ -161,29 +145,8 @@ func (this *LimitElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBaseCap, ok := objMap["Base"]; ok {
-		if valBaseCap != nil {
-			var valueForBase MathElement
-			err = json.Unmarshal(*valBaseCap, &valueForBase)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valBaseCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBaseCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Base = vInterfaceObject
-			}
-		}
-	}
 	
-	if valLimit, ok := objMap["limit"]; ok {
+	if valLimit, ok := GetMapValue(objMap, "limit"); ok {
 		if valLimit != nil {
 			var valueForLimit MathElement
 			err = json.Unmarshal(*valLimit, &valueForLimit)
@@ -204,42 +167,11 @@ func (this *LimitElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLimitCap, ok := objMap["Limit"]; ok {
-		if valLimitCap != nil {
-			var valueForLimit MathElement
-			err = json.Unmarshal(*valLimitCap, &valueForLimit)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valLimitCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valLimitCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Limit = vInterfaceObject
-			}
-		}
-	}
 	
-	if valUpperLimit, ok := objMap["upperLimit"]; ok {
+	if valUpperLimit, ok := GetMapValue(objMap, "upperLimit"); ok {
 		if valUpperLimit != nil {
 			var valueForUpperLimit *bool
 			err = json.Unmarshal(*valUpperLimit, &valueForUpperLimit)
-			if err != nil {
-				return err
-			}
-			this.UpperLimit = valueForUpperLimit
-		}
-	}
-	if valUpperLimitCap, ok := objMap["UpperLimit"]; ok {
-		if valUpperLimitCap != nil {
-			var valueForUpperLimit *bool
-			err = json.Unmarshal(*valUpperLimitCap, &valueForUpperLimit)
 			if err != nil {
 				return err
 			}

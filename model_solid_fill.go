@@ -79,7 +79,7 @@ func (this *SolidFill) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Solid"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -95,37 +95,11 @@ func (this *SolidFill) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valColor, ok := objMap["color"]; ok {
+	if valColor, ok := GetMapValue(objMap, "color"); ok {
 		if valColor != nil {
 			var valueForColor string
 			err = json.Unmarshal(*valColor, &valueForColor)
-			if err != nil {
-				return err
-			}
-			this.Color = valueForColor
-		}
-	}
-	if valColorCap, ok := objMap["Color"]; ok {
-		if valColorCap != nil {
-			var valueForColor string
-			err = json.Unmarshal(*valColorCap, &valueForColor)
 			if err != nil {
 				return err
 			}

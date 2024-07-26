@@ -118,7 +118,7 @@ func (this *SlideCommentBase) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valAuthor, ok := objMap["author"]; ok {
+	if valAuthor, ok := GetMapValue(objMap, "author"); ok {
 		if valAuthor != nil {
 			var valueForAuthor string
 			err = json.Unmarshal(*valAuthor, &valueForAuthor)
@@ -128,18 +128,8 @@ func (this *SlideCommentBase) UnmarshalJSON(b []byte) error {
 			this.Author = valueForAuthor
 		}
 	}
-	if valAuthorCap, ok := objMap["Author"]; ok {
-		if valAuthorCap != nil {
-			var valueForAuthor string
-			err = json.Unmarshal(*valAuthorCap, &valueForAuthor)
-			if err != nil {
-				return err
-			}
-			this.Author = valueForAuthor
-		}
-	}
 	
-	if valText, ok := objMap["text"]; ok {
+	if valText, ok := GetMapValue(objMap, "text"); ok {
 		if valText != nil {
 			var valueForText string
 			err = json.Unmarshal(*valText, &valueForText)
@@ -149,18 +139,8 @@ func (this *SlideCommentBase) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
-	if valTextCap, ok := objMap["Text"]; ok {
-		if valTextCap != nil {
-			var valueForText string
-			err = json.Unmarshal(*valTextCap, &valueForText)
-			if err != nil {
-				return err
-			}
-			this.Text = valueForText
-		}
-	}
 	
-	if valCreatedTime, ok := objMap["createdTime"]; ok {
+	if valCreatedTime, ok := GetMapValue(objMap, "createdTime"); ok {
 		if valCreatedTime != nil {
 			var valueForCreatedTime string
 			err = json.Unmarshal(*valCreatedTime, &valueForCreatedTime)
@@ -170,18 +150,8 @@ func (this *SlideCommentBase) UnmarshalJSON(b []byte) error {
 			this.CreatedTime = valueForCreatedTime
 		}
 	}
-	if valCreatedTimeCap, ok := objMap["CreatedTime"]; ok {
-		if valCreatedTimeCap != nil {
-			var valueForCreatedTime string
-			err = json.Unmarshal(*valCreatedTimeCap, &valueForCreatedTime)
-			if err != nil {
-				return err
-			}
-			this.CreatedTime = valueForCreatedTime
-		}
-	}
 	
-	if valChildComments, ok := objMap["childComments"]; ok {
+	if valChildComments, ok := GetMapValue(objMap, "childComments"); ok {
 		if valChildComments != nil {
 			var valueForChildComments []json.RawMessage
 			err = json.Unmarshal(*valChildComments, &valueForChildComments)
@@ -205,54 +175,14 @@ func (this *SlideCommentBase) UnmarshalJSON(b []byte) error {
 			this.ChildComments = valueForIChildComments
 		}
 	}
-	if valChildCommentsCap, ok := objMap["ChildComments"]; ok {
-		if valChildCommentsCap != nil {
-			var valueForChildComments []json.RawMessage
-			err = json.Unmarshal(*valChildCommentsCap, &valueForChildComments)
-			if err != nil {
-				return err
-			}
-			valueForIChildComments := make([]ISlideCommentBase, len(valueForChildComments))
-			for i, v := range valueForChildComments {
-				vObject, err := createObjectForType("SlideCommentBase", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIChildComments[i] = vObject.(ISlideCommentBase)
-				}
-			}
-			this.ChildComments = valueForIChildComments
-		}
-	}
 	
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				var valueForTypeInt int32
 				err = json.Unmarshal(*valType, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
 				if err != nil {
 					return err
 				}

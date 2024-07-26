@@ -177,7 +177,7 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "NaryOperator"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -193,24 +193,8 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valBase, ok := objMap["base"]; ok {
+	if valBase, ok := GetMapValue(objMap, "base"); ok {
 		if valBase != nil {
 			var valueForBase MathElement
 			err = json.Unmarshal(*valBase, &valueForBase)
@@ -231,29 +215,8 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBaseCap, ok := objMap["Base"]; ok {
-		if valBaseCap != nil {
-			var valueForBase MathElement
-			err = json.Unmarshal(*valBaseCap, &valueForBase)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valBaseCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBaseCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Base = vInterfaceObject
-			}
-		}
-	}
 	
-	if valSubscript, ok := objMap["subscript"]; ok {
+	if valSubscript, ok := GetMapValue(objMap, "subscript"); ok {
 		if valSubscript != nil {
 			var valueForSubscript MathElement
 			err = json.Unmarshal(*valSubscript, &valueForSubscript)
@@ -274,29 +237,8 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSubscriptCap, ok := objMap["Subscript"]; ok {
-		if valSubscriptCap != nil {
-			var valueForSubscript MathElement
-			err = json.Unmarshal(*valSubscriptCap, &valueForSubscript)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valSubscriptCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSubscriptCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Subscript = vInterfaceObject
-			}
-		}
-	}
 	
-	if valSuperscript, ok := objMap["superscript"]; ok {
+	if valSuperscript, ok := GetMapValue(objMap, "superscript"); ok {
 		if valSuperscript != nil {
 			var valueForSuperscript MathElement
 			err = json.Unmarshal(*valSuperscript, &valueForSuperscript)
@@ -317,29 +259,8 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSuperscriptCap, ok := objMap["Superscript"]; ok {
-		if valSuperscriptCap != nil {
-			var valueForSuperscript MathElement
-			err = json.Unmarshal(*valSuperscriptCap, &valueForSuperscript)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valSuperscriptCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSuperscriptCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Superscript = vInterfaceObject
-			}
-		}
-	}
 	
-	if valOperator, ok := objMap["operator"]; ok {
+	if valOperator, ok := GetMapValue(objMap, "operator"); ok {
 		if valOperator != nil {
 			var valueForOperator string
 			err = json.Unmarshal(*valOperator, &valueForOperator)
@@ -349,18 +270,8 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 			this.Operator = valueForOperator
 		}
 	}
-	if valOperatorCap, ok := objMap["Operator"]; ok {
-		if valOperatorCap != nil {
-			var valueForOperator string
-			err = json.Unmarshal(*valOperatorCap, &valueForOperator)
-			if err != nil {
-				return err
-			}
-			this.Operator = valueForOperator
-		}
-	}
 	
-	if valLimitLocation, ok := objMap["limitLocation"]; ok {
+	if valLimitLocation, ok := GetMapValue(objMap, "limitLocation"); ok {
 		if valLimitLocation != nil {
 			var valueForLimitLocation string
 			err = json.Unmarshal(*valLimitLocation, &valueForLimitLocation)
@@ -376,24 +287,8 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLimitLocationCap, ok := objMap["LimitLocation"]; ok {
-		if valLimitLocationCap != nil {
-			var valueForLimitLocation string
-			err = json.Unmarshal(*valLimitLocationCap, &valueForLimitLocation)
-			if err != nil {
-				var valueForLimitLocationInt int32
-				err = json.Unmarshal(*valLimitLocationCap, &valueForLimitLocationInt)
-				if err != nil {
-					return err
-				}
-				this.LimitLocation = string(valueForLimitLocationInt)
-			} else {
-				this.LimitLocation = valueForLimitLocation
-			}
-		}
-	}
 	
-	if valGrowToMatchOperandHeight, ok := objMap["growToMatchOperandHeight"]; ok {
+	if valGrowToMatchOperandHeight, ok := GetMapValue(objMap, "growToMatchOperandHeight"); ok {
 		if valGrowToMatchOperandHeight != nil {
 			var valueForGrowToMatchOperandHeight *bool
 			err = json.Unmarshal(*valGrowToMatchOperandHeight, &valueForGrowToMatchOperandHeight)
@@ -403,18 +298,8 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 			this.GrowToMatchOperandHeight = valueForGrowToMatchOperandHeight
 		}
 	}
-	if valGrowToMatchOperandHeightCap, ok := objMap["GrowToMatchOperandHeight"]; ok {
-		if valGrowToMatchOperandHeightCap != nil {
-			var valueForGrowToMatchOperandHeight *bool
-			err = json.Unmarshal(*valGrowToMatchOperandHeightCap, &valueForGrowToMatchOperandHeight)
-			if err != nil {
-				return err
-			}
-			this.GrowToMatchOperandHeight = valueForGrowToMatchOperandHeight
-		}
-	}
 	
-	if valHideSubscript, ok := objMap["hideSubscript"]; ok {
+	if valHideSubscript, ok := GetMapValue(objMap, "hideSubscript"); ok {
 		if valHideSubscript != nil {
 			var valueForHideSubscript *bool
 			err = json.Unmarshal(*valHideSubscript, &valueForHideSubscript)
@@ -424,31 +309,11 @@ func (this *NaryOperatorElement) UnmarshalJSON(b []byte) error {
 			this.HideSubscript = valueForHideSubscript
 		}
 	}
-	if valHideSubscriptCap, ok := objMap["HideSubscript"]; ok {
-		if valHideSubscriptCap != nil {
-			var valueForHideSubscript *bool
-			err = json.Unmarshal(*valHideSubscriptCap, &valueForHideSubscript)
-			if err != nil {
-				return err
-			}
-			this.HideSubscript = valueForHideSubscript
-		}
-	}
 	
-	if valHideSuperscript, ok := objMap["hideSuperscript"]; ok {
+	if valHideSuperscript, ok := GetMapValue(objMap, "hideSuperscript"); ok {
 		if valHideSuperscript != nil {
 			var valueForHideSuperscript *bool
 			err = json.Unmarshal(*valHideSuperscript, &valueForHideSuperscript)
-			if err != nil {
-				return err
-			}
-			this.HideSuperscript = valueForHideSuperscript
-		}
-	}
-	if valHideSuperscriptCap, ok := objMap["HideSuperscript"]; ok {
-		if valHideSuperscriptCap != nil {
-			var valueForHideSuperscript *bool
-			err = json.Unmarshal(*valHideSuperscriptCap, &valueForHideSuperscript)
 			if err != nil {
 				return err
 			}

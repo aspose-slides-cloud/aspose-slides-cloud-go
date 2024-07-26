@@ -106,7 +106,7 @@ func (this *TextBounds) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valX, ok := objMap["x"]; ok {
+	if valX, ok := GetMapValue(objMap, "x"); ok {
 		if valX != nil {
 			var valueForX float64
 			err = json.Unmarshal(*valX, &valueForX)
@@ -116,18 +116,8 @@ func (this *TextBounds) UnmarshalJSON(b []byte) error {
 			this.X = valueForX
 		}
 	}
-	if valXCap, ok := objMap["X"]; ok {
-		if valXCap != nil {
-			var valueForX float64
-			err = json.Unmarshal(*valXCap, &valueForX)
-			if err != nil {
-				return err
-			}
-			this.X = valueForX
-		}
-	}
 	
-	if valY, ok := objMap["y"]; ok {
+	if valY, ok := GetMapValue(objMap, "y"); ok {
 		if valY != nil {
 			var valueForY float64
 			err = json.Unmarshal(*valY, &valueForY)
@@ -137,18 +127,8 @@ func (this *TextBounds) UnmarshalJSON(b []byte) error {
 			this.Y = valueForY
 		}
 	}
-	if valYCap, ok := objMap["Y"]; ok {
-		if valYCap != nil {
-			var valueForY float64
-			err = json.Unmarshal(*valYCap, &valueForY)
-			if err != nil {
-				return err
-			}
-			this.Y = valueForY
-		}
-	}
 	
-	if valWidth, ok := objMap["width"]; ok {
+	if valWidth, ok := GetMapValue(objMap, "width"); ok {
 		if valWidth != nil {
 			var valueForWidth float64
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -158,31 +138,11 @@ func (this *TextBounds) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth float64
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
 	
-	if valHeight, ok := objMap["height"]; ok {
+	if valHeight, ok := GetMapValue(objMap, "height"); ok {
 		if valHeight != nil {
 			var valueForHeight float64
 			err = json.Unmarshal(*valHeight, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight float64
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
 			if err != nil {
 				return err
 			}

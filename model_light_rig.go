@@ -120,7 +120,7 @@ func (this *LightRig) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valDirection, ok := objMap["direction"]; ok {
+	if valDirection, ok := GetMapValue(objMap, "direction"); ok {
 		if valDirection != nil {
 			var valueForDirection string
 			err = json.Unmarshal(*valDirection, &valueForDirection)
@@ -136,24 +136,8 @@ func (this *LightRig) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valDirectionCap, ok := objMap["Direction"]; ok {
-		if valDirectionCap != nil {
-			var valueForDirection string
-			err = json.Unmarshal(*valDirectionCap, &valueForDirection)
-			if err != nil {
-				var valueForDirectionInt int32
-				err = json.Unmarshal(*valDirectionCap, &valueForDirectionInt)
-				if err != nil {
-					return err
-				}
-				this.Direction = string(valueForDirectionInt)
-			} else {
-				this.Direction = valueForDirection
-			}
-		}
-	}
 	
-	if valLightType, ok := objMap["lightType"]; ok {
+	if valLightType, ok := GetMapValue(objMap, "lightType"); ok {
 		if valLightType != nil {
 			var valueForLightType string
 			err = json.Unmarshal(*valLightType, &valueForLightType)
@@ -169,24 +153,8 @@ func (this *LightRig) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLightTypeCap, ok := objMap["LightType"]; ok {
-		if valLightTypeCap != nil {
-			var valueForLightType string
-			err = json.Unmarshal(*valLightTypeCap, &valueForLightType)
-			if err != nil {
-				var valueForLightTypeInt int32
-				err = json.Unmarshal(*valLightTypeCap, &valueForLightTypeInt)
-				if err != nil {
-					return err
-				}
-				this.LightType = string(valueForLightTypeInt)
-			} else {
-				this.LightType = valueForLightType
-			}
-		}
-	}
 	
-	if valXRotation, ok := objMap["xRotation"]; ok {
+	if valXRotation, ok := GetMapValue(objMap, "xRotation"); ok {
 		if valXRotation != nil {
 			var valueForXRotation float64
 			err = json.Unmarshal(*valXRotation, &valueForXRotation)
@@ -196,18 +164,8 @@ func (this *LightRig) UnmarshalJSON(b []byte) error {
 			this.XRotation = valueForXRotation
 		}
 	}
-	if valXRotationCap, ok := objMap["XRotation"]; ok {
-		if valXRotationCap != nil {
-			var valueForXRotation float64
-			err = json.Unmarshal(*valXRotationCap, &valueForXRotation)
-			if err != nil {
-				return err
-			}
-			this.XRotation = valueForXRotation
-		}
-	}
 	
-	if valYRotation, ok := objMap["yRotation"]; ok {
+	if valYRotation, ok := GetMapValue(objMap, "yRotation"); ok {
 		if valYRotation != nil {
 			var valueForYRotation float64
 			err = json.Unmarshal(*valYRotation, &valueForYRotation)
@@ -217,31 +175,11 @@ func (this *LightRig) UnmarshalJSON(b []byte) error {
 			this.YRotation = valueForYRotation
 		}
 	}
-	if valYRotationCap, ok := objMap["YRotation"]; ok {
-		if valYRotationCap != nil {
-			var valueForYRotation float64
-			err = json.Unmarshal(*valYRotationCap, &valueForYRotation)
-			if err != nil {
-				return err
-			}
-			this.YRotation = valueForYRotation
-		}
-	}
 	
-	if valZRotation, ok := objMap["zRotation"]; ok {
+	if valZRotation, ok := GetMapValue(objMap, "zRotation"); ok {
 		if valZRotation != nil {
 			var valueForZRotation float64
 			err = json.Unmarshal(*valZRotation, &valueForZRotation)
-			if err != nil {
-				return err
-			}
-			this.ZRotation = valueForZRotation
-		}
-	}
-	if valZRotationCap, ok := objMap["ZRotation"]; ok {
-		if valZRotationCap != nil {
-			var valueForZRotation float64
-			err = json.Unmarshal(*valZRotationCap, &valueForZRotation)
 			if err != nil {
 				return err
 			}

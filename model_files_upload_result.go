@@ -78,7 +78,7 @@ func (this *FilesUploadResult) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valUploaded, ok := objMap["uploaded"]; ok {
+	if valUploaded, ok := GetMapValue(objMap, "uploaded"); ok {
 		if valUploaded != nil {
 			var valueForUploaded []string
 			err = json.Unmarshal(*valUploaded, &valueForUploaded)
@@ -88,31 +88,11 @@ func (this *FilesUploadResult) UnmarshalJSON(b []byte) error {
 			this.Uploaded = valueForUploaded
 		}
 	}
-	if valUploadedCap, ok := objMap["Uploaded"]; ok {
-		if valUploadedCap != nil {
-			var valueForUploaded []string
-			err = json.Unmarshal(*valUploadedCap, &valueForUploaded)
-			if err != nil {
-				return err
-			}
-			this.Uploaded = valueForUploaded
-		}
-	}
 	
-	if valErrors, ok := objMap["errors"]; ok {
+	if valErrors, ok := GetMapValue(objMap, "errors"); ok {
 		if valErrors != nil {
 			var valueForErrors []ModelError
 			err = json.Unmarshal(*valErrors, &valueForErrors)
-			if err != nil {
-				return err
-			}
-			this.Errors = valueForErrors
-		}
-	}
-	if valErrorsCap, ok := objMap["Errors"]; ok {
-		if valErrorsCap != nil {
-			var valueForErrors []ModelError
-			err = json.Unmarshal(*valErrorsCap, &valueForErrors)
 			if err != nil {
 				return err
 			}

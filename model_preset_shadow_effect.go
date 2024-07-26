@@ -107,7 +107,7 @@ func (this *PresetShadowEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valDirection, ok := objMap["direction"]; ok {
+	if valDirection, ok := GetMapValue(objMap, "direction"); ok {
 		if valDirection != nil {
 			var valueForDirection float64
 			err = json.Unmarshal(*valDirection, &valueForDirection)
@@ -117,18 +117,8 @@ func (this *PresetShadowEffect) UnmarshalJSON(b []byte) error {
 			this.Direction = valueForDirection
 		}
 	}
-	if valDirectionCap, ok := objMap["Direction"]; ok {
-		if valDirectionCap != nil {
-			var valueForDirection float64
-			err = json.Unmarshal(*valDirectionCap, &valueForDirection)
-			if err != nil {
-				return err
-			}
-			this.Direction = valueForDirection
-		}
-	}
 	
-	if valDistance, ok := objMap["distance"]; ok {
+	if valDistance, ok := GetMapValue(objMap, "distance"); ok {
 		if valDistance != nil {
 			var valueForDistance float64
 			err = json.Unmarshal(*valDistance, &valueForDistance)
@@ -138,18 +128,8 @@ func (this *PresetShadowEffect) UnmarshalJSON(b []byte) error {
 			this.Distance = valueForDistance
 		}
 	}
-	if valDistanceCap, ok := objMap["Distance"]; ok {
-		if valDistanceCap != nil {
-			var valueForDistance float64
-			err = json.Unmarshal(*valDistanceCap, &valueForDistance)
-			if err != nil {
-				return err
-			}
-			this.Distance = valueForDistance
-		}
-	}
 	this.Preset = "TopLeftDropShadow"
-	if valPreset, ok := objMap["preset"]; ok {
+	if valPreset, ok := GetMapValue(objMap, "preset"); ok {
 		if valPreset != nil {
 			var valueForPreset string
 			err = json.Unmarshal(*valPreset, &valueForPreset)
@@ -165,37 +145,11 @@ func (this *PresetShadowEffect) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valPresetCap, ok := objMap["Preset"]; ok {
-		if valPresetCap != nil {
-			var valueForPreset string
-			err = json.Unmarshal(*valPresetCap, &valueForPreset)
-			if err != nil {
-				var valueForPresetInt int32
-				err = json.Unmarshal(*valPresetCap, &valueForPresetInt)
-				if err != nil {
-					return err
-				}
-				this.Preset = string(valueForPresetInt)
-			} else {
-				this.Preset = valueForPreset
-			}
-		}
-	}
 	
-	if valShadowColor, ok := objMap["shadowColor"]; ok {
+	if valShadowColor, ok := GetMapValue(objMap, "shadowColor"); ok {
 		if valShadowColor != nil {
 			var valueForShadowColor string
 			err = json.Unmarshal(*valShadowColor, &valueForShadowColor)
-			if err != nil {
-				return err
-			}
-			this.ShadowColor = valueForShadowColor
-		}
-	}
-	if valShadowColorCap, ok := objMap["ShadowColor"]; ok {
-		if valShadowColorCap != nil {
-			var valueForShadowColor string
-			err = json.Unmarshal(*valShadowColorCap, &valueForShadowColor)
 			if err != nil {
 				return err
 			}

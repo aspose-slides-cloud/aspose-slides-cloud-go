@@ -106,7 +106,7 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["selfUri"]; ok {
+	if valSelfUri, ok := GetMapValue(objMap, "selfUri"); ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -127,29 +127,8 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
-		if valSelfUriCap != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
-		}
-	}
 	
-	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
+	if valAlternateLinks, ok := GetMapValue(objMap, "alternateLinks"); ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -173,32 +152,8 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
-	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
-		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
-			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
-			}
-			this.AlternateLinks = valueForIAlternateLinks
-		}
-	}
 	
-	if valMainSequence, ok := objMap["mainSequence"]; ok {
+	if valMainSequence, ok := GetMapValue(objMap, "mainSequence"); ok {
 		if valMainSequence != nil {
 			var valueForMainSequence []json.RawMessage
 			err = json.Unmarshal(*valMainSequence, &valueForMainSequence)
@@ -222,59 +177,11 @@ func (this *SlideAnimation) UnmarshalJSON(b []byte) error {
 			this.MainSequence = valueForIMainSequence
 		}
 	}
-	if valMainSequenceCap, ok := objMap["MainSequence"]; ok {
-		if valMainSequenceCap != nil {
-			var valueForMainSequence []json.RawMessage
-			err = json.Unmarshal(*valMainSequenceCap, &valueForMainSequence)
-			if err != nil {
-				return err
-			}
-			valueForIMainSequence := make([]IEffect, len(valueForMainSequence))
-			for i, v := range valueForMainSequence {
-				vObject, err := createObjectForType("Effect", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIMainSequence[i] = vObject.(IEffect)
-				}
-			}
-			this.MainSequence = valueForIMainSequence
-		}
-	}
 	
-	if valInteractiveSequences, ok := objMap["interactiveSequences"]; ok {
+	if valInteractiveSequences, ok := GetMapValue(objMap, "interactiveSequences"); ok {
 		if valInteractiveSequences != nil {
 			var valueForInteractiveSequences []json.RawMessage
 			err = json.Unmarshal(*valInteractiveSequences, &valueForInteractiveSequences)
-			if err != nil {
-				return err
-			}
-			valueForIInteractiveSequences := make([]IInteractiveSequence, len(valueForInteractiveSequences))
-			for i, v := range valueForInteractiveSequences {
-				vObject, err := createObjectForType("InteractiveSequence", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIInteractiveSequences[i] = vObject.(IInteractiveSequence)
-				}
-			}
-			this.InteractiveSequences = valueForIInteractiveSequences
-		}
-	}
-	if valInteractiveSequencesCap, ok := objMap["InteractiveSequences"]; ok {
-		if valInteractiveSequencesCap != nil {
-			var valueForInteractiveSequences []json.RawMessage
-			err = json.Unmarshal(*valInteractiveSequencesCap, &valueForInteractiveSequences)
 			if err != nil {
 				return err
 			}

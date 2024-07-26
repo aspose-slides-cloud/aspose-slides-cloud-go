@@ -108,7 +108,7 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Pattern"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -124,24 +124,8 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valBackColor, ok := objMap["backColor"]; ok {
+	if valBackColor, ok := GetMapValue(objMap, "backColor"); ok {
 		if valBackColor != nil {
 			var valueForBackColor string
 			err = json.Unmarshal(*valBackColor, &valueForBackColor)
@@ -151,18 +135,8 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 			this.BackColor = valueForBackColor
 		}
 	}
-	if valBackColorCap, ok := objMap["BackColor"]; ok {
-		if valBackColorCap != nil {
-			var valueForBackColor string
-			err = json.Unmarshal(*valBackColorCap, &valueForBackColor)
-			if err != nil {
-				return err
-			}
-			this.BackColor = valueForBackColor
-		}
-	}
 	
-	if valForeColor, ok := objMap["foreColor"]; ok {
+	if valForeColor, ok := GetMapValue(objMap, "foreColor"); ok {
 		if valForeColor != nil {
 			var valueForForeColor string
 			err = json.Unmarshal(*valForeColor, &valueForForeColor)
@@ -172,40 +146,14 @@ func (this *PatternFill) UnmarshalJSON(b []byte) error {
 			this.ForeColor = valueForForeColor
 		}
 	}
-	if valForeColorCap, ok := objMap["ForeColor"]; ok {
-		if valForeColorCap != nil {
-			var valueForForeColor string
-			err = json.Unmarshal(*valForeColorCap, &valueForForeColor)
-			if err != nil {
-				return err
-			}
-			this.ForeColor = valueForForeColor
-		}
-	}
 	this.Style = "Unknown"
-	if valStyle, ok := objMap["style"]; ok {
+	if valStyle, ok := GetMapValue(objMap, "style"); ok {
 		if valStyle != nil {
 			var valueForStyle string
 			err = json.Unmarshal(*valStyle, &valueForStyle)
 			if err != nil {
 				var valueForStyleInt int32
 				err = json.Unmarshal(*valStyle, &valueForStyleInt)
-				if err != nil {
-					return err
-				}
-				this.Style = string(valueForStyleInt)
-			} else {
-				this.Style = valueForStyle
-			}
-		}
-	}
-	if valStyleCap, ok := objMap["Style"]; ok {
-		if valStyleCap != nil {
-			var valueForStyle string
-			err = json.Unmarshal(*valStyleCap, &valueForStyle)
-			if err != nil {
-				var valueForStyleInt int32
-				err = json.Unmarshal(*valStyleCap, &valueForStyleInt)
 				if err != nil {
 					return err
 				}

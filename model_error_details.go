@@ -79,7 +79,7 @@ func (this *ErrorDetails) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valRequestId, ok := objMap["requestId"]; ok {
+	if valRequestId, ok := GetMapValue(objMap, "requestId"); ok {
 		if valRequestId != nil {
 			var valueForRequestId string
 			err = json.Unmarshal(*valRequestId, &valueForRequestId)
@@ -89,30 +89,11 @@ func (this *ErrorDetails) UnmarshalJSON(b []byte) error {
 			this.RequestId = valueForRequestId
 		}
 	}
-	if valRequestIdCap, ok := objMap["RequestId"]; ok {
-		if valRequestIdCap != nil {
-			var valueForRequestId string
-			err = json.Unmarshal(*valRequestIdCap, &valueForRequestId)
-			if err != nil {
-				return err
-			}
-			this.RequestId = valueForRequestId
-		}
-	}
 	
-	if valDate, ok := objMap["date"]; ok {
+	if valDate, ok := GetMapValue(objMap, "date"); ok {
 		if valDate != nil {
 			var valueForDate time.Time
 			valueForDate, err = time.Parse("2006-01-02T21:36:33", string(*valDate))
-			if err == nil {
-				this.Date = valueForDate
-			}
-		}
-	}
-	if valDateCap, ok := objMap["Date"]; ok {
-		if valDateCap != nil {
-			var valueForDate time.Time
-			valueForDate, err = time.Parse("2006-01-02T21:36:33", string(*valDateCap))
 			if err == nil {
 				this.Date = valueForDate
 			}

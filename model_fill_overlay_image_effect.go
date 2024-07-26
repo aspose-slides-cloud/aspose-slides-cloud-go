@@ -94,7 +94,7 @@ func (this *FillOverlayImageEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "FillOverlay"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -110,24 +110,8 @@ func (this *FillOverlayImageEffect) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	this.Blend = "Darken"
-	if valBlend, ok := objMap["blend"]; ok {
+	if valBlend, ok := GetMapValue(objMap, "blend"); ok {
 		if valBlend != nil {
 			var valueForBlend string
 			err = json.Unmarshal(*valBlend, &valueForBlend)
@@ -143,24 +127,8 @@ func (this *FillOverlayImageEffect) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBlendCap, ok := objMap["Blend"]; ok {
-		if valBlendCap != nil {
-			var valueForBlend string
-			err = json.Unmarshal(*valBlendCap, &valueForBlend)
-			if err != nil {
-				var valueForBlendInt int32
-				err = json.Unmarshal(*valBlendCap, &valueForBlendInt)
-				if err != nil {
-					return err
-				}
-				this.Blend = string(valueForBlendInt)
-			} else {
-				this.Blend = valueForBlend
-			}
-		}
-	}
 	
-	if valFillFormat, ok := objMap["fillFormat"]; ok {
+	if valFillFormat, ok := GetMapValue(objMap, "fillFormat"); ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -172,27 +140,6 @@ func (this *FillOverlayImageEffect) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valFillFormat, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IFillFormat)
-			if ok {
-				this.FillFormat = vInterfaceObject
-			}
-		}
-	}
-	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
-		if valFillFormatCap != nil {
-			var valueForFillFormat FillFormat
-			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFillFormatCap, &vObject)
 			if err != nil {
 				return err
 			}

@@ -93,7 +93,7 @@ func (this *TintEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Tint"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,24 +109,8 @@ func (this *TintEffect) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valHue, ok := objMap["hue"]; ok {
+	if valHue, ok := GetMapValue(objMap, "hue"); ok {
 		if valHue != nil {
 			var valueForHue float64
 			err = json.Unmarshal(*valHue, &valueForHue)
@@ -136,31 +120,11 @@ func (this *TintEffect) UnmarshalJSON(b []byte) error {
 			this.Hue = valueForHue
 		}
 	}
-	if valHueCap, ok := objMap["Hue"]; ok {
-		if valHueCap != nil {
-			var valueForHue float64
-			err = json.Unmarshal(*valHueCap, &valueForHue)
-			if err != nil {
-				return err
-			}
-			this.Hue = valueForHue
-		}
-	}
 	
-	if valAmount, ok := objMap["amount"]; ok {
+	if valAmount, ok := GetMapValue(objMap, "amount"); ok {
 		if valAmount != nil {
 			var valueForAmount float64
 			err = json.Unmarshal(*valAmount, &valueForAmount)
-			if err != nil {
-				return err
-			}
-			this.Amount = valueForAmount
-		}
-	}
-	if valAmountCap, ok := objMap["Amount"]; ok {
-		if valAmountCap != nil {
-			var valueForAmount float64
-			err = json.Unmarshal(*valAmountCap, &valueForAmount)
 			if err != nil {
 				return err
 			}

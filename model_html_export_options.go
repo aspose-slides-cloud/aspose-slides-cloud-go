@@ -37,6 +37,10 @@ type IHtmlExportOptions interface {
 	GetDefaultRegularFont() string
 	SetDefaultRegularFont(newValue string)
 
+	// Default regular font for rendering the presentation. 
+	GetGradientStyle() string
+	SetGradientStyle(newValue string)
+
 	// Gets of sets list of font fallback rules.
 	GetFontFallbackRules() []IFontFallbackRule
 	SetFontFallbackRules(newValue []IFontFallbackRule)
@@ -87,6 +91,9 @@ type HtmlExportOptions struct {
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
+	// Default regular font for rendering the presentation. 
+	GradientStyle string `json:"GradientStyle,omitempty"`
+
 	// Gets of sets list of font fallback rules.
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
 
@@ -132,6 +139,13 @@ func (this *HtmlExportOptions) GetDefaultRegularFont() string {
 
 func (this *HtmlExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *HtmlExportOptions) GetGradientStyle() string {
+	return this.GradientStyle
+}
+
+func (this *HtmlExportOptions) SetGradientStyle(newValue string) {
+	this.GradientStyle = newValue
 }
 func (this *HtmlExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
@@ -218,7 +232,7 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valDefaultRegularFont, ok := objMap["defaultRegularFont"]; ok {
+	if valDefaultRegularFont, ok := GetMapValue(objMap, "defaultRegularFont"); ok {
 		if valDefaultRegularFont != nil {
 			var valueForDefaultRegularFont string
 			err = json.Unmarshal(*valDefaultRegularFont, &valueForDefaultRegularFont)
@@ -228,18 +242,25 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
-	if valDefaultRegularFontCap, ok := objMap["DefaultRegularFont"]; ok {
-		if valDefaultRegularFontCap != nil {
-			var valueForDefaultRegularFont string
-			err = json.Unmarshal(*valDefaultRegularFontCap, &valueForDefaultRegularFont)
+	
+	if valGradientStyle, ok := GetMapValue(objMap, "gradientStyle"); ok {
+		if valGradientStyle != nil {
+			var valueForGradientStyle string
+			err = json.Unmarshal(*valGradientStyle, &valueForGradientStyle)
 			if err != nil {
-				return err
+				var valueForGradientStyleInt int32
+				err = json.Unmarshal(*valGradientStyle, &valueForGradientStyleInt)
+				if err != nil {
+					return err
+				}
+				this.GradientStyle = string(valueForGradientStyleInt)
+			} else {
+				this.GradientStyle = valueForGradientStyle
 			}
-			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
 	
-	if valFontFallbackRules, ok := objMap["fontFallbackRules"]; ok {
+	if valFontFallbackRules, ok := GetMapValue(objMap, "fontFallbackRules"); ok {
 		if valFontFallbackRules != nil {
 			var valueForFontFallbackRules []json.RawMessage
 			err = json.Unmarshal(*valFontFallbackRules, &valueForFontFallbackRules)
@@ -263,32 +284,8 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontFallbackRules = valueForIFontFallbackRules
 		}
 	}
-	if valFontFallbackRulesCap, ok := objMap["FontFallbackRules"]; ok {
-		if valFontFallbackRulesCap != nil {
-			var valueForFontFallbackRules []json.RawMessage
-			err = json.Unmarshal(*valFontFallbackRulesCap, &valueForFontFallbackRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontFallbackRules := make([]IFontFallbackRule, len(valueForFontFallbackRules))
-			for i, v := range valueForFontFallbackRules {
-				vObject, err := createObjectForType("FontFallbackRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontFallbackRules[i] = vObject.(IFontFallbackRule)
-				}
-			}
-			this.FontFallbackRules = valueForIFontFallbackRules
-		}
-	}
 	
-	if valFontSubstRules, ok := objMap["fontSubstRules"]; ok {
+	if valFontSubstRules, ok := GetMapValue(objMap, "fontSubstRules"); ok {
 		if valFontSubstRules != nil {
 			var valueForFontSubstRules []json.RawMessage
 			err = json.Unmarshal(*valFontSubstRules, &valueForFontSubstRules)
@@ -312,32 +309,8 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontSubstRules = valueForIFontSubstRules
 		}
 	}
-	if valFontSubstRulesCap, ok := objMap["FontSubstRules"]; ok {
-		if valFontSubstRulesCap != nil {
-			var valueForFontSubstRules []json.RawMessage
-			err = json.Unmarshal(*valFontSubstRulesCap, &valueForFontSubstRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontSubstRules := make([]IFontSubstRule, len(valueForFontSubstRules))
-			for i, v := range valueForFontSubstRules {
-				vObject, err := createObjectForType("FontSubstRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontSubstRules[i] = vObject.(IFontSubstRule)
-				}
-			}
-			this.FontSubstRules = valueForIFontSubstRules
-		}
-	}
 	
-	if valFormat, ok := objMap["format"]; ok {
+	if valFormat, ok := GetMapValue(objMap, "format"); ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -347,18 +320,8 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-	if valFormatCap, ok := objMap["Format"]; ok {
-		if valFormatCap != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormatCap, &valueForFormat)
-			if err != nil {
-				return err
-			}
-			this.Format = valueForFormat
-		}
-	}
 	
-	if valSaveAsZip, ok := objMap["saveAsZip"]; ok {
+	if valSaveAsZip, ok := GetMapValue(objMap, "saveAsZip"); ok {
 		if valSaveAsZip != nil {
 			var valueForSaveAsZip *bool
 			err = json.Unmarshal(*valSaveAsZip, &valueForSaveAsZip)
@@ -368,18 +331,8 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 			this.SaveAsZip = valueForSaveAsZip
 		}
 	}
-	if valSaveAsZipCap, ok := objMap["SaveAsZip"]; ok {
-		if valSaveAsZipCap != nil {
-			var valueForSaveAsZip *bool
-			err = json.Unmarshal(*valSaveAsZipCap, &valueForSaveAsZip)
-			if err != nil {
-				return err
-			}
-			this.SaveAsZip = valueForSaveAsZip
-		}
-	}
 	
-	if valSubDirectoryName, ok := objMap["subDirectoryName"]; ok {
+	if valSubDirectoryName, ok := GetMapValue(objMap, "subDirectoryName"); ok {
 		if valSubDirectoryName != nil {
 			var valueForSubDirectoryName string
 			err = json.Unmarshal(*valSubDirectoryName, &valueForSubDirectoryName)
@@ -389,18 +342,8 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 			this.SubDirectoryName = valueForSubDirectoryName
 		}
 	}
-	if valSubDirectoryNameCap, ok := objMap["SubDirectoryName"]; ok {
-		if valSubDirectoryNameCap != nil {
-			var valueForSubDirectoryName string
-			err = json.Unmarshal(*valSubDirectoryNameCap, &valueForSubDirectoryName)
-			if err != nil {
-				return err
-			}
-			this.SubDirectoryName = valueForSubDirectoryName
-		}
-	}
 	
-	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
+	if valShowHiddenSlides, ok := GetMapValue(objMap, "showHiddenSlides"); ok {
 		if valShowHiddenSlides != nil {
 			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
@@ -410,18 +353,8 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 			this.ShowHiddenSlides = valueForShowHiddenSlides
 		}
 	}
-	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
-		if valShowHiddenSlidesCap != nil {
-			var valueForShowHiddenSlides *bool
-			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
-			if err != nil {
-				return err
-			}
-			this.ShowHiddenSlides = valueForShowHiddenSlides
-		}
-	}
 	
-	if valSvgResponsiveLayout, ok := objMap["svgResponsiveLayout"]; ok {
+	if valSvgResponsiveLayout, ok := GetMapValue(objMap, "svgResponsiveLayout"); ok {
 		if valSvgResponsiveLayout != nil {
 			var valueForSvgResponsiveLayout *bool
 			err = json.Unmarshal(*valSvgResponsiveLayout, &valueForSvgResponsiveLayout)
@@ -431,18 +364,8 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 			this.SvgResponsiveLayout = valueForSvgResponsiveLayout
 		}
 	}
-	if valSvgResponsiveLayoutCap, ok := objMap["SvgResponsiveLayout"]; ok {
-		if valSvgResponsiveLayoutCap != nil {
-			var valueForSvgResponsiveLayout *bool
-			err = json.Unmarshal(*valSvgResponsiveLayoutCap, &valueForSvgResponsiveLayout)
-			if err != nil {
-				return err
-			}
-			this.SvgResponsiveLayout = valueForSvgResponsiveLayout
-		}
-	}
 	
-	if valJpegQuality, ok := objMap["jpegQuality"]; ok {
+	if valJpegQuality, ok := GetMapValue(objMap, "jpegQuality"); ok {
 		if valJpegQuality != nil {
 			var valueForJpegQuality int32
 			err = json.Unmarshal(*valJpegQuality, &valueForJpegQuality)
@@ -452,18 +375,8 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 			this.JpegQuality = valueForJpegQuality
 		}
 	}
-	if valJpegQualityCap, ok := objMap["JpegQuality"]; ok {
-		if valJpegQualityCap != nil {
-			var valueForJpegQuality int32
-			err = json.Unmarshal(*valJpegQualityCap, &valueForJpegQuality)
-			if err != nil {
-				return err
-			}
-			this.JpegQuality = valueForJpegQuality
-		}
-	}
 	
-	if valPicturesCompression, ok := objMap["picturesCompression"]; ok {
+	if valPicturesCompression, ok := GetMapValue(objMap, "picturesCompression"); ok {
 		if valPicturesCompression != nil {
 			var valueForPicturesCompression string
 			err = json.Unmarshal(*valPicturesCompression, &valueForPicturesCompression)
@@ -479,24 +392,8 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valPicturesCompressionCap, ok := objMap["PicturesCompression"]; ok {
-		if valPicturesCompressionCap != nil {
-			var valueForPicturesCompression string
-			err = json.Unmarshal(*valPicturesCompressionCap, &valueForPicturesCompression)
-			if err != nil {
-				var valueForPicturesCompressionInt int32
-				err = json.Unmarshal(*valPicturesCompressionCap, &valueForPicturesCompressionInt)
-				if err != nil {
-					return err
-				}
-				this.PicturesCompression = string(valueForPicturesCompressionInt)
-			} else {
-				this.PicturesCompression = valueForPicturesCompression
-			}
-		}
-	}
 	
-	if valDeletePicturesCroppedAreas, ok := objMap["deletePicturesCroppedAreas"]; ok {
+	if valDeletePicturesCroppedAreas, ok := GetMapValue(objMap, "deletePicturesCroppedAreas"); ok {
 		if valDeletePicturesCroppedAreas != nil {
 			var valueForDeletePicturesCroppedAreas *bool
 			err = json.Unmarshal(*valDeletePicturesCroppedAreas, &valueForDeletePicturesCroppedAreas)
@@ -506,18 +403,8 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 			this.DeletePicturesCroppedAreas = valueForDeletePicturesCroppedAreas
 		}
 	}
-	if valDeletePicturesCroppedAreasCap, ok := objMap["DeletePicturesCroppedAreas"]; ok {
-		if valDeletePicturesCroppedAreasCap != nil {
-			var valueForDeletePicturesCroppedAreas *bool
-			err = json.Unmarshal(*valDeletePicturesCroppedAreasCap, &valueForDeletePicturesCroppedAreas)
-			if err != nil {
-				return err
-			}
-			this.DeletePicturesCroppedAreas = valueForDeletePicturesCroppedAreas
-		}
-	}
 	
-	if valSlidesLayoutOptions, ok := objMap["slidesLayoutOptions"]; ok {
+	if valSlidesLayoutOptions, ok := GetMapValue(objMap, "slidesLayoutOptions"); ok {
 		if valSlidesLayoutOptions != nil {
 			var valueForSlidesLayoutOptions SlidesLayoutOptions
 			err = json.Unmarshal(*valSlidesLayoutOptions, &valueForSlidesLayoutOptions)
@@ -529,27 +416,6 @@ func (this *HtmlExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valSlidesLayoutOptions, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ISlidesLayoutOptions)
-			if ok {
-				this.SlidesLayoutOptions = vInterfaceObject
-			}
-		}
-	}
-	if valSlidesLayoutOptionsCap, ok := objMap["SlidesLayoutOptions"]; ok {
-		if valSlidesLayoutOptionsCap != nil {
-			var valueForSlidesLayoutOptions SlidesLayoutOptions
-			err = json.Unmarshal(*valSlidesLayoutOptionsCap, &valueForSlidesLayoutOptions)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("SlidesLayoutOptions", *valSlidesLayoutOptionsCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSlidesLayoutOptionsCap, &vObject)
 			if err != nil {
 				return err
 			}

@@ -204,7 +204,7 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["selfUri"]; ok {
+	if valSelfUri, ok := GetMapValue(objMap, "selfUri"); ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -225,29 +225,8 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
-		if valSelfUriCap != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
-		}
-	}
 	
-	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
+	if valAlternateLinks, ok := GetMapValue(objMap, "alternateLinks"); ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -271,32 +250,8 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
-	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
-		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
-			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
-			}
-			this.AlternateLinks = valueForIAlternateLinks
-		}
-	}
 	
-	if valLastView, ok := objMap["lastView"]; ok {
+	if valLastView, ok := GetMapValue(objMap, "lastView"); ok {
 		if valLastView != nil {
 			var valueForLastView string
 			err = json.Unmarshal(*valLastView, &valueForLastView)
@@ -312,24 +267,8 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLastViewCap, ok := objMap["LastView"]; ok {
-		if valLastViewCap != nil {
-			var valueForLastView string
-			err = json.Unmarshal(*valLastViewCap, &valueForLastView)
-			if err != nil {
-				var valueForLastViewInt int32
-				err = json.Unmarshal(*valLastViewCap, &valueForLastViewInt)
-				if err != nil {
-					return err
-				}
-				this.LastView = string(valueForLastViewInt)
-			} else {
-				this.LastView = valueForLastView
-			}
-		}
-	}
 	
-	if valHorizontalBarState, ok := objMap["horizontalBarState"]; ok {
+	if valHorizontalBarState, ok := GetMapValue(objMap, "horizontalBarState"); ok {
 		if valHorizontalBarState != nil {
 			var valueForHorizontalBarState string
 			err = json.Unmarshal(*valHorizontalBarState, &valueForHorizontalBarState)
@@ -345,24 +284,8 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valHorizontalBarStateCap, ok := objMap["HorizontalBarState"]; ok {
-		if valHorizontalBarStateCap != nil {
-			var valueForHorizontalBarState string
-			err = json.Unmarshal(*valHorizontalBarStateCap, &valueForHorizontalBarState)
-			if err != nil {
-				var valueForHorizontalBarStateInt int32
-				err = json.Unmarshal(*valHorizontalBarStateCap, &valueForHorizontalBarStateInt)
-				if err != nil {
-					return err
-				}
-				this.HorizontalBarState = string(valueForHorizontalBarStateInt)
-			} else {
-				this.HorizontalBarState = valueForHorizontalBarState
-			}
-		}
-	}
 	
-	if valVerticalBarState, ok := objMap["verticalBarState"]; ok {
+	if valVerticalBarState, ok := GetMapValue(objMap, "verticalBarState"); ok {
 		if valVerticalBarState != nil {
 			var valueForVerticalBarState string
 			err = json.Unmarshal(*valVerticalBarState, &valueForVerticalBarState)
@@ -378,24 +301,8 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valVerticalBarStateCap, ok := objMap["VerticalBarState"]; ok {
-		if valVerticalBarStateCap != nil {
-			var valueForVerticalBarState string
-			err = json.Unmarshal(*valVerticalBarStateCap, &valueForVerticalBarState)
-			if err != nil {
-				var valueForVerticalBarStateInt int32
-				err = json.Unmarshal(*valVerticalBarStateCap, &valueForVerticalBarStateInt)
-				if err != nil {
-					return err
-				}
-				this.VerticalBarState = string(valueForVerticalBarStateInt)
-			} else {
-				this.VerticalBarState = valueForVerticalBarState
-			}
-		}
-	}
 	
-	if valPreferSingleView, ok := objMap["preferSingleView"]; ok {
+	if valPreferSingleView, ok := GetMapValue(objMap, "preferSingleView"); ok {
 		if valPreferSingleView != nil {
 			var valueForPreferSingleView *bool
 			err = json.Unmarshal(*valPreferSingleView, &valueForPreferSingleView)
@@ -405,18 +312,8 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			this.PreferSingleView = valueForPreferSingleView
 		}
 	}
-	if valPreferSingleViewCap, ok := objMap["PreferSingleView"]; ok {
-		if valPreferSingleViewCap != nil {
-			var valueForPreferSingleView *bool
-			err = json.Unmarshal(*valPreferSingleViewCap, &valueForPreferSingleView)
-			if err != nil {
-				return err
-			}
-			this.PreferSingleView = valueForPreferSingleView
-		}
-	}
 	
-	if valRestoredLeft, ok := objMap["restoredLeft"]; ok {
+	if valRestoredLeft, ok := GetMapValue(objMap, "restoredLeft"); ok {
 		if valRestoredLeft != nil {
 			var valueForRestoredLeft NormalViewRestoredProperties
 			err = json.Unmarshal(*valRestoredLeft, &valueForRestoredLeft)
@@ -437,29 +334,8 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valRestoredLeftCap, ok := objMap["RestoredLeft"]; ok {
-		if valRestoredLeftCap != nil {
-			var valueForRestoredLeft NormalViewRestoredProperties
-			err = json.Unmarshal(*valRestoredLeftCap, &valueForRestoredLeft)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("NormalViewRestoredProperties", *valRestoredLeftCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valRestoredLeftCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(INormalViewRestoredProperties)
-			if ok {
-				this.RestoredLeft = vInterfaceObject
-			}
-		}
-	}
 	
-	if valRestoredTop, ok := objMap["restoredTop"]; ok {
+	if valRestoredTop, ok := GetMapValue(objMap, "restoredTop"); ok {
 		if valRestoredTop != nil {
 			var valueForRestoredTop NormalViewRestoredProperties
 			err = json.Unmarshal(*valRestoredTop, &valueForRestoredTop)
@@ -480,29 +356,8 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valRestoredTopCap, ok := objMap["RestoredTop"]; ok {
-		if valRestoredTopCap != nil {
-			var valueForRestoredTop NormalViewRestoredProperties
-			err = json.Unmarshal(*valRestoredTopCap, &valueForRestoredTop)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("NormalViewRestoredProperties", *valRestoredTopCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valRestoredTopCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(INormalViewRestoredProperties)
-			if ok {
-				this.RestoredTop = vInterfaceObject
-			}
-		}
-	}
 	
-	if valSlideViewProperties, ok := objMap["slideViewProperties"]; ok {
+	if valSlideViewProperties, ok := GetMapValue(objMap, "slideViewProperties"); ok {
 		if valSlideViewProperties != nil {
 			var valueForSlideViewProperties CommonSlideViewProperties
 			err = json.Unmarshal(*valSlideViewProperties, &valueForSlideViewProperties)
@@ -523,29 +378,8 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSlideViewPropertiesCap, ok := objMap["SlideViewProperties"]; ok {
-		if valSlideViewPropertiesCap != nil {
-			var valueForSlideViewProperties CommonSlideViewProperties
-			err = json.Unmarshal(*valSlideViewPropertiesCap, &valueForSlideViewProperties)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("CommonSlideViewProperties", *valSlideViewPropertiesCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSlideViewPropertiesCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ICommonSlideViewProperties)
-			if ok {
-				this.SlideViewProperties = vInterfaceObject
-			}
-		}
-	}
 	
-	if valNotesViewProperties, ok := objMap["notesViewProperties"]; ok {
+	if valNotesViewProperties, ok := GetMapValue(objMap, "notesViewProperties"); ok {
 		if valNotesViewProperties != nil {
 			var valueForNotesViewProperties CommonSlideViewProperties
 			err = json.Unmarshal(*valNotesViewProperties, &valueForNotesViewProperties)
@@ -566,51 +400,14 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valNotesViewPropertiesCap, ok := objMap["NotesViewProperties"]; ok {
-		if valNotesViewPropertiesCap != nil {
-			var valueForNotesViewProperties CommonSlideViewProperties
-			err = json.Unmarshal(*valNotesViewPropertiesCap, &valueForNotesViewProperties)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("CommonSlideViewProperties", *valNotesViewPropertiesCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valNotesViewPropertiesCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ICommonSlideViewProperties)
-			if ok {
-				this.NotesViewProperties = vInterfaceObject
-			}
-		}
-	}
 	
-	if valShowComments, ok := objMap["showComments"]; ok {
+	if valShowComments, ok := GetMapValue(objMap, "showComments"); ok {
 		if valShowComments != nil {
 			var valueForShowComments string
 			err = json.Unmarshal(*valShowComments, &valueForShowComments)
 			if err != nil {
 				var valueForShowCommentsInt int32
 				err = json.Unmarshal(*valShowComments, &valueForShowCommentsInt)
-				if err != nil {
-					return err
-				}
-				this.ShowComments = string(valueForShowCommentsInt)
-			} else {
-				this.ShowComments = valueForShowComments
-			}
-		}
-	}
-	if valShowCommentsCap, ok := objMap["ShowComments"]; ok {
-		if valShowCommentsCap != nil {
-			var valueForShowComments string
-			err = json.Unmarshal(*valShowCommentsCap, &valueForShowComments)
-			if err != nil {
-				var valueForShowCommentsInt int32
-				err = json.Unmarshal(*valShowCommentsCap, &valueForShowCommentsInt)
 				if err != nil {
 					return err
 				}

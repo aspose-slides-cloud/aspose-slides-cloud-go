@@ -173,7 +173,7 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valId, ok := objMap["id"]; ok {
+	if valId, ok := GetMapValue(objMap, "id"); ok {
 		if valId != nil {
 			var valueForId string
 			err = json.Unmarshal(*valId, &valueForId)
@@ -183,18 +183,8 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 			this.Id = valueForId
 		}
 	}
-	if valIdCap, ok := objMap["Id"]; ok {
-		if valIdCap != nil {
-			var valueForId string
-			err = json.Unmarshal(*valIdCap, &valueForId)
-			if err != nil {
-				return err
-			}
-			this.Id = valueForId
-		}
-	}
 	this.Method = "Convert"
-	if valMethod, ok := objMap["method"]; ok {
+	if valMethod, ok := GetMapValue(objMap, "method"); ok {
 		if valMethod != nil {
 			var valueForMethod string
 			err = json.Unmarshal(*valMethod, &valueForMethod)
@@ -210,24 +200,8 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valMethodCap, ok := objMap["Method"]; ok {
-		if valMethodCap != nil {
-			var valueForMethod string
-			err = json.Unmarshal(*valMethodCap, &valueForMethod)
-			if err != nil {
-				var valueForMethodInt int32
-				err = json.Unmarshal(*valMethodCap, &valueForMethodInt)
-				if err != nil {
-					return err
-				}
-				this.Method = string(valueForMethodInt)
-			} else {
-				this.Method = valueForMethod
-			}
-		}
-	}
 	this.Status = "Created"
-	if valStatus, ok := objMap["status"]; ok {
+	if valStatus, ok := GetMapValue(objMap, "status"); ok {
 		if valStatus != nil {
 			var valueForStatus string
 			err = json.Unmarshal(*valStatus, &valueForStatus)
@@ -243,24 +217,8 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valStatusCap, ok := objMap["Status"]; ok {
-		if valStatusCap != nil {
-			var valueForStatus string
-			err = json.Unmarshal(*valStatusCap, &valueForStatus)
-			if err != nil {
-				var valueForStatusInt int32
-				err = json.Unmarshal(*valStatusCap, &valueForStatusInt)
-				if err != nil {
-					return err
-				}
-				this.Status = string(valueForStatusInt)
-			} else {
-				this.Status = valueForStatus
-			}
-		}
-	}
 	
-	if valProgress, ok := objMap["progress"]; ok {
+	if valProgress, ok := GetMapValue(objMap, "progress"); ok {
 		if valProgress != nil {
 			var valueForProgress OperationProgress
 			err = json.Unmarshal(*valProgress, &valueForProgress)
@@ -281,29 +239,8 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valProgressCap, ok := objMap["Progress"]; ok {
-		if valProgressCap != nil {
-			var valueForProgress OperationProgress
-			err = json.Unmarshal(*valProgressCap, &valueForProgress)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("OperationProgress", *valProgressCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valProgressCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IOperationProgress)
-			if ok {
-				this.Progress = vInterfaceObject
-			}
-		}
-	}
 	
-	if valCreated, ok := objMap["created"]; ok {
+	if valCreated, ok := GetMapValue(objMap, "created"); ok {
 		if valCreated != nil {
 			var valueForCreated time.Time
 			valueForCreated, err = time.Parse("2006-01-02T21:36:33", string(*valCreated))
@@ -312,17 +249,8 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valCreatedCap, ok := objMap["Created"]; ok {
-		if valCreatedCap != nil {
-			var valueForCreated time.Time
-			valueForCreated, err = time.Parse("2006-01-02T21:36:33", string(*valCreatedCap))
-			if err == nil {
-				this.Created = valueForCreated
-			}
-		}
-	}
 	
-	if valStarted, ok := objMap["started"]; ok {
+	if valStarted, ok := GetMapValue(objMap, "started"); ok {
 		if valStarted != nil {
 			var valueForStarted time.Time
 			valueForStarted, err = time.Parse("2006-01-02T21:36:33", string(*valStarted))
@@ -331,17 +259,8 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valStartedCap, ok := objMap["Started"]; ok {
-		if valStartedCap != nil {
-			var valueForStarted time.Time
-			valueForStarted, err = time.Parse("2006-01-02T21:36:33", string(*valStartedCap))
-			if err == nil {
-				this.Started = valueForStarted
-			}
-		}
-	}
 	
-	if valFailed, ok := objMap["failed"]; ok {
+	if valFailed, ok := GetMapValue(objMap, "failed"); ok {
 		if valFailed != nil {
 			var valueForFailed time.Time
 			valueForFailed, err = time.Parse("2006-01-02T21:36:33", string(*valFailed))
@@ -350,17 +269,8 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFailedCap, ok := objMap["Failed"]; ok {
-		if valFailedCap != nil {
-			var valueForFailed time.Time
-			valueForFailed, err = time.Parse("2006-01-02T21:36:33", string(*valFailedCap))
-			if err == nil {
-				this.Failed = valueForFailed
-			}
-		}
-	}
 	
-	if valCanceled, ok := objMap["canceled"]; ok {
+	if valCanceled, ok := GetMapValue(objMap, "canceled"); ok {
 		if valCanceled != nil {
 			var valueForCanceled time.Time
 			valueForCanceled, err = time.Parse("2006-01-02T21:36:33", string(*valCanceled))
@@ -369,17 +279,8 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valCanceledCap, ok := objMap["Canceled"]; ok {
-		if valCanceledCap != nil {
-			var valueForCanceled time.Time
-			valueForCanceled, err = time.Parse("2006-01-02T21:36:33", string(*valCanceledCap))
-			if err == nil {
-				this.Canceled = valueForCanceled
-			}
-		}
-	}
 	
-	if valFinished, ok := objMap["finished"]; ok {
+	if valFinished, ok := GetMapValue(objMap, "finished"); ok {
 		if valFinished != nil {
 			var valueForFinished time.Time
 			valueForFinished, err = time.Parse("2006-01-02T21:36:33", string(*valFinished))
@@ -388,30 +289,11 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFinishedCap, ok := objMap["Finished"]; ok {
-		if valFinishedCap != nil {
-			var valueForFinished time.Time
-			valueForFinished, err = time.Parse("2006-01-02T21:36:33", string(*valFinishedCap))
-			if err == nil {
-				this.Finished = valueForFinished
-			}
-		}
-	}
 	
-	if valError, ok := objMap["error"]; ok {
+	if valError, ok := GetMapValue(objMap, "error"); ok {
 		if valError != nil {
 			var valueForError string
 			err = json.Unmarshal(*valError, &valueForError)
-			if err != nil {
-				return err
-			}
-			this.Error_ = valueForError
-		}
-	}
-	if valErrorCap, ok := objMap["Error"]; ok {
-		if valErrorCap != nil {
-			var valueForError string
-			err = json.Unmarshal(*valErrorCap, &valueForError)
 			if err != nil {
 				return err
 			}

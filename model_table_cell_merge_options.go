@@ -120,7 +120,7 @@ func (this *TableCellMergeOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFirstRowIndex, ok := objMap["firstRowIndex"]; ok {
+	if valFirstRowIndex, ok := GetMapValue(objMap, "firstRowIndex"); ok {
 		if valFirstRowIndex != nil {
 			var valueForFirstRowIndex int32
 			err = json.Unmarshal(*valFirstRowIndex, &valueForFirstRowIndex)
@@ -130,18 +130,8 @@ func (this *TableCellMergeOptions) UnmarshalJSON(b []byte) error {
 			this.FirstRowIndex = valueForFirstRowIndex
 		}
 	}
-	if valFirstRowIndexCap, ok := objMap["FirstRowIndex"]; ok {
-		if valFirstRowIndexCap != nil {
-			var valueForFirstRowIndex int32
-			err = json.Unmarshal(*valFirstRowIndexCap, &valueForFirstRowIndex)
-			if err != nil {
-				return err
-			}
-			this.FirstRowIndex = valueForFirstRowIndex
-		}
-	}
 	
-	if valFirstCellIndex, ok := objMap["firstCellIndex"]; ok {
+	if valFirstCellIndex, ok := GetMapValue(objMap, "firstCellIndex"); ok {
 		if valFirstCellIndex != nil {
 			var valueForFirstCellIndex int32
 			err = json.Unmarshal(*valFirstCellIndex, &valueForFirstCellIndex)
@@ -151,18 +141,8 @@ func (this *TableCellMergeOptions) UnmarshalJSON(b []byte) error {
 			this.FirstCellIndex = valueForFirstCellIndex
 		}
 	}
-	if valFirstCellIndexCap, ok := objMap["FirstCellIndex"]; ok {
-		if valFirstCellIndexCap != nil {
-			var valueForFirstCellIndex int32
-			err = json.Unmarshal(*valFirstCellIndexCap, &valueForFirstCellIndex)
-			if err != nil {
-				return err
-			}
-			this.FirstCellIndex = valueForFirstCellIndex
-		}
-	}
 	
-	if valLastRowIndex, ok := objMap["lastRowIndex"]; ok {
+	if valLastRowIndex, ok := GetMapValue(objMap, "lastRowIndex"); ok {
 		if valLastRowIndex != nil {
 			var valueForLastRowIndex int32
 			err = json.Unmarshal(*valLastRowIndex, &valueForLastRowIndex)
@@ -172,18 +152,8 @@ func (this *TableCellMergeOptions) UnmarshalJSON(b []byte) error {
 			this.LastRowIndex = valueForLastRowIndex
 		}
 	}
-	if valLastRowIndexCap, ok := objMap["LastRowIndex"]; ok {
-		if valLastRowIndexCap != nil {
-			var valueForLastRowIndex int32
-			err = json.Unmarshal(*valLastRowIndexCap, &valueForLastRowIndex)
-			if err != nil {
-				return err
-			}
-			this.LastRowIndex = valueForLastRowIndex
-		}
-	}
 	
-	if valLastCellIndex, ok := objMap["lastCellIndex"]; ok {
+	if valLastCellIndex, ok := GetMapValue(objMap, "lastCellIndex"); ok {
 		if valLastCellIndex != nil {
 			var valueForLastCellIndex int32
 			err = json.Unmarshal(*valLastCellIndex, &valueForLastCellIndex)
@@ -193,31 +163,11 @@ func (this *TableCellMergeOptions) UnmarshalJSON(b []byte) error {
 			this.LastCellIndex = valueForLastCellIndex
 		}
 	}
-	if valLastCellIndexCap, ok := objMap["LastCellIndex"]; ok {
-		if valLastCellIndexCap != nil {
-			var valueForLastCellIndex int32
-			err = json.Unmarshal(*valLastCellIndexCap, &valueForLastCellIndex)
-			if err != nil {
-				return err
-			}
-			this.LastCellIndex = valueForLastCellIndex
-		}
-	}
 	
-	if valAllowSplitting, ok := objMap["allowSplitting"]; ok {
+	if valAllowSplitting, ok := GetMapValue(objMap, "allowSplitting"); ok {
 		if valAllowSplitting != nil {
 			var valueForAllowSplitting *bool
 			err = json.Unmarshal(*valAllowSplitting, &valueForAllowSplitting)
-			if err != nil {
-				return err
-			}
-			this.AllowSplitting = valueForAllowSplitting
-		}
-	}
-	if valAllowSplittingCap, ok := objMap["AllowSplitting"]; ok {
-		if valAllowSplittingCap != nil {
-			var valueForAllowSplitting *bool
-			err = json.Unmarshal(*valAllowSplittingCap, &valueForAllowSplitting)
 			if err != nil {
 				return err
 			}

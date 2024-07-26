@@ -149,7 +149,7 @@ func (this *CubicBezierToPathSegment) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "CubicBezierTo"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -165,24 +165,8 @@ func (this *CubicBezierToPathSegment) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valX1, ok := objMap["x1"]; ok {
+	if valX1, ok := GetMapValue(objMap, "x1"); ok {
 		if valX1 != nil {
 			var valueForX1 float64
 			err = json.Unmarshal(*valX1, &valueForX1)
@@ -192,18 +176,8 @@ func (this *CubicBezierToPathSegment) UnmarshalJSON(b []byte) error {
 			this.X1 = valueForX1
 		}
 	}
-	if valX1Cap, ok := objMap["X1"]; ok {
-		if valX1Cap != nil {
-			var valueForX1 float64
-			err = json.Unmarshal(*valX1Cap, &valueForX1)
-			if err != nil {
-				return err
-			}
-			this.X1 = valueForX1
-		}
-	}
 	
-	if valY1, ok := objMap["y1"]; ok {
+	if valY1, ok := GetMapValue(objMap, "y1"); ok {
 		if valY1 != nil {
 			var valueForY1 float64
 			err = json.Unmarshal(*valY1, &valueForY1)
@@ -213,18 +187,8 @@ func (this *CubicBezierToPathSegment) UnmarshalJSON(b []byte) error {
 			this.Y1 = valueForY1
 		}
 	}
-	if valY1Cap, ok := objMap["Y1"]; ok {
-		if valY1Cap != nil {
-			var valueForY1 float64
-			err = json.Unmarshal(*valY1Cap, &valueForY1)
-			if err != nil {
-				return err
-			}
-			this.Y1 = valueForY1
-		}
-	}
 	
-	if valX2, ok := objMap["x2"]; ok {
+	if valX2, ok := GetMapValue(objMap, "x2"); ok {
 		if valX2 != nil {
 			var valueForX2 float64
 			err = json.Unmarshal(*valX2, &valueForX2)
@@ -234,18 +198,8 @@ func (this *CubicBezierToPathSegment) UnmarshalJSON(b []byte) error {
 			this.X2 = valueForX2
 		}
 	}
-	if valX2Cap, ok := objMap["X2"]; ok {
-		if valX2Cap != nil {
-			var valueForX2 float64
-			err = json.Unmarshal(*valX2Cap, &valueForX2)
-			if err != nil {
-				return err
-			}
-			this.X2 = valueForX2
-		}
-	}
 	
-	if valY2, ok := objMap["y2"]; ok {
+	if valY2, ok := GetMapValue(objMap, "y2"); ok {
 		if valY2 != nil {
 			var valueForY2 float64
 			err = json.Unmarshal(*valY2, &valueForY2)
@@ -255,18 +209,8 @@ func (this *CubicBezierToPathSegment) UnmarshalJSON(b []byte) error {
 			this.Y2 = valueForY2
 		}
 	}
-	if valY2Cap, ok := objMap["Y2"]; ok {
-		if valY2Cap != nil {
-			var valueForY2 float64
-			err = json.Unmarshal(*valY2Cap, &valueForY2)
-			if err != nil {
-				return err
-			}
-			this.Y2 = valueForY2
-		}
-	}
 	
-	if valX3, ok := objMap["x3"]; ok {
+	if valX3, ok := GetMapValue(objMap, "x3"); ok {
 		if valX3 != nil {
 			var valueForX3 float64
 			err = json.Unmarshal(*valX3, &valueForX3)
@@ -276,31 +220,11 @@ func (this *CubicBezierToPathSegment) UnmarshalJSON(b []byte) error {
 			this.X3 = valueForX3
 		}
 	}
-	if valX3Cap, ok := objMap["X3"]; ok {
-		if valX3Cap != nil {
-			var valueForX3 float64
-			err = json.Unmarshal(*valX3Cap, &valueForX3)
-			if err != nil {
-				return err
-			}
-			this.X3 = valueForX3
-		}
-	}
 	
-	if valY3, ok := objMap["y3"]; ok {
+	if valY3, ok := GetMapValue(objMap, "y3"); ok {
 		if valY3 != nil {
 			var valueForY3 float64
 			err = json.Unmarshal(*valY3, &valueForY3)
-			if err != nil {
-				return err
-			}
-			this.Y3 = valueForY3
-		}
-	}
-	if valY3Cap, ok := objMap["Y3"]; ok {
-		if valY3Cap != nil {
-			var valueForY3 float64
-			err = json.Unmarshal(*valY3Cap, &valueForY3)
 			if err != nil {
 				return err
 			}

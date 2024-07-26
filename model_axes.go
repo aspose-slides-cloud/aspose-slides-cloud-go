@@ -106,7 +106,7 @@ func (this *Axes) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valHorizontalAxis, ok := objMap["horizontalAxis"]; ok {
+	if valHorizontalAxis, ok := GetMapValue(objMap, "horizontalAxis"); ok {
 		if valHorizontalAxis != nil {
 			var valueForHorizontalAxis Axis
 			err = json.Unmarshal(*valHorizontalAxis, &valueForHorizontalAxis)
@@ -127,29 +127,8 @@ func (this *Axes) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valHorizontalAxisCap, ok := objMap["HorizontalAxis"]; ok {
-		if valHorizontalAxisCap != nil {
-			var valueForHorizontalAxis Axis
-			err = json.Unmarshal(*valHorizontalAxisCap, &valueForHorizontalAxis)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("Axis", *valHorizontalAxisCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valHorizontalAxisCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IAxis)
-			if ok {
-				this.HorizontalAxis = vInterfaceObject
-			}
-		}
-	}
 	
-	if valVerticalAxis, ok := objMap["verticalAxis"]; ok {
+	if valVerticalAxis, ok := GetMapValue(objMap, "verticalAxis"); ok {
 		if valVerticalAxis != nil {
 			var valueForVerticalAxis Axis
 			err = json.Unmarshal(*valVerticalAxis, &valueForVerticalAxis)
@@ -170,29 +149,8 @@ func (this *Axes) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valVerticalAxisCap, ok := objMap["VerticalAxis"]; ok {
-		if valVerticalAxisCap != nil {
-			var valueForVerticalAxis Axis
-			err = json.Unmarshal(*valVerticalAxisCap, &valueForVerticalAxis)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("Axis", *valVerticalAxisCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valVerticalAxisCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IAxis)
-			if ok {
-				this.VerticalAxis = vInterfaceObject
-			}
-		}
-	}
 	
-	if valSecondaryHorizontalAxis, ok := objMap["secondaryHorizontalAxis"]; ok {
+	if valSecondaryHorizontalAxis, ok := GetMapValue(objMap, "secondaryHorizontalAxis"); ok {
 		if valSecondaryHorizontalAxis != nil {
 			var valueForSecondaryHorizontalAxis Axis
 			err = json.Unmarshal(*valSecondaryHorizontalAxis, &valueForSecondaryHorizontalAxis)
@@ -213,29 +171,8 @@ func (this *Axes) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSecondaryHorizontalAxisCap, ok := objMap["SecondaryHorizontalAxis"]; ok {
-		if valSecondaryHorizontalAxisCap != nil {
-			var valueForSecondaryHorizontalAxis Axis
-			err = json.Unmarshal(*valSecondaryHorizontalAxisCap, &valueForSecondaryHorizontalAxis)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("Axis", *valSecondaryHorizontalAxisCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSecondaryHorizontalAxisCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IAxis)
-			if ok {
-				this.SecondaryHorizontalAxis = vInterfaceObject
-			}
-		}
-	}
 	
-	if valSecondaryVerticalAxis, ok := objMap["secondaryVerticalAxis"]; ok {
+	if valSecondaryVerticalAxis, ok := GetMapValue(objMap, "secondaryVerticalAxis"); ok {
 		if valSecondaryVerticalAxis != nil {
 			var valueForSecondaryVerticalAxis Axis
 			err = json.Unmarshal(*valSecondaryVerticalAxis, &valueForSecondaryVerticalAxis)
@@ -247,27 +184,6 @@ func (this *Axes) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valSecondaryVerticalAxis, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IAxis)
-			if ok {
-				this.SecondaryVerticalAxis = vInterfaceObject
-			}
-		}
-	}
-	if valSecondaryVerticalAxisCap, ok := objMap["SecondaryVerticalAxis"]; ok {
-		if valSecondaryVerticalAxisCap != nil {
-			var valueForSecondaryVerticalAxis Axis
-			err = json.Unmarshal(*valSecondaryVerticalAxisCap, &valueForSecondaryVerticalAxis)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("Axis", *valSecondaryVerticalAxisCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSecondaryVerticalAxisCap, &vObject)
 			if err != nil {
 				return err
 			}

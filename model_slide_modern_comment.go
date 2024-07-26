@@ -163,7 +163,7 @@ func (this *SlideModernComment) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valAuthor, ok := objMap["author"]; ok {
+	if valAuthor, ok := GetMapValue(objMap, "author"); ok {
 		if valAuthor != nil {
 			var valueForAuthor string
 			err = json.Unmarshal(*valAuthor, &valueForAuthor)
@@ -173,18 +173,8 @@ func (this *SlideModernComment) UnmarshalJSON(b []byte) error {
 			this.Author = valueForAuthor
 		}
 	}
-	if valAuthorCap, ok := objMap["Author"]; ok {
-		if valAuthorCap != nil {
-			var valueForAuthor string
-			err = json.Unmarshal(*valAuthorCap, &valueForAuthor)
-			if err != nil {
-				return err
-			}
-			this.Author = valueForAuthor
-		}
-	}
 	
-	if valText, ok := objMap["text"]; ok {
+	if valText, ok := GetMapValue(objMap, "text"); ok {
 		if valText != nil {
 			var valueForText string
 			err = json.Unmarshal(*valText, &valueForText)
@@ -194,18 +184,8 @@ func (this *SlideModernComment) UnmarshalJSON(b []byte) error {
 			this.Text = valueForText
 		}
 	}
-	if valTextCap, ok := objMap["Text"]; ok {
-		if valTextCap != nil {
-			var valueForText string
-			err = json.Unmarshal(*valTextCap, &valueForText)
-			if err != nil {
-				return err
-			}
-			this.Text = valueForText
-		}
-	}
 	
-	if valCreatedTime, ok := objMap["createdTime"]; ok {
+	if valCreatedTime, ok := GetMapValue(objMap, "createdTime"); ok {
 		if valCreatedTime != nil {
 			var valueForCreatedTime string
 			err = json.Unmarshal(*valCreatedTime, &valueForCreatedTime)
@@ -215,18 +195,8 @@ func (this *SlideModernComment) UnmarshalJSON(b []byte) error {
 			this.CreatedTime = valueForCreatedTime
 		}
 	}
-	if valCreatedTimeCap, ok := objMap["CreatedTime"]; ok {
-		if valCreatedTimeCap != nil {
-			var valueForCreatedTime string
-			err = json.Unmarshal(*valCreatedTimeCap, &valueForCreatedTime)
-			if err != nil {
-				return err
-			}
-			this.CreatedTime = valueForCreatedTime
-		}
-	}
 	
-	if valChildComments, ok := objMap["childComments"]; ok {
+	if valChildComments, ok := GetMapValue(objMap, "childComments"); ok {
 		if valChildComments != nil {
 			var valueForChildComments []json.RawMessage
 			err = json.Unmarshal(*valChildComments, &valueForChildComments)
@@ -250,32 +220,8 @@ func (this *SlideModernComment) UnmarshalJSON(b []byte) error {
 			this.ChildComments = valueForIChildComments
 		}
 	}
-	if valChildCommentsCap, ok := objMap["ChildComments"]; ok {
-		if valChildCommentsCap != nil {
-			var valueForChildComments []json.RawMessage
-			err = json.Unmarshal(*valChildCommentsCap, &valueForChildComments)
-			if err != nil {
-				return err
-			}
-			valueForIChildComments := make([]ISlideCommentBase, len(valueForChildComments))
-			for i, v := range valueForChildComments {
-				vObject, err := createObjectForType("SlideCommentBase", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIChildComments[i] = vObject.(ISlideCommentBase)
-				}
-			}
-			this.ChildComments = valueForIChildComments
-		}
-	}
 	this.Type_ = "Modern"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -291,24 +237,8 @@ func (this *SlideModernComment) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valTextSelectionStart, ok := objMap["textSelectionStart"]; ok {
+	if valTextSelectionStart, ok := GetMapValue(objMap, "textSelectionStart"); ok {
 		if valTextSelectionStart != nil {
 			var valueForTextSelectionStart int32
 			err = json.Unmarshal(*valTextSelectionStart, &valueForTextSelectionStart)
@@ -318,18 +248,8 @@ func (this *SlideModernComment) UnmarshalJSON(b []byte) error {
 			this.TextSelectionStart = valueForTextSelectionStart
 		}
 	}
-	if valTextSelectionStartCap, ok := objMap["TextSelectionStart"]; ok {
-		if valTextSelectionStartCap != nil {
-			var valueForTextSelectionStart int32
-			err = json.Unmarshal(*valTextSelectionStartCap, &valueForTextSelectionStart)
-			if err != nil {
-				return err
-			}
-			this.TextSelectionStart = valueForTextSelectionStart
-		}
-	}
 	
-	if valTextSelectionLength, ok := objMap["textSelectionLength"]; ok {
+	if valTextSelectionLength, ok := GetMapValue(objMap, "textSelectionLength"); ok {
 		if valTextSelectionLength != nil {
 			var valueForTextSelectionLength int32
 			err = json.Unmarshal(*valTextSelectionLength, &valueForTextSelectionLength)
@@ -339,40 +259,14 @@ func (this *SlideModernComment) UnmarshalJSON(b []byte) error {
 			this.TextSelectionLength = valueForTextSelectionLength
 		}
 	}
-	if valTextSelectionLengthCap, ok := objMap["TextSelectionLength"]; ok {
-		if valTextSelectionLengthCap != nil {
-			var valueForTextSelectionLength int32
-			err = json.Unmarshal(*valTextSelectionLengthCap, &valueForTextSelectionLength)
-			if err != nil {
-				return err
-			}
-			this.TextSelectionLength = valueForTextSelectionLength
-		}
-	}
 	
-	if valStatus, ok := objMap["status"]; ok {
+	if valStatus, ok := GetMapValue(objMap, "status"); ok {
 		if valStatus != nil {
 			var valueForStatus string
 			err = json.Unmarshal(*valStatus, &valueForStatus)
 			if err != nil {
 				var valueForStatusInt int32
 				err = json.Unmarshal(*valStatus, &valueForStatusInt)
-				if err != nil {
-					return err
-				}
-				this.Status = string(valueForStatusInt)
-			} else {
-				this.Status = valueForStatus
-			}
-		}
-	}
-	if valStatusCap, ok := objMap["Status"]; ok {
-		if valStatusCap != nil {
-			var valueForStatus string
-			err = json.Unmarshal(*valStatusCap, &valueForStatus)
-			if err != nil {
-				var valueForStatusInt int32
-				err = json.Unmarshal(*valStatusCap, &valueForStatusInt)
 				if err != nil {
 					return err
 				}

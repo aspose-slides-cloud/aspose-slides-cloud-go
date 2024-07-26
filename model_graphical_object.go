@@ -317,7 +317,7 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["selfUri"]; ok {
+	if valSelfUri, ok := GetMapValue(objMap, "selfUri"); ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -338,29 +338,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
-		if valSelfUriCap != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
-		}
-	}
 	
-	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
+	if valAlternateLinks, ok := GetMapValue(objMap, "alternateLinks"); ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -384,32 +363,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
-	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
-		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
-			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
-			}
-			this.AlternateLinks = valueForIAlternateLinks
-		}
-	}
 	
-	if valName, ok := objMap["name"]; ok {
+	if valName, ok := GetMapValue(objMap, "name"); ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -419,18 +374,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-	if valNameCap, ok := objMap["Name"]; ok {
-		if valNameCap != nil {
-			var valueForName string
-			err = json.Unmarshal(*valNameCap, &valueForName)
-			if err != nil {
-				return err
-			}
-			this.Name = valueForName
-		}
-	}
 	
-	if valWidth, ok := objMap["width"]; ok {
+	if valWidth, ok := GetMapValue(objMap, "width"); ok {
 		if valWidth != nil {
 			var valueForWidth float64
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -440,18 +385,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth float64
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
 	
-	if valHeight, ok := objMap["height"]; ok {
+	if valHeight, ok := GetMapValue(objMap, "height"); ok {
 		if valHeight != nil {
 			var valueForHeight float64
 			err = json.Unmarshal(*valHeight, &valueForHeight)
@@ -461,18 +396,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight float64
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
 	
-	if valAlternativeText, ok := objMap["alternativeText"]; ok {
+	if valAlternativeText, ok := GetMapValue(objMap, "alternativeText"); ok {
 		if valAlternativeText != nil {
 			var valueForAlternativeText string
 			err = json.Unmarshal(*valAlternativeText, &valueForAlternativeText)
@@ -482,18 +407,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			this.AlternativeText = valueForAlternativeText
 		}
 	}
-	if valAlternativeTextCap, ok := objMap["AlternativeText"]; ok {
-		if valAlternativeTextCap != nil {
-			var valueForAlternativeText string
-			err = json.Unmarshal(*valAlternativeTextCap, &valueForAlternativeText)
-			if err != nil {
-				return err
-			}
-			this.AlternativeText = valueForAlternativeText
-		}
-	}
 	
-	if valAlternativeTextTitle, ok := objMap["alternativeTextTitle"]; ok {
+	if valAlternativeTextTitle, ok := GetMapValue(objMap, "alternativeTextTitle"); ok {
 		if valAlternativeTextTitle != nil {
 			var valueForAlternativeTextTitle string
 			err = json.Unmarshal(*valAlternativeTextTitle, &valueForAlternativeTextTitle)
@@ -503,18 +418,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			this.AlternativeTextTitle = valueForAlternativeTextTitle
 		}
 	}
-	if valAlternativeTextTitleCap, ok := objMap["AlternativeTextTitle"]; ok {
-		if valAlternativeTextTitleCap != nil {
-			var valueForAlternativeTextTitle string
-			err = json.Unmarshal(*valAlternativeTextTitleCap, &valueForAlternativeTextTitle)
-			if err != nil {
-				return err
-			}
-			this.AlternativeTextTitle = valueForAlternativeTextTitle
-		}
-	}
 	
-	if valHidden, ok := objMap["hidden"]; ok {
+	if valHidden, ok := GetMapValue(objMap, "hidden"); ok {
 		if valHidden != nil {
 			var valueForHidden *bool
 			err = json.Unmarshal(*valHidden, &valueForHidden)
@@ -524,18 +429,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			this.Hidden = valueForHidden
 		}
 	}
-	if valHiddenCap, ok := objMap["Hidden"]; ok {
-		if valHiddenCap != nil {
-			var valueForHidden *bool
-			err = json.Unmarshal(*valHiddenCap, &valueForHidden)
-			if err != nil {
-				return err
-			}
-			this.Hidden = valueForHidden
-		}
-	}
 	
-	if valIsDecorative, ok := objMap["isDecorative"]; ok {
+	if valIsDecorative, ok := GetMapValue(objMap, "isDecorative"); ok {
 		if valIsDecorative != nil {
 			var valueForIsDecorative *bool
 			err = json.Unmarshal(*valIsDecorative, &valueForIsDecorative)
@@ -545,18 +440,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			this.IsDecorative = valueForIsDecorative
 		}
 	}
-	if valIsDecorativeCap, ok := objMap["IsDecorative"]; ok {
-		if valIsDecorativeCap != nil {
-			var valueForIsDecorative *bool
-			err = json.Unmarshal(*valIsDecorativeCap, &valueForIsDecorative)
-			if err != nil {
-				return err
-			}
-			this.IsDecorative = valueForIsDecorative
-		}
-	}
 	
-	if valX, ok := objMap["x"]; ok {
+	if valX, ok := GetMapValue(objMap, "x"); ok {
 		if valX != nil {
 			var valueForX float64
 			err = json.Unmarshal(*valX, &valueForX)
@@ -566,18 +451,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			this.X = valueForX
 		}
 	}
-	if valXCap, ok := objMap["X"]; ok {
-		if valXCap != nil {
-			var valueForX float64
-			err = json.Unmarshal(*valXCap, &valueForX)
-			if err != nil {
-				return err
-			}
-			this.X = valueForX
-		}
-	}
 	
-	if valY, ok := objMap["y"]; ok {
+	if valY, ok := GetMapValue(objMap, "y"); ok {
 		if valY != nil {
 			var valueForY float64
 			err = json.Unmarshal(*valY, &valueForY)
@@ -587,18 +462,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			this.Y = valueForY
 		}
 	}
-	if valYCap, ok := objMap["Y"]; ok {
-		if valYCap != nil {
-			var valueForY float64
-			err = json.Unmarshal(*valYCap, &valueForY)
-			if err != nil {
-				return err
-			}
-			this.Y = valueForY
-		}
-	}
 	
-	if valZOrderPosition, ok := objMap["zOrderPosition"]; ok {
+	if valZOrderPosition, ok := GetMapValue(objMap, "zOrderPosition"); ok {
 		if valZOrderPosition != nil {
 			var valueForZOrderPosition int32
 			err = json.Unmarshal(*valZOrderPosition, &valueForZOrderPosition)
@@ -608,18 +473,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			this.ZOrderPosition = valueForZOrderPosition
 		}
 	}
-	if valZOrderPositionCap, ok := objMap["ZOrderPosition"]; ok {
-		if valZOrderPositionCap != nil {
-			var valueForZOrderPosition int32
-			err = json.Unmarshal(*valZOrderPositionCap, &valueForZOrderPosition)
-			if err != nil {
-				return err
-			}
-			this.ZOrderPosition = valueForZOrderPosition
-		}
-	}
 	
-	if valFillFormat, ok := objMap["fillFormat"]; ok {
+	if valFillFormat, ok := GetMapValue(objMap, "fillFormat"); ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -640,29 +495,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
-		if valFillFormatCap != nil {
-			var valueForFillFormat FillFormat
-			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFillFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IFillFormat)
-			if ok {
-				this.FillFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valEffectFormat, ok := objMap["effectFormat"]; ok {
+	if valEffectFormat, ok := GetMapValue(objMap, "effectFormat"); ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
 			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
@@ -683,29 +517,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
-		if valEffectFormatCap != nil {
-			var valueForEffectFormat EffectFormat
-			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valEffectFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IEffectFormat)
-			if ok {
-				this.EffectFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valThreeDFormat, ok := objMap["threeDFormat"]; ok {
+	if valThreeDFormat, ok := GetMapValue(objMap, "threeDFormat"); ok {
 		if valThreeDFormat != nil {
 			var valueForThreeDFormat ThreeDFormat
 			err = json.Unmarshal(*valThreeDFormat, &valueForThreeDFormat)
@@ -726,29 +539,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valThreeDFormatCap, ok := objMap["ThreeDFormat"]; ok {
-		if valThreeDFormatCap != nil {
-			var valueForThreeDFormat ThreeDFormat
-			err = json.Unmarshal(*valThreeDFormatCap, &valueForThreeDFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ThreeDFormat", *valThreeDFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valThreeDFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IThreeDFormat)
-			if ok {
-				this.ThreeDFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valLineFormat, ok := objMap["lineFormat"]; ok {
+	if valLineFormat, ok := GetMapValue(objMap, "lineFormat"); ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
 			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
@@ -769,29 +561,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
-		if valLineFormatCap != nil {
-			var valueForLineFormat LineFormat
-			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valLineFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.LineFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valHyperlinkClick, ok := objMap["hyperlinkClick"]; ok {
+	if valHyperlinkClick, ok := GetMapValue(objMap, "hyperlinkClick"); ok {
 		if valHyperlinkClick != nil {
 			var valueForHyperlinkClick Hyperlink
 			err = json.Unmarshal(*valHyperlinkClick, &valueForHyperlinkClick)
@@ -812,29 +583,8 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valHyperlinkClickCap, ok := objMap["HyperlinkClick"]; ok {
-		if valHyperlinkClickCap != nil {
-			var valueForHyperlinkClick Hyperlink
-			err = json.Unmarshal(*valHyperlinkClickCap, &valueForHyperlinkClick)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("Hyperlink", *valHyperlinkClickCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valHyperlinkClickCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IHyperlink)
-			if ok {
-				this.HyperlinkClick = vInterfaceObject
-			}
-		}
-	}
 	
-	if valHyperlinkMouseOver, ok := objMap["hyperlinkMouseOver"]; ok {
+	if valHyperlinkMouseOver, ok := GetMapValue(objMap, "hyperlinkMouseOver"); ok {
 		if valHyperlinkMouseOver != nil {
 			var valueForHyperlinkMouseOver Hyperlink
 			err = json.Unmarshal(*valHyperlinkMouseOver, &valueForHyperlinkMouseOver)
@@ -855,51 +605,14 @@ func (this *GraphicalObject) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valHyperlinkMouseOverCap, ok := objMap["HyperlinkMouseOver"]; ok {
-		if valHyperlinkMouseOverCap != nil {
-			var valueForHyperlinkMouseOver Hyperlink
-			err = json.Unmarshal(*valHyperlinkMouseOverCap, &valueForHyperlinkMouseOver)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("Hyperlink", *valHyperlinkMouseOverCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valHyperlinkMouseOverCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IHyperlink)
-			if ok {
-				this.HyperlinkMouseOver = vInterfaceObject
-			}
-		}
-	}
 	this.Type_ = "GraphicalObject"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
 			if err != nil {
 				var valueForTypeInt int32
 				err = json.Unmarshal(*valType, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
 				if err != nil {
 					return err
 				}

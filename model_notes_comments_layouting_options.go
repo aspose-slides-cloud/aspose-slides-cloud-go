@@ -133,7 +133,7 @@ func (this *NotesCommentsLayoutingOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.LayoutType = "NotesComments"
-	if valLayoutType, ok := objMap["layoutType"]; ok {
+	if valLayoutType, ok := GetMapValue(objMap, "layoutType"); ok {
 		if valLayoutType != nil {
 			var valueForLayoutType string
 			err = json.Unmarshal(*valLayoutType, &valueForLayoutType)
@@ -149,24 +149,8 @@ func (this *NotesCommentsLayoutingOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLayoutTypeCap, ok := objMap["LayoutType"]; ok {
-		if valLayoutTypeCap != nil {
-			var valueForLayoutType string
-			err = json.Unmarshal(*valLayoutTypeCap, &valueForLayoutType)
-			if err != nil {
-				var valueForLayoutTypeInt int32
-				err = json.Unmarshal(*valLayoutTypeCap, &valueForLayoutTypeInt)
-				if err != nil {
-					return err
-				}
-				this.LayoutType = string(valueForLayoutTypeInt)
-			} else {
-				this.LayoutType = valueForLayoutType
-			}
-		}
-	}
 	
-	if valNotesPosition, ok := objMap["notesPosition"]; ok {
+	if valNotesPosition, ok := GetMapValue(objMap, "notesPosition"); ok {
 		if valNotesPosition != nil {
 			var valueForNotesPosition string
 			err = json.Unmarshal(*valNotesPosition, &valueForNotesPosition)
@@ -182,24 +166,8 @@ func (this *NotesCommentsLayoutingOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valNotesPositionCap, ok := objMap["NotesPosition"]; ok {
-		if valNotesPositionCap != nil {
-			var valueForNotesPosition string
-			err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPosition)
-			if err != nil {
-				var valueForNotesPositionInt int32
-				err = json.Unmarshal(*valNotesPositionCap, &valueForNotesPositionInt)
-				if err != nil {
-					return err
-				}
-				this.NotesPosition = string(valueForNotesPositionInt)
-			} else {
-				this.NotesPosition = valueForNotesPosition
-			}
-		}
-	}
 	
-	if valCommentsPosition, ok := objMap["commentsPosition"]; ok {
+	if valCommentsPosition, ok := GetMapValue(objMap, "commentsPosition"); ok {
 		if valCommentsPosition != nil {
 			var valueForCommentsPosition string
 			err = json.Unmarshal(*valCommentsPosition, &valueForCommentsPosition)
@@ -215,24 +183,8 @@ func (this *NotesCommentsLayoutingOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valCommentsPositionCap, ok := objMap["CommentsPosition"]; ok {
-		if valCommentsPositionCap != nil {
-			var valueForCommentsPosition string
-			err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPosition)
-			if err != nil {
-				var valueForCommentsPositionInt int32
-				err = json.Unmarshal(*valCommentsPositionCap, &valueForCommentsPositionInt)
-				if err != nil {
-					return err
-				}
-				this.CommentsPosition = string(valueForCommentsPositionInt)
-			} else {
-				this.CommentsPosition = valueForCommentsPosition
-			}
-		}
-	}
 	
-	if valCommentsAreaWidth, ok := objMap["commentsAreaWidth"]; ok {
+	if valCommentsAreaWidth, ok := GetMapValue(objMap, "commentsAreaWidth"); ok {
 		if valCommentsAreaWidth != nil {
 			var valueForCommentsAreaWidth int32
 			err = json.Unmarshal(*valCommentsAreaWidth, &valueForCommentsAreaWidth)
@@ -242,18 +194,8 @@ func (this *NotesCommentsLayoutingOptions) UnmarshalJSON(b []byte) error {
 			this.CommentsAreaWidth = valueForCommentsAreaWidth
 		}
 	}
-	if valCommentsAreaWidthCap, ok := objMap["CommentsAreaWidth"]; ok {
-		if valCommentsAreaWidthCap != nil {
-			var valueForCommentsAreaWidth int32
-			err = json.Unmarshal(*valCommentsAreaWidthCap, &valueForCommentsAreaWidth)
-			if err != nil {
-				return err
-			}
-			this.CommentsAreaWidth = valueForCommentsAreaWidth
-		}
-	}
 	
-	if valCommentsAreaColor, ok := objMap["commentsAreaColor"]; ok {
+	if valCommentsAreaColor, ok := GetMapValue(objMap, "commentsAreaColor"); ok {
 		if valCommentsAreaColor != nil {
 			var valueForCommentsAreaColor string
 			err = json.Unmarshal(*valCommentsAreaColor, &valueForCommentsAreaColor)
@@ -263,31 +205,11 @@ func (this *NotesCommentsLayoutingOptions) UnmarshalJSON(b []byte) error {
 			this.CommentsAreaColor = valueForCommentsAreaColor
 		}
 	}
-	if valCommentsAreaColorCap, ok := objMap["CommentsAreaColor"]; ok {
-		if valCommentsAreaColorCap != nil {
-			var valueForCommentsAreaColor string
-			err = json.Unmarshal(*valCommentsAreaColorCap, &valueForCommentsAreaColor)
-			if err != nil {
-				return err
-			}
-			this.CommentsAreaColor = valueForCommentsAreaColor
-		}
-	}
 	
-	if valShowCommentsByNoAuthor, ok := objMap["showCommentsByNoAuthor"]; ok {
+	if valShowCommentsByNoAuthor, ok := GetMapValue(objMap, "showCommentsByNoAuthor"); ok {
 		if valShowCommentsByNoAuthor != nil {
 			var valueForShowCommentsByNoAuthor *bool
 			err = json.Unmarshal(*valShowCommentsByNoAuthor, &valueForShowCommentsByNoAuthor)
-			if err != nil {
-				return err
-			}
-			this.ShowCommentsByNoAuthor = valueForShowCommentsByNoAuthor
-		}
-	}
-	if valShowCommentsByNoAuthorCap, ok := objMap["ShowCommentsByNoAuthor"]; ok {
-		if valShowCommentsByNoAuthorCap != nil {
-			var valueForShowCommentsByNoAuthor *bool
-			err = json.Unmarshal(*valShowCommentsByNoAuthorCap, &valueForShowCommentsByNoAuthor)
 			if err != nil {
 				return err
 			}

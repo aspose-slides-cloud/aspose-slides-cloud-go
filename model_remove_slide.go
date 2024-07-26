@@ -79,7 +79,7 @@ func (this *RemoveSlide) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "RemoveSlide"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -95,37 +95,11 @@ func (this *RemoveSlide) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valPosition, ok := objMap["position"]; ok {
+	if valPosition, ok := GetMapValue(objMap, "position"); ok {
 		if valPosition != nil {
 			var valueForPosition int32
 			err = json.Unmarshal(*valPosition, &valueForPosition)
-			if err != nil {
-				return err
-			}
-			this.Position = valueForPosition
-		}
-	}
-	if valPositionCap, ok := objMap["Position"]; ok {
-		if valPositionCap != nil {
-			var valueForPosition int32
-			err = json.Unmarshal(*valPositionCap, &valueForPosition)
 			if err != nil {
 				return err
 			}

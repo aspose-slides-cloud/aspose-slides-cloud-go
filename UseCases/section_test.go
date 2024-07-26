@@ -44,7 +44,7 @@ func TestMathDownloadNull(t *testing.T) {
 		return
 	}
 
-	_, response, e := c.SlidesApi.DownloadPortionAsMathMl(fileName, 2, 1, 1, 1, "password", folderName, "")
+	_, response, e := c.SlidesApi.DownloadMathPortion(fileName, 2, 1, 1, 1, "mathml", "password", folderName, "")
 	if e == nil {
 		t.Errorf("An ordinary paragraph should not have been converted to MathML.")
 		return
@@ -67,7 +67,7 @@ func TestMathSave(t *testing.T) {
 		return
 	}
 
-	_, e = c.SlidesApi.SavePortionAsMathMl(fileName, 2, 3, 1, 1, outPath, "password", folderName, "")
+	_, e = c.SlidesApi.SaveMathPortion(fileName, 2, 3, 1, 1, "mathml", outPath, "password", folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

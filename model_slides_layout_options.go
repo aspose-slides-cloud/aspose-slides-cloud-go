@@ -62,29 +62,13 @@ func (this *SlidesLayoutOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valLayoutType, ok := objMap["layoutType"]; ok {
+	if valLayoutType, ok := GetMapValue(objMap, "layoutType"); ok {
 		if valLayoutType != nil {
 			var valueForLayoutType string
 			err = json.Unmarshal(*valLayoutType, &valueForLayoutType)
 			if err != nil {
 				var valueForLayoutTypeInt int32
 				err = json.Unmarshal(*valLayoutType, &valueForLayoutTypeInt)
-				if err != nil {
-					return err
-				}
-				this.LayoutType = string(valueForLayoutTypeInt)
-			} else {
-				this.LayoutType = valueForLayoutType
-			}
-		}
-	}
-	if valLayoutTypeCap, ok := objMap["LayoutType"]; ok {
-		if valLayoutTypeCap != nil {
-			var valueForLayoutType string
-			err = json.Unmarshal(*valLayoutTypeCap, &valueForLayoutType)
-			if err != nil {
-				var valueForLayoutTypeInt int32
-				err = json.Unmarshal(*valLayoutTypeCap, &valueForLayoutTypeInt)
 				if err != nil {
 					return err
 				}

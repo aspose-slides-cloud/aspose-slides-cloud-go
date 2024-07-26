@@ -92,7 +92,7 @@ func (this *GeometryPath) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFillMode, ok := objMap["fillMode"]; ok {
+	if valFillMode, ok := GetMapValue(objMap, "fillMode"); ok {
 		if valFillMode != nil {
 			var valueForFillMode string
 			err = json.Unmarshal(*valFillMode, &valueForFillMode)
@@ -108,24 +108,8 @@ func (this *GeometryPath) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFillModeCap, ok := objMap["FillMode"]; ok {
-		if valFillModeCap != nil {
-			var valueForFillMode string
-			err = json.Unmarshal(*valFillModeCap, &valueForFillMode)
-			if err != nil {
-				var valueForFillModeInt int32
-				err = json.Unmarshal(*valFillModeCap, &valueForFillModeInt)
-				if err != nil {
-					return err
-				}
-				this.FillMode = string(valueForFillModeInt)
-			} else {
-				this.FillMode = valueForFillMode
-			}
-		}
-	}
 	
-	if valStroke, ok := objMap["stroke"]; ok {
+	if valStroke, ok := GetMapValue(objMap, "stroke"); ok {
 		if valStroke != nil {
 			var valueForStroke *bool
 			err = json.Unmarshal(*valStroke, &valueForStroke)
@@ -135,45 +119,11 @@ func (this *GeometryPath) UnmarshalJSON(b []byte) error {
 			this.Stroke = valueForStroke
 		}
 	}
-	if valStrokeCap, ok := objMap["Stroke"]; ok {
-		if valStrokeCap != nil {
-			var valueForStroke *bool
-			err = json.Unmarshal(*valStrokeCap, &valueForStroke)
-			if err != nil {
-				return err
-			}
-			this.Stroke = valueForStroke
-		}
-	}
 	
-	if valPathData, ok := objMap["pathData"]; ok {
+	if valPathData, ok := GetMapValue(objMap, "pathData"); ok {
 		if valPathData != nil {
 			var valueForPathData []json.RawMessage
 			err = json.Unmarshal(*valPathData, &valueForPathData)
-			if err != nil {
-				return err
-			}
-			valueForIPathData := make([]IPathSegment, len(valueForPathData))
-			for i, v := range valueForPathData {
-				vObject, err := createObjectForType("PathSegment", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIPathData[i] = vObject.(IPathSegment)
-				}
-			}
-			this.PathData = valueForIPathData
-		}
-	}
-	if valPathDataCap, ok := objMap["PathData"]; ok {
-		if valPathDataCap != nil {
-			var valueForPathData []json.RawMessage
-			err = json.Unmarshal(*valPathDataCap, &valueForPathData)
 			if err != nil {
 				return err
 			}

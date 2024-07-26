@@ -359,7 +359,7 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -375,24 +375,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valName, ok := objMap["name"]; ok {
+	if valName, ok := GetMapValue(objMap, "name"); ok {
 		if valName != nil {
 			var valueForName string
 			err = json.Unmarshal(*valName, &valueForName)
@@ -402,18 +386,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.Name = valueForName
 		}
 	}
-	if valNameCap, ok := objMap["Name"]; ok {
-		if valNameCap != nil {
-			var valueForName string
-			err = json.Unmarshal(*valNameCap, &valueForName)
-			if err != nil {
-				return err
-			}
-			this.Name = valueForName
-		}
-	}
 	
-	if valDataSourceForSeriesName, ok := objMap["dataSourceForSeriesName"]; ok {
+	if valDataSourceForSeriesName, ok := GetMapValue(objMap, "dataSourceForSeriesName"); ok {
 		if valDataSourceForSeriesName != nil {
 			var valueForDataSourceForSeriesName DataSource
 			err = json.Unmarshal(*valDataSourceForSeriesName, &valueForDataSourceForSeriesName)
@@ -434,29 +408,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valDataSourceForSeriesNameCap, ok := objMap["DataSourceForSeriesName"]; ok {
-		if valDataSourceForSeriesNameCap != nil {
-			var valueForDataSourceForSeriesName DataSource
-			err = json.Unmarshal(*valDataSourceForSeriesNameCap, &valueForDataSourceForSeriesName)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("DataSource", *valDataSourceForSeriesNameCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valDataSourceForSeriesNameCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IDataSource)
-			if ok {
-				this.DataSourceForSeriesName = vInterfaceObject
-			}
-		}
-	}
 	
-	if valIsColorVaried, ok := objMap["isColorVaried"]; ok {
+	if valIsColorVaried, ok := GetMapValue(objMap, "isColorVaried"); ok {
 		if valIsColorVaried != nil {
 			var valueForIsColorVaried *bool
 			err = json.Unmarshal(*valIsColorVaried, &valueForIsColorVaried)
@@ -466,18 +419,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.IsColorVaried = valueForIsColorVaried
 		}
 	}
-	if valIsColorVariedCap, ok := objMap["IsColorVaried"]; ok {
-		if valIsColorVariedCap != nil {
-			var valueForIsColorVaried *bool
-			err = json.Unmarshal(*valIsColorVariedCap, &valueForIsColorVaried)
-			if err != nil {
-				return err
-			}
-			this.IsColorVaried = valueForIsColorVaried
-		}
-	}
 	
-	if valInvertedSolidFillColor, ok := objMap["invertedSolidFillColor"]; ok {
+	if valInvertedSolidFillColor, ok := GetMapValue(objMap, "invertedSolidFillColor"); ok {
 		if valInvertedSolidFillColor != nil {
 			var valueForInvertedSolidFillColor string
 			err = json.Unmarshal(*valInvertedSolidFillColor, &valueForInvertedSolidFillColor)
@@ -487,18 +430,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.InvertedSolidFillColor = valueForInvertedSolidFillColor
 		}
 	}
-	if valInvertedSolidFillColorCap, ok := objMap["InvertedSolidFillColor"]; ok {
-		if valInvertedSolidFillColorCap != nil {
-			var valueForInvertedSolidFillColor string
-			err = json.Unmarshal(*valInvertedSolidFillColorCap, &valueForInvertedSolidFillColor)
-			if err != nil {
-				return err
-			}
-			this.InvertedSolidFillColor = valueForInvertedSolidFillColor
-		}
-	}
 	
-	if valSmooth, ok := objMap["smooth"]; ok {
+	if valSmooth, ok := GetMapValue(objMap, "smooth"); ok {
 		if valSmooth != nil {
 			var valueForSmooth *bool
 			err = json.Unmarshal(*valSmooth, &valueForSmooth)
@@ -508,18 +441,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.Smooth = valueForSmooth
 		}
 	}
-	if valSmoothCap, ok := objMap["Smooth"]; ok {
-		if valSmoothCap != nil {
-			var valueForSmooth *bool
-			err = json.Unmarshal(*valSmoothCap, &valueForSmooth)
-			if err != nil {
-				return err
-			}
-			this.Smooth = valueForSmooth
-		}
-	}
 	
-	if valPlotOnSecondAxis, ok := objMap["plotOnSecondAxis"]; ok {
+	if valPlotOnSecondAxis, ok := GetMapValue(objMap, "plotOnSecondAxis"); ok {
 		if valPlotOnSecondAxis != nil {
 			var valueForPlotOnSecondAxis *bool
 			err = json.Unmarshal(*valPlotOnSecondAxis, &valueForPlotOnSecondAxis)
@@ -529,18 +452,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.PlotOnSecondAxis = valueForPlotOnSecondAxis
 		}
 	}
-	if valPlotOnSecondAxisCap, ok := objMap["PlotOnSecondAxis"]; ok {
-		if valPlotOnSecondAxisCap != nil {
-			var valueForPlotOnSecondAxis *bool
-			err = json.Unmarshal(*valPlotOnSecondAxisCap, &valueForPlotOnSecondAxis)
-			if err != nil {
-				return err
-			}
-			this.PlotOnSecondAxis = valueForPlotOnSecondAxis
-		}
-	}
 	
-	if valOrder, ok := objMap["order"]; ok {
+	if valOrder, ok := GetMapValue(objMap, "order"); ok {
 		if valOrder != nil {
 			var valueForOrder int32
 			err = json.Unmarshal(*valOrder, &valueForOrder)
@@ -550,18 +463,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.Order = valueForOrder
 		}
 	}
-	if valOrderCap, ok := objMap["Order"]; ok {
-		if valOrderCap != nil {
-			var valueForOrder int32
-			err = json.Unmarshal(*valOrderCap, &valueForOrder)
-			if err != nil {
-				return err
-			}
-			this.Order = valueForOrder
-		}
-	}
 	
-	if valInvertIfNegative, ok := objMap["invertIfNegative"]; ok {
+	if valInvertIfNegative, ok := GetMapValue(objMap, "invertIfNegative"); ok {
 		if valInvertIfNegative != nil {
 			var valueForInvertIfNegative *bool
 			err = json.Unmarshal(*valInvertIfNegative, &valueForInvertIfNegative)
@@ -571,18 +474,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.InvertIfNegative = valueForInvertIfNegative
 		}
 	}
-	if valInvertIfNegativeCap, ok := objMap["InvertIfNegative"]; ok {
-		if valInvertIfNegativeCap != nil {
-			var valueForInvertIfNegative *bool
-			err = json.Unmarshal(*valInvertIfNegativeCap, &valueForInvertIfNegative)
-			if err != nil {
-				return err
-			}
-			this.InvertIfNegative = valueForInvertIfNegative
-		}
-	}
 	
-	if valExplosion, ok := objMap["explosion"]; ok {
+	if valExplosion, ok := GetMapValue(objMap, "explosion"); ok {
 		if valExplosion != nil {
 			var valueForExplosion int32
 			err = json.Unmarshal(*valExplosion, &valueForExplosion)
@@ -592,18 +485,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.Explosion = valueForExplosion
 		}
 	}
-	if valExplosionCap, ok := objMap["Explosion"]; ok {
-		if valExplosionCap != nil {
-			var valueForExplosion int32
-			err = json.Unmarshal(*valExplosionCap, &valueForExplosion)
-			if err != nil {
-				return err
-			}
-			this.Explosion = valueForExplosion
-		}
-	}
 	
-	if valMarker, ok := objMap["marker"]; ok {
+	if valMarker, ok := GetMapValue(objMap, "marker"); ok {
 		if valMarker != nil {
 			var valueForMarker SeriesMarker
 			err = json.Unmarshal(*valMarker, &valueForMarker)
@@ -624,29 +507,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valMarkerCap, ok := objMap["Marker"]; ok {
-		if valMarkerCap != nil {
-			var valueForMarker SeriesMarker
-			err = json.Unmarshal(*valMarkerCap, &valueForMarker)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("SeriesMarker", *valMarkerCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valMarkerCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ISeriesMarker)
-			if ok {
-				this.Marker = vInterfaceObject
-			}
-		}
-	}
 	
-	if valFillFormat, ok := objMap["fillFormat"]; ok {
+	if valFillFormat, ok := GetMapValue(objMap, "fillFormat"); ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -667,29 +529,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
-		if valFillFormatCap != nil {
-			var valueForFillFormat FillFormat
-			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFillFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IFillFormat)
-			if ok {
-				this.FillFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valEffectFormat, ok := objMap["effectFormat"]; ok {
+	if valEffectFormat, ok := GetMapValue(objMap, "effectFormat"); ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
 			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
@@ -710,29 +551,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
-		if valEffectFormatCap != nil {
-			var valueForEffectFormat EffectFormat
-			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valEffectFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IEffectFormat)
-			if ok {
-				this.EffectFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valLineFormat, ok := objMap["lineFormat"]; ok {
+	if valLineFormat, ok := GetMapValue(objMap, "lineFormat"); ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
 			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
@@ -753,29 +573,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
-		if valLineFormatCap != nil {
-			var valueForLineFormat LineFormat
-			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valLineFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.LineFormat = vInterfaceObject
-			}
-		}
-	}
 	this.DataPointType = "Bubble"
-	if valDataPointType, ok := objMap["dataPointType"]; ok {
+	if valDataPointType, ok := GetMapValue(objMap, "dataPointType"); ok {
 		if valDataPointType != nil {
 			var valueForDataPointType string
 			err = json.Unmarshal(*valDataPointType, &valueForDataPointType)
@@ -791,24 +590,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valDataPointTypeCap, ok := objMap["DataPointType"]; ok {
-		if valDataPointTypeCap != nil {
-			var valueForDataPointType string
-			err = json.Unmarshal(*valDataPointTypeCap, &valueForDataPointType)
-			if err != nil {
-				var valueForDataPointTypeInt int32
-				err = json.Unmarshal(*valDataPointTypeCap, &valueForDataPointTypeInt)
-				if err != nil {
-					return err
-				}
-				this.DataPointType = string(valueForDataPointTypeInt)
-			} else {
-				this.DataPointType = valueForDataPointType
-			}
-		}
-	}
 	
-	if valNumberFormatOfYValues, ok := objMap["numberFormatOfYValues"]; ok {
+	if valNumberFormatOfYValues, ok := GetMapValue(objMap, "numberFormatOfYValues"); ok {
 		if valNumberFormatOfYValues != nil {
 			var valueForNumberFormatOfYValues string
 			err = json.Unmarshal(*valNumberFormatOfYValues, &valueForNumberFormatOfYValues)
@@ -818,18 +601,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.NumberFormatOfYValues = valueForNumberFormatOfYValues
 		}
 	}
-	if valNumberFormatOfYValuesCap, ok := objMap["NumberFormatOfYValues"]; ok {
-		if valNumberFormatOfYValuesCap != nil {
-			var valueForNumberFormatOfYValues string
-			err = json.Unmarshal(*valNumberFormatOfYValuesCap, &valueForNumberFormatOfYValues)
-			if err != nil {
-				return err
-			}
-			this.NumberFormatOfYValues = valueForNumberFormatOfYValues
-		}
-	}
 	
-	if valNumberFormatOfXValues, ok := objMap["numberFormatOfXValues"]; ok {
+	if valNumberFormatOfXValues, ok := GetMapValue(objMap, "numberFormatOfXValues"); ok {
 		if valNumberFormatOfXValues != nil {
 			var valueForNumberFormatOfXValues string
 			err = json.Unmarshal(*valNumberFormatOfXValues, &valueForNumberFormatOfXValues)
@@ -839,18 +612,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.NumberFormatOfXValues = valueForNumberFormatOfXValues
 		}
 	}
-	if valNumberFormatOfXValuesCap, ok := objMap["NumberFormatOfXValues"]; ok {
-		if valNumberFormatOfXValuesCap != nil {
-			var valueForNumberFormatOfXValues string
-			err = json.Unmarshal(*valNumberFormatOfXValuesCap, &valueForNumberFormatOfXValues)
-			if err != nil {
-				return err
-			}
-			this.NumberFormatOfXValues = valueForNumberFormatOfXValues
-		}
-	}
 	
-	if valDataSourceForXValues, ok := objMap["dataSourceForXValues"]; ok {
+	if valDataSourceForXValues, ok := GetMapValue(objMap, "dataSourceForXValues"); ok {
 		if valDataSourceForXValues != nil {
 			var valueForDataSourceForXValues DataSource
 			err = json.Unmarshal(*valDataSourceForXValues, &valueForDataSourceForXValues)
@@ -871,29 +634,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valDataSourceForXValuesCap, ok := objMap["DataSourceForXValues"]; ok {
-		if valDataSourceForXValuesCap != nil {
-			var valueForDataSourceForXValues DataSource
-			err = json.Unmarshal(*valDataSourceForXValuesCap, &valueForDataSourceForXValues)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("DataSource", *valDataSourceForXValuesCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valDataSourceForXValuesCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IDataSource)
-			if ok {
-				this.DataSourceForXValues = vInterfaceObject
-			}
-		}
-	}
 	
-	if valDataSourceForYValues, ok := objMap["dataSourceForYValues"]; ok {
+	if valDataSourceForYValues, ok := GetMapValue(objMap, "dataSourceForYValues"); ok {
 		if valDataSourceForYValues != nil {
 			var valueForDataSourceForYValues DataSource
 			err = json.Unmarshal(*valDataSourceForYValues, &valueForDataSourceForYValues)
@@ -914,29 +656,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valDataSourceForYValuesCap, ok := objMap["DataSourceForYValues"]; ok {
-		if valDataSourceForYValuesCap != nil {
-			var valueForDataSourceForYValues DataSource
-			err = json.Unmarshal(*valDataSourceForYValuesCap, &valueForDataSourceForYValues)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("DataSource", *valDataSourceForYValuesCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valDataSourceForYValuesCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IDataSource)
-			if ok {
-				this.DataSourceForYValues = vInterfaceObject
-			}
-		}
-	}
 	
-	if valDataPoints, ok := objMap["dataPoints"]; ok {
+	if valDataPoints, ok := GetMapValue(objMap, "dataPoints"); ok {
 		if valDataPoints != nil {
 			var valueForDataPoints []json.RawMessage
 			err = json.Unmarshal(*valDataPoints, &valueForDataPoints)
@@ -960,32 +681,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.DataPoints = valueForIDataPoints
 		}
 	}
-	if valDataPointsCap, ok := objMap["DataPoints"]; ok {
-		if valDataPointsCap != nil {
-			var valueForDataPoints []json.RawMessage
-			err = json.Unmarshal(*valDataPointsCap, &valueForDataPoints)
-			if err != nil {
-				return err
-			}
-			valueForIDataPoints := make([]IBubbleChartDataPoint, len(valueForDataPoints))
-			for i, v := range valueForDataPoints {
-				vObject, err := createObjectForType("BubbleChartDataPoint", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIDataPoints[i] = vObject.(IBubbleChartDataPoint)
-				}
-			}
-			this.DataPoints = valueForIDataPoints
-		}
-	}
 	
-	if valNumberFormatOfBubbleSizes, ok := objMap["numberFormatOfBubbleSizes"]; ok {
+	if valNumberFormatOfBubbleSizes, ok := GetMapValue(objMap, "numberFormatOfBubbleSizes"); ok {
 		if valNumberFormatOfBubbleSizes != nil {
 			var valueForNumberFormatOfBubbleSizes string
 			err = json.Unmarshal(*valNumberFormatOfBubbleSizes, &valueForNumberFormatOfBubbleSizes)
@@ -995,18 +692,8 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 			this.NumberFormatOfBubbleSizes = valueForNumberFormatOfBubbleSizes
 		}
 	}
-	if valNumberFormatOfBubbleSizesCap, ok := objMap["NumberFormatOfBubbleSizes"]; ok {
-		if valNumberFormatOfBubbleSizesCap != nil {
-			var valueForNumberFormatOfBubbleSizes string
-			err = json.Unmarshal(*valNumberFormatOfBubbleSizesCap, &valueForNumberFormatOfBubbleSizes)
-			if err != nil {
-				return err
-			}
-			this.NumberFormatOfBubbleSizes = valueForNumberFormatOfBubbleSizes
-		}
-	}
 	
-	if valDataSourceForBubbleSizeValues, ok := objMap["dataSourceForBubbleSizeValues"]; ok {
+	if valDataSourceForBubbleSizeValues, ok := GetMapValue(objMap, "dataSourceForBubbleSizeValues"); ok {
 		if valDataSourceForBubbleSizeValues != nil {
 			var valueForDataSourceForBubbleSizeValues DataSource
 			err = json.Unmarshal(*valDataSourceForBubbleSizeValues, &valueForDataSourceForBubbleSizeValues)
@@ -1018,27 +705,6 @@ func (this *BubbleSeries) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valDataSourceForBubbleSizeValues, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IDataSource)
-			if ok {
-				this.DataSourceForBubbleSizeValues = vInterfaceObject
-			}
-		}
-	}
-	if valDataSourceForBubbleSizeValuesCap, ok := objMap["DataSourceForBubbleSizeValues"]; ok {
-		if valDataSourceForBubbleSizeValuesCap != nil {
-			var valueForDataSourceForBubbleSizeValues DataSource
-			err = json.Unmarshal(*valDataSourceForBubbleSizeValuesCap, &valueForDataSourceForBubbleSizeValues)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("DataSource", *valDataSourceForBubbleSizeValuesCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valDataSourceForBubbleSizeValuesCap, &vObject)
 			if err != nil {
 				return err
 			}

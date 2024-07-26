@@ -162,7 +162,7 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["selfUri"]; ok {
+	if valSelfUri, ok := GetMapValue(objMap, "selfUri"); ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -183,29 +183,8 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
-		if valSelfUriCap != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
-		}
-	}
 	
-	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
+	if valAlternateLinks, ok := GetMapValue(objMap, "alternateLinks"); ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -229,32 +208,8 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
-	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
-		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
-			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
-			}
-			this.AlternateLinks = valueForIAlternateLinks
-		}
-	}
 	
-	if valEncryptDocumentProperties, ok := objMap["encryptDocumentProperties"]; ok {
+	if valEncryptDocumentProperties, ok := GetMapValue(objMap, "encryptDocumentProperties"); ok {
 		if valEncryptDocumentProperties != nil {
 			var valueForEncryptDocumentProperties *bool
 			err = json.Unmarshal(*valEncryptDocumentProperties, &valueForEncryptDocumentProperties)
@@ -264,18 +219,8 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 			this.EncryptDocumentProperties = valueForEncryptDocumentProperties
 		}
 	}
-	if valEncryptDocumentPropertiesCap, ok := objMap["EncryptDocumentProperties"]; ok {
-		if valEncryptDocumentPropertiesCap != nil {
-			var valueForEncryptDocumentProperties *bool
-			err = json.Unmarshal(*valEncryptDocumentPropertiesCap, &valueForEncryptDocumentProperties)
-			if err != nil {
-				return err
-			}
-			this.EncryptDocumentProperties = valueForEncryptDocumentProperties
-		}
-	}
 	
-	if valReadOnlyRecommended, ok := objMap["readOnlyRecommended"]; ok {
+	if valReadOnlyRecommended, ok := GetMapValue(objMap, "readOnlyRecommended"); ok {
 		if valReadOnlyRecommended != nil {
 			var valueForReadOnlyRecommended *bool
 			err = json.Unmarshal(*valReadOnlyRecommended, &valueForReadOnlyRecommended)
@@ -285,18 +230,8 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 			this.ReadOnlyRecommended = valueForReadOnlyRecommended
 		}
 	}
-	if valReadOnlyRecommendedCap, ok := objMap["ReadOnlyRecommended"]; ok {
-		if valReadOnlyRecommendedCap != nil {
-			var valueForReadOnlyRecommended *bool
-			err = json.Unmarshal(*valReadOnlyRecommendedCap, &valueForReadOnlyRecommended)
-			if err != nil {
-				return err
-			}
-			this.ReadOnlyRecommended = valueForReadOnlyRecommended
-		}
-	}
 	
-	if valReadPassword, ok := objMap["readPassword"]; ok {
+	if valReadPassword, ok := GetMapValue(objMap, "readPassword"); ok {
 		if valReadPassword != nil {
 			var valueForReadPassword string
 			err = json.Unmarshal(*valReadPassword, &valueForReadPassword)
@@ -306,18 +241,8 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 			this.ReadPassword = valueForReadPassword
 		}
 	}
-	if valReadPasswordCap, ok := objMap["ReadPassword"]; ok {
-		if valReadPasswordCap != nil {
-			var valueForReadPassword string
-			err = json.Unmarshal(*valReadPasswordCap, &valueForReadPassword)
-			if err != nil {
-				return err
-			}
-			this.ReadPassword = valueForReadPassword
-		}
-	}
 	
-	if valWritePassword, ok := objMap["writePassword"]; ok {
+	if valWritePassword, ok := GetMapValue(objMap, "writePassword"); ok {
 		if valWritePassword != nil {
 			var valueForWritePassword string
 			err = json.Unmarshal(*valWritePassword, &valueForWritePassword)
@@ -327,18 +252,8 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 			this.WritePassword = valueForWritePassword
 		}
 	}
-	if valWritePasswordCap, ok := objMap["WritePassword"]; ok {
-		if valWritePasswordCap != nil {
-			var valueForWritePassword string
-			err = json.Unmarshal(*valWritePasswordCap, &valueForWritePassword)
-			if err != nil {
-				return err
-			}
-			this.WritePassword = valueForWritePassword
-		}
-	}
 	
-	if valIsWriteProtected, ok := objMap["isWriteProtected"]; ok {
+	if valIsWriteProtected, ok := GetMapValue(objMap, "isWriteProtected"); ok {
 		if valIsWriteProtected != nil {
 			var valueForIsWriteProtected *bool
 			err = json.Unmarshal(*valIsWriteProtected, &valueForIsWriteProtected)
@@ -348,31 +263,11 @@ func (this *ProtectionProperties) UnmarshalJSON(b []byte) error {
 			this.IsWriteProtected = valueForIsWriteProtected
 		}
 	}
-	if valIsWriteProtectedCap, ok := objMap["IsWriteProtected"]; ok {
-		if valIsWriteProtectedCap != nil {
-			var valueForIsWriteProtected *bool
-			err = json.Unmarshal(*valIsWriteProtectedCap, &valueForIsWriteProtected)
-			if err != nil {
-				return err
-			}
-			this.IsWriteProtected = valueForIsWriteProtected
-		}
-	}
 	
-	if valIsEncrypted, ok := objMap["isEncrypted"]; ok {
+	if valIsEncrypted, ok := GetMapValue(objMap, "isEncrypted"); ok {
 		if valIsEncrypted != nil {
 			var valueForIsEncrypted *bool
 			err = json.Unmarshal(*valIsEncrypted, &valueForIsEncrypted)
-			if err != nil {
-				return err
-			}
-			this.IsEncrypted = valueForIsEncrypted
-		}
-	}
-	if valIsEncryptedCap, ok := objMap["IsEncrypted"]; ok {
-		if valIsEncryptedCap != nil {
-			var valueForIsEncrypted *bool
-			err = json.Unmarshal(*valIsEncryptedCap, &valueForIsEncrypted)
 			if err != nil {
 				return err
 			}

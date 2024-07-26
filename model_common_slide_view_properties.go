@@ -78,7 +78,7 @@ func (this *CommonSlideViewProperties) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valScale, ok := objMap["scale"]; ok {
+	if valScale, ok := GetMapValue(objMap, "scale"); ok {
 		if valScale != nil {
 			var valueForScale int32
 			err = json.Unmarshal(*valScale, &valueForScale)
@@ -88,31 +88,11 @@ func (this *CommonSlideViewProperties) UnmarshalJSON(b []byte) error {
 			this.Scale = valueForScale
 		}
 	}
-	if valScaleCap, ok := objMap["Scale"]; ok {
-		if valScaleCap != nil {
-			var valueForScale int32
-			err = json.Unmarshal(*valScaleCap, &valueForScale)
-			if err != nil {
-				return err
-			}
-			this.Scale = valueForScale
-		}
-	}
 	
-	if valVariableScale, ok := objMap["variableScale"]; ok {
+	if valVariableScale, ok := GetMapValue(objMap, "variableScale"); ok {
 		if valVariableScale != nil {
 			var valueForVariableScale *bool
 			err = json.Unmarshal(*valVariableScale, &valueForVariableScale)
-			if err != nil {
-				return err
-			}
-			this.VariableScale = valueForVariableScale
-		}
-	}
-	if valVariableScaleCap, ok := objMap["VariableScale"]; ok {
-		if valVariableScaleCap != nil {
-			var valueForVariableScale *bool
-			err = json.Unmarshal(*valVariableScaleCap, &valueForVariableScale)
 			if err != nil {
 				return err
 			}

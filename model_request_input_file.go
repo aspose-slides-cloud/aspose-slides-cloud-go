@@ -93,7 +93,7 @@ func (this *RequestInputFile) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valPassword, ok := objMap["password"]; ok {
+	if valPassword, ok := GetMapValue(objMap, "password"); ok {
 		if valPassword != nil {
 			var valueForPassword string
 			err = json.Unmarshal(*valPassword, &valueForPassword)
@@ -103,18 +103,8 @@ func (this *RequestInputFile) UnmarshalJSON(b []byte) error {
 			this.Password = valueForPassword
 		}
 	}
-	if valPasswordCap, ok := objMap["Password"]; ok {
-		if valPasswordCap != nil {
-			var valueForPassword string
-			err = json.Unmarshal(*valPasswordCap, &valueForPassword)
-			if err != nil {
-				return err
-			}
-			this.Password = valueForPassword
-		}
-	}
 	this.Type_ = "Request"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -130,37 +120,11 @@ func (this *RequestInputFile) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valIndex, ok := objMap["index"]; ok {
+	if valIndex, ok := GetMapValue(objMap, "index"); ok {
 		if valIndex != nil {
 			var valueForIndex int32
 			err = json.Unmarshal(*valIndex, &valueForIndex)
-			if err != nil {
-				return err
-			}
-			this.Index = valueForIndex
-		}
-	}
-	if valIndexCap, ok := objMap["Index"]; ok {
-		if valIndexCap != nil {
-			var valueForIndex int32
-			err = json.Unmarshal(*valIndexCap, &valueForIndex)
 			if err != nil {
 				return err
 			}

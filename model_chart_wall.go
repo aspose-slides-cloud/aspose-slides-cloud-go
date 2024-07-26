@@ -120,7 +120,7 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valFillFormat, ok := objMap["fillFormat"]; ok {
+	if valFillFormat, ok := GetMapValue(objMap, "fillFormat"); ok {
 		if valFillFormat != nil {
 			var valueForFillFormat FillFormat
 			err = json.Unmarshal(*valFillFormat, &valueForFillFormat)
@@ -141,29 +141,8 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valFillFormatCap, ok := objMap["FillFormat"]; ok {
-		if valFillFormatCap != nil {
-			var valueForFillFormat FillFormat
-			err = json.Unmarshal(*valFillFormatCap, &valueForFillFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("FillFormat", *valFillFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFillFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IFillFormat)
-			if ok {
-				this.FillFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valEffectFormat, ok := objMap["effectFormat"]; ok {
+	if valEffectFormat, ok := GetMapValue(objMap, "effectFormat"); ok {
 		if valEffectFormat != nil {
 			var valueForEffectFormat EffectFormat
 			err = json.Unmarshal(*valEffectFormat, &valueForEffectFormat)
@@ -184,29 +163,8 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valEffectFormatCap, ok := objMap["EffectFormat"]; ok {
-		if valEffectFormatCap != nil {
-			var valueForEffectFormat EffectFormat
-			err = json.Unmarshal(*valEffectFormatCap, &valueForEffectFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("EffectFormat", *valEffectFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valEffectFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IEffectFormat)
-			if ok {
-				this.EffectFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valLineFormat, ok := objMap["lineFormat"]; ok {
+	if valLineFormat, ok := GetMapValue(objMap, "lineFormat"); ok {
 		if valLineFormat != nil {
 			var valueForLineFormat LineFormat
 			err = json.Unmarshal(*valLineFormat, &valueForLineFormat)
@@ -227,29 +185,8 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLineFormatCap, ok := objMap["LineFormat"]; ok {
-		if valLineFormatCap != nil {
-			var valueForLineFormat LineFormat
-			err = json.Unmarshal(*valLineFormatCap, &valueForLineFormat)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LineFormat", *valLineFormatCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valLineFormatCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILineFormat)
-			if ok {
-				this.LineFormat = vInterfaceObject
-			}
-		}
-	}
 	
-	if valThickness, ok := objMap["thickness"]; ok {
+	if valThickness, ok := GetMapValue(objMap, "thickness"); ok {
 		if valThickness != nil {
 			var valueForThickness int32
 			err = json.Unmarshal(*valThickness, &valueForThickness)
@@ -259,40 +196,14 @@ func (this *ChartWall) UnmarshalJSON(b []byte) error {
 			this.Thickness = valueForThickness
 		}
 	}
-	if valThicknessCap, ok := objMap["Thickness"]; ok {
-		if valThicknessCap != nil {
-			var valueForThickness int32
-			err = json.Unmarshal(*valThicknessCap, &valueForThickness)
-			if err != nil {
-				return err
-			}
-			this.Thickness = valueForThickness
-		}
-	}
 	
-	if valPictureType, ok := objMap["pictureType"]; ok {
+	if valPictureType, ok := GetMapValue(objMap, "pictureType"); ok {
 		if valPictureType != nil {
 			var valueForPictureType string
 			err = json.Unmarshal(*valPictureType, &valueForPictureType)
 			if err != nil {
 				var valueForPictureTypeInt int32
 				err = json.Unmarshal(*valPictureType, &valueForPictureTypeInt)
-				if err != nil {
-					return err
-				}
-				this.PictureType = string(valueForPictureTypeInt)
-			} else {
-				this.PictureType = valueForPictureType
-			}
-		}
-	}
-	if valPictureTypeCap, ok := objMap["PictureType"]; ok {
-		if valPictureTypeCap != nil {
-			var valueForPictureType string
-			err = json.Unmarshal(*valPictureTypeCap, &valueForPictureType)
-			if err != nil {
-				var valueForPictureTypeInt int32
-				err = json.Unmarshal(*valPictureTypeCap, &valueForPictureTypeInt)
 				if err != nil {
 					return err
 				}

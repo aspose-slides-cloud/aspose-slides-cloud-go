@@ -37,6 +37,10 @@ type IXpsExportOptions interface {
 	GetDefaultRegularFont() string
 	SetDefaultRegularFont(newValue string)
 
+	// Default regular font for rendering the presentation. 
+	GetGradientStyle() string
+	SetGradientStyle(newValue string)
+
 	// Gets of sets list of font fallback rules.
 	GetFontFallbackRules() []IFontFallbackRule
 	SetFontFallbackRules(newValue []IFontFallbackRule)
@@ -66,6 +70,9 @@ type XpsExportOptions struct {
 
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
+
+	// Default regular font for rendering the presentation. 
+	GradientStyle string `json:"GradientStyle,omitempty"`
 
 	// Gets of sets list of font fallback rules.
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
@@ -97,6 +104,13 @@ func (this *XpsExportOptions) GetDefaultRegularFont() string {
 
 func (this *XpsExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *XpsExportOptions) GetGradientStyle() string {
+	return this.GradientStyle
+}
+
+func (this *XpsExportOptions) SetGradientStyle(newValue string) {
+	this.GradientStyle = newValue
 }
 func (this *XpsExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
@@ -148,7 +162,7 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valDefaultRegularFont, ok := objMap["defaultRegularFont"]; ok {
+	if valDefaultRegularFont, ok := GetMapValue(objMap, "defaultRegularFont"); ok {
 		if valDefaultRegularFont != nil {
 			var valueForDefaultRegularFont string
 			err = json.Unmarshal(*valDefaultRegularFont, &valueForDefaultRegularFont)
@@ -158,18 +172,25 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
-	if valDefaultRegularFontCap, ok := objMap["DefaultRegularFont"]; ok {
-		if valDefaultRegularFontCap != nil {
-			var valueForDefaultRegularFont string
-			err = json.Unmarshal(*valDefaultRegularFontCap, &valueForDefaultRegularFont)
+	
+	if valGradientStyle, ok := GetMapValue(objMap, "gradientStyle"); ok {
+		if valGradientStyle != nil {
+			var valueForGradientStyle string
+			err = json.Unmarshal(*valGradientStyle, &valueForGradientStyle)
 			if err != nil {
-				return err
+				var valueForGradientStyleInt int32
+				err = json.Unmarshal(*valGradientStyle, &valueForGradientStyleInt)
+				if err != nil {
+					return err
+				}
+				this.GradientStyle = string(valueForGradientStyleInt)
+			} else {
+				this.GradientStyle = valueForGradientStyle
 			}
-			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
 	
-	if valFontFallbackRules, ok := objMap["fontFallbackRules"]; ok {
+	if valFontFallbackRules, ok := GetMapValue(objMap, "fontFallbackRules"); ok {
 		if valFontFallbackRules != nil {
 			var valueForFontFallbackRules []json.RawMessage
 			err = json.Unmarshal(*valFontFallbackRules, &valueForFontFallbackRules)
@@ -193,32 +214,8 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontFallbackRules = valueForIFontFallbackRules
 		}
 	}
-	if valFontFallbackRulesCap, ok := objMap["FontFallbackRules"]; ok {
-		if valFontFallbackRulesCap != nil {
-			var valueForFontFallbackRules []json.RawMessage
-			err = json.Unmarshal(*valFontFallbackRulesCap, &valueForFontFallbackRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontFallbackRules := make([]IFontFallbackRule, len(valueForFontFallbackRules))
-			for i, v := range valueForFontFallbackRules {
-				vObject, err := createObjectForType("FontFallbackRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontFallbackRules[i] = vObject.(IFontFallbackRule)
-				}
-			}
-			this.FontFallbackRules = valueForIFontFallbackRules
-		}
-	}
 	
-	if valFontSubstRules, ok := objMap["fontSubstRules"]; ok {
+	if valFontSubstRules, ok := GetMapValue(objMap, "fontSubstRules"); ok {
 		if valFontSubstRules != nil {
 			var valueForFontSubstRules []json.RawMessage
 			err = json.Unmarshal(*valFontSubstRules, &valueForFontSubstRules)
@@ -242,32 +239,8 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontSubstRules = valueForIFontSubstRules
 		}
 	}
-	if valFontSubstRulesCap, ok := objMap["FontSubstRules"]; ok {
-		if valFontSubstRulesCap != nil {
-			var valueForFontSubstRules []json.RawMessage
-			err = json.Unmarshal(*valFontSubstRulesCap, &valueForFontSubstRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontSubstRules := make([]IFontSubstRule, len(valueForFontSubstRules))
-			for i, v := range valueForFontSubstRules {
-				vObject, err := createObjectForType("FontSubstRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontSubstRules[i] = vObject.(IFontSubstRule)
-				}
-			}
-			this.FontSubstRules = valueForIFontSubstRules
-		}
-	}
 	
-	if valFormat, ok := objMap["format"]; ok {
+	if valFormat, ok := GetMapValue(objMap, "format"); ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -277,18 +250,8 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-	if valFormatCap, ok := objMap["Format"]; ok {
-		if valFormatCap != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormatCap, &valueForFormat)
-			if err != nil {
-				return err
-			}
-			this.Format = valueForFormat
-		}
-	}
 	
-	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
+	if valShowHiddenSlides, ok := GetMapValue(objMap, "showHiddenSlides"); ok {
 		if valShowHiddenSlides != nil {
 			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
@@ -298,18 +261,8 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.ShowHiddenSlides = valueForShowHiddenSlides
 		}
 	}
-	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
-		if valShowHiddenSlidesCap != nil {
-			var valueForShowHiddenSlides *bool
-			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
-			if err != nil {
-				return err
-			}
-			this.ShowHiddenSlides = valueForShowHiddenSlides
-		}
-	}
 	
-	if valSaveMetafilesAsPng, ok := objMap["saveMetafilesAsPng"]; ok {
+	if valSaveMetafilesAsPng, ok := GetMapValue(objMap, "saveMetafilesAsPng"); ok {
 		if valSaveMetafilesAsPng != nil {
 			var valueForSaveMetafilesAsPng *bool
 			err = json.Unmarshal(*valSaveMetafilesAsPng, &valueForSaveMetafilesAsPng)
@@ -319,31 +272,11 @@ func (this *XpsExportOptions) UnmarshalJSON(b []byte) error {
 			this.SaveMetafilesAsPng = valueForSaveMetafilesAsPng
 		}
 	}
-	if valSaveMetafilesAsPngCap, ok := objMap["SaveMetafilesAsPng"]; ok {
-		if valSaveMetafilesAsPngCap != nil {
-			var valueForSaveMetafilesAsPng *bool
-			err = json.Unmarshal(*valSaveMetafilesAsPngCap, &valueForSaveMetafilesAsPng)
-			if err != nil {
-				return err
-			}
-			this.SaveMetafilesAsPng = valueForSaveMetafilesAsPng
-		}
-	}
 	
-	if valDrawSlidesFrame, ok := objMap["drawSlidesFrame"]; ok {
+	if valDrawSlidesFrame, ok := GetMapValue(objMap, "drawSlidesFrame"); ok {
 		if valDrawSlidesFrame != nil {
 			var valueForDrawSlidesFrame *bool
 			err = json.Unmarshal(*valDrawSlidesFrame, &valueForDrawSlidesFrame)
-			if err != nil {
-				return err
-			}
-			this.DrawSlidesFrame = valueForDrawSlidesFrame
-		}
-	}
-	if valDrawSlidesFrameCap, ok := objMap["DrawSlidesFrame"]; ok {
-		if valDrawSlidesFrameCap != nil {
-			var valueForDrawSlidesFrame *bool
-			err = json.Unmarshal(*valDrawSlidesFrameCap, &valueForDrawSlidesFrame)
 			if err != nil {
 				return err
 			}

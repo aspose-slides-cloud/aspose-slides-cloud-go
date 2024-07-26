@@ -37,6 +37,10 @@ type IPptxExportOptions interface {
 	GetDefaultRegularFont() string
 	SetDefaultRegularFont(newValue string)
 
+	// Default regular font for rendering the presentation. 
+	GetGradientStyle() string
+	SetGradientStyle(newValue string)
+
 	// Gets of sets list of font fallback rules.
 	GetFontFallbackRules() []IFontFallbackRule
 	SetFontFallbackRules(newValue []IFontFallbackRule)
@@ -49,15 +53,22 @@ type IPptxExportOptions interface {
 	GetFormat() string
 	SetFormat(newValue string)
 
-	// The conformance class to which the PresentationML document conforms. Read/write Conformance.
+	// The conformance class to which the PresentationML document conforms.
 	GetConformance() string
 	SetConformance(newValue string)
+
+	// Specifies whether the ZIP64 format is used for the Presentation document. The default value is Zip64Mode.IfNecessary.
+	GetZip64Mode() string
+	SetZip64Mode(newValue string)
 }
 
 type PptxExportOptions struct {
 
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
+
+	// Default regular font for rendering the presentation. 
+	GradientStyle string `json:"GradientStyle,omitempty"`
 
 	// Gets of sets list of font fallback rules.
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
@@ -68,8 +79,11 @@ type PptxExportOptions struct {
 	// Export format.
 	Format string `json:"Format,omitempty"`
 
-	// The conformance class to which the PresentationML document conforms. Read/write Conformance.
+	// The conformance class to which the PresentationML document conforms.
 	Conformance string `json:"Conformance,omitempty"`
+
+	// Specifies whether the ZIP64 format is used for the Presentation document. The default value is Zip64Mode.IfNecessary.
+	Zip64Mode string `json:"Zip64Mode,omitempty"`
 }
 
 func NewPptxExportOptions() *PptxExportOptions {
@@ -83,6 +97,13 @@ func (this *PptxExportOptions) GetDefaultRegularFont() string {
 
 func (this *PptxExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *PptxExportOptions) GetGradientStyle() string {
+	return this.GradientStyle
+}
+
+func (this *PptxExportOptions) SetGradientStyle(newValue string) {
+	this.GradientStyle = newValue
 }
 func (this *PptxExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
@@ -112,6 +133,13 @@ func (this *PptxExportOptions) GetConformance() string {
 func (this *PptxExportOptions) SetConformance(newValue string) {
 	this.Conformance = newValue
 }
+func (this *PptxExportOptions) GetZip64Mode() string {
+	return this.Zip64Mode
+}
+
+func (this *PptxExportOptions) SetZip64Mode(newValue string) {
+	this.Zip64Mode = newValue
+}
 
 func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
@@ -120,7 +148,7 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valDefaultRegularFont, ok := objMap["defaultRegularFont"]; ok {
+	if valDefaultRegularFont, ok := GetMapValue(objMap, "defaultRegularFont"); ok {
 		if valDefaultRegularFont != nil {
 			var valueForDefaultRegularFont string
 			err = json.Unmarshal(*valDefaultRegularFont, &valueForDefaultRegularFont)
@@ -130,18 +158,25 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
-	if valDefaultRegularFontCap, ok := objMap["DefaultRegularFont"]; ok {
-		if valDefaultRegularFontCap != nil {
-			var valueForDefaultRegularFont string
-			err = json.Unmarshal(*valDefaultRegularFontCap, &valueForDefaultRegularFont)
+	
+	if valGradientStyle, ok := GetMapValue(objMap, "gradientStyle"); ok {
+		if valGradientStyle != nil {
+			var valueForGradientStyle string
+			err = json.Unmarshal(*valGradientStyle, &valueForGradientStyle)
 			if err != nil {
-				return err
+				var valueForGradientStyleInt int32
+				err = json.Unmarshal(*valGradientStyle, &valueForGradientStyleInt)
+				if err != nil {
+					return err
+				}
+				this.GradientStyle = string(valueForGradientStyleInt)
+			} else {
+				this.GradientStyle = valueForGradientStyle
 			}
-			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
 	
-	if valFontFallbackRules, ok := objMap["fontFallbackRules"]; ok {
+	if valFontFallbackRules, ok := GetMapValue(objMap, "fontFallbackRules"); ok {
 		if valFontFallbackRules != nil {
 			var valueForFontFallbackRules []json.RawMessage
 			err = json.Unmarshal(*valFontFallbackRules, &valueForFontFallbackRules)
@@ -165,32 +200,8 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontFallbackRules = valueForIFontFallbackRules
 		}
 	}
-	if valFontFallbackRulesCap, ok := objMap["FontFallbackRules"]; ok {
-		if valFontFallbackRulesCap != nil {
-			var valueForFontFallbackRules []json.RawMessage
-			err = json.Unmarshal(*valFontFallbackRulesCap, &valueForFontFallbackRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontFallbackRules := make([]IFontFallbackRule, len(valueForFontFallbackRules))
-			for i, v := range valueForFontFallbackRules {
-				vObject, err := createObjectForType("FontFallbackRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontFallbackRules[i] = vObject.(IFontFallbackRule)
-				}
-			}
-			this.FontFallbackRules = valueForIFontFallbackRules
-		}
-	}
 	
-	if valFontSubstRules, ok := objMap["fontSubstRules"]; ok {
+	if valFontSubstRules, ok := GetMapValue(objMap, "fontSubstRules"); ok {
 		if valFontSubstRules != nil {
 			var valueForFontSubstRules []json.RawMessage
 			err = json.Unmarshal(*valFontSubstRules, &valueForFontSubstRules)
@@ -214,32 +225,8 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontSubstRules = valueForIFontSubstRules
 		}
 	}
-	if valFontSubstRulesCap, ok := objMap["FontSubstRules"]; ok {
-		if valFontSubstRulesCap != nil {
-			var valueForFontSubstRules []json.RawMessage
-			err = json.Unmarshal(*valFontSubstRulesCap, &valueForFontSubstRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontSubstRules := make([]IFontSubstRule, len(valueForFontSubstRules))
-			for i, v := range valueForFontSubstRules {
-				vObject, err := createObjectForType("FontSubstRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontSubstRules[i] = vObject.(IFontSubstRule)
-				}
-			}
-			this.FontSubstRules = valueForIFontSubstRules
-		}
-	}
 	
-	if valFormat, ok := objMap["format"]; ok {
+	if valFormat, ok := GetMapValue(objMap, "format"); ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -249,18 +236,8 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-	if valFormatCap, ok := objMap["Format"]; ok {
-		if valFormatCap != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormatCap, &valueForFormat)
-			if err != nil {
-				return err
-			}
-			this.Format = valueForFormat
-		}
-	}
 	
-	if valConformance, ok := objMap["conformance"]; ok {
+	if valConformance, ok := GetMapValue(objMap, "conformance"); ok {
 		if valConformance != nil {
 			var valueForConformance string
 			err = json.Unmarshal(*valConformance, &valueForConformance)
@@ -276,19 +253,20 @@ func (this *PptxExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valConformanceCap, ok := objMap["Conformance"]; ok {
-		if valConformanceCap != nil {
-			var valueForConformance string
-			err = json.Unmarshal(*valConformanceCap, &valueForConformance)
+	
+	if valZip64Mode, ok := GetMapValue(objMap, "zip64Mode"); ok {
+		if valZip64Mode != nil {
+			var valueForZip64Mode string
+			err = json.Unmarshal(*valZip64Mode, &valueForZip64Mode)
 			if err != nil {
-				var valueForConformanceInt int32
-				err = json.Unmarshal(*valConformanceCap, &valueForConformanceInt)
+				var valueForZip64ModeInt int32
+				err = json.Unmarshal(*valZip64Mode, &valueForZip64ModeInt)
 				if err != nil {
 					return err
 				}
-				this.Conformance = string(valueForConformanceInt)
+				this.Zip64Mode = string(valueForZip64ModeInt)
 			} else {
-				this.Conformance = valueForConformance
+				this.Zip64Mode = valueForZip64Mode
 			}
 		}
 	}

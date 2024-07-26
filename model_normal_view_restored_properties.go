@@ -78,7 +78,7 @@ func (this *NormalViewRestoredProperties) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valAutoAdjust, ok := objMap["autoAdjust"]; ok {
+	if valAutoAdjust, ok := GetMapValue(objMap, "autoAdjust"); ok {
 		if valAutoAdjust != nil {
 			var valueForAutoAdjust *bool
 			err = json.Unmarshal(*valAutoAdjust, &valueForAutoAdjust)
@@ -88,31 +88,11 @@ func (this *NormalViewRestoredProperties) UnmarshalJSON(b []byte) error {
 			this.AutoAdjust = valueForAutoAdjust
 		}
 	}
-	if valAutoAdjustCap, ok := objMap["AutoAdjust"]; ok {
-		if valAutoAdjustCap != nil {
-			var valueForAutoAdjust *bool
-			err = json.Unmarshal(*valAutoAdjustCap, &valueForAutoAdjust)
-			if err != nil {
-				return err
-			}
-			this.AutoAdjust = valueForAutoAdjust
-		}
-	}
 	
-	if valDimensionSize, ok := objMap["dimensionSize"]; ok {
+	if valDimensionSize, ok := GetMapValue(objMap, "dimensionSize"); ok {
 		if valDimensionSize != nil {
 			var valueForDimensionSize float64
 			err = json.Unmarshal(*valDimensionSize, &valueForDimensionSize)
-			if err != nil {
-				return err
-			}
-			this.DimensionSize = valueForDimensionSize
-		}
-	}
-	if valDimensionSizeCap, ok := objMap["DimensionSize"]; ok {
-		if valDimensionSizeCap != nil {
-			var valueForDimensionSize float64
-			err = json.Unmarshal(*valDimensionSizeCap, &valueForDimensionSize)
 			if err != nil {
 				return err
 			}

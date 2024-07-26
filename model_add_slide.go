@@ -121,7 +121,7 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "AddSlide"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -137,24 +137,8 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valCloneFromFile, ok := objMap["cloneFromFile"]; ok {
+	if valCloneFromFile, ok := GetMapValue(objMap, "cloneFromFile"); ok {
 		if valCloneFromFile != nil {
 			var valueForCloneFromFile InputFile
 			err = json.Unmarshal(*valCloneFromFile, &valueForCloneFromFile)
@@ -175,29 +159,8 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valCloneFromFileCap, ok := objMap["CloneFromFile"]; ok {
-		if valCloneFromFileCap != nil {
-			var valueForCloneFromFile InputFile
-			err = json.Unmarshal(*valCloneFromFileCap, &valueForCloneFromFile)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("InputFile", *valCloneFromFileCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valCloneFromFileCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IInputFile)
-			if ok {
-				this.CloneFromFile = vInterfaceObject
-			}
-		}
-	}
 	
-	if valCloneFromPosition, ok := objMap["cloneFromPosition"]; ok {
+	if valCloneFromPosition, ok := GetMapValue(objMap, "cloneFromPosition"); ok {
 		if valCloneFromPosition != nil {
 			var valueForCloneFromPosition int32
 			err = json.Unmarshal(*valCloneFromPosition, &valueForCloneFromPosition)
@@ -207,18 +170,8 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 			this.CloneFromPosition = valueForCloneFromPosition
 		}
 	}
-	if valCloneFromPositionCap, ok := objMap["CloneFromPosition"]; ok {
-		if valCloneFromPositionCap != nil {
-			var valueForCloneFromPosition int32
-			err = json.Unmarshal(*valCloneFromPositionCap, &valueForCloneFromPosition)
-			if err != nil {
-				return err
-			}
-			this.CloneFromPosition = valueForCloneFromPosition
-		}
-	}
 	
-	if valPosition, ok := objMap["position"]; ok {
+	if valPosition, ok := GetMapValue(objMap, "position"); ok {
 		if valPosition != nil {
 			var valueForPosition int32
 			err = json.Unmarshal(*valPosition, &valueForPosition)
@@ -228,31 +181,11 @@ func (this *AddSlide) UnmarshalJSON(b []byte) error {
 			this.Position = valueForPosition
 		}
 	}
-	if valPositionCap, ok := objMap["Position"]; ok {
-		if valPositionCap != nil {
-			var valueForPosition int32
-			err = json.Unmarshal(*valPositionCap, &valueForPosition)
-			if err != nil {
-				return err
-			}
-			this.Position = valueForPosition
-		}
-	}
 	
-	if valLayoutAlias, ok := objMap["layoutAlias"]; ok {
+	if valLayoutAlias, ok := GetMapValue(objMap, "layoutAlias"); ok {
 		if valLayoutAlias != nil {
 			var valueForLayoutAlias string
 			err = json.Unmarshal(*valLayoutAlias, &valueForLayoutAlias)
-			if err != nil {
-				return err
-			}
-			this.LayoutAlias = valueForLayoutAlias
-		}
-	}
-	if valLayoutAliasCap, ok := objMap["LayoutAlias"]; ok {
-		if valLayoutAliasCap != nil {
-			var valueForLayoutAlias string
-			err = json.Unmarshal(*valLayoutAliasCap, &valueForLayoutAlias)
 			if err != nil {
 				return err
 			}

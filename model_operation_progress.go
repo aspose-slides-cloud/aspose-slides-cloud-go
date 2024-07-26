@@ -92,7 +92,7 @@ func (this *OperationProgress) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valDescription, ok := objMap["description"]; ok {
+	if valDescription, ok := GetMapValue(objMap, "description"); ok {
 		if valDescription != nil {
 			var valueForDescription string
 			err = json.Unmarshal(*valDescription, &valueForDescription)
@@ -102,18 +102,8 @@ func (this *OperationProgress) UnmarshalJSON(b []byte) error {
 			this.Description = valueForDescription
 		}
 	}
-	if valDescriptionCap, ok := objMap["Description"]; ok {
-		if valDescriptionCap != nil {
-			var valueForDescription string
-			err = json.Unmarshal(*valDescriptionCap, &valueForDescription)
-			if err != nil {
-				return err
-			}
-			this.Description = valueForDescription
-		}
-	}
 	
-	if valStepIndex, ok := objMap["stepIndex"]; ok {
+	if valStepIndex, ok := GetMapValue(objMap, "stepIndex"); ok {
 		if valStepIndex != nil {
 			var valueForStepIndex int32
 			err = json.Unmarshal(*valStepIndex, &valueForStepIndex)
@@ -123,31 +113,11 @@ func (this *OperationProgress) UnmarshalJSON(b []byte) error {
 			this.StepIndex = valueForStepIndex
 		}
 	}
-	if valStepIndexCap, ok := objMap["StepIndex"]; ok {
-		if valStepIndexCap != nil {
-			var valueForStepIndex int32
-			err = json.Unmarshal(*valStepIndexCap, &valueForStepIndex)
-			if err != nil {
-				return err
-			}
-			this.StepIndex = valueForStepIndex
-		}
-	}
 	
-	if valStepCount, ok := objMap["stepCount"]; ok {
+	if valStepCount, ok := GetMapValue(objMap, "stepCount"); ok {
 		if valStepCount != nil {
 			var valueForStepCount int32
 			err = json.Unmarshal(*valStepCount, &valueForStepCount)
-			if err != nil {
-				return err
-			}
-			this.StepCount = valueForStepCount
-		}
-	}
-	if valStepCountCap, ok := objMap["StepCount"]; ok {
-		if valStepCountCap != nil {
-			var valueForStepCount int32
-			err = json.Unmarshal(*valStepCountCap, &valueForStepCount)
 			if err != nil {
 				return err
 			}

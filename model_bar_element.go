@@ -93,7 +93,7 @@ func (this *BarElement) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Bar"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -109,24 +109,8 @@ func (this *BarElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valBase, ok := objMap["base"]; ok {
+	if valBase, ok := GetMapValue(objMap, "base"); ok {
 		if valBase != nil {
 			var valueForBase MathElement
 			err = json.Unmarshal(*valBase, &valueForBase)
@@ -147,51 +131,14 @@ func (this *BarElement) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBaseCap, ok := objMap["Base"]; ok {
-		if valBaseCap != nil {
-			var valueForBase MathElement
-			err = json.Unmarshal(*valBaseCap, &valueForBase)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("MathElement", *valBaseCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBaseCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IMathElement)
-			if ok {
-				this.Base = vInterfaceObject
-			}
-		}
-	}
 	
-	if valPosition, ok := objMap["position"]; ok {
+	if valPosition, ok := GetMapValue(objMap, "position"); ok {
 		if valPosition != nil {
 			var valueForPosition string
 			err = json.Unmarshal(*valPosition, &valueForPosition)
 			if err != nil {
 				var valueForPositionInt int32
 				err = json.Unmarshal(*valPosition, &valueForPositionInt)
-				if err != nil {
-					return err
-				}
-				this.Position = string(valueForPositionInt)
-			} else {
-				this.Position = valueForPosition
-			}
-		}
-	}
-	if valPositionCap, ok := objMap["Position"]; ok {
-		if valPositionCap != nil {
-			var valueForPosition string
-			err = json.Unmarshal(*valPositionCap, &valueForPosition)
-			if err != nil {
-				var valueForPositionInt int32
-				err = json.Unmarshal(*valPositionCap, &valueForPositionInt)
 				if err != nil {
 					return err
 				}

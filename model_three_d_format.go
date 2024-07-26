@@ -190,7 +190,7 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valBevelBottom, ok := objMap["bevelBottom"]; ok {
+	if valBevelBottom, ok := GetMapValue(objMap, "bevelBottom"); ok {
 		if valBevelBottom != nil {
 			var valueForBevelBottom ShapeBevel
 			err = json.Unmarshal(*valBevelBottom, &valueForBevelBottom)
@@ -211,29 +211,8 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBevelBottomCap, ok := objMap["BevelBottom"]; ok {
-		if valBevelBottomCap != nil {
-			var valueForBevelBottom ShapeBevel
-			err = json.Unmarshal(*valBevelBottomCap, &valueForBevelBottom)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ShapeBevel", *valBevelBottomCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBevelBottomCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IShapeBevel)
-			if ok {
-				this.BevelBottom = vInterfaceObject
-			}
-		}
-	}
 	
-	if valBevelTop, ok := objMap["bevelTop"]; ok {
+	if valBevelTop, ok := GetMapValue(objMap, "bevelTop"); ok {
 		if valBevelTop != nil {
 			var valueForBevelTop ShapeBevel
 			err = json.Unmarshal(*valBevelTop, &valueForBevelTop)
@@ -254,29 +233,8 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBevelTopCap, ok := objMap["BevelTop"]; ok {
-		if valBevelTopCap != nil {
-			var valueForBevelTop ShapeBevel
-			err = json.Unmarshal(*valBevelTopCap, &valueForBevelTop)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ShapeBevel", *valBevelTopCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBevelTopCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IShapeBevel)
-			if ok {
-				this.BevelTop = vInterfaceObject
-			}
-		}
-	}
 	
-	if valCamera, ok := objMap["camera"]; ok {
+	if valCamera, ok := GetMapValue(objMap, "camera"); ok {
 		if valCamera != nil {
 			var valueForCamera Camera
 			err = json.Unmarshal(*valCamera, &valueForCamera)
@@ -297,29 +255,8 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valCameraCap, ok := objMap["Camera"]; ok {
-		if valCameraCap != nil {
-			var valueForCamera Camera
-			err = json.Unmarshal(*valCameraCap, &valueForCamera)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("Camera", *valCameraCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valCameraCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ICamera)
-			if ok {
-				this.Camera = vInterfaceObject
-			}
-		}
-	}
 	
-	if valContourColor, ok := objMap["contourColor"]; ok {
+	if valContourColor, ok := GetMapValue(objMap, "contourColor"); ok {
 		if valContourColor != nil {
 			var valueForContourColor string
 			err = json.Unmarshal(*valContourColor, &valueForContourColor)
@@ -329,18 +266,8 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			this.ContourColor = valueForContourColor
 		}
 	}
-	if valContourColorCap, ok := objMap["ContourColor"]; ok {
-		if valContourColorCap != nil {
-			var valueForContourColor string
-			err = json.Unmarshal(*valContourColorCap, &valueForContourColor)
-			if err != nil {
-				return err
-			}
-			this.ContourColor = valueForContourColor
-		}
-	}
 	
-	if valContourWidth, ok := objMap["contourWidth"]; ok {
+	if valContourWidth, ok := GetMapValue(objMap, "contourWidth"); ok {
 		if valContourWidth != nil {
 			var valueForContourWidth float64
 			err = json.Unmarshal(*valContourWidth, &valueForContourWidth)
@@ -350,18 +277,8 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			this.ContourWidth = valueForContourWidth
 		}
 	}
-	if valContourWidthCap, ok := objMap["ContourWidth"]; ok {
-		if valContourWidthCap != nil {
-			var valueForContourWidth float64
-			err = json.Unmarshal(*valContourWidthCap, &valueForContourWidth)
-			if err != nil {
-				return err
-			}
-			this.ContourWidth = valueForContourWidth
-		}
-	}
 	
-	if valDepth, ok := objMap["depth"]; ok {
+	if valDepth, ok := GetMapValue(objMap, "depth"); ok {
 		if valDepth != nil {
 			var valueForDepth float64
 			err = json.Unmarshal(*valDepth, &valueForDepth)
@@ -371,18 +288,8 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			this.Depth = valueForDepth
 		}
 	}
-	if valDepthCap, ok := objMap["Depth"]; ok {
-		if valDepthCap != nil {
-			var valueForDepth float64
-			err = json.Unmarshal(*valDepthCap, &valueForDepth)
-			if err != nil {
-				return err
-			}
-			this.Depth = valueForDepth
-		}
-	}
 	
-	if valExtrusionColor, ok := objMap["extrusionColor"]; ok {
+	if valExtrusionColor, ok := GetMapValue(objMap, "extrusionColor"); ok {
 		if valExtrusionColor != nil {
 			var valueForExtrusionColor string
 			err = json.Unmarshal(*valExtrusionColor, &valueForExtrusionColor)
@@ -392,18 +299,8 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			this.ExtrusionColor = valueForExtrusionColor
 		}
 	}
-	if valExtrusionColorCap, ok := objMap["ExtrusionColor"]; ok {
-		if valExtrusionColorCap != nil {
-			var valueForExtrusionColor string
-			err = json.Unmarshal(*valExtrusionColorCap, &valueForExtrusionColor)
-			if err != nil {
-				return err
-			}
-			this.ExtrusionColor = valueForExtrusionColor
-		}
-	}
 	
-	if valExtrusionHeight, ok := objMap["extrusionHeight"]; ok {
+	if valExtrusionHeight, ok := GetMapValue(objMap, "extrusionHeight"); ok {
 		if valExtrusionHeight != nil {
 			var valueForExtrusionHeight float64
 			err = json.Unmarshal(*valExtrusionHeight, &valueForExtrusionHeight)
@@ -413,18 +310,8 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			this.ExtrusionHeight = valueForExtrusionHeight
 		}
 	}
-	if valExtrusionHeightCap, ok := objMap["ExtrusionHeight"]; ok {
-		if valExtrusionHeightCap != nil {
-			var valueForExtrusionHeight float64
-			err = json.Unmarshal(*valExtrusionHeightCap, &valueForExtrusionHeight)
-			if err != nil {
-				return err
-			}
-			this.ExtrusionHeight = valueForExtrusionHeight
-		}
-	}
 	
-	if valLightRig, ok := objMap["lightRig"]; ok {
+	if valLightRig, ok := GetMapValue(objMap, "lightRig"); ok {
 		if valLightRig != nil {
 			var valueForLightRig LightRig
 			err = json.Unmarshal(*valLightRig, &valueForLightRig)
@@ -445,51 +332,14 @@ func (this *ThreeDFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valLightRigCap, ok := objMap["LightRig"]; ok {
-		if valLightRigCap != nil {
-			var valueForLightRig LightRig
-			err = json.Unmarshal(*valLightRigCap, &valueForLightRig)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("LightRig", *valLightRigCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valLightRigCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ILightRig)
-			if ok {
-				this.LightRig = vInterfaceObject
-			}
-		}
-	}
 	
-	if valMaterial, ok := objMap["material"]; ok {
+	if valMaterial, ok := GetMapValue(objMap, "material"); ok {
 		if valMaterial != nil {
 			var valueForMaterial string
 			err = json.Unmarshal(*valMaterial, &valueForMaterial)
 			if err != nil {
 				var valueForMaterialInt int32
 				err = json.Unmarshal(*valMaterial, &valueForMaterialInt)
-				if err != nil {
-					return err
-				}
-				this.Material = string(valueForMaterialInt)
-			} else {
-				this.Material = valueForMaterial
-			}
-		}
-	}
-	if valMaterialCap, ok := objMap["Material"]; ok {
-		if valMaterialCap != nil {
-			var valueForMaterial string
-			err = json.Unmarshal(*valMaterialCap, &valueForMaterial)
-			if err != nil {
-				var valueForMaterialInt int32
-				err = json.Unmarshal(*valMaterialCap, &valueForMaterialInt)
 				if err != nil {
 					return err
 				}

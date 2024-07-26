@@ -78,7 +78,7 @@ func (this *PresentationsMergeRequest) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valPresentationPaths, ok := objMap["presentationPaths"]; ok {
+	if valPresentationPaths, ok := GetMapValue(objMap, "presentationPaths"); ok {
 		if valPresentationPaths != nil {
 			var valueForPresentationPaths []string
 			err = json.Unmarshal(*valPresentationPaths, &valueForPresentationPaths)
@@ -88,31 +88,11 @@ func (this *PresentationsMergeRequest) UnmarshalJSON(b []byte) error {
 			this.PresentationPaths = valueForPresentationPaths
 		}
 	}
-	if valPresentationPathsCap, ok := objMap["PresentationPaths"]; ok {
-		if valPresentationPathsCap != nil {
-			var valueForPresentationPaths []string
-			err = json.Unmarshal(*valPresentationPathsCap, &valueForPresentationPaths)
-			if err != nil {
-				return err
-			}
-			this.PresentationPaths = valueForPresentationPaths
-		}
-	}
 	
-	if valPresentationPasswords, ok := objMap["presentationPasswords"]; ok {
+	if valPresentationPasswords, ok := GetMapValue(objMap, "presentationPasswords"); ok {
 		if valPresentationPasswords != nil {
 			var valueForPresentationPasswords []string
 			err = json.Unmarshal(*valPresentationPasswords, &valueForPresentationPasswords)
-			if err != nil {
-				return err
-			}
-			this.PresentationPasswords = valueForPresentationPasswords
-		}
-	}
-	if valPresentationPasswordsCap, ok := objMap["PresentationPasswords"]; ok {
-		if valPresentationPasswordsCap != nil {
-			var valueForPresentationPasswords []string
-			err = json.Unmarshal(*valPresentationPasswordsCap, &valueForPresentationPasswords)
 			if err != nil {
 				return err
 			}

@@ -151,7 +151,7 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSelfUri, ok := objMap["selfUri"]; ok {
+	if valSelfUri, ok := GetMapValue(objMap, "selfUri"); ok {
 		if valSelfUri != nil {
 			var valueForSelfUri ResourceUri
 			err = json.Unmarshal(*valSelfUri, &valueForSelfUri)
@@ -172,29 +172,8 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSelfUriCap, ok := objMap["SelfUri"]; ok {
-		if valSelfUriCap != nil {
-			var valueForSelfUri ResourceUri
-			err = json.Unmarshal(*valSelfUriCap, &valueForSelfUri)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valSelfUriCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSelfUriCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.SelfUri = vInterfaceObject
-			}
-		}
-	}
 	
-	if valAlternateLinks, ok := objMap["alternateLinks"]; ok {
+	if valAlternateLinks, ok := GetMapValue(objMap, "alternateLinks"); ok {
 		if valAlternateLinks != nil {
 			var valueForAlternateLinks []json.RawMessage
 			err = json.Unmarshal(*valAlternateLinks, &valueForAlternateLinks)
@@ -218,32 +197,8 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.AlternateLinks = valueForIAlternateLinks
 		}
 	}
-	if valAlternateLinksCap, ok := objMap["AlternateLinks"]; ok {
-		if valAlternateLinksCap != nil {
-			var valueForAlternateLinks []json.RawMessage
-			err = json.Unmarshal(*valAlternateLinksCap, &valueForAlternateLinks)
-			if err != nil {
-				return err
-			}
-			valueForIAlternateLinks := make([]IResourceUri, len(valueForAlternateLinks))
-			for i, v := range valueForAlternateLinks {
-				vObject, err := createObjectForType("ResourceUri", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIAlternateLinks[i] = vObject.(IResourceUri)
-				}
-			}
-			this.AlternateLinks = valueForIAlternateLinks
-		}
-	}
 	
-	if valIndex, ok := objMap["index"]; ok {
+	if valIndex, ok := GetMapValue(objMap, "index"); ok {
 		if valIndex != nil {
 			var valueForIndex int32
 			err = json.Unmarshal(*valIndex, &valueForIndex)
@@ -253,18 +208,8 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			this.Index = valueForIndex
 		}
 	}
-	if valIndexCap, ok := objMap["Index"]; ok {
-		if valIndexCap != nil {
-			var valueForIndex int32
-			err = json.Unmarshal(*valIndexCap, &valueForIndex)
-			if err != nil {
-				return err
-			}
-			this.Index = valueForIndex
-		}
-	}
 	this.Orientation = "Horizontal"
-	if valOrientation, ok := objMap["orientation"]; ok {
+	if valOrientation, ok := GetMapValue(objMap, "orientation"); ok {
 		if valOrientation != nil {
 			var valueForOrientation string
 			err = json.Unmarshal(*valOrientation, &valueForOrientation)
@@ -280,24 +225,8 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valOrientationCap, ok := objMap["Orientation"]; ok {
-		if valOrientationCap != nil {
-			var valueForOrientation string
-			err = json.Unmarshal(*valOrientationCap, &valueForOrientation)
-			if err != nil {
-				var valueForOrientationInt int32
-				err = json.Unmarshal(*valOrientationCap, &valueForOrientationInt)
-				if err != nil {
-					return err
-				}
-				this.Orientation = string(valueForOrientationInt)
-			} else {
-				this.Orientation = valueForOrientation
-			}
-		}
-	}
 	this.Size = "Full"
-	if valSize, ok := objMap["size"]; ok {
+	if valSize, ok := GetMapValue(objMap, "size"); ok {
 		if valSize != nil {
 			var valueForSize string
 			err = json.Unmarshal(*valSize, &valueForSize)
@@ -313,24 +242,8 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSizeCap, ok := objMap["Size"]; ok {
-		if valSizeCap != nil {
-			var valueForSize string
-			err = json.Unmarshal(*valSizeCap, &valueForSize)
-			if err != nil {
-				var valueForSizeInt int32
-				err = json.Unmarshal(*valSizeCap, &valueForSizeInt)
-				if err != nil {
-					return err
-				}
-				this.Size = string(valueForSizeInt)
-			} else {
-				this.Size = valueForSize
-			}
-		}
-	}
 	this.Type_ = "Title"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -346,24 +259,8 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valShape, ok := objMap["shape"]; ok {
+	if valShape, ok := GetMapValue(objMap, "shape"); ok {
 		if valShape != nil {
 			var valueForShape ResourceUri
 			err = json.Unmarshal(*valShape, &valueForShape)
@@ -375,27 +272,6 @@ func (this *Placeholder) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valShape, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Shape = vInterfaceObject
-			}
-		}
-	}
-	if valShapeCap, ok := objMap["Shape"]; ok {
-		if valShapeCap != nil {
-			var valueForShape ResourceUri
-			err = json.Unmarshal(*valShapeCap, &valueForShape)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ResourceUri", *valShapeCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valShapeCap, &vObject)
 			if err != nil {
 				return err
 			}

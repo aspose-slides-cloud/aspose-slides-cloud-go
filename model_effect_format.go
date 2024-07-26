@@ -162,7 +162,7 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valBlur, ok := objMap["blur"]; ok {
+	if valBlur, ok := GetMapValue(objMap, "blur"); ok {
 		if valBlur != nil {
 			var valueForBlur BlurEffect
 			err = json.Unmarshal(*valBlur, &valueForBlur)
@@ -183,29 +183,8 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valBlurCap, ok := objMap["Blur"]; ok {
-		if valBlurCap != nil {
-			var valueForBlur BlurEffect
-			err = json.Unmarshal(*valBlurCap, &valueForBlur)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("BlurEffect", *valBlurCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valBlurCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IBlurEffect)
-			if ok {
-				this.Blur = vInterfaceObject
-			}
-		}
-	}
 	
-	if valGlow, ok := objMap["glow"]; ok {
+	if valGlow, ok := GetMapValue(objMap, "glow"); ok {
 		if valGlow != nil {
 			var valueForGlow GlowEffect
 			err = json.Unmarshal(*valGlow, &valueForGlow)
@@ -226,29 +205,8 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valGlowCap, ok := objMap["Glow"]; ok {
-		if valGlowCap != nil {
-			var valueForGlow GlowEffect
-			err = json.Unmarshal(*valGlowCap, &valueForGlow)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("GlowEffect", *valGlowCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valGlowCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IGlowEffect)
-			if ok {
-				this.Glow = vInterfaceObject
-			}
-		}
-	}
 	
-	if valInnerShadow, ok := objMap["innerShadow"]; ok {
+	if valInnerShadow, ok := GetMapValue(objMap, "innerShadow"); ok {
 		if valInnerShadow != nil {
 			var valueForInnerShadow InnerShadowEffect
 			err = json.Unmarshal(*valInnerShadow, &valueForInnerShadow)
@@ -269,29 +227,8 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valInnerShadowCap, ok := objMap["InnerShadow"]; ok {
-		if valInnerShadowCap != nil {
-			var valueForInnerShadow InnerShadowEffect
-			err = json.Unmarshal(*valInnerShadowCap, &valueForInnerShadow)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("InnerShadowEffect", *valInnerShadowCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valInnerShadowCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IInnerShadowEffect)
-			if ok {
-				this.InnerShadow = vInterfaceObject
-			}
-		}
-	}
 	
-	if valOuterShadow, ok := objMap["outerShadow"]; ok {
+	if valOuterShadow, ok := GetMapValue(objMap, "outerShadow"); ok {
 		if valOuterShadow != nil {
 			var valueForOuterShadow OuterShadowEffect
 			err = json.Unmarshal(*valOuterShadow, &valueForOuterShadow)
@@ -312,29 +249,8 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valOuterShadowCap, ok := objMap["OuterShadow"]; ok {
-		if valOuterShadowCap != nil {
-			var valueForOuterShadow OuterShadowEffect
-			err = json.Unmarshal(*valOuterShadowCap, &valueForOuterShadow)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("OuterShadowEffect", *valOuterShadowCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valOuterShadowCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IOuterShadowEffect)
-			if ok {
-				this.OuterShadow = vInterfaceObject
-			}
-		}
-	}
 	
-	if valPresetShadow, ok := objMap["presetShadow"]; ok {
+	if valPresetShadow, ok := GetMapValue(objMap, "presetShadow"); ok {
 		if valPresetShadow != nil {
 			var valueForPresetShadow PresetShadowEffect
 			err = json.Unmarshal(*valPresetShadow, &valueForPresetShadow)
@@ -355,29 +271,8 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valPresetShadowCap, ok := objMap["PresetShadow"]; ok {
-		if valPresetShadowCap != nil {
-			var valueForPresetShadow PresetShadowEffect
-			err = json.Unmarshal(*valPresetShadowCap, &valueForPresetShadow)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("PresetShadowEffect", *valPresetShadowCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valPresetShadowCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IPresetShadowEffect)
-			if ok {
-				this.PresetShadow = vInterfaceObject
-			}
-		}
-	}
 	
-	if valSoftEdge, ok := objMap["softEdge"]; ok {
+	if valSoftEdge, ok := GetMapValue(objMap, "softEdge"); ok {
 		if valSoftEdge != nil {
 			var valueForSoftEdge SoftEdgeEffect
 			err = json.Unmarshal(*valSoftEdge, &valueForSoftEdge)
@@ -398,29 +293,8 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSoftEdgeCap, ok := objMap["SoftEdge"]; ok {
-		if valSoftEdgeCap != nil {
-			var valueForSoftEdge SoftEdgeEffect
-			err = json.Unmarshal(*valSoftEdgeCap, &valueForSoftEdge)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("SoftEdgeEffect", *valSoftEdgeCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSoftEdgeCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ISoftEdgeEffect)
-			if ok {
-				this.SoftEdge = vInterfaceObject
-			}
-		}
-	}
 	
-	if valReflection, ok := objMap["reflection"]; ok {
+	if valReflection, ok := GetMapValue(objMap, "reflection"); ok {
 		if valReflection != nil {
 			var valueForReflection ReflectionEffect
 			err = json.Unmarshal(*valReflection, &valueForReflection)
@@ -441,29 +315,8 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valReflectionCap, ok := objMap["Reflection"]; ok {
-		if valReflectionCap != nil {
-			var valueForReflection ReflectionEffect
-			err = json.Unmarshal(*valReflectionCap, &valueForReflection)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("ReflectionEffect", *valReflectionCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valReflectionCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IReflectionEffect)
-			if ok {
-				this.Reflection = vInterfaceObject
-			}
-		}
-	}
 	
-	if valFillOverlay, ok := objMap["fillOverlay"]; ok {
+	if valFillOverlay, ok := GetMapValue(objMap, "fillOverlay"); ok {
 		if valFillOverlay != nil {
 			var valueForFillOverlay FillOverlayEffect
 			err = json.Unmarshal(*valFillOverlay, &valueForFillOverlay)
@@ -475,27 +328,6 @@ func (this *EffectFormat) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			err = json.Unmarshal(*valFillOverlay, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IFillOverlayEffect)
-			if ok {
-				this.FillOverlay = vInterfaceObject
-			}
-		}
-	}
-	if valFillOverlayCap, ok := objMap["FillOverlay"]; ok {
-		if valFillOverlayCap != nil {
-			var valueForFillOverlay FillOverlayEffect
-			err = json.Unmarshal(*valFillOverlayCap, &valueForFillOverlay)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("FillOverlayEffect", *valFillOverlayCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valFillOverlayCap, &vObject)
 			if err != nil {
 				return err
 			}

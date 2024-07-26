@@ -106,7 +106,7 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valScaleX, ok := objMap["scaleX"]; ok {
+	if valScaleX, ok := GetMapValue(objMap, "scaleX"); ok {
 		if valScaleX != nil {
 			var valueForScaleX float64
 			err = json.Unmarshal(*valScaleX, &valueForScaleX)
@@ -116,18 +116,8 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 			this.ScaleX = valueForScaleX
 		}
 	}
-	if valScaleXCap, ok := objMap["ScaleX"]; ok {
-		if valScaleXCap != nil {
-			var valueForScaleX float64
-			err = json.Unmarshal(*valScaleXCap, &valueForScaleX)
-			if err != nil {
-				return err
-			}
-			this.ScaleX = valueForScaleX
-		}
-	}
 	
-	if valScaleY, ok := objMap["scaleY"]; ok {
+	if valScaleY, ok := GetMapValue(objMap, "scaleY"); ok {
 		if valScaleY != nil {
 			var valueForScaleY float64
 			err = json.Unmarshal(*valScaleY, &valueForScaleY)
@@ -137,18 +127,8 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 			this.ScaleY = valueForScaleY
 		}
 	}
-	if valScaleYCap, ok := objMap["ScaleY"]; ok {
-		if valScaleYCap != nil {
-			var valueForScaleY float64
-			err = json.Unmarshal(*valScaleYCap, &valueForScaleY)
-			if err != nil {
-				return err
-			}
-			this.ScaleY = valueForScaleY
-		}
-	}
 	
-	if valThumbnailBounds, ok := objMap["thumbnailBounds"]; ok {
+	if valThumbnailBounds, ok := GetMapValue(objMap, "thumbnailBounds"); ok {
 		if valThumbnailBounds != nil {
 			var valueForThumbnailBounds string
 			err = json.Unmarshal(*valThumbnailBounds, &valueForThumbnailBounds)
@@ -164,37 +144,11 @@ func (this *ShapeImageExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valThumbnailBoundsCap, ok := objMap["ThumbnailBounds"]; ok {
-		if valThumbnailBoundsCap != nil {
-			var valueForThumbnailBounds string
-			err = json.Unmarshal(*valThumbnailBoundsCap, &valueForThumbnailBounds)
-			if err != nil {
-				var valueForThumbnailBoundsInt int32
-				err = json.Unmarshal(*valThumbnailBoundsCap, &valueForThumbnailBoundsInt)
-				if err != nil {
-					return err
-				}
-				this.ThumbnailBounds = string(valueForThumbnailBoundsInt)
-			} else {
-				this.ThumbnailBounds = valueForThumbnailBounds
-			}
-		}
-	}
 	
-	if valFormat, ok := objMap["format"]; ok {
+	if valFormat, ok := GetMapValue(objMap, "format"); ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
-			if err != nil {
-				return err
-			}
-			this.Format = valueForFormat
-		}
-	}
-	if valFormatCap, ok := objMap["Format"]; ok {
-		if valFormatCap != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormatCap, &valueForFormat)
 			if err != nil {
 				return err
 			}

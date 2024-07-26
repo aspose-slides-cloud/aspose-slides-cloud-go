@@ -121,7 +121,7 @@ func (this *ArcToPathSegment) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "ArcTo"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -137,24 +137,8 @@ func (this *ArcToPathSegment) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valWidth, ok := objMap["width"]; ok {
+	if valWidth, ok := GetMapValue(objMap, "width"); ok {
 		if valWidth != nil {
 			var valueForWidth float64
 			err = json.Unmarshal(*valWidth, &valueForWidth)
@@ -164,18 +148,8 @@ func (this *ArcToPathSegment) UnmarshalJSON(b []byte) error {
 			this.Width = valueForWidth
 		}
 	}
-	if valWidthCap, ok := objMap["Width"]; ok {
-		if valWidthCap != nil {
-			var valueForWidth float64
-			err = json.Unmarshal(*valWidthCap, &valueForWidth)
-			if err != nil {
-				return err
-			}
-			this.Width = valueForWidth
-		}
-	}
 	
-	if valHeight, ok := objMap["height"]; ok {
+	if valHeight, ok := GetMapValue(objMap, "height"); ok {
 		if valHeight != nil {
 			var valueForHeight float64
 			err = json.Unmarshal(*valHeight, &valueForHeight)
@@ -185,18 +159,8 @@ func (this *ArcToPathSegment) UnmarshalJSON(b []byte) error {
 			this.Height = valueForHeight
 		}
 	}
-	if valHeightCap, ok := objMap["Height"]; ok {
-		if valHeightCap != nil {
-			var valueForHeight float64
-			err = json.Unmarshal(*valHeightCap, &valueForHeight)
-			if err != nil {
-				return err
-			}
-			this.Height = valueForHeight
-		}
-	}
 	
-	if valStartAngle, ok := objMap["startAngle"]; ok {
+	if valStartAngle, ok := GetMapValue(objMap, "startAngle"); ok {
 		if valStartAngle != nil {
 			var valueForStartAngle float64
 			err = json.Unmarshal(*valStartAngle, &valueForStartAngle)
@@ -206,31 +170,11 @@ func (this *ArcToPathSegment) UnmarshalJSON(b []byte) error {
 			this.StartAngle = valueForStartAngle
 		}
 	}
-	if valStartAngleCap, ok := objMap["StartAngle"]; ok {
-		if valStartAngleCap != nil {
-			var valueForStartAngle float64
-			err = json.Unmarshal(*valStartAngleCap, &valueForStartAngle)
-			if err != nil {
-				return err
-			}
-			this.StartAngle = valueForStartAngle
-		}
-	}
 	
-	if valSweepAngle, ok := objMap["sweepAngle"]; ok {
+	if valSweepAngle, ok := GetMapValue(objMap, "sweepAngle"); ok {
 		if valSweepAngle != nil {
 			var valueForSweepAngle float64
 			err = json.Unmarshal(*valSweepAngle, &valueForSweepAngle)
-			if err != nil {
-				return err
-			}
-			this.SweepAngle = valueForSweepAngle
-		}
-	}
-	if valSweepAngleCap, ok := objMap["SweepAngle"]; ok {
-		if valSweepAngleCap != nil {
-			var valueForSweepAngle float64
-			err = json.Unmarshal(*valSweepAngleCap, &valueForSweepAngle)
 			if err != nil {
 				return err
 			}

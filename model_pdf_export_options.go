@@ -37,6 +37,10 @@ type IPdfExportOptions interface {
 	GetDefaultRegularFont() string
 	SetDefaultRegularFont(newValue string)
 
+	// Default regular font for rendering the presentation. 
+	GetGradientStyle() string
+	SetGradientStyle(newValue string)
+
 	// Gets of sets list of font fallback rules.
 	GetFontFallbackRules() []IFontFallbackRule
 	SetFontFallbackRules(newValue []IFontFallbackRule)
@@ -116,12 +120,19 @@ type IPdfExportOptions interface {
 	// True to use ROP operation or Opacity for rendering brush.
 	GetInterpretMaskOpAsOpacity() *bool
 	SetInterpretMaskOpAsOpacity(newValue *bool)
+
+	// True if text should be rasterized as a bitmap and saved to PDF when the font does not support bold styling. This approach can enhance the quality of text in the resulting PDF for certain fonts.
+	GetRasterizeUnsupportedFontStyles() *bool
+	SetRasterizeUnsupportedFontStyles(newValue *bool)
 }
 
 type PdfExportOptions struct {
 
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
+
+	// Default regular font for rendering the presentation. 
+	GradientStyle string `json:"GradientStyle,omitempty"`
 
 	// Gets of sets list of font fallback rules.
 	FontFallbackRules []IFontFallbackRule `json:"FontFallbackRules,omitempty"`
@@ -182,6 +193,9 @@ type PdfExportOptions struct {
 
 	// True to use ROP operation or Opacity for rendering brush.
 	InterpretMaskOpAsOpacity *bool `json:"InterpretMaskOpAsOpacity"`
+
+	// True if text should be rasterized as a bitmap and saved to PDF when the font does not support bold styling. This approach can enhance the quality of text in the resulting PDF for certain fonts.
+	RasterizeUnsupportedFontStyles *bool `json:"RasterizeUnsupportedFontStyles"`
 }
 
 func NewPdfExportOptions() *PdfExportOptions {
@@ -195,6 +209,13 @@ func (this *PdfExportOptions) GetDefaultRegularFont() string {
 
 func (this *PdfExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *PdfExportOptions) GetGradientStyle() string {
+	return this.GradientStyle
+}
+
+func (this *PdfExportOptions) SetGradientStyle(newValue string) {
+	this.GradientStyle = newValue
 }
 func (this *PdfExportOptions) GetFontFallbackRules() []IFontFallbackRule {
 	return this.FontFallbackRules
@@ -336,6 +357,13 @@ func (this *PdfExportOptions) GetInterpretMaskOpAsOpacity() *bool {
 func (this *PdfExportOptions) SetInterpretMaskOpAsOpacity(newValue *bool) {
 	this.InterpretMaskOpAsOpacity = newValue
 }
+func (this *PdfExportOptions) GetRasterizeUnsupportedFontStyles() *bool {
+	return this.RasterizeUnsupportedFontStyles
+}
+
+func (this *PdfExportOptions) SetRasterizeUnsupportedFontStyles(newValue *bool) {
+	this.RasterizeUnsupportedFontStyles = newValue
+}
 
 func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
@@ -344,7 +372,7 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valDefaultRegularFont, ok := objMap["defaultRegularFont"]; ok {
+	if valDefaultRegularFont, ok := GetMapValue(objMap, "defaultRegularFont"); ok {
 		if valDefaultRegularFont != nil {
 			var valueForDefaultRegularFont string
 			err = json.Unmarshal(*valDefaultRegularFont, &valueForDefaultRegularFont)
@@ -354,18 +382,25 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
-	if valDefaultRegularFontCap, ok := objMap["DefaultRegularFont"]; ok {
-		if valDefaultRegularFontCap != nil {
-			var valueForDefaultRegularFont string
-			err = json.Unmarshal(*valDefaultRegularFontCap, &valueForDefaultRegularFont)
+	
+	if valGradientStyle, ok := GetMapValue(objMap, "gradientStyle"); ok {
+		if valGradientStyle != nil {
+			var valueForGradientStyle string
+			err = json.Unmarshal(*valGradientStyle, &valueForGradientStyle)
 			if err != nil {
-				return err
+				var valueForGradientStyleInt int32
+				err = json.Unmarshal(*valGradientStyle, &valueForGradientStyleInt)
+				if err != nil {
+					return err
+				}
+				this.GradientStyle = string(valueForGradientStyleInt)
+			} else {
+				this.GradientStyle = valueForGradientStyle
 			}
-			this.DefaultRegularFont = valueForDefaultRegularFont
 		}
 	}
 	
-	if valFontFallbackRules, ok := objMap["fontFallbackRules"]; ok {
+	if valFontFallbackRules, ok := GetMapValue(objMap, "fontFallbackRules"); ok {
 		if valFontFallbackRules != nil {
 			var valueForFontFallbackRules []json.RawMessage
 			err = json.Unmarshal(*valFontFallbackRules, &valueForFontFallbackRules)
@@ -389,32 +424,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontFallbackRules = valueForIFontFallbackRules
 		}
 	}
-	if valFontFallbackRulesCap, ok := objMap["FontFallbackRules"]; ok {
-		if valFontFallbackRulesCap != nil {
-			var valueForFontFallbackRules []json.RawMessage
-			err = json.Unmarshal(*valFontFallbackRulesCap, &valueForFontFallbackRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontFallbackRules := make([]IFontFallbackRule, len(valueForFontFallbackRules))
-			for i, v := range valueForFontFallbackRules {
-				vObject, err := createObjectForType("FontFallbackRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontFallbackRules[i] = vObject.(IFontFallbackRule)
-				}
-			}
-			this.FontFallbackRules = valueForIFontFallbackRules
-		}
-	}
 	
-	if valFontSubstRules, ok := objMap["fontSubstRules"]; ok {
+	if valFontSubstRules, ok := GetMapValue(objMap, "fontSubstRules"); ok {
 		if valFontSubstRules != nil {
 			var valueForFontSubstRules []json.RawMessage
 			err = json.Unmarshal(*valFontSubstRules, &valueForFontSubstRules)
@@ -438,32 +449,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.FontSubstRules = valueForIFontSubstRules
 		}
 	}
-	if valFontSubstRulesCap, ok := objMap["FontSubstRules"]; ok {
-		if valFontSubstRulesCap != nil {
-			var valueForFontSubstRules []json.RawMessage
-			err = json.Unmarshal(*valFontSubstRulesCap, &valueForFontSubstRules)
-			if err != nil {
-				return err
-			}
-			valueForIFontSubstRules := make([]IFontSubstRule, len(valueForFontSubstRules))
-			for i, v := range valueForFontSubstRules {
-				vObject, err := createObjectForType("FontSubstRule", v)
-				if err != nil {
-					return err
-				}
-				err = json.Unmarshal(v, &vObject)
-				if err != nil {
-					return err
-				}
-				if vObject != nil {
-					valueForIFontSubstRules[i] = vObject.(IFontSubstRule)
-				}
-			}
-			this.FontSubstRules = valueForIFontSubstRules
-		}
-	}
 	
-	if valFormat, ok := objMap["format"]; ok {
+	if valFormat, ok := GetMapValue(objMap, "format"); ok {
 		if valFormat != nil {
 			var valueForFormat string
 			err = json.Unmarshal(*valFormat, &valueForFormat)
@@ -473,18 +460,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.Format = valueForFormat
 		}
 	}
-	if valFormatCap, ok := objMap["Format"]; ok {
-		if valFormatCap != nil {
-			var valueForFormat string
-			err = json.Unmarshal(*valFormatCap, &valueForFormat)
-			if err != nil {
-				return err
-			}
-			this.Format = valueForFormat
-		}
-	}
 	
-	if valTextCompression, ok := objMap["textCompression"]; ok {
+	if valTextCompression, ok := GetMapValue(objMap, "textCompression"); ok {
 		if valTextCompression != nil {
 			var valueForTextCompression string
 			err = json.Unmarshal(*valTextCompression, &valueForTextCompression)
@@ -500,24 +477,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTextCompressionCap, ok := objMap["TextCompression"]; ok {
-		if valTextCompressionCap != nil {
-			var valueForTextCompression string
-			err = json.Unmarshal(*valTextCompressionCap, &valueForTextCompression)
-			if err != nil {
-				var valueForTextCompressionInt int32
-				err = json.Unmarshal(*valTextCompressionCap, &valueForTextCompressionInt)
-				if err != nil {
-					return err
-				}
-				this.TextCompression = string(valueForTextCompressionInt)
-			} else {
-				this.TextCompression = valueForTextCompression
-			}
-		}
-	}
 	
-	if valEmbedFullFonts, ok := objMap["embedFullFonts"]; ok {
+	if valEmbedFullFonts, ok := GetMapValue(objMap, "embedFullFonts"); ok {
 		if valEmbedFullFonts != nil {
 			var valueForEmbedFullFonts *bool
 			err = json.Unmarshal(*valEmbedFullFonts, &valueForEmbedFullFonts)
@@ -527,18 +488,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.EmbedFullFonts = valueForEmbedFullFonts
 		}
 	}
-	if valEmbedFullFontsCap, ok := objMap["EmbedFullFonts"]; ok {
-		if valEmbedFullFontsCap != nil {
-			var valueForEmbedFullFonts *bool
-			err = json.Unmarshal(*valEmbedFullFontsCap, &valueForEmbedFullFonts)
-			if err != nil {
-				return err
-			}
-			this.EmbedFullFonts = valueForEmbedFullFonts
-		}
-	}
 	
-	if valCompliance, ok := objMap["compliance"]; ok {
+	if valCompliance, ok := GetMapValue(objMap, "compliance"); ok {
 		if valCompliance != nil {
 			var valueForCompliance string
 			err = json.Unmarshal(*valCompliance, &valueForCompliance)
@@ -554,24 +505,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valComplianceCap, ok := objMap["Compliance"]; ok {
-		if valComplianceCap != nil {
-			var valueForCompliance string
-			err = json.Unmarshal(*valComplianceCap, &valueForCompliance)
-			if err != nil {
-				var valueForComplianceInt int32
-				err = json.Unmarshal(*valComplianceCap, &valueForComplianceInt)
-				if err != nil {
-					return err
-				}
-				this.Compliance = string(valueForComplianceInt)
-			} else {
-				this.Compliance = valueForCompliance
-			}
-		}
-	}
 	
-	if valSufficientResolution, ok := objMap["sufficientResolution"]; ok {
+	if valSufficientResolution, ok := GetMapValue(objMap, "sufficientResolution"); ok {
 		if valSufficientResolution != nil {
 			var valueForSufficientResolution float64
 			err = json.Unmarshal(*valSufficientResolution, &valueForSufficientResolution)
@@ -581,18 +516,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.SufficientResolution = valueForSufficientResolution
 		}
 	}
-	if valSufficientResolutionCap, ok := objMap["SufficientResolution"]; ok {
-		if valSufficientResolutionCap != nil {
-			var valueForSufficientResolution float64
-			err = json.Unmarshal(*valSufficientResolutionCap, &valueForSufficientResolution)
-			if err != nil {
-				return err
-			}
-			this.SufficientResolution = valueForSufficientResolution
-		}
-	}
 	
-	if valJpegQuality, ok := objMap["jpegQuality"]; ok {
+	if valJpegQuality, ok := GetMapValue(objMap, "jpegQuality"); ok {
 		if valJpegQuality != nil {
 			var valueForJpegQuality int32
 			err = json.Unmarshal(*valJpegQuality, &valueForJpegQuality)
@@ -602,18 +527,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.JpegQuality = valueForJpegQuality
 		}
 	}
-	if valJpegQualityCap, ok := objMap["JpegQuality"]; ok {
-		if valJpegQualityCap != nil {
-			var valueForJpegQuality int32
-			err = json.Unmarshal(*valJpegQualityCap, &valueForJpegQuality)
-			if err != nil {
-				return err
-			}
-			this.JpegQuality = valueForJpegQuality
-		}
-	}
 	
-	if valDrawSlidesFrame, ok := objMap["drawSlidesFrame"]; ok {
+	if valDrawSlidesFrame, ok := GetMapValue(objMap, "drawSlidesFrame"); ok {
 		if valDrawSlidesFrame != nil {
 			var valueForDrawSlidesFrame *bool
 			err = json.Unmarshal(*valDrawSlidesFrame, &valueForDrawSlidesFrame)
@@ -623,18 +538,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.DrawSlidesFrame = valueForDrawSlidesFrame
 		}
 	}
-	if valDrawSlidesFrameCap, ok := objMap["DrawSlidesFrame"]; ok {
-		if valDrawSlidesFrameCap != nil {
-			var valueForDrawSlidesFrame *bool
-			err = json.Unmarshal(*valDrawSlidesFrameCap, &valueForDrawSlidesFrame)
-			if err != nil {
-				return err
-			}
-			this.DrawSlidesFrame = valueForDrawSlidesFrame
-		}
-	}
 	
-	if valShowHiddenSlides, ok := objMap["showHiddenSlides"]; ok {
+	if valShowHiddenSlides, ok := GetMapValue(objMap, "showHiddenSlides"); ok {
 		if valShowHiddenSlides != nil {
 			var valueForShowHiddenSlides *bool
 			err = json.Unmarshal(*valShowHiddenSlides, &valueForShowHiddenSlides)
@@ -644,18 +549,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.ShowHiddenSlides = valueForShowHiddenSlides
 		}
 	}
-	if valShowHiddenSlidesCap, ok := objMap["ShowHiddenSlides"]; ok {
-		if valShowHiddenSlidesCap != nil {
-			var valueForShowHiddenSlides *bool
-			err = json.Unmarshal(*valShowHiddenSlidesCap, &valueForShowHiddenSlides)
-			if err != nil {
-				return err
-			}
-			this.ShowHiddenSlides = valueForShowHiddenSlides
-		}
-	}
 	
-	if valSaveMetafilesAsPng, ok := objMap["saveMetafilesAsPng"]; ok {
+	if valSaveMetafilesAsPng, ok := GetMapValue(objMap, "saveMetafilesAsPng"); ok {
 		if valSaveMetafilesAsPng != nil {
 			var valueForSaveMetafilesAsPng *bool
 			err = json.Unmarshal(*valSaveMetafilesAsPng, &valueForSaveMetafilesAsPng)
@@ -665,18 +560,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.SaveMetafilesAsPng = valueForSaveMetafilesAsPng
 		}
 	}
-	if valSaveMetafilesAsPngCap, ok := objMap["SaveMetafilesAsPng"]; ok {
-		if valSaveMetafilesAsPngCap != nil {
-			var valueForSaveMetafilesAsPng *bool
-			err = json.Unmarshal(*valSaveMetafilesAsPngCap, &valueForSaveMetafilesAsPng)
-			if err != nil {
-				return err
-			}
-			this.SaveMetafilesAsPng = valueForSaveMetafilesAsPng
-		}
-	}
 	
-	if valPassword, ok := objMap["password"]; ok {
+	if valPassword, ok := GetMapValue(objMap, "password"); ok {
 		if valPassword != nil {
 			var valueForPassword string
 			err = json.Unmarshal(*valPassword, &valueForPassword)
@@ -686,18 +571,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.Password = valueForPassword
 		}
 	}
-	if valPasswordCap, ok := objMap["Password"]; ok {
-		if valPasswordCap != nil {
-			var valueForPassword string
-			err = json.Unmarshal(*valPasswordCap, &valueForPassword)
-			if err != nil {
-				return err
-			}
-			this.Password = valueForPassword
-		}
-	}
 	
-	if valEmbedTrueTypeFontsForASCII, ok := objMap["embedTrueTypeFontsForASCII"]; ok {
+	if valEmbedTrueTypeFontsForASCII, ok := GetMapValue(objMap, "embedTrueTypeFontsForASCII"); ok {
 		if valEmbedTrueTypeFontsForASCII != nil {
 			var valueForEmbedTrueTypeFontsForASCII *bool
 			err = json.Unmarshal(*valEmbedTrueTypeFontsForASCII, &valueForEmbedTrueTypeFontsForASCII)
@@ -707,18 +582,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.EmbedTrueTypeFontsForASCII = valueForEmbedTrueTypeFontsForASCII
 		}
 	}
-	if valEmbedTrueTypeFontsForASCIICap, ok := objMap["EmbedTrueTypeFontsForASCII"]; ok {
-		if valEmbedTrueTypeFontsForASCIICap != nil {
-			var valueForEmbedTrueTypeFontsForASCII *bool
-			err = json.Unmarshal(*valEmbedTrueTypeFontsForASCIICap, &valueForEmbedTrueTypeFontsForASCII)
-			if err != nil {
-				return err
-			}
-			this.EmbedTrueTypeFontsForASCII = valueForEmbedTrueTypeFontsForASCII
-		}
-	}
 	
-	if valAdditionalCommonFontFamilies, ok := objMap["additionalCommonFontFamilies"]; ok {
+	if valAdditionalCommonFontFamilies, ok := GetMapValue(objMap, "additionalCommonFontFamilies"); ok {
 		if valAdditionalCommonFontFamilies != nil {
 			var valueForAdditionalCommonFontFamilies []string
 			err = json.Unmarshal(*valAdditionalCommonFontFamilies, &valueForAdditionalCommonFontFamilies)
@@ -728,18 +593,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.AdditionalCommonFontFamilies = valueForAdditionalCommonFontFamilies
 		}
 	}
-	if valAdditionalCommonFontFamiliesCap, ok := objMap["AdditionalCommonFontFamilies"]; ok {
-		if valAdditionalCommonFontFamiliesCap != nil {
-			var valueForAdditionalCommonFontFamilies []string
-			err = json.Unmarshal(*valAdditionalCommonFontFamiliesCap, &valueForAdditionalCommonFontFamilies)
-			if err != nil {
-				return err
-			}
-			this.AdditionalCommonFontFamilies = valueForAdditionalCommonFontFamilies
-		}
-	}
 	
-	if valSlidesLayoutOptions, ok := objMap["slidesLayoutOptions"]; ok {
+	if valSlidesLayoutOptions, ok := GetMapValue(objMap, "slidesLayoutOptions"); ok {
 		if valSlidesLayoutOptions != nil {
 			var valueForSlidesLayoutOptions SlidesLayoutOptions
 			err = json.Unmarshal(*valSlidesLayoutOptions, &valueForSlidesLayoutOptions)
@@ -760,29 +615,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valSlidesLayoutOptionsCap, ok := objMap["SlidesLayoutOptions"]; ok {
-		if valSlidesLayoutOptionsCap != nil {
-			var valueForSlidesLayoutOptions SlidesLayoutOptions
-			err = json.Unmarshal(*valSlidesLayoutOptionsCap, &valueForSlidesLayoutOptions)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("SlidesLayoutOptions", *valSlidesLayoutOptionsCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valSlidesLayoutOptionsCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(ISlidesLayoutOptions)
-			if ok {
-				this.SlidesLayoutOptions = vInterfaceObject
-			}
-		}
-	}
 	
-	if valImageTransparentColor, ok := objMap["imageTransparentColor"]; ok {
+	if valImageTransparentColor, ok := GetMapValue(objMap, "imageTransparentColor"); ok {
 		if valImageTransparentColor != nil {
 			var valueForImageTransparentColor string
 			err = json.Unmarshal(*valImageTransparentColor, &valueForImageTransparentColor)
@@ -792,18 +626,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.ImageTransparentColor = valueForImageTransparentColor
 		}
 	}
-	if valImageTransparentColorCap, ok := objMap["ImageTransparentColor"]; ok {
-		if valImageTransparentColorCap != nil {
-			var valueForImageTransparentColor string
-			err = json.Unmarshal(*valImageTransparentColorCap, &valueForImageTransparentColor)
-			if err != nil {
-				return err
-			}
-			this.ImageTransparentColor = valueForImageTransparentColor
-		}
-	}
 	
-	if valApplyImageTransparent, ok := objMap["applyImageTransparent"]; ok {
+	if valApplyImageTransparent, ok := GetMapValue(objMap, "applyImageTransparent"); ok {
 		if valApplyImageTransparent != nil {
 			var valueForApplyImageTransparent *bool
 			err = json.Unmarshal(*valApplyImageTransparent, &valueForApplyImageTransparent)
@@ -813,18 +637,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.ApplyImageTransparent = valueForApplyImageTransparent
 		}
 	}
-	if valApplyImageTransparentCap, ok := objMap["ApplyImageTransparent"]; ok {
-		if valApplyImageTransparentCap != nil {
-			var valueForApplyImageTransparent *bool
-			err = json.Unmarshal(*valApplyImageTransparentCap, &valueForApplyImageTransparent)
-			if err != nil {
-				return err
-			}
-			this.ApplyImageTransparent = valueForApplyImageTransparent
-		}
-	}
 	
-	if valAccessPermissions, ok := objMap["accessPermissions"]; ok {
+	if valAccessPermissions, ok := GetMapValue(objMap, "accessPermissions"); ok {
 		if valAccessPermissions != nil {
 			var valueForAccessPermissions AccessPermissions
 			err = json.Unmarshal(*valAccessPermissions, &valueForAccessPermissions)
@@ -845,29 +659,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valAccessPermissionsCap, ok := objMap["AccessPermissions"]; ok {
-		if valAccessPermissionsCap != nil {
-			var valueForAccessPermissions AccessPermissions
-			err = json.Unmarshal(*valAccessPermissionsCap, &valueForAccessPermissions)
-			if err != nil {
-				return err
-			}
-			vObject, err := createObjectForType("AccessPermissions", *valAccessPermissionsCap)
-			if err != nil {
-				return err
-			}
-			err = json.Unmarshal(*valAccessPermissionsCap, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IAccessPermissions)
-			if ok {
-				this.AccessPermissions = vInterfaceObject
-			}
-		}
-	}
 	
-	if valHideInk, ok := objMap["hideInk"]; ok {
+	if valHideInk, ok := GetMapValue(objMap, "hideInk"); ok {
 		if valHideInk != nil {
 			var valueForHideInk *bool
 			err = json.Unmarshal(*valHideInk, &valueForHideInk)
@@ -877,18 +670,8 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.HideInk = valueForHideInk
 		}
 	}
-	if valHideInkCap, ok := objMap["HideInk"]; ok {
-		if valHideInkCap != nil {
-			var valueForHideInk *bool
-			err = json.Unmarshal(*valHideInkCap, &valueForHideInk)
-			if err != nil {
-				return err
-			}
-			this.HideInk = valueForHideInk
-		}
-	}
 	
-	if valInterpretMaskOpAsOpacity, ok := objMap["interpretMaskOpAsOpacity"]; ok {
+	if valInterpretMaskOpAsOpacity, ok := GetMapValue(objMap, "interpretMaskOpAsOpacity"); ok {
 		if valInterpretMaskOpAsOpacity != nil {
 			var valueForInterpretMaskOpAsOpacity *bool
 			err = json.Unmarshal(*valInterpretMaskOpAsOpacity, &valueForInterpretMaskOpAsOpacity)
@@ -898,14 +681,15 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 			this.InterpretMaskOpAsOpacity = valueForInterpretMaskOpAsOpacity
 		}
 	}
-	if valInterpretMaskOpAsOpacityCap, ok := objMap["InterpretMaskOpAsOpacity"]; ok {
-		if valInterpretMaskOpAsOpacityCap != nil {
-			var valueForInterpretMaskOpAsOpacity *bool
-			err = json.Unmarshal(*valInterpretMaskOpAsOpacityCap, &valueForInterpretMaskOpAsOpacity)
+	
+	if valRasterizeUnsupportedFontStyles, ok := GetMapValue(objMap, "rasterizeUnsupportedFontStyles"); ok {
+		if valRasterizeUnsupportedFontStyles != nil {
+			var valueForRasterizeUnsupportedFontStyles *bool
+			err = json.Unmarshal(*valRasterizeUnsupportedFontStyles, &valueForRasterizeUnsupportedFontStyles)
 			if err != nil {
 				return err
 			}
-			this.InterpretMaskOpAsOpacity = valueForInterpretMaskOpAsOpacity
+			this.RasterizeUnsupportedFontStyles = valueForRasterizeUnsupportedFontStyles
 		}
 	}
 

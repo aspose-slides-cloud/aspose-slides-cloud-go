@@ -78,7 +78,7 @@ func (this *GradientFillStop) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valColor, ok := objMap["color"]; ok {
+	if valColor, ok := GetMapValue(objMap, "color"); ok {
 		if valColor != nil {
 			var valueForColor string
 			err = json.Unmarshal(*valColor, &valueForColor)
@@ -88,31 +88,11 @@ func (this *GradientFillStop) UnmarshalJSON(b []byte) error {
 			this.Color = valueForColor
 		}
 	}
-	if valColorCap, ok := objMap["Color"]; ok {
-		if valColorCap != nil {
-			var valueForColor string
-			err = json.Unmarshal(*valColorCap, &valueForColor)
-			if err != nil {
-				return err
-			}
-			this.Color = valueForColor
-		}
-	}
 	
-	if valPosition, ok := objMap["position"]; ok {
+	if valPosition, ok := GetMapValue(objMap, "position"); ok {
 		if valPosition != nil {
 			var valueForPosition float64
 			err = json.Unmarshal(*valPosition, &valueForPosition)
-			if err != nil {
-				return err
-			}
-			this.Position = valueForPosition
-		}
-	}
-	if valPositionCap, ok := objMap["Position"]; ok {
-		if valPositionCap != nil {
-			var valueForPosition float64
-			err = json.Unmarshal(*valPositionCap, &valueForPosition)
 			if err != nil {
 				return err
 			}

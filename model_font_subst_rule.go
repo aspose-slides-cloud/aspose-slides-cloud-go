@@ -92,7 +92,7 @@ func (this *FontSubstRule) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	
-	if valSourceFont, ok := objMap["sourceFont"]; ok {
+	if valSourceFont, ok := GetMapValue(objMap, "sourceFont"); ok {
 		if valSourceFont != nil {
 			var valueForSourceFont string
 			err = json.Unmarshal(*valSourceFont, &valueForSourceFont)
@@ -102,18 +102,8 @@ func (this *FontSubstRule) UnmarshalJSON(b []byte) error {
 			this.SourceFont = valueForSourceFont
 		}
 	}
-	if valSourceFontCap, ok := objMap["SourceFont"]; ok {
-		if valSourceFontCap != nil {
-			var valueForSourceFont string
-			err = json.Unmarshal(*valSourceFontCap, &valueForSourceFont)
-			if err != nil {
-				return err
-			}
-			this.SourceFont = valueForSourceFont
-		}
-	}
 	
-	if valTargetFont, ok := objMap["targetFont"]; ok {
+	if valTargetFont, ok := GetMapValue(objMap, "targetFont"); ok {
 		if valTargetFont != nil {
 			var valueForTargetFont string
 			err = json.Unmarshal(*valTargetFont, &valueForTargetFont)
@@ -123,31 +113,11 @@ func (this *FontSubstRule) UnmarshalJSON(b []byte) error {
 			this.TargetFont = valueForTargetFont
 		}
 	}
-	if valTargetFontCap, ok := objMap["TargetFont"]; ok {
-		if valTargetFontCap != nil {
-			var valueForTargetFont string
-			err = json.Unmarshal(*valTargetFontCap, &valueForTargetFont)
-			if err != nil {
-				return err
-			}
-			this.TargetFont = valueForTargetFont
-		}
-	}
 	
-	if valNotFoundOnly, ok := objMap["notFoundOnly"]; ok {
+	if valNotFoundOnly, ok := GetMapValue(objMap, "notFoundOnly"); ok {
 		if valNotFoundOnly != nil {
 			var valueForNotFoundOnly *bool
 			err = json.Unmarshal(*valNotFoundOnly, &valueForNotFoundOnly)
-			if err != nil {
-				return err
-			}
-			this.NotFoundOnly = valueForNotFoundOnly
-		}
-	}
-	if valNotFoundOnlyCap, ok := objMap["NotFoundOnly"]; ok {
-		if valNotFoundOnlyCap != nil {
-			var valueForNotFoundOnly *bool
-			err = json.Unmarshal(*valNotFoundOnlyCap, &valueForNotFoundOnly)
 			if err != nil {
 				return err
 			}

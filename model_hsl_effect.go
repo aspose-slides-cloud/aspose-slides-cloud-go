@@ -107,7 +107,7 @@ func (this *HslEffect) UnmarshalJSON(b []byte) error {
 		return err
 	}
 	this.Type_ = "Hsl"
-	if valType, ok := objMap["type"]; ok {
+	if valType, ok := GetMapValue(objMap, "type"); ok {
 		if valType != nil {
 			var valueForType string
 			err = json.Unmarshal(*valType, &valueForType)
@@ -123,24 +123,8 @@ func (this *HslEffect) UnmarshalJSON(b []byte) error {
 			}
 		}
 	}
-	if valTypeCap, ok := objMap["Type"]; ok {
-		if valTypeCap != nil {
-			var valueForType string
-			err = json.Unmarshal(*valTypeCap, &valueForType)
-			if err != nil {
-				var valueForTypeInt int32
-				err = json.Unmarshal(*valTypeCap, &valueForTypeInt)
-				if err != nil {
-					return err
-				}
-				this.Type_ = string(valueForTypeInt)
-			} else {
-				this.Type_ = valueForType
-			}
-		}
-	}
 	
-	if valHue, ok := objMap["hue"]; ok {
+	if valHue, ok := GetMapValue(objMap, "hue"); ok {
 		if valHue != nil {
 			var valueForHue float64
 			err = json.Unmarshal(*valHue, &valueForHue)
@@ -150,18 +134,8 @@ func (this *HslEffect) UnmarshalJSON(b []byte) error {
 			this.Hue = valueForHue
 		}
 	}
-	if valHueCap, ok := objMap["Hue"]; ok {
-		if valHueCap != nil {
-			var valueForHue float64
-			err = json.Unmarshal(*valHueCap, &valueForHue)
-			if err != nil {
-				return err
-			}
-			this.Hue = valueForHue
-		}
-	}
 	
-	if valSaturation, ok := objMap["saturation"]; ok {
+	if valSaturation, ok := GetMapValue(objMap, "saturation"); ok {
 		if valSaturation != nil {
 			var valueForSaturation float64
 			err = json.Unmarshal(*valSaturation, &valueForSaturation)
@@ -171,31 +145,11 @@ func (this *HslEffect) UnmarshalJSON(b []byte) error {
 			this.Saturation = valueForSaturation
 		}
 	}
-	if valSaturationCap, ok := objMap["Saturation"]; ok {
-		if valSaturationCap != nil {
-			var valueForSaturation float64
-			err = json.Unmarshal(*valSaturationCap, &valueForSaturation)
-			if err != nil {
-				return err
-			}
-			this.Saturation = valueForSaturation
-		}
-	}
 	
-	if valLuminance, ok := objMap["luminance"]; ok {
+	if valLuminance, ok := GetMapValue(objMap, "luminance"); ok {
 		if valLuminance != nil {
 			var valueForLuminance float64
 			err = json.Unmarshal(*valLuminance, &valueForLuminance)
-			if err != nil {
-				return err
-			}
-			this.Luminance = valueForLuminance
-		}
-	}
-	if valLuminanceCap, ok := objMap["Luminance"]; ok {
-		if valLuminanceCap != nil {
-			var valueForLuminance float64
-			err = json.Unmarshal(*valLuminanceCap, &valueForLuminance)
 			if err != nil {
 				return err
 			}
