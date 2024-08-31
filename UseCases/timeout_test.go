@@ -40,15 +40,10 @@ import (
 */
 func TestTimeout(t *testing.T) {
 	return
-	e := slidescloud.InitializeTest("PostSlideSaveAs", "", "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
 
 	cfg := slidescloud.NewConfiguration()
-	configFile, err := os.Open("testConfig.json")
-	if err == nil {
+	configFile, e := os.Open("testConfig.json")
+	if e == nil {
 		json.NewDecoder(configFile).Decode(cfg)
 	}
 	cfg.Timeout = 1

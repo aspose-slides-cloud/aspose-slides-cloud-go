@@ -37,15 +37,19 @@ import (
 /*
    Test for Get notes slide from storage
 */
-func TestNotesSlideGetFromStorage(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestNotesSlideGetStorage(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	result, _, e := c.SlidesApi.GetNotesSlide(fileName, 1, "password", folderName, "")
+	result, _, e := c.SlidesApi.GetNotesSlide(fileName, slideIndex, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -59,17 +63,19 @@ func TestNotesSlideGetFromStorage(t *testing.T) {
 /*
    Test for exists notes slide from storage
 */
-func TestNotesSlideExistsFromStorage(t *testing.T) {
-	folderName := "TempSlidesSDK"
-	fileName := "test.pptx"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestNotesSlideExistsStorage(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	result, _, e := c.SlidesApi.NotesSlideExists(fileName, 1, "password", folderName, "")
+	result, _, e := c.SlidesApi.NotesSlideExists(fileName, slideIndex, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -83,17 +89,19 @@ func TestNotesSlideExistsFromStorage(t *testing.T) {
 /*
    Test for download notes slide from storage
 */
-func TestNotesSlideDownloadFromStorage(t *testing.T) {
-	folderName := "TempSlidesSDK"
-	fileName := "test.pptx"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestNotesSlideDownloadStorage(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, _, e = c.SlidesApi.DownloadNotesSlide(fileName, 1, "png", nil, nil, "password", folderName, "", "")
+	_, _, e = c.SlidesApi.DownloadNotesSlide(fileName, slideIndex, "png", nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -103,14 +111,19 @@ func TestNotesSlideDownloadFromStorage(t *testing.T) {
 /*
    Test for Get notes slide from request
 */
-func TestNotesSlideGetFromRequest(t *testing.T) {
+func TestNotesSlideGetRequest(t *testing.T) {
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	result, _, e := slidescloud.GetTestSlidesApiClient().SlidesApi.GetNotesSlideOnline(source, 1, "password")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	result, _, e := c.SlidesApi.GetNotesSlideOnline(source, slideIndex, password)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -124,14 +137,19 @@ func TestNotesSlideGetFromRequest(t *testing.T) {
 /*
    Test for exists notes slide from request
 */
-func TestNotesSlideExistsFromRequest(t *testing.T) {
+func TestNotesSlideExistsRequest(t *testing.T) {
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	result, _, e := slidescloud.GetTestSlidesApiClient().SlidesApi.NotesSlideExistsOnline(source, 1, "password")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	result, _, e := c.SlidesApi.NotesSlideExistsOnline(source, slideIndex, password)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -145,14 +163,19 @@ func TestNotesSlideExistsFromRequest(t *testing.T) {
 /*
    Test for download notes slide from request
 */
-func TestNotesSlideDownloadFromRequest(t *testing.T) {
+func TestNotesSlideDownloadRequest(t *testing.T) {
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, _, e = slidescloud.GetTestSlidesApiClient().SlidesApi.DownloadNotesSlideOnline(source, 1, "png", nil, nil, "password", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, _, e = c.SlidesApi.DownloadNotesSlideOnline(source, slideIndex, "png", nil, nil, password, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -163,10 +186,13 @@ func TestNotesSlideDownloadFromRequest(t *testing.T) {
    Test for notes slide shapes
 */
 func TestNotesSlideShapes(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeCount int32 = 3
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -209,7 +235,7 @@ func TestNotesSlideShapes(t *testing.T) {
 	}
 
 	dto.Text = "Updated shape"
-	shape, _, e = c.SlidesApi.UpdateSpecialSlideShape(fileName, slideIndex, "notesSlide", shapeCount+1, dto, password, folderName, "", "")
+	shape, _, e = c.SlidesApi.UpdateSpecialSlideShape(fileName, slideIndex, "notesSlide", shapeCount + 1, dto, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -228,7 +254,7 @@ func TestNotesSlideShapes(t *testing.T) {
 		return
 	}
 
-	_, _, e = c.SlidesApi.DeleteSpecialSlideShape(fileName, slideIndex, "notesSlide", shapeCount+1, password, folderName, "", "")
+	_, _, e = c.SlidesApi.DeleteSpecialSlideShape(fileName, slideIndex, "notesSlide", shapeCount + 1, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -239,7 +265,7 @@ func TestNotesSlideShapes(t *testing.T) {
 		return
 	}
 	if len(shapes.GetShapesLinks()) != int(shapeCount) {
-		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount+1, len(shapes.GetShapesLinks()))
+		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount + 1, len(shapes.GetShapesLinks()))
 		return
 	}
 }
@@ -248,11 +274,14 @@ func TestNotesSlideShapes(t *testing.T) {
    Test for notes slide paragraphs
 */
 func TestNotesSlideParagraphs(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeIndex int32 = 2
 	var paragraphCount int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -287,14 +316,14 @@ func TestNotesSlideParagraphs(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if len(paragraphs.GetParagraphLinks()) != int(paragraphCount)+1 {
-		t.Errorf("Wrong paragraph count. Expected %v but was %v.", paragraphCount, len(paragraphs.GetParagraphLinks())+1)
+	if len(paragraphs.GetParagraphLinks()) != int(paragraphCount) + 1 {
+		t.Errorf("Wrong paragraph count. Expected %v but was %v.", paragraphCount, len(paragraphs.GetParagraphLinks()) + 1)
 		return
 	}
 
 	dto = slidescloud.NewParagraph()
 	dto.Alignment = "Center"
-	paragraph, _, e = c.SlidesApi.UpdateSpecialSlideParagraph(fileName, slideIndex, "notesSlide", shapeIndex, paragraphCount+1, dto, password, folderName, "", "")
+	paragraph, _, e = c.SlidesApi.UpdateSpecialSlideParagraph(fileName, slideIndex, "notesSlide", shapeIndex, paragraphCount + 1, dto, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -308,12 +337,12 @@ func TestNotesSlideParagraphs(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if len(paragraphs.GetParagraphLinks()) != int(paragraphCount)+1 {
-		t.Errorf("Wrong paragraph count. Expected %v but was %v.", paragraphCount, len(paragraphs.GetParagraphLinks())+1)
+	if len(paragraphs.GetParagraphLinks()) != int(paragraphCount) + 1 {
+		t.Errorf("Wrong paragraph count. Expected %v but was %v.", paragraphCount, len(paragraphs.GetParagraphLinks()) + 1)
 		return
 	}
 
-	_, _, e = c.SlidesApi.DeleteSpecialSlideParagraph(fileName, slideIndex, "notesSlide", shapeIndex, paragraphCount+1, password, folderName, "", "")
+	_, _, e = c.SlidesApi.DeleteSpecialSlideParagraph(fileName, slideIndex, "notesSlide", shapeIndex, paragraphCount + 1, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -333,12 +362,15 @@ func TestNotesSlideParagraphs(t *testing.T) {
    Test for notes slide portions
 */
 func TestNotesSlidePortions(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
 	var portionCount int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -375,15 +407,15 @@ func TestNotesSlidePortions(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if len(portions.GetItems()) != int(portionCount)+1 {
-		t.Errorf("Wrong portion count. Expected %v but was %v.", portionCount, len(portions.GetItems())+1)
+	if len(portions.GetItems()) != int(portionCount) + 1 {
+		t.Errorf("Wrong portion count. Expected %v but was %v.", portionCount, len(portions.GetItems()) + 1)
 		return
 	}
 
 	dto2 := slidescloud.NewPortion()
 	dto2.Text = "Updated portion"
 	dto2.FontHeight = 22
-	portion, _, e = c.SlidesApi.UpdateSpecialSlidePortion(fileName, slideIndex, "notesSlide", shapeIndex, paragraphIndex, portionCount+1, dto2, password, folderName, "", "")
+	portion, _, e = c.SlidesApi.UpdateSpecialSlidePortion(fileName, slideIndex, "notesSlide", shapeIndex, paragraphIndex, portionCount + 1, dto2, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -405,12 +437,12 @@ func TestNotesSlidePortions(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if len(portions.GetItems()) != int(portionCount)+1 {
-		t.Errorf("Wrong portion count. Expected %v but was %v.", portionCount, len(portions.GetItems())+1)
+	if len(portions.GetItems()) != int(portionCount) + 1 {
+		t.Errorf("Wrong portion count. Expected %v but was %v.", portionCount, len(portions.GetItems()) + 1)
 		return
 	}
 
-	_, _, e = c.SlidesApi.DeleteSpecialSlidePortion(fileName, slideIndex, "notesSlide", shapeIndex, paragraphIndex, portionCount+1, password, folderName, "", "")
+	_, _, e = c.SlidesApi.DeleteSpecialSlidePortion(fileName, slideIndex, "notesSlide", shapeIndex, paragraphIndex, portionCount + 1, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -429,12 +461,15 @@ func TestNotesSlidePortions(t *testing.T) {
 /*
    Test create notes slide
 */
-func TestCreateNotesSlideUseCase(t *testing.T) {
-	var slideIndex int32 = 1
+func TestCreateNotesSlide(t *testing.T) {
 	notesSlideText := "Notes slides string"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -456,12 +491,15 @@ func TestCreateNotesSlideUseCase(t *testing.T) {
 /*
    Test update notes slide
 */
-func TestUpdateNotesSlideUseCase(t *testing.T) {
-	var slideIndex int32 = 1
+func TestUpdateNotesSlide(t *testing.T) {
 	notesSlideText := "Notes slides string"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -483,11 +521,13 @@ func TestUpdateNotesSlideUseCase(t *testing.T) {
 /*
    Test for deleting notes slide
 */
-func TestDeleteNotesSlideUseCase(t *testing.T) {
-	var slideIndex int32 = 1
-
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestDeleteNotesSlide(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

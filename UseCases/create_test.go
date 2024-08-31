@@ -38,8 +38,12 @@ import (
    Test for create empty presentation
 */
 func TestCreateEmpty(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.DeleteFile(folderName+"/"+fileName, "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.DeleteFile(filePath, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -55,18 +59,22 @@ func TestCreateEmpty(t *testing.T) {
    Test for create presentation from request
 */
 func TestCreateFromRequest(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.DeleteFile(folderName+"/"+fileName, "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	data, e := ioutil.ReadFile("../TestData/" + fileName)
+	_, e = c.SlidesApi.DeleteFile(filePath, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, _, e = c.SlidesApi.CreatePresentation(fileName, data, "password", "", folderName, "")
+	data, e := ioutil.ReadFile(localTestFile)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, _, e = c.SlidesApi.CreatePresentation(fileName, data, password, "", folderName, "")
 }
 
 /*
@@ -74,19 +82,22 @@ func TestCreateFromRequest(t *testing.T) {
 */
 func TestCreateFromStorage(t *testing.T) {
 	newFileName := "test2.pptx"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.DeleteFile(folderName+"/"+newFileName, "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	sourcePath := folderName + "/" + fileName
-	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName, sourcePath, "", "", "")
+	_, e = c.SlidesApi.DeleteFile(folderName + "/" + newFileName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, _, e = c.SlidesApi.CreatePresentationFromSource(newFileName, sourcePath, "password", "", "", folderName, "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, _, e = c.SlidesApi.CreatePresentationFromSource(newFileName, filePath, password, "", "", folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -97,15 +108,19 @@ func TestCreateFromStorage(t *testing.T) {
    Test for create presentation from template
 */
 func TestCreateFromTemplate(t *testing.T) {
-	templateFileName := "TemplateCV.pptx"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.DeleteFile(folderName+"/"+fileName, "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
+	_, e = c.SlidesApi.DeleteFile(filePath, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	templateFileName := "TemplateCV.pptx"
 	templatePath := folderName + "/" + templateFileName
-	_, e = c.SlidesApi.CopyFile("TempTests/"+templateFileName, templatePath, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFolderName + "/" + templateFileName, templatePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -122,8 +137,12 @@ func TestCreateFromTemplate(t *testing.T) {
    Test for create presentation from HTML
 */
 func TestCreateFromHtml(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.DeleteFile(folderName+"/"+fileName, "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.DeleteFile(filePath, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -139,29 +158,33 @@ func TestCreateFromHtml(t *testing.T) {
    Test for append presentation from HTML
 */
 func TestAppendFromHtml(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResponse1, _, e := c.SlidesApi.GetSlides(fileName, password, folderName, "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	slideCount := len(GetResponse1.GetSlideList())
+	getResponse1, _, e := c.SlidesApi.GetSlides(fileName, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	slideCount := len(getResponse1.GetSlideList())
 	_, _, e = c.SlidesApi.ImportFromHtml(fileName, "<html><body>New Content</body></html>", password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResponse2, _, e := c.SlidesApi.GetSlides(fileName, password, folderName, "")
+	getResponse2, _, e := c.SlidesApi.GetSlides(fileName, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	newSlideCount := len(GetResponse2.GetSlideList())
+	newSlideCount := len(getResponse2.GetSlideList())
 	if newSlideCount != slideCount+1 {
 		t.Errorf("Wrong slide count. Expected %v but was %v.", slideCount+1, newSlideCount)
 		return
@@ -172,13 +195,17 @@ func TestAppendFromHtml(t *testing.T) {
    Test for create presentation from PDF
 */
 func TestCreateFromPdf(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.DeleteFile(folderName+"/"+fileName, "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	source, e := ioutil.ReadFile("../TestData/test.pdf")
+	_, e = c.SlidesApi.DeleteFile(filePath, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	source, e := ioutil.ReadFile(localFolder + "/test.pdf")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -194,19 +221,23 @@ func TestCreateFromPdf(t *testing.T) {
    Test for append presentation from PDF
 */
 func TestAppendFromPdf(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResponse1, _, e := c.SlidesApi.GetSlides(fileName, password, folderName, "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	slideCount := len(GetResponse1.GetSlideList())
-	source, e := ioutil.ReadFile("../TestData/test.pdf")
+	getResponse1, _, e := c.SlidesApi.GetSlides(fileName, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	slideCount := len(getResponse1.GetSlideList())
+	source, e := ioutil.ReadFile(localFolder + "/test.pdf")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -219,14 +250,14 @@ func TestAppendFromPdf(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResponse2, _, e := c.SlidesApi.GetSlides(fileName, password, folderName, "")
+	getResponse2, _, e := c.SlidesApi.GetSlides(fileName, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	newSlideCount := len(GetResponse2.GetSlideList())
+	newSlideCount := len(getResponse2.GetSlideList())
 	if newSlideCount != slideCount+4 {
-		t.Errorf("Wrong slide count. Expected %v but was %v.", slideCount+4, newSlideCount)
+		t.Errorf("Wrong slide count. Expected %v but was %v.", slideCount + 4, newSlideCount)
 		return
 	}
 }

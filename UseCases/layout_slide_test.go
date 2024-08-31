@@ -41,13 +41,17 @@ import (
 func TestLayoutSlides(t *testing.T) {
 	sourceFile := "TemplateCV.pptx"
 	sourcePath := folderName + "/" + sourceFile
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, e = c.SlidesApi.CopyFile("TempTests/"+sourceFile, sourcePath, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFolderName + "/" + sourceFile, sourcePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -96,10 +100,13 @@ func TestLayoutSlides(t *testing.T) {
    Test for layout slide shapes
 */
 func TestLayoutSlideShapes(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeCount int32 = 6
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -181,11 +188,14 @@ func TestLayoutSlideShapes(t *testing.T) {
    Test for layout slide paragraphs
 */
 func TestLayoutSlideParagraphs(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeIndex int32 = 2
 	var paragraphCount int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -266,12 +276,15 @@ func TestLayoutSlideParagraphs(t *testing.T) {
    Test for layout slide portions
 */
 func TestLayoutSlidePortions(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
 	var portionCount int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -363,9 +376,12 @@ func TestLayoutSlidePortions(t *testing.T) {
    Test for layout slide animation
 */
 func TestLayoutSlideAnimation(t *testing.T) {
-	var slideIndex int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -442,10 +458,13 @@ func TestLayoutSlideAnimation(t *testing.T) {
 /*
    Test for deleting layout slide
 */
-func TestSlideDeleteUnused(t *testing.T) {
-
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestDeleteUnusedLayoutSlides(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -477,9 +496,8 @@ func TestSlideDeleteUnused(t *testing.T) {
 /*
    Test for deleting layout slide from request
 */
-func TestLayoutSlideDeleteUnusedOnline(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestDeleteUnusedLayoutSlidesOnline(t *testing.T) {
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

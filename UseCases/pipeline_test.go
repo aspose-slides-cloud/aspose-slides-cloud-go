@@ -58,19 +58,24 @@ func TestTemplateInput(t *testing.T) {
 	pipeline.Input = input
 	pipeline.Tasks = []slidescloud.ITask{task}
 
-	data1, e := ioutil.ReadFile("../TestData/TemplatingCVDataWithBase64.xml")
+	data1, e := ioutil.ReadFile(localFolder + "/TemplatingCVDataWithBase64.xml")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	data2, e := ioutil.ReadFile("../TestData/TemplateCV.pptx")
+	data2, e := ioutil.ReadFile(localFolder + "/TemplateCV.pptx")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 	files := [][]byte{data1, data2}
 
-	_, _, e = slidescloud.GetTestSlidesApiClient().SlidesApi.Pipeline(pipeline, files)
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, _, e = c.SlidesApi.Pipeline(pipeline, files)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

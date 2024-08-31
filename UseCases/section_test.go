@@ -34,190 +34,15 @@ import (
 )
 
 /*
-   Test for download empty math
-*/
-func TestMathDownloadNull(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-
-	_, response, e := c.SlidesApi.DownloadMathPortion(fileName, 2, 1, 1, 1, "mathml", "password", folderName, "")
-	if e == nil {
-		t.Errorf("An ordinary paragraph should not have been converted to MathML.")
-		return
-	}
-	if response.StatusCode != 400 {
-		t.Errorf("Wrong status code. Expected 400 but was %v.", response.StatusCode)
-		return
-	}
-}
-
-/*
-   Test for save math
-*/
-func TestMathSave(t *testing.T) {
-	outPath := folderName + "/mathml.xml"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-
-	_, e = c.SlidesApi.SaveMathPortion(fileName, 2, 3, 1, 1, "mathml", outPath, "password", folderName, "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-	resultExists, _, e := c.SlidesApi.ObjectExists(outPath, "", "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-	if !*resultExists.GetExists() {
-		t.Errorf("File %v does not exist on the storage.", outPath)
-		return
-	}
-}
-
-/*
-   Test for header/footer on all slides
-*/
-func TestHeaderFooterSlides(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-
-	dto := slidescloud.NewHeaderFooter()
-	isFooterVisible := true
-	dto.IsFooterVisible = &isFooterVisible
-	dto.FooterText = "footer"
-	isDateTimeVisible := false
-	dto.IsDateTimeVisible = &isDateTimeVisible
-	_, _, e = c.SlidesApi.SetPresentationHeaderFooter(fileName, dto, password, folderName, "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-	result, _, e := c.SlidesApi.GetSlideHeaderFooter(fileName, 1, password, folderName, "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-	if !*result.GetIsFooterVisible() {
-		t.Errorf("Wrong IsFooterVisible value. Expected to be true.")
-		return
-	}
-	if *result.GetIsDateTimeVisible() {
-		t.Errorf("Wrong IsDateTimeVisible value. Expected to be false.")
-		return
-	}
-}
-
-/*
-   Test for header/footer on one slide
-*/
-func TestHeaderFooterSlide(t *testing.T) {
-	var slideIndex int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-
-	dto := slidescloud.NewHeaderFooter()
-	isFooterVisible := true
-	dto.IsFooterVisible = &isFooterVisible
-	dto.FooterText = "footer"
-	isDateTimeVisible := false
-	dto.IsDateTimeVisible = &isDateTimeVisible
-	result, _, e := c.SlidesApi.SetSlideHeaderFooter(fileName, slideIndex, dto, password, folderName, "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-	if !*result.GetIsFooterVisible() {
-		t.Errorf("Wrong IsFooterVisible value. Expected to be true.")
-		return
-	}
-	if *result.GetIsDateTimeVisible() {
-		t.Errorf("Wrong IsDateTimeVisible value. Expected to be false.")
-		return
-	}
-	result, _, e = c.SlidesApi.GetSlideHeaderFooter(fileName, slideIndex, password, folderName, "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-	if !*result.GetIsFooterVisible() {
-		t.Errorf("Wrong IsFooterVisible value. Expected to be true.")
-		return
-	}
-	if *result.GetIsDateTimeVisible() {
-		t.Errorf("Wrong IsDateTimeVisible value. Expected to be false.")
-		return
-	}
-}
-
-/*
-   Test for header/footer on notes slide
-*/
-func TestHeaderFooterNotesSlide(t *testing.T) {
-	var slideIndex int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-
-	dto := slidescloud.NewNotesSlideHeaderFooter()
-	isHeaderVisible := true
-	dto.IsHeaderVisible = &isHeaderVisible
-	dto.FooterText = "footer"
-	isDateTimeVisible := false
-	dto.IsDateTimeVisible = &isDateTimeVisible
-	result, _, e := c.SlidesApi.SetNotesSlideHeaderFooter(fileName, slideIndex, dto, password, folderName, "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-	if !*result.GetIsHeaderVisible() {
-		t.Errorf("Wrong IsHeaderVisible value. Expected to be true.")
-		return
-	}
-	if *result.GetIsDateTimeVisible() {
-		t.Errorf("Wrong IsDateTimeVisible value. Expected to be false.")
-		return
-	}
-	result, _, e = c.SlidesApi.GetNotesSlideHeaderFooter(fileName, slideIndex, password, folderName, "")
-	if e != nil {
-		t.Errorf("Error: %v.", e)
-		return
-	}
-	if !*result.GetIsHeaderVisible() {
-		t.Errorf("Wrong IsHeaderVisible value. Expected to be true.")
-		return
-	}
-	if *result.GetIsDateTimeVisible() {
-		t.Errorf("Wrong IsDateTimeVisible value. Expected to be false.")
-		return
-	}
-}
-
-/*
    Test for Get sections
 */
-func TestSectionsGet(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestGetSections(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -237,9 +62,13 @@ func TestSectionsGet(t *testing.T) {
 /*
    Test for replace sections
 */
-func TestSectionsReplace(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestSetSections(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -271,9 +100,13 @@ func TestSectionsReplace(t *testing.T) {
 /*
    Test for create section
 */
-func TestSectionsPost(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestCreateSection(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -293,9 +126,13 @@ func TestSectionsPost(t *testing.T) {
 /*
    Test for update section
 */
-func TestSectionsPut(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestUpdateSection(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -321,9 +158,13 @@ func TestSectionsPut(t *testing.T) {
 /*
    Test for move section
 */
-func TestSectionsMove(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestMoveSection(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -343,9 +184,13 @@ func TestSectionsMove(t *testing.T) {
 /*
    Test for clear sections
 */
-func TestSectionsClear(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestClearSections(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -365,9 +210,13 @@ func TestSectionsClear(t *testing.T) {
 /*
    Test for delete sections
 */
-func TestSectionsDeleteMany(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestDeleteSections(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -387,9 +236,13 @@ func TestSectionsDeleteMany(t *testing.T) {
 /*
    Test for delete section
 */
-func TestSectionsDelete(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestDeleteSection(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

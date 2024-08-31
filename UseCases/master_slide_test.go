@@ -41,13 +41,18 @@ import (
 func TestMasterSlides(t *testing.T) {
 	sourceFile := "TemplateCV.pptx"
 	sourcePath := folderName + "/" + sourceFile
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, e = c.SlidesApi.CopyFile("TempTests/"+sourceFile, sourcePath, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFolderName + "/" + sourceFile, sourcePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -96,13 +101,14 @@ func TestMasterSlides(t *testing.T) {
    Test for master slide shapes
 */
 func TestMasterSlideShapes(t *testing.T) {
-	folderName := "TempSlidesSDK"
-	fileName := "test.pptx"
-	password := "password"
-	var slideIndex int32 = 1
 	var shapeCount int32 = 6
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -184,11 +190,15 @@ func TestMasterSlideShapes(t *testing.T) {
    Test for master slide paragraphs
 */
 func TestMasterSlideParagraphs(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeIndex int32 = 2
 	var paragraphCount int32 = 5
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -269,12 +279,16 @@ func TestMasterSlideParagraphs(t *testing.T) {
    Test for master slide portions
 */
 func TestMasterSlidePortions(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 3
 	var portionCount int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -366,9 +380,13 @@ func TestMasterSlidePortions(t *testing.T) {
    Test for master slide animation
 */
 func TestMasterSlideAnimation(t *testing.T) {
-	var slideIndex int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -460,9 +478,14 @@ func TestMasterSlideAnimation(t *testing.T) {
 /*
    Test for deleting master slide
 */
-func TestMasterSlideDeleteUnused(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestDeleteUnusedMasterSlides(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -484,9 +507,8 @@ func TestMasterSlideDeleteUnused(t *testing.T) {
 /*
    Test for deleting master slide from request
 */
-func TestMasterSlideDeleteUnusedOnline(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestDeleteUnusedMasterSlidesOnline(t *testing.T) {
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

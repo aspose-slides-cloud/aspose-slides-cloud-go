@@ -497,6 +497,9 @@ func init() {
 	typeRegistry["Operation"] = reflect.TypeOf(Operation{})
 	
 	typeDeterminers["Operation"] = make(map[string]string)
+	typeRegistry["OperationError"] = reflect.TypeOf(OperationError{})
+	
+	typeDeterminers["OperationError"] = make(map[string]string)
 	typeRegistry["OperationProgress"] = reflect.TypeOf(OperationProgress{})
 	
 	typeDeterminers["OperationProgress"] = make(map[string]string)

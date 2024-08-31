@@ -38,8 +38,12 @@ import (
 /*
    Test for convert presentation from request to request
 */
-func TestConvertPostFromRequest(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
+func TestConvertRequestToRequest(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -77,9 +81,13 @@ func TestConvertPostFromRequest(t *testing.T) {
 /*
    Test for convert presentation from request to storage
 */
-func TestConvertPutFromRequest(t *testing.T) {
-	outPath := "TestData/test.pdf"
-	c := slidescloud.GetTestSlidesApiClient()
+func TestConvertRequestToStorage(t *testing.T) {
+	outPath := folderName + "/test.pdf"
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -104,16 +112,20 @@ func TestConvertPutFromRequest(t *testing.T) {
 /*
    Test for convert presentation from storage to request
 */
-func TestConvertPostFromStorage(t *testing.T) {
-	fileName := "test.pdf"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestConvertStorageToRequest(t *testing.T) {
+	var fileName = "test.pdf"
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, _, e = c.SlidesApi.DownloadPresentation(fileName, "html5", nil, "password", folderName, "", "", nil)
+	_, _, e = c.SlidesApi.DownloadPresentation(fileName, "html5", nil, password, folderName, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -123,16 +135,20 @@ func TestConvertPostFromStorage(t *testing.T) {
 /*
    Test for convert presentation from storage to storage
 */
-func TestConvertPutFromStorage(t *testing.T) {
-	outPath := "TestData/test.pdf"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestConvertStorageToStorage(t *testing.T) {
+	outPath := folderName + "/test.pdf"
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, e = c.SlidesApi.SavePresentation(fileName, "pdf", outPath, nil, "password", folderName, "", "", nil)
+	_, e = c.SlidesApi.SavePresentation(fileName, "pdf", outPath, nil, password, folderName, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -151,8 +167,12 @@ func TestConvertPutFromStorage(t *testing.T) {
 /*
    Test for convert presentation with options from request
 */
-func TestConvertWithOptionsFromRequest(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
+func TestConvertRequestWithOptions(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -192,9 +212,13 @@ func TestConvertWithOptionsFromRequest(t *testing.T) {
 /*
    Test for convert presentation with options from storage
 */
-func TestConvertWithOptionsFromStorage(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestConvertStorageWithOptions(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -233,14 +257,20 @@ func TestConvertWithOptionsFromStorage(t *testing.T) {
 /*
    Test for convert slide from request to request
 */
-func TestConvertSlidePostFromRequest(t *testing.T) {
+func TestConvertSlideRequestToRequest(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, _, e = slidescloud.GetTestSlidesApiClient().SlidesApi.DownloadSlideOnline(source, 1, "pdf", nil, nil, "password", "", "", nil)
+	_, _, e = c.SlidesApi.DownloadSlideOnline(source, slideIndex, "pdf", nil, nil, password, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -250,15 +280,19 @@ func TestConvertSlidePostFromRequest(t *testing.T) {
 /*
    Test for convert slide from request to storage
 */
-func TestConvertSlidePutFromRequest(t *testing.T) {
-	outPath := "TestData/test.pdf"
-	c := slidescloud.GetTestSlidesApiClient()
+func TestConvertSlideRequestToStorage(t *testing.T) {
+	outPath := folderName + "/test.pdf"
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, e = c.SlidesApi.SaveSlideOnline(source, 1, "pdf", outPath, nil, nil, "password", "", "", nil)
+	_, e = c.SlidesApi.SaveSlideOnline(source, slideIndex, "pdf", outPath, nil, nil, password, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -277,15 +311,19 @@ func TestConvertSlidePutFromRequest(t *testing.T) {
 /*
    Test for convert slide from storage to request
 */
-func TestConvertSlidePostFromStorage(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestConvertSlideStorageToRequest(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, _, e = c.SlidesApi.DownloadSlide(fileName, 1, "pdf", nil, nil, nil, "password", folderName, "", "")
+	_, _, e = c.SlidesApi.DownloadSlide(fileName, slideIndex, "pdf", nil, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -295,16 +333,20 @@ func TestConvertSlidePostFromStorage(t *testing.T) {
 /*
    Test for convert slide from storage to storage
 */
-func TestConvertSlidePutFromStorage(t *testing.T) {
-	outPath := "TestData/test.pdf"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestConvertSlideStorageToStorage(t *testing.T) {
+	outPath := folderName + "/test.pdf"
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, e = c.SlidesApi.SaveSlide(fileName, 1, "pdf", outPath, nil, nil, nil, "password", folderName, "", "")
+	_, e = c.SlidesApi.SaveSlide(fileName, slideIndex, "pdf", outPath, nil, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -323,15 +365,19 @@ func TestConvertSlidePutFromStorage(t *testing.T) {
 /*
    Test for convert slide with options from request
 */
-func TestConvertSlideWithOptionsFromRequest(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
+func TestConvertSlideRequestWithOptions(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	result, _, e := c.SlidesApi.DownloadSlideOnline(source, 1, "pdf", nil, nil, password, "", "", nil)
+	result, _, e := c.SlidesApi.DownloadSlideOnline(source, slideIndex, "pdf", nil, nil, password, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -345,7 +391,7 @@ func TestConvertSlideWithOptionsFromRequest(t *testing.T) {
 	options := slidescloud.NewPdfExportOptions()
 	drawSlidesFrame := true
 	options.DrawSlidesFrame = &drawSlidesFrame
-	resultOptions, _, e := c.SlidesApi.DownloadSlideOnline(source, 1, "pdf", nil, nil, password, "", "", options)
+	resultOptions, _, e := c.SlidesApi.DownloadSlideOnline(source, slideIndex, "pdf", nil, nil, password, "", "", options)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -364,15 +410,19 @@ func TestConvertSlideWithOptionsFromRequest(t *testing.T) {
 /*
    Test for convert slide with options from storage
 */
-func TestConvertSlideWithOptionsFromStorage(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestConvertSlideStorageWithOptions(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	result, _, e := c.SlidesApi.DownloadSlide(fileName, 1, "pdf", nil, nil, nil, password, folderName, "", "")
+	result, _, e := c.SlidesApi.DownloadSlide(fileName, slideIndex, "pdf", nil, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -386,7 +436,7 @@ func TestConvertSlideWithOptionsFromStorage(t *testing.T) {
 	options := slidescloud.NewPdfExportOptions()
 	drawSlidesFrame := true
 	options.DrawSlidesFrame = &drawSlidesFrame
-	resultOptions, _, e := c.SlidesApi.DownloadSlide(fileName, 1, "pdf", options, nil, nil, password, folderName, "", "")
+	resultOptions, _, e := c.SlidesApi.DownloadSlide(fileName, slideIndex, "pdf", options, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -405,14 +455,20 @@ func TestConvertSlideWithOptionsFromStorage(t *testing.T) {
 /*
    Test for convert shape from request to request
 */
-func TestConvertShapePostFromRequest(t *testing.T) {
+func TestConvertShapeRequestToRequest(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, _, e = slidescloud.GetTestSlidesApiClient().SlidesApi.DownloadShapeOnline(source, 1, 3, "png", nil, nil, "", "password", "", "", nil)
+	var shapeIndex int32 = 3
+	_, _, e = c.SlidesApi.DownloadShapeOnline(source, slideIndex, shapeIndex, "png", nil, nil, "", password, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -422,15 +478,20 @@ func TestConvertShapePostFromRequest(t *testing.T) {
 /*
    Test for convert shape from request to storage
 */
-func TestConvertShapePutFromRequest(t *testing.T) {
-	outPath := "TestData/test.png"
-	c := slidescloud.GetTestSlidesApiClient()
+func TestConvertShapeRequestToStorage(t *testing.T) {
+	outPath := folderName + "/test.png"
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, e = c.SlidesApi.SaveShapeOnline(source, 1, 1, "png", outPath, nil, nil, "", "password", "", "", nil)
+	var shapeIndex int32 = 1
+	_, e = c.SlidesApi.SaveShapeOnline(source, slideIndex, shapeIndex, "png", outPath, nil, nil, "", password, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -449,15 +510,20 @@ func TestConvertShapePutFromRequest(t *testing.T) {
 /*
    Test for convert shape from storage to request
 */
-func TestConvertShapePostFromStorage(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestConvertShapeStorageToRequest(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, _, e = c.SlidesApi.DownloadShape(fileName, 1, 1, "png", nil, nil, nil, "", "password", folderName, "", "", "")
+	var shapeIndex int32 = 1
+	_, _, e = c.SlidesApi.DownloadShape(fileName, slideIndex, shapeIndex, "png", nil, nil, nil, "", password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -467,9 +533,13 @@ func TestConvertShapePostFromStorage(t *testing.T) {
 /*
    Test for convert subshape from storage to request
 */
-func TestConvertSubShapePostFromStorage(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestConvertSubshapeStorageToRequest(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -477,7 +547,7 @@ func TestConvertSubShapePostFromStorage(t *testing.T) {
 
 	var subShape = "1"
 	var shapeIndex int32 = 4
-	_, _, e = c.SlidesApi.DownloadShape(fileName, 1, shapeIndex, "png", nil, nil, nil, "", "password", folderName, "", "", subShape)
+	_, _, e = c.SlidesApi.DownloadShape(fileName, slideIndex, shapeIndex, "png", nil, nil, nil, "", password, folderName, "", "", subShape)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -487,16 +557,21 @@ func TestConvertSubShapePostFromStorage(t *testing.T) {
 /*
    Test for convert shape from storage to storage
 */
-func TestConvertShapePutFromStorage(t *testing.T) {
-	outPath := "TestData/test.png"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestConvertShapeStorageToStorage(t *testing.T) {
+	outPath := folderName + "/test.png"
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, e = c.SlidesApi.SaveShape(fileName, 1, 1, "png", outPath, nil, nil, nil, "", "password", folderName, "", "", "")
+	var shapeIndex int32 = 1
+	_, e = c.SlidesApi.SaveShape(fileName, slideIndex, shapeIndex, "png", outPath, nil, nil, nil, "", password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -515,10 +590,14 @@ func TestConvertShapePutFromStorage(t *testing.T) {
 /*
    Test for convert subshape from storage to storage
 */
-func TestConvertSubshapePutFromStorage(t *testing.T) {
-	outPath := "TestData/test.png"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestConvertSubshapeStorageToStorage(t *testing.T) {
+	outPath := folderName + "/test.png"
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -527,7 +606,7 @@ func TestConvertSubshapePutFromStorage(t *testing.T) {
 	var subShape = "1"
 	var shapeIndex int32 = 4
 
-	_, e = c.SlidesApi.SaveShape(fileName, 1, shapeIndex, "png", outPath, nil, nil, nil, "", "password", folderName, "", "", subShape)
+	_, e = c.SlidesApi.SaveShape(fileName, slideIndex, shapeIndex, "png", outPath, nil, nil, nil, "", password, folderName, "", "", subShape)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -547,8 +626,12 @@ func TestConvertSubshapePutFromStorage(t *testing.T) {
    Test for conversion with font fallback rules.
 */
 func TestConvertWithFontFallBackRules(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -569,7 +652,7 @@ func TestConvertWithFontFallBackRules(t *testing.T) {
 	exportOptions := slidescloud.NewImageExportOptions()
 	exportOptions.SetFontFallbackRules(fontRules)
 
-	_, _, e = c.SlidesApi.DownloadPresentation(fileName, "png", exportOptions, "password", folderName, "", "", nil)
+	_, _, e = c.SlidesApi.DownloadPresentation(fileName, "png", exportOptions, password, folderName, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -580,8 +663,12 @@ func TestConvertWithFontFallBackRules(t *testing.T) {
    Test for conversion with slide layout options.
 */
 func TestConvertWithSlideLayoutOptions(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -595,7 +682,7 @@ func TestConvertWithSlideLayoutOptions(t *testing.T) {
 	exportOptions := slidescloud.NewPdfExportOptions()
 	exportOptions.SetSlidesLayoutOptions(slideLayoutOptions)
 
-	_, _, e = c.SlidesApi.DownloadPresentation(fileName, "pdf", exportOptions, "password", folderName, "", "", nil)
+	_, _, e = c.SlidesApi.DownloadPresentation(fileName, "pdf", exportOptions, password, folderName, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -605,18 +692,22 @@ func TestConvertWithSlideLayoutOptions(t *testing.T) {
 func TestConvertWithCustomHtml5Templates(t *testing.T) {
 	templatesPath := "Html5Templates"
 	templateFileName := "pictureFrame.html"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CreateFolder(templatesPath, "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, e = c.SlidesApi.CopyFile("TempTests/"+templateFileName, templatesPath+"/"+templateFileName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	_, e = c.SlidesApi.CreateFolder(templatesPath, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFolderName + "/" + templateFileName, templatesPath + "/" + templateFileName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -626,7 +717,7 @@ func TestConvertWithCustomHtml5Templates(t *testing.T) {
 	exportOptions.SetTemplatesPath(templatesPath)
 	animateTransitions := true
 	exportOptions.SetAnimateTransitions(&animateTransitions)
-	_, _, e = c.SlidesApi.DownloadPresentation(fileName, "html5", exportOptions, "password", folderName, "", "", nil)
+	_, _, e = c.SlidesApi.DownloadPresentation(fileName, "html5", exportOptions, password, folderName, "", "", nil)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -634,11 +725,14 @@ func TestConvertWithCustomHtml5Templates(t *testing.T) {
 }
 
 func TestGetHtml5Templates(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, _, e := c.SlidesApi.GetHtml5Templates()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, _, e = c.SlidesApi.GetHtml5Templates()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 }
-

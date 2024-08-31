@@ -37,11 +37,14 @@ import (
    Test for shape line format
 */
 func TestShapeFormatLine(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -83,11 +86,14 @@ func TestShapeFormatLine(t *testing.T) {
    Test for shape fill format
 */
 func TestShapeFormatFill(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -132,11 +138,14 @@ func TestShapeFormatFill(t *testing.T) {
    Test for shape effect format
 */
 func TestShapeFormatEffect(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -181,11 +190,14 @@ func TestShapeFormatEffect(t *testing.T) {
    Test for shape 3D format
 */
 func TestShapeFormat3D(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

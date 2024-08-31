@@ -37,13 +37,17 @@ import (
 /*
    Test for get portions
 */
-func TestPortionsGet(t *testing.T) {
+func TestGetPortions(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -65,14 +69,18 @@ func TestPortionsGet(t *testing.T) {
 /*
    Test for get sub-shape portions
 */
-func TestSubshapePortionsGet(t *testing.T) {
+func TestGetSubshapePortions(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 3
 	var subShape = "1"
 	var paragraphIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -94,15 +102,19 @@ func TestSubshapePortionsGet(t *testing.T) {
 /*
    Test for get portion
 */
-func TestPortionGet(t *testing.T) {
+func TestGetPortion(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
 	portionText := "portion 1"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -124,7 +136,7 @@ func TestPortionGet(t *testing.T) {
 /*
    Test for get sub-sshape portion
 */
-func TestSubshapePortionGet(t *testing.T) {
+func TestGetSubshapePortion(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 3
 	var subShape = "1"
@@ -132,8 +144,12 @@ func TestSubshapePortionGet(t *testing.T) {
 	var portionIndex int32 = 1
 	portionText := "portion 1"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -155,15 +171,19 @@ func TestSubshapePortionGet(t *testing.T) {
 /*
    Test for create portion
 */
-func TestPortionCreate(t *testing.T) {
+func TestCreatePortion(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
 	portionText := "portion 1"
 	fontName := "Arial"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -214,7 +234,7 @@ func TestPortionCreate(t *testing.T) {
 /*
    Test for create sub-shape portion
 */
-func TestSubshapePortionCreate(t *testing.T) {
+func TestCreateSubshapePortion(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 3
 	var subShape = "2"
@@ -222,8 +242,12 @@ func TestSubshapePortionCreate(t *testing.T) {
 	portionText := "portion 1"
 	fontName := "Arial"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -274,7 +298,7 @@ func TestSubshapePortionCreate(t *testing.T) {
 /*
    Test for update portion
 */
-func TestPortionUpdate(t *testing.T) {
+func TestUpdatePortion(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
@@ -282,8 +306,12 @@ func TestPortionUpdate(t *testing.T) {
 	portionText := "portion 1"
 	fontName := "Arial"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -334,7 +362,7 @@ func TestPortionUpdate(t *testing.T) {
 /*
    Test for update sub-shape portion
 */
-func TestSubshapePortionUpdate(t *testing.T) {
+func TestUpdateSubshapePortion(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 3
 	var subShape = "2"
@@ -343,8 +371,12 @@ func TestSubshapePortionUpdate(t *testing.T) {
 	portionText := "portion 1"
 	fontName := "Arial"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -395,13 +427,17 @@ func TestSubshapePortionUpdate(t *testing.T) {
 /*
    Test for delete portions
 */
-func TestPortionsDelete(t *testing.T) {
+func TestDeletePortions(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -423,13 +459,17 @@ func TestPortionsDelete(t *testing.T) {
 /*
    Test for delete portions indexes
 */
-func TestPortionsDeleteIndexes(t *testing.T) {
+func TestDeletePortionsByIndexes(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -452,14 +492,18 @@ func TestPortionsDeleteIndexes(t *testing.T) {
 /*
    Test for delete sub-shape portions
 */
-func TestSubshapePortionsDelete(t *testing.T) {
+func TestDeleteSubshapePortions(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 3
 	var subShape = "1"
 	var paragraphIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -481,14 +525,18 @@ func TestSubshapePortionsDelete(t *testing.T) {
 /*
    Test for delete sub-shape portions indexes
 */
-func TestSubshapePortionsDeleteIndexes(t *testing.T) {
+func TestDeleteSubshapePortionsByIndexes(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 3
 	var subShape = "1"
 	var paragraphIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -511,14 +559,18 @@ func TestSubshapePortionsDeleteIndexes(t *testing.T) {
 /*
    Test for delete portion
 */
-func TestPortionDelete(t *testing.T) {
+func TestDeletePortion(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -540,15 +592,19 @@ func TestPortionDelete(t *testing.T) {
 /*
    Test for delete sub-shape portion
 */
-func TestSubshapePortionDelete(t *testing.T) {
+func TestDeleteSubshapePortion(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 3
 	var subShape = "1"
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -570,14 +626,18 @@ func TestSubshapePortionDelete(t *testing.T) {
 /*
    Test for portion rect
 */
-func TestPortionRect(t *testing.T) {
+func TestGetPortionRect(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -614,14 +674,18 @@ func TestPortionRect(t *testing.T) {
 /*
    Test for get portion effective
 */
-func TestPortionEffectiveGet(t *testing.T) {
+func TestGetPortionEffective(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 2
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -643,15 +707,19 @@ func TestPortionEffectiveGet(t *testing.T) {
 /*
    Test for get sub-shape portion effective
 */
-func TestSubshapePortionEffectiveGet(t *testing.T) {
+func TestGetSubshapePortionEffective(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 3
 	var subShape = "1"
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

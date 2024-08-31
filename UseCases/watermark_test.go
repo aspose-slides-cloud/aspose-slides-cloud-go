@@ -40,46 +40,49 @@ import (
    Test for text watermark on storage
 */
 func TestWatermarkTextStorage(t *testing.T) {
-	var slideIndex int32 = 1
 	watermarkText := "watermarkText"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shapeCount := len(GetResult.GetShapesLinks()) + 1
+	getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	shapeCount := len(getResult.GetShapesLinks()) + 1
 
 	_, e = c.SlidesApi.CreateWatermark(fileName, nil, nil, watermarkText, "", "", password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if shapeCount != len(GetResult.GetShapesLinks()) {
-		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(GetResult.GetShapesLinks()))
+	if shapeCount != len(getResult.GetShapesLinks()) {
+		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(getResult.GetShapesLinks()))
 		return
 	}
-	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
+	getShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if GetShapeResult.GetName() != "watermark" {
-		t.Errorf("Wrong shape name. Expected %v but was %v.", "watermark", GetShapeResult.GetName())
+	if getShapeResult.GetName() != "watermark" {
+		t.Errorf("Wrong shape name. Expected %v but was %v.", "watermark", getShapeResult.GetName())
 		return
 	}
-	if GetShapeResult.(slidescloud.IShape).GetText() != watermarkText {
-		t.Errorf("Wrong shape text. Expected %v but was %v.", watermarkText, GetShapeResult.(slidescloud.IShape).GetText())
+	if getShapeResult.(slidescloud.IShape).GetText() != watermarkText {
+		t.Errorf("Wrong shape text. Expected %v but was %v.", watermarkText, getShapeResult.(slidescloud.IShape).GetText())
 		return
 	}
 
@@ -88,13 +91,13 @@ func TestWatermarkTextStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if shapeCount-1 != len(GetResult.GetShapesLinks()) {
-		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount-1, len(GetResult.GetShapesLinks()))
+	if shapeCount-1 != len(getResult.GetShapesLinks()) {
+		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount-1, len(getResult.GetShapesLinks()))
 		return
 	}
 }
@@ -103,20 +106,23 @@ func TestWatermarkTextStorage(t *testing.T) {
    Test for text DTO watermark on storage
 */
 func TestWatermarkTextDTOStorage(t *testing.T) {
-	var slideIndex int32 = 1
 	watermarkText := "watermarkText"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shapeCount := len(GetResult.GetShapesLinks()) + 1
+	getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	shapeCount := len(getResult.GetShapesLinks()) + 1
 
 	watermark := slidescloud.NewShape()
 	watermark.Text = watermarkText
@@ -125,26 +131,26 @@ func TestWatermarkTextDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if shapeCount != len(GetResult.GetShapesLinks()) {
-		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(GetResult.GetShapesLinks()))
+	if shapeCount != len(getResult.GetShapesLinks()) {
+		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(getResult.GetShapesLinks()))
 		return
 	}
-	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
+	getShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if GetShapeResult.GetName() != "watermark" {
-		t.Errorf("Wrong shape name. Expected %v but was %v.", "watermark", GetShapeResult.GetName())
+	if getShapeResult.GetName() != "watermark" {
+		t.Errorf("Wrong shape name. Expected %v but was %v.", "watermark", getShapeResult.GetName())
 		return
 	}
-	if GetShapeResult.(slidescloud.IShape).GetText() != watermarkText {
-		t.Errorf("Wrong shape text. Expected %v but was %v.", watermarkText, GetShapeResult.(slidescloud.IShape).GetText())
+	if getShapeResult.(slidescloud.IShape).GetText() != watermarkText {
+		t.Errorf("Wrong shape text. Expected %v but was %v.", watermarkText, getShapeResult.(slidescloud.IShape).GetText())
 		return
 	}
 
@@ -153,13 +159,13 @@ func TestWatermarkTextDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if shapeCount-1 != len(GetResult.GetShapesLinks()) {
-		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount-1, len(GetResult.GetShapesLinks()))
+	if shapeCount-1 != len(getResult.GetShapesLinks()) {
+		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount-1, len(getResult.GetShapesLinks()))
 		return
 	}
 }
@@ -168,21 +174,24 @@ func TestWatermarkTextDTOStorage(t *testing.T) {
    Test for image watermark on storage
 */
 func TestWatermarkImageStorage(t *testing.T) {
-	var slideIndex int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shapeCount := len(GetResult.GetShapesLinks()) + 1
+	getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	shapeCount := len(getResult.GetShapesLinks()) + 1
 
-	source, e := ioutil.ReadFile("../TestData/watermark.png")
+	source, e := ioutil.ReadFile(localFolder + "/watermark.png")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -192,22 +201,22 @@ func TestWatermarkImageStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if shapeCount != len(GetResult.GetShapesLinks()) {
-		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(GetResult.GetShapesLinks()))
+	if shapeCount != len(getResult.GetShapesLinks()) {
+		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(getResult.GetShapesLinks()))
 		return
 	}
-	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
+	getShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if GetShapeResult.GetName() != "watermark" {
-		t.Errorf("Wrong shape name. Expected %v but was %v.", "watermark", GetShapeResult.GetName())
+	if getShapeResult.GetName() != "watermark" {
+		t.Errorf("Wrong shape name. Expected %v but was %v.", "watermark", getShapeResult.GetName())
 		return
 	}
 
@@ -216,13 +225,13 @@ func TestWatermarkImageStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if shapeCount-1 != len(GetResult.GetShapesLinks()) {
-		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount-1, len(GetResult.GetShapesLinks()))
+	if shapeCount-1 != len(getResult.GetShapesLinks()) {
+		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount-1, len(getResult.GetShapesLinks()))
 		return
 	}
 }
@@ -232,21 +241,24 @@ func TestWatermarkImageStorage(t *testing.T) {
 */
 func TestWatermarkImageDTOStorage(t *testing.T) {
 	watermarkName := "myWatermark"
-	var slideIndex int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	shapeCount := len(GetResult.GetShapesLinks()) + 1
+	getResult, _, e := c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	shapeCount := len(getResult.GetShapesLinks()) + 1
 
-	source, e := ioutil.ReadFile("../TestData/watermark.png")
+	source, e := ioutil.ReadFile(localFolder + "/watermark.png")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -261,22 +273,22 @@ func TestWatermarkImageDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if shapeCount != len(GetResult.GetShapesLinks()) {
-		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(GetResult.GetShapesLinks()))
+	if shapeCount != len(getResult.GetShapesLinks()) {
+		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount, len(getResult.GetShapesLinks()))
 		return
 	}
-	GetShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
+	getShapeResult, _, e := c.SlidesApi.GetShape(fileName, slideIndex, int32(shapeCount), password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if GetShapeResult.GetName() != watermarkName {
-		t.Errorf("Wrong shape name. Expected %v but was %v.", watermarkName, GetShapeResult.GetName())
+	if getShapeResult.GetName() != watermarkName {
+		t.Errorf("Wrong shape name. Expected %v but was %v.", watermarkName, getShapeResult.GetName())
 		return
 	}
 
@@ -285,13 +297,13 @@ func TestWatermarkImageDTOStorage(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	GetResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
+	getResult, _, e = c.SlidesApi.GetShapes(fileName, slideIndex, password, folderName, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if shapeCount-1 != len(GetResult.GetShapesLinks()) {
-		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount-1, len(GetResult.GetShapesLinks()))
+	if shapeCount-1 != len(getResult.GetShapesLinks()) {
+		t.Errorf("Wrong shape count. Expected %v but was %v.", shapeCount - 1, len(getResult.GetShapesLinks()))
 		return
 	}
 }
@@ -305,7 +317,11 @@ func TestWatermarkTextRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestSlidesApiClient()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	postResult, _, e := c.SlidesApi.CreateWatermarkOnline(source, nil, nil, "watermark", "", "", password)
 	if e != nil {
@@ -347,7 +363,11 @@ func TestWatermarkTextDTORequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestSlidesApiClient()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	watermark := slidescloud.NewShape()
 	watermark.Text = "watermarkText"
@@ -391,12 +411,16 @@ func TestWatermarkImageRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	watermark, e := ioutil.ReadFile("../TestData/watermark.png")
+	watermark, e := ioutil.ReadFile(localFolder + "/watermark.png")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestSlidesApiClient()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	postResult, _, e := c.SlidesApi.CreateImageWatermarkOnline(source, watermark, nil, password)
 	if e != nil {
@@ -439,12 +463,16 @@ func TestWatermarkImageDTORequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	watermark, e := ioutil.ReadFile("../TestData/watermark.png")
+	watermark, e := ioutil.ReadFile(localFolder + "/watermark.png")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestSlidesApiClient()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	dto := slidescloud.NewPictureFrame()
 	fillFormat := slidescloud.NewPictureFill()

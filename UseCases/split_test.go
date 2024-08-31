@@ -40,8 +40,12 @@ import (
    Test for split from storage
 */
 func TestSplitStorage(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -89,8 +93,11 @@ func TestSplitRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	password := "password"
-	c := slidescloud.GetTestSlidesApiClient()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	result1, _, e := c.SlidesApi.SplitOnline(source, "png", nil, nil, nil, nil, password, "", "", nil)
 	if e != nil {
@@ -138,14 +145,17 @@ func TestSplitRequest(t *testing.T) {
 /*
    Test for split from request to storage
 */
-func TestSplitRequestToStorage(t *testing.T) {
+func TestSplitAndSaveRequest(t *testing.T) {
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	password := "password"
-	c := slidescloud.GetTestSlidesApiClient()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	result1, _, e := c.SlidesApi.SplitAndSaveOnline(source, "png", "", nil, nil, nil, nil, password, "", "", nil)
 	if e != nil {
@@ -185,8 +195,12 @@ func TestSplitRequestToStorage(t *testing.T) {
    Test for split with options
 */
 func TestSplitWithOptions(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

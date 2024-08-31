@@ -38,9 +38,12 @@ import (
    Test for Get text
 */
 func TestTextGet(t *testing.T) {
-	var slideIndex int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -85,14 +88,17 @@ func TestTextGet(t *testing.T) {
    Test for replace text on storage
 */
 func TestTextReplaceStorage(t *testing.T) {
-	var slideIndex int32 = 1
 	oldValue := "text"
 	newValue := "new_text"
-	c := slidescloud.GetTestSlidesApiClient()
 	var ignoreCase bool = true
 	var wholeWordsOnly bool = true
 
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -103,7 +109,18 @@ func TestTextReplaceStorage(t *testing.T) {
 		return
 	}
 
-	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	resultRegex, _, e := c.SlidesApi.ReplacePresentationRegex(fileName, oldValue, newValue, nil, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -114,7 +131,7 @@ func TestTextReplaceStorage(t *testing.T) {
 		return
 	}
 
-	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -125,7 +142,7 @@ func TestTextReplaceStorage(t *testing.T) {
 		return
 	}
 
-	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -136,7 +153,7 @@ func TestTextReplaceStorage(t *testing.T) {
 		return
 	}
 
-	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -147,6 +164,10 @@ func TestTextReplaceStorage(t *testing.T) {
 		return
 	}
 
+	if result.GetMatches() != resultRegex.GetMatches() {
+		t.Errorf("Wrong item count. Expected %v but was %v.", result.GetMatches(), resultRegex.GetMatches())
+		return
+	}
 	if result.GetMatches() >= resultWithEmpty.GetMatches() {
 		t.Errorf("Wrong item count. Expected less than %v but was %v.", result.GetMatches(), resultWithEmpty.GetMatches())
 		return
@@ -169,7 +190,6 @@ func TestTextReplaceStorage(t *testing.T) {
    Test for replace text on request
 */
 func TestTextReplaceRequest(t *testing.T) {
-	var slideIndex int32 = 1
 	oldValue := "text"
 	newValue := "new_text"
 	source, e := ioutil.ReadFile(localTestFile)
@@ -177,10 +197,20 @@ func TestTextReplaceRequest(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestSlidesApiClient()
+
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	var withEmpty bool = true
 	_, _, e = c.SlidesApi.ReplacePresentationTextOnline(source, oldValue, newValue, nil, nil, password)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, _, e = c.SlidesApi.ReplacePresentationRegexOnline(source, oldValue, newValue, nil, password)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -206,23 +236,25 @@ func TestTextReplaceRequest(t *testing.T) {
    Test for replace text with formatting
 */
 func TestReplaceTextFormatting(t *testing.T) {
-	var slideIndex int32 = 1
 	var shapeIndex int32 = 1
 	var paragraphIndex int32 = 1
 	var portionIndex int32 = 1
-        oldText := "banana"
-        newText := "orange"
-        color := "#FFFFA500"
+	oldText := "banana"
+	newText := "orange"
+	color := "#FFFFA500"
 
-        portion := slidescloud.NewPortion()
-        portion.Text = oldText
+	portion := slidescloud.NewPortion()
+	portion.Text = oldText
 
-        portionFormat := slidescloud.NewPortionFormat()
-        portionFormat.FontColor = color
+	portionFormat := slidescloud.NewPortionFormat()
+	portionFormat.FontColor = color
 
-	c := slidescloud.GetTestSlidesApiClient()
-
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -264,10 +296,14 @@ func TestReplaceTextFormattingOnline(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestSlidesApiClient()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
-        portionFormat := slidescloud.NewPortionFormat()
-        portionFormat.FontColor = "#FFFFA500"
+	portionFormat := slidescloud.NewPortionFormat()
+	portionFormat.FontColor = "#FFFFA500"
 	_, _, e = c.SlidesApi.ReplaceTextFormattingOnline(source, "orange", "banana", portionFormat, nil, password)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -278,21 +314,81 @@ func TestReplaceTextFormattingOnline(t *testing.T) {
 /*
    Test for highlight shape text
 */
-func TestShapeTextHighlight(t *testing.T) {
+func TestHighlightShapeText(t *testing.T) {
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 1
 	var paragraphIndex int32 = 1
 	textToHighlight := "highlight"
 	highlightColor := "#FFF5FF8A"
-	ignoreCase := true
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	ignoreCase := false
+
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
 	_, _, e = c.SlidesApi.HighlightShapeText(fileName, slideIndex, shapeIndex, textToHighlight, highlightColor, nil, &ignoreCase, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	para, _, e := c.SlidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	if para.GetPortionList()[0].GetText() == textToHighlight {
+		t.Errorf("Expected %v, but was %v", "nil", para.GetPortionList()[0].GetText())
+		return
+	}
+
+	if para.GetPortionList()[0].GetHighlightColor() == highlightColor {
+		t.Errorf("Expected %v, but was %v", "nil", para.GetPortionList()[0].GetHighlightColor())
+		return
+	}
+
+	if para.GetPortionList()[1].GetText() != textToHighlight {
+		t.Errorf("Expected %v, but was %v", textToHighlight, para.GetPortionList()[0].GetText())
+		return
+	}
+
+	if para.GetPortionList()[1].GetHighlightColor() != highlightColor {
+		t.Errorf("Expected %v, but was %v", highlightColor, para.GetPortionList()[0].GetHighlightColor())
+		return
+	}
+}
+
+/*
+   Test for highlight shape text with regex
+*/
+func TestHighlightShapeRegex(t *testing.T) {
+	var slideIndex int32 = 6
+	var shapeIndex int32 = 1
+	var paragraphIndex int32 = 1
+	highlightRegex := "h.ghl[abci]ght"
+	textToHighlight := "highlight"
+	highlightColor := "#FFF5FF8A"
+	ignoreCase := false
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, _, e = c.SlidesApi.HighlightShapeRegex(fileName, slideIndex, shapeIndex, highlightRegex, highlightColor, &ignoreCase, password, folderName, "")
 
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -328,30 +424,110 @@ func TestShapeTextHighlight(t *testing.T) {
 }
 
 /*
-   Test for highlight shape text with regex
+   Test for highlight presentation text
 */
-func TestShapeTextHighlightRegex(t *testing.T) {
+func TestHighlightPresentationText(t *testing.T) {
+	textToHighlight := "highlight"
+	highlightColor := "#FFF5FF8A"
+
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	ignoreCase := false
+	result, _, e := c.SlidesApi.HighlightPresentationText(fileName, textToHighlight, highlightColor, nil, &ignoreCase, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	ignoreCase = true
+	resultIgnoreCase, _, e := c.SlidesApi.HighlightPresentationText(fileName, textToHighlight, highlightColor, nil, &ignoreCase, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if result.GetMatches() != resultIgnoreCase.GetMatches() {
+		t.Errorf("Wrong item count. Expected %v but was %v.", result.GetMatches(), resultIgnoreCase.GetMatches())
+		return
+	}
+
 	var slideIndex int32 = 6
 	var shapeIndex int32 = 1
 	var paragraphIndex int32 = 1
+	para, _, e := c.SlidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	if para.GetPortionList()[0].GetText() == textToHighlight {
+		t.Errorf("Expected %v, but was %v", "nil", para.GetPortionList()[0].GetText())
+		return
+	}
+
+	if para.GetPortionList()[0].GetHighlightColor() == highlightColor {
+		t.Errorf("Expected %v, but was %v", "nil", para.GetPortionList()[0].GetHighlightColor())
+		return
+	}
+
+	if para.GetPortionList()[1].GetText() != textToHighlight {
+		t.Errorf("Expected %v, but was %v", textToHighlight, para.GetPortionList()[0].GetText())
+		return
+	}
+
+	if para.GetPortionList()[1].GetHighlightColor() != highlightColor {
+		t.Errorf("Expected %v, but was %v", highlightColor, para.GetPortionList()[0].GetHighlightColor())
+		return
+	}
+}
+
+/*
+   Test for highlight presentation text with regex
+*/
+func TestHighlightPresentationRegex(t *testing.T) {
 	highlightRegex := "h.ghl[abci]ght"
 	textToHighlight := "highlight"
 	highlightColor := "#FFF5FF8A"
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
 	ignoreCase := false
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	result, _, e := c.SlidesApi.HighlightPresentationRegex(fileName, highlightRegex, highlightColor, &ignoreCase, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, _, e = c.SlidesApi.HighlightShapeRegex(fileName, slideIndex, shapeIndex, highlightRegex, highlightColor, nil, &ignoreCase, password, folderName, "")
-
+	ignoreCase = true
+	resultIgnoreCase, _, e := c.SlidesApi.HighlightPresentationRegex(fileName, highlightRegex, highlightColor, &ignoreCase, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
+	if result.GetMatches() != resultIgnoreCase.GetMatches() {
+		t.Errorf("Wrong item count. Expected %v but was %v.", result.GetMatches(), resultIgnoreCase.GetMatches())
+		return
+	}
 
+	var slideIndex int32 = 6
+	var shapeIndex int32 = 1
+	var paragraphIndex int32 = 1
 	para, _, e := c.SlidesApi.GetParagraph(fileName, slideIndex, shapeIndex, paragraphIndex, password, folderName, "", "")
 
 	if e != nil {

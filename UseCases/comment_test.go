@@ -37,14 +37,19 @@ import (
 /*
    Test for create comment
 */
-func TestCommentCreate(t *testing.T) {
+func TestCreateComment(t *testing.T) {
 	var slideIndex int32 = 3
 	commentText := "Comment text"
 	author := "Test author"
 	childCommentText := "Child comment text"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -96,14 +101,13 @@ func TestCommentCreate(t *testing.T) {
 /*
    Test for create comment from request
 */
-func TestCommentCreateOnline(t *testing.T) {
+func TestCreateCommentOnline(t *testing.T) {
 	var slideIndex int32 = 3
 	commentText := "Comment text"
 	author := "Test author"
 	childCommentText := "Child comment text"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -119,6 +123,11 @@ func TestCommentCreateOnline(t *testing.T) {
 	dto.ChildComments = []slidescloud.ISlideCommentBase{childCommentDto}
 
 	source, e := ioutil.ReadFile(localTestFile)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
 	_, _, e = c.SlidesApi.CreateCommentOnline(source, slideIndex, dto, nil, password)
 
 	if e != nil {
@@ -130,11 +139,14 @@ func TestCommentCreateOnline(t *testing.T) {
 /*
    Test for get slide comments
 */
-func TestSlideCommentsGet(t *testing.T) {
-	var slideIndex int32 = 1
+func TestGetSlideComments(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -161,11 +173,14 @@ func TestSlideCommentsGet(t *testing.T) {
 /*
    Test for delete comments
 */
-func TestCommentsDelete(t *testing.T) {
-	var slideIndex int32 = 1
+func TestDeleteComments(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -194,15 +209,18 @@ func TestCommentsDelete(t *testing.T) {
 /*
    Test for delete comments from request
 */
-func TestCommentsDeleteOnline(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestDeleteCommentsOnline(t *testing.T) {
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
 	document, e := ioutil.ReadFile(localTestFile)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	_, _, e = c.SlidesApi.DeleteCommentsOnline(document, "", password)
 
@@ -215,23 +233,24 @@ func TestCommentsDeleteOnline(t *testing.T) {
 /*
    Test for delete slide comments
 */
-func TestSlideCommentsDelete(t *testing.T) {
-	var slideIndex int32 = 1
+func TestDeleteSlideComments(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
 	response, _, e := c.SlidesApi.DeleteSlideComments(fileName, slideIndex, "", password, folderName, "")
-
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-
 	if len(response.GetList()) != 0 {
 		t.Errorf("Expected %v, but was %v", 0, len(response.GetList()))
 		return
@@ -241,19 +260,19 @@ func TestSlideCommentsDelete(t *testing.T) {
 /*
    Test for delete slide comments from request
 */
-func TestSlideCommentsDeleteOnline(t *testing.T) {
-	var slideIndex int32 = 1
-
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestDeleteSlideCommentsOnline(t *testing.T) {
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
 	document, e := ioutil.ReadFile(localTestFile)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	_, _, e = c.SlidesApi.DeleteSlideCommentsOnline(document, slideIndex, "", password)
-
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -263,7 +282,7 @@ func TestSlideCommentsDeleteOnline(t *testing.T) {
 /*
    Test for create modern comment
 */
-func TestModernCommentCreate(t *testing.T) {
+func TestCreateModernComment(t *testing.T) {
 	var slideIndex int32 = 3
 	var textSelectionStartIndex int32 = 1
 	var textSelectionLength int32 = 5
@@ -271,8 +290,13 @@ func TestModernCommentCreate(t *testing.T) {
 	author := "Test author"
 	childCommentText := "Child comment text"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -313,7 +337,7 @@ func TestModernCommentCreate(t *testing.T) {
 /*
    Test for create shape modern comment
 */
-func TestShapeModernCommentCreate(t *testing.T) {
+func TestCreateModernCommentShape(t *testing.T) {
 	var slideIndex int32 = 3
 	var shapeIndex int32 = 1
 	var textSelectionStartIndex int32 = 1
@@ -322,8 +346,13 @@ func TestShapeModernCommentCreate(t *testing.T) {
 	author := "Test author"
 	childCommentText := "Child comment text"
 
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -359,8 +388,13 @@ func TestShapeModernCommentCreate(t *testing.T) {
    Test for get comment authors
 */
 func TestGetCommentAuthors(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

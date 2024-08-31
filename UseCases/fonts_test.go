@@ -35,11 +35,17 @@ import (
 	slidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
 )
 
+var fontName = "Calibri"
+
 /*
    Test for get available fonts
 */
-func TestFontsGetAvailable(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
+func TestGetAvailableFonts(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	response, _, e := c.SlidesApi.GetAvailableFonts("", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -59,9 +65,13 @@ func TestFontsGetAvailable(t *testing.T) {
 /*
    Test for get fonts
 */
-func TestFontsGet(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestGetFonts(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -74,8 +84,8 @@ func TestFontsGet(t *testing.T) {
 		return
 	}
 
-	if len(response.GetList()) != 3 {
-		t.Errorf("Expected %v, but was %v", 3, len(response.GetList()))
+	if len(response.GetList()) != 4 {
+		t.Errorf("Expected %v, but was %v", 4, len(response.GetList()))
 		return
 	}
 }
@@ -83,10 +93,12 @@ func TestFontsGet(t *testing.T) {
 /*
    Test for get fonts
 */
-func TestFontsGetOnline(t *testing.T) {
-	password := "password"
-
-	c := slidescloud.GetTestSlidesApiClient()
+func TestGetFontsOnline(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	document, e := ioutil.ReadFile(localTestFile)
 
 	response, _, e := c.SlidesApi.GetFontsOnline(document, password)
@@ -96,8 +108,8 @@ func TestFontsGetOnline(t *testing.T) {
 		return
 	}
 
-	if len(response.GetList()) != 3 {
-		t.Errorf("Expected %v, but was %v", 3, len(response.GetList()))
+	if len(response.GetList()) != 4 {
+		t.Errorf("Expected %v, but was %v", 4, len(response.GetList()))
 		return
 	}
 }
@@ -105,10 +117,13 @@ func TestFontsGetOnline(t *testing.T) {
 /*
    Test for set embedded font
 */
-func TestEmbeddedFontSet(t *testing.T) {
-	fontName := "Calibri"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestSetEmbeddedFont(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -133,10 +148,12 @@ func TestEmbeddedFontSet(t *testing.T) {
 /*
    Test for set embedded font online
 */
-func TestEmbeddedFontSetOnline(t *testing.T) {
-	fontName := "Calibri"
-
-	c := slidescloud.GetTestSlidesApiClient()
+func TestSetEmbeddedFontOnline(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	document, e := ioutil.ReadFile(localTestFile)
 
 	var onlyUsed bool = false
@@ -152,11 +169,14 @@ func TestEmbeddedFontSetOnline(t *testing.T) {
    Test for set embedded font from request
 */
 func TestSetEmbeddedFontFromRequest(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	document, e := ioutil.ReadFile(localFontFile)
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	document, e := ioutil.ReadFile(localFolder + "/calibri.ttf")
 
-	c = slidescloud.GetTestSlidesApiClient()
-	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -185,11 +205,22 @@ func TestSetEmbeddedFontFromRequest(t *testing.T) {
    Test for set embedded font from request
 */
 func TestSetEmbeddedFontFromRequestOnline(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	document, e := ioutil.ReadFile(localTestFile)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
-	c = slidescloud.GetTestSlidesApiClient()
-	fontFile, e := ioutil.ReadFile(localFontFile)
+	fontFile, e := ioutil.ReadFile(localFolder + "/calibri.ttf")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	var onlyUsed bool = false
 	_, _, e = c.SlidesApi.SetEmbeddedFontFromRequestOnline(document, fontFile, &onlyUsed, password)
@@ -202,10 +233,13 @@ func TestSetEmbeddedFontFromRequestOnline(t *testing.T) {
 /*
    Test for compress embedded fonts
 */
-func TestEmbeddedFontsCompress(t *testing.T) {
-	fontName := "Calibri"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestCompressEmbeddedFonts(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -238,11 +272,12 @@ func TestEmbeddedFontsCompress(t *testing.T) {
 /*
    Test for compress embedded fonts online
 */
-func TestEmbeddedFontCompressOnline(t *testing.T) {
-	password := "password"
-	fontName := "Calibri"
-
-	c := slidescloud.GetTestSlidesApiClient()
+func TestCompressEmbeddedFontsOnline(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	document, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -282,10 +317,13 @@ func TestEmbeddedFontCompressOnline(t *testing.T) {
 /*
    Test for set embedded font
 */
-func TestEmbeddedFontDelete(t *testing.T) {
-	fontName := "Calibri"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestDeleteEmbeddedFont(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -323,11 +361,13 @@ func TestEmbeddedFontDelete(t *testing.T) {
 /*
    Test for delete embedded font online
 */
-func TestEmbeddedFontDeleteOnline(t *testing.T) {
-	password := "password"
-	fontName := "Calibri"
+func TestDeleteEmbeddedFontOnline(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
-	c := slidescloud.GetTestSlidesApiClient()
 	document, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
@@ -336,13 +376,16 @@ func TestEmbeddedFontDeleteOnline(t *testing.T) {
 
 	var onlyUsed bool = false
 	embedded, _, e := c.SlidesApi.SetEmbeddedFontOnline(document, fontName, &onlyUsed, password, "")
-
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
 	embeddedDocument, e := ioutil.ReadFile(embedded.Name())
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	unembedded, _, e := c.SlidesApi.DeleteEmbeddedFontOnline(embeddedDocument, fontName, password)
 
@@ -371,9 +414,12 @@ func TestEmbeddedFontDeleteOnline(t *testing.T) {
    Test for replace font
 */
 func TestReplaceFont(t *testing.T) {
-
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -403,9 +449,16 @@ func TestReplaceFont(t *testing.T) {
    Test for replace font online
 */
 func TestReplaceFontOnline(t *testing.T) {
-
-	c := slidescloud.GetTestSlidesApiClient()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	document, e := ioutil.ReadFile(localTestFile)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	sourceFontName := "Calibri"
 	targetFontName := "Times New Roman"
@@ -421,9 +474,12 @@ func TestReplaceFontOnline(t *testing.T) {
    Test for font substitution
 */
 func TestFontSubstitution(t *testing.T) {
-
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

@@ -34,18 +34,28 @@ import (
 	slidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
 )
 
+var mathSlideIndex     int32 = 2
+var mathShapeIndex     int32 = 3
+var mathParagraphIndex int32 = 1
+var mathPortionIndex   int32 = 1
+
 /*
    Test for Get math
 */
 func TestMathGet(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	portion, _, e := c.SlidesApi.GetPortion(fileName, 2, 3, 1, 1, password, folderName, "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	portion, _, e := c.SlidesApi.GetPortion(fileName, mathSlideIndex, mathShapeIndex, mathParagraphIndex, mathPortionIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -81,8 +91,13 @@ func TestMathGet(t *testing.T) {
    Test for Get empty math
 */
 func TestMathGetNull(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -103,8 +118,13 @@ func TestMathGetNull(t *testing.T) {
    Test for create math
 */
 func TestMathCreate(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -174,8 +194,13 @@ func TestMathCreate(t *testing.T) {
    Test for update math
 */
 func TestMathUpdate(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -209,7 +234,7 @@ func TestMathUpdate(t *testing.T) {
 	blockElement.MathElementList = []slidescloud.IMathElement{functionElement}
 	mathParagraph.MathBlockList = []slidescloud.IBlockElement{blockElement}
 	dto.MathParagraph = mathParagraph
-	portion, _, e := c.SlidesApi.UpdatePortion(fileName, 2, 3, 1, 1, dto, password, folderName, "", "")
+	portion, _, e := c.SlidesApi.UpdatePortion(fileName, mathSlideIndex, mathShapeIndex, mathParagraphIndex, mathPortionIndex, dto, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -245,14 +270,19 @@ func TestMathUpdate(t *testing.T) {
    Test for download math
 */
 func TestMathDownload(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	mathMl, _, e := c.SlidesApi.DownloadMathPortion(fileName, 2, 3, 1, 1, "MathML", password, folderName, "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	mathMl, _, e := c.SlidesApi.DownloadMathPortion(fileName, mathSlideIndex, mathShapeIndex, mathParagraphIndex, mathPortionIndex, "MathML", password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -264,6 +294,61 @@ func TestMathDownload(t *testing.T) {
 	}
 	if mathMlStat.Size() <= 0 {
 		t.Errorf("Wrong response size. Expected greater than %v but was %v.", 0, mathMlStat.Size())
+		return
+	}
+}
+
+/*
+   Test for download math
+*/
+func TestMathDownloadNull(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, _, e = c.SlidesApi.DownloadMathPortion(fileName, 1, 1, 1, 1, "MathML", password, folderName, "")
+	if e == nil {
+		t.Errorf("Error must have been thrown: Cannot convert an ordinary portion to MathML.")
+		return
+	}
+}
+
+/*
+   Test for save math
+*/
+func TestMathSave(t *testing.T) {
+	outPath := folderName + "/mathml.xml"
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.SaveMathPortion(fileName, mathSlideIndex, mathShapeIndex, mathParagraphIndex, mathPortionIndex, "MathML", outPath, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	resultExists, _, e := c.SlidesApi.ObjectExists(outPath, "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	if !*resultExists.GetExists() {
+		t.Errorf("File %v does not exist on the storage.", outPath)
 		return
 	}
 }

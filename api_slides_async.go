@@ -758,3 +758,295 @@ func (a *SlidesAsyncApiService) StartSavePresentation(name string, format string
 	return successPayload, localVarHttpResponse, err
 }
 
+/* SlidesAsyncApiService 
+ @param name 
+ @param format 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "options" (ExportOptions) 
+     @param "width" (int32) 
+     @param "height" (int32) 
+     @param "from" (int32) 
+     @param "to" (int32) 
+     @param "destFolder" (string) 
+     @param "password" (string) 
+     @param "folder" (string) 
+     @param "storage" (string) 
+     @param "fontsFolder" (string) 
+ @return string*/
+func (a *SlidesAsyncApiService) StartSplit(name string, format string, options IExportOptions, width *int32, height *int32, from *int32, to *int32, destFolder string, password string, folder string, storage string, fontsFolder string) (string, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload string
+	)
+
+	if len(name) == 0 {
+		return successPayload, nil, reportError("Missing required parameter name")
+	}
+	if len(format) == 0 {
+		return successPayload, nil, reportError("Missing required parameter format")
+	}
+	if !SlideExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/async/{name}/split/{format}"
+	namePathStringValue := fmt.Sprintf("%v", name)
+	if len(namePathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"name"+"}", namePathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"name"+"}", "", -1)
+	}
+	formatPathStringValue := fmt.Sprintf("%v", format)
+	if len(formatPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"format"+"}", formatPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"format"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if width != nil {
+		if err := typeCheckParameter(*width, "int32", "width"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if height != nil {
+		if err := typeCheckParameter(*height, "int32", "height"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if from != nil {
+		if err := typeCheckParameter(*from, "int32", "from"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if to != nil {
+		if err := typeCheckParameter(*to, "int32", "to"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if err := typeCheckParameter(destFolder, "string", "destFolder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(folder, "string", "folder"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(fontsFolder, "string", "fontsFolder"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if width != nil {
+		localVarQueryParams.Add("Width", parameterToString(*width, ""))
+	}
+	if height != nil {
+		localVarQueryParams.Add("Height", parameterToString(*height, ""))
+	}
+	if from != nil {
+		localVarQueryParams.Add("From", parameterToString(*from, ""))
+	}
+	if to != nil {
+		localVarQueryParams.Add("To", parameterToString(*to, ""))
+	}
+	if localVarTempParam := destFolder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("DestFolder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := folder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Folder", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := fontsFolder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	localVarPostBody = &options
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayload = string(responseBytes)
+	if len(successPayload) > 1 && successPayload[0] == '"' && successPayload[len(successPayload)-1] == '"' {
+		successPayload = successPayload[1:len(successPayload)-1]
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* SlidesAsyncApiService 
+ @param document Document data.
+ @param format 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "destFolder" (string) 
+     @param "width" (int32) 
+     @param "height" (int32) 
+     @param "from" (int32) 
+     @param "to" (int32) 
+     @param "password" (string) 
+     @param "storage" (string) 
+     @param "fontsFolder" (string) 
+     @param "options" (ExportOptions) 
+ @return string*/
+func (a *SlidesAsyncApiService) StartUploadAndSplit(document []byte, format string, destFolder string, width *int32, height *int32, from *int32, to *int32, password string, storage string, fontsFolder string, options IExportOptions) (string, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload string
+	)
+
+	if len(document) == 0 {
+		return successPayload, nil, reportError("Missing required parameter document")
+	}
+	if len(format) == 0 {
+		return successPayload, nil, reportError("Missing required parameter format")
+	}
+	if !SlideExportFormat_Validate(format) {
+		return successPayload, nil, reportError("Invalid value for parameter format: " + format)
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/async/split/{format}"
+	formatPathStringValue := fmt.Sprintf("%v", format)
+	if len(formatPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"format"+"}", formatPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"format"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if err := typeCheckParameter(destFolder, "string", "destFolder"); err != nil {
+		return successPayload, nil, err
+	}
+	if width != nil {
+		if err := typeCheckParameter(*width, "int32", "width"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if height != nil {
+		if err := typeCheckParameter(*height, "int32", "height"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if from != nil {
+		if err := typeCheckParameter(*from, "int32", "from"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if to != nil {
+		if err := typeCheckParameter(*to, "int32", "to"); err != nil {
+			return successPayload, nil, err
+		}
+	}
+	if err := typeCheckParameter(password, "string", "password"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(storage, "string", "storage"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(fontsFolder, "string", "fontsFolder"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := destFolder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("DestFolder", parameterToString(localVarTempParam, ""))
+	}
+	if width != nil {
+		localVarQueryParams.Add("Width", parameterToString(*width, ""))
+	}
+	if height != nil {
+		localVarQueryParams.Add("Height", parameterToString(*height, ""))
+	}
+	if from != nil {
+		localVarQueryParams.Add("From", parameterToString(*from, ""))
+	}
+	if to != nil {
+		localVarQueryParams.Add("To", parameterToString(*to, ""))
+	}
+	if localVarTempParam := storage; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("Storage", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := fontsFolder; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("FontsFolder", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarTempParam := password; len(localVarTempParam) > 0 {
+		localVarHeaderParams["Password"] = parameterToString(localVarTempParam, "")
+	}
+	if len(document) > 0 {
+		localVarFiles = append(localVarFiles, document)
+	}
+	localVarPostBody = &options
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayload = string(responseBytes)
+	if len(successPayload) > 1 && successPayload[0] == '"' && successPayload[len(successPayload)-1] == '"' {
+		successPayload = successPayload[1:len(successPayload)-1]
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+

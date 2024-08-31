@@ -37,29 +37,35 @@ import (
 /*
    Test for merge from storage
 */
-func TestMergeStorage(t *testing.T) {
+func TestMerge(t *testing.T) {
 	fileName2 := "test-unprotected.pptx"
 	fileNamePdf := "test.pdf"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	path2 := folderName + "/" + fileName2
+	pathPdf := folderName + "/" + fileNamePdf
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName2, folderName+"/"+fileName2, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, e = c.SlidesApi.CopyFile("TempTests/"+fileNamePdf, folderName+"/"+fileNamePdf, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFolderName + "/" + fileName2, path2, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFolderName + "/" + fileNamePdf, pathPdf, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
 	request := slidescloud.NewPresentationsMergeRequest()
-	request.PresentationPaths = []string{folderName + "/" + fileName2, folderName + "/" + fileNamePdf}
-	_, _, e = c.SlidesApi.Merge(fileName, request, "password", folderName, "")
+	request.PresentationPaths = []string{path2, pathPdf}
+	_, _, e = c.SlidesApi.Merge(fileName, request, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -69,15 +75,20 @@ func TestMergeStorage(t *testing.T) {
 /*
    Test for ordered merge from storage
 */
-func TestMergeOrderedStorage(t *testing.T) {
+func TestOrderedMerge(t *testing.T) {
 	fileName2 := "test-unprotected.pptx"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	path2 := folderName + "/" + fileName2
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName2, folderName+"/"+fileName2, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFolderName + "/" + fileName2, path2, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -85,10 +96,10 @@ func TestMergeOrderedStorage(t *testing.T) {
 
 	request := slidescloud.NewOrderedMergeRequest()
 	presentation := slidescloud.NewPresentationToMerge()
-	presentation.Path = folderName + "/" + fileName2
+	presentation.Path = path2
 	presentation.Slides = []int32{2, 1}
 	request.Presentations = []slidescloud.IPresentationToMerge{presentation}
-	_, _, e = c.SlidesApi.OrderedMerge(fileName, request, "password", folderName, "")
+	_, _, e = c.SlidesApi.OrderedMerge(fileName, request, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -98,19 +109,24 @@ func TestMergeOrderedStorage(t *testing.T) {
 /*
    Test for merge from request
 */
-func TestMergeRequest(t *testing.T) {
-	source1, e := ioutil.ReadFile("../TestData/TemplateCV.pptx")
+func TestMergeOnline(t *testing.T) {
+	source1, e := ioutil.ReadFile(localFolder + "/TemplateCV.pptx")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	source2, e := ioutil.ReadFile("../TestData/test-unprotected.pptx")
+	source2, e := ioutil.ReadFile(localFolder + "/test-unprotected.pptx")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	_, _, e = slidescloud.GetTestSlidesApiClient().SlidesApi.MergeOnline([][]byte{source1, source2}, nil, "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, _, e = c.SlidesApi.MergeOnline([][]byte{source1, source2}, nil, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -120,19 +136,23 @@ func TestMergeRequest(t *testing.T) {
 /*
    Test for merge and save from request
 */
-func TestMergeAndSaveRequest(t *testing.T) {
-	source1, e := ioutil.ReadFile("../TestData/TemplateCV.pptx")
+func TestMergeAndSaveOnline(t *testing.T) {
+	source1, e := ioutil.ReadFile(localFolder + "/TemplateCV.pptx")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	source2, e := ioutil.ReadFile("../TestData/test-unprotected.pptx")
+	source2, e := ioutil.ReadFile(localFolder + "/test-unprotected.pptx")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	outPath := "TestData/out.pptx"
-	c := slidescloud.GetTestSlidesApiClient()
+	outPath := folderName + "/out.pptx"
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	_, e = c.SlidesApi.MergeAndSaveOnline(outPath, [][]byte{source1, source2}, nil, "")
 	if e != nil {
@@ -153,27 +173,32 @@ func TestMergeAndSaveRequest(t *testing.T) {
 /*
    Test for ordered merge from request
 */
-func TestMergeOrderedRequest(t *testing.T) {
-	source1, e := ioutil.ReadFile("../TestData/test.pptx")
+func TestMergeOnlineWithRequest(t *testing.T) {
+	source1, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	source2, e := ioutil.ReadFile("../TestData/test-unprotected.pptx")
+	source2, e := ioutil.ReadFile(localFolder + "/test-unprotected.pptx")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	request := slidescloud.NewOrderedMergeRequest()
 	presentation1 := slidescloud.NewPresentationToMerge()
 	presentation1.Path = "file1"
-	presentation1.Password = "password"
+	presentation1.Password = password
 	presentation2 := slidescloud.NewPresentationToMerge()
 	presentation2.Path = "file2"
 	presentation2.Slides = []int32{1, 2}
 	request.Presentations = []slidescloud.IPresentationToMerge{presentation1, presentation2}
-	_, _, e = slidescloud.GetTestSlidesApiClient().SlidesApi.MergeOnline([][]byte{source1, source2}, request, "")
+	_, _, e = c.SlidesApi.MergeOnline([][]byte{source1, source2}, request, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -183,10 +208,15 @@ func TestMergeOrderedRequest(t *testing.T) {
 /*
    Test for combined merge from request
 */
-func TestMergeCombinedRequest(t *testing.T) {
+func TestMergeOnlineCombined(t *testing.T) {
 	fileName2 := "test-unprotected.pptx"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName2, folderName+"/"+fileName2, "", "", "")
+	path2 := folderName + "/" + fileName2
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFolderName + "/" + fileName2, path2, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -200,13 +230,13 @@ func TestMergeCombinedRequest(t *testing.T) {
 	request := slidescloud.NewOrderedMergeRequest()
 	presentation1 := slidescloud.NewPresentationToMerge()
 	presentation1.Path = "file1"
-	presentation1.Password = "password"
+	presentation1.Password = password
 	presentation2 := slidescloud.NewPresentationToMerge()
 	presentation2.Source = "Storage"
-	presentation2.Path = folderName + "/" + fileName2
+	presentation2.Path = path2
 	presentation2.Slides = []int32{1, 2}
 	request.Presentations = []slidescloud.IPresentationToMerge{presentation1, presentation2}
-	_, _, e = slidescloud.GetTestSlidesApiClient().SlidesApi.MergeOnline([][]byte{source}, request, "")
+	_, _, e = c.SlidesApi.MergeOnline([][]byte{source}, request, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -216,10 +246,13 @@ func TestMergeCombinedRequest(t *testing.T) {
 /*
    Test for
 */
-func TestMergeOrderedUrl(t *testing.T) {
-
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestMergeOnlineUrl(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -228,7 +261,7 @@ func TestMergeOrderedUrl(t *testing.T) {
 	request := slidescloud.NewOrderedMergeRequest()
 	presentation1 := slidescloud.NewPresentationToMerge()
 	presentation1.Source = "Storage"
-	presentation1.Path = folderName + "/" + fileName
+	presentation1.Path = filePath
 	presentation1.Slides = []int32{1, 2}
 	presentation1.Password = password
 	presentation2 := slidescloud.NewPresentationToMerge()

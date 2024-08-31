@@ -61,8 +61,8 @@ type IOperation interface {
 	GetFinished() time.Time
 	SetFinished(newValue time.Time)
 
-	GetError() string
-	SetError(newValue string)
+	GetError() IOperationError
+	SetError(newValue IOperationError)
 }
 
 type Operation struct {
@@ -85,7 +85,7 @@ type Operation struct {
 
 	Finished time.Time `json:"Finished,omitempty"`
 
-	Error_ string `json:"Error,omitempty"`
+	Error_ IOperationError `json:"Error,omitempty"`
 }
 
 func NewOperation() *Operation {
@@ -158,11 +158,11 @@ func (this *Operation) GetFinished() time.Time {
 func (this *Operation) SetFinished(newValue time.Time) {
 	this.Finished = newValue
 }
-func (this *Operation) GetError() string {
+func (this *Operation) GetError() IOperationError {
 	return this.Error_
 }
 
-func (this *Operation) SetError(newValue string) {
+func (this *Operation) SetError(newValue IOperationError) {
 	this.Error_ = newValue
 }
 
@@ -292,12 +292,23 @@ func (this *Operation) UnmarshalJSON(b []byte) error {
 	
 	if valError, ok := GetMapValue(objMap, "error"); ok {
 		if valError != nil {
-			var valueForError string
+			var valueForError OperationError
 			err = json.Unmarshal(*valError, &valueForError)
 			if err != nil {
 				return err
 			}
-			this.Error_ = valueForError
+			vObject, err := createObjectForType("OperationError", *valError)
+			if err != nil {
+				return err
+			}
+			err = json.Unmarshal(*valError, &vObject)
+			if err != nil {
+				return err
+			}
+			vInterfaceObject, ok := vObject.(IOperationError)
+			if ok {
+				this.Error_ = vInterfaceObject
+			}
 		}
 	}
 

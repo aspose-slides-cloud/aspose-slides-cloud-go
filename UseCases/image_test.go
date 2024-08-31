@@ -32,16 +32,18 @@ import (
 	"io/ioutil"
 	"os"
 	"testing"
-
-	slidescloud "github.com/aspose-slides-cloud/aspose-slides-cloud-go/v24"
 )
 
 /*
    Test for Get image
 */
-func TestImageGet(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestImagesGet(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -67,9 +69,13 @@ func TestImageGet(t *testing.T) {
 /*
    Test for download all images from storage
 */
-func TestImageDownloadAllStorage(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestImagesDownloadStorage(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -129,13 +135,17 @@ func TestImageDownloadAllStorage(t *testing.T) {
 /*
    Test for download all images from request
 */
-func TestImageDownloadAllRequest(t *testing.T) {
-	source, e := ioutil.ReadFile("../TestData/test.pptx")
+func TestImagesDownloadRequest(t *testing.T) {
+	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestSlidesApiClient()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	downloadResult, _, e := c.SlidesApi.DownloadImagesDefaultFormatOnline(source, password)
 	if e != nil {
@@ -192,9 +202,12 @@ func TestImageDownloadAllRequest(t *testing.T) {
    Test for download image from storage
 */
 func TestImageDownloadStorage(t *testing.T) {
-	var slideIndex int32 = 1
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -231,13 +244,16 @@ func TestImageDownloadStorage(t *testing.T) {
    Test for download image from request
 */
 func TestImageDownloadRequest(t *testing.T) {
-	var slideIndex int32 = 1
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	c := slidescloud.GetTestSlidesApiClient()
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 
 	downloadResult, _, e := c.SlidesApi.DownloadImageDefaultFormatOnline(source, slideIndex, password)
 	if e != nil {
@@ -267,11 +283,70 @@ func TestImageDownloadRequest(t *testing.T) {
 }
 
 /*
+   Test for replace image
+*/
+func TestReplaceImage(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	image, e := ioutil.ReadFile(localFolder + "/watermark.png")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, e = c.SlidesApi.ReplaceImage(fileName, 1, image, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+
+/*
+   Test for replace image from request
+*/
+func TestReplaceImageRequest(t *testing.T) {
+	source, e := ioutil.ReadFile(localTestFile)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	image, e := ioutil.ReadFile(localFolder + "/watermark.png")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	_, _, e = c.SlidesApi.ReplaceImageOnline(source, 1, image, password)
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+
+/*
    Test for delete picture cropped areas
 */
 func TestDeletePictureCroppedAreas(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -288,8 +363,12 @@ func TestDeletePictureCroppedAreas(t *testing.T) {
    Test for delete picture cropped areas for wrong shape type
 */
 func TestDeletePictureCroppedAreasWrongShapeType(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return

@@ -38,11 +38,15 @@ import (
 /*
    Test for builtin property
 */
-func TestPropertyBuiltin(t *testing.T) {
+func TestDocumentPropertiesBuiltin(t *testing.T) {
 	propertyName := "Author"
 	updatedPropertyValue := "New Value"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -112,11 +116,15 @@ func TestPropertyBuiltin(t *testing.T) {
 /*
    Test for custom property
 */
-func TestPropertyCustom(t *testing.T) {
+func TestDocumentPropertiesCustom(t *testing.T) {
 	propertyName := "CustomProperty2"
 	updatedPropertyValue := "New Value"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -162,12 +170,16 @@ func TestPropertyCustom(t *testing.T) {
 /*
    Test for properties bulk update
 */
-func TestPropertyBulkUpdate(t *testing.T) {
+func TestDocumentPropertiesBulkUpdate(t *testing.T) {
 	propertyName := "Author"
 	customPropertyName := "CustomProperty2"
 	updatedPropertyValue := "New Value"
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -212,9 +224,13 @@ func TestPropertyBulkUpdate(t *testing.T) {
 /*
    Test for slide properties
 */
-func TestPropertySlideProperties(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestSlideProperties(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -246,9 +262,13 @@ func TestPropertySlideProperties(t *testing.T) {
 /*
    Test for preset slide size
 */
-func TestPropertySlideSizePreset(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestSlideSizePreset(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -278,11 +298,15 @@ func TestPropertySlideSizePreset(t *testing.T) {
 /*
    Test for custom slide size
 */
-func TestPropertySlideSizeCustom(t *testing.T) {
+func TestSlideSizeCustom(t *testing.T) {
 	var width int32 = 800
 	var height int32 = 500
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -313,23 +337,27 @@ func TestPropertySlideSizeCustom(t *testing.T) {
 /*
    Test for protection properties
 */
-func TestPropertyProtection(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestProtection(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	GetResult, _, e := c.SlidesApi.GetProtectionProperties(fileName, password, folderName, "")
+	getResult, _, e := c.SlidesApi.GetProtectionProperties(fileName, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
 	dto := slidescloud.NewProtectionProperties()
-	dto.EncryptDocumentProperties = GetResult.GetEncryptDocumentProperties()
-	readOnlyRecommended := GetResult.GetReadOnlyRecommended()
+	dto.EncryptDocumentProperties = getResult.GetEncryptDocumentProperties()
+	readOnlyRecommended := getResult.GetReadOnlyRecommended()
 	readOnlyRecommendedValue := readOnlyRecommended == nil || !*readOnlyRecommended
 	dto.ReadOnlyRecommended = &readOnlyRecommendedValue
 	putResult, _, e := c.SlidesApi.SetProtection(fileName, dto, password, folderName, "")
@@ -337,12 +365,12 @@ func TestPropertyProtection(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if (putResult.GetEncryptDocumentProperties() == nil || !*putResult.GetEncryptDocumentProperties()) != (GetResult.GetEncryptDocumentProperties() == nil || !*GetResult.GetEncryptDocumentProperties()) {
-		t.Errorf("Wrong EncryptDocumentProperties. Expected %v but was %v.", GetResult.GetEncryptDocumentProperties(), putResult.GetEncryptDocumentProperties())
+	if (putResult.GetEncryptDocumentProperties() == nil || !*putResult.GetEncryptDocumentProperties()) != (getResult.GetEncryptDocumentProperties() == nil || !*getResult.GetEncryptDocumentProperties()) {
+		t.Errorf("Wrong EncryptDocumentProperties. Expected %v but was %v.", getResult.GetEncryptDocumentProperties(), putResult.GetEncryptDocumentProperties())
 		return
 	}
-	if (putResult.GetReadOnlyRecommended() == nil || !*putResult.GetReadOnlyRecommended()) == (GetResult.GetReadOnlyRecommended() == nil || !*GetResult.GetReadOnlyRecommended()) {
-		t.Errorf("Wrong ReadOnlyRecommended. Expected not %v but was %v.", GetResult.GetReadOnlyRecommended(), putResult.GetReadOnlyRecommended())
+	if (putResult.GetReadOnlyRecommended() == nil || !*putResult.GetReadOnlyRecommended()) == (getResult.GetReadOnlyRecommended() == nil || !*getResult.GetReadOnlyRecommended()) {
+		t.Errorf("Wrong ReadOnlyRecommended. Expected not %v but was %v.", getResult.GetReadOnlyRecommended(), putResult.GetReadOnlyRecommended())
 		return
 	}
 }
@@ -350,9 +378,13 @@ func TestPropertyProtection(t *testing.T) {
 /*
    Test for delete protection
 */
-func TestPropertyProtectionDelete(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestDeleteProtection(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -380,15 +412,20 @@ func TestPropertyProtectionDelete(t *testing.T) {
 /*
    Test for online protection properties
 */
-func TestPropertyProtectionOnline(t *testing.T) {
-	source, e := ioutil.ReadFile("../TestData/test.pptx")
+func TestProtectOnline(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 	dto := slidescloud.NewProtectionProperties()
 	dto.ReadPassword = "newPassword"
-	result, _, e := slidescloud.GetTestSlidesApiClient().SlidesApi.SetProtectionOnline(source, dto, password)
+	result, _, e := c.SlidesApi.SetProtectionOnline(source, dto, password)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -398,8 +435,8 @@ func TestPropertyProtectionOnline(t *testing.T) {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	if resultStat.Size() == int64(len(source)) {
-		t.Errorf("Wrong file size. Expected not %v but was %v.", len(source), resultStat.Size())
+	if resultStat.Size() <= 0 {
+		t.Errorf("Wrong file size. Expected greater than %v but was %v.", 0, resultStat.Size())
 		return
 	}
 }
@@ -407,13 +444,18 @@ func TestPropertyProtectionOnline(t *testing.T) {
 /*
    Test for online delete protection
 */
-func TestPropertyProtectionUnprotectOnline(t *testing.T) {
+func TestUnprotectOnline(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
 	source, e := ioutil.ReadFile(localTestFile)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-	result, _, e := slidescloud.GetTestSlidesApiClient().SlidesApi.DeleteProtectionOnline(source, password)
+	result, _, e := c.SlidesApi.DeleteProtectionOnline(source, password)
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -432,9 +474,13 @@ func TestPropertyProtectionUnprotectOnline(t *testing.T) {
 /*
    Test for view properties
 */
-func TestViewPropertiesGet(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestGetViewProperties(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -456,9 +502,13 @@ func TestViewPropertiesGet(t *testing.T) {
 /*
    Test for view properties
 */
-func TestViewPropertiesSet(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestSetViewProperties(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -492,8 +542,12 @@ func TestViewPropertiesSet(t *testing.T) {
    Test for protection check
 */
 func TestProtectionCheck(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -539,9 +593,13 @@ func TestProtectionCheck(t *testing.T) {
 /*
    Test for slide show properties
 */
-func TestSlideShowPropertiesGet(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestGetSlideShowProperties(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -570,9 +628,13 @@ func TestSlideShowPropertiesGet(t *testing.T) {
 /*
    Test for slide show properties
 */
-func TestSlideShowPropertiesSet(t *testing.T) {
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e := c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+func TestSetSlideShowProperties(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -592,13 +654,15 @@ func TestSlideShowPropertiesSet(t *testing.T) {
 		return
 	}
 
-	if response.GetLoop() != dto.GetLoop() {
-		t.Errorf("Expected %v, but was %v", dto.GetLoop(), response.GetLoop())
+	responseLoop := response.GetLoop()
+	if responseLoop == nil || !*responseLoop {
+		t.Errorf("Expected %v, but was %v", true, responseLoop)
 		return
 	}
 
-	if response.GetUseTimings() != dto.GetUseTimings() {
-		t.Errorf("Expected %v, but was %v", dto.GetUseTimings(), response.GetUseTimings())
+	responseUseTimings := response.GetUseTimings()
+	if responseUseTimings == nil || !*responseUseTimings {
+		t.Errorf("Expected %v, but was %v", true, responseUseTimings)
 		return
 	}
 

@@ -36,20 +36,19 @@ import (
 /*
  * Test for nullable properties
  */
-func TestNullableProperties(t *testing.T) {
+func TestDefaultChartValues(t *testing.T) {
+	var shapeIndex int32 = 5
 	var min1 = 44.3
 	var min2 = 12.0
 	var max1 = 104.3
 	var max2 = 87.0
 
-	e := slidescloud.InitializeTest("NoFunction", "No method", "")
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
-
-	c := slidescloud.GetTestSlidesApiClient()
-	_, e = c.SlidesApi.CopyFile("TempTests/"+fileName, folderName+"/"+fileName, "", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -92,13 +91,13 @@ func TestNullableProperties(t *testing.T) {
 	dto1.SetAxes(&axes)
 	dto1.SetX(12)
 	dto1.SetY(14)
-	_, _, e = c.SlidesApi.CreateShape(fileName, 1, &dto1, nil, nil, password, folderName, "", "")
+	_, _, e = c.SlidesApi.CreateShape(fileName, slideIndex, &dto1, nil, nil, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	r, _, e := c.SlidesApi.GetShape(fileName, 1, 5, password, folderName, "", "")
+	r, _, e := c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -119,13 +118,13 @@ func TestNullableProperties(t *testing.T) {
 	axis2.SetMinValue(min2)
 	axes.SetHorizontalAxis(&axis2)
 	dto2.SetAxes(&axes)
-	_, _, e = c.SlidesApi.UpdateShape(fileName, 1, 5, &dto2, password, folderName, "", "")
+	_, _, e = c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, &dto2, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	r, _, e = c.SlidesApi.GetShape(fileName, 1, 5, password, folderName, "", "")
+	r, _, e = c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -142,13 +141,13 @@ func TestNullableProperties(t *testing.T) {
 	var axis3 slidescloud.Axis
 	axis3.SetMaxValue(max2)
 	axes.SetHorizontalAxis(&axis3)
-	_, _, e = c.SlidesApi.UpdateShape(fileName, 1, 5, &dto2, password, folderName, "", "")
+	_, _, e = c.SlidesApi.UpdateShape(fileName, slideIndex, shapeIndex, &dto2, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	r, _, e = c.SlidesApi.GetShape(fileName, 1, 5, password, folderName, "", "")
+	r, _, e = c.SlidesApi.GetShape(fileName, slideIndex, shapeIndex, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: Wrong MinValue.")
 		return

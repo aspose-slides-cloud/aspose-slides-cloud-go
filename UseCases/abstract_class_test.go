@@ -36,14 +36,20 @@ import (
 /*
  * Test for Shape
  */
-func TestShape(t *testing.T) {
-	e := slidescloud.InitializeTest("GetSlideShape", "", "")
+func TestShapeType(t *testing.T) {
+	c, e := GetApiClient()
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
 	}
 
-	r, _, e := slidescloud.GetTestSlidesApiClient().SlidesApi.GetShape("test.pptx", 1, 1, "password", "TempSlidesSDK", "", "")
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	r, _, e := c.SlidesApi.GetShape(fileName, slideIndex, 1, password, folderName, "", "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -57,7 +63,7 @@ func TestShape(t *testing.T) {
 /*
    Test for Chart creation
 */
-func TestChart(t *testing.T) {
+func TestChartType(t *testing.T) {
 	chart := slidescloud.NewChart()
 	if chart.GetType() != "Chart" {
 		t.Errorf("Unexpected chart type: %v.", chart.GetType())
