@@ -166,7 +166,7 @@ type Connector struct {
 	Y float64 `json:"Y,omitempty"`
 
 	// Gets z-order position of shape
-	ZOrderPosition int32 `json:"ZOrderPosition"`
+	ZOrderPosition int32 `json:"ZOrderPosition,omitempty"`
 
 	// Gets or sets the fill format.
 	FillFormat IFillFormat `json:"FillFormat,omitempty"`

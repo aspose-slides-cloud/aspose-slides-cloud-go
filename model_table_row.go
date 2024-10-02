@@ -52,10 +52,10 @@ type TableRow struct {
 	Cells []ITableCell `json:"Cells,omitempty"`
 
 	// Minimal height of the row.
-	MinimalHeight float64 `json:"MinimalHeight"`
+	MinimalHeight float64 `json:"MinimalHeight,omitempty"`
 
 	// Height of the row.
-	Height float64 `json:"Height"`
+	Height float64 `json:"Height,omitempty"`
 }
 
 func NewTableRow() *TableRow {

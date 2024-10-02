@@ -47,6 +47,86 @@ type SlidesAsyncApiService service
 
 
 /* SlidesAsyncApiService 
+ @param path 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "storageName" (string) 
+     @param "versionId" (string) 
+ @return *os.File*/
+func (a *SlidesAsyncApiService) Download(path string, storageName string, versionId string) (*os.File, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload *os.File
+	)
+
+	if len(path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter path")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/async/storage/file/{path}"
+	pathPathStringValue := fmt.Sprintf("%v", path)
+	if len(pathPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"path"+"}", pathPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"path"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if err := typeCheckParameter(storageName, "string", "storageName"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(versionId, "string", "versionId"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := storageName; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("StorageName", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam := versionId; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("VersionId", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"multipart/form-data",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	defer successPayload.Close()
+        successPayload, err = processFileResponse(responseBody)
+        if err != nil {
+		return successPayload, localVarHttpResponse, err
+        }
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* SlidesAsyncApiService 
  @param id 
  @return *os.File*/
 func (a *SlidesAsyncApiService) GetOperationResult(id string) (*os.File, *http.Response, error) {
@@ -1045,6 +1125,93 @@ func (a *SlidesAsyncApiService) StartUploadAndSplit(document []byte, format stri
 	successPayload = string(responseBytes)
 	if len(successPayload) > 1 && successPayload[0] == '"' && successPayload[len(successPayload)-1] == '"' {
 		successPayload = successPayload[1:len(successPayload)-1]
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
+/* SlidesAsyncApiService 
+ @param path 
+ @param file File to upload
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "storageName" (string) 
+ @return FilesUploadResult*/
+func (a *SlidesAsyncApiService) Upload(path string, file []byte, storageName string) (IFilesUploadResult, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody interface{}
+		localVarFiles [][]byte
+	 	successPayload IFilesUploadResult
+	)
+
+	if len(path) == 0 {
+		return successPayload, nil, reportError("Missing required parameter path")
+	}
+	if len(file) == 0 {
+		return successPayload, nil, reportError("Missing required parameter file")
+	}
+	// create path and map variables
+	localVarPath := a.client.cfg.GetApiUrl() + "/slides/async/storage/file/{path}"
+	pathPathStringValue := fmt.Sprintf("%v", path)
+	if len(pathPathStringValue) > 0 {
+		localVarPath = strings.Replace(localVarPath, "{"+"path"+"}", pathPathStringValue, -1)
+	} else {
+		localVarPath = strings.Replace(localVarPath, "/{"+"path"+"}", "", -1)
+	}
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+
+	if err := typeCheckParameter(storageName, "string", "storageName"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam := storageName; len(localVarTempParam) > 0 {
+		localVarQueryParams.Add("StorageName", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{ "application/json" }
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+		}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if len(file) > 0 {
+		localVarFiles = append(localVarFiles, file)
+	}
+	localVarHttpResponse, responseBytes, err := a.client.makeRequest(nil, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFiles)
+	responseBody := bytes.NewReader(responseBytes)
+	if localVarHttpResponse != nil && localVarHttpResponse.StatusCode >= 300 {
+		var errorMessage ErrorMessage
+		if err = json.NewDecoder(responseBody).Decode(&errorMessage); err != nil {
+			return successPayload, localVarHttpResponse, reportError(localVarHttpResponse.Status)
+		}
+		return successPayload, localVarHttpResponse, reportError(string(responseBytes))
+	}
+
+	successPayloadObject, err := createObjectForType("FilesUploadResult", responseBytes)
+	if err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	if err = json.NewDecoder(responseBody).Decode(successPayloadObject); err != nil {
+		if sp, ok := successPayloadObject.(IFilesUploadResult); ok {
+			return sp, localVarHttpResponse, err
+		}
+		return successPayload, localVarHttpResponse, err
+	}
+	if successPayload, _ = successPayloadObject.(IFilesUploadResult); true {
 	}
 
 	return successPayload, localVarHttpResponse, err
