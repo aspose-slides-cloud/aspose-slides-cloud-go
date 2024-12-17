@@ -37,6 +37,10 @@ type IImageExportOptions interface {
 	GetDefaultRegularFont() string
 	SetDefaultRegularFont(newValue string)
 
+	// True to delete delete all embedded binary objects.
+	GetDeleteEmbeddedBinaryObjects() *bool
+	SetDeleteEmbeddedBinaryObjects(newValue *bool)
+
 	// Default regular font for rendering the presentation. 
 	GetGradientStyle() string
 	SetGradientStyle(newValue string)
@@ -75,6 +79,9 @@ type ImageExportOptions struct {
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
 
+	// True to delete delete all embedded binary objects.
+	DeleteEmbeddedBinaryObjects *bool `json:"DeleteEmbeddedBinaryObjects"`
+
 	// Default regular font for rendering the presentation. 
 	GradientStyle string `json:"GradientStyle,omitempty"`
 
@@ -111,6 +118,13 @@ func (this *ImageExportOptions) GetDefaultRegularFont() string {
 
 func (this *ImageExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *ImageExportOptions) GetDeleteEmbeddedBinaryObjects() *bool {
+	return this.DeleteEmbeddedBinaryObjects
+}
+
+func (this *ImageExportOptions) SetDeleteEmbeddedBinaryObjects(newValue *bool) {
+	this.DeleteEmbeddedBinaryObjects = newValue
 }
 func (this *ImageExportOptions) GetGradientStyle() string {
 	return this.GradientStyle
@@ -184,6 +198,17 @@ func (this *ImageExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.DefaultRegularFont = valueForDefaultRegularFont
+		}
+	}
+	
+	if valDeleteEmbeddedBinaryObjects, ok := GetMapValue(objMap, "deleteEmbeddedBinaryObjects"); ok {
+		if valDeleteEmbeddedBinaryObjects != nil {
+			var valueForDeleteEmbeddedBinaryObjects *bool
+			err = json.Unmarshal(*valDeleteEmbeddedBinaryObjects, &valueForDeleteEmbeddedBinaryObjects)
+			if err != nil {
+				return err
+			}
+			this.DeleteEmbeddedBinaryObjects = valueForDeleteEmbeddedBinaryObjects
 		}
 	}
 	

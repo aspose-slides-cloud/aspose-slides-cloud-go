@@ -37,6 +37,10 @@ type IPdfExportOptions interface {
 	GetDefaultRegularFont() string
 	SetDefaultRegularFont(newValue string)
 
+	// True to delete delete all embedded binary objects.
+	GetDeleteEmbeddedBinaryObjects() *bool
+	SetDeleteEmbeddedBinaryObjects(newValue *bool)
+
 	// Default regular font for rendering the presentation. 
 	GetGradientStyle() string
 	SetGradientStyle(newValue string)
@@ -124,12 +128,19 @@ type IPdfExportOptions interface {
 	// True if text should be rasterized as a bitmap and saved to PDF when the font does not support bold styling. This approach can enhance the quality of text in the resulting PDF for certain fonts.
 	GetRasterizeUnsupportedFontStyles() *bool
 	SetRasterizeUnsupportedFontStyles(newValue *bool)
+
+	// True to convert all OLE data from the presentation to embedded files in the resulting PDF.
+	GetIncludeOleData() *bool
+	SetIncludeOleData(newValue *bool)
 }
 
 type PdfExportOptions struct {
 
 	// Default regular font for rendering the presentation. 
 	DefaultRegularFont string `json:"DefaultRegularFont,omitempty"`
+
+	// True to delete delete all embedded binary objects.
+	DeleteEmbeddedBinaryObjects *bool `json:"DeleteEmbeddedBinaryObjects"`
 
 	// Default regular font for rendering the presentation. 
 	GradientStyle string `json:"GradientStyle,omitempty"`
@@ -196,6 +207,9 @@ type PdfExportOptions struct {
 
 	// True if text should be rasterized as a bitmap and saved to PDF when the font does not support bold styling. This approach can enhance the quality of text in the resulting PDF for certain fonts.
 	RasterizeUnsupportedFontStyles *bool `json:"RasterizeUnsupportedFontStyles"`
+
+	// True to convert all OLE data from the presentation to embedded files in the resulting PDF.
+	IncludeOleData *bool `json:"IncludeOleData"`
 }
 
 func NewPdfExportOptions() *PdfExportOptions {
@@ -209,6 +223,13 @@ func (this *PdfExportOptions) GetDefaultRegularFont() string {
 
 func (this *PdfExportOptions) SetDefaultRegularFont(newValue string) {
 	this.DefaultRegularFont = newValue
+}
+func (this *PdfExportOptions) GetDeleteEmbeddedBinaryObjects() *bool {
+	return this.DeleteEmbeddedBinaryObjects
+}
+
+func (this *PdfExportOptions) SetDeleteEmbeddedBinaryObjects(newValue *bool) {
+	this.DeleteEmbeddedBinaryObjects = newValue
 }
 func (this *PdfExportOptions) GetGradientStyle() string {
 	return this.GradientStyle
@@ -364,6 +385,13 @@ func (this *PdfExportOptions) GetRasterizeUnsupportedFontStyles() *bool {
 func (this *PdfExportOptions) SetRasterizeUnsupportedFontStyles(newValue *bool) {
 	this.RasterizeUnsupportedFontStyles = newValue
 }
+func (this *PdfExportOptions) GetIncludeOleData() *bool {
+	return this.IncludeOleData
+}
+
+func (this *PdfExportOptions) SetIncludeOleData(newValue *bool) {
+	this.IncludeOleData = newValue
+}
 
 func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 	var objMap map[string]*json.RawMessage
@@ -380,6 +408,17 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.DefaultRegularFont = valueForDefaultRegularFont
+		}
+	}
+	
+	if valDeleteEmbeddedBinaryObjects, ok := GetMapValue(objMap, "deleteEmbeddedBinaryObjects"); ok {
+		if valDeleteEmbeddedBinaryObjects != nil {
+			var valueForDeleteEmbeddedBinaryObjects *bool
+			err = json.Unmarshal(*valDeleteEmbeddedBinaryObjects, &valueForDeleteEmbeddedBinaryObjects)
+			if err != nil {
+				return err
+			}
+			this.DeleteEmbeddedBinaryObjects = valueForDeleteEmbeddedBinaryObjects
 		}
 	}
 	
@@ -690,6 +729,17 @@ func (this *PdfExportOptions) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.RasterizeUnsupportedFontStyles = valueForRasterizeUnsupportedFontStyles
+		}
+	}
+	
+	if valIncludeOleData, ok := GetMapValue(objMap, "includeOleData"); ok {
+		if valIncludeOleData != nil {
+			var valueForIncludeOleData *bool
+			err = json.Unmarshal(*valIncludeOleData, &valueForIncludeOleData)
+			if err != nil {
+				return err
+			}
+			this.IncludeOleData = valueForIncludeOleData
 		}
 	}
 

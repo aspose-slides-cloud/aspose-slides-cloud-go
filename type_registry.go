@@ -232,6 +232,9 @@ func init() {
 	typeRegistry["DocumentReplaceResult"] = reflect.TypeOf(DocumentReplaceResult{})
 	derivedTypes["DocumentReplaceResult"] = "Document"
 	typeDeterminers["DocumentReplaceResult"] = make(map[string]string)
+	typeRegistry["DrawingGuide"] = reflect.TypeOf(DrawingGuide{})
+	
+	typeDeterminers["DrawingGuide"] = make(map[string]string)
 	typeRegistry["DuotoneEffect"] = reflect.TypeOf(DuotoneEffect{})
 	derivedTypes["DuotoneEffect"] = "ImageTransformEffect"
 	typeDeterminers["DuotoneEffect"] = make(map[string]string)

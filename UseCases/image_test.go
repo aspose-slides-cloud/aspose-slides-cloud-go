@@ -338,6 +338,29 @@ func TestReplaceImageRequest(t *testing.T) {
 }
 
 /*
+   Test for compress image
+*/
+func TestCompressImage(t *testing.T) {
+	c, e := GetApiClient()
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+	_, e = c.SlidesApi.CopyFile(tempFilePath, filePath, "", "", "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+
+	var resolution float64 = 150
+	 _, e = c.SlidesApi.CompressImage(fileName, 2, 2, &resolution, nil, password, folderName, "")
+	if e != nil {
+		t.Errorf("Error: %v.", e)
+		return
+	}
+}
+
+/*
    Test for delete picture cropped areas
 */
 func TestDeletePictureCroppedAreas(t *testing.T) {
@@ -352,7 +375,8 @@ func TestDeletePictureCroppedAreas(t *testing.T) {
 		return
 	}
 
-	 _, e = c.SlidesApi.DeletePictureCroppedAreas(fileName, 2, 2, password, folderName, "")
+	var deletePictureCroppedAreas bool = true
+	 _, e = c.SlidesApi.CompressImage(fileName, 2, 2, nil, &deletePictureCroppedAreas, password, folderName, "")
 	if e != nil {
 		t.Errorf("Error: %v.", e)
 		return
@@ -374,7 +398,8 @@ func TestDeletePictureCroppedAreasWrongShapeType(t *testing.T) {
 		return
 	}
 
-	response, e := c.SlidesApi.DeletePictureCroppedAreas(fileName, 2, 3, password, folderName, "")
+	var deletePictureCroppedAreas bool = true
+	response, e := c.SlidesApi.CompressImage(fileName, 2, 3, nil, &deletePictureCroppedAreas, password, folderName, "")
 	if e == nil {
 		t.Errorf("Should throw an exception if shape is not PictureFrame")
 		return

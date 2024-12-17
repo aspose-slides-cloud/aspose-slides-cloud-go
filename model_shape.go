@@ -118,8 +118,8 @@ type IShape interface {
 	SetText(newValue string)
 
 	// Get or sets list to paragraphs list
-	GetParagraphs() IResourceUri
-	SetParagraphs(newValue IResourceUri)
+	GetParagraphs() []IParagraph
+	SetParagraphs(newValue []IParagraph)
 
 	// Returns TextFrame's formatting properties.
 	GetTextFrameFormat() ITextFrameFormat
@@ -192,7 +192,7 @@ type Shape struct {
 	Text string `json:"Text,omitempty"`
 
 	// Get or sets list to paragraphs list
-	Paragraphs IResourceUri `json:"Paragraphs,omitempty"`
+	Paragraphs []IParagraph `json:"Paragraphs,omitempty"`
 
 	// Returns TextFrame's formatting properties.
 	TextFrameFormat ITextFrameFormat `json:"TextFrameFormat,omitempty"`
@@ -352,11 +352,11 @@ func (this *Shape) GetText() string {
 func (this *Shape) SetText(newValue string) {
 	this.Text = newValue
 }
-func (this *Shape) GetParagraphs() IResourceUri {
+func (this *Shape) GetParagraphs() []IParagraph {
 	return this.Paragraphs
 }
 
-func (this *Shape) SetParagraphs(newValue IResourceUri) {
+func (this *Shape) SetParagraphs(newValue []IParagraph) {
 	this.Paragraphs = newValue
 }
 func (this *Shape) GetTextFrameFormat() ITextFrameFormat {
@@ -710,23 +710,26 @@ func (this *Shape) UnmarshalJSON(b []byte) error {
 	
 	if valParagraphs, ok := GetMapValue(objMap, "paragraphs"); ok {
 		if valParagraphs != nil {
-			var valueForParagraphs ResourceUri
+			var valueForParagraphs []json.RawMessage
 			err = json.Unmarshal(*valParagraphs, &valueForParagraphs)
 			if err != nil {
 				return err
 			}
-			vObject, err := createObjectForType("ResourceUri", *valParagraphs)
-			if err != nil {
-				return err
+			valueForIParagraphs := make([]IParagraph, len(valueForParagraphs))
+			for i, v := range valueForParagraphs {
+				vObject, err := createObjectForType("Paragraph", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIParagraphs[i] = vObject.(IParagraph)
+				}
 			}
-			err = json.Unmarshal(*valParagraphs, &vObject)
-			if err != nil {
-				return err
-			}
-			vInterfaceObject, ok := vObject.(IResourceUri)
-			if ok {
-				this.Paragraphs = vInterfaceObject
-			}
+			this.Paragraphs = valueForIParagraphs
 		}
 	}
 	

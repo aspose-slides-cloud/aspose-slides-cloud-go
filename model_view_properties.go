@@ -76,6 +76,10 @@ type IViewProperties interface {
 	// True if the comments should be shown.
 	GetShowComments() string
 	SetShowComments(newValue string)
+
+	// The grid spacing that should be used for the grid underlying the presentation document, in points.
+	GetGridSpacing() float64
+	SetGridSpacing(newValue float64)
 }
 
 type ViewProperties struct {
@@ -112,6 +116,9 @@ type ViewProperties struct {
 
 	// True if the comments should be shown.
 	ShowComments string `json:"ShowComments,omitempty"`
+
+	// The grid spacing that should be used for the grid underlying the presentation document, in points.
+	GridSpacing float64 `json:"GridSpacing,omitempty"`
 }
 
 func NewViewProperties() *ViewProperties {
@@ -195,6 +202,13 @@ func (this *ViewProperties) GetShowComments() string {
 
 func (this *ViewProperties) SetShowComments(newValue string) {
 	this.ShowComments = newValue
+}
+func (this *ViewProperties) GetGridSpacing() float64 {
+	return this.GridSpacing
+}
+
+func (this *ViewProperties) SetGridSpacing(newValue float64) {
+	this.GridSpacing = newValue
 }
 
 func (this *ViewProperties) UnmarshalJSON(b []byte) error {
@@ -415,6 +429,17 @@ func (this *ViewProperties) UnmarshalJSON(b []byte) error {
 			} else {
 				this.ShowComments = valueForShowComments
 			}
+		}
+	}
+	
+	if valGridSpacing, ok := GetMapValue(objMap, "gridSpacing"); ok {
+		if valGridSpacing != nil {
+			var valueForGridSpacing float64
+			err = json.Unmarshal(*valGridSpacing, &valueForGridSpacing)
+			if err != nil {
+				return err
+			}
+			this.GridSpacing = valueForGridSpacing
 		}
 	}
 

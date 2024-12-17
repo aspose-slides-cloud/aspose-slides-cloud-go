@@ -40,6 +40,10 @@ type ICommonSlideViewProperties interface {
 	// True if the view content should automatically scale to best fit the current window size.
 	GetVariableScale() *bool
 	SetVariableScale(newValue *bool)
+
+	// Drawing guides
+	GetDrawingGuides() []IDrawingGuide
+	SetDrawingGuides(newValue []IDrawingGuide)
 }
 
 type CommonSlideViewProperties struct {
@@ -49,6 +53,9 @@ type CommonSlideViewProperties struct {
 
 	// True if the view content should automatically scale to best fit the current window size.
 	VariableScale *bool `json:"VariableScale"`
+
+	// Drawing guides
+	DrawingGuides []IDrawingGuide `json:"DrawingGuides,omitempty"`
 }
 
 func NewCommonSlideViewProperties() *CommonSlideViewProperties {
@@ -69,6 +76,13 @@ func (this *CommonSlideViewProperties) GetVariableScale() *bool {
 
 func (this *CommonSlideViewProperties) SetVariableScale(newValue *bool) {
 	this.VariableScale = newValue
+}
+func (this *CommonSlideViewProperties) GetDrawingGuides() []IDrawingGuide {
+	return this.DrawingGuides
+}
+
+func (this *CommonSlideViewProperties) SetDrawingGuides(newValue []IDrawingGuide) {
+	this.DrawingGuides = newValue
 }
 
 func (this *CommonSlideViewProperties) UnmarshalJSON(b []byte) error {
@@ -97,6 +111,31 @@ func (this *CommonSlideViewProperties) UnmarshalJSON(b []byte) error {
 				return err
 			}
 			this.VariableScale = valueForVariableScale
+		}
+	}
+	
+	if valDrawingGuides, ok := GetMapValue(objMap, "drawingGuides"); ok {
+		if valDrawingGuides != nil {
+			var valueForDrawingGuides []json.RawMessage
+			err = json.Unmarshal(*valDrawingGuides, &valueForDrawingGuides)
+			if err != nil {
+				return err
+			}
+			valueForIDrawingGuides := make([]IDrawingGuide, len(valueForDrawingGuides))
+			for i, v := range valueForDrawingGuides {
+				vObject, err := createObjectForType("DrawingGuide", v)
+				if err != nil {
+					return err
+				}
+				err = json.Unmarshal(v, &vObject)
+				if err != nil {
+					return err
+				}
+				if vObject != nil {
+					valueForIDrawingGuides[i] = vObject.(IDrawingGuide)
+				}
+			}
+			this.DrawingGuides = valueForIDrawingGuides
 		}
 	}
 
